@@ -1,0 +1,21 @@
+/* cosmicpanda */
+html[layout^="cosmicpanda"] ytd-masthead {
+  font-family: arial !important;
+}
+/* BTSection Topbar */
+/* topbar color */
+html[layout^="cosmicpanda"] ytd-masthead {
+  background: transparent;
+}
+/* makes topbar have no bg */
+html[layout^="cosmicpanda"] ytd-masthead[darker-dark-theme] #background.ytd-masthead {
+  background: transparent !important;
+  display: none !important;
+}
+/* topbar color */
+html[layout^="cosmicpanda"] ytd-masthead {
+  background-image: var(--bt-site-bg) !important;
+}
+html[layout^="cosmicpanda"] ytd-item-section-renderer {
+  background-image: var(--bt-site-bg) !important;
+}

@@ -1,0 +1,369 @@
+/* universal */
+/* remove the border */
+html[watch-metadata-style] .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
+  display: none;
+}
+html[watch-metadata-style] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+  background: none !important;
+}
+html[watch-metadata-style] .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill {
+  background: none !important;
+}
+
+/* BTMEGASection Metadata */
+/* BTSection Like and Dislike */
+html[watch-metadata-style^="hitchhiker"],
+html[watch-metadata-style^="cosmicpanda"] {
+--bt-ltod-og-icon-display: none;
+}
+/* For new like and dislike button */
+html[watch-metadata-style^="cosmicpanda"] {
+/* ltod btn */
+--bt-ltod-btn-display: flex;
+--bt-ltod-btn-padding-left: 0px;
+/* outer */
+--bt-toggle-button-icon-margin-right: 10px;
+/* button */
+--bt-toggle-button-text-color-1: var(--bt-spec-icon-inactive);
+--bt-toggle-button-text-color-2: var(--yt-spec-text-secondary); /*#606060*/
+--bt-toggle-button-text-color-3: var(--yt-spec-text-primary); /*0F0F0F*/
+--bt-toggle-button-text-color-4: var(--bt-blue);
+--bt-toggle-button-font-size: 11px;
+/* og icon */
+--bt-animated-like-icon-display: none;
+--bt-og-dislike-icon-display: none;
+/* new icon */
+--bt-toggle-button-icon-display: block;
+--bt-toggle-button-icon-width: 20px;
+--bt-toggle-button-icon-height: 20px;
+--bt-toggle-button-icon-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+}
+html[watch-metadata-style^="hitchhiker"] {
+/* ltod btn */
+--bt-ltod-btn-display: flex;
+--bt-ltod-btn-margin-top: 58px;
+--bt-ltod-btn-padding-left: 12px;
+/* outer */
+--bt-toggle-button-icon-margin-right: 10px;
+/* button */
+--bt-toggle-button-text-color-1: var(--bt-spec-icon-inactive);
+--bt-toggle-button-text-color-2: var(--yt-spec-text-secondary); /*#606060*/
+--bt-toggle-button-text-color-3: var(--yt-spec-text-primary); /*0F0F0F*/
+--bt-toggle-button-text-color-4: var(--bt-blue);
+--bt-toggle-button-font-size: 11px;
+/* og icon */
+--bt-animated-like-icon-display: none;
+--bt-og-dislike-icon-display: none;
+/* new icon */
+--bt-toggle-button-icon-display: block;
+--bt-toggle-button-icon-width: 20px;
+--bt-toggle-button-icon-height: 20px;
+--bt-toggle-button-icon-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+}
+html[watch-metadata-style="hitchhiker-2014"],
+html[watch-metadata-style="hitchhiker-2013-2"],
+html[watch-metadata-style="hitchhiker-2013-1"] {
+/* ltod btn */
+--bt-ltod-btn-display: flex;
+--bt-ltod-btn-margin-top: 40px;
+--bt-ltod-btn-padding-left: 12px;
+/* outer */
+--bt-toggle-button-icon-margin-right: 10px;
+/* button */
+--bt-toggle-button-text-color-1: var(--bt-spec-icon-inactive);
+--bt-toggle-button-text-color-2: var(--yt-spec-text-secondary); /*#606060*/
+--bt-toggle-button-text-color-3: var(--yt-spec-text-primary); /*0F0F0F*/
+--bt-toggle-button-text-color-4: var(--bt-blue);
+--bt-toggle-button-font-size: 11px;
+/* og icon */
+--bt-animated-like-icon-display: none;
+--bt-og-dislike-icon-display: none;
+/* new icon */
+--bt-toggle-button-icon-display: block;
+--bt-toggle-button-icon-width: 20px;
+--bt-toggle-button-icon-height: 20px;
+--bt-toggle-button-icon-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+}
+/* BTMEGASection Metadata */
+/* BTSection Like and Dislike */
+/* For new like and dislike button */
+html[watch-metadata-style="polymer-2019"] {
+/* ltod btn */
+--bt-ltod-btn-display: flex;
+--bt-ltod-btn-margin-top: 0px;
+/* outer */
+--bt-toggle-button-icon-margin-right: 10px;
+/* button */
+--bt-toggle-button-text-color-1: var(--bt-spec-icon-inactive);
+--bt-toggle-button-text-color-2: var(--bt-spec-text-secondary); /*#606060*/
+--bt-toggle-button-text-color-3: var(--bt-spec-text-primary); /*0F0F0F*/
+--bt-toggle-button-text-color-4: var(--bt-spec-blue);
+/* og icon */
+--bt-animated-like-icon-display: none;
+--bt-og-dislike-icon-display: none;
+/* new icon */
+--bt-toggle-button-icon-display: block;
+--bt-toggle-button-icon-width: 20px;
+--bt-toggle-button-icon-height: 20px;
+--bt-toggle-button-icon-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+}
+/* ltod */
+html[watch-metadata-style] ytd-watch-flexy #top-level-buttons-computed {
+  position: var(--bt-top-level-buttons-position) !important;
+  margin-right: var(--bt-top-level-buttons-margin-right) !important;
+  left: var(--bt-top-level-buttons-left, unset);
+}
+html[watch-metadata-style] ytd-segmented-like-dislike-button-renderer {
+  display: var(--bt-ltod-btn-display);
+  margin-top: var(--bt-ltod-btn-margin-top);
+}
+html[watch-metadata-style] ytd-segmented-like-dislike-button-renderer button {
+  border-radius: 0 !important;
+}
+html[watch-metadata-style] #segmented-like-button {
+	  padding-left: var(--bt-ltod-btn-padding-left); /* for ltod bar width */
+}
+/* BTSection Like and dislike Button */
+html[watch-metadata-style] #segmented-like-button yt-animated-icon {
+  display: var(--bt-animated-like-icon-display);
+}
+html[watch-metadata-style] #segmented-dislike-button yt-icon svg.style-scope,
+html[watch-metadata-style] #segmented-like-button yt-icon svg.style-scope {
+  display: var(--bt-og-dislike-icon-display) !important;
+}
+html[watch-metadata-style] ytd-toggle-button-renderer button {
+  color: var(--bt-toggle-button-text-color-1) !important;
+}
+html[watch-metadata-style] ytd-toggle-button-renderer button span {
+  color: var(--bt-toggle-button-text-color-2) !important;
+  font-size: var(--bt-toggle-button-font-size);
+}
+html[watch-metadata-style] #segmented-like-button ytd-toggle-button-renderer button[aria-pressed="true"] {
+  color: var(--bt-toggle-button-text-color-4) !important;
+}
+html[watch-metadata-style] #segmented-like-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
+  color: var(--bt-toggle-button-text-color-4) !important;
+}
+html[watch-metadata-style] #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] {
+  color: var(--bt-toggle-button-text-color-3) !important;
+}
+html[watch-metadata-style] #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
+  color: var(--bt-toggle-button-text-color-3) !important;
+}
+html[watch-metadata-style] #bt-like,
+html[watch-metadata-style] #bt-dislike {
+	display: var(--bt-toggle-button-icon-display);
+	width: var(--bt-toggle-button-icon-width);
+	height: var(--bt-toggle-button-icon-height);
+}
+html[watch-metadata-style] #bt-like svg,
+html[watch-metadata-style] #bt-dislike svg {
+  filter: var(--bt-toggle-button-icon-filter);
+}
+html[watch-metadata-style] ytd-segmented-like-dislike-button-renderer svg {
+	display: var(--bt-ltod-og-icon-display) !important;
+}
+/* hitchhiker blob */
+html[watch-metadata-style^="hitchhiker"] #segmented-like-button button[aria-pressed="false"] #bt-like {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -38px -688px;
+  opacity: 0.6;
+}
+html[watch-metadata-style^="hitchhiker"] #segmented-dislike-button button[aria-pressed="false"] #bt-dislike {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -100px -1223px;
+  opacity: 0.6;
+}
+html[watch-metadata-style^="hitchhiker"] #segmented-like-button button[aria-pressed="true"] #bt-like {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -24px -1635px;
+  opacity: 1;
+}
+html[watch-metadata-style^="hitchhiker"] #segmented-dislike-button button[aria-pressed="true"] #bt-dislike {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -100px -1223px;
+  opacity: 1;
+}
+html[watch-metadata-style^="cosmicpanda"] #segmented-like-button button[aria-pressed="false"] #bt-like {
+  background: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -190px -254px;
+  width: 13px;
+  height: 15px;
+}
+html[watch-metadata-style^="cosmicpanda"] #segmented-dislike-button button[aria-pressed="false"] #bt-dislike {
+  background: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -46px -251px;
+  width: 13px;
+  height: 15px;
+}
+html[watch-metadata-style^="cosmicpanda"] #segmented-like-button button[aria-pressed="true"] #bt-like,
+html[watch-metadata-style^="cosmicpanda"] #segmented-like-button:hover button[aria-pressed="false"] #bt-like {
+  background: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -8px -158px;
+  width: 13px;
+  height: 15px;
+}
+html[watch-metadata-style^="cosmicpanda"] #segmented-dislike-button button[aria-pressed="true"] #bt-dislike,
+html[watch-metadata-style^="cosmicpanda"] #segmented-dislike-button:hover button[aria-pressed="false"] #bt-dislike {
+  background: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -125px -91px;
+}
+html[watch-metadata-style^="hitchhiker"] .ryd-tooltip,
+html[watch-metadata-style^="cosmicpanda"] .ryd-tooltip {
+  margin-bottom: 48px;
+  opacity: 0;
+}
+html[watch-metadata-style^="hitchhiker-2014"] .ryd-tooltip,
+html[watch-metadata-style^="hitchhiker-2013"] .ryd-tooltip {
+  margin-bottom: 90px;
+  right: calc(var(--bt-player-width) * -0.75);
+}
+html[watch-metadata-style^="hitchhiker-2014"] .ryd-tooltip, 
+html[watch-metadata-style^="hitchhiker-2013"] .ryd-tooltip {
+  margin-bottom: 90px;
+  right: -183%;
+  position: relative;
+}
+html[watch-metadata-style^="hitchhiker"] #ryd-bar {
+  background: var(--bt-blue);
+}
+html[watch-metadata-style^="hitchhiker"] #ryd-bar-container {
+  background: var(--nostalgic-light-grey);
+}
+/* bt bar */
+html[watch-metadata-style^="hitchhiker"] {
+--bt-bar-margin-top: 72px;
+}
+html[watch-metadata-style^="hitchhiker-2014"],
+html[watch-metadata-style^="hitchhiker-2013"] {
+--bt-bar-margin-top: 40px;
+}
+html[watch-metadata-style^="cosmicpanda"] {
+--bt-bar-margin-top: 40px;
+}
+html[watch-metadata-style^="hitchhiker"] #bt-bar {
+  height: 16px;
+  width: 160px;
+  display: block;
+  position: absolute;
+  right: 15px;
+  margin-top: var(--bt-bar-margin-top);
+  cursor: pointer;
+}
+html[watch-metadata-style^="hitchhiker"] #bt-bar dislikes {
+  background: #ccc;
+  height: 2px;
+  width: 100%;
+  display: block;
+}
+html[watch-metadata-style^="hitchhiker"] #bt-bar likes {
+  background: var(--bt-blue);
+  height: 2px;
+  width: 100%;
+  display: block;
+}
+html[watch-metadata-style^="hitchhiker-2014"] #bt-bar likes {
+  background: #2793e6;
+}
+html[watch-metadata-style^="hitchhiker-2014"] #bt-bar dislikes {
+  background: #ccc;
+}
+html[watch-metadata-style^="hitchhiker-2013"] #bt-bar likes {
+  background: #590;
+}
+html[watch-metadata-style^="hitchhiker-2013"] #bt-bar dislikes {
+  background: #ccc;
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-bar {
+  height: 16px;
+  width: 160px;
+  display: block;
+  position: absolute;
+  right: 0;
+  margin-top: var(--bt-bar-margin-top);
+  border-radius: 3px;
+  cursor: pointer;
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-bar likes {
+  background: #060;
+  height: 4px;
+  width: 100%;
+  display: block;
+  border-right: 1px solid #ccc;
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-bar dislikes {
+  background: #c00;
+  height: 4px;
+  width: 100%;
+  display: block;
+  border: 1px solid #ccc;
+}
+/* end hitchhiker blob */
+
+html[watch-metadata-style] .yt-spec-button-shape-next--size-m {
+  padding: 0 10px;
+}
+
+/* LIKE Icons */
+html[watch-metadata-style^="hitchhiker"] .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading .yt-spec-button-shape-next__icon {
+  margin-right: 4px;
+}
+
+#bt-counts {
+  display: none;
+}
+html[watch-metadata-style^="hitchhiker-2014"] #bt-counts,
+html[watch-metadata-style^="hitchhiker-2013"] #bt-counts,
+html[watch-metadata-style^="cosmicpanda"] #bt-counts {
+  display: block ruby;
+  float: inline-end;
+  margin-top: 2px;
+}
+html[watch-metadata-style^="hitchhiker"] #lcon {
+  margin-right: 13px;
+}
+#lcon, #dcon {
+  display: block ruby;
+}
+html[watch-metadata-style^="hitchhiker-2014"] #bt-counts .bts,
+html[watch-metadata-style^="hitchhiker-2013"] #bt-counts .bts {
+  display: none;
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-counts .bti {
+  display: none;
+}
+#lcicon {
+  margin-bottom: -4px;
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldtjAOK.png) -28px -761px;
+    background-size: auto;
+  background-size: auto;
+  background-size: auto;
+  width: 13px;
+  height: 14px;
+  display: block;
+}
+#dcicon {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldtjAOK.png) -36px -144px;
+    background-size: auto;
+  background-size: auto;
+  width: 13px;
+  height: 14px;
+  display: block;
+  margin-bottom: -4px;
+}
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold:hover #segmented-like-button button,
+html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold:hover #segmented-like-button button,
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold:hover #segmented-dislike-button button,
+html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold:hover #segmented-dislike-button button,
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold:hover #bt-show-more,
+html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold:hover #bt-show-more,
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold:hover #bt-show-less,
+html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold:hover #bt-show-less {
+  background: linear-gradient(to bottom,#fcfcfc 0,#f8f8f8 100%) !important;
+  border-radius: 2px !important;
+  border: 1px solid #d3d3d3;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  color: #555;
+}
+html[watch-metadata-style^="hitchhiker-2014"] #segmented-like-button button,
+html[watch-metadata-style^="hitchhiker-2013"] #segmented-like-button button,
+html[watch-metadata-style^="hitchhiker-2014"] #segmented-dislike-button button,
+html[watch-metadata-style^="hitchhiker-2013"] #segmented-dislike-button button,
+html[watch-metadata-style^="hitchhiker-2014"] #bt-show-more,
+html[watch-metadata-style^="hitchhiker-2013"] #bt-show-more,
+html[watch-metadata-style^="hitchhiker-2014"] #bt-show-less,
+html[watch-metadata-style^="hitchhiker-2013"] #bt-show-less {
+  border: 1px solid transparent;
+}

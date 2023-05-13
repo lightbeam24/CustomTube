@@ -1,0 +1,532 @@
+/* BTMEGASection Universal */
+html[color-style="plmr"s]:not([dark]) {
+--bt-site-bg: var(--bt-main-app-background);
+--bt-spec-guide-background: hsl(0, 0%, 11%);
+--bt-spec-icon-inactive: #909090;
+--bt-spec-text-primary: #0f0f0f;
+--bt-spec-blue: #167ac6;
+--bt-spec-emphasis: #f00;
+--bt-spec-lesser-emphasis: #d90a17;
+}
+html[color-style="plmr"s][dark] {
+--bt-spec-guide-background: hsl(0, 0%, 96%);
+--bt-spec-icon-inactive: #909090;
+--bt-spec-blue: #167ac6;
+--bt-spec-emphasis: #f00;
+--bt-spec-lesser-emphasis: #d90a17;
+}
+html:not([dark])[color-style="plmr"s] {
+/*}
+html:not(.style-scope) {*/
+  --bt-live-chat-action-panel-background-color: hsla(0, 0%, 93.3%, .4);
+  --bt-live-chat-action-panel-background-color-transparent: hsla(0, 0%, 97%, .8);
+  --bt-live-chat-primary-text-color: hsl(0, 0%, 6.7%);
+  --bt-live-chat-secondary-text-color: hsla(0, 0%, 6.7%, .6);
+  --bt-live-chat-tertiary-text-color: hsla(0, 0%, 6.7%, .4);
+  --bt-live-chat-tertiary-text-color: hsla(0, 0%, 6.7%, .4);
+  --bt-live-chat-disabled-icon-button-color: hsla(0, 0%, 6.7%, .2);
+  --bt-live-chat-picker-button-color: hsla(0, 0%, 6.7%, .4);
+  --bt-formatted-string-emoji-size: 24px;
+  --bt-live-chat-text-input-field-suggestion-background-color: hsl(0, 0%, 100%);
+  --bt-live-chat-text-input-field-suggestion-background-color-hover: #eee;
+  --bt-live-chat-text-input-field-suggestion-text-color: #666;
+  --bt-live-chat-text-input-field-suggestion-text-color-hover: #333;
+  --bt-emoji-picker-category-background-color: var(--bt-live-chat-action-panel-background-color-transparent);
+  --bt-emoji-picker-category-color: var(--bt-live-chat-secondary-text-color);
+  --bt-emoji-picker-category-button-color: var(--bt-live-chat-picker-button-color);
+  --bt-emoji-picker-search-background-color: hsla(0, 0%, 100%, .6);
+  --bt-emoji-picker-search-color: hsla(0, 0%, 6.7%, .8);
+  --bt-emoji-picker-search-placeholder-color: hsla(0, 0%, 6.7%, .6);
+/*}
+html:not(.style-scope) {*/
+  --bt-paper-input-container-shared-input-style_-_vertical-align: var(--bt-paper-input-container-input-align, baseline);
+/*}
+html:not(.style-scope) {*/
+  --bt-button-margin: 0;
+  --bt-button-padding: 10px 16px;
+  --bt-button-padding-minus-border: 9px 15px;
+  --bt-button-border-radius: 2px;
+/*}
+html:not(.style-scope) {*/
+  --btd-z-index-notification: 2024;
+  --btd-z-index-miniplayer: 2025;
+  --btd-thumbnail-height: 118px;
+  --btd-grid-thumbnail_-_height: var(--btd-thumbnail-height);
+  --btd-default-promo-panel-renderer-height: 600px;
+/*}
+html:not(.style-scope) {*/
+  --btd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
+  --btd-searchbox-legacy-border-color: #ccc;
+  --btd-searchbox-legacy-border-shadow-color: #eee;
+  --btd-searchbox-legacy-button-color: #f8f8f8;
+  --btd-searchbox-legacy-button-border-color: #d3d3d3;
+  --btd-searchbox-legacy-button-focus-color: #e9e9e9;
+  --btd-searchbox-legacy-button-hover-color: #f0f0f0;
+  --btd-searchbox-legacy-button-hover-border-color: #c6c6c6;
+  --btd-searchbox-legacy-button-icon-color: #333;
+  --btd-moderation-panel-background: hsla(0, 0%, 93.3%, .6);
+  --btd-moderation-panel-hover: hsla(0, 0%, 93.3%, .8);
+  --btd-moderation-panel-comment-text: hsl(0, 0%, 6.7%);
+  --btd-moderation-panel-comment-metadata-text: hsla(0, 0%, 6.7%, .6);
+  --btd-moderation-icon-color: hsla(0, 0%, 6.7%, .6);
+  --btd-moderation-icon-hover-color: hsl(0, 0%, 6.7%);
+  --btd-comment-text-color: hsl(0, 0%, 6.7%);
+  --btd-comment-metadata-text-color: var(--bt-spec-text-secondary);
+  --btd-watch-card-secondary-text-color: hsl(0, 0%, 53.3%);
+  --btd-watch-card-album-header-background: hsl(0, 0%, 100%);
+  --btd-backstage-metadata-text-color: hsl(0, 0%, 53.3%);
+  --btd-backstage-video-link-background-color: hsla(0, 0%, 93.3%, .4);
+  --btd-backstage-image-alert-color: hsla(0, 0%, 6.7%, .6);
+  --btd-backstage-cancel-background-color: hsl(0, 0%, 100%);
+  --btd-backstage-cancel-color: hsla(0, 0%, 6.7%, .4);
+  --btd-backstage-attachment-background-color: hsl(0, 0%, 100%);
+  --btd-backstage-creationbox-background-color: hsl(0, 0%, 98%);
+  --btd-backstage-creationbox-background-color-focus: hsl(0, 0%, 96%);
+  --btd-backstage-creationbox-inactive-color: hsla(0, 0%, 0%, .26);
+  --btd-backstage-creationbox-text-color: hsla(0, 0%, 0%, .54);
+  --btd-backstage-creationbox-input-text-color: hsla(0, 0%, 0%, .87);
+  --btd-backstage-creationbox-disabled-button-color: hsla(0, 0%, 0%, .04);
+  --btd-backstage-creationbox-disabled-button-text-color: hsl(0, 0%, 100%);
+  --btd-backstage-attachment-icon-hover-color: hsla(0, 0%, 0%, .74);
+  --btd-sponsorships-background-color-focus: hsla(0, 0%, 93.3%, .4);
+  --btd-badge-background: hsla(0, 0%, 93.3%, .6);
+  --btd-badge-disabled-color: hsla(0, 0%, 53.3%, .4);
+  --btd-collection-badge-color: hsla(0, 0%, 6.7%, .8);
+  --btd-owner-badge-color: hsla(0, 0%, 6.7%, .4);
+  --btd-simple-badge-color: hsla(0, 0%, 6.7%, .6);
+  --btd-ad-badge-text-color: hsl(0, 0%, 100%);
+  --btd-shopping-product-info: hsla(0, 0%, 6.7%, .8);
+  --btd-transcript-cue-hover-background-color: hsl(0, 0%, 93.3%);
+  --btd-transcript-toolbar-background-color: hsl(0, 0%, 93.3%);
+  --btd-transcript-toolbar-text: hsl(0, 0%, 6.7%);
+  --btd-video-publish-date-color: hsla(0, 0%, 6.7%, .6);
+  --btd-vat-notice-text: hsla(0, 0%, 6.7%, .6);
+  --btd-offer-background-color: hsla(0, 0%, 93.3%, .4);
+  --btd-video-game-watch-card-logo-color: hsl(0, 0%, 6.7%);
+  --btd-watch-split-pane-sidebar-background-color: hsl(0, 0%, 98%);
+/*}
+html:not(.style-scope) {*/
+  --bt-paper-dialog-background-color: var(--bt-spec-brand-background-solid);
+  --bt-paper-listbox-background-color: var(--bt-spec-brand-background-solid);
+  --bt-paper-listbox-color: var(--bt-spec-text-primary);
+  --bt-paper-spinner-layer-1-color: var(--bt-spec-icon-inactive);
+  --bt-paper-spinner-layer-2-color: var(--bt-spec-icon-inactive);
+  --bt-paper-spinner-layer-3-color: var(--bt-spec-icon-inactive);
+  --bt-paper-spinner-layer-4-color: var(--bt-spec-icon-inactive);
+  --bt-paper-spinner-color: var(--bt-spec-icon-inactive);
+  --bt-paper-input-container-focus-color: var(--bt-spec-themed-blue);
+  --bt-paper-input-container-input-color: var(--bt-spec-text-primary);
+  --bt-paper-checkbox-unchecked-color: var(--bt-spec-icon-inactive);
+  --bt-paper-checkbox-unchecked-ink-color: var(--bt-spec-icon-inactive);
+  --bt-paper-checkbox-checked-color: var(--bt-spec-icon-active-button-link);
+  --bt-paper-checkbox-checked-ink-color: var(--bt-spec-icon-active-button-link);
+  --bt-paper-checkbox-label-color: var(--bt-spec-text-primary);
+  --bt-paper-checkbox-size: 20px;
+  --bt-paper-checkbox-checkmark-color: var(--bt-spec-text-primary-inverse);
+  --bt-paper-radio-button-unchecked-color: var(--bt-spec-icon-inactive);
+  --bt-paper-radio-button-unchecked-ink-color: var(--bt-spec-icon-inactive);
+  --bt-paper-radio-button-checked-color: var(--bt-spec-icon-active-button-link);
+  --bt-paper-radio-button-checked-ink-color: var(--bt-spec-icon-active-button-link);
+  --bt-paper-radio-button-label-spacing: 16px;
+  --bt-paper-radio-button-label-color: var(--bt-spec-text-primary);
+  --bt-paper-toggle-button-unchecked-bar-color: var(--bt-spec-icon-disabled);
+  --bt-paper-toggle-button-unchecked-button-color: var(--bt-spec-icon-inactive);
+  --bt-paper-toggle-button-checked-bar-color: var(--bt-spec-icon-disabled);
+  --bt-paper-toggle-button-checked-button-color: var(--bt-spec-icon-active-button-link);
+  --bt-paper-toggle-button-checked-ink-color: var(--bt-spec-icon-active-button-link);
+  --bt-paper-toggle-button-unchecked-ink-color: var(--bt-spec-touch-response);
+  --bt-icon-width: 40px;
+  --bt-icon-height: 40px;
+  --bt-search-correction-corrected_-_color: var(--bt-spec-text-primary);
+  --bt-search-correction-original_-_color: var(--bt-spec-text-primary);
+  --bt-endpoint_-_color: var(--bt-endpoint-color, var(--bt-spec-text-primary));
+  --bt-endpoint-hover_-_color: var(--bt-endpoint-hover-color, var(--bt-spec-text-primary));
+  --bt-endpoint-hover_-_text-decoration: var(--bt-endpoint-text-decoration, none);
+  --bt-notification-button-bubble_-_color: var(--bt-swatch-important-text, hsl(0, 0%, 100%));
+  --bt-notification-button-bubble_-_background-color: var(--bt-spec-brand-button-background);
+/*}
+html:not(.style-scope) {*/
+  --btd-thumbnail-badge_-_color: var(--bt-spec-static-brand-white);
+  --btd-thumbnail-badge_-_background-color: var(--bt-spec-static-overlay-background-heavy);
+/*}
+html:not(.style-scope) {*/
+  --bt-swatch-icon-color: hsla(0, 0%, 6.7%, .4);
+  --bt-swatch-primary: hsl(0, 0%, 100%);
+  --bt-swatch-primary-darker: rgb(230, 230, 230);
+  --bt-swatch-text: hsla(0, 0%, 6.7%, .4);
+  --bt-swatch-input-text: hsl(0, 0%, 6.7%);
+  --bt-swatch-textbox-bg: rgb(255, 255, 255);
+/*}
+html:not(.style-scope) {*/
+  --primary-text-color: #212121;
+  --disabled-text-color: #9b9b9b;
+  --divider-color: #dbdbdb;
+/*}
+html:not(.style-scope) {*/
+  --bt-spec-brand-background-solid: #FFFFFF;
+  --bt-spec-brand-background-secondary: rgba(255, 255, 255, 0.95);
+  --bt-spec-feed-background-a: #F9F9F9;
+  --bt-spec-feed-background-b: #F3F3F3;
+  --bt-spec-feed-background-c: #EDEDED;
+  --bt-spec-error-background: #1F1F1F;
+  --bt-spec-text-primary: #0A0A0A;
+  --bt-spec-text-primary-inverse: #FFFFFF;
+  --bt-spec-text-secondary: #606060;
+  --bt-spec-text-disabled: #909090;
+  --bt-spec-icon-active-button-link: #065FD4;
+  --bt-spec-icon-active-other: #606060;
+  --bt-spec-icon-inactive: #909090;
+  --bt-spec-icon-disabled: #CCCCCC;
+  --bt-spec-badge-chip-background: rgba(0, 0, 0, 0.05);
+  --bt-spec-suggested-action: #F2F8FF;
+  --bt-spec-button-chip-background-hover: rgba(0, 0, 0, 0.10);
+  --bt-spec-touch-response: #000000;
+  --bt-spec-filled-button-text: #FFFFFF;
+  --bt-spec-call-to-action-inverse: #3EA6FF;
+  --bt-spec-brand-icon-inactive: #606060;
+  --bt-spec-brand-button-background: #FF0000;
+  --bt-spec-brand-link-text: #CC0000;
+  --bt-spec-10-percent-layer: rgba(0, 0, 0, 0.10);
+  --bt-spec-themed-blue: #065FD4;
+  --bt-spec-themed-green: #107516;
+  --bt-spec-static-brand-red: #FF0000;
+  --bt-spec-static-brand-white: #FFFFFF;
+  --bt-spec-static-brand-black: #282828;
+  --bt-spec-static-overlay-background-heavy: rgba(0, 0, 0, 0.80);
+  --bt-spec-static-overlay-background-medium: rgba(0, 0, 0, 0.60);
+  --bt-spec-static-overlay-background-light: rgba(0, 0, 0, 0.10);
+  --bt-spec-static-overlay-icon-active-call-to-action: #3EA6FF;
+  --bt-spec-static-overlay-text-primary: #FFFFFF;
+/*}
+html:not(.style-scope) {*/
+  --bt-std-body-300: hsla(0, 0%, 0%, .54);
+  --bt-std-surface-200: hsl(0, 0%, 98%);
+  --bt-std-surface-300: hsl(0, 0%, 96%);
+  --bt-std-surface-400: hsl(0, 0%, 93%);
+  --bt-primary-color: hsl(0, 0%, 6.7%);
+  --bt-primary-text-color: hsl(0, 0%, 6.7%);
+  --bt-hovered-text-color: hsla(0, 0%, 6.7%, .8);
+  --bt-secondary-text-color: hsla(0, 0%, 6.7%, .8);
+  --bt-tertiary-text-color: hsla(0, 0%, 6.7%, .6);
+  --bt-placeholder-text-color: hsla(0, 0%, 6.7%, .6);
+  --bt-border-color: hsl(0, 0%, 93.3%);
+  --bt-commentbox-border-inactive: hsl(0, 0%, 93.3%);
+  --bt-commentbox-border-active: hsla(0, 0%, 6.7%, .6);
+  --bt-primary-disabled-button-text-color: hsl(0, 0%, 100%);
+  --bt-paper-button-ink-color: hsl(0, 0%, 53.3%);
+  --bt-icon-color: hsla(0, 0%, 6.7%, .4);
+  --bt-icon-hover-color: hsla(0, 0%, 6.7%, .8);
+  --bt-icon-disabled-color: hsla(0, 0%, 6.7%, .6);
+  --bt-icon-active-color: hsl(0, 0%, 6.7%);
+  --bt-expand-color: hsla(0, 0%, 6.7%, .6);
+  --bt-placeholder-text: hsla(0, 0%, 6.7%, .6);
+  --bt-playlist-background-header: hsl(0, 0%, 93.3%);
+  --bt-playlist-background-item: hsla(0, 0%, 93.3%, .6);
+  --bt-playlist-title-text: hsl(0, 0%, 6.7%);
+  --bt-playlist-message-text: hsla(0, 0%, 6.7%, .6);
+  --bt-playlist-message-text-hover: hsl(0, 0%, 6.7%);
+  --bt-subscribe-button-text-color: hsl(0, 0%, 100%);
+  --bt-button-active-color: hsl(0, 0%, 6.7%);
+  --bt-copyright-text: hsla(0, 0%, 6.7%, .6);
+  --bt-guide-entry-text-color: hsla(0, 0%, 6.7%, .8);
+  --bt-thumbnail-placeholder-color: hsl(0, 0%, 89%);
+  --bt-featured-channel-title-text-color: hsla(0, 0%, 0%, .54);
+  --bt-formatted-string-deemphasize-color: hsl(0, 0%, 53.3%);
+  --bt-alert-background: hsla(0, 0%, 93.3%, .4);
+  --bt-video-secondary-info-description-background: hsla(0, 0%, 93.3%, .6);
+  --bt-searchbox-text-color: var(--bt-primary-text-color);
+  --bt-material-searchbox-inactive: hsla(0, 0%, 93.3%, .6);
+  --bt-material-searchbox-active: hsl(0, 0%, 100%);
+  --bt-material-searchbox-inactive-shadow: hsla(0, 0%, 53.3%, .2);
+  --bt-material-searchbox-active-shadow: hsla(0, 0%, 0%, .26);
+  --bt-material-searchbox-inset: hsla(0, 0%, 0%, .04);
+  --bt-material-searchbox-text-color: var(--bt-primary-text-color);
+  --bt-simple-menu-header-background: hsl(0, 0%, 93.3%);
+  --bt-item-section-header-color: hsla(0, 0%, 6.7%, .6);
+  --bt-menu-hover-backgound-color: hsl(0, 0%, 93.3%);
+  --bt-menu-focus-background-color: hsla(0, 0%, 6.7%, .2);
+  --bt-chat-bubble-other-border-color: #CCCCCC;
+  --bt-chat-bubble-other-background-color: #F9F9F9;
+  --bt-chat-bubble-self-border-color: #CCCCCC;
+  --bt-chat-bubble-self-background-color: #EDEDED;
+  --bt-app-background: hsl(0, 0%, 100%);
+  --bt-main-app-background: hsl(0, 0%, 98%);
+  --bt-main-app-background-tmp: hsl(0, 0%, 100%);
+  --bt-guide-background: hsl(0, 0%, 96%);
+  --bt-dialog-background: hsl(0, 0%, 100%);
+  --bt-searchbox-background: hsl(0, 0%, 100%);
+  --bt-channel-header-background: hsl(0, 0%, 98%);
+  --bt-sidebar-background: hsl(0, 0%, 98%);
+  --bt-transcript-background: hsl(0, 0%, 100%);
+}
+html[color-style="plmr"s][dark] {
+/* for 2017 polymer */
+/*html:not(.style-scope)[dark], :not(.style-scope)[dark] {*/
+  --btd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
+  --btd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
+  --btd-searchbox-legacy-border-shadow-color: hsla(0, 0%, 0%, 0);
+  --btd-searchbox-legacy-button-color: hsla(0, 0%, 100%, .08);
+  --btd-searchbox-legacy-button-border-color: hsl(0, 0%, 18.82%);
+  --btd-searchbox-legacy-button-focus-color: hsla(0, 0%, 100%, .08);
+  --btd-searchbox-legacy-button-hover-color: hsla(0, 0%, 100%, .08);
+  --btd-searchbox-legacy-button-hover-border-color: hsl(0, 0%, 18.82%);
+  --btd-searchbox-legacy-button-icon-color: hsla(0, 100%, 100%, .5);
+  --btd-moderation-panel-background: hsla(0, 0%, 11%, .8);
+  --btd-moderation-panel-hover: hsl(0, 0%, 11%);
+  --btd-moderation-panel-comment-text: hsla(0, 100%, 100%, .5);
+  --btd-moderation-panel-comment-metadata-text: hsla(0, 100%, 100%, .5);
+  --btd-moderation-icon-color: hsla(0, 100%, 100%, .5);
+  --btd-moderation-icon-hover-color: hsla(0, 100%, 100%, .74);
+  --btd-comment-text-color: hsla(0, 100%, 100%, .88);
+  --btd-comment-metadata-text-color: hsl(0, 0%, 53.3%);
+  --btd-watch-card-secondary-text-color: hsl(0, 0%, 93.3%);
+  --btd-watch-card-album-header-background: hsl(0, 0%, 6.7%);
+  --btd-backstage-metadata-text-color: hsla(0, 100%, 100%, .88);
+  --btd-backstage-video-link-background-color: hsl(0, 0%, 14%);
+  --btd-backstage-image-alert-color: hsla(0, 100%, 100%, .88);
+  --btd-backstage-cancel-background-color: hsl(0, 0%, 14%);
+  --btd-backstage-cancel-color: hsl(0, 0%, 100%);
+  --btd-backstage-attachment-background-color: hsl(0, 0%, 7%);
+  --btd-backstage-creationbox-background-color: hsl(0, 0%, 11%);
+  --btd-backstage-creationbox-background-color-focus: hsl(0, 0%, 14%);
+  --btd-backstage-creationbox-inactive-color: hsla(0, 100%, 100%, .26);
+  --btd-backstage-creationbox-text-color: hsla(0, 100%, 100%, .5);
+  --btd-backstage-creationbox-input-text-color: hsla(0, 100%, 100%, .88);
+  --btd-backstage-creationbox-disabled-button-color: hsla(0, 100%, 100%, .08);
+  --btd-backstage-creationbox-disabled-button-text-color: hsla(0, 100%, 100%, .26);
+  --btd-backstage-attachment-icon-hover-color: hsla(0, 100%, 100%, .74);
+  --btd-sponsorships-background-color-focus: hsl(0, 0%, 11%);
+  --btd-badge-background: hsla(0, 100%, 100%, .08);
+  --btd-badge-disabled-color: hsla(0, 0%, 100%, .4);
+  --btd-collection-badge-color: hsla(0, 0%, 100%, .8);
+  --btd-owner-badge-color: hsla(0, 0%, 100%, .4);
+  --btd-simple-badge-color: hsla(0, 0%, 100%, .6);
+  --btd-ad-badge-text-color: hsl(0, 0%, 7%);
+  --btd-shopping-product-info: hsla(0, 100%, 100%, .74);
+  --btd-transcript-cue-hover-background-color: hsla(0, 0%, 53.3%, .4);
+  --btd-transcript-toolbar-background-color: hsla(0, 0%, 53.3%, .4);
+  --btd-transcript-toolbar-text: hsla(0, 100%, 100%, .88);
+  --btd-video-publish-date-color: hsla(0, 0%, 100%, .6);
+  --btd-vat-notice-text: hsla(0, 0%, 100%, .6);
+  --btd-offer-background-color: hsl(0, 0%, 14%);
+  --btd-video-game-watch-card-logo-color: hsl(0, 0%, 100%);
+  --btd-watch-split-pane-sidebar-background-color: hsl(0, 0%, 11%);
+/*}
+html:not(.style-scope)[dark], :not(.style-scope)[dark] {*/
+  --bt-spec-brand-background-solid: #282828;
+  --bt-spec-brand-background-secondary: rgba(40, 40, 40, 0.95);
+  --bt-spec-feed-background-a: #1F1F1F;
+  --bt-spec-feed-background-b: #141414;
+  --bt-spec-feed-background-c: #0A0A0A;
+  --bt-spec-error-background: #F9F9F9;
+  --bt-spec-text-primary: #FFFFFF;
+  --bt-spec-text-primary-inverse: #0A0A0A;
+  --bt-spec-text-secondary: #AAAAAA;
+  --bt-spec-text-disabled: #717171;
+  --bt-spec-icon-active-button-link: #3EA6FF;
+  --bt-spec-icon-active-other: #FFFFFF;
+  --bt-spec-icon-inactive: #909090;
+  --bt-spec-icon-disabled: #606060;
+  --bt-spec-badge-chip-background: rgba(255, 255, 255, 0.10);
+  --bt-spec-suggested-action: #252A3A;
+  --bt-spec-button-chip-background-hover: rgba(255, 255, 255, 0.20);
+  --bt-spec-touch-response: #FFFFFF;
+  --bt-spec-filled-button-text: #0A0A0A;
+  --bt-spec-call-to-action-inverse: #065FD4;
+  --bt-spec-brand-icon-inactive: #909090;
+  --bt-spec-brand-button-background: #FF0000;
+  --bt-spec-brand-link-text: #FF4E45;
+  --bt-spec-10-percent-layer: rgba(255, 255, 255, 0.10);
+  --bt-spec-themed-blue: #3EA6FF;
+  --bt-spec-themed-green: #2BA640;
+  --bt-spec-static-brand-red: #FF0000;
+  --bt-spec-static-brand-white: #FFFFFF;
+  --bt-spec-static-brand-black: #282828;
+  --bt-spec-static-overlay-background-heavy: rgba(0, 0, 0, 0.80);
+  --bt-spec-static-overlay-background-medium: rgba(0, 0, 0, 0.60);
+  --bt-spec-static-overlay-background-light: rgba(0, 0, 0, 0.10);
+  --bt-spec-static-overlay-icon-active-call-to-action: #3EA6FF;
+  --bt-spec-static-overlay-text-primary: #FFFFFF;
+/*}
+html:not(.style-scope)[dark], :not(.style-scope)[dark] {*/
+  --bt-std-body-300: hsla(0, 100%, 100%, .5);
+  --bt-std-surface-200: hsl(0, 0%, 11%);
+  --bt-std-surface-300: hsl(0, 0%, 14%);
+  --bt-std-surface-400: hsl(0, 0%, 16%);
+  --bt-primary-color: hsla(0, 100%, 100%, .88);
+  --bt-primary-text-color: hsla(0, 100%, 100%, .88);
+  --bt-hovered-text-color: hsla(0, 100%, 100%, .74);
+  --bt-secondary-text-color: hsla(0, 100%, 100%, .5);
+  --bt-tertiary-text-color: hsla(0, 100%, 100%, .5);
+  --bt-placeholder-text-color: hsla(0, 100%, 100%, .5);
+  --bt-border-color: hsla(0, 100%, 100%, .08);
+  --bt-commentbox-border-inactive: hsla(0, 100%, 100%, .5);
+  --bt-commentbox-border-active: hsla(0, 100%, 100%, .88);
+  --bt-alert-background: hsla(0, 100%, 100%, .26);
+  --bt-paper-button-ink-color: hsla(0, 0%, 100%, .2);
+  --bt-icon-color: hsla(0, 100%, 100%, .5);
+  --bt-icon-hover-color: hsla(0, 100%, 100%, .74);
+  --bt-icon-active-color: hsla(0, 100%, 100%, .88);
+  --bt-icon-disabled-color: hsla(0, 100%, 100%, .26);
+  --bt-expand-color: hsla(0, 0%, 100%, .6);
+  --bt-channel-owner: hsla(0, 100%, 100%, .88);
+  --bt-placeholder-text: hsl(0, 0%, 93.3%);
+  --bt-playlist-background-header: hsla(0, 0%, 53.3%, .4);
+  --bt-playlist-background-item: hsla(0, 0%, 53.3%, .2);
+  --bt-playlist-title-text: hsla(0, 100%, 100%, .88);
+  --bt-playlist-message-text: hsl(0, 0%, 93.3%);
+  --bt-playlist-message-text-hover: hsla(0, 100%, 100%, .74);
+  --bt-subscribe-button-text-color: hsla(0, 100%, 100%, .88);
+  --bt-button-active-color: hsla(0, 100%, 100%, .88);
+  --bt-copyright-text: hsla(0, 0%, 100%, .6);
+  --bt-guide-entry-text-color: hsla(0, 100%, 100%, .88);
+  --bt-thumbnail-placeholder-color: hsl(0, 0%, 16%);
+  --bt-primary-disabled-button-text-color: hsla(0, 0%, 100%, .2);
+  --bt-featured-channel-title-text-color: hsla(0, 100%, 100%, .5);
+  --bt-formatted-string-deemphasize-color: hsl(0, 0%, 53.3%);
+  --bt-video-secondary-info-description-background: hsla(0, 0%, 53.3%, .2);
+  --bt-simple-menu-header-background: hsla(0, 0%, 53.3%, .4);
+  --bt-item-section-header-color: hsl(0, 0%, 93.3%);
+  --bt-menu-hover-backgound-color: hsla(0, 100%, 100%, .08);
+  --bt-menu-focus-background-color: hsla(0, 100%, 100%, .26);
+  --bt-searchbox-text-color: var(--bt-primary-text-color);
+  --bt-material-searchbox-inactive: hsl(0, 0%, 7%);
+  --bt-material-searchbox-active: hsl(0, 0%, 100%);
+  --bt-material-searchbox-inactive-shadow: hsla(0, 0%, 0%, .04);
+  --bt-material-searchbox-active-shadow: hsla(0, 0%, 0%, .26);
+  --bt-material-searchbox-inset: hsla(0, 0%, 0%, .04);
+  --bt-material-searchbox-text-color: hsl(0, 0%, 6.7%);
+  --bt-app-background: hsl(0, 0%, 7%);
+  --bt-main-app-background: hsl(0, 0%, 7%);
+  --bt-main-app-background-tmp: hsl(0, 0%, 7%);
+  --bt-guide-background: hsl(0, 0%, 11%);
+  --bt-dialog-background: hsl(0, 0%, 14%);
+  --bt-searchbox-background: hsl(0, 0%, 7%);
+  --bt-channel-header-background: hsla(0, 0%, 11%, .8);
+  --bt-sidebar-background: hsla(0, 0%, 11%, .8);
+  --bt-transcript-background: hsl(0, 0%, 11%);
+  --bt-chat-bubble-other-border-color: rgba(255, 255, 255, 0.20);
+  --bt-chat-bubble-other-background-color: transparent;
+  --bt-chat-bubble-self-border-color: rgba(255, 255, 255, 0.20);
+  --bt-chat-bubble-self-background-color: #282828;
+/*}
+html:not(.style-scope) {*/
+  --bt-live-chat-action-panel-background-color: hsla(0, 0%, 93.3%, .4);
+  --bt-live-chat-action-panel-background-color-transparent: hsla(0, 0%, 97%, .8);
+  --bt-live-chat-primary-text-color: hsl(0, 0%, 6.7%);
+  --bt-live-chat-secondary-text-color: hsla(0, 0%, 6.7%, .6);
+  --bt-live-chat-tertiary-text-color: hsla(0, 0%, 6.7%, .4);
+  --bt-live-chat-disabled-icon-button-color: hsla(0, 0%, 6.7%, .2);
+  --bt-live-chat-picker-button-color: hsla(0, 0%, 6.7%, .4);
+  --bt-formatted-string-emoji-size: 24px;
+  --bt-live-chat-text-input-field-suggestion-background-color: hsl(0, 0%, 100%);
+  --bt-live-chat-text-input-field-suggestion-background-color-hover: #eee;
+  --bt-live-chat-text-input-field-suggestion-text-color: #666;
+  --bt-live-chat-text-input-field-suggestion-text-color-hover: #333;
+  --bt-emoji-picker-category-background-color: var(--bt-live-chat-action-panel-background-color-transparent);
+  --bt-emoji-picker-category-color: var(--bt-live-chat-secondary-text-color);
+  --bt-emoji-picker-category-button-color: var(--bt-live-chat-picker-button-color);
+  --bt-emoji-picker-search-background-color: hsla(0, 0%, 100%, .6);
+  --bt-emoji-picker-search-color: hsla(0, 0%, 6.7%, .8);
+  --bt-emoji-picker-search-placeholder-color: hsla(0, 0%, 6.7%, .6);
+/*}*/
+/* from elemets */
+--bt-swatch-primary: rgb(35,35,35);
+--bt-swatch-primary-darker: rgb(32,32,32);
+--bt-swatch-text: rgb(255,255,255);
+--bt-swatch-important-text: rgb(255,255,255);
+--bt-swatch-input-text: rgba(255,255,255,1);
+--bt-swatch-textbox-bg: rgba(19,19,19,1);
+--bt-swatch-logo-override: rgb(255,255,255);
+--bt-swatch-icon-color: rgba(136,136,136,1);
+/* custom */
+  --bt-spec-5-percent-layer: rgba(0, 0, 0, 0.05);
+  --bt-spec-15-percent-layer: rgba(0, 0, 0, 0.15);
+}
+/* BTMEGASection Topbar */
+/* BTSection Search bar */
+html[search-bar-style="polymer-2019"] {
+/* topbar */
+/* masthead */
+--bt-topbar-height: 56px;
+/* ytdsearchbox ytd masthead (outer bar) */
+--bt-searchbar-outer-margin: 0;
+--bt-searchbar-outer-padding: 0;
+/* center ytd masthead */
+--bt-searchbar-width: 576px;
+--bt-static-searchbar-width: 400px;
+/* container ytd searchbox */
+--bt-searchbar-input-box-shadow: inset 0 0px 0px rgba(0,0,0,0.0);
+--bt-searchbar-input-border: 1px solid #ccc;
+--bt-searchbar-input-border-right: 1px solid transparent;
+--bt-searchbar-input-padding: 2px 4px 2px 8px;
+--bt-searchbar-input-radius: 2px 0 0 2px;
+--bt-searchbar-input-margin-left: 0;
+/* container ytd searchbox focus */
+--bt-searchbar-input-focus-margin-left: 0;
+--bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+--bt-searchbar-input-focus-border: 1px solid #1c62b9;
+/* search form ytd searchbox */
+--bt-searchbar-height: 31px;
+/* input search icon */
+--bt-search-input-pre-icon-display: none;
+/* input new pre icon 
+Redir: See Material Search Bar
+/* search placeholder */
+--bt-search-placeholder-text-color: #767676;
+/* search button icon legacy ytd searchbox */
+--bt-search-btn-width: 66px;
+--bt-search-btn-height: var(--bt-searchbar-height);
+--bt-search-btn-radius: 0 2px 2px 0;
+--bt-search-btn-border: 1px solid var(--btd-searchbox-legacy-button-border-color);
+--bt-search-btn-bg: var(--btd-searchbox-legacy-button-color);
+/* search button icon */
+--bt-search-btn-icon-margin-top: -2px;
+--bt-search-btn-icon-color: var(--bt-spec-text-primary);
+--bt-search-btn-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -72px -877px;
+--bt-search-btn-icon-width: 15px;
+--bt-search-btn-icon-height: 15px;
+--bt-search-btn-icon-opacity: 0.6;
+/* search button hover icon */
+--bt-search-btn-icon-opacity-hover: 1;
+/* search button OG icon */
+--bt-search-btn-og-icon-display: none;
+/* voice search */
+--bt-voice-search-btn-display: none;
+}
+/* BTMEGASection Watch Page */
+
+/* BTSection polymer */
+html[layout^="polymer"] ytd-app {
+  background: var(--bt-main-app-background) !important;
+}
+/* background. works for watch page in static. */
+html[layout^="polymer"]] #masthead-container {
+  box-shadow: 0px 4px 8px -3px rgba(17, 17, 17, .06);
+  background: var(--bt-swatch-primary);
+}
+/* sign in */
+html[layout^="polymer"] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+  color: var(--bt-spec-icon-active-button-link);
+  border: none;
+}
+html[layout^="polymer"] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+  color: red;
+}
+html[layout^="polymer"] #masthead #end .yt-spec-button-shape-next--size-m .yt-spec-button-shape-next__icon, 
+html[layout^="polymer"] #masthead #end .yt-spec-button-shape-next--size-m .yt-spec-button-shape-next__icon yt-icon {
+  display: none !important;
+}
+html[layout^="polymer"] ytd-guide-signin-promo-renderer .yt-spec-button-shape-next--size-m .yt-spec-button-shape-next__icon, 
+html[layout^="polymer"] ytd-guide-signin-promo-renderer .yt-spec-button-shape-next--size-m .yt-spec-button-shape-next__icon yt-icon {
+  display: none !important;
+}
+html[layout^="polymer"] ytd-guide-signin-promo-renderer .yt-spec-button-shape-next--button-text-content {
+  padding: 0 !important;
+  text-transform: uppercase;
+}
+/* removes bg on sign in btn */
+html[layout^="polymer"] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline:hover {
+  background-color: transparent;
+  border-color: transparent;
+}

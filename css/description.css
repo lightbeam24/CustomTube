@@ -1,0 +1,280 @@
+/* hide OG counts (DO NOT USE display: none)*/
+html[show-upload-date-inside-desc="true"] {
+--bt-og-counts-opacity: 0;
+--bt-og-counts-width: 0;
+--bt-og-counts-height: 0;
+--bt-og-counts-display: block; /* Because for some reason this fixes an issue, I guess YT changed it to inline-flex. */
+--bt-desc-upload-date-display: block;
+}
+html[show-upload-date-next-to-pfp="true"] {
+--bt-og-counts-opacity: 0;
+--bt-og-counts-width: 0;
+--bt-og-counts-height: 0;
+--bt-og-counts-display: block; /* Because for some reason this fixes an issue, I guess YT changed it to inline-flex. */
+--bt-pfp-upload-date-display: block;
+}
+html[show-upload-date-inside-desc] #above-the-fold #info-container {
+  opacity: var(--bt-og-counts-opacity) !important;
+  width: var(--bt-og-counts-width) !important;
+  height: var(--bt-og-counts-height) !important;
+  display: var(--bt-og-counts-display);
+}
+html[show-upload-date-next-to-pfp] #above-the-fold #info-container {
+  opacity: var(--bt-og-counts-opacity) !important;
+  width: var(--bt-og-counts-width) !important;
+  height: var(--bt-og-counts-height) !important;
+  display: var(--bt-og-counts-display);
+}
+/* IMPORTANT: THIS IS UNIVERSAL */
+/* BTSection description */
+html[watch-metadata-style] {
+/* og stuff */
+--bt-watch-metadata-og-description-buttons-display: none;
+--bt-watch-metadata-clickable-description-cursor: text;
+--bt-watch-metadata-clickable-description-pointer-events: none;
+--bt-watch-metadata-description-inner-pointer-events: all;
+/* new stuff */
+/*--bt-display-none: none;*/
+--bt-watch-metadata-new-buttons-hidden: none;
+--bt-watch-metadata-new-buttons-pointer-events: all;
+--bt-watch-metadata-new-buttons-cursor: default;
+}
+/* BTSection Description */
+/* remove clickable desc */
+html[watch-metadata-style] #description {
+  cursor: var(--bt-watch-metadata-clickable-description-cursor) !important;
+  pointer-events: var(--bt-watch-metadata-clickable-description-pointer-events);
+}
+html[watch-metadata-style] #snippet {
+  pointer-events: var(--bt-watch-metadata-description-inner-pointer-events) !important;
+}
+html[watch-metadata-style] ytd-text-inline-expander[is-expanded] {
+  pointer-events: var(--bt-watch-metadata-description-inner-pointer-events) !important;
+}
+html[watch-metadata-style] #expand.ytd-text-inline-expander,
+html[watch-metadata-style] #collapse.ytd-text-inline-expander {
+	display: var(--bt-watch-metadata-og-description-buttons-display);
+}
+/* new buttons */
+html[watch-metadata-style] ytd-watch-flexy #above-the-fold ytd-text-inline-expander[is-expanded] #bt-show-more,
+html[watch-metadata-style] ytd-watch-flexy #above-the-fold ytd-text-inline-expander:not([is-expanded]) #bt-show-less {
+	display: var(--bt-watch-metadata-new-buttons-hidden);
+}
+html[watch-metadata-style] ytd-watch-flexy #above-the-fold ytd-text-inline-expander[is-expanded] #bt-show-less,
+html[watch-metadata-style] ytd-watch-flexy #above-the-fold ytd-text-inline-expander:not([is-expanded]) #bt-show-more {
+	pointer-events: var(--bt-watch-metadata-new-buttons-pointer-events) !important;
+	cursor: var(--bt-watch-metadata-new-buttons-cursor);
+}
+
+html[watch-metadata-style] #bt-desc-upload-date {
+  display: var(--bt-desc-upload-date-display, none);
+  font-size: var(--bt-desc-upload-date-font-size);
+  font-family: var(--bt-desc-upload-date-font-family);
+  color: var(--bt-desc-upload-date-text-color);
+  font-weight: var(--bt-desc-upload-date-font-weight);
+}
+html[watch-metadata-style] #snippet.ytd-text-inline-expander {
+  mask-image: var(--bt-desc-snippet-mask-image) !important;
+  max-height: var(--bt-desc-snippet-max-height) !important;
+}
+html[watch-metadata-style] #ellipsis {
+	display: var(--bt-elipsis-display) !important;
+}
+html[watch-metadata-style] ytd-text-inline-expander {
+  color: var(--bt-desc-text-color);
+  font-family: var(--bt-desc-font-family);
+  font-size: var(--bt-desc-font-size);
+  line-height: var(--bt-desc-line-height);
+  font-weight: var(--bt-desc-font-weight);
+}
+/* links */
+html[watch-metadata-style] #description .yt-core-attributed-string--link-inherit-color {
+  color: var(--bt-desc-link-color) !important;
+}
+html[watch-metadata-style] #description:hover .yt-core-attributed-string--link-inherit-color {
+  color: var(--bt-desc-link-color-hover) !important;
+}
+
+html[watch-metadata-style^="cosmicpanda"] {
+--bt-watch-metadata-desc-radius: 0;
+--bt-watch-metadata-desc-margin-top: 0;
+--bt-watch-metadata-desc-inner-margin-bottom: 0;
+/* snippet */
+--bt-desc-snippet-mask-image: none;
+--bt-desc-snippet-max-height: 50px;
+--bt-elipsis-display: none;
+/* text */
+--bt-desc-text-color: var(--bt-text-color-5);
+--bt-desc-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-font-size: 12px;
+--bt-desc-font-weight: normal;
+--bt-desc-line-height: 14px;
+--bt-desc-link-color: inherit;
+--bt-desc-link-color-hover: var(--bt-blue);
+/* upload date */
+--bt-desc-upload-date-font-size: 12px;
+--bt-desc-upload-date-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-upload-date-font-weight: 500;
+--bt-desc-upload-date-text-color: var(--bt-desc-text-color);
+/* expand */
+--bt-desc-expand-border: none;
+--bt-desc-expand-border-top: 1px solid var(--bt-section-border-color);
+--bt-desc-expand-bg: transparent;
+--bt-desc-expand-width: 100%;
+--bt-desc-expand-text-transform: uppercase;
+--bt-desc-expand-height: 28px;
+--bt-desc-expand-font-size: 11px;
+--bt-desc-expand-font-weight: 500;
+--bt-desc-expand-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-expand-text-color: var(--bt-text-color-3);
+--bt-desc-expand-cursor: pointer;
+--bt-desc-expand-text-color-hover: var(--bt-text-color-4);
+}
+html[watch-metadata-style^="hitchhiker"] {
+--bt-watch-metadata-desc-bg: var(--bt-section-bg);
+--bt-watch-metadata-desc-radius: 0;
+--bt-watch-metadata-desc-box-shadow: var(--bt-section-box-shadow);
+--bt-watch-metadata-desc-inner-margin-bottom: 0;
+/* snippet */
+--bt-desc-snippet-mask-image: none;
+--bt-desc-snippet-max-height: 50px;
+--bt-elipsis-display: none;
+/* text */
+--bt-desc-text-color: var(--bt-text-color-5);
+--bt-desc-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-font-size: 12px;
+--bt-desc-font-weight: normal;
+--bt-desc-line-height: 14px;
+--bt-desc-link-color: inherit;
+--bt-desc-link-color-hover: var(--bt-blue);
+/* upload date */
+--bt-desc-upload-date-font-size: 12px;
+--bt-desc-upload-date-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-upload-date-font-weight: 500;
+--bt-desc-upload-date-text-color: var(--bt-desc-text-color);
+/* expand */
+--bt-desc-expand-border: none;
+--bt-desc-expand-border-top: 1px solid var(--bt-section-border-color);
+--bt-desc-expand-bg: transparent;
+--bt-desc-expand-width: 100%;
+--bt-desc-expand-text-transform: uppercase;
+--bt-desc-expand-height: 28px;
+--bt-desc-expand-font-size: 11px;
+--bt-desc-expand-font-weight: 500;
+--bt-desc-expand-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-expand-text-color: var(--bt-text-color-3);
+--bt-desc-expand-cursor: pointer;
+--bt-desc-expand-text-color-hover: var(--bt-text-color-4);
+}
+html[watch-metadata-style^="hitchhiker-2014"],
+html[watch-metadata-style^="hitchhiker-2013"] {
+--bt-watch-metadata-desc-bg: var(--bt-section-bg);
+--bt-watch-metadata-desc-radius: 0;
+--bt-watch-metadata-desc-box-shadow: var(--bt-section-box-shadow);
+--bt-watch-metadata-desc-inner-margin-bottom: 0;
+/* snippet */
+--bt-desc-snippet-mask-image: none;
+--bt-desc-snippet-max-height: 50px;
+--bt-elipsis-display: none;
+/* text */
+--bt-desc-text-color: var(--bt-text-color-5);
+--bt-desc-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-font-size: 13px;
+--bt-desc-font-weight: normal;
+--bt-desc-line-height: 14px;
+--bt-desc-link-color: inherit;
+--bt-desc-link-color-hover: var(--bt-blue);
+/* upload date */
+--bt-desc-upload-date-font-size: 13px;
+--bt-desc-upload-date-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-upload-date-font-weight: bold;
+--bt-desc-upload-date-text-color: var(--bt-desc-text-color);
+/* expand */
+--bt-desc-expand-border: none;
+--bt-desc-expand-border-top: 1px solid var(--bt-section-border-color);
+--bt-desc-expand-bg: transparent;
+--bt-desc-expand-width: 100%;
+--bt-desc-expand-text-transform: uppercase;
+--bt-desc-expand-height: 28px;
+--bt-desc-expand-font-size: 11px;
+--bt-desc-expand-font-weight: 500;
+--bt-desc-expand-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-expand-text-color: var(--bt-text-color-3);
+--bt-desc-expand-cursor: pointer;
+--bt-desc-expand-text-color-hover: var(--bt-text-color-4);
+}
+html[watch-metadata-style="polymer-2019"] {
+--bt-watch-metadata-desc-radius: 0;
+--bt-watch-metadata-desc-inner-margin-bottom: 0;
+--bt-watch-metadata-desc-margin-left: 48px;
+/* snippet */
+--bt-desc-snippet-mask-image: none;
+--bt-desc-snippet-max-height: 60px;
+--bt-elipsis-display: none;
+/* text */
+--bt-desc-text-color: var(--bt-spec-text-primary);
+--bt-desc-font-family: Roboto, Arial, sans-serif;
+--bt-desc-font-size: 1.4rem;
+--bt-desc-font-weight: 400;
+--bt-desc-line-height: 2.1rem;
+--bt-desc-link-color: auto;
+--bt-desc-link-color-hover: auto;
+/* expand */
+--bt-desc-expand-border: none;
+--bt-desc-expand-border-top: 1px solid var(--bt-section-border-color);
+--bt-desc-expand-bg: transparent;
+--bt-desc-expand-width: 70px;
+--bt-desc-expand-text-transform: uppercase;
+--bt-desc-expand-height: 21px;
+--bt-desc-expand-font-size: 1.3rem;
+--bt-desc-expand-font-weight: 500;
+--bt-desc-expand-font-family: Roboto, Arial, sans-serif;
+--bt-desc-expand-text-color: var(--bt-spec-text-secondary);
+--bt-desc-expand-cursor: pointer;
+--bt-desc-expand-text-color-hover: var(--bt-spec-text-secondary);
+--bt-desc-expand-top-margin: 10px;
+--bt-desc-expand-padding: 0px;
+--bt-desc-expand-display: block ruby;
+}
+
+
+html[watch-metadata-style] ytd-watch-metadata #description-inner.ytd-watch-metadata {
+  margin-bottom: var(--bt-watch-metadata-desc-inner-margin-bottom);
+}
+html[watch-metadata-style] ytd-watch-metadata #description.ytd-watch-metadata {
+  border-radius: var(--bt-watch-metadata-desc-radius);
+  background: var(--bt-watch-metadata-desc-bg);
+  box-shadow: var(--bt-watch-metadata-desc-box-shadow);
+  margin-left: var(--bt-watch-metadata-desc-margin-left);
+  margin-top: var(--bt-watch-metadata-desc-margin-top, 12px) !important;
+}
+html[watch-metadata-style] ytd-watch-metadata #description.ytd-watch-metadata:hover {
+  background: var(--bt-watch-metadata-desc-bg) !important;
+}
+html[watch-metadata-style] #bt-show-more, 
+html[watch-metadata-style] #bt-show-less {
+  border: var(--bt-desc-expand-border);
+  border-top: var(--bt-desc-expand-border-top);
+  background: var(--bt-desc-expand-bg);
+  width: var(--bt-desc-expand-width);
+  text-transform: var(--bt-desc-expand-text-transform);
+  height: var(--bt-desc-expand-height);
+  font-size: var(--bt-desc-expand-font-size);
+  font-weight: var(--bt-desc-expand-font-weight);
+  font-family: var(--bt-desc-expand-font-family);
+  color: var(--bt-desc-expand-text-color);
+  cursor: var(--bt-desc-expand-cursor) !important;
+  margin-top: var(--bt-desc-expand-top-margin);
+  padding: var(--bt-desc-expand-padding);
+  display: var(--bt-desc-expand-display, block);
+}
+html[watch-metadata-style] #bt-show-more:hover, 
+html[watch-metadata-style] #bt-show-less:hover {
+  color: var(--bt-desc-expand-text-color-hover);
+}
+
+html[watch-metadata-style="polymer-2019"]:not([title-on-top="true"]) #bottom-row.ytd-watch-metadata {
+  margin-top: 60px;
+  border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+  padding-bottom: 10px;
+}

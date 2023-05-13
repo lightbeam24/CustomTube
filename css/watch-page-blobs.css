@@ -1,0 +1,234 @@
+/* HITCHHIKER 2013 */
+/* guide button NOTE: Safe to leave as a 2013 blob */
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy:not([guide]) #guide-button {
+  position: absolute;
+  top: 70px;
+  margin-left: 30px;
+  z-index: 2119;
+  background: none !important;
+  cursor: pointer;
+  transition: 0.25s linear;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy[fullscreen] #guide-button {
+  display: none;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy[guide] #guide-button {
+  position: absolute;
+  top: 70px;
+  margin-left: 170px;
+  z-index: 2109219;
+  background: none !important;
+  cursor: pointer;
+  transition: 0.25s linear;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy #guide-button #bt-guide-icon {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -51px 0;
+  width: 18px;
+  height: 18px;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy #guide-button:hover #bt-guide-icon {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) 0 -22px;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy #guide-button::after {
+  content: "Guide";
+  font-size: 11px;
+  position: absolute;
+  margin-top: -4px;
+  margin-left: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #999;
+  font-family: arial;
+  opacity: 1;
+  transition: opacity 0.25s;
+  transition-delay: 0.2s;
+  width: 150px;
+  padding: 10px 0;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy[guide] #guide-button::after {
+  opacity: 0;
+  transition: opacity 0.05s;
+  transition-delay: 0s;
+  margin-left: -150px;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy #guide-button::before {
+  border: 4px solid transparent;
+  border-left: none;
+  border-right-color: #ccc;
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  left: 4px;
+  -moz-transition: opacity .3s linear;
+  -ms-transition: opacity .3s linear;
+  -o-transition: opacity .3s linear;
+  -webkit-transition: opacity .3s linear;
+  transition: opacity .3s linear;
+  opacity: 0;
+  content: "";
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy #guide-button:hover::before {
+  border-right-color: #666;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy[guide] #guide-button::before {
+  opacity: 1;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy #guide-button:hover::after {
+  color: #666;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy #guide-button #bt-guide-icon svg {
+  display: none !important;
+}
+html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy #guide-button svg {
+  display: none !important;
+}
+/* HITCHHIKER IN GENERAL */
+/* overlayTime Status. Probably safe to leave this as a blob */
+html[watch-metadata-style^="hitchhiker"] ytd-thumbnail #thumbnail.ytd-thumbnail,
+html[watch-metadata-style^="cosmicpanda"] ytd-thumbnail #thumbnail.ytd-thumbnail {
+  overflow: visible;
+}
+html[watch-metadata-style^="hitchhiker"] #thumbnail-container,
+html[watch-metadata-style^="cosmicpanda"] #thumbnail-container {
+  overflow: visible !important;
+}
+@keyframes timeStatusFadeIn {
+0% {opacity: 0;}
+30% {opacity: 0;}
+100% {opacity: 1;}
+}
+html[watch-metadata-style^="hitchhiker"] ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="cosmicpanda"] ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+  right: -302px;
+  top: -54px;
+  top: 6px;
+  background: none;
+  font-size: 13px;
+  font-weight: normal;
+  font-family: arial;
+  color: #999;
+  letter-spacing: 0.7px;
+  animation-name: timeStatusFadeIn;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  z-index: 92219;
+ /* background: rgba(250,250,250,0.2);*/
+}
+html[watch-metadata-style^="cosmicpanda"] ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+  right: -278px;
+}
+/*
+ytd-thumbnail-overlay-time-status-renderer {
+  mix-blend-mode: color-burn;
+  filter: brightness(1);
+  color: #ccc !important;
+}*/
+html[watch-metadata-style^="hitchhiker"][static] ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="hitchhiker"][pseudo-static] ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+  right: -278px;
+}
+/* end blob */
+/* hitchhiker blob */
+html[watch-metadata-style^="hitchhiker-2014"] #owner,
+html[watch-metadata-style^="hitchhiker-2013"] #owner {
+	z-index: 121;
+}
+/* anything middle row related can be hh only */
+html[watch-metadata-style^="hitchhiker"] #bt-middle-row {
+  background: var(--bt-section-bg);
+  box-shadow: var(--bt-section-box-shadow);
+}
+html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row,
+html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row {
+  display: flex;
+  flex-direction: row-reverse;
+}
+html:not([watch-metadata-style^="hitchhiker"]):not([watch-metadata-style^="cosmicpanda"]) #bt-middle-row {
+  display: none;
+}
+html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row button,
+html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row button {
+  border-bottom: 3px solid transparent !important;
+  border-radius: 0;
+}
+html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row button:hover,
+html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row button:focus,
+html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row button:hover,
+html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row button:focus {
+  border-bottom: 3px solid red !important;
+}
+/* end hitchhiker blob */
+/* UNVERIFIED POLYMER BLOB */
+html[watch-metadata-style="polymer-2019"]:not([title-on-top="true"]) #owner.ytd-watch-metadata {
+  margin-top: 76px;
+  position: absolute;
+  width: 100%;
+}
+/* END */
+/* polymer blob also unverified */
+html[watch-metadata-style="polymer-2019"] #bt-above {
+  margin-bottom: 10px;
+}
+/* END */
+/* other action */
+html[watch-metadata-style^="hitchhiker"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__icon {
+	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -64px -1389px;
+	width: 20px;
+	height: 20px;
+	opacity: 0.6;
+}
+html[watch-metadata-style^="hitchhiker"] button[aria-label="Share"] .yt-spec-button-shape-next__icon {
+	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -21px -1679px;
+	width: 20px;
+	height: 20px;
+	opacity: 0.6;
+}
+html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"] .yt-spec-button-shape-next__icon {
+	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -42px -845px;
+	width: 20px;
+	height: 20px;
+	opacity: 0.6;
+}
+html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"] {
+	margin-left: 10px;
+}
+html[watch-metadata-style^="hitchhiker"] button[aria-label="Save to playlist"] svg,
+html[watch-metadata-style^="hitchhiker"] button[aria-label="Share"] svg,
+html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"] svg {
+	display: var(--bt-wp-og-icons-display, none) !important;
+}
+html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"]::after {
+	content: "More";
+	font-family: var(--bt-watch-metadata-buttons-font-family, "YouTube Noto",Roboto,arial);
+  font-size: var(--bt-watch-metadata-font-size, 11px);
+  opacity: 0.6;
+  font-weight: 500;
+  margin-left: 8px;
+}
+html[watch-metadata-style^="hitchhiker-2014"] button[aria-label="More actions"],
+html[watch-metadata-style^="hitchhiker-2013"] button[aria-label="More actions"] {
+  margin-right: 20px;
+}
+#bt-middle-row span {
+  font-family: var(--bt-watch-metadata-buttons-font-family, "YouTube Noto",Roboto,arial);
+  font-size: var(--bt-watch-metadata-font-size, 11px);
+  opacity: 0.6;
+  font-weight: 500;
+  margin-left: 1px;
+  margin-top: -40px;
+}
+/* comsicpanda blob */
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-metadata #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata {
+  justify-content: flex-start !important;
+}
+/* end */
+/* nonspecific blobl */
+html[watch-metadata-style^="cosmicpanda"] #bt-above yt-formatted-string {
+  max-height: 30px;
+  display: block;
+  overflow: scroll;
+  text-overflow: "... (Scroll->)";
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+/* end */

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+    <meta charset="UTF-8">
+      <style>
+		body {
+		  width: 700px;
+		  height: 576px;
+		  background: #f2f2f2;
+		  font-family: arial !important;
+		}
+		p {
+		  margin-top: 0;
+		  margin-bottom: 0;
+		}
+		#top {
+		  background: #fff;
+		  top: 0;
+		  position: fixed;
+		  height: 36px;
+		  width: 100%;
+		  left: 0;
+		  display: flex;
+		  z-index: 1;
+		  box-shadow: 2px 2px 2px #ddd;
+		  transition-duration: 0.35s;
+		}
+		#top-inner {
+		  display: flex;
+		}
+		#title {
+		  font-size: 16px;
+		  margin-left: 8px;
+		  margin-top: 8px;
+		}
+		.subtitle {
+		  color: #555;
+		  font-size: 13px;
+		  margin-top: 10px;
+		  margin-left: 8px;
+		  margin-bottom: 8px;
+		}
+		.top-item {
+		  height: 24px;
+		  margin-top: 5px;
+		  position: absolute;
+		  right: 8px;
+		}
+		.top-item button {
+		  border: none;
+		  cursor: pointer;
+		  width: 100%;
+		  height: 100%;
+		  display: block;
+		  border-radius: 3px;
+		  font-family: arial !important;
+		  text-align: center;
+		}
+		#restore-defaults button,
+		#rd-dummy button {
+		  padding: 0 13px;
+		}
+		.top-item[active="true"] button {
+		  background: linear-gradient(to top,#0569b5,#045180);
+		  color: white;
+		  box-shadow: inset 3px 3px 3px rgba(0,0,0,0.3);
+		}
+		.top-item[active="false"] button {
+		  background: linear-gradient(to top,#056290,#167ac6);
+		  color: white;
+		  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+		}
+		.top-item[active="false"] button:hover {
+		  background: linear-gradient(to top,#0562b0,#167ae6);
+		  box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+		  color: #fff;
+		}
+		#restore-defaults[active="true"] button {
+		  background: linear-gradient(to top,#0569b5,#045180);
+		  background: linear-gradient(to top,#b50c05,#800904);
+		  color: #000;
+		}
+		#restore-defaults[active="false"] button,
+		#rd-dummy[active="false"] button {
+		  background: linear-gradient(to top,#056290,#167ac6);
+		  background: linear-gradient(to top,#900f05,#c61a16);
+		  background: linear-gradient(to top,#b0b0b0,#e6e6e6);
+		  color: #000;
+		}
+		#restore-defaults[active="false"] button:hover {
+		  background: linear-gradient(to top,#0562b0,#167ae6);
+		  background: linear-gradient(to top,#b00f05,#e61a16);
+		  background: linear-gradient(to top,#c0c0c0,#f0f0f0);
+		  color: #000;
+		}
+		#lmall {
+		  width: 130px;
+		}
+		wrapper {
+		  display: flex;
+		}
+		#left {
+		  width: 130px;
+		  background: #fff;
+		  position: fixed;
+		  left: 0;
+		  top: 36px;
+		  height: 100%;
+		  z-index: 2;
+		  box-shadow: 2px 2px 2px #ddd;
+		  transition-duration: 0.75s;
+		}
+		.left-section {
+		  margin-top: 4px;
+		}
+		.left-title p {
+		  margin: 0 0 0 4px;
+		  font-size: 14px;
+		  color: red;
+		  font-weight: bold;
+		}
+		.left-item {
+		  height: 24px;
+		}
+		.left-item button {
+		  border: none;
+		  cursor: pointer;
+		  text-align: left;
+		  padding-left: 10px;
+		  width: 100%;
+		  height: 100%;
+		  display: block;
+		}
+		.left-item[active="true"] button {
+		  background: transparent;
+		  color: white;
+		  background: red;
+		  background: linear-gradient(to top, #900, #f00);
+		  background: linear-gradient(to top, #b00, #f00);
+		  text-shadow: -1.5px -1.5px 1px rgba(0,0,0,0.1);
+		}
+		.left-item[active="false"] button {
+		  background: transparent;
+		  color: black;
+		}
+		/* Animation disabled */
+		@keyframes lm {
+			0% {background: linear-gradient(to top, #282828 0%, #555 1%, #fff 2%);}
+			0% {color:#000;}
+			10% {background: linear-gradient(to top, #282828 0%, #555 11%, #fff 12%);}
+			20% {background: linear-gradient(to top, #282828 0%, #555 21%, #fff 22%);}
+			30% {background: linear-gradient(to top, #282828 0%, #555 31%, #fff 32%);}
+			40% {background: linear-gradient(to top, #282828 0%, #555 41%, #fff 42%);}
+			50% {background: linear-gradient(to top, #282828 0%, #555 51%, #fff 52%);}
+			60% {background: linear-gradient(to top, #282828 0%, #555 61%, #fff 62%);}
+			70% {background: linear-gradient(to top, #282828 0%, #555 71%, #fff 72%);}
+			80% {background: linear-gradient(to top, #282828 0%, #555 81%, #fff 82%);}
+			90% {background: linear-gradient(to top, #282828 0%, #555 91%, #fff 92%);}
+			100% {background: linear-gradient(to top, #282828, #555);}
+			100% {color:#fff;}
+		}
+		.left-item[active="false"] button:hover,
+		.left-item[active="false"] button:focus {
+		  background: #555;
+		  color: #fff;
+		  /*animation-name: lm;
+		  animation-duration: 0.15s;
+		  animation-iteration-count: 1;*/
+		  background: linear-gradient(to top, #282828, #555);
+		}
+		#lmhelp {
+		  bottom: 20px;
+		  position: fixed;
+		  width: 130px;
+		}
+		@keyframes rightAnim {
+		0% {transform: rotateY(180deg);}
+		0% {opacity: 0;}
+		100% {transform: rotateY(360deg);}
+		100% {opacity: 1;}
+		}
+		#right-outer {
+		  display: block;
+		  transition-duration: 0.1s;
+		  overflow-y: scroll;
+		  width: 700px;
+		  height: 380px;
+		  height: 550px;
+		}
+		.right {
+		  width: 550px;
+		  position: relative;
+		  top: 40px;
+		  left: 134px;
+		  background: #fff;
+		  box-shadow: 2px 2px 2px #ddd;
+		  padding: 4px;
+		  margin-bottom: 6px;
+		  animation-name: rightAnim;
+		  animation-duration: 0.35s;
+		  animation-iteration-count: 1;
+		}
+		.right[style="display: block"]:nth-last-child(1) {
+		  padding-bottom: 40px;
+		}
+		.right-title p {
+		  margin: 0 6px;
+		  font-size: 14px;
+		  color: red;
+		  font-weight: bold;
+		}
+		.right-supertitle p {
+		  margin: 0 6px 2px 6px;
+		  font-size: 18px;
+		  color: black;
+		  font-weight: bold;
+		}
+		.right-subtitle p {
+		  margin: 2px 6px;
+		  font-size: 12px;
+		  color: #666;
+		}
+		#right1 {
+		  display: block;
+		  overflow-y: scroll;
+		  margin-top: 4px;
+		}
+		#right2, #right3, #right4, #right5, #right6 {
+		  display: none;
+		}
+		#right4 {
+		  margin-bottom: 52px;
+		}
+		.right-inner {
+		  padding: 6px 0;
+		  border-top: 1px solid #ccc;
+		  display: block;
+		}
+		label {
+		  font-size: 13px;
+		}
+		.warning-text {
+		  color: #700 !important;
+		  transition-duration: 0.25s;
+		  margin: 0;
+		}
+		.warning-text[hoverable]:hover {
+		  color: #f00 !important;
+		}
+		.info-text {
+		  color: #06c !important;
+		}
+		opt, subopt {
+		  display: flex;
+		  margin: 0;
+		}
+		subopt {
+		  margin-left: 20px;
+		}
+		tooltip {
+		  position: fixed;
+		  bottom: 40px;
+		  left: 150px;
+		}
+		tooltip img {
+		  width: 270px;
+		}
+		.mini-text {
+		  font-size: 10px;
+		  color: #990;
+		  margin-top: 4px;
+		  margin-left: 4px;
+		}
+		.beta-text {
+			font-size: 10px;
+			font-weight: normal;
+			background: radial-gradient(#800, #c00, #e00);
+			background: #fff;
+			color: white;
+			color: red;
+			border: 1px solid red;
+			display: block;
+			padding: 2px 6px;
+			margin-left: 10px;
+			border-radius: 2px;
+		}
+		opt:hover .beta-text {
+			font-weight: bold;
+			background: #c00;
+			color: white;
+			border: 1px solid #c00;
+		}
+		.experiemental-text {
+		  color: #880;
+		}
+		#bottom {
+		  width: 590px;
+		  position: fixed;
+		  bottom: 0;
+		  background: #fff;
+		  left: 130px;
+		  z-index: 2;
+		  box-shadow: 2px -2px 1px #ddd;
+		  transition-duration: 0.75s;
+		  display: flex;
+		}
+		line-seperator {
+		  border-top: 1px solid #ccc;
+		  width: 550px;
+		  display: block;
+		}
+		#disabled-overlay {
+		  background: rgba(0,0,0,0.5);
+		  width: 100%;
+		  height: 100%;
+		  z-index: 12;
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  display: none;
+		}
+		#disabled-overlay .ghostbox {
+		  top: 280px;
+		  left: 160px;
+		  position: relative;
+		  color: #fff;
+		  font-weight: bold;
+		  background: #300;
+		  padding: 8px 16px;
+		  max-width: 400px;
+		}
+		#rd-dummy {
+		  display: none;
+		}
+      </style>
+    </head>
+    <body>
+		<div id="top">
+			<div id="top-inner">
+				<p id="title">CustomTube</p>
+				<p class="subtitle">Configuration Window</p>
+				<div class="top-item" id="lmall" active="false">
+					<button id="sectall">Show All Settings</button>
+				</div>
+				<div id="restore-defaults" class="top-item" style="right: 150px;" active="false">
+					<button>Restore defaults</button>
+				</div>
+				<div id="rd-dummy" class="top-item" style="right: 150px;" active="false">
+					<button>Restore defaults</button>
+				</div>
+			</div>
+		</div>
+		<div id="hitchhiker-reference-menu">
+			<div id="left">
+				<div id="left-inner">
+					<div class="left-section">
+						<div class="left-title">
+							<p>General</p>
+						</div>
+					</div>
+					<div class="left-section">
+						<div class="left-item" id="lm5" active="false">
+							<button id="sect5">Misc</button>
+						</div>
+						<div class="left-item" id="lm1" active="true">
+							<button id="sect1">Layout</button>
+						</div>
+						<div class="left-item" id="lm6" active="false">
+							<button id="sect6">Tweaks</button>
+						</div>
+					</div>
+					<div class="left-section">
+						<div class="left-title">
+							<p>Advanced</p>
+						</div>
+					</div>
+					<div class="left-section">
+						<div class="left-item" id="lm2" active="false">
+							<button id="sect2">Sidebar</button>
+						</div>
+						<div class="left-item" id="lm3" active="false">
+							<button id="sect3">Topbar</button>
+						</div>
+						<div class="left-item" id="lm4" active="false">
+							<button id="sect4">Watch Page</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="right-outer">
+				<div id="right5" class="right">
+					<div class="right-supertitle">
+						<p>General: Misc</p>
+					</div>
+					<div class="right-inner">
+						<opt title="">
+							<label><input type="checkbox" name="showChangelog" class="settings">Show Changelog on Update</label>
+						</opt>
+						<opt title="Allows CustomTube to better integrate the dislike count into the layout. Do not enable this if you aren't using the Return YouTube Dislike extension.">
+							<label><input type="checkbox" name="iUseRYD" class="settings">Enable Return YouTube Dislike compatibility</label>
+						</opt>
+					</div>
+				</div>
+				<div id="right1" class="right">
+					<div class="right-supertitle">
+						<p>General: Layout</p>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Layout Select</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Change the YouTube layout to a variety of previous layouts in a single click! Please note that some layouts may remove features from YouTube in order to be more accurate to the original layout.
+							Example: All layouts remove the "Shorts" section of videos from the homepage, because it messes with the formatting of the grid layout.</p>
+						</div>
+						<div>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="none" style="display:inline-block;">Disabled (Use Current YouTube Layout)</label>
+							<line-seperator></line-seperator>
+							<p class="mini-text info-text">Polymer Layout</p>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="polymer-2019" style="display:inline-block;">Use 2019 Layout</label><br>
+							<line-seperator></line-seperator>
+							<p class="mini-text info-text">Standard Old YouTube Layout (officially codenamed "Hitchhiker")</p>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2017" style="display:inline-block;">Use 2017 Layout ("Old YouTube") [CustomTube Default]</label><br>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2016" style="display:inline-block;">Use 2016 Layout</label><br>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2015" style="display:inline-block;">Use 2015 Layout</label><br>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2014" style="display:inline-block;">Use 2014 Layout</label><br>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2013-2" style="display:inline-block;">Use 2013 Layout*</label><br>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2013-1" style="display:inline-block;">Use Early 2013 Layout*</label><br>
+							<line-seperator></line-seperator>
+							<p class="mini-text info-text">Cosmic Panda Layout</p>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="cosmicpanda-3" style="display:inline-block;">Use 2012 Layout*</label><br>
+							<line-seperator></line-seperator>
+						</div>
+						<p class="subtitle">* Theater Mode is Not Supported.</p>
+					</div>
+				</div>
+				<div id="right6" class="right">
+					<div class="right-supertitle">
+						<p>General: Tweaks</p>
+					</div>
+					<div class="right-inner">
+						<opt title="It waits a few seconds before looping the video, because the video must be loaded first.">
+							<label><input type="checkbox" name="loopByDefault" class="settings">Loop videos by default</label>
+						</opt>
+						<subopt title="Don't loop the video by default when you are watching a playlist.">
+							<label><input type="checkbox" name="dontLoopPlaylists" class="settings">Disable for playlist videos</label>
+						</subopt>
+						<opt title="">
+							<label><input type="checkbox" name="noJoin" class="settings">Hide Join Button</label>
+						</opt>
+						<opt title="">
+							<label><input type="checkbox" name="noClip" class="settings">Hide Clip Button</label>
+						</opt>
+						<opt title="">
+							<label><input type="checkbox" name="noThanks" class="settings">Hide Thanks Button</label>
+						</opt>
+						<opt title="Removes 'sections' from search that are most likely unrelated to the search. These include: People also watched, For you, etc.">
+							<label><input type="checkbox" name="betterSearch" class="settings">Remove Irrelevant Search Results</label>
+						</opt>
+						<opt title="Make pfps square, like they were before the mid 2017 redesign. Using any layout setting from 2017 or earlier will automatically make pfps square regardless of this setting. (However, this setting can be used to unround the topbar profile picture in the 2016 and 2017 layouts.)">
+							<label><input type="checkbox" name="squarePfp" class="settings">Unrounded Profile Pictures</label>
+							<p class="mini-text">Most layout options overwrite this setting</p>
+						</opt>
+						<opt title="Gives video thumbnails sharp edges, like they had before the rounded redesign in 2022. Using any layout setting will automatically make thumbnails square regardless of this setting.">
+							<label><input type="checkbox" name="squareVid" class="settings">Unrounded Video Thumbnails</label>
+							<p class="mini-text">All layout options overwrite this setting</p>
+						</opt>
+					</div>
+				</div>
+				<div id="right2" class="right">
+					<div class="right-supertitle">
+						<p>Advanced: Sidebar (Guide)</p>
+					</div>
+					<div class="right-inner">
+							<opt title="Whether or not to show the home button. If none of the sub options are selected, the text will depend on whatever layout you are using.">
+								<label><input type="checkbox" name="homeSidebarBtn" class="settings">Display Home Button</label>
+							</opt>
+								<subopt title="This is what the text has been since 2016. Some layouts automatically change this text, this setting will override that.">
+									<label><input type="checkbox" name="NOTwtwSidebarBtn" class="settings">Force text to always be "Home", regardless of Layout</label>
+								</subopt>
+								<subopt title="This is what the text was circa 2013-2015. Some layouts automatically change this text, this setting will override that.">
+									<label><input type="checkbox" name="wtwSidebarBtn" class="settings">Force text to always be "What To Watch"</label>
+								</subopt>
+								<subopt title="This is what the text was circa 2012. Some layouts automatically change this text, this setting will override that.">
+									<label><input type="checkbox" name="fytSidebarBtn" class="settings">Force text to always be "From YouTube"</label>
+								</subopt>
+							<opt title="Adds a My Channel button under the Home button.">
+								<label><input type="checkbox" name="myChannelSidebarBtn" class="settings">Display My Channel Button</label>
+							</opt>
+							<opt title="Uncheck this to hide the Shorts button.">
+								<label><input type="checkbox" name="shortsSidebarBtn" class="settings">Display Shorts Button</label>
+							</opt>
+							<opt title="Uncheck this to hide the Trending button.">
+								<label><input type="checkbox" name="trendingSidebarBtn" class="settings">Display Trending Button</label>
+							</opt>
+							<opt title="Uncheck this to hide the Subscriptions button.">
+								<label><input type="checkbox" name="subsSidebarBtn" class="settings">Display Subscriptions Button</label>
+							</opt>
+					</div>
+				</div>
+				<div id="right3" class="right">
+					<div class="right-supertitle">
+						<p>Advanced: Topbar</p>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Search Bar Style</p>
+						</div>
+						<label class="logo-label" title=""><input type="radio" name="searchbarStyle" class="settings" value="autoSearchBar" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" title="Recreates a search bar redesign that YouTube intended to release circa 2017. This redesign never saw the light of day.">
+						<input type="radio" name="searchbarStyle" class="settings" value="material" style="display:inline-block;">Material*</label><br>
+						<p class="subtitle">* Only works on layouts from 2014 or later.</p>
+					</div>
+				</div>
+				<div id="right4" class="right">
+					<div class="right-supertitle">
+						<p>Advanced: Watch Page</p>
+					</div>
+					<div class="right-inner">
+						<opt title="Some users have gotten a new watch page design that plays the video inside the homepage. CustomTube is not built to handle this new watch page yet, so when it detects this new watch page, it automatically refreshes the page, redirecting to the regular watch page. Turn this setting off if it causes issues.">
+							<label><input type="checkbox" name="blockRGW" class="settings">Disable Rich Grid Watch Page</label>
+						</opt>
+						<div class="right-title">
+							<p>Video Player</p>
+						</div>
+						<opt title="Force the video player to always be 16:9 at a consistent size. Using a layout from 2013 or earlier will automatically enable this functionality regardless of this setting.">
+							<label><input type="checkbox" name="noFlexy" class="settings">Force consistent video size</label>
+							<p class="mini-text">Some layout options overwrite this setting (hover for details)</p>
+						</opt>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Related Videos</p>
+						</div>
+						<opt title="You can press load more videos once and that's it, just like it used to be.">
+							<label><input type="checkbox" name="noInfi" class="settings">Disable Infinite Scrolling on related videos</input>
+						</opt>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Related Videos Size (Overrides Layout Setting)</p>
+						</div>
+						<label class="logo-label" title="The size will be determined by your layout setting."><input type="radio" name="relatedSize" class="settings" value="auto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" title="120x68 pixels"><input type="radio" name="relatedSize" class="settings" value="small" style="display:inline-block;">Small (2012-2016)</label><br>
+						<label class="logo-label" title="140x79 pixels"><input type="radio" name="relatedSize" class="settings" value="medium" style="display:inline-block;">Medium (Custom Middleground)</label><br>
+						<label class="logo-label" title="168x94 pixels"><input type="radio" name="relatedSize" class="settings" value="large" style="display:inline-block;">Large (2017-Present)</label><br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="bottom">
+		   <p class="subtitle">For more details on what a setting does, hover over it. All settings require a page refresh to apply.
+		</div>
+		<ghost id="disabled-overlay">
+			<div class="ghostbox">
+				<span>Please go to YouTube to configure CustomTube.</span>
+			</div>
+		</ghost>
+      <script src="popup.js"></script>
+    </body>
+  </html>

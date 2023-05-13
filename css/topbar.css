@@ -1,0 +1,905 @@
+html[topbar-style][static-scrolling] {
+--bt-topbar-position: absolute;
+}
+html[topbar-style] {
+--bt-topbar-position: fixed;
+}
+html[topbar-style="polymer-2019"] {
+--bt-topbar-position: fixed;
+--bt-topbar-box-shadow: 0px 4px 8px -3px rgba(17, 17, 17, .06);
+--bt-topbar-border: none;
+--bt-masthead-bg: var(--bt-spec-brand-background-solid);
+}
+html[topbar-style^="hitchhiker"] {
+--bt-topbar-position: fixed;
+--bt-topbar-box-shadow: none;
+--bt-topbar-border: 1px solid var(--bt-section-border-color);
+--bt-masthead-bg: var(--bt-section-bg);
+}
+html[topbar-style^="hitchhiker-2013"] {
+--bt-topbar-position: absolute;
+--bt-topbar-box-shadow: none;
+--bt-topbar-border: 1px solid var(--bt-section-border-color);
+--bt-masthead-bg: var(--bt-topbar-bg);
+}
+html[topbar-style] #masthead-container.ytd-app {
+	position: var(--bt-topbar-position);
+	border-bottom: var(--bt-topbar-border);
+	background: var(--bt-masthead-bg);
+	box-shadow: var(--bt-topbar-box-shadow);
+}
+
+html[topbar-style] #container.ytd-masthead {
+	/* Note: From search bar style */
+  height: var(--bt-topbar-height) !important;
+}
+html[topbar-style]:not([location="watch"]) #page-manager.ytd-app {
+  margin-top: var(--bt-topbar-height);
+}
+/* 2021 stuff */
+html[topbar-style] #background.ytd-masthead {
+	background: var(--bt-masthead-bg)
+}
+html[static] #end.ytd-masthead {
+  position: absolute;
+  right: 0;
+}
+html[logo="minimalism"],
+html[logo="iconic"],
+html[logo="shady"],
+html[logo="squished"],
+html[logo="soft"] {
+/* #logo */
+--bt-logo-width: 73px;
+/* og logo */
+--bt-og-logo-display: none;
+/* yt icon */
+--bt-logo-inner-padding: 0;
+--bt-logo-inner-margin-left: 2px;
+/* country code */
+--bt-country-code-display: none;
+}
+html[logo="minimalism"] {
+/* yt icon */
+--bt-logo-bg: no-repeat url(https://www.youtube.com/yts/img/ringo/hitchhiker/logo_small_2x-vfl4_cFqn.png);
+--bt-logo-bg-size: 100px 30px;
+--bt-logo-width: 100px;
+--bt-logo-height: 30px;
+}
+html[logo="iconic"] {
+/* yt icon */
+--bt-logo-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -24px -600px;
+--bt-logo-bg-size: auto;
+--bt-logo-width: 73px;
+--bt-logo-height: 30px;
+}
+html[logo="shady"] {
+/* topbar logo renderer */
+--bt-logo-position: absolute;
+--bt-logo-left: 30px;
+/* yt icon */
+--bt-logo-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -68px -333px;
+--bt-logo-bg-size: auto;
+--bt-logo-width: 73px;
+--bt-logo-height: 30px;
+}
+html[logo="squished"] {
+--bt-logo-bg: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflaJ9wdK.png) 0 -116px;
+--bt-logo-bg-size: auto;
+--bt-logo-width: 72px;
+--bt-logo-height: 30px;
+}
+html[logo="soft"] {
+/* topbar logo renderer */
+--bt-logo-position: absolute;
+--bt-logo-left: 0px;
+/* yt icon */
+--bt-logo-bg: no-repeat url(https://s.ytimg.com/yt/imgbin/www-refresh-vflk40U3E.png) 0px -280px;
+--bt-logo-bg-size: auto;
+--bt-logo-width: 100px;
+--bt-logo-height: 40px;
+}
+html[logo="polyvert"] ytd-logo svg {
+  width: 96px !important;
+}
+/* logo */
+html[logo] ytd-topbar-logo-renderer {
+  position: var(--bt-logo-position);
+  left: var(--bt-logo-left);
+}
+html[logo] #logo.ytd-masthead {
+	width: var(--bt-logo-width) !important;
+}
+html[logo] #logo yt-icon svg  {
+  display: var(--bt-og-logo-display) !important;
+}
+html[logo] #start #logo yt-icon {
+  background: var(--bt-logo-bg);
+  background-size: var(--bt-logo-bg-size);
+  width: var(--bt-logo-width);
+  height: var(--bt-logo-height);
+  padding: var(--bt-logo-inner-padding) !important;
+  margin-left: var(--bt-logo-inner-margin-left);
+}
+html[logo] #country-code.ytd-topbar-logo-renderer {
+  display: var(--bt-country-code-display);
+}
+html[logo][dark] #start #logo yt-icon::after {
+  content: "";
+  display: block;
+  height: inherit;
+  width: inherit;
+  filter: invert(1);
+  mask-image: linear-gradient(to right,rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255,0) 28px,rgb(255, 255, 255) 28.1px);
+  background: inherit;
+}
+html[logo][dark] #start #logo yt-icon {
+  filter: invert(1);
+}
+html[logo="minimalism"][dark] #start #logo yt-icon::after {
+  mask-image: linear-gradient(to left,rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255,0) 66px,rgb(255, 255, 255) 66.1px);
+}
+html[logo="soft"][dark] #start #logo yt-icon::after {
+  mask-image: linear-gradient(to right,rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255,0) 36px,rgb(255, 255, 255) 28.1px);
+}
+/* BTSection Search bar */
+html[search-bar-style="aozora-2011"] {
+/* topbar */
+/* masthead */
+--bt-topbar-height: 54px;
+/* ytdsearchbox ytd masthead (outer bar) */
+--bt-searchbar-outer-margin: 0;
+--bt-searchbar-outer-padding: 0;
+/* center ytd masthead */
+--bt-searchbar-left: 140px;
+--bt-searchbar-position: absolute;
+--bt-searchbar-width: 365px;
+--bt-static-searchbar-width: 365px;
+/* container ytd searchbox */
+--bt-searchbar-input-box-shadow: inset 0 0px 0px rgba(0,0,0,0.0);
+--bt-searchbar-input-border: 1px solid #ccc;
+--bt-searchbar-input-border-right: 1px solid transparent;
+--bt-searchbar-input-padding: 2px 4px 2px 6px;
+--bt-searchbar-input-radius: 0;
+--bt-searchbar-input-margin-left: 0;
+--bt-searchbar-input-transition: 0.2s ease;
+/* container ytd searchbox focus */
+--bt-searchbar-input-focus-margin-left: 0;
+--bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+--bt-searchbar-input-focus-border: 1px solid #1c62b9;
+/* search form ytd searchbox */
+--bt-searchbar-height: 29px;
+/* input search icon */
+--bt-search-input-pre-icon-display: none;
+/* input new pre icon 
+Redir: See Material Search Bar
+/* search placeholder */
+--bt-search-placeholder-text-color: #767676;
+/* search button icon legacy ytd searchbox */
+--bt-search-btn-width: 66px;
+--bt-search-btn-height: var(--bt-searchbar-height);
+--bt-search-btn-radius: 0 2px 2px 0;
+--bt-search-btn-border: 1px solid var(--ytd-searchbox-legacy-button-border-color);
+--bt-search-btn-bg: var(--ytd-searchbox-legacy-button-color);
+/* search button icon */
+--bt-search-btn-icon-margin-top: -2px;
+--bt-search-btn-icon-color: var(--yt-spec-text-primary);
+--bt-search-btn-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -72px -877px;
+--bt-search-btn-icon-width: 15px;
+--bt-search-btn-icon-height: 15px;
+--bt-search-btn-icon-opacity: 0.6;
+/* search button hover icon */
+--bt-search-btn-icon-opacity-hover: 1;
+/* search button OG icon */
+--bt-search-btn-og-icon-display: none;
+/* voice search */
+--bt-voice-search-btn-display: none;
+}
+html[search-bar-style="cosmicpanda-3"] {
+/* topbar */
+/* masthead */
+--bt-topbar-height: 60px;
+/* ytdsearchbox ytd masthead (outer bar) */
+--bt-searchbar-outer-margin: 0;
+--bt-searchbar-outer-padding: 0;
+/* center ytd masthead */
+--bt-searchbar-left: 118px;
+--bt-searchbar-position: absolute;
+--bt-searchbar-width: 576px;
+--bt-static-searchbar-width: 462px;
+/* container ytd searchbox */
+--bt-searchbar-input-box-shadow: inset 0 0px 0px rgba(0,0,0,0.0);
+--bt-searchbar-input-border: 1px solid #ccc;
+--bt-searchbar-input-border-right: 1px solid transparent;
+--bt-searchbar-input-padding: 2px 4px 2px 6px;
+--bt-searchbar-input-radius: 3px 0 0 3px;
+--bt-searchbar-input-margin-left: 0;
+--bt-searchbar-input-transition: 0.2s ease;
+/* container ytd searchbox focus */
+--bt-searchbar-input-focus-margin-left: 0;
+--bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+--bt-searchbar-input-focus-border: 1px solid var(--bt-blue);
+--bt-searchbar-input-bg: var(--bt-universal-white);
+/* search form ytd searchbox */
+--bt-searchbar-height: 32px;
+/* input search icon */
+--bt-search-input-pre-icon-display: none;
+/* input new pre icon 
+Redir: See Material Search Bar
+/* search placeholder */
+--bt-search-placeholder-opacity: 0;
+/* search button icon legacy ytd searchbox */
+--bt-search-btn-width: 37px;
+--bt-search-btn-height: var(--bt-searchbar-height);
+--bt-search-btn-radius: 0 2px 2px 0;
+--bt-search-btn-border: 1px solid #ccc;
+--bt-search-btn-border-bottom: 1px solid #aaa;
+--bt-search-btn-bg: linear-gradient(to bottom,#fafafa 0,#dcdcdc 100%);
+--bt-search-btn-box-shadow: inset 0 0 1px #fff;
+--bt-search-btn-box-shadow-hover: 0 1px 2px rgba(0,0,0,0.25),inset 0 0 3px #fff;
+--bt-search-btn-border-hover: 1px solid #aaa;
+--bt-search-btn-border-bottom-hover: 1px solid #999;
+--bt-search-btn-bg-hover: linear-gradient(to bottom,#f0f0f0 0,#e6e6e6 100%);
+--bt-search-btn-box-shadow-active: inset 0 1px 5px rgba(0,0,0,0.25),0 1px 0 #fff;
+--bt-search-btn-border-active: 1px solid #aaa;
+--bt-search-btn-border-bottom-active: 1px solid #ccc;
+--bt-search-btn-bg-active: linear-gradient(to bottom,#c8c8c8 0,#e6e6e6 100%);
+/* search button icon */
+--bt-search-btn-icon-margin-top: -3px;
+--bt-search-btn-icon-color: var(--yt-spec-text-primary);
+--bt-search-btn-icon-bg: no-repeat url(http://s.ytimg.com/yts/imgbin/www-refresh-vflrvDBWB.png) -269px -70px;
+--bt-search-btn-icon-width: 14px;
+--bt-search-btn-icon-height: 14px;
+--bt-search-btn-icon-opacity: 0.6;
+/* search button hover icon */
+--bt-search-btn-icon-opacity-hover: 1;
+/* search button OG icon */
+--bt-search-btn-og-icon-display: none;
+/* voice search */
+--bt-voice-search-btn-display: none;
+}
+/* BTSection Search bar */
+html[search-bar-style^="hitchhiker"] {
+/* topbar */
+/* masthead */
+--bt-topbar-height: 49px;
+/* ytdsearchbox ytd masthead (outer bar) */
+--bt-searchbar-outer-margin: 0;
+--bt-searchbar-outer-padding: 0;
+/* center ytd masthead */
+--bt-searchbar-left: var(--bt-sidebar-width);
+--bt-searchbar-position: absolute;
+--bt-searchbar-width: 576px;
+--bt-static-searchbar-width: 400px;
+/* container ytd searchbox */
+--bt-searchbar-input-box-shadow: inset 0 1px 2px #eee;
+--bt-searchbar-input-border: 1px solid #ccc;
+--bt-searchbar-input-border-right: 1px solid transparent;
+--bt-searchbar-input-padding: 2px 4px 2px 6px;
+--bt-searchbar-input-radius: 0;
+--bt-searchbar-input-margin-left: 0;
+--bt-searchbar-input-transition: 0.2s ease;
+--bt-searchbar-input-bg: var(--bt-section-bg);
+/* container ytd searchbox focus */
+--bt-searchbar-input-focus-margin-left: 0;
+--bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+--bt-searchbar-input-focus-border: 1px solid #1c62b9;
+/* search form ytd searchbox */
+--bt-searchbar-height: 29px;
+/* input search icon */
+--bt-search-input-pre-icon-display: none;
+/* input new pre icon 
+Redir: See Material Search Bar
+/* search placeholder */
+--bt-search-placeholder-text-color: #767676;
+--bt-search-placeholder-opacity: 0.5;
+/* search button icon legacy ytd searchbox */
+--bt-search-btn-width: 66px;
+--bt-search-btn-height: var(--bt-searchbar-height);
+--bt-search-btn-radius: 0 2px 2px 0;
+--bt-search-btn-border: 1px solid var(--ytd-searchbox-legacy-button-border-color);
+--bt-search-btn-bg: var(--ytd-searchbox-legacy-button-color);
+/* search button icon */
+--bt-search-btn-icon-margin-top: -2px;
+--bt-search-btn-icon-color: var(--yt-spec-text-primary);
+--bt-search-btn-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -72px -877px;
+--bt-search-btn-icon-width: 15px;
+--bt-search-btn-icon-height: 15px;
+--bt-search-btn-icon-opacity: 0.6;
+/* search button hover icon */
+--bt-search-btn-icon-opacity-hover: 1;
+/* search button OG icon */
+--bt-search-btn-og-icon-display: none;
+/* voice search */
+--bt-voice-search-btn-display: none;
+}
+html[search-bar-style="hitchhiker-2013-2"],
+html[search-bar-style="hitchhiker-2013-1"] {
+/* center ytd masthead */
+--bt-searchbar-width: 488px;
+--bt-static-searchbar-width: 375px;
+}
+/* BTSection Search bar */
+html[pseudo-static][search-bar-style^="hitchhiker"] {
+--bt-searchbar-left: calc(var(--bt-sidebar-width) + 40px);
+}
+html[search-bar-style="hitchhiker-2016"],
+html[search-bar-style="hitchhiker-2015"],
+html[search-bar-style="hitchhiker-2014"],
+html[search-bar-style="hitchhiker-2013-2"],
+html[search-bar-style="hitchhiker-2013-1"] {
+/* search placeholder */
+--bt-search-placeholder-opacity: 0;
+}
+html[search-bar-style="hitchhiker-2015"],
+html[search-bar-style="hitchhiker-2014"],
+html[search-bar-style="hitchhiker-2013-2"],
+html[search-bar-style="hitchhiker-2013-1"] {
+/* search button icon */
+--bt-search-btn-icon-margin-top: -2px;
+--bt-search-btn-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -420px -459px;
+--bt-search-btn-icon-width: 14px;
+--bt-search-btn-icon-height: 14px;
+}
+html[search-bar-style="material"] {
+--bt-searchbar-input-padding: 2px 4px 2px 6px;
+--nostalgic-search-bar-input-padding: 2px 4px 2px 80px;
+/* topbar */
+--material-topbar-height: 56px;
+--material-search-bar-height: 40px;
+--material-search-bar-width: 576px;
+--material-search-bar-input-padding: 2px 4px 2px 80px;
+--material-search-bar-placeholder-color: #767676;
+/* masthead */
+--bt-topbar-height: 56px;
+/* ytdsearchbox ytd masthead (outer bar) */
+--bt-searchbar-outer-margin: 0;
+/* center ytd masthead */
+--bt-searchbar-width: 576px;
+--bt-static-searchbar-width: 400px;
+/* container ytd searchbox */
+--bt-searchbar-input-box-shadow: none;
+--bt-searchbar-input-border: none;
+--bt-searchbar-input-bg: #f0f0f0;
+--bt-searchbar-input-padding: 2px 4px 2px 80px;
+--bt-searchbar-input-radius: 0;
+--bt-searchbar-input-margin-left: 0;
+/* container ytd searchbox focus */
+--bt-searchbar-input-focus-margin-left: 0;
+--bt-searchbar-input-focus-box-shadow: none;
+--bt-searchbar-input-focus-border: none;
+/* search form ytd searchbox */
+--bt-searchbar-height: 40px;
+/* input search icon */
+--bt-search-input-pre-icon-display: none;
+/* input new pre icon */
+--bt-search-input-new-pre-icon-display: block;
+--bt-search-input-new-pre-icon-content: "";
+--bt-search-input-new-pre-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -72px -877px;
+--bt-search-input-new-pre-icon-width: 20px;
+--bt-search-input-new-pre-icon-height: 20px;
+--bt-search-input-new-pre-icon-margin: 4px 25px 0 -50px;
+--bt-search-input-new-pre-icon-opacity: 0.6;
+--bt-search-input-new-pre-icon-opacity-2: 0.75;
+--bt-search-input-new-pre-icon-opacity-3: 0.9;
+/* search placeholder */
+--bt-search-placeholder-font-weight: 500;
+--bt-search-placeholder-text-color: #767676;
+/* search button icon legacy ytd searchbox */
+--bt-search-btn-display: none;
+/* voice search */
+--bt-voice-search-btn-display: none;
+}
+html[dark][search-bar-style="material"] {
+--bt-searchbar-input-border: none;
+--bt-searchbar-input-bg: #101010;
+--bt-search-input-new-pre-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -72px -877px;
+--bt-search-input-new-pre-icon-opacity: 1;
+--bt-search-input-new-pre-icon-opacity-2: 0.9;
+--bt-search-input-new-pre-icon-opacity-3: 0.6;
+--bt-search-placeholder-text-color: #767676;
+}
+/* BTMEGASection Topbar */
+/* BTSection Search bar */
+html[search-bar-style="polymer-2021"] {
+/* topbar */
+/* masthead */
+--bt-topbar-height: 56px;
+/* ytdsearchbox ytd masthead (outer bar) */
+--bt-searchbar-outer-margin: 0;
+--bt-searchbar-outer-padding: 0;
+/* center ytd masthead */
+--bt-searchbar-width: 576px;
+--bt-static-searchbar-width: 400px;
+/* container ytd searchbox */
+--bt-searchbar-input-box-shadow: inset 0 0px 0px rgba(0,0,0,0.0);
+--bt-searchbar-input-border: 1px solid #ccc;
+--bt-searchbar-input-border-right: 1px solid transparent;
+--bt-searchbar-input-padding: 2px 4px 2px 12px;
+--bt-searchbar-input-radius: 2px 0 0 2px;
+--bt-searchbar-input-margin-left: 0;
+/* container ytd searchbox focus */
+--bt-searchbar-input-focus-margin-left: 0;
+--bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+--bt-searchbar-input-focus-border: 1px solid #1c62b9;
+/* search form ytd searchbox */
+--bt-searchbar-height: 40px;
+/* input search icon */
+--bt-search-input-pre-icon-display: none;
+/* input new pre icon 
+Redir: See Material Search Bar
+/* search placeholder */
+--bt-search-placeholder-text-color: #767676;
+/* search button icon legacy ytd searchbox */
+--bt-search-btn-width: 66px;
+--bt-search-btn-height: var(--bt-searchbar-height);
+--bt-search-btn-radius: 0 2px 2px 0;
+--bt-search-btn-border: 1px solid var(--ytd-searchbox-legacy-button-border-color);
+--bt-search-btn-bg: var(--ytd-searchbox-legacy-button-color);
+/* search button icon */
+--bt-search-btn-icon-margin-top: 0;
+--bt-search-btn-icon-color: var(--yt-spec-text-primary);
+--bt-search-btn-icon-bg: none;
+--bt-search-btn-icon-width: 24px;
+--bt-search-btn-icon-height: 24px;
+--bt-search-btn-icon-opacity: 1;
+/* search button hover icon */
+--bt-search-btn-icon-opacity-hover: 1;
+/* search button OG icon */
+--bt-search-btn-og-icon-display: block;
+/* voice search */
+--bt-voice-search-btn-display: block;
+}
+
+/* BTSection Search Bar */
+/* outer bar */
+html[search-bar-style] ytd-searchbox.ytd-masthead {
+  margin: var(--bt-searchbar-outer-margin);	
+  padding: var(--bt-searchbar-outer-padding);
+}
+/* material search bar */
+html[search-bar-style] #center.ytd-masthead {
+  left: var(--bt-searchbar-left);
+  position: var(--bt-searchbar-position);
+  width: var(--bt-searchbar-width);
+  max-width: var(--bt-searchbar-width);
+}
+html[static][search-bar-style] #center.ytd-masthead {
+  width: var(--bt-static-searchbar-width);
+  max-width: var(--bt-static-searchbar-width);
+}
+/* input */
+html[search-bar-style] #container.ytd-searchbox {
+  box-shadow: var(--bt-searchbar-input-box-shadow);
+  border: var(--bt-searchbar-input-border);
+  border-right: var(--bt-searchbar-input-border-right);
+  background: var(--bt-searchbar-input-bg);
+  padding: var(--bt-searchbar-input-padding) !important;
+  border-radius: var(--bt-searchbar-input-radius);
+  margin-left: var(--bt-searchbar-input-margin-left);
+  transition: var(--bt-searchbar-input-transition);
+}
+html[search-bar-style] ytd-searchbox[has-focus] #container.ytd-searchbox {
+  box-shadow: var(--bt-searchbar-input-focus-box-shadow);
+  border: var(--bt-searchbar-input-focus-border);
+  padding: var(--bt-searchbar-input-padding) !important;
+  margin-left: var(--bt-searchbar-input-focus-margin-left);
+}
+html[search-bar-style] #search-form.ytd-searchbox {
+  height: var(--bt-searchbar-height);
+  width: var(--bt-searchbar-width);
+}
+html[static][search-bar-style] #search-form.ytd-searchbox {
+  width: var(--bt-static-searchbar-width);
+}
+html[search-bar-style] ytd-searchbox[has-focus] #search-icon.ytd-searchbox {
+  display: var(--bt-search-input-pre-icon-display);
+}
+html[search-bar-style] #search::placeholder {
+  font-weight: var(--bt-search-placeholder-font-weight);
+  color: var(--bt-search-placeholder-text-color) !important;
+  opacity: var(--bt-search-placeholder-opacity) !important;
+}
+/* new pre icon */ 
+html[search-bar-style] #container.ytd-searchbox::before {
+  content: var(--bt-search-input-new-pre-icon-content);
+  background: var(--bt-search-input-new-pre-icon-bg);
+  display: var(--bt-search-input-new-pre-icon-display);
+  width: var(--bt-search-input-new-pre-icon-width);
+  height: var(--bt-search-input-new-pre-icon-height);
+  margin: var(--bt-search-input-new-pre-icon-margin);
+  opacity: var(--bt-search-input-new-pre-icon-opacity);
+}
+html[search-bar-style] #container.ytd-searchbox:hover::before {
+  opacity: var(--bt-search-input-new-pre-icon-opacity-2);
+}
+html[search-bar-style] ytd-searchbox[has-focus] #container.ytd-searchbox::before {
+  opacity: var(--bt-search-input-new-pre-icon-opacity-3);
+}
+/* search button */
+html[search-bar-style] #search-icon-legacy.ytd-searchbox {
+  display: var(--bt-search-btn-display);
+  height: var(--bt-search-btn-height);
+  width: var(--bt-search-btn-width);
+  border-radius: var(--bt-search-btn-radius);
+  border: var(--bt-search-btn-border);
+  border-bottom: var(--bt-search-btn-border-bottom, var(--bt-search-btn-border));
+  background: var(--bt-search-btn-bg);
+  box-shadow: var(--bt-search-btn-box-shadow);
+}
+html[search-bar-style] #search-icon-legacy.ytd-searchbox:hover {
+  border: var(--bt-search-btn-border-hover, var(--bt-search-btn-border));
+  border-bottom: var(--bt-search-btn-border-bottom-hover, var(--bt-search-btn-border));
+  box-shadow: var(--bt-search-btn-box-shadow-hover);
+  background: var(--bt-search-btn-bg-hover, var(--bt-search-btn-bg));
+}
+html[search-bar-style] #search-icon-legacy.ytd-searchbox:active {
+  border: var(--bt-search-btn-border-active, var(--bt-search-btn-border));
+  border-bottom: var(--bt-search-btn-border-bottom-active, var(--bt-search-btn-border));
+  box-shadow: var(--bt-search-btn-box-shadow-active);
+  background: var(--bt-search-btn-bg-active, var(--bt-search-btn-bg));
+}
+/* search icon */
+html[search-bar-style] ytd-searchbox #search-icon-legacy.ytd-searchbox yt-icon.ytd-searchbox {
+  color: var(--bt-search-btn-icon-color);
+  background: var(--bt-search-btn-icon-bg);
+  width: var(--bt-search-btn-icon-width) !important;
+  height: var(--bt-search-btn-icon-height) !important;
+  box-shadow: none;
+  opacity: var(--bt-search-btn-icon-opacity);
+  margin-top: var(--bt-search-btn-icon-margin-top);
+}
+html[search-bar-style] ytd-searchbox #search-icon-legacy.ytd-searchbox:hover yt-icon.ytd-searchbox {
+  opacity: var(--bt-search-btn-icon-opacity-hover);
+}
+/* OG search icon */
+html[search-bar-style] ytd-searchbox #search-icon-legacy.ytd-searchbox yt-icon.ytd-searchbox svg {
+  display: var(--bt-search-btn-og-icon-display) !important;
+}
+html[search-bar-style] #voice-search-button.ytd-masthead {
+  display: var(--bt-voice-search-btn-display);
+}
+html[search-bar-style="material"]:not([dark]) .sbdd_b {
+  border-radius: 0;
+  margin-top: -5px;
+  box-shadow: 0 16px 12px rgba(0,0,0,0.65);
+  border: none;
+    border-top-color: currentcolor;
+    border-top-style: none;
+    border-top-width: medium;
+  background: #f0f0f0;
+}
+html[search-bar-style="material"]:not([dark]) .sbsb_a {
+  border-radius: 0;
+  background: transparent;
+}
+/* BTSection Upload Button */
+html[upload-btn="false"] {
+/* og */
+--bt-og-upload-btn-display: auto;
+/* new */
+--bt-new-upload-btn-display: none;
+}
+html[upload-btn="true"] {
+/* og */
+--bt-og-upload-btn-display: none;
+/* outer */
+--bt-new-upload-btn-display: block;
+}
+/* og upload btn */
+html:not([signed-out]) ytd-topbar-menu-button-renderer:nth-child(1)  {
+  display: var(--bt-og-upload-btn-display) !important;
+}
+/* new button (styling is in bt universalized */
+#bt-upload-button {
+  display: var(--bt-new-upload-btn-display);
+}
+html[topbar-style^="hitchhiker-2013"] #bt-upload-button {
+  position: absolute;
+  left: 805px;
+}
+/* sign in */
+html[color-style] {
+--bt-cta-btn-border-color: var(--bt-btn-blue, #1b7fcc);
+--bt-cta-btn-bg: var(--bt-btn-blue, #1b7fcc);
+--bt-cta-btn-border-color-hover: var(--bt-btn-blue, #1b7fcc);
+--bt-cta-btn-bg-hover: #126db3;
+--bt-cta-btn-border-color-active: var(--bt-btn-blue, #1b7fcc);
+--bt-cta-btn-bg-active: #095b99;
+}
+html[color-style="hitchhiker-2013-1"] {
+--bt-cta-btn-border-color: #3f76b7;
+--bt-cta-btn-bg: linear-gradient(to bottom,#5384be 0,#3f76b7 100%);
+--bt-cta-btn-border-color-hover: #325e92;
+--bt-cta-btn-bg-hover: linear-gradient(to bottom,#3f76b7 0,#3d71b0 100%);
+--bt-cta-btn-border-color-active: #325e92;
+--bt-cta-btn-bg-active: #3b6fac;
+}
+html[color-style="hitchhiker-2013-2"] {
+--bt-cta-btn-border-color: var(--bt-btn-blue, #1b7fcc);
+--bt-cta-btn-bg: var(--bt-btn-blue, #1b7fcc);
+--bt-cta-btn-border-color-hover: var(--bt-btn-blue, #1b7fcc);
+--bt-cta-btn-bg-hover: #126db3;
+--bt-cta-btn-border-color-active: var(--bt-btn-blue, #1b7fcc);
+--bt-cta-btn-bg-active: #095b99;
+}
+html[color-style] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+  color: var(--bt-cta-btn-text-color, #fff) !important;
+  border-color: var(--bt-cta-btn-border-color);
+  text-shadow: var(--bt-cta-btn-text-shadow, 0 1px 0 rgba(0,0,0,.25));
+  background: var(--bt-cta-btn-bg);
+  font-weight: var(--bt-cta-btn-font-weight,bold);
+  font-size: var(--bt-cta-btn-font-size,11px);
+  border-radius: var(--bt-cta-btn-radius,2px);
+  font-family: var(--bt-cta-btn-font-family,arial,);
+  height: var(--bt-cta-btn-height,29px);
+  padding: var(--bt-cta-btn-padding,0 .9em) !important;
+}
+html[color-style] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline:hover {
+  border-color: var(--bt-cta-btn-border-color-hover);
+  background: var(--bt-cta-btn-bg-hover);
+}
+html[color-style] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline:active {
+  border-color: var(--bt-cta-btn-border-color-active);
+  background: var(--bt-cta-btn-bg-active);
+}
+html[color-style] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline .yt-spec-button-shape-next__icon {
+  display: none;
+}
+
+
+/* NOTE: Hitchhiker header is not finished and is therefore disabled. May or may not be added in an update. */
+/* New header 
+html:not([header-style^="cosmicpanda"]) {
+--bt-header-display: none;
+}*/
+html:not([header-visible]) {
+--bt-header-display: none !important;
+}
+html:not([static-scrolling])[header-style^="cosmicpanda"] {
+--bt-header-position: fixed;
+}
+html[static-scrolling][header-style^="cosmicpanda"] {
+--bt-header-position: relative;
+}
+html:not([static-scrolling])[header-style^="hitchhiker"] {
+--bt-header-position: fixed;
+}
+html[static-scrolling][header-style^="hitchhiker"] {
+--bt-header-position: relative;
+}
+html[header-visible][header-style^="hitchhiker"][location="subscriptions"] #page-manager {
+	margin-top: 96px !important;
+}
+html[header-style^="cosmicpanda"] {
+--bt-header-display: block flex;
+--bt-header-height: 48px;
+--bt-header-z-index: 2008;
+--bt-header-inner-display: block flex;
+--bt-header-left-height: 48px;
+--bt-header-left-bg: #6a6a6a;
+--bt-header-left-top-left-radius: 5px;
+--bt-header-browse-chan-display: block;
+--bt-header-browse-chan-bg: linear-gradient(to bottom,#4495e7 0,#0053a6 100%);
+--bt-header-browse-chan-bg-hover: linear-gradient(to bottom,#096bd2 0,#0053a6 100%);
+--bt-header-browse-chan-bg-active: linear-gradient(to bottom,#014488 0,#175ea6 100%);
+--bt-header-browse-chan-box-shadow: inset 0 1px 0 rgba(256,256,256,.35);
+--bt-header-browse-chan-box-shadow-hover: inset 0 1px 0 rgba(256,256,256,0.35),0 1px 3px rgba(0,0,0,0.5);
+--bt-header-browse-chan-box-shadow-active: inset 0 1px 3px rgba(0,0,0,0.75);
+--bt-header-browse-chan-border: 1px solid;
+--bt-header-browse-chan-border-color: #0053a6 #0053a6 #000;
+--bt-header-browse-chan-border-color-hover: #002d59 #002d59 #000;
+--bt-header-browse-chan-border-color-active: #666;
+--bt-header-browse-chan-radius: 2px;
+--bt-header-browse-chan-height: 32px;
+--bt-header-browse-chan-width: 180px;
+--bt-header-browse-chan-margin: 8px auto 0 auto;
+--bt-header-browse-chan-inner-margin: 8px 0 0 38px;
+--bt-header-browse-chan-text-color: white;
+--bt-header-browse-chan-text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+--bt-header-browse-chan-font-size: 13px;
+--bt-header-browse-chan-font-weight: bold;
+--bt-header-middle-height: 48px;
+--bt-header-middle-bg: linear-gradient(to bottom,#333 0,#262626 100%);
+--bt-header-middle-top-right-radius: 5px;
+--bt-header-info-pos: absolute;
+--bt-header-info-display: flex;
+--bt-header-info-padding: 7px;
+--bt-header-info-text-color: #fff;
+--bt-header-info-font-size: 15px;
+--bt-header-text-margin: 8px 0 0 10px;
+}
+html[header-style^="cosmicpanda"][location="browse-channels"] {
+--bt-header-middle-bg: linear-gradient(to top,#dd3939 0,#e63636 100%);
+}
+html[header-style^="hitchhiker"] {
+--bt-header-display: block flex;
+--bt-header-height: 48px;
+--bt-header-z-index: 2008;
+--bt-header-inner-display: block flex;
+--bt-header-left-height: 48px;
+--bt-header-left-bg: var(--bt-section-bg);
+--bt-header-left-border: 1px solid var(--bt-section-border-color);
+--bt-header-left-top-left-radius: 0;
+--bt-header-browse-chan-display: block;
+--bt-header-browse-chan-bg: none;
+--bt-header-browse-chan-bg-hover: var(--bt-sidebar-item-bg-hover);
+--bt-header-browse-chan-height: 28px;
+--bt-header-browse-chan-width: var(--bt-sidebar-item-width);
+--bt-header-browse-chan-margin: 10px auto 0 auto;
+--bt-header-browse-chan-inner-margin: 6px 0 0 38px;
+--bt-header-browse-chan-text-color: var(--bt-sidebar-item-text-color);
+--bt-header-browse-chan-text-color-hover: var(--bt-sidebar-item-text-color-hover);
+--bt-header-browse-chan-font-size: 13px;
+--bt-header-middle-height: 48px;
+--bt-header-middle-bg: linear-gradient(to top,#666,#717171);
+--bt-header-middle-top-right-radius: 0;
+--bt-header-info-pos: absolute;
+--bt-header-info-display: flex;
+--bt-header-info-padding: 7px;
+--bt-header-info-text-color: #fff;
+--bt-header-info-font-size: 15px;
+--bt-header-text-margin: 8px 0 0 10px;
+}
+html[location="home"] #bt-header #info #homeinfo {
+  visibility: visible;
+}
+html[header-style^="cosmicpanda"] #bt-header #info #homeinfo .header-img,
+html[header-style^="cosmicpanda"] #bt-header #info #subsinfo .header-img {
+	width: 34px;
+	height: 34px;
+	background: no-repeat url(images/www-guide-vflrS65yn.png) 0 -532px;
+}
+html:not([location="home"]) #bt-header #info #homeinfo {
+  visibility: hidden;
+}
+html[location="subscriptions"] #bt-header #info #subsinfo {
+  visibility: visible;
+}
+html:not([location="subscriptions"]) #bt-header #info #subsinfo {
+  visibility: hidden;
+}
+html:not([location="browse-channels"]) #bt-header #info #bcinfo {
+  visibility: hidden;
+}
+html[header-style] #bt-header {
+  position: var(--bt-header-position);
+  height: var(--bt-header-height);
+  z-index: var(--bt-header-z-index);
+  top: var(--bt-topbar-height, 56px);
+  width: 100%;
+}
+html[header-style] .header-info {
+  position: var(--bt-header-info-pos);
+  display: var(--bt-header-info-display);
+  padding: var(--bt-header-info-padding);
+  color: var(--bt-header-info-text-color);
+  font-size: var(--bt-header-info-font-size);
+}
+html[header-style] .header-text {
+  margin: var(--bt-header-text-margin);
+}
+#bt-header {
+  display: var(--bt-header-display);
+}
+html:not([location="subscriptions"]):not([location="home"]):not([location="browse-channels"]) #bt-header {
+  display: none;
+}
+#bt-header-inner {
+  position: relative;
+  width: 100%;
+  display: var(--bt-header-inner-display);
+}
+#bt-header #left {
+  width: var(--bt-sidebar-width);
+  height: var(--bt-header-left-height);
+  background: var(--bt-header-left-bg);
+  border-top-left-radius: var(--bt-header-left-top-left-radius);
+  border: var(--bt-header-left-border);
+}
+#left-inner {
+  height: inherit;
+}
+#browse-chan {
+  display: var(--bt-header-browse-chan-display);
+  height: var(--bt-header-browse-chan-height);
+  background: var(--bt-header-browse-chan-bg);
+  color: var(--bt-header-browse-chan-text-color);
+  box-shadow: var(--bt-header-browse-chan-box-shadow);
+  width: var(--bt-header-browse-chan-width);
+  border: var(--bt-header-browse-chan-border);
+  border-color: var(--bt-header-browse-chan-border-color);
+  border-radius: var(--bt-header-browse-chan-radius);
+  margin: var(--bt-header-browse-chan-margin);
+  text-shadow: var(--bt-header-browse-chan-text-shadow);
+  font-size: var(--bt-header-browse-chan-font-size);
+  font-weight: var(--bt-header-browse-chan-font-weight);
+  text-decoration: none;
+}
+#browse-chan:hover {
+  background: var(--bt-header-browse-chan-bg-hover, var(--bt-header-browse-chan-bg));
+  box-shadow: var(--bt-header-browse-chan-box-shadow-hover, var(--bt-header-browse-chan-box-shadow));
+  border-color: var(--bt-header-browse-chan-border-color-hover, var(--bt-header-browse-chan-border-color));
+  color: var(--bt-header-browse-chan-text-color-hover, #fff);
+}
+#browse-chan:active {
+  background: var(--bt-header-browse-chan-bg-active, var(--bt-header-browse-chan-bg));
+  box-shadow: var(--bt-header-browse-chan-box-shadow-active, var(--bt-header-browse-chan-box-shadow));
+  border-color: var(--bt-header-browse-chan-border-color-active, var(--bt-header-browse-chan-border-color));
+  color: var(--bt-header-browse-chan-text-color-hover, #fff);
+}
+#browse-chan-inner {
+  position: absolute;
+  margin: var(--bt-header-browse-chan-inner-margin);
+}
+#bt-header #middle {
+  width: calc(var(--bt-site-width, 100%) - var(--bt-sidebar-width));
+  height: var(--bt-header-middle-height);
+  background: var(--bt-header-middle-bg);
+  border-top-right-radius: var(--bt-header-middle-top-right-radius);
+}
+#bt-header #right {
+  width: var(--bt-third-column-width, 0);
+}
+html[topbar-style^="cosmicpanda"] ytd-masthead #guide-button.ytd-masthead {
+  display: none;
+}
+html[topbar-style^="hitchhiker"] ytd-masthead #guide-button.ytd-masthead {
+  margin-left: 6px;
+  background: none !important;
+  cursor: pointer !important;
+}
+html[topbar-style^="hitchhiker-2015"] ytd-masthead #guide-button.ytd-masthead,
+html[topbar-style^="hitchhiker-2014"] ytd-masthead #guide-button.ytd-masthead {
+  margin-left: 89px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 2px;
+  padding-right: 35px !important;
+  border: 1px solid transparent;
+}
+html[topbar-style^="hitchhiker-2015"] ytd-masthead #guide-button.ytd-masthead:hover,
+html[topbar-style^="hitchhiker-2014"] ytd-masthead:hover #guide-button.ytd-masthead {
+  border: 1px solid #c6c6c6 !important;
+  background: #f0f0f0 !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.10) !important;
+}
+html[topbar-style^="hitchhiker"] ytd-masthead #guide-icon svg {
+  display: none !important;
+}
+html[topbar-style^="hitchhiker"] ytd-masthead #guide-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -107px -970px;
+  background-size: auto;
+  width: 16px;
+  height: 16px;
+}
+html[topbar-style^="hitchhiker-2015"] ytd-masthead #guide-icon,
+html[topbar-style^="hitchhiker-2014"] ytd-masthead #guide-icon  {
+  width: 32px;
+}
+html[topbar-style^="hitchhiker"] ytd-masthead:hover #guide-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) 0 -1285px;
+}
+html[topbar-style^="hitchhiker-2015"] ytd-masthead #guide-button.ytd-masthead #guide-icon,
+html[topbar-style^="hitchhiker-2014"] ytd-masthead #guide-button.ytd-masthead #guide-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -137px -162px;
+  margin-top: 2px;
+}
+html[topbar-style^="hitchhiker-2015"] ytd-masthead #guide-button.ytd-masthead #guide-icon::after,
+html[topbar-style^="hitchhiker-2014"] ytd-masthead #guide-button.ytd-masthead #guide-icon::after {
+ /* background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -365px -438px;*/
+  content: "";
+  width: 0;
+  height: 0;
+  margin-left: 10px;
+  border-top-color: #e63127 !important;
+  border-width: 3px 3px 0 !important;
+  border: 1px solid transparent;
+  margin-top: 1px;
+}
+html[topbar-style^="hitchhiker-2015"] ytd-masthead #guide-button.ytd-masthead:hover #guide-icon::after {
+  border-top-color: #333 !important;
+}
+html[signed-out] ytd-topbar-menu-button-renderer {
+  display: block !important;
+}

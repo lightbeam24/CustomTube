@@ -622,7 +622,6 @@ function assignOnInitialLoad() {
 		let watchHistory = document.querySelector("#endpoint[title='History']");
 		let historyBtn = watchHistory.parentNode;
 		historyBtn.setAttribute("id", "bt-history-button");
-		document.querySelector('#bt-subs-button a').setAttribute('href', '/channel/1');
 		// Note: no need to do this with show less, as it already has an id of #collapser-item.
 		Section1.querySelector('ytd-guide-collapsible-entry-renderer[can-show-more]').setAttribute("id", "bt-show-more-button");
 		Section2.querySelector('ytd-guide-collapsible-entry-renderer[can-show-more]').setAttribute("id", "bt-show-more-button-2");
@@ -871,7 +870,7 @@ function createNewElements() {
 	waitFor('ytd-watch-flexy #below', 100, createAbove);
 	waitFor('html[layout] ytd-watch-flexy #top-row  #owner', 10, createStandardViewCount);
 	waitFor('html[layout] #segmented-like-button span', 10, createLtoDBar);
-	waitFor('html[layout] #segmented-like-button yt-icon', 200, createNewLikeIcon);
+	waitFor('html[layout] #segmented-like-button yt-icon', 500, createNewLikeIcon);
 	waitFor('html[layout] #segmented-dislike-button', 1, createNewDisLikeIcon);
 	waitFor('html[layout][location="watch"] #owner-sub-count', 10, createPfpUploadDate);
 	if (BTConfig.iUseRYD) {
@@ -895,6 +894,9 @@ function createNewElements() {
 		newElem.innerHTML = `
 		<style>
 		#guide-button svg:not([icon-type="plmr"s]) {
+			display: none !important;
+		}
+		#guide-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
@@ -976,6 +978,9 @@ function createNewElements() {
 		#bt-home-button svg:not([icon-type="plmr"s]) {
 			display: none !important;
 		}
+		#bt-home-button yt-icon-shape {
+			display: none !important;
+		}
 		</style>
 		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
@@ -991,8 +996,9 @@ function createNewElements() {
 		myCh.id = 'bt-my-channel-btn';
 		myCh.setAttribute("class", "bt-universalized-element style-scope bt-simple-sidebar-item");
 		myCh.setAttribute("bt-optimized-universal-element", "");
+		if (!BTConfig.lowerCaseC) {
 		myCh.innerHTML = `
-		<a href="/profile">
+		<a href="/profile" title="My Channel">
 			<bt-icon id="filled">
 				<svg icon-type="plmr">
 					<g>
@@ -1010,6 +1016,28 @@ function createNewElements() {
 			<span id="text">My Channel</span>
 		</a>
 		`;
+		}
+		if (BTConfig.lowerCaseC) {
+		myCh.innerHTML = `
+		<a href="/profile" title="My channel">
+			<bt-icon id="filled">
+				<svg icon-type="plmr">
+					<g>
+						<path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"></path>
+					</g>
+				</svg>
+			</bt-icon>
+			<bt-icon id="outline">
+				<svg icon-type="PLMR">
+					<g>
+						<path d="M3,3v18h18V3H3z M4.99,20c0.39-2.62,2.38-5.1,7.01-5.1s6.62,2.48,7.01,5.1H4.99z M9,10c0-1.65,1.35-3,3-3s3,1.35,3,3 c0,1.65-1.35,3-3,3S9,11.65,9,10z M12.72,13.93C14.58,13.59,16,11.96,16,10c0-2.21-1.79-4-4-4c-2.21,0-4,1.79-4,4 c0,1.96,1.42,3.59,3.28,3.93c-4.42,0.25-6.84,2.8-7.28,6V4h16v15.93C19.56,16.73,17.14,14.18,12.72,13.93z"></path>
+					</g>
+				</svg>
+			</bt-icon>
+			<span id="text">My channel</span>
+		</a>
+		`;
+		}
 		sidebar.insertBefore(myCh, sidebar.children[0].nextSibling);	
 	}
 	function createNewTrendingIcon() {
@@ -1021,6 +1049,9 @@ function createNewElements() {
 		newElem.innerHTML = `
 		<style>
 		#bt-trending-button svg:not([icon-type="plmr"s]) {
+			display: none !important;
+		}
+		#bt-trending-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
@@ -1043,6 +1074,9 @@ function createNewElements() {
 		#bt-subs-button svg:not([icon-type="plmr"s]) {
 			display: none !important;
 		}
+		#bt-subs-button yt-icon-shape {
+			display: none !important;
+		}
 		</style>
 		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
@@ -1061,6 +1095,9 @@ function createNewElements() {
 		newElem.innerHTML = `
 		<style>
 		#bt-history-button svg:not([icon-type="plmr"s]) {
+			display: none !important;
+		}
+		#bt-history-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
@@ -1083,6 +1120,9 @@ function createNewElements() {
 		#bt-liked-vids-button svg:not([icon-type="plmr"s]) {
 			display: none !important;
 		}
+		#bt-liked-vids-button yt-icon-shape {
+			display: none !important;
+		}
 		</style>
 		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
@@ -1101,6 +1141,9 @@ function createNewElements() {
 		newElem.innerHTML = `
 		<style>
 		#bt-show-more-button:not([expanded]) svg:not([icon-type="plmr"s]) {
+			display: none !important;
+		}
+		#bt-show-more-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
@@ -1123,6 +1166,9 @@ function createNewElements() {
 		#collapser-item svg:not([icon-type="plmr"s]) {
 			display: none !important;
 		}
+		#collapser-item yt-icon-shape {
+			display: none !important;
+		}
 		</style>
 		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
@@ -1141,6 +1187,9 @@ function createNewElements() {
 		newElem.innerHTML = `
 		<style>
 		#bt-show-more-button-2 svg:not([icon-type="plmr"s]) {
+			display: none !important;
+		}
+		#bt-show-more-button-2 yt-icon-shape {
 			display: none !important;
 		}
 		</style>
@@ -1219,7 +1268,7 @@ function createNewElements() {
 			</g>
 		</svg>
 		`;
-		container.insertBefore(newElem, container.children[0].nextSibling);
+		container.insertBefore(newElem, container.children[0]);
 	}
 	function createNewDisLikeIcon() {
 		let container = document.querySelector('#segmented-dislike-button yt-icon');
@@ -1230,6 +1279,9 @@ function createNewElements() {
 		newElem.innerHTML = `
 		<style>
 		#segmented-dislike-button svg:not([icon-type="plmr"s]) {
+			display: none !important;
+		}
+		#segmented-dislike-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
@@ -1401,8 +1453,8 @@ function createNewElements() {
 	}
 }
 function moveElements() {
-	waitFor("html[watch-metadata-style^='hitchhiker's] ytd-watch-flexy #above-the-fold button[aria-label='Share']", 100, prepFor);
-	waitFor("html[watch-metadata-style^='cosmicpanda'][title-on-top='false'] ytd-watch-flexy #above-the-fold button[aria-label='Share']", 100, prepFor);
+	waitFor("html[watch-metadata-style^='hitchhiker's] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer", 100, prepFor);
+	waitFor("html[watch-metadata-style^='cosmicpanda'][title-on-top='false'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer", 100, prepFor);
 	waitFor("html[title-on-top='true'] ytd-watch-flexy #bt-above", 100, moveTitleToTop);
 	waitFor("html[location='watch'][watch-metadata-style^='hitchhiker-2013'] ytd-watch-flexy", 100, moveGuideButton);
 	function prepFor() {
@@ -1412,7 +1464,7 @@ function moveElements() {
 		var flexMenu = document.querySelector("ytd-menu-renderer.ytd-watch-metadata");
 		flexMenu.setAttribute("has-items", "5");
 		var flexItems = document.querySelector('#above-the-fold ytd-menu-renderer #flexible-item-buttons');
-		let share = document.querySelector("ytd-watch-flexy #above-the-fold button[aria-label='Share']");
+		let share = document.querySelector("ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer button");
 		let share1 = share.parentNode;
 		let shareButton = share1.parentNode;
 		shareButton.setAttribute("id", "bt-share-button");
@@ -1563,11 +1615,11 @@ var repeatedActions = setInterval(function()
 			BTVars.playerState = "normal";
 		}
 	}
-	// Different styling is needed if the "Subscribed" button is shown instead of the "Subscribe" button. So we check every second to see if either button is currently visible. 
-	// This causes a weird issue with Devtools though, where text gets deselected every second. Dev Mode makes it so that we only check on new page load and fixes this issue, but that isn't ideal for regular use so that's why we have Dev Mode. 
+	// Different styling is needed if the "Subscribed" button is shown instead of the "Subscribe" button. So we check every 2 seconds to see if either button is currently visible. 
+	// This causes a weird issue with Devtools though, where text gets deselected every 2 seconds. Dev Mode makes it so that we only check on new page load and fixes this issue, but that isn't ideal for regular use so that's why we have Dev Mode. 
 	if (!BTConfig.devMode) {
-		waitFor("ytd-watch-flexy ytd-subscribe-button-renderer[subscribe-button-hidden]", 1000, markSubbed);
-		waitFor("ytd-watch-flexy ytd-subscribe-button-renderer:not([subscribe-button-hidden])", 1000, markUnsubbed);
+		waitFor("ytd-watch-flexy ytd-subscribe-button-renderer[subscribe-button-hidden]", 2000, markSubbed);
+		waitFor("ytd-watch-flexy ytd-subscribe-button-renderer:not([subscribe-button-hidden])", 2000, markUnsubbed);
 	}
 	if (BTConfig.blockRGW) {
 		waitFor("ytd-rich-grid-watch", 100, blockRGW);

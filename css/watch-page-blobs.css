@@ -177,7 +177,8 @@ html[watch-metadata-style^="hitchhiker"] button[aria-label="Save to playlist"] .
 	height: 20px;
 	opacity: 0.6;
 }
-html[watch-metadata-style^="hitchhiker"] button[aria-label="Share"] .yt-spec-button-shape-next__icon {
+html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy button[aria-label="Share"] .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__icon {
 	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -21px -1679px;
 	width: 20px;
 	height: 20px;
@@ -192,9 +193,10 @@ html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"] .yt-s
 html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"] {
 	margin-left: 10px;
 }
-html[watch-metadata-style^="hitchhiker"] button[aria-label="Save to playlist"] svg,
-html[watch-metadata-style^="hitchhiker"] button[aria-label="Share"] svg,
-html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"] svg {
+html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold button[aria-label="Save to playlist"] svg,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer svg,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold button[aria-label="Share"] svg,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold button[aria-label="More actions"] svg {
 	display: var(--bt-wp-og-icons-display, none) !important;
 }
 html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"]::after {

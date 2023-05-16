@@ -25,6 +25,7 @@ const defaultSettings = {
 	"NOTwtwSidebarBtn": false,
 	"fytSidebarBtn": false,
 	"myChannelSidebarBtn": false,
+	"lowerCaseC": false,
 	"shortsSidebarBtn": true,
 	"trendingSidebarBtn": true,
 	"subsSidebarBtn": true,

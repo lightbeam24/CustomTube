@@ -343,14 +343,24 @@ html[watch-metadata-style^="cosmicpanda"] #bt-counts .bti {
   display: block;
   margin-bottom: -4px;
 }
-html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold:hover #segmented-like-button button,
-html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold:hover #segmented-like-button button,
-html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold:hover #segmented-dislike-button button,
-html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold:hover #segmented-dislike-button button,
-html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold:hover #bt-show-more,
-html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold:hover #bt-show-more,
-html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold:hover #bt-show-less,
-html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold:hover #bt-show-less {
+html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #segmented-like-button button,
+html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #segmented-dislike-button button,
+html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #bt-show-more,
+html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #bt-show-less {
+  background: linear-gradient(to bottom,#fcfcfc 0,#f8f8f8 100%) !important;
+  border-radius: 2px !important;
+  border: 1px solid #d3d3d3;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  color: #555;
+}
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #segmented-like-button button:hover,
+html[watch-metadata-style^="hitchhiker-2013-2"] #above-the-fold #segmented-like-button button:hover,
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #segmented-dislike-button button:hover,
+html[watch-metadata-style^="hitchhiker-2013-2"] #above-the-fold #segmented-dislike-button button:hover,
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #bt-show-more:hover,
+html[watch-metadata-style^="hitchhiker-2013-2"] #above-the-fold #bt-show-more:hover,
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #bt-show-less:hover,
+html[watch-metadata-style^="hitchhiker-2013-2"] #above-the-fold #bt-show-less:hover {
   background: linear-gradient(to bottom,#fcfcfc 0,#f8f8f8 100%) !important;
   border-radius: 2px !important;
   border: 1px solid #d3d3d3;

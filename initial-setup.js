@@ -36,7 +36,6 @@ const defaultSettings = {
 	"betterSearch": true,
 	"noInfi": false,
 	"noFlexy": true,
-	"devMode": false, // It's not possible to toggle this in the settings window. This is intentional.
 	"showChangelog": true
 };
 initiate();

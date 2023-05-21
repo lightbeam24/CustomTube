@@ -445,16 +445,16 @@
 						<subopt title="Don't loop the video by default when you are watching a playlist.">
 							<label><input type="checkbox" name="dontLoopPlaylists" class="settings">Disable for playlist videos</label>
 						</subopt>
-						<opt title="">
+						<opt title="" class="">
 							<label><input type="checkbox" name="noJoin" class="settings">Hide Join Button</label>
 						</opt>
-						<opt title="">
+						<opt title="" class="">
 							<label><input type="checkbox" name="noClip" class="settings">Hide Clip Button</label>
 						</opt>
-						<opt title="">
+						<opt title="" class="">
 							<label><input type="checkbox" name="noThanks" class="settings">Hide Thanks Button</label>
 						</opt>
-						<opt title="Removes 'sections' from search that are most likely unrelated to the search. These include: People also watched, For you, etc.">
+						<opt title="Removes 'sections' from search that are most likely unrelated to the search. These include: People also watched, For you, etc." class="">
 							<label><input type="checkbox" name="betterSearch" class="settings">Remove Irrelevant Search Results</label>
 						</opt>
 						<opt title="Make pfps square, like they were before the mid 2017 redesign. Using any layout setting from 2017 or earlier will automatically make pfps square regardless of this setting. (However, this setting can be used to unround the topbar profile picture in the 2016 and 2017 layouts.)">
@@ -544,9 +544,10 @@
 							<p>Related Videos Size (Overrides Layout Setting)</p>
 						</div>
 						<label class="logo-label" title="The size will be determined by your layout setting."><input type="radio" name="relatedSize" class="settings" value="auto" style="display:inline-block;">Auto</label><br>
-						<label class="logo-label" title="120x68 pixels"><input type="radio" name="relatedSize" class="settings" value="small" style="display:inline-block;">Small (2012-2016)</label><br>
-						<label class="logo-label" title="140x79 pixels"><input type="radio" name="relatedSize" class="settings" value="medium" style="display:inline-block;">Medium (Custom Middleground)</label><br>
-						<label class="logo-label" title="168x94 pixels"><input type="radio" name="relatedSize" class="settings" value="large" style="display:inline-block;">Large (2017-Present)</label><br>
+						<label class="logo-label " title="96x54 pixels"><input type="radio" name="relatedSize" class="settings" value="smaller" style="display:inline-block;">Smaller (2011 and earlier)</label><br>
+						<label class="logo-label " title="120x68 pixels"><input type="radio" name="relatedSize" class="settings" value="small" style="display:inline-block;">Small (2012-2016)</label><br>
+						<label class="logo-label " title="140x79 pixels"><input type="radio" name="relatedSize" class="settings" value="medium" style="display:inline-block;">Medium (Custom Middleground)</label><br>
+						<label class="logo-label " title="168x94 pixels"><input type="radio" name="relatedSize" class="settings" value="large" style="display:inline-block;">Large (2017-Present)</label><br>
 					</div>
 				</div>
 			</div>

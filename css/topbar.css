@@ -99,6 +99,9 @@ html[logo="soft"] {
 --bt-logo-width: 100px;
 --bt-logo-height: 40px;
 }
+html[logo] #logo yt-icon-shape {
+  display: none;
+}
 html[logo="polyvert"] ytd-logo svg {
   width: 96px !important;
 }
@@ -174,7 +177,7 @@ html[search-bar-style="aozora-2011"] {
 /* input new pre icon 
 Redir: See Material Search Bar
 /* search placeholder */
---bt-search-placeholder-text-color: #767676;
+/*--bt-search-placeholder-text-color: #767676;
 /* search button icon legacy ytd searchbox */
 --bt-search-btn-width: 66px;
 --bt-search-btn-height: var(--bt-searchbar-height);
@@ -227,7 +230,7 @@ html[search-bar-style="cosmicpanda-3"] {
 /* input new pre icon 
 Redir: See Material Search Bar
 /* search placeholder */
---bt-search-placeholder-opacity: 0;
+/*--bt-search-placeholder-opacity: 0;
 /* search button icon legacy ytd searchbox */
 --bt-search-btn-width: 37px;
 --bt-search-btn-height: var(--bt-searchbar-height);
@@ -257,6 +260,10 @@ Redir: See Material Search Bar
 --bt-search-btn-og-icon-display: none;
 /* voice search */
 --bt-voice-search-btn-display: none;
+}
+html[dark][search-bar-style^="cosmicpanda"] {
+--bt-searchbar-input-border: 1px solid #333;
+--bt-search-btn-icon-opacity: 1;
 }
 /* BTSection Search bar */
 html[search-bar-style^="hitchhiker"] {
@@ -291,7 +298,7 @@ html[search-bar-style^="hitchhiker"] {
 /* input new pre icon 
 Redir: See Material Search Bar
 /* search placeholder */
---bt-search-placeholder-text-color: #767676;
+/*--bt-search-placeholder-text-color: #767676;
 --bt-search-placeholder-opacity: 0.5;
 /* search button icon legacy ytd searchbox */
 --bt-search-btn-width: 66px;
@@ -313,6 +320,12 @@ Redir: See Material Search Bar
 /* voice search */
 --bt-voice-search-btn-display: none;
 }
+html[dark][search-bar-style^="hitchhiker"] {
+--bt-searchbar-input-box-shadow: inset 0 1px 2px #111;
+--bt-searchbar-input-border: 1px solid #333;
+--bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+--bt-search-btn-icon-opacity: 1;
+}
 html[search-bar-style="hitchhiker-2013-2"],
 html[search-bar-style="hitchhiker-2013-1"] {
 /* center ytd masthead */
@@ -322,14 +335,6 @@ html[search-bar-style="hitchhiker-2013-1"] {
 /* BTSection Search bar */
 html[pseudo-static][search-bar-style^="hitchhiker"] {
 --bt-searchbar-left: calc(var(--bt-sidebar-width) + 40px);
-}
-html[search-bar-style="hitchhiker-2016"],
-html[search-bar-style="hitchhiker-2015"],
-html[search-bar-style="hitchhiker-2014"],
-html[search-bar-style="hitchhiker-2013-2"],
-html[search-bar-style="hitchhiker-2013-1"] {
-/* search placeholder */
---bt-search-placeholder-opacity: 0;
 }
 html[search-bar-style="hitchhiker-2015"],
 html[search-bar-style="hitchhiker-2014"],
@@ -397,7 +402,6 @@ html[dark][search-bar-style="material"] {
 --bt-search-input-new-pre-icon-opacity: 1;
 --bt-search-input-new-pre-icon-opacity-2: 0.9;
 --bt-search-input-new-pre-icon-opacity-3: 0.6;
---bt-search-placeholder-text-color: #767676;
 }
 /* BTMEGASection Topbar */
 /* BTSection Search bar */
@@ -450,6 +454,24 @@ Redir: See Material Search Bar
 /* voice search */
 --bt-voice-search-btn-display: block;
 }
+html[search-placeholder-style^="hitchhiker-2017"] {
+/* search placeholder */
+--bt-search-placeholder-text-color: #767676;
+--bt-search-placeholder-opacity: 0.5;
+}
+html[search-placeholder-style^="material"] {
+/* search placeholder */
+--bt-search-placeholder-text-color: #767676;
+}
+html[search-placeholder-style^="invisible"] {
+/* search placeholder */
+--bt-search-placeholder-opacity: 0;
+}
+html[dark][search-bar-style^="polymer-2019"] {
+--bt-searchbar-input-border: 1px solid #333;
+--bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+--bt-search-btn-icon-opacity: 1;
+}
 
 /* BTSection Search Bar */
 /* outer bar */
@@ -495,7 +517,7 @@ html[static][search-bar-style] #search-form.ytd-searchbox {
 html[search-bar-style] ytd-searchbox[has-focus] #search-icon.ytd-searchbox {
   display: var(--bt-search-input-pre-icon-display);
 }
-html[search-bar-style] #search::placeholder {
+html[search-placeholder-style] #search::placeholder {
   font-weight: var(--bt-search-placeholder-font-weight);
   color: var(--bt-search-placeholder-text-color) !important;
   opacity: var(--bt-search-placeholder-opacity) !important;

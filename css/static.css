@@ -30,7 +30,7 @@ html[static] ytd-watch-flexy #primary.ytd-watch-flexy {
 }
 /* SubSection Video */
 /* This code seems to make videos work pretty much perfectly, except for non 16:9 videos. The min-height property is required for 4:3 videos to keep a consistent width. */
-ytd-app[static] #movie_player[aria-label="YouTube Video Player"] video {
+ytd-app[static] ytd-watch-flexy #movie_player[aria-label="YouTube Video Player"] video {
   width: auto !important;
   width: 586px !important;
   margin: 0 auto !important;

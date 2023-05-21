@@ -26,8 +26,6 @@ html[related-videos^="aozora"] {
 /* channel name */
 --bt-related-channel-name-margin-top: 2px;
 /* thumbs */
---bt-related-thumb-width: 106px;
---bt-related-thumb-height: 54px;
 --bt-related-thumb-inner-width: 96px;
 --bt-related-thumb-inner-height: 54px;
 --bt-related-thumb-inner-radius: 3px;
@@ -64,9 +62,6 @@ html[related-videos="cosmicpanda-3"] {
 --bt-related-meta-line-height: 1.4em;
 /* channel name */
 --bt-related-channel-name-margin-top: 2px;
-/* thumbs */
---bt-related-thumb-width: 120px;
---bt-related-thumb-height: 67px;
 }
 html[related-videos^="hitchhiker"] {
 --bt-related-bg: var(--bt-section-bg);
@@ -99,6 +94,22 @@ html[related-videos^="hitchhiker-2014"] {
 }
 html[related-videos^="hitchhiker-2013"] {
 --bt-related-bg: var(--bt-site-bg);
+}
+html[related-videos-size="smaller"] {
+--bt-related-title-font-size: 11px;
+--bt-related-channel-name-margin-top: 2px;
+/* thumbs */
+--bt-related-thumb-width: 96px;
+--bt-related-thumb-height: 54px;
+}
+html[related-videos-size="smaller"][related-videos^="aozora"] {
+--bt-related-title-font-size: .9166em;
+--bt-related-channel-name-margin-top: 2px;
+/* thumbs */
+--bt-related-thumb-width: 106px;
+--bt-related-thumb-height: 54px;
+--bt-related-thumb-inner-width: 106px;
+--bt-related-thumb-inner-height: 54px;
 }
 html[related-videos-size="small"] {
 --bt-related-title-font-size: 13px;
@@ -216,6 +227,7 @@ html[related-videos-size] ytd-watch-next-secondary-results-renderer ytd-thumbnai
 html[related-videos-size] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
   height: var(--bt-related-thumb-height) !important;
   width: var(--bt-related-thumb-width) !important;
+  transition-duration: 0.25s;
 }
 /* playlists */
 html[related-videos] #related ytd-playlist-custom-thumbnail-renderer, 

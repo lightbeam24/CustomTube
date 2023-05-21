@@ -9,12 +9,21 @@
 			margin: 0;
 		}
 		html {
+			font-family: arial;
+			--ribbon-title-padding-left: 20px;
+		}
+		background {
 			background-color: rgb(114,159,207);
 			background-image: url(images/beamtubebg.png);
 			background-repeat: no-repeat;
 			background-size: 100vw;
-			font-family: arial;
-			--ribbon-title-padding-left: 20px;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			display: block;
+			top: 0;
+			left: 0;
+			z-index: -2;
 		}
 		body {
 			width: 1000px;
@@ -143,6 +152,20 @@
 				<div class="changelog-inner">
 					<div class="title-area">
 						<div class="title">
+							<p>Version 1.0.2 - May 21, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- New: Added "Smaller" option to "Related Videos Size". [Compatible with all layouts]</p>
+						<p>- Improvement: A couple of minor layout and CSS improvements [Affects all layouts to varying degrees, most notably the Early 2013-2014 layouts]</p>
+						<p>- Improvement: Using the site should feel a bit faster and smoother overall</p>
+						<p>- Improvement: If the comments haven't loaded after 5 seconds, the extension now forces them to</p>
+						<p>- Fix: Fixed a major bug where the performance would gradually degrade as you used the site [This bug affected all layouts]</p>
+						<p>- Fix: Fixed a bug where the Home Button text would not change according to the user's settings in certain situations (always happened when signed out, but could still happen when signed in) [This bug affected all layouts]</p>
+						<p>- Fix: Fixed a bug where the video wouldn't resize to fit inside the miniplayer [This bug affected the 2012 layout]</p>
+					</div>
+					<div class="title-area">
+						<div class="title">
 							<p>Version 1.0.1 - May 16, 2023</p>
 						</div>
 					</div>
@@ -165,5 +188,6 @@
 			</div>
 		</div>
 		<script src="./changelog.js"></script>
+		<background></background>
 	</body>
 </html>

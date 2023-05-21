@@ -107,10 +107,16 @@ html[color-style="hitchhiker-2017"] {
 html[color-style="hitchhiker-2016"],
 html[color-style="hitchhiker-2015"],
 html[color-style="hitchhiker-2014"],
-html[color-style^="hitchhiker-2013"] {
+html[color-style^="hitchhiker-2013-2"] {
 --bt-spec-emphasis: #cc181e;
 --bt-spec-lesser-emphasis: #e62117;
 --bt-emphasis: #cc181e;
+--bt-lesser-emphasis: #e62117;
+}
+html[color-style^="hitchhiker-2013-1"] {
+--bt-spec-emphasis: #930;
+--bt-spec-lesser-emphasis: #e62117;
+--bt-emphasis: #930;
 --bt-lesser-emphasis: #e62117;
 }
 html[color-style="hitchhiker-2013-1"] {

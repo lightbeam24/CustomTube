@@ -31,7 +31,7 @@ html[static][location="likedvideos"] {
 --bt-sidebar-width: 0 !important;
 }
 /* NEOSection CosmicPanda */
-html[sidebar-style="cosmicpanda-3"] {
+html[sidebar-style^="cosmicpanda"] {
 --bt-sidebar-bg: #272727;
 --bt-sidebar-width: 200px;
 --bt-sidebar-border-right: var(--bt-section-border);
@@ -658,6 +658,7 @@ html[sidebar-style^="cosmicpanda"] ytd-guide-entry-renderer:not([active]) yt-ico
 html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Home"] .guide-icon.ytd-guide-entry-renderer svg, 
 html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Subscriptions"] .guide-icon.ytd-guide-entry-renderer svg, 
 html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Browse channels"] .guide-icon.ytd-guide-entry-renderer svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="History"] .guide-icon.ytd-guide-entry-renderer svg,
 html[sidebar-style^="hitchhiker"] #bt-home-button svg {
   display: none !important;
 }
@@ -703,7 +704,20 @@ html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-si
   width: 20px;
   height: 20px;
 }
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="History"] .guide-icon.ytd-guide-entry-renderer {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) 0 -86px;
+  background-size: auto;
+  width: 20px;
+  height: 20px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="History"] .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="History"] .guide-icon.ytd-guide-entry-renderer {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -113px -1533px;
+  background-size: auto;
+  width: 20px;
+  height: 20px;
+}
 html[sidebar-style^="hitchhiker"] #bt-liked-vids-button:not([active]):not(:hover) svg[icon-type="plmr"s],
-html[sidebar-style^="hitchhiker"] #bt-trending-button:not([active]):not(:hover) svg[icon-type="plmr"s]  {
+html[sidebar-style^="hitchhiker"] #bt-trending-button:not([active]):not(:hover) svg[icon-type="plmr"s] {
   color: var(--bt-text-color-6);
 }

@@ -76,15 +76,17 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-channel-name-text-decoration-hover: underline;
 /* sub btn NOTE MOVED */
 }
-html[watch-metadata-style="hitchhiker-2014"],
-html[watch-metadata-style="hitchhiker-2013-2"],
-html[watch-metadata-style="hitchhiker-2013-1"] {
+html[watch-metadata-style^="hitchhiker-2014"],
+html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-wp-primary-inner-bg: var(--bt-section-bg);
 --bt-wp-primary-inner-border: 1px solid var(--bt-section-border-color);
+--bt-wp-top-row-border-bottom: none;
+--bt-wp-middle-row-border-bottom: var(--bt-section-border);
 /* title */
 --bt-wp-title-font-family: arial;
 --bt-wp-title-font-size: 24px;
 --bt-wp-title-font-weight: normal;
+--bt-wp-title-padding: 4px 15px;
 /* view count */
 --bt-standard-view-count-display: block;
 --bt-standard-view-count-position: absolute;

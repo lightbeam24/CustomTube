@@ -280,3 +280,22 @@ html[related-videos^="polymer"] #bt-load-more-related #suggestions {
 html:not([related-videos]) #bt-load-more-related #suggestions {
   display: none;
 }
+/* thumbnail overlay (unfinished) */
+html[watched-overlay^="hitchhiker"] #related ytd-thumbnail #progress[style="width: 100%;"]::after {
+  content: "Watched";
+  color: #ddd;
+  display: block;
+  background: rgba(0,0,0,0.8);
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: calc(var(--bt-related-thumb-height) * -0.9);
+  position: absolute;
+  padding: 2px 4px;
+  margin-left: calc(var(--bt-related-thumb-width) * 0.035);
+}
+html[watched-overlay^="hitchhiker"] #related ytd-thumbnail ytd-thumbnail-overlay-resume-playback-renderer {
+  background: transparent;
+}
+html[watched-overlay^="hitchhiker"] #related ytd-thumbnail ytd-thumbnail-overlay-resume-playback-renderer #progress {
+  background: transparent;
+}

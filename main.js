@@ -15,6 +15,7 @@ let tasks = {
 	"movedGuideButton": false,
 	"appliedWatchMetadata": "false",
 	"moveVid": "false",
+	"createdNewBellIcon": false,
 	"createdNewHomeIcon": false,
 	"createdMyChannelButton": false,
 	"createdNewTrendingIcon": false,
@@ -32,10 +33,13 @@ let tasks = {
 	"createdMiddleRow": false,
 	"createdFakeAboutButton": false,
 	"createdDescUploadDate": false,
+	"createdDescRules1": false,
+	"createdDescRules2": false,
 	"createdNewShowMoreButton": false,
 	"createdNewShowLessButton": false,
 	"createdShowMoreRelated": false,
 	"createdLtoDBar": false,
+	"createdNewLikeString": false,
 	"startVidIdStuff": false,
 	"finishedSidebar": false,
 	"finishedWatch": false,
@@ -346,6 +350,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-style", "polymer-2019");
 			document.querySelector("html").setAttribute("channel-style", "polymer-2019");
 			document.querySelector("html").setAttribute("unrounded-vids", "");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2017") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2017");
@@ -376,6 +381,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("gaming-style", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("unrounded-pfps", "");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2016") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2016");
@@ -406,6 +412,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("gaming-style", "hitchhiker-2016");
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("unrounded-pfps", "");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2015") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2015");
@@ -436,6 +443,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("gaming-style", "hitchhiker-2015");
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2014") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2014");
@@ -466,6 +474,8 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("channel-style", "hitchhiker-2014");
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-2") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-2");
@@ -499,6 +509,8 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("pseudo-static", "");
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-1") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-1");
@@ -532,6 +544,8 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("pseudo-static", "");
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 		}
 		if (BTConfig.layoutSelect == "cosmicpanda-3") {
 			document.querySelector("html").setAttribute("global-color-palette", "cosmicpanda-3");
@@ -568,6 +582,8 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
 			document.querySelector("html").setAttribute("title-on-top", "true");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 		}
 	}
 	function getMaterialSearch() {
@@ -756,6 +772,7 @@ function getHref() {
 			BTVars.btlocation = "home";
 			document.querySelector("ytd-app").setAttribute("location", "home");
 			document.querySelector("html").setAttribute("location", "home");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/watch?')) {
 			setTimeout(watchPageEveryLoad, 1500); //1
 			tasks.appliedWatchMetadata = "false";
@@ -790,6 +807,7 @@ function getHref() {
 			function infiFunction() {
 				document.querySelector("html[location='watch'] ytd-watch-flexy #secondary #related ytd-continuation-item-renderer").style.display = "none";
 			}
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.pathname.startsWith('/u') || location.pathname.startsWith('/c') || location.pathname.startsWith('/@') ) {
 			BTVars.btlocation = "channel";
 		    document.querySelector("ytd-app").setAttribute("location", "channel");
@@ -798,59 +816,73 @@ function getHref() {
 			BTVars.btlocation = "trending";
 			document.querySelector("ytd-app").setAttribute("location", "trending");
 			document.querySelector("html").setAttribute("location", "trending");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		/* in case they bring back explore */
 		} else if (location.href.includes('/feed/explore')) {
 			BTVars.btlocation = "explore";
 			document.querySelector("ytd-app").setAttribute("location", "explore");
 			document.querySelector("html").setAttribute("location", "explore");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/feed/sidebar')) {
 			BTVars.btlocation = "sidebar";
 			document.querySelector("ytd-app").setAttribute("location", "sidebar");
 			document.querySelector("html").setAttribute("location", "sidebar");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/results?')) {
 			BTVars.btlocation = "search";
 			document.querySelector("ytd-app").setAttribute("location", "search");
 			document.querySelector("html").setAttribute("location", "search");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/shorts/')) {
 			BTVars.btlocation = "shorts";
-			document.querySelector("ytd-app").setAttribute("location", "stupid");
+			document.querySelector("ytd-app").setAttribute("location", "shorts");
 			document.querySelector("html").setAttribute("location", "shorts");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/playlist?list=LL')) {
 			BTVars.btlocation = "likedvideos";
 			document.querySelector("ytd-app").setAttribute("location", "likedvideos");
 			document.querySelector("html").setAttribute("location", "likedvideos");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/playlist?list=WL')) {
 			BTVars.btlocation = "watchlater";
 			document.querySelector("ytd-app").setAttribute("location", "watchlater");
 			document.querySelector("html").setAttribute("location", "watchlater");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/history')) {
 			BTVars.btlocation = "history";
 			document.querySelector("ytd-app").setAttribute("location", "history");
 			document.querySelector("html").setAttribute("location", "history");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/library')) {
 			BTVars.btlocation = "library";
 			document.querySelector("ytd-app").setAttribute("location", "library");
 			document.querySelector("html").setAttribute("location", "library");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/subscriptions')) {
 			BTVars.btlocation = "subscriptions";
 			document.querySelector("ytd-app").setAttribute("location", "subscriptions");
 			document.querySelector("html").setAttribute("location", "subscriptions");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/guide')) {
 			BTVars.btlocation = "browse-channels";
 			document.querySelector("ytd-app").setAttribute("location", "browse-channels");
 			document.querySelector("html").setAttribute("location", "browse-channels");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/feed/')) {
 			BTVars.btlocation = "feed";
 			document.querySelector("ytd-app").setAttribute("location", "feed");
 			document.querySelector("html").setAttribute("location", "feed");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/playlist')) {
 			BTVars.btlocation = "playlist";
 			document.querySelector("ytd-app").setAttribute("location", "playlist");
 			document.querySelector("html").setAttribute("location", "playlist");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} else {
 			BTVars.btlocation = "unknown";
 			document.querySelector("ytd-app").setAttribute("location", "unknown");
 			document.querySelector("html").setAttribute("location", "unknown");
+			document.querySelector('html').setAttribute('inline-channel','false');
 		} 
 }
 let currentPage = location.href;
@@ -863,7 +895,6 @@ var urlListen = setInterval(function()
         // page has changed, set new page as 'current'
         currentPage = location.href;
 		BTVars.btlocation = "unknown";
-		document.querySelector('html').setAttribute('inline-channel','false');
 		setTimeout(removeAttributeGuide, 200);
 		function removeAttributeGuide() {
 			document.querySelector("ytd-watch-flexy").setAttribute("guide", "");
@@ -909,7 +940,9 @@ function vidIdStuff() {
 				setTimeout(toFalse, 1500);
 			}
 			if (newId == vidId) {
-				document.querySelector("ytd-watch-flexy").setAttribute("id-changed", "false");		
+				if (document.querySelector("ytd-watch-flexy[id-changed='false']") === null) {
+					document.querySelector("ytd-watch-flexy").setAttribute("id-changed", "false");		
+				}
 			}
 			function toFalse() {
 				vidId = newId;
@@ -964,6 +997,7 @@ function createNewElements() {
 		waitFor('html[layout] #guide-button yt-icon', 100, createNewGuideIcon);
 		waitFor('html[layout] ytd-masthead #end #buttons div', 300, createUploadButton);
 		waitFor('html[layout] #content.ytd-app', 100, createNewHeader);
+		waitFor('html[layout] ytd-notification-topbar-button-renderer yt-icon', 300, createNewBellIcon);
 	}
 	setTimeout(loopThroughSidebarCreates, 1);
 	var loopThroughSidebarCreates = setInterval(function() {
@@ -1088,6 +1122,13 @@ function createNewElements() {
 					}
 				}
 			}
+			if (!tasks.createdNewLikeString) {
+				if (document.querySelector("html[layout] #segmented-like-button button .yt-spec-button-shape-next--button-text-content") != null) {
+					if (document.querySelector("#bt-like-string") === null) {
+						setTimeout(createNewLikeString, 1);
+					}
+				}
+			}
 			if (!tasks.createdNewLikeIcon) {
 				if (document.querySelector("html[layout] #segmented-like-button yt-icon") != null) {
 					if (document.querySelector("#bt-like") === null) {
@@ -1132,7 +1173,21 @@ function createNewElements() {
 					}
 				}
 			}
-			if (!tasks.createdDescUploadDate) {
+			if (!tasks.createdDescRules1) {
+				if (document.querySelector("html ytd-watch-flexy #above-the-fold #bt-show-more") != null) {
+					if (document.querySelector("#bt-show-more #bt-desc-rules") === null) {
+						setTimeout(createDescRules1, 1);
+					}
+				}
+			}
+			if (!tasks.createdDescRules2) {
+				if (document.querySelector("html ytd-watch-flexy #above-the-fold #bt-show-less") != null) {
+					if (document.querySelector("#bt-show-less #bt-desc-rules") === null) {
+						setTimeout(createDescRules2, 1);
+					}
+				}
+			}
+			if (!tasks.createdDescRules) {
 				if (document.querySelector("html ytd-watch-flexy #above-the-fold #description-inner") != null) {
 					if (document.querySelector("#bt-desc-upload-date") === null) {
 						setTimeout(createDescUploadDate, 1);
@@ -1170,25 +1225,31 @@ function createNewElements() {
 		if (tasks.createdAbove) {
 			if (tasks.createdStandardViewCount) {
 				if (tasks.createdLtoDBar) {
-					if (tasks.createdNewLikeIcon) {
-						if (tasks.createdNewDisLikeIcon) {
-							if (tasks.createdPfpUploadDate) {
-								if (tasks.createdMiddleRow) {
-									if (tasks.createdFakeAboutButton) {
-										if (tasks.createdDescUploadDate) {
-											if (tasks.createdNewShowMoreButton) {
-												if (tasks.createdNewShowLessButton) {
-													if (tasks.createdShowMoreRelated) {
-														tasks.finishedWatch = true;
+					if (tasks.createdNewLikeString) {
+						if (tasks.createdNewLikeIcon) {
+							if (tasks.createdNewDisLikeIcon) {
+								if (tasks.createdPfpUploadDate) {
+									if (tasks.createdMiddleRow) {
+										if (tasks.createdFakeAboutButton) {
+											if (tasks.createdDescUploadDate) {
+												if (tasks.createdDescRules1) {
+													if (tasks.createdDescRules2) {
+														if (tasks.createdNewShowMoreButton) {
+															if (tasks.createdNewShowLessButton) {
+																if (tasks.createdShowMoreRelated) {
+																	tasks.finishedWatch = true;
+																}
+															}
+														}
 													}
 												}
-											}
-										}	
-									}		
-								}								
+											}	
+										}		
+									}								
+								}
 							}
 						}
-					}					
+					}						
 				}
 			}
 		}
@@ -1232,6 +1293,22 @@ function createNewElements() {
 		</a>
 		`;
 		container.insertBefore(newElem, container.children[0].nextSibling);
+	}
+	function createNewBellIcon() {
+		tasks.createdNewBellIcon = true;
+		/*let container = document.querySelector('ytd-notification-topbar-button-renderer yt-icon');
+		const newElem = document.createElement("bt-icon");
+		newElem.id = 'bt-notif-icon';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+			<g class="yt-icon">
+				<path class="yt-icon" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path>
+			</g>
+		</svg>
+		`;
+		container.insertBefore(newElem, container.children[0]);*/
 	}
 	function createNewHeader() {
 		let container = document.querySelector('#content.ytd-app');
@@ -1574,6 +1651,18 @@ function createNewElements() {
 		`;
 		container.insertBefore(newElem, container.children[0].nextSibling);
 	}
+	function createNewLikeString() {
+		tasks.createdNewLikeString = true;
+	/*	let container = document.querySelector('#segmented-like-button button .yt-spec-button-shape-next--button-text-content');
+		const newElem = document.createElement("span");
+		newElem.id = 'bt-like-string';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<span bt-lang="en">Like</span>
+		`;
+		container.insertBefore(newElem, container.children[0]);*/
+	}
 	function createNewLikeIcon() {
 		tasks.createdNewLikeIcon = true;
 		let container = document.querySelector('#segmented-like-button yt-icon');
@@ -1650,6 +1739,10 @@ function createNewElements() {
 	  margin: 0 10px;
 	  margin: 0;
 	}
+	html[watch-metadata-style^="hitchhiker-2014"] #watch-buttons-inner,
+	html[watch-metadata-style^="hitchhiker-2013"] #watch-buttons-inner {
+	  padding-bottom: 0;
+	}
 	</style>
 	<div id="watch-buttons-inner">
 		<div id="left">
@@ -1694,8 +1787,32 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<div id="fake-about-inner">
-			<span bt-lang="en">About<span>
+			<span bt-lang="en">About</span>
 		</div>
+		`;
+		container.insertBefore(newElem, container.children[0]);
+	}
+	function createDescRules1() {
+		tasks.createdDescRules1 = true;
+		let container = document.querySelector('ytd-watch-flexy #above-the-fold #bt-show-more');
+		const newElem = document.createElement("div");
+		newElem.id = 'bt-desc-rules';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<div class="yt-horizontal-rule "><span class="first"></span><span class="second"></span><span class="third"></span></div>
+		`;
+		container.insertBefore(newElem, container.children[0]);
+	}
+	function createDescRules2() {
+		tasks.createdDescRules2 = true;
+		let container = document.querySelector('ytd-watch-flexy #above-the-fold #bt-show-less');
+		const newElem = document.createElement("div");
+		newElem.id = 'bt-desc-rules';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<div class="yt-horizontal-rule "><span class="first"></span><span class="second"></span><span class="third"></span></div>
 		`;
 		container.insertBefore(newElem, container.children[0]);
 	}
@@ -1717,29 +1834,37 @@ function createNewElements() {
 	}
 	function createNewShowMoreButton() {
 		tasks.createdNewShowMoreButton = true;
-		let container = document.querySelector('ytd-watch-flexy #above-the-fold ytd-text-inline-expander');
+		//let container = document.querySelector('ytd-watch-flexy #above-the-fold ytd-text-inline-expander');
+		let container = document.querySelector('ytd-watch-flexy #above-the-fold #description');
 		const newElem = document.createElement("button");
 		newElem.id = 'bt-show-more';
 		newElem.setAttribute("class", "bt-universalized-element");
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.setAttribute("onclick", "document.querySelector('ytd-text-inline-expander').setAttribute('is-expanded', '');");
 		newElem.innerHTML = `
-		Show more
+		<div class="visible-pseudo-button">
+			<span bt-lang="en">Show more</span>
+		</div>
 		`;
-		container.insertBefore(newElem, container.children[5].nextSibling);
+		//container.insertBefore(newElem, container.children[5].nextSibling);
+		container.insertBefore(newElem, container.children[1].nextSibling);
 	}
 	function createNewShowLessButton() {
 		tasks.createdNewShowLessButton = true;
-		let container = document.querySelector('ytd-watch-flexy #above-the-fold ytd-text-inline-expander');
+		//let container = document.querySelector('ytd-watch-flexy #above-the-fold ytd-text-inline-expander');
+		let container = document.querySelector('ytd-watch-flexy #above-the-fold #description');
 		const newElem = document.createElement("button");
 		newElem.id = 'bt-show-less';
 		newElem.setAttribute("class", "bt-universalized-element");
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.setAttribute("onclick", "document.querySelector('ytd-text-inline-expander').removeAttribute('is-expanded');");
 		newElem.innerHTML = `
-		Show less
+		<div class="visible-pseudo-button">
+			<span bt-lang="en">Show less</span>
+		</div>
 		`;
-		container.insertBefore(newElem, container.children[5].nextSibling);
+		//container.insertBefore(newElem, container.children[5].nextSibling);
+		container.insertBefore(newElem, container.children[1].nextSibling);
 	}
 	/*function createShowMoreHome() {
 		let richGrid = document.querySelector('html[location="home"] ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-rich-grid-renderer');
@@ -2043,10 +2168,10 @@ var repeatedActions = setInterval(function()
 		}
 	}
 	if (document.querySelector("html[location='watch'] ytd-watch-flexy ytd-subscribe-button-renderer[subscribe-button-hidden]") != null) {
-		setTimeout(markSubbed, 100);
+		setTimeout(markSubbed, 600);
 	}
 	if (document.querySelector("html[location='watch'] ytd-watch-flexy ytd-subscribe-button-renderer:not([subscribe-button-hidden])") != null) {
-		setTimeout(markUnsubbed, 100);
+		setTimeout(markUnsubbed, 600);
 	}
 	if (BTConfig.blockRGW) {
 		if (document.querySelector('ytd-rich-grid-watch') != null) {
@@ -2057,7 +2182,7 @@ var repeatedActions = setInterval(function()
 			window.location.reload();
 		}
 	}
-}, 300);
+}, 600);
 /* Disabled. May look into fixing it in the future
 function disableInfiScroll() {
   	let loadMoreVids = document.querySelector('ytd-two-column-browse-results-renderer[page-subtype="home"] #bt-load-more-homepage a');
@@ -2084,8 +2209,8 @@ function disableInfiScroll3point5() {
 }
 //watch page subbtn
 function markSubbed() {
-	document.querySelector("html").setAttribute("subscribed","true");
+	document.querySelector("#owner").setAttribute("subscribed","true");
 }
 function markUnsubbed() {
-	document.querySelector("html").setAttribute("subscribed","false");
+	document.querySelector("#owner").setAttribute("subscribed","false");
 }

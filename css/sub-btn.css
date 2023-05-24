@@ -55,7 +55,7 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-sub-count-bg: #fafafa;
 --bt-wp-sub-count-text-overflow: clip;
 }
-html[watch-metadata-style^="hitchhiker"][subscribed="true"] {
+html[watch-metadata-style^="hitchhiker"] #owner[subscribed="true"] {
 /* sub count */
 --bt-wp-sub-count-margin-left: 113px;
 }
@@ -125,9 +125,18 @@ html[watch-metadata-style^="hitchhiker-2013-1"] {
 /* sub count */
 --bt-wp-sub-count-margin-left: 100px;
 }
-html[watch-metadata-style^="hitchhiker-2013-1"][subscribed="true"] {
+html[watch-metadata-style^="hitchhiker-2013-1"] #owner[subscribed="true"] {
 /* sub count */
 --bt-wp-sub-btn-margin-left: 56.5px;
+--bt-wp-sub-count-margin-left: 122px;
+}
+html[dark][watch-metadata-style^="hitchhiker"] {
+--bt-wp-sub-count-bg: #1c1c1c;
+--bt-wp-sub-count-border: 1px solid #555;
+}
+html[dark][watch-metadata-style^="hitchhiker-2014"],
+html[dark][watch-metadata-style^="hitchhiker-2013"]  {
+--bt-wp-sub-count-border-left: 1px solid #555;
 }
 html[watch-metadata-style="polymer-2019"] {
 /* sub btn */

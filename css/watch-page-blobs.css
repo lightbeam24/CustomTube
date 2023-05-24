@@ -146,6 +146,7 @@ html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row {
   display: flex;
   flex-direction: row-reverse;
+  border-bottom: var(--bt-wp-middle-row-border-bottom);
 }
 html:not([watch-metadata-style^="hitchhiker"]):not([watch-metadata-style^="cosmicpanda"]) #bt-middle-row {
   display: none;
@@ -235,6 +236,11 @@ html[watch-metadata-style^="hitchhiker-2013"] #bt-fake-about {
   padding: 0 7px;
   cursor: pointer;
 }
+html[watch-metadata-style^="hitchhiker-2014"] #bt-fake-about span,
+html[watch-metadata-style^="hitchhiker-2013"] #bt-fake-about span {
+  color: #222 !important;
+  opacity: 1 !important;
+}
 #fake-about-inner {
   margin-top: 9px;
 }
@@ -261,3 +267,27 @@ html[watch-metadata-style^="cosmicpanda"] #bt-above yt-formatted-string {
   scrollbar-width: thin;
 }
 /* end */
+
+/* engagemnet panel foundation */
+html[watch-metadata-style] {
+--bt-side-panel-bg: var(--bt-section-bg);
+--bt-side-panel-box-shadow: var(--bt-section-box-shadow);
+}
+/*ytd-engagement-panel-section-list-renderer {
+  margin-left: 0 !important;
+}*/ 
+html[watch-metadata-style] ytd-engagement-panel-section-list-renderer {
+  background: var(--bt-side-panel-bg);
+  border: none;
+  box-shadow: var(--bt-side-panel-box-shadow);
+}
+html[watch-metadata-style] #header.ytd-engagement-panel-title-header-renderer {
+  color: var(--yt-spec-text-primary);
+  background-color: var(--bt-section-bg);
+}
+html[show-desc-side-panel="true"] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-structured-description"] {
+  display: flex !important;
+}
+html[show-comments-side-panel="true"] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-comments-section"] {
+  display: flex !important;
+}

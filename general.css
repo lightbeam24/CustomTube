@@ -1,6 +1,7 @@
 /* Mostly unsorted stuff here. Stuff I thought wasn't worth making into a seperate CSS file. Might organize this better in an update. */
 html {
 --bt-universal-white: #fff;
+--bt-universal-black: #000;
 --bt-universal-site-bg: url(http://s.ytimg.com/yts/img/refresh/body_noise_2x-vflQP8XB1.png);
 --bt-text-color-1: #ccc;
 --bt-text-color-2: #eee;
@@ -17,6 +18,7 @@ html {
 }
 html[dark] {
 --bt-universal-white: #000;
+--bt-universal-black: #fff;
 --bt-universal-site-bg: url(data:image/png;base64,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);
 --bt-text-color-1: #333;
 --bt-text-color-2: #111;
@@ -682,7 +684,7 @@ html[layout] ytd-rich-section-renderer {
   display: none;
 }
 /* hitchhiker mix */
-html[layout]:not([layout^="polymer"]) ytd-thumbnail-overlay-bottom-panel-renderer {
+html[layout]:not([layout^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer {
   width: 43.75%;
   left: unset;
   height: 100%;
@@ -721,7 +723,7 @@ html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] yt-for
   color: #cfcfcf;
 }
 /* related */
-html[layout]:not([layout^="polymer"]) #related ytd-thumbnail-overlay-bottom-panel-renderer::before {
+html[layout]:not([layout^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::before {
   content: "50+";
   font-size: 14px;
   font-weight: normal;
@@ -730,9 +732,9 @@ html[layout]:not([layout^="polymer"]) #related ytd-thumbnail-overlay-bottom-pane
   font-family: arial;
   color: #cfcfcf;
 }
-html[layout]:not([layout^="polymer"]) ytd-search ytd-thumbnail-overlay-bottom-panel-renderer::before,
+html[layout]:not([layout^="polymer"]) ytd-search ytd-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::before,
 html[layout]:not([layout^="polymer"]) ytd-rich-grid-renderer ytd-thumbnail-overlay-bottom-panel-renderer::before,
-html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-thumbnail-overlay-bottom-panel-renderer::before {
+html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::before {
   content: "50+";
   font-size: 18px;
   font-weight: normal;
@@ -742,7 +744,7 @@ html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-th
   color: #cfcfcf;
 }
 /* related */
-html[layout]:not([layout^="polymer"]) #related ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
+html[layout]:not([layout^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
 html[layout]:not([layout^="polymer"]) #related ytd-thumbnail-overlay-side-panel-renderer yt-icon::after {
   content: "Videos";
   text-transform: uppercase;
@@ -752,9 +754,9 @@ html[layout]:not([layout^="polymer"]) #related ytd-thumbnail-overlay-side-panel-
   font-family: arial;
   color: #cfcfcf;
 }
-html[layout]:not([layout^="polymer"]) ytd-search ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
+html[layout]:not([layout^="polymer"]) ytd-search ytd-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
 html[layout]:not([layout^="polymer"]) ytd-rich-grid-renderer ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
-html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
+html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
 html[layout]:not([layout^="polymer"]) ytd-search ytd-thumbnail-overlay-side-panel-renderer yt-icon::after,
 html[layout]:not([layout^="polymer"]) ytd-rich-grid-renderer ytd-thumbnail-overlay-side-panel-renderer yt-icon::after,
 html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-thumbnail-overlay-side-panel-renderer yt-icon::after {
@@ -767,7 +769,7 @@ html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-th
   color: #cfcfcf;
 }
 /* related */
-html[layout]:not([layout^="polymer"]) #related ytd-thumbnail-overlay-bottom-panel-renderer::after {
+html[layout]:not([layout^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::after {
   background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflCwII0O.png) 0 -1622px;
   background-size: auto;
   width: 24px;
@@ -776,9 +778,9 @@ html[layout]:not([layout^="polymer"]) #related ytd-thumbnail-overlay-bottom-pane
   margin-top: -11px;
   margin-bottom: 11px;
 }
-html[layout]:not([layout^="polymer"]) ytd-search ytd-thumbnail-overlay-bottom-panel-renderer::after,
+html[layout]:not([layout^="polymer"]) ytd-search ytd-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::after,
 html[layout]:not([layout^="polymer"]) ytd-rich-grid-renderer ytd-thumbnail-overlay-bottom-panel-renderer::after,
-html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-thumbnail-overlay-bottom-panel-renderer::after {
+html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::after {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflYQU35a.png) -225px -563px;
   background-size: auto;
   width: 32px;
@@ -917,6 +919,11 @@ html[unrounded-vids] ytd-thumbnail[size="large"] a.ytd-thumbnail,
 html[unrounded-vids] ytd-thumbnail[size="large"]::before {
     border-radius: 0 !important;
 }
+/* for end videowall */
+html[unrounded-vids] .html5-video-player a,
+html[unrounded-vids] .html5-video-player .ytp-videowall-still-image {
+	border-radius: 0 !important;
+}
 /* for channel player */
 html[unrounded-vids] ytd-player {
   border-radius: 0 !important;
@@ -939,4 +946,11 @@ html[unrounded-pfps] .avatar.ytd-recognition-shelf-renderer {
 }
 html[unrounded-pfps] #avatar {
 	  border-radius: 0 !important;
+}
+/* for the yoodle banners */
+html[layout] ytd-statement-banner-renderer a {
+  border-radius: 2px !important;
+  text-transform: uppercase !important;
+  padding: 18px 20px !important;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
 }

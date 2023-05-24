@@ -925,3 +925,25 @@ html[topbar-style^="hitchhiker-2015"] ytd-masthead #guide-button.ytd-masthead:ho
 html[signed-out] ytd-topbar-menu-button-renderer {
   display: block !important;
 }
+/* Theater mode fix */
+html[layout] ytd-masthead[theater] svg {
+  color: black !important;
+}
+html[layout^="polymer"] ytd-masthead[theater] svg {
+  color: white !important;
+}
+html[layout^="polymer"] ytd-masthead[theater] {
+  background: #222 !important;
+}
+html[topbar-style^="polymer"] ytd-masthead bt-icon svg {
+  color: var(--bt-sidebar-item-svg-color);
+}
+html:not([dark])[topbar-style^="polymer"] ytd-masthead[theater] #search-icon-legacy {
+  background: #222 !important;
+  border: 1px solid #444 !important;
+}
+html:not([dark])[topbar-style^="polymer"] ytd-masthead[theater] ytd-searchbox:not([has-focus]) #container.ytd-searchbox {
+  background: #111 !important;
+  border: 1px solid #444 !important;
+  border-right: none !important;
+}

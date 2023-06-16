@@ -97,8 +97,8 @@ html[watch-metadata-style^="cosmicpanda"] #thumbnail-container {
 30% {opacity: 0;}
 100% {opacity: 1;}
 }
-html[watch-metadata-style^="hitchhiker"] ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
-html[watch-metadata-style^="cosmicpanda"] ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+html[watch-metadata-style^="hitchhiker"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
   right: -302px;
   top: -54px;
   top: 6px;
@@ -112,9 +112,11 @@ html[watch-metadata-style^="cosmicpanda"] ytd-playlist-panel-video-renderer ytd-
   animation-duration: 1s;
   animation-iteration-count: 1;
   z-index: 92219;
+  padding: 3px 4px !important;
+  margin: 4px !important;
  /* background: rgba(250,250,250,0.2);*/
 }
-html[watch-metadata-style^="cosmicpanda"] ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
   right: -278px;
 }
 /*
@@ -123,8 +125,8 @@ ytd-thumbnail-overlay-time-status-renderer {
   filter: brightness(1);
   color: #ccc !important;
 }*/
-html[watch-metadata-style^="hitchhiker"][static] ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
-html[watch-metadata-style^="hitchhiker"][pseudo-static] ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+html[watch-metadata-style^="hitchhiker"][static] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="hitchhiker"][pseudo-static] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
   right: -278px;
 }
 /* end blob */
@@ -189,6 +191,13 @@ html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold #top-le
 	height: 20px;
 	opacity: 0.6;
 }
+html[watch-metadata-style^="hitchhiker-2015"] ytd-watch-flexy button[aria-label="Share"] .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker-2015"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__icon {
+	background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -304px -393px;
+	width: 20px;
+	height: 20px;
+	opacity: 0.6;
+}
 html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"] .yt-spec-button-shape-next__icon {
 	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -42px -845px;
 	width: 20px;
@@ -242,7 +251,7 @@ html[watch-metadata-style^="hitchhiker-2013"] #bt-fake-about span {
   opacity: 1 !important;
 }
 #fake-about-inner {
-  margin-top: 9px;
+  margin-top: 10px;
 }
 #bt-middle-row span {
   font-family: var(--bt-watch-metadata-buttons-font-family, "YouTube Noto",Roboto,arial);
@@ -290,4 +299,24 @@ html[show-desc-side-panel="true"] ytd-engagement-panel-section-list-renderer[tar
 }
 html[show-comments-side-panel="true"] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-comments-section"] {
   display: flex !important;
+}
+/* new section that doesn't work half the time */
+/*About me in desc
+html[watch-metadata-style] ytd-watch-metadata #bottom-row #header.ytd-video-description-infocards-section-renderer {
+	margin-left: 300px;
+}*/
+
+/*Non-rounded profile icon*/
+html[watch-metadata-style][unrounded-pfps] ytd-watch-metadata #bottom-row #header.ytd-video-description-infocards-section-renderer #thumbnail.ytd-video-description-infocards-section-renderer {
+	border-radius: 0%;
+}
+
+/*centering buttons*/
+html[watch-metadata-style] ytd-watch-metadata #bottom-row #action-buttons.ytd-video-description-infocards-section-renderer {
+	margin-left: 50px;
+}
+
+/*Non-rounded buttons*/
+html[watch-metadata-style] ytd-watch-metadata #bottom-row .yt-spec-button-shape-next--size-m {
+	border-radius: 1px;
 }

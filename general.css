@@ -106,6 +106,20 @@ html[color-style="hitchhiker-2017"] {
 --bt-emphasis: #f00;
 --bt-lesser-emphasis: #d90a17;
 }
+html[paint="blutube"][color-style^="hitchhiker"] {
+--bt-spec-emphasis: #1e18cc;
+--bt-spec-lesser-emphasis: #1721e6;
+--bt-emphasis: #1e18cc;
+--bt-lesser-emphasis: #1721e6;
+--bt-paint-filter: hue-rotate(230deg);
+}
+html[paint="blutube"][color-style="hitchhiker-2017"] {
+--bt-spec-emphasis: #00f;
+--bt-spec-lesser-emphasis: #170ad9;
+--bt-emphasis: #00f;
+--bt-lesser-emphasis: #170ad9;
+--bt-paint-filter: hue-rotate(250deg);
+}
 html[color-style="hitchhiker-2016"],
 html[color-style="hitchhiker-2015"],
 html[color-style="hitchhiker-2014"],
@@ -141,8 +155,6 @@ html[watch-metadata-style^="hitchhiker"] #watch-buttons-inner #button-shape:not(
 html[watch-metadata-style^="cosmicpanda"] #watch-buttons-inner #button-shape:not(:first-of-type) {
 	display: none;
 }
-
-
 html {
 --tubek12-static-page-width: 1000px;
 --tubek12-static-page-margin: 0 auto;
@@ -582,7 +594,7 @@ html:not(.style-scope) {*/
 #player.ytd-watch-flexy {
   background: black;
 }
-/* BTSECTION: All */
+/* BTSECTION: All 
 ytd-app[layout="hitchhiker"] paper-ripple, 
 ytd-app[layout="hitchhiker"] yt-interaction, 
 ytd-app[layout="cosmicpanda"] paper-ripple, 
@@ -591,11 +603,12 @@ ytd-app[layout="aozora"] paper-ripple,
 ytd-app[layout="aozora"] yt-interaction,
 ytd-app[layout="polymer"] yt-interaction  {
 	display: none !important;
-}
+}*/
 html[layout^="hitchhiker"] paper-ripple, 
 html[layout^="hitchhiker"] yt-interaction, 
 html[layout^="cosmicpanda"] paper-ripple, 
-html[layout^="cosmicpanda"] yt-interaction {
+html[layout^="cosmicpanda"] yt-interaction,
+html[layout^="polymer-2019"] yt-interaction {
 	display: none !important;
 }
 html[disable-flexy-player="true"]:not([static]):not([pseudo-static]) {
@@ -680,7 +693,7 @@ html[layout] ytd-segmented-like-dislike-button-renderer yt-icon-shape {
 html[layout] ytd-rich-shelf-renderer[is-shorts] {
   display: none;
 }
-html[layout] ytd-rich-section-renderer {
+html[layout] ytd-browse:not([page-subtype="subscriptions"]) ytd-rich-section-renderer {
   display: none;
 }
 /* hitchhiker mix */
@@ -810,6 +823,14 @@ html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-th
   margin-top: -11px;
   margin-bottom: 11px;
 }
+/* playlist 
+ytd-playlist-thumbnail yt-formatted-string {
+  width: 44px;
+  font-size: 22px;
+  height: 18px;
+  margin-top: -147px;
+  overflow: hidden;
+}*/
 
 /* subs page */
 html[grid-styling^="hitchhiker"] .style-scope.ytd-browse.grid.grid-5-columns,
@@ -953,4 +974,26 @@ html[layout] ytd-statement-banner-renderer a {
   text-transform: uppercase !important;
   padding: 18px 20px !important;
   box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+}
+html[location="customtube"] #logo div[hidden] {
+  display: block !important;
+}
+/* fade in */
+    @keyframes loadAnim {
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+    }
+html[thumbs-fade-in="true"] .yt-core-image--loaded {
+    animation: loadAnim 0.4s 1;
+    opacity: 1;
+}
+/* timestatus */
+html[layout]:not([layout^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-time-status-renderer {
+  margin: 2px;
+  border-radius: 0 !important;
+  padding: 1px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(0,0,0,.75);
+  letter-spacing:0;
 }

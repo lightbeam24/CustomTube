@@ -157,7 +157,8 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-watch-metadata-desc-bg: var(--bt-section-bg);
 --bt-watch-metadata-desc-radius: 0;
 --bt-watch-metadata-desc-box-shadow: var(--bt-section-box-shadow);
---bt-watch-metadata-desc-inner-margin-bottom: 0;
+--bt-watch-metadata-desc-inner-margin: 15px;
+--bt-watch-metadata-desc-inner-margin-bottom: 5px;
 /* snippet */
 --bt-desc-snippet-mask-image: none;
 --bt-desc-snippet-max-height: 50px;
@@ -179,7 +180,7 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-desc-expand-border: none;
 --bt-desc-expand-border-top: 1px solid var(--bt-section-border-color);
 --bt-desc-expand-bg: transparent;
---bt-desc-expand-width: 100%;
+--bt-desc-expand-width: calc(100% - 30px);
 --bt-desc-expand-text-transform: uppercase;
 --bt-desc-expand-height: 28px;
 --bt-desc-expand-font-size: 11px;
@@ -189,13 +190,15 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-desc-expand-cursor: pointer;
 --bt-desc-expand-text-color-hover: var(--bt-text-color-4);
 --bt-desc-expand-span-margin-top: 6px;
+--bt-desc-expand-margin: 0 auto;
+--bt-desc-expand-inner-width: 100%;
 }
 html[watch-metadata-style^="hitchhiker-2014"],
 html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-watch-metadata-desc-bg: var(--bt-section-bg);
 --bt-watch-metadata-desc-radius: 0;
 --bt-watch-metadata-desc-box-shadow: var(--bt-section-box-shadow);
---bt-watch-metadata-desc-inner-margin-bottom: 0;
+--bt-watch-metadata-desc-inner-margin-bottom: 5px;
 /* snippet */
 --bt-desc-snippet-mask-image: none;
 --bt-desc-snippet-max-height: 50px;
@@ -235,7 +238,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 }
 html[watch-metadata-style="polymer-2019"] {
 --bt-watch-metadata-desc-radius: 0;
---bt-watch-metadata-desc-inner-margin-bottom: 0;
+--bt-watch-metadata-desc-inner-margin-bottom: 5px;
 --bt-watch-metadata-desc-margin-left: 48px;
 /* snippet */
 --bt-desc-snippet-mask-image: none;
@@ -270,6 +273,7 @@ html[watch-metadata-style="polymer-2019"] {
 
 
 html[watch-metadata-style] ytd-watch-metadata #description-inner.ytd-watch-metadata {
+  margin: var(--bt-watch-metadata-desc-inner-margin, 12px);
   margin-bottom: var(--bt-watch-metadata-desc-inner-margin-bottom);
 }
 html[watch-metadata-style] ytd-watch-metadata #description.ytd-watch-metadata {
@@ -293,6 +297,7 @@ html[watch-metadata-style] #bt-show-less {
   margin-top: var(--bt-desc-expand-top-margin);
   padding: var(--bt-desc-expand-padding);
   display: var(--bt-desc-expand-display, block);
+  margin: var(--bt-desc-expand-margin);
 }
 html[watch-metadata-style] #bt-show-more .visible-pseudo-button:hover, 
 html[watch-metadata-style] #bt-show-less .visible-pseudo-button:hover {

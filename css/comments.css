@@ -86,6 +86,13 @@ html[comments-style^="hitchhiker"] {
 --bt-comments-expand-button-text-color: var(--bt-blue);
 --bt-comments-expand-button-margin-left: -10px;
 }
+html[lang="en"] {
+  --bt-comments-reply-button-position: absolute;
+}
+html:not([lang="en"]) {
+  --bt-comments-reply-button-position: relative;
+  --bt-comments-left-count-margin-left: 0px;
+}
 html[comments-style] ytd-comments {
   background: var(--bt-comments-bg);
   box-shadow: var(--bt-comments-shadow);

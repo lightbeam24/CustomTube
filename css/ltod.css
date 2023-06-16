@@ -129,7 +129,7 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-toggle-button-icon-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
 }
 /* ltod */
-html[watch-metadata-style] ytd-watch-flexy #top-level-buttons-computed {
+html[watch-metadata-style] ytd-watch-flexy #above-the-fold #top-level-buttons-computed {
   position: var(--bt-top-level-buttons-position) !important;
   margin-right: var(--bt-top-level-buttons-margin-right) !important;
   left: var(--bt-top-level-buttons-left, unset);
@@ -184,89 +184,97 @@ html[watch-metadata-style] #bt-dislike svg {
 html[watch-metadata-style] ytd-segmented-like-dislike-button-renderer svg {
 	display: var(--bt-ltod-og-icon-display) !important;
 }
-/* hitchhiker blob */
-html[watch-metadata-style^="hitchhiker"] #segmented-like-button button[aria-pressed="false"] #bt-like {
-  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -38px -688px;
-  opacity: 0.6;
+html[watch-metadata-style^="hitchhiker"] {
+--bt-ltod-icon-margin-top: 0;
+--bt-like-icon-margin-right: 0;
+--bt-like-icon-margin-left: 0;
+--bt-like-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -38px -688px;
+--bt-like-icon-opacity: 0.6;
+--bt-like-icon-bg-active: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -24px -1635px;
+--bt-like-icon-opacity-active: 1;
+--bt-dislike-icon-margin-right: 0;
+--bt-dislike-icon-margin-left: 0;
+--bt-dislike-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -100px -1223px;
+--bt-dislike-icon-opacity: 0.6;
+--bt-dislike-icon-bg-active: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -100px -1223px;
+--bt-dislike-icon-opacity-active: 1;
 }
-html[watch-metadata-style^="hitchhiker-2013"] #segmented-like-button button[aria-pressed="false"] #bt-like {
-  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -158px -193px;
-  opacity: 1;
-  margin-right: 12px;
-  margin-left: -8px;
-  margin-top: var(--bt-ltod-icon-margin-top, -2px);
+html[watch-metadata-style^="hitchhiker-2014"] {
+--bt-ltod-icon-margin-top: -2px;
+--bt-like-icon-margin-right: 12px;
+--bt-like-icon-margin-left: -8px;
+--bt-dislike-icon-margin-right: 0;
+--bt-dislike-icon-margin-left: 5px;
 }
-html[watch-metadata-style^="hitchhiker"] #segmented-dislike-button button[aria-pressed="false"] #bt-dislike {
-  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -100px -1223px;
-  opacity: 0.6;
+html[watch-metadata-style^="hitchhiker-2013"] {
+--bt-ltod-icon-margin-top: -2px;
+--bt-like-icon-margin-right: 12px;
+--bt-like-icon-margin-left: -8px;
+--bt-like-icon-bg: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -158px -193px;
+--bt-like-icon-opacity: 1;
+--bt-like-icon-bg-active: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -66px -186px;
+--bt-like-icon-opacity-active: 1;
+--bt-dislike-icon-margin-right: 0;
+--bt-dislike-icon-margin-left: 5px;
+--bt-dislike-icon-bg: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -26px -85px;
+--bt-dislike-icon-opacity: 1;
+--bt-dislike-icon-bg-active: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -136px 0;
+--bt-dislike-icon-opacity-active: 1;
 }
-html[watch-metadata-style^="hitchhiker-2013"] #segmented-dislike-button button[aria-pressed="false"] #bt-dislike {
-  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -26px -85px;
-  opacity: 1;
-  margin-left: 5px;
-  margin-right: 0px;
-  margin-top: var(--bt-ltod-icon-margin-top, -2px);
+html[watch-metadata-style^="cosmicpanda"] {
+--bt-ltod-icon-margin-top: 0;
+--bt-like-icon-margin-right: 10px;
+--bt-like-icon-margin-left: -4px;
+--bt-like-icon-bg: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -190px -254px;
+--bt-like-icon-opacity: 1;
+--bt-like-icon-bg-active: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -8px -158px;
+--bt-like-icon-opacity-active: 1;
+--bt-dislike-icon-margin-right: -4px;
+--bt-dislike-icon-margin-left: 7px;
+--bt-dislike-icon-bg: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -46px -251px;
+--bt-dislike-icon-opacity: 1;
+--bt-dislike-icon-bg-active: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -125px -91px;
+--bt-dislike-icon-opacity-active: 1;
 }
-html[watch-metadata-style^="hitchhiker"] #segmented-like-button button[aria-pressed="true"] #bt-like {
-  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -24px -1635px;
-  opacity: 1;
+html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #segmented-like-button button[aria-pressed="false"] #bt-like {
+  background: var(--bt-like-icon-bg);
+  opacity: var(--bt-like-icon-opacity);
+  margin-right: var(--bt-like-icon-margin-right);
+  margin-left: var(--bt-like-icon-margin-left);
+  margin-top: var(--bt-ltod-icon-margin-top);
 }
-html[watch-metadata-style^="hitchhiker-2013"] #segmented-like-button button[aria-pressed="true"] #bt-like {
-  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -66px -186px;
-  opacity: 1;
-  margin-right: 12px;
-  margin-left: -8px;
-  margin-top: var(--bt-ltod-icon-margin-top, -2px);
+html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #segmented-dislike-button button[aria-pressed="false"] #bt-dislike {
+  background: var(--bt-dislike-icon-bg);
+  opacity: var(--bt-dislike-icon-opacity);
+  margin-right: var(--bt-dislike-icon-margin-right);
+  margin-left: var(--bt-dislike-icon-margin-left);
+  margin-top: var(--bt-ltod-icon-margin-top);
 }
-html[watch-metadata-style^="hitchhiker"] #segmented-dislike-button button[aria-pressed="true"] #bt-dislike {
-  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -100px -1223px;
-  opacity: 1;
+html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #segmented-like-button button[aria-pressed="true"] #bt-like,
+html[watch-metadata-style^="cosmicpanda"] #segmented-like-button:hover button[aria-pressed="false"] #bt-like,
+html[watch-metadata-style^="aozora"] #segmented-like-button:hover button[aria-pressed="false"] #bt-like {
+  background: var(--bt-like-icon-bg-active);
+  opacity: var(--bt-like-icon-opacity-active);
+  margin-right: var(--bt-like-icon-margin-right);
+  margin-left: var(--bt-like-icon-margin-left);
+  margin-top: var(--bt-ltod-icon-margin-top);
 }
-html[watch-metadata-style^="hitchhiker-2013"] #segmented-dislike-button button[aria-pressed="true"] #bt-dislike {
-  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -136px 0;
-  opacity: 1;
-  margin-left: 5px;
-  margin-right: 0px;
-  margin-top: var(--bt-ltod-icon-margin-top, -2px);
+html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #segmented-dislike-button button[aria-pressed="true"] #bt-dislike,
+html[watch-metadata-style^="cosmicpanda"] #segmented-dislike-button:hover button[aria-pressed="false"] #bt-dislike,
+html[watch-metadata-style^="aozora"] #segmented-dislike-button:hover button[aria-pressed="false"] #bt-dislike {
+  background: var(--bt-dislike-icon-bg-active);
+  opacity: var(--bt-dislike-icon-opacity-active);
+  margin-right: var(--bt-dislike-icon-margin-right);
+  margin-left: var(--bt-dislike-icon-margin-left);
+  margin-top: var(--bt-ltod-icon-margin-top);
 }
-html[watch-metadata-style^="hitchhiker-2014"] #segmented-like-button #bt-like {
-  margin-right: 12px;
-  margin-left: -8px;
-  margin-top: var(--bt-ltod-icon-margin-top, -2px);
-}
-html[watch-metadata-style^="hitchhiker-2014"] #segmented-dislike-button #bt-dislike {
-  margin-left: 5px;
-  margin-right: 0px;
-  margin-top: var(--bt-ltod-icon-margin-top, -2px);
-}
-html[watch-metadata-style^="cosmicpanda"] #segmented-like-button button[aria-pressed="false"] #bt-like {
-  background: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -190px -254px;
+html[watch-metadata-style^="cosmicpanda"] #segmented-like-button #bt-like,
+html[watch-metadata-style^="cosmicpanda"] #segmented-dislike-button #bt-dislike {
   width: 13px;
   height: 15px;
-  margin-right: 10px;
-  margin-left: -4px;
 }
-html[watch-metadata-style^="cosmicpanda"] #segmented-dislike-button button[aria-pressed="false"] #bt-dislike {
-  background: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -46px -251px;
-  width: 13px;
-  height: 15px;
-  margin-left: 7px;
-  margin-right: -4px;
-}
-html[watch-metadata-style^="cosmicpanda"] #segmented-like-button button[aria-pressed="true"] #bt-like,
-html[watch-metadata-style^="cosmicpanda"] #segmented-like-button:hover button[aria-pressed="false"] #bt-like {
-  background: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -8px -158px;
-  width: 13px;
-  height: 15px;
-  margin-right: 10px;
-  margin-left: -4px;
-}
-html[watch-metadata-style^="cosmicpanda"] #segmented-dislike-button button[aria-pressed="true"] #bt-dislike,
-html[watch-metadata-style^="cosmicpanda"] #segmented-dislike-button:hover button[aria-pressed="false"] #bt-dislike {
-  background: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -125px -91px;
-  margin-left: 7px;
-  margin-right: -4px;
-}
+
+
 html[watch-metadata-style^="hitchhiker"] .ryd-tooltip,
 html[watch-metadata-style^="cosmicpanda"] .ryd-tooltip {
   margin-bottom: 48px;
@@ -357,8 +365,9 @@ html[watch-metadata-style^="cosmicpanda"] #bt-bar dislikes {
   display: block;
   border: 1px solid #ccc;
 }
-/* end hitchhiker blob */
 
+
+/* todo investigate */
 html[watch-metadata-style] .yt-spec-button-shape-next--size-m {
   padding: 0 10px;
 }

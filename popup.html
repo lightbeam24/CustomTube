@@ -174,6 +174,19 @@
 		  animation-iteration-count: 1;*/
 		  background: linear-gradient(to top, #282828, #555);
 		}
+		body[show-new="true"] .left-item[new] .new {
+		  width: 4px;
+		  height: 4px;
+		  background: #07f;
+		  position: absolute;
+		  margin-top: -14px;
+		  margin-left: 114px;
+		  border-radius: 4px;
+		}
+		body[show-new="true"] .left-item:hover[new] .new,
+		body[show-new="true"] .left-item[new][active="true"] .new  {
+		  background: #eee;
+		}
 		#lmhelp {
 		  bottom: 20px;
 		  position: fixed;
@@ -205,6 +218,7 @@
 		  animation-name: rightAnim;
 		  animation-duration: 0.35s;
 		  animation-iteration-count: 1;
+		  z-index: 0;
 		}
 		.right[style="display: block"]:nth-last-child(1) {
 		  padding-bottom: 40px;
@@ -226,15 +240,15 @@
 		  font-size: 12px;
 		  color: #666;
 		}
-		#right1 {
+		#right2 {
 		  display: block;
 		  overflow-y: scroll;
 		  margin-top: 4px;
 		}
-		#right2, #right3, #right4, #right5, #right6 {
+		#right1, #right3, #right4, #right5, #right6, #right7 {
 		  display: none;
 		}
-		#right4 {
+		#right7 {
 		  margin-bottom: 52px;
 		}
 		.right-inner {
@@ -266,13 +280,47 @@
 		subopt {
 		  margin-left: 20px;
 		}
-		tooltip {
+		/*tooltip {
 		  position: fixed;
 		  bottom: 40px;
 		  left: 150px;
 		}
 		tooltip img {
 		  width: 270px;
+		}*/
+		@keyframes fadeout-tooltip {
+		  0%{max-width: 200px;}
+		  0%{max-height: 100px;}
+		  0%{opacity:1;}
+		  0%{width: 200px;}
+		  0%{height: 100px;}
+		  20%{opacity:1;}
+		  100%{width: 200px;}
+		  100%{height: 100px;}
+		  100%{max-width: 200px;}
+		  100%{max-height: 100px;}
+		  100%{opacity:0;}
+		}
+		tooltip {
+		  transition-duration: 0.5s;
+		  position: absolute;
+		  margin-top: 14px;
+		  max-width: 200px;
+		  max-height: 100px;
+		  background: red;
+		}
+		tooltip:not([active]) {
+		  /*transition: 0.5s opacity;*/
+		  opacity: 0;
+		  max-width: 0;
+		  max-height: 0;
+		  animation: fadeout-tooltip 1s 1;
+		}
+		tooltip[active] {
+		  transition: 0.5s max-width, 0.5s max-height;
+		  opacity: 1;
+		  width: 200px;
+		  height: 100px;
 		}
 		.mini-text {
 		  font-size: 10px;
@@ -298,6 +346,17 @@
 			background: #c00;
 			color: white;
 			border: 1px solid #c00;
+		}
+		.link {
+		  font-size: 13px;
+		  margin-left: 4px;
+		  margin-top: 4px;
+		  color: #07c;
+		  font-weight: bold;
+		  cursor: pointer;
+		}
+		.link:hover {
+		  text-decoration: underline;
 		}
 		.experiemental-text {
 		  color: #880;
@@ -341,13 +400,23 @@
 		#rd-dummy {
 		  display: none;
 		}
+		body[show-new="true"] label[new]::after {
+		  background: linear-gradient(to right, #ff68, #ff60);
+		  content: "NEW!";
+		  display: block;
+		  width: 300px;
+		  position: absolute;
+		  margin-top: -16px;
+		  z-index: -1;
+		  color: transparent;
+		}
       </style>
     </head>
     <body>
 		<div id="top">
 			<div id="top-inner">
 				<p id="title">CustomTube</p>
-				<p class="small-sub">V1.0.3</p>
+				<p class="small-sub">V1.0.4</p>
 				<p class="subtitle">Configuration Window</p>
 				<div class="top-item" id="lmall" active="false">
 					<button id="sectall">Show All Settings</button>
@@ -369,14 +438,17 @@
 						</div>
 					</div>
 					<div class="left-section">
-						<div class="left-item" id="lm5" active="false">
-							<button id="sect5">Misc</button>
+						<div class="left-item" id="lm1" active="false" new>
+							<button id="sect1">Misc</button>
+							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm1" active="true">
-							<button id="sect1">Layout</button>
+						<div class="left-item" id="lm2" active="true">
+							<button id="sect2">Layout</button>
+							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm6" active="false">
-							<button id="sect6">Tweaks</button>
+						<div class="left-item" id="lm3" active="false" new>
+							<button id="sect3">Tweaks</button>
+							<div class="new"></div>
 						</div>
 					</div>
 					<div class="left-section">
@@ -385,33 +457,60 @@
 						</div>
 					</div>
 					<div class="left-section">
-						<div class="left-item" id="lm2" active="false">
-							<button id="sect2">Sidebar</button>
-						</div>
-						<div class="left-item" id="lm3" active="false">
-							<button id="sect3">Topbar</button>
-						</div>
 						<div class="left-item" id="lm4" active="false">
-							<button id="sect4">Watch Page</button>
+							<button id="sect4">Sidebar</button>
+							<div class="new"></div>
+						</div>
+						<div class="left-item" id="lm5" active="false">
+							<button id="sect5">Topbar</button>
+							<div class="new"></div>
+						</div>
+						<div class="left-item" id="lm6" active="false">
+							<button id="sect6">Watch Page</button>
+							<div class="new"></div>
+						</div>
+						<div class="left-item" id="lm7" active="false" new>
+							<button id="sect7">Channel Page</button>
+							<div class="new"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id="right-outer">
-				<div id="right5" class="right">
+				<div id="right1" class="right">
 					<div class="right-supertitle">
 						<p>General: Misc</p>
 					</div>
 					<div class="right-inner">
 						<opt title="">
 							<label><input type="checkbox" name="showChangelog" class="settings">Show Changelog on Update</label>
+							<a id="shownow" class="link">
+								<!--tooltip id="tt1">
+									<inner>
+										<span></span>
+									</inner>
+								</tooltip-->
+								Show Changelog Now
+								<svg height="12px" width="12px" style="margin-left:2px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+									<style type="text/css">
+										.st0{fill:#07c;}
+									</style>
+									<g>
+										<path class="st0" d="M96,0v416h416V0H96z M472,376H136V112h336V376z"/>
+										<polygon class="st0" points="40,472 40,296 40,136 40,96 0,96 0,512 416,512 416,472 376,472  "/>
+									</g>
+								</svg>
+							</a>
+						</opt>
+						<opt title="Once you know which settings are new in this version of CustomTube, you can safely disable this. This setting will be re-enabled every update.">
+							<label new><input type="checkbox" name="showNew" class="settings">Show indicators for settings new to Version 1.0.4</label>
 						</opt>
 						<opt title="Allows CustomTube to better integrate the dislike count into the layout. Do not enable this if you aren't using the Return YouTube Dislike extension.">
 							<label><input type="checkbox" name="iUseRYD" class="settings">Enable Return YouTube Dislike compatibility</label>
 						</opt>
 					</div>
 				</div>
-				<div id="right1" class="right">
+				<div id="right2" class="right">
 					<div class="right-supertitle">
 						<p>General: Layout</p>
 					</div>
@@ -430,7 +529,7 @@
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="polymer-2019" style="display:inline-block;">Use 2019 Layout</label><br>
 							<line-seperator></line-seperator>
 							<p class="mini-text info-text">Standard Old YouTube Layout (officially codenamed "Hitchhiker")</p>
-							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2017" style="display:inline-block;">Use 2017 Layout ("Old YouTube") [CustomTube Default]</label><br>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2017" style="display:inline-block;">Use 2017 Layout [CustomTube Default]</label><br>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2016" style="display:inline-block;">Use 2016 Layout</label><br>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2015" style="display:inline-block;">Use 2015 Layout</label><br>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2014" style="display:inline-block;">Use 2014 Layout</label><br>
@@ -444,7 +543,7 @@
 						<p class="subtitle">* Theater Mode is Not Supported.</p>
 					</div>
 				</div>
-				<div id="right6" class="right">
+				<div id="right3" class="right">
 					<div class="right-supertitle">
 						<p>General: Tweaks</p>
 					</div>
@@ -455,6 +554,9 @@
 						<subopt title="Don't loop the video by default when you are watching a playlist.">
 							<label><input type="checkbox" name="dontLoopPlaylists" class="settings">Disable for playlist videos</label>
 						</subopt>
+						<!--opt title="Estimates the full subscriber count by randomly generating the missing digits of the subscriber count. This does not show the real full subscriber count. I repeat, THIS DOES NOT SHOW THE TRUE, ACTUAL SUBSCRIBER COUNT. It is for asthetic purposes only.">
+							<label new><input type="checkbox" name="randomSubCounts" class="settings">Unabbreviate sub counts (Estimated, hover for details)*</label>
+						</opt-->
 						<opt title="" class="">
 							<label><input type="checkbox" name="noJoin" class="settings">Hide Join Button</label>
 						</opt>
@@ -467,6 +569,12 @@
 						<opt title="Removes 'sections' from search that are most likely unrelated to the search. These include: People also watched, For you, etc." class="">
 							<label><input type="checkbox" name="betterSearch" class="settings">Remove Irrelevant Search Results</label>
 						</opt>
+						<opt title="" class="">
+							<label new><input type="checkbox" name="thumbFadeIn" class="settings">Video thumbnails fade in when loaded</label>
+						</opt>
+						<opt title="Turns the view count into '???,???' when the URL changes. A functionality that was turned off for CustomTube V1.0.4 because it was deemed no longer neccessary. If you like the way it looks, you can turn it back on here." class="">
+							<label new><input type="checkbox" name="viewCountFogging" class="settings">Re-fog view count when loading a new video</label>
+						</opt>
 						<opt title="Make pfps square, like they were before the mid 2017 redesign. Using any layout setting from 2017 or earlier will automatically make pfps square regardless of this setting. (However, this setting can be used to unround the topbar profile picture in the 2016 and 2017 layouts.)">
 							<label><input type="checkbox" name="squarePfp" class="settings">Unrounded Profile Pictures</label>
 							<p class="mini-text">Most layout options overwrite this setting</p>
@@ -477,7 +585,7 @@
 						</opt>
 					</div>
 				</div>
-				<div id="right2" class="right">
+				<div id="right4" class="right">
 					<div class="right-supertitle">
 						<p>Advanced: Sidebar (Guide)</p>
 					</div>
@@ -511,7 +619,7 @@
 							</opt>
 					</div>
 				</div>
-				<div id="right3" class="right">
+				<div id="right5" class="right">
 					<div class="right-supertitle">
 						<p>Advanced: Topbar</p>
 					</div>
@@ -525,7 +633,7 @@
 						<p class="subtitle">* Only works on layouts from 2014 or later.</p>
 					</div>
 				</div>
-				<div id="right4" class="right">
+				<div id="right6" class="right">
 					<div class="right-supertitle">
 						<p>Advanced: Watch Page</p>
 					</div>
@@ -551,13 +659,32 @@
 					</div>
 					<div class="right-inner">
 						<div class="right-title">
-							<p>Related Videos Size (Overrides Layout Setting)</p>
+							<p>Related Videos Thumbnail Size (Overrides Layout Setting)</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Changes the size of the recommended videos on the right side of the watch page. Hover over each radio button to see the size in pixels.</p>
 						</div>
 						<label class="logo-label" title="The size will be determined by your layout setting."><input type="radio" name="relatedSize" class="settings" value="auto" style="display:inline-block;">Auto</label><br>
 						<label class="logo-label " title="96x54 pixels"><input type="radio" name="relatedSize" class="settings" value="smaller" style="display:inline-block;">Smaller (2011 and earlier)</label><br>
 						<label class="logo-label " title="120x68 pixels"><input type="radio" name="relatedSize" class="settings" value="small" style="display:inline-block;">Small (2012-2016)</label><br>
 						<label class="logo-label " title="140x79 pixels"><input type="radio" name="relatedSize" class="settings" value="medium" style="display:inline-block;">Medium (Custom Middleground)</label><br>
 						<label class="logo-label " title="168x94 pixels"><input type="radio" name="relatedSize" class="settings" value="large" style="display:inline-block;">Large (2017-Present)</label><br>
+					</div>
+				</div>
+				<div id="right7" class="right">
+					<div class="right-supertitle">
+						<p>Advanced: Channel Page</p>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Channel videos "Sort by" dropdown (Overrides Layout Setting)</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Restore the dropdown for sorting channel videos.</p>
+						</div>
+						<label class="logo-label" new title="It will be on for all layouts other than the unmodified current layout."><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDauto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" new title="Always on"><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDon" style="display:inline-block;">On</label><br>
+						<label class="logo-label" new title="Always off"><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDoff" style="display:inline-block;">Off</label><br>
 					</div>
 				</div>
 			</div>

@@ -124,6 +124,9 @@ html[logo] #start #logo yt-icon {
   padding: var(--bt-logo-inner-padding) !important;
   margin-left: var(--bt-logo-inner-margin-left);
 }
+html[paint="blutube"] #start #logo yt-icon {
+  filter: var(--bt-paint-filter);
+}
 html[logo] #country-code.ytd-topbar-logo-renderer {
   display: var(--bt-country-code-display);
 }
@@ -772,6 +775,11 @@ html[header-style^="cosmicpanda"] #bt-header #info #subsinfo .header-img {
 	height: 34px;
 	background: no-repeat url(images/www-guide-vflrS65yn.png) 0 -532px;
 }
+html[header-style^="cosmicpanda"] #bt-header #info #chaninfo .header-img {
+  	width: 34px;
+	height: 34px;
+	background-size: 34px !important;
+}
 html:not([location="home"]) #bt-header #info #homeinfo {
   visibility: hidden;
 }
@@ -782,6 +790,9 @@ html:not([location="subscriptions"]) #bt-header #info #subsinfo {
   visibility: hidden;
 }
 html:not([location="browse-channels"]) #bt-header #info #bcinfo {
+  visibility: hidden;
+}
+html:not([location="inline-channel"]) #bt-header #info #chaninfo {
   visibility: hidden;
 }
 html[header-style] #bt-header {
@@ -804,7 +815,8 @@ html[header-style] .header-text {
 #bt-header {
   display: var(--bt-header-display);
 }
-html:not([location="subscriptions"]):not([location="home"]):not([location="browse-channels"]) #bt-header {
+/* todo move this uo maybe */
+html:not([location="subscriptions"]):not([location="home"]):not([location="browse-channels"]):not([location="inline-channel"]) #bt-header {
   display: none;
 }
 #bt-header-inner {

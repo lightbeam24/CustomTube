@@ -76,6 +76,10 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-channel-name-text-decoration-hover: underline;
 /* sub btn NOTE MOVED */
 }
+html[watch-metadata-style^="hitchhiker-2015"] {
+--bt-wp-title-padding: 15px 15px 5px 15px;
+--bt-wp-title-font-size: 24px;
+}
 html[watch-metadata-style^="hitchhiker-2014"],
 html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-wp-primary-inner-bg: var(--bt-section-bg);
@@ -268,9 +272,22 @@ html[no-ryd] #top-row {
   border-bottom: var(--bt-wp-top-row-border-bottom) !important;
   padding-bottom: var(--bt-wp-top-row-padding-bottom);
 }
-html:not([no-ryd]) #top-row {
+html:not([no-ryd]):not([watch-metadata-style^="hitchhiker"]) #top-row {
   border-bottom: var(--bt-wp-top-row-border-bottom) !important;
   padding-bottom: var(--bt-wp-top-row-padding-bottom);
+}
+html[watch-metadata-style^="hitchhiker"] #top-row {
+  border-bottom: none !important;
+}
+html:not([no-ryd])[watch-metadata-style^="hitchhiker"] middle-row-border {
+  border-top: var(--bt-wp-top-row-border-bottom);
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  display: block;
+}
+html:not([no-ryd])[watch-metadata-style^="hitchhiker-2014"] middle-row-border,
+html:not([no-ryd])[watch-metadata-style^="hitchhiker-2013"] middle-row-border {
+  display: none;
 }
 /* ---------------------------- METADATA END ----------------------------------------- */
 /* pfp upload date is in universalized elements for now */

@@ -6,7 +6,9 @@ let sect3 = document.querySelector('#sect3');
 let sect4 = document.querySelector('#sect4');
 let sect5 = document.querySelector('#sect5');
 let sect6 = document.querySelector('#sect6');
+let sect7 = document.querySelector('#sect7');
 let sectall = document.querySelector('#sectall');
+let shownow = document.querySelector('#shownow');
 sect1.onclick = function() {
 	document.getElementById("right1").style.display = "block";
 	document.querySelector("#lm1").setAttribute("active", "true");
@@ -20,6 +22,8 @@ sect1.onclick = function() {
 	document.querySelector("#lm5").setAttribute("active", "false");
 	document.getElementById("right6").style.display = "none";
 	document.querySelector("#lm6").setAttribute("active", "false");
+	document.getElementById("right7").style.display = "none";
+	document.querySelector("#lm7").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 }
 sect2.onclick = function() {
@@ -35,6 +39,8 @@ sect2.onclick = function() {
 	document.querySelector("#lm5").setAttribute("active", "false");
 	document.getElementById("right6").style.display = "none";
 	document.querySelector("#lm6").setAttribute("active", "false");
+	document.getElementById("right7").style.display = "none";
+	document.querySelector("#lm7").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 }
 sect3.onclick = function() {
@@ -50,6 +56,8 @@ sect3.onclick = function() {
 	document.querySelector("#lm5").setAttribute("active", "false");
 	document.getElementById("right6").style.display = "none";
 	document.querySelector("#lm6").setAttribute("active", "false");
+	document.getElementById("right7").style.display = "none";
+	document.querySelector("#lm7").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 }
 sect4.onclick = function() {
@@ -65,6 +73,8 @@ sect4.onclick = function() {
 	document.querySelector("#lm5").setAttribute("active", "false");
 	document.getElementById("right6").style.display = "none";
 	document.querySelector("#lm6").setAttribute("active", "false");
+	document.getElementById("right7").style.display = "none";
+	document.querySelector("#lm7").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 }
 sect5.onclick = function() {
@@ -80,6 +90,8 @@ sect5.onclick = function() {
 	document.querySelector("#lm5").setAttribute("active", "true");
 	document.getElementById("right6").style.display = "none";
 	document.querySelector("#lm6").setAttribute("active", "false");
+	document.getElementById("right7").style.display = "none";
+	document.querySelector("#lm7").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 }
 sect6.onclick = function() {
@@ -95,6 +107,25 @@ sect6.onclick = function() {
 	document.querySelector("#lm5").setAttribute("active", "false");
 	document.getElementById("right6").style.display = "block";
 	document.querySelector("#lm6").setAttribute("active", "true");
+	document.getElementById("right7").style.display = "none";
+	document.querySelector("#lm7").setAttribute("active", "false");
+	document.querySelector("#lmall").setAttribute("active", "false");
+}
+sect7.onclick = function() {
+	document.getElementById("right1").style.display = "none";
+	document.querySelector("#lm1").setAttribute("active", "false");
+	document.getElementById("right2").style.display = "none";
+	document.querySelector("#lm2").setAttribute("active", "false");
+	document.getElementById("right3").style.display = "none";
+	document.querySelector("#lm3").setAttribute("active", "false");
+	document.getElementById("right4").style.display = "none";
+	document.querySelector("#lm4").setAttribute("active", "false");
+	document.getElementById("right5").style.display = "none";
+	document.querySelector("#lm5").setAttribute("active", "false");
+	document.getElementById("right6").style.display = "none";
+	document.querySelector("#lm6").setAttribute("active", "false");
+	document.getElementById("right7").style.display = "block";
+	document.querySelector("#lm7").setAttribute("active", "true");
 	document.querySelector("#lmall").setAttribute("active", "false");
 }
 sectall.onclick = function() {
@@ -110,7 +141,14 @@ sectall.onclick = function() {
 	document.querySelector("#lm5").setAttribute("active", "false");
 	document.getElementById("right6").style.display = "block";
 	document.querySelector("#lm6").setAttribute("active", "false");
+	document.getElementById("right7").style.display = "block";
+	document.querySelector("#lm7").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "true");
+}
+shownow.onclick = function() {
+	browser.tabs.create({
+		url: `./changelog.html#check`
+	});
 }
 if (navigator.userAgent.match(/Firefox\/([^\s]+)/)) {
 	if (parseInt(navigator.userAgent.match(/Firefox\/([^\s]+)/)[1]) >= minVersion) {
@@ -121,6 +159,7 @@ if (navigator.userAgent.match(/Firefox\/([^\s]+)/)) {
 }
 let globalURL;
 let currentSettings;
+let tabs = browser.tabs;
 
 browser.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
 	globalURL = tabs[0].url;
@@ -160,7 +199,6 @@ document.querySelector('#restore-defaults').addEventListener('click', () => {
 		window.close();
 	}
 });
-
 function saveSettings() {
 	let newSettings = {};
 	//save checkboxes
@@ -195,9 +233,32 @@ function saveSettings() {
 		}
 	}
 	storage.set({BTConfig: newSettings});
+	//save CVDD radio buttons
+	let channelVidsDropdown = document.querySelectorAll('input[type="radio"][name="channelVidsDropdown"]');
+	for (let i = 0; i < channelVidsDropdown.length; i++) {
+		if (channelVidsDropdown[i].checked) {
+			newSettings[channelVidsDropdown[i].name] = channelVidsDropdown[i].value;
+		}
+	}
+	if (!currentSettings.showNew) {
+		document.querySelector("body").setAttribute("show-new", "false");
+	}
+	if (currentSettings.showNew) {
+		document.querySelector("body").setAttribute("show-new", "true");
+	}
+	if (newSettings.showNew) {
+		document.querySelector("body").setAttribute("show-new", "true");
+	}
+	if (!newSettings.showNew) {
+		document.querySelector("body").setAttribute("show-new", "false");
+	}
+	storage.set({BTConfig: newSettings});
 }
 function getSettings() {
 	if (currentSettings == null) {return;}
+	if (currentSettings.showNew) {
+		document.querySelector("body").setAttribute("show-new", "true");
+	}
 	let itemsCheck = document.querySelectorAll('input[type="checkbox"]');
 	//set checkboxes
 	for (let i = 0; i < itemsCheck.length; i++) {
@@ -210,6 +271,7 @@ function getSettings() {
 	document.querySelector(`input[type="radio"][value="${currentSettings.layoutSelect}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.relatedSize}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.searchbarStyle}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.channelVidsDropdown}"]`).checked = true;
 }
 
 //main

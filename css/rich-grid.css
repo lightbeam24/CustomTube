@@ -240,3 +240,7 @@ html[homepage="list"] ytd-rich-grid-renderer #contents.ytd-rich-grid-renderer {
 html[homepage="list"] #video-title-link.ytd-rich-grid-media {
   display: block ruby;
 }
+/* for channel grid */
+html[layout] ytd-rich-item-renderer[is-slim-grid]:first-of-type {
+  margin-left: calc(var(--ytd-rich-grid-item-margin) * 0.7) !important;
+}

@@ -15,10 +15,10 @@ const defaultSettings = {
 	"layoutSelect": "hitchhiker-2017", 
 	"relatedSize": "auto", 
 	"searchbarStyle": "autoSearchBar", 
+	"channelVidsDropdown": "CVDDauto", 
 	"blockRGW": true,
 	"squarePfp": false,
 	"squareVid": false,
-	"loopByDefault": false,
 	"dontLoopPlaylists": false,
 	"homeSidebarBtn": true,
 	"wtwSidebarBtn": false,
@@ -30,12 +30,18 @@ const defaultSettings = {
 	"trendingSidebarBtn": true,
 	"subsSidebarBtn": true,
 	"iUseRYD": false,
+	/* tweaks */
+	"loopByDefault": false,
 	"noJoin": false,
 	"noClip": false,
 	"noThanks": false,
 	"betterSearch": true,
+	"thumbFadeIn": false,
 	"noInfi": false,
 	"noFlexy": true,
+	"randomSubCount": false,
+	"viewCountFogging": false,
+	"showNew": true,
 	"showChangelog": true
 };
 initiate();

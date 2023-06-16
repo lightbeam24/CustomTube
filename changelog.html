@@ -1,212 +1,78 @@
-<!DOCTYPE html>
-<html>
-    <head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta charset="UTF-8">
-		<title>CustomTube</title>
-		<style>
-		p {
-			margin: 0;
-		}
-		html {
-			font-family: arial;
-			--ribbon-title-padding-left: 20px;
-		}
-		background {
-			background-color: rgb(114,159,207);
-			background-image: url(images/beamtubebg.png);
-			background-repeat: no-repeat;
-			background-size: 100vw;
-			width: 100%;
-			height: 100%;
-			position: fixed;
-			display: block;
-			top: 0;
-			left: 0;
-			z-index: -2;
-		}
-		body {
-			width: 1000px;
-			margin: 0 auto;
-		}
-		#top {
-			font-weight: bold;
-			margin-top: 8px;
-			font-size: 20px;
-			margin-left: 2px;
-		}
-		#bt-icon {
-			display: inline-block;
-			margin-bottom: -10px;
-			margin-left: 4px;
-		}
-		#middle {
-			margin-left: 2px;
-		}
-		#clt {
-		  margin: 8px 15px 0 30px;
-		  background: linear-gradient(to top,#ddd,#eee);
-		  padding: 8px 10px 4px 10px;
-		}
-		#clt::before {
-		  content: "";
-		  display: block;
-		  clip-path: polygon(0 100%, 100% 100%, 100% 0);
-		  width: 15.5px;
-		  height: 31px;
-		  background: linear-gradient(135deg, #ccc 73%, #aaa);
-		  position: absolute;
-		  margin-top: -8px;
-		  margin-left: -25px;
-		  z-index: -1;
-		}
-		#changelog {
-			margin: 0 15px;
-			background: #444;
-			border: 3px solid #eee;
-			color: #fff;
-			box-shadow: inset 0 0 10px 10px rgba(0,0,0,0.4);
-			padding: 10px 15px;
-			margin-bottom: 12px;
-		}
-		#changelog-inner {
-		  overflow: scroll;
-		}
-		#changelog .title {
-			background: linear-gradient(to top, #c22, #f44);
-			padding: 4px 12px;
-			margin-left: -30px;
-			padding-left: var(--ribbon-title-padding-left);
-			width: 900px;
-			box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-			text-shadow: -1px -1px 1px rgba(0,0,0,0.15);
-		}
-		#changelog .title::before {
-		  content: "";
-		  width: 13px;
-		  height: 6px;
-		  display: block;
-		  clip-path: polygon(100% 1%, 0% 100%, 100% 100%);
-		  position: absolute;
-		  margin-top: -9.9px;
-		  margin-left: calc(var(--ribbon-title-padding-left) * -1);
-		  background: linear-gradient(135deg, #d00 55%, #900);
-		  z-index: -1;
-		}
-		#changelog .title::after {
-			content: "";
-			clip-path: polygon(0 0, 0% 100%, 100% 0);
-			display: block;
-			width: 20px;
-			height: 32.5px;
-			background: linear-gradient(to top, #c22, #f44);
-			position: absolute;
-			margin-top: -28.5px;
-			margin-left: 913px;
-		}
-		@media only screen and (max-width: 4800px) {
-		#changelog .title::after {
-			height: 27.4px;
-			margin-top: -23.5px;
-			margin-left: 912px;
-		}
-		}		
-		@media only screen and (max-width: 1800px) {
-		#changelog .title::after {
-			height: 26.4px;
-			margin-top: -22.5px;
-		}
-		}		
-		@media only screen and (max-width: 1444px) {
-		#changelog .title::after {
-			height: 26.4px;
-			margin-top: -22.5px;
-		}
-		}
-		@media only screen and (max-width: 1200px) {
-		#changelog .title::after {
-			height: 26.4px;
-			margin-top: -22px;
-		}
-		}
-		.words {
-		  margin: 6px 0;
-		}
-		.words p {
-		  margin: 4px 0;
-		}
-		.smaller {
-		  font-size: 12px;
-		}
-		</style>
-		<script src="./initial-setup.js"></script>
-	</head>
-	<body>
-		<div id="top">
-			<p id="header"></p>
-			<p id="version"></p>
-		</div>
-		<div id="middle">
-			<p class="title" id="fit"></p>
-			<span class="title">You can access CustomTube's settings by clicking on the icon in the browser toolbar. Just look for this icon!</span><img id="bt-icon" src="images/32.png">
-		</div>
-		<div id="bottom">
-			<p class="title" id="clt">Changelog:</p>
-			<div id="changelog">
-				<div class="changelog-inner">
-					<div class="title-area">
-						<div class="title">
-							<p>Version 1.0.3 - May 24, 2023</p>
-						</div>
-					</div>
-					<div class="words">
-						<p>- Improvement: Like and dislike buttons are now green and black respectively [Affects Early 2013 and 2013 layouts]</p>
-						<p>- Improvement: The watch page is now even more accurate to the original layout [Affects all layouts from 2012 to 2014]</p>
-						<p>- Improvement: Video thumbnails that appear once the video ends are now unrounded [Affects all layouts, excluding the unmodified current layout]</p>
-						<p>- Improvement: Dropdown menus are now unrounded [Affects all layouts, excluding the unmodified current layout]</p>
-						<p>- Change: You can now see CustomTube's version number on the Configuration Window's topbar</p>
-						<p>- Fix: Fixed a bug where the topbar stayed white while in theater mode, when it was supposed to become dark [This bug affected the 2019 layout]</p>
-						<p>- Fix: Fixed a bug where the topbar icons turned white while in theater mode, when they were supposed to remain dark [This bug affected the 2014-2017 layouts]</p>
-						<p>- Other: In response to a new change YouTube made, playlist thumbnail styling is temporarily disabled (Mix playlist thumbnails are unaffected) [This affects all layouts from 2012-2017]</p>
-					</div>
-					<div class="title-area">
-						<div class="title">
-							<p>Version 1.0.2 - May 21, 2023</p>
-						</div>
-					</div>
-					<div class="words">
-						<p>- New: Added "Smaller" option to "Related Videos Size". [Compatible with all layouts]</p>
-						<p>- Improvement: A couple of minor layout and CSS improvements [Affects all layouts to varying degrees, most notably the Early 2013-2014 layouts]</p>
-						<p>- Improvement: Using the site should feel a bit faster and smoother overall</p>
-						<p>- Improvement: If the comments haven't loaded after 5 seconds, the extension now forces them to</p>
-						<p>- Fix: Fixed a major bug where the performance would gradually degrade as you used the site [This bug affected all layouts]</p>
-						<p>- Fix: Fixed a bug where the Home Button text would not change according to the user's settings in certain situations (always happened when signed out, but could still happen when signed in) [This bug affected all layouts]</p>
-						<p>- Fix: Fixed a bug where the video wouldn't resize to fit inside the miniplayer [This bug affected the 2012 layout]</p>
-					</div>
-					<div class="title-area">
-						<div class="title">
-							<p>Version 1.0.1 - May 16, 2023</p>
-						</div>
-					</div>
-					<div class="words">
-						<p>- New: Added option to make the "C" in "My Channel" lowercase on the My Channel button [Compatible with all layouts]</p>
-						<p>- Improvement: A couple of very minor CSS improvements [Affects 2013 and 2014 layouts]</p>
-						<p>- Fix: Fixed a major bug where the watch page wouldn't load correctly if YouTube's langauge was set to something other than English [This bug affected all layouts from Early 2013 to 2017]</p>
-						<p>- Fix: Fixed a minor bug where the Share button (the one located in the video player itself) was invisible [This bug affected all layouts from Early 2013 to 2017]</p>
-						<p>- Fix: YouTube's experimental new icon system was causing fairly serious issues, now they are fixed [This bug affected all layouts, excluding the unmodified current layout]</p>
-					</div>
-					<div class="title-area">
-						<div class="title">
-							<p>Version 1.0.0 - May 12, 2023</p>
-						</div>
-					</div>
-					<div class="words">
-						<p>- First version of CustomTube! Notable features include choosing between the 2012-2017 and 2019 layouts, and being able to loop videos by default.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script src="./changelog.js"></script>
-		<background></background>
-	</body>
-</html>
+{
+    "name": "CustomTube",
+    "version": "1.0.4",
+    "description": "Choose your own YouTube layout, and more!",
+    "permissions": ["activeTab", "storage"],
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/16.png",
+        "32": "images/32.png",
+        "48": "images/48.png",
+        "128": "images/128.png"
+      }
+    },
+    "icons": {
+      "16": "images/16.png",
+      "32": "images/32.png",
+      "48": "images/48.png",
+      "128": "images/128.png"
+    },
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.youtube.com/*"],
+        "exclude_matches": ["*://*.youtube.com/embed/*"],
+        "css": [
+		"general.css",
+		"css/bt-universalized-elements.css",
+		"css/static.css",
+		"css/static-scrolling.css",
+		"css/psuedo-static.css",
+		"css/rich-grid.css",
+		"css/topbar.css",
+		"css/sidebar.css",
+		"css/chips.css",
+		"css/search.css",
+		"css/watch-page.css",
+		"css/watch-page-blobs.css",
+		"css/ltod.css",
+		"css/description.css",
+		"css/comments.css",
+		"css/playlist-panel.css",
+		"css/channel-rework.css",
+		"css/related-videos.css",
+		"css/cosmicpanda.css",
+		"css/polymer.css",
+		"css/sub-btn.css",
+		"css/menus.css"
+		],
+        "run_at": "document_start"
+      },
+      {
+        "matches": ["*://*.youtube.com/*"],
+        "exclude_matches": ["*://*.youtube.com/embed/*"],
+        "js": [
+          "initial-setup.js"
+        ],
+        "run_at": "document_start"
+      },
+      {
+        "matches": ["*://*.youtube.com/*"],
+        "exclude_matches": ["*://*.youtube.com/embed/*"],
+        "js": ["main.js"]
+      }
+	  
+    ],
+    "web_accessible_resources": [
+      "images/*"
+    ],
+    "browser_specific_settings": {
+      "gecko": {
+	  "id": "{7917c4c9-c062-427a-9d29-15db676687eb}"
+      }
+    },
+    "manifest_version": 2
+  }

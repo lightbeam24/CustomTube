@@ -524,7 +524,8 @@ html[sidebar-style] .title.ytd-guide-entry-renderer {
   font-size: var(--bt-sidebar-item-font-size);
 }
 /* inactive sidebar items */
-html[sidebar-style] ytd-guide-entry-renderer:not([active]):hover {
+html[sidebar-style] ytd-guide-entry-renderer:not([active]):hover,
+html[sidebar-style] .ysm-deck-open:hover {
   background: var(--bt-sidebar-item-bg-hover);
   border-right: var(--bt-sidebar-item-border-right-hover);
 }
@@ -550,6 +551,28 @@ html[sidebar-style] ytd-guide-entry-renderer[active] .title.ytd-guide-entry-rend
 /* images inside items */
 html[sidebar-style] .style-scope.ytd-guide-entry-renderer yt-img-shadow {
   border-radius: var(--bt-sidebar-item-image-radius) !important;
+}
+/* PocketTube */
+html[sidebar-style] .ysm-deck-open > a {
+  border-radius: 0 !important;
+  width: var(--bt-sidebar-item-width) !important;
+}
+html[sidebar-style] .ysm-deck-open {
+  border-radius: var(--bt-sidebar-item-radius) !important;
+  width: var(--bt-sidebar-item-width);
+  margin-left: var(--bt-sidebar-item-margin-left);
+  height: var(--bt-sidebar-item-height);
+  border-top: var(--bt-sidebar-item-border-top);
+  border-bottom: var(--bt-sidebar-item-border-bottom);
+  background: var(--bt-sidebar-item-bg);
+  border-right: var(--bt-sidebar-item-border-right);
+  transition: var(--bt-sidebar-item-transition);
+}
+html[sidebar-style] .ysm-deck-open div {
+  color: var(--bt-sidebar-item-text-color) !important;
+}
+html[sidebar-style] .ysm-deck-open:hover div {
+  color: var(--bt-sidebar-item-text-color-hover) !important;
 }
 /* BTSection My Channel */
 html[my-channel-btn="false"] {

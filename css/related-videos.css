@@ -281,7 +281,7 @@ html:not([related-videos]) #bt-load-more-related #suggestions {
   display: none;
 }
 /* thumbnail overlay (unfinished) */
-html[watched-overlay^="hitchhiker"] #related ytd-thumbnail #progress[style="width: 100%;"]::after {
+html[watched-overlay^="hitchhiker"] ytd-thumbnail #progress[style="width: 100%;"]::after {
   content: "Watched";
   color: #ddd;
   display: block;
@@ -298,4 +298,29 @@ html[watched-overlay^="hitchhiker"] #related ytd-thumbnail ytd-thumbnail-overlay
 }
 html[watched-overlay^="hitchhiker"] #related ytd-thumbnail ytd-thumbnail-overlay-resume-playback-renderer #progress {
   background: transparent;
+}
+html[related-videos^="hitchhiker-2014"] #bt-load-more-related,
+html[related-videos^="hitchhiker-2013"] #bt-load-more-related {
+	display: inline-block;
+}
+/* begone spawn of satan! */
+#related ytd-reel-shelf-renderer {
+  display: none !important;
+}
+/* anti watch_feed_bigger_thumbs */
+html[related-videos-size] #secondary.ytd-watch-flexy {
+  width: var(--bt-wp-secondary-width, 402px) !important;
+  min-width: var(--bt-wp-secondary-min-width, 300px) !important;
+}
+html[related-videos-size] #related ytd-thumbnail,
+html[related-videos-size] #related ytd-playlist-thumbnail {
+  margin-right: 8px !important;
+}
+html[related-videos-size] ytd-watch-flexy #related #dismissible {
+  display: flex;
+  flex-direction: row !important;
+}
+html[related-videos-size] ytd-watch-flexy #related .metadata {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }

@@ -6,6 +6,7 @@ html[channel-style^="hitchhiker"] {
 --bt-channel-pfp-size: 100px;
 --bt-channel-pfp-left: 16px;
 --bt-channel-page-header-inner-padding: 0 36px 0 12px;
+--bt-channel-tagline-display: none;
 }
 @media only screen and (max-width: 1444px) {
 html[channel-style^="hitchhiker"] {
@@ -16,6 +17,10 @@ html[channel-style^="hitchhiker"] {
 --bt-channel-pfp-size: 100px;
 --bt-channel-pfp-left: 16px;
 --bt-channel-page-header-inner-padding: 0 36px 0 12px;
+}
+html {
+--bt-channel-page-width: 1060px;
+--bt-channel-page-content-max-width: 1036px;
 }
 }
 html[channel-style^="hitchhiker-2013"] {
@@ -32,6 +37,15 @@ html[channel-style^="cosmicpanda"] {
 --bt-channel-pfp-size: 60px;
 --bt-channel-page-header-inner-padding: 0 36px 0 12px;
 --bt-channel-page-channel-name: #fff;
+--bt-channel-tagline-display: block;
+}
+html[channel-style^="polymer"] {
+--bt-channel-tagline-display: none;
+--bt-channel-pfp-size: 100px;
+}
+/* channel tagline */
+html[channel-style] #channel-tagline {
+  display: var(--bt-channel-tagline-display);
 }
 /* cosmicpanda blob */
 html[channel-style^="cosmicpanda"] ytd-browse[page-subtype="channels"] ytd-two-column-browse-results-renderer.grid:not(.grid-disabled) {
@@ -118,9 +132,12 @@ html[channel-style]:not([channel-style^="polymer"]) #channel-container #avatar,
 html[channel-style]:not([channel-style^="polymer"]) ytd-channel-avatar-editor {
   position: var(--bt-channel-pfp-pos);
   top: calc(var(--bt-channel-page-banner-height) * -1);
+  left: var(--bt-channel-pfp-left);
+}
+html[channel-style] #channel-container #avatar,
+html[channel-style] ytd-channel-avatar-editor {
   width: var(--bt-channel-pfp-size);
   height: var(--bt-channel-pfp-size);
-  left: var(--bt-channel-pfp-left);
 }
 html[channel-style]:not([channel-style^="polymer"]) ytd-channel-avatar-editor yt-img-shadow {
   width: var(--bt-channel-pfp-size);
@@ -183,6 +200,13 @@ html[channel-style]:not([channel-style^="polymer"]) #channel-header.ytd-c4-tabbe
   background: var(--bt-channel-page-header-bg);
   border-radius: var(--bt-channel-page-header-radius);
 }
+html[channel-style^="hitchhiker"] #inner-header-container.ytd-c4-tabbed-header-renderer {
+  margin-top: 2px;
+  margin-bottom: 6px;
+}
+html[channel-style^="polymer"] #inner-header-container.ytd-c4-tabbed-header-renderer {
+  margin-top: 24px;
+}
 /* tabs */
 html[channel-style]:not([channel-style^="polymer"]) tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer {
   height: var(--bt-channel-page-tab-height) !important;
@@ -198,7 +222,8 @@ html[channel-style]:not([channel-style^="polymer"]) tp-yt-paper-tabs.ytd-c4-tabb
   height: var(--bt-channel-page-tab-height);
 }
 /* make less wide */
-html[channel-style]:not([channel-style^="polymer"]) tp-yt-paper-tab.ytd-c4-tabbed-header-renderer {
+html[channel-style]:not([channel-style^="polymer"]) tp-yt-paper-tab.ytd-c4-tabbed-header-renderer,
+yt-tab-shape {
   padding: var(--bt-channel-page-tab-padding);
   border-bottom: var(--bt-channel-page-tab-border-bottom) !important;
   margin: var(--bt-channel-page-tab-margin);
@@ -209,17 +234,39 @@ html[channel-style]:not([channel-style^="polymer"]) tp-yt-paper-tab.ytd-c4-tabbe
 html[channel-style]:not([channel-style^="polymer"]) .selection-bar.tp-yt-paper-tabs {
   display: var(--bt-channel-page-og-tab-bar-display);
 }
-html[channel-style]:not([channel-style^="polymer"]) tp-yt-paper-tab:hover {
+html[channel-style]:not([channel-style^="polymer"]) tp-yt-paper-tab:hover,
+yt-tab-shape:hover {
   border-bottom: var(--bt-channel-page-tab-border-bottom-hover) !important;
   background: var(--bt-channel-page-tab-bg-hover);
 }
-html[channel-style]:not([channel-style^="polymer"]) tp-yt-paper-tab[aria-selected="true"] {
+html[channel-style]:not([channel-style^="polymer"]) tp-yt-paper-tab[aria-selected="true"],
+yt-tab-shape[aria-selected="true"] {
   border-bottom: var(--bt-channel-page-tab-border-bottom-active) !important;
   background: var(--bt-channel-page-tab-bg-active);
 }
 /* text */
-html[channel-style]:not([channel-style^="polymer"]) .tab-title.style-scope.ytd-c4-tabbed-header-renderer {
+html[channel-style]:not([channel-style^="polymer"]) .tab-title.style-scope.ytd-c4-tabbed-header-renderer,
+html[channel-style]:not([channel-style^="polymer"]) .yt-tab-shape-wiz__tab {
   font-size: var(--bt-channel-page-tab-font-size);
   text-transform: var(--bt-channel-page-tab-text-transform);
   font-weight: var(--bt-channel-page-tab-font-weight);
+}
+html[channel-style] .yt-tab-shape-wiz {
+  height: 30px;
+  margin-right: 12px;
+}
+html[channel-style] .yt-tab-group-shape-wiz__slider,
+html[channel-style] .yt-tab-shape-wiz__tab-bar {
+	display: none;
+}
+/* for inline */
+html[channel-style^="cosmicpanda"][location="inline-channel"] tp-yt-app-header #avatar {
+	position: absolute !important;
+	visibility: visible !important;
+	z-index: 1912921912;
+	opacity: 0;
+	margin-left: 100px;
+}
+html[channel-style] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer {
+  border-top: var(--bt-section-border);
 }

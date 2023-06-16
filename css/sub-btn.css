@@ -229,6 +229,7 @@ html[watch-metadata-style^="hitchhiker"] #subscribe-button .yt-spec-button-shape
   content: "";
   margin-left: 1px;
   margin-right: 5px;
+    filter: var(--bt-paint-filter);
 }
 html[watch-metadata-style^="hitchhiker-2013-2"] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled::before,
 html[watch-metadata-style^="hitchhiker-2014"] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled::before  {
@@ -264,7 +265,8 @@ html[watch-metadata-style^="hitchhiker-2013-1"] #subscribe-button .yt-spec-butto
 html[sub-button-nested-sub-count='true'] #owner yt-button-shape span::after {
   content: "";	
 }
-html[watch-metadata-style="polymer-2019"] #subscribe-button .yt-spec-button-shape-next--button-text-content {
+html[watch-metadata-style="polymer-2019"] #subscribe-button .yt-spec-button-shape-next--button-text-content,
+html[watch-metadata-style="polymer-2019"] #subscribe-button .yt-spec-button-shape-next__button-text-content {
   /*text-transform: uppercase;*/
   word-spacing: 5px;
   mask-image: linear-gradient(to right,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 82px,rgba(255,255,255,0.75) 83px);

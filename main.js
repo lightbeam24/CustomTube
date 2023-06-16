@@ -1,5 +1,10 @@
 // NOTE: CustomTube's codename is BeamTube, which is why "bt" appears everywhere in the code.
 
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+var oldSubCount = "pla.hol";
+var oldSubCountFull = "placeholder";
 // Most of the code in this section is from YouTube Redux.
 let flags = {
 	"recalcListenersAdded":false
@@ -38,9 +43,11 @@ let tasks = {
 	"createdNewShowMoreButton": false,
 	"createdNewShowLessButton": false,
 	"createdShowMoreRelated": false,
+	"createdShowMoreHome": false,
+	"createdShowMoreChannel": false,
 	"createdLtoDBar": false,
 	"createdNewLikeString": false,
-	"startVidIdStuff": false,
+	"startVidIdStuff": true,
 	"finishedSidebar": false,
 	"finishedWatch": false,
 	"movedTitleToTop": false
@@ -48,6 +55,7 @@ let tasks = {
 let BTVars = {
 	"playlistWatch": false,
 	"trimViews": false,
+	//btlocation is deprecated and will be replaced in the coming updates.
 	"btlocation": "home",
 	"playerState": "normal"
 };
@@ -293,6 +301,7 @@ function getInitialVariables() {
 	setTimeout(getBetterSearch, 5);
 	setTimeout(getLayout, 5);
 	setTimeout(getMaterialSearch, 10);
+	setTimeout(getCVDD, 10);
 	setTimeout(getSquare, 10);
 	setTimeout(getMyChannel, 10);
 	setTimeout(getInfiScroll, 10);
@@ -302,13 +311,12 @@ function getInitialVariables() {
 	setTimeout(getThanks, 10);
 	setTimeout(getTrimmedViewCount, 15);
 	setTimeout(getRelatedVideos, 10);
+	setTimeout(getTFI, 10);
 	setTimeout(getHref, 5);
 	
 	function getSignedOut() {
 		if (document.querySelector("a[aria-label='Sign in']") != null) {
-			function isSignedOut() {
-				document.querySelector("html").setAttribute("signed-out", "");
-			}
+			document.querySelector("html").setAttribute("signed-out", "");
 		}
 	}
 	function getRYD() {
@@ -325,6 +333,7 @@ function getInitialVariables() {
 	function getLayout() {
 		document.querySelector("html").setAttribute("title-on-top", "false");
 		document.querySelector("html").setAttribute("upload-btn", "false");
+		document.querySelector("html").setAttribute("related-videos-size", "large");
 		if (BTConfig.layoutSelect == "polymer-2019") {
 			document.querySelector("html").setAttribute("global-color-palette", "polymer-2019");
 			document.querySelector("ytd-app").setAttribute("layout", "polymer");
@@ -351,6 +360,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("channel-style", "polymer-2019");
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2017") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2017");
@@ -382,6 +392,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("unrounded-pfps", "");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2016") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2016");
@@ -413,6 +424,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("unrounded-pfps", "");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2015") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2015");
@@ -444,6 +456,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2014") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2014");
@@ -476,6 +489,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-2") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-2");
@@ -511,6 +525,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-1") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-1");
@@ -546,6 +561,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 		}
 		if (BTConfig.layoutSelect == "cosmicpanda-3") {
 			document.querySelector("html").setAttribute("global-color-palette", "cosmicpanda-3");
@@ -584,12 +600,21 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("title-on-top", "true");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 		}
 	}
 	function getMaterialSearch() {
 		if (BTConfig.searchbarStyle == "material") {
 			document.querySelector("html").setAttribute("search-bar-style", "material");
 			document.querySelector("html").setAttribute("search-placeholder-style", "material");
+		}
+	}
+	function getCVDD() {
+		if (BTConfig.channelVidsDropdown == "CVDDon") {
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+		}
+		if (BTConfig.channelVidsDropdown == "CVDDoff") {
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "false");
 		}
 	}
 	function getSquare() {
@@ -662,6 +687,11 @@ function getInitialVariables() {
 		}
 		if (BTConfig.relatedSize == "large") {
 			document.querySelector("html").setAttribute("related-videos-size", "large");
+		}
+	}
+	function getTFI() {
+		if (BTConfig.thumbFadeIn) {
+			document.querySelector("html").setAttribute("thumbs-fade-in", "true");
 		}
 	}
 }
@@ -772,9 +802,8 @@ function getHref() {
 			BTVars.btlocation = "home";
 			document.querySelector("ytd-app").setAttribute("location", "home");
 			document.querySelector("html").setAttribute("location", "home");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/watch?')) {
-			setTimeout(watchPageEveryLoad, 1500); //1
+			//setTimeout(watchPageEveryLoad, 1500); //1
 			tasks.appliedWatchMetadata = "false";
 			BTVars.btlocation = "watch";
 			document.querySelector("html").setAttribute("location", "watch");
@@ -792,7 +821,7 @@ function getHref() {
 			}
 			if (!tasks.startVidIdStuff) {
 				//setTimeout(vidIdStuff, 10);
-				waitFor('ytd-watch-flexy', 300, vidIdStuff);
+			//	waitFor('ytd-watch-flexy', 300, vidIdStuff);
 			}
 			if (location.href.includes('&list=')) {
 			document.querySelector("ytd-app").setAttribute("watchtype", "playlistwatch");
@@ -807,86 +836,85 @@ function getHref() {
 			function infiFunction() {
 				document.querySelector("html[location='watch'] ytd-watch-flexy #secondary #related ytd-continuation-item-renderer").style.display = "none";
 			}
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.pathname.startsWith('/u') || location.pathname.startsWith('/c') || location.pathname.startsWith('/@') ) {
 			BTVars.btlocation = "channel";
-		    document.querySelector("ytd-app").setAttribute("location", "channel");
+			document.querySelector("ytd-app").setAttribute("location", "channel");
 			document.querySelector("html").setAttribute("location", "channel");
+			if (location.href.includes('/videos')) {
+				document.querySelector("html").setAttribute("channel-page", "videos");
+				if (document.querySelector("html[channel-vids-dropdown]") != null) {
+					waitFor("#dropdown-btn", 250, getChannelVidsSort);
+				}
+			} else {
+				document.querySelector("html").setAttribute("channel-page", "home");
+			}
 		} else if (location.href.includes('/feed/trending')) {
 			BTVars.btlocation = "trending";
 			document.querySelector("ytd-app").setAttribute("location", "trending");
 			document.querySelector("html").setAttribute("location", "trending");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		/* in case they bring back explore */
 		} else if (location.href.includes('/feed/explore')) {
 			BTVars.btlocation = "explore";
 			document.querySelector("ytd-app").setAttribute("location", "explore");
 			document.querySelector("html").setAttribute("location", "explore");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/feed/sidebar')) {
 			BTVars.btlocation = "sidebar";
 			document.querySelector("ytd-app").setAttribute("location", "sidebar");
 			document.querySelector("html").setAttribute("location", "sidebar");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/results?')) {
 			BTVars.btlocation = "search";
 			document.querySelector("ytd-app").setAttribute("location", "search");
 			document.querySelector("html").setAttribute("location", "search");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/shorts/')) {
 			BTVars.btlocation = "shorts";
 			document.querySelector("ytd-app").setAttribute("location", "shorts");
 			document.querySelector("html").setAttribute("location", "shorts");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/playlist?list=LL')) {
 			BTVars.btlocation = "likedvideos";
 			document.querySelector("ytd-app").setAttribute("location", "likedvideos");
 			document.querySelector("html").setAttribute("location", "likedvideos");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/playlist?list=WL')) {
 			BTVars.btlocation = "watchlater";
 			document.querySelector("ytd-app").setAttribute("location", "watchlater");
 			document.querySelector("html").setAttribute("location", "watchlater");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/history')) {
 			BTVars.btlocation = "history";
 			document.querySelector("ytd-app").setAttribute("location", "history");
 			document.querySelector("html").setAttribute("location", "history");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/library')) {
 			BTVars.btlocation = "library";
 			document.querySelector("ytd-app").setAttribute("location", "library");
 			document.querySelector("html").setAttribute("location", "library");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/subscriptions')) {
 			BTVars.btlocation = "subscriptions";
 			document.querySelector("ytd-app").setAttribute("location", "subscriptions");
 			document.querySelector("html").setAttribute("location", "subscriptions");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/guide')) {
 			BTVars.btlocation = "browse-channels";
 			document.querySelector("ytd-app").setAttribute("location", "browse-channels");
 			document.querySelector("html").setAttribute("location", "browse-channels");
-			document.querySelector('html').setAttribute('inline-channel','false');
+		} else if (location.href.includes('/feed/customtube')) {
+			BTVars.btlocation = "customtube";
+			document.querySelector("ytd-app").setAttribute("location", "customtube");
+			document.querySelector("html").setAttribute("location", "customtube");
+			//waitFor("ytd-browse", 200, doCT);
 		} else if (location.href.includes('/feed/')) {
 			BTVars.btlocation = "feed";
 			document.querySelector("ytd-app").setAttribute("location", "feed");
 			document.querySelector("html").setAttribute("location", "feed");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else if (location.href.includes('/playlist')) {
 			BTVars.btlocation = "playlist";
 			document.querySelector("ytd-app").setAttribute("location", "playlist");
 			document.querySelector("html").setAttribute("location", "playlist");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} else {
 			BTVars.btlocation = "unknown";
 			document.querySelector("ytd-app").setAttribute("location", "unknown");
 			document.querySelector("html").setAttribute("location", "unknown");
-			document.querySelector('html').setAttribute('inline-channel','false');
 		} 
 }
 let currentPage = location.href;
 // listen for changes
+// TODO: use yt-page-data-updated instead
 var urlListen = setInterval(function()
 {
 
@@ -900,29 +928,26 @@ var urlListen = setInterval(function()
 			document.querySelector("ytd-watch-flexy").setAttribute("guide", "");
 			document.querySelector("ytd-watch-flexy").removeAttribute("guide");
 		}
-		if (document.querySelector("ytd-watch-flexy #bt-view-count") != null) {
-			setTimeout(reFogViewCount, 10);
-		}
-		function reFogViewCount() {
-			if (!BTVars.trimViews) {
-				document.querySelector("#bt-view-count span").innerText = "???,??? views";
+		if (BTConfig.viewCountFogging) {
+			if (document.querySelector("ytd-watch-flexy #bt-view-count") != null) {
+				setTimeout(reFogViewCount, 10);
 			}
-			if (BTVars.trimViews) {
-				document.querySelector("#bt-view-count span").innerText = "???,???";
+			function reFogViewCount() {
+				if (!BTVars.trimViews) {
+					document.querySelector("#bt-view-count span").innerText = "???,??? views";
+				}
+				if (BTVars.trimViews) {
+					document.querySelector("#bt-view-count span").innerText = "???,???";
+				}
 			}
 		}
 
-		setTimeout(getHref, 100);
+		//setTimeout(getHref, 100);
 		if (BTConfig.loopByDefault) {
 			waitFor('video', 4000, prepForLoopVideo);
 		}
        
     }
-	if (BTVars.btlocation == "watch" && tasks.appliedWatchMetadata == "false") {
-		if (document.querySelector("html[location='watch'] ytd-watch-flexy[id-changed='true']") != null) {
-			setTimeout(watchPageEveryLoad, 10);
-		}
-	}
 }, 660);
 // listen for changes
 function vidIdStuff() {
@@ -999,6 +1024,7 @@ function createNewElements() {
 		waitFor('html[layout] #content.ytd-app', 100, createNewHeader);
 		waitFor('html[layout] ytd-notification-topbar-button-renderer yt-icon', 300, createNewBellIcon);
 	}
+	waitFor('html ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer', 800, createNewChanVidsDropDown);
 	setTimeout(loopThroughSidebarCreates, 1);
 	var loopThroughSidebarCreates = setInterval(function() {
 		if (document.querySelector("ytd-guide-entry-renderer") != null) {
@@ -1072,25 +1098,19 @@ function createNewElements() {
 	}, 300);
 	setTimeout(getFinishedSidebarCreates, 1);
 	var getFinishedSidebarCreates = setInterval(function() {
-		if (tasks.createdNewHomeIcon) {
-			if (tasks.createdMyChannelButton) {
-				if (tasks.createdNewTrendingIcon) {
-					if (tasks.createdNewSubsIcon) {
-						if (tasks.createdNewHistoryIcon) {
-							if (tasks.createdNewLikedVidsIcon) {
-								if (tasks.createdNewExpandIcon) {
-									if (tasks.createdNewExpandIcon2) {
-										if (tasks.createdNewCollapseIcon) {
-											if (document.querySelector("html[layout] #bt-trending-icon") != null) {
-												tasks.finishedSidebar = true;
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+		if (
+			tasks.createdNewHomeIcon &&
+			tasks.createdMyChannelButton &&
+			tasks.createdNewTrendingIcon &&
+			tasks.createdNewSubsIcon &&
+			tasks.createdNewHistoryIcon &&
+			tasks.createdNewLikedVidsIcon &&
+			tasks.createdNewExpandIcon &&
+			tasks.createdNewExpandIcon2 &&
+			tasks.createdNewCollapseIcon
+		) {
+			if (document.querySelector("html[layout] #bt-trending-icon") != null) {
+				tasks.finishedSidebar = true;
 			}
 		}
 		if (tasks.finishedSidebar) {
@@ -1123,7 +1143,7 @@ function createNewElements() {
 				}
 			}
 			if (!tasks.createdNewLikeString) {
-				if (document.querySelector("html[layout] #segmented-like-button button .yt-spec-button-shape-next--button-text-content") != null) {
+				if (document.querySelector("html[layout] #segmented-like-button button") != null) {
 					if (document.querySelector("#bt-like-string") === null) {
 						setTimeout(createNewLikeString, 1);
 					}
@@ -1222,35 +1242,24 @@ function createNewElements() {
 	}, 300);
 	setTimeout(getFinishedWatchCreates, 1);
 	var getFinishedWatchCreates = setInterval(function() {
-		if (tasks.createdAbove) {
-			if (tasks.createdStandardViewCount) {
-				if (tasks.createdLtoDBar) {
-					if (tasks.createdNewLikeString) {
-						if (tasks.createdNewLikeIcon) {
-							if (tasks.createdNewDisLikeIcon) {
-								if (tasks.createdPfpUploadDate) {
-									if (tasks.createdMiddleRow) {
-										if (tasks.createdFakeAboutButton) {
-											if (tasks.createdDescUploadDate) {
-												if (tasks.createdDescRules1) {
-													if (tasks.createdDescRules2) {
-														if (tasks.createdNewShowMoreButton) {
-															if (tasks.createdNewShowLessButton) {
-																if (tasks.createdShowMoreRelated) {
-																	tasks.finishedWatch = true;
-																}
-															}
-														}
-													}
-												}
-											}	
-										}		
-									}								
-								}
-							}
-						}
-					}						
-				}
+		if (
+			tasks.createdAbove &&
+			tasks.createdStandardViewCount &&
+			tasks.createdLtoDBar &&
+			tasks.createdNewLikeString &&
+			tasks.createdNewLikeIcon &&
+			tasks.createdNewDisLikeIcon &&
+			tasks.createdPfpUploadDate &&
+			tasks.createdMiddleRow &&
+			tasks.createdFakeAboutButton &&
+			tasks.createdDescUploadDate &&
+			tasks.createdDescRules1 &&
+			tasks.createdDescRules2 &&
+			tasks.createdNewShowMoreButton &&
+			tasks.createdNewShowLessButton
+		) {
+			if (tasks.createdShowMoreRelated) {
+				tasks.finishedWatch = true;
 			}
 		}
 		if (tasks.finishedWatch) {
@@ -1258,6 +1267,52 @@ function createNewElements() {
 			clearInterval(getFinishedWatchCreates);
 		}
 	}, 1000);
+	function createNewChanVidsDropDown() {
+		let container = document.querySelector('ytd-two-column-browse-results-renderer[page-subtype="channels"] #secondary');
+		const newElem = document.createElement("div");
+		newElem.id = 'bt-chan-vids-dropdown';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<div class="bt-standard-button">
+			<a id="dropdown-btn" bt-state="newest" onclick="document.querySelector('#chanvidsdd').toggleAttribute('bt-visible');">
+				<span bt-lang="en" id="newest">Date added (newest)</span>
+				<span bt-lang="en" id="oldest">Date added (oldest)</span>
+				<span bt-lang="en" id="popular">Most popular</span>
+				<span bt-lang="en" id="fyou">For you</span>
+				<span id="ct-dropdown-arrow" class="yt-uix-button-arrow yt-sprite"></span>
+				<paper-ripple></paper-ripple>
+			</a>
+		</div>
+		<tp-bt-titanium-dropdown id="chanvidsdd">
+			<div class="dropdown-inner">
+				<a class="dropdown-menuitem" id="newest" onclick="document.querySelector('#dropdown-btn').setAttribute('bt-state','newest'); document.querySelector('#chip_newest').click(); document.querySelector('#chanvidsdd').toggleAttribute('bt-visible');">
+					<div class="dropdown-menuitem-inner">
+						<span bt-lang="en">Date added (newest)</span>
+					</div>
+				</a>
+				<a class="dropdown-menuitem" id="oldest" onclick="document.querySelector('#chip_oldest').click(); document.querySelector('#dropdown-btn').setAttribute('bt-state','oldest'); document.querySelector('#chanvidsdd').toggleAttribute('bt-visible');">
+					<div class="dropdown-menuitem-inner">
+						<span bt-lang="en">Date added (oldest)</span>
+					</div>
+				</a>
+				<a class="dropdown-menuitem" id="popular" onclick="document.querySelector('#chip_popular').click(); document.querySelector('#dropdown-btn').setAttribute('bt-state','popular'); document.querySelector('#chanvidsdd').toggleAttribute('bt-visible');">
+					<div class="dropdown-menuitem-inner">
+						<span bt-lang="en">Most popular</span>
+					</div>
+				</a>
+				<a class="dropdown-menuitem" id="fyou" onclick="document.querySelector('#chip_fyou').click(); document.querySelector('#dropdown-btn').setAttribute('bt-state','fyou'); document.querySelector('#chanvidsdd').toggleAttribute('bt-visible');">
+					<div class="dropdown-menuitem-inner">
+						<span bt-lang="en">For you</span>
+					</div>
+				</a>
+			</div>
+			<ghost id="cvddg" onclick="document.querySelector('#chanvidsdd').toggleAttribute('bt-visible');">
+			</ghost>
+		</tp-bt-titanium-dropdown>
+		`;
+		container.insertBefore(newElem, container.children[0]);
+	}
 	function createNewGuideIcon() {
 		let container = document.querySelector('#guide-button yt-icon');
 		const newElem = document.createElement("bt-icon");
@@ -1344,6 +1399,11 @@ function createNewElements() {
 						<div class="header-img">
 						</div>
 						<p class="header-text" bt-lang="en">Browse Channels</p>
+					</div>
+					<div class="header-info" id="chaninfo">
+						<div class="header-img" id="bt-inline-channel-pfp">
+						</div>
+						<p class="header-text" id="bt-inline-channel-chan-name" bt-lang="en">Channel Name</p>
 					</div>
 				</div>
 			</div>
@@ -1744,6 +1804,7 @@ function createNewElements() {
 	  padding-bottom: 0;
 	}
 	</style>
+	<middle-row-border></middle-row-border>
 	<div id="watch-buttons-inner">
 		<div id="left">
 		</div>
@@ -1866,7 +1927,8 @@ function createNewElements() {
 		//container.insertBefore(newElem, container.children[5].nextSibling);
 		container.insertBefore(newElem, container.children[1].nextSibling);
 	}
-	/*function createShowMoreHome() {
+	function createShowMoreHome() {
+		tasks.createdShowMoreHome = true;
 		let richGrid = document.querySelector('html[location="home"] ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-rich-grid-renderer');
 		const loadMore = document.createElement("div");
 		loadMore.id = 'bt-load-more-homepage';
@@ -1881,6 +1943,7 @@ function createNewElements() {
 		setTimeout(disableInfiScroll, 100);
 	}
 	function createShowMoreChannel() {
+		tasks.createdShowMoreChannel = true;
 		let richGrid = document.querySelector('html[location="channel"] ytd-two-column-browse-results-renderer[page-subtype="channels"] ytd-rich-grid-renderer');
 		const loadMore = document.createElement("div");
 		loadMore.id = 'bt-load-more-channel';
@@ -1893,7 +1956,7 @@ function createNewElements() {
 		`;
 		richGrid.insertBefore(loadMore, richGrid.children[5].nextSibling);	
 		setTimeout(disableInfiScroll2, 100);
-	}*/
+	}
 	function createShowMoreRelated() {
 		tasks.createdShowMoreRelated = true;
 		let related = document.querySelector('html[location="watch"] ytd-watch-flexy #related');
@@ -1932,8 +1995,7 @@ function createNewElements() {
 	}
 }
 function moveElements() {
-	//setTimeout(loopThroughTitleOnTop, 1);
-	waitFor("html[title-on-top]", 10, loopThroughTitleOnTop);
+	waitFor("html[title-on-top]", 100, loopThroughTitleOnTop);
 	var loopThroughTitleOnTop = setInterval(function() {
 		if (!tasks.movedTitleToTop) {
 			if (document.querySelector("html[title-on-top='true'] ytd-watch-flexy #bt-above") != null) {
@@ -1989,31 +2051,19 @@ function moveElements() {
 		var flexMenu = document.querySelector("ytd-menu-renderer.ytd-watch-metadata");
 		flexMenu.setAttribute("has-items", "5");
 		var flexItems = document.querySelector('#above-the-fold ytd-menu-renderer #flexible-item-buttons');
-		//if (document.querySelector("ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer button") != null) {
-			let share = document.querySelector("ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer button");
-			let share1 = share.parentNode;
-			let shareButton = share1.parentNode;
-			shareButton.setAttribute("id", "bt-share-button");
-			var moreButton = document.querySelector('#above-the-fold ytd-menu-renderer #button-shape');
-			var newHome1 = document.querySelector('#bt-middle-row #watch-buttons-inner #left');
-			var newHome2 = document.querySelector('#bt-middle-row #watch-buttons-inner #middle');
-			var newHome3 = document.querySelector('#bt-middle-row #watch-buttons-inner #middle2');
-			if (!tasks.movedHHButtons) {
-				newHome1.appendChild(flexItems);
-				newHome2.appendChild(shareButton);
-				newHome3.appendChild(moreButton);
-			}
-			/*waitFor("#bt-middle-row", 100, verifyHHMeta);
-			function verifyHHMeta() {
-				if (shareButton === null) {
-					tasks.movedHHButtons = true;
-				}
-				if (shareButton !== null){
-					tasks.movedHHButtons = false;
-					moveWatchButtons();
-				}
-			}*/
-		//}
+		let share = document.querySelector("ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer button");
+		let share1 = share.parentNode;
+		let shareButton = share1.parentNode;
+		shareButton.setAttribute("id", "bt-share-button");
+		var moreButton = document.querySelector('#above-the-fold ytd-menu-renderer #button-shape');
+		var newHome1 = document.querySelector('#bt-middle-row #watch-buttons-inner #left');
+		var newHome2 = document.querySelector('#bt-middle-row #watch-buttons-inner #middle');
+		var newHome3 = document.querySelector('#bt-middle-row #watch-buttons-inner #middle2');
+		if (!tasks.movedHHButtons) {
+			newHome1.appendChild(flexItems);
+			newHome2.appendChild(shareButton);
+			newHome3.appendChild(moreButton);
+		}
 	}
 	function moveTitleToTop() {
 		tasks.movedTitleToTop = true;
@@ -2032,7 +2082,7 @@ function moveElements() {
 	}
 }
 function watchPageEveryLoad() {
-	if (BTVars.btlocation == "watch") {
+	//if (BTVars.btlocation == "watch") {
 		setTimeout(fixComments, 5000);
 		function fixComments() {
 			if (document.querySelector("ytd-comments ytd-continuation-item-renderer[style^='display: none']") != null) {
@@ -2043,7 +2093,8 @@ function watchPageEveryLoad() {
 		// Video Title
 		var videoTitle = document.querySelector("ytd-watch-flexy #title h1 .style-scope.ytd-watch-metadata").textContent;
 		// View Count and Upload Date
-		var trueCounts = document.querySelector("#above-the-fold #description #tooltip").textContent;
+		//var trueCounts = document.querySelector("#above-the-fold #description #tooltip").textContent;
+		var trueCounts = sessionStorage.getItem("nebula-view-count");
 		// View Count
 		var cutString = trueCounts.split(' • ');
 		var trueViewCount = cutString[0];
@@ -2062,43 +2113,44 @@ function watchPageEveryLoad() {
 		}
 		}
 		// Upload Date
-		var trueUploadDate = cutString[1];
+		//var trueUploadDate = cutString[1];
+		var trueUploadDate = sessionStorage.getItem("nebula-upload-date");
 		let notNeedNewString = trueUploadDate.includes("d");
 		if (notNeedNewString == true) {
-		  waitFor("#bt-desc-upload-date #published-on", 1, ud1);
+		  waitFor("#bt-desc-upload-date #published-on", 100, ud1);
 		  function ud1() {
 			document.querySelector("#bt-desc-upload-date #published-on").style.display = "none";	
 			document.querySelector("#bt-desc-upload-date #precise-upload-date").innerText = trueUploadDate;
 		  }
-		  waitFor("#bt-pfp-upload-date #published-on", 1, ud2);
+		  waitFor("#bt-pfp-upload-date #published-on", 100, ud2);
 		  function ud2() {
 			document.querySelector("#bt-pfp-upload-date #published-on").style.display = "none";	
 			document.querySelector("#bt-pfp-upload-date #precise-upload-date").innerText = trueUploadDate;
 		  }
 		}
 		if (notNeedNewString == false) {
-		  waitFor("#bt-desc-upload-date #published-on", 1, ud3);
+		  waitFor("#bt-desc-upload-date #published-on", 100, ud3);
 		  function ud3() {
 			document.querySelector("#bt-desc-upload-date #published-on").style.display = "inline";	
 			document.querySelector("#bt-desc-upload-date #precise-upload-date").innerText = trueUploadDate;
 		  }
-		  waitFor("#bt-pfp-upload-date #published-on", 1, ud4);
+		  waitFor("#bt-pfp-upload-date #published-on", 100, ud4);
 		  function ud4() {
 			document.querySelector("#bt-pfp-upload-date #published-on").style.display = "inline";
 			document.querySelector("#bt-pfp-upload-date #precise-upload-date").innerText = trueUploadDate;
 		  }
 		}
 		if (BTConfig.iUseRYD) {
-			waitFor("#segmented-dislike-button .yt-spec-button-shape-next--button-text-content span", 200, doCounts);
+			waitFor("#segmented-dislike-button span", 200, doCounts);
 		}
 		if (!BTConfig.iUseRYD) {
-			waitFor("#segmented-like-button .yt-spec-button-shape-next--button-text-content span", 200, doCounts);
+			waitFor("#segmented-like-button span", 200, doCounts);
 		}
 		function doCounts() {
-			let likeCount = document.querySelector("#segmented-like-button .yt-spec-button-shape-next--button-text-content span").textContent;
+			let likeCount = document.querySelector("#segmented-like-button span").textContent;
 			document.querySelector("#lc").innerText = likeCount;
 			if (BTConfig.iUseRYD) {
-				let dislikeCount = document.querySelector("#segmented-dislike-button .yt-spec-button-shape-next--button-text-content span").textContent;
+				let dislikeCount = document.querySelector("#segmented-dislike-button span").textContent;
 				document.querySelector("#dc").innerText = dislikeCount;
 			}
 		}
@@ -2106,8 +2158,9 @@ function watchPageEveryLoad() {
 		waitFor("html[location='watch'] #owner-sub-count", 200, trimSubs);
 		function trimSubs() {
 			var subCountElem = document.querySelector("#owner-sub-count");
-			var subCount = subCountElem.getAttribute("aria-label");
-			var cutSubString = subCount.split('s');
+			//var subCount = subCountElem.getAttribute("aria-label");
+			var subCount = sessionStorage.getItem("nebula-sub-count");
+			var cutSubString = subCount.split(' s'); // changed space
 			var trimmedSubCountt = cutSubString[0];
 			if (trimmedSubCountt.includes("mi")) {
 				var cutSubString2 = trimmedSubCountt.split(' m');
@@ -2117,6 +2170,124 @@ function watchPageEveryLoad() {
 			if (!trimmedSubCountt.includes("mi")) {
 				var trimmedSubCount =  trimmedSubCountt;
 			}
+			/* Unfinished, isn't actually used yet
+			if (BTConfig.randomSubCounts) {
+				if (subCount === oldSubCount) {
+					trimmedSubCount = oldSubCountFull;
+				}
+				if (subCount != oldSubCount) {
+					oldSubCount = subCount;
+					if (trimmedSubCountt.includes("K")) {
+						var cutSubString2 = trimmedSubCountt.split('K');
+						var cutSubString3 = cutSubString2[0].split('.');
+						if (trimmedSubCountt.includes(".9")) {
+							//var cutSubString4 = cutSubString3[0] + ",9" + getRndInteger(0,9) + getRndInteger(0,9);
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".8")) {
+							//var cutSubString4 = cutSubString3[0] + ",8" + getRndInteger(0,9) + getRndInteger(0,9);
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".7")) {
+							//var cutSubString4 = cutSubString3[0] + ",7" + getRndInteger(0,9) + getRndInteger(0,9);
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".6")) {
+							//var cutSubString4 = cutSubString3[0] + ",6" + getRndInteger(0,9) + getRndInteger(0,9);
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".5")) {
+							//var cutSubString4 = cutSubString3[0] + ",5" + getRndInteger(0,9) + getRndInteger(0,9);
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".4")) {
+							//var cutSubString4 = cutSubString3[0] + ",4" + getRndInteger(0,9) + getRndInteger(0,9);
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".3")) {
+							//var cutSubString4 = cutSubString3[0] + ",3" + getRndInteger(0,9) + getRndInteger(0,9);
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".2")) {
+							//var cutSubString4 = cutSubString3[0] + ",2" + getRndInteger(0,9) + getRndInteger(0,9);
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".1")) {
+							//var cutSubString4 = cutSubString3[0] + ",1" + getRndInteger(0,9) + getRndInteger(0,9);
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
+						}
+						// Examples: 274K, 4K
+						if (!trimmedSubCountt.includes(".")) {
+							var cutSubString4 = cutSubString3[0] + "," + getRndInteger(100,999);
+						}
+						// Examples: 1.6K, 38.2K
+						if (
+							trimmedSubCountt.includes(".1K") ||
+							trimmedSubCountt.includes(".2K") ||
+							trimmedSubCountt.includes(".3K") ||
+							trimmedSubCountt.includes(".4K") ||
+							trimmedSubCountt.includes(".5K") ||
+							trimmedSubCountt.includes(".6K") ||
+							trimmedSubCountt.includes(".7K") ||
+							trimmedSubCountt.includes(".8K") ||
+							trimmedSubCountt.includes(".9K")
+						) {
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9) + getRndInteger(0,9);
+						}
+						var trimmedSubCount = cutSubString4;
+					}
+					if (trimmedSubCountt.includes("M")) {
+						var cutSubString2 = trimmedSubCountt.split('M');
+						var cutSubString3 = cutSubString2[0].split('.');
+						if (trimmedSubCountt.includes(".9")) {
+							var cutSubString4 = cutSubString3[0] + ",9" + getRndInteger(10,99) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".8")) {
+							var cutSubString4 = cutSubString3[0] + ",8" + getRndInteger(10,99) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".7")) {
+							var cutSubString4 = cutSubString3[0] + ",7" + getRndInteger(10,99) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".6")) {
+							var cutSubString4 = cutSubString3[0] + ",6" + getRndInteger(10,99) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".5")) {
+							var cutSubString4 = cutSubString3[0] + ",5" + getRndInteger(10,99) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".4")) {
+							var cutSubString4 = cutSubString3[0] + ",4" + getRndInteger(10,99) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".3")) {
+							var cutSubString4 = cutSubString3[0] + ",3" + getRndInteger(10,99) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".2")) {
+							var cutSubString4 = cutSubString3[0] + ",2" + getRndInteger(10,99) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".1")) {
+							var cutSubString4 = cutSubString3[0] + ",1" + getRndInteger(10,99) + "," + getRndInteger(100,999);
+						}
+						if (!trimmedSubCountt.includes(".")) {
+							var cutSubString4 = cutSubString3[0] + "," + getRndInteger(100,999) + "," + getRndInteger(100,999);
+						}
+						*//*if (
+						trimmedSubCountt.includes(".") &&
+						!trimmedSubCountt.includes(".1M") &&
+						!trimmedSubCountt.includes(".2M") &&
+						!trimmedSubCountt.includes(".3M") &&
+						!trimmedSubCountt.includes(".4M") &&
+						!trimmedSubCountt.includes(".5M") &&
+						!trimmedSubCountt.includes(".6M") &&
+						!trimmedSubCountt.includes(".7M") &&
+						!trimmedSubCountt.includes(".8M") &&
+						!trimmedSubCountt.includes(".9M")
+						) {
+							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(1,9) + "," + getRndInteger(100,999);
+						}*//*
+						var trimmedSubCount = cutSubString4;
+					}
+					oldSubCountFull = trimmedSubCount;
+				}
+			}*/
 			if (BTConfig.layoutSelect == "hitchhiker-2017") {
 			document.querySelector("#owner-sub-count").innerText = trimmedSubCount;
 			}
@@ -2150,7 +2321,7 @@ function watchPageEveryLoad() {
 			document.querySelector("#bt-bar likes").style.width = rydPercent;
 			document.querySelector("#bt-bar").setAttribute("title", rydPercent + " of viewers like this video");
 		}
-		}
+		//}
 
 	tasks.appliedWatchMetadata = "true";
 }
@@ -2182,8 +2353,10 @@ var repeatedActions = setInterval(function()
 			window.location.reload();
 		}
 	}
+	if (document.querySelector('html[location="watch"] yt-confirm-dialog-renderer #confirm-button') != null) {
+		document.querySelector('yt-confirm-dialog-renderer #confirm-button').click();
+	}
 }, 600);
-/* Disabled. May look into fixing it in the future
 function disableInfiScroll() {
   	let loadMoreVids = document.querySelector('ytd-two-column-browse-results-renderer[page-subtype="home"] #bt-load-more-homepage a');
 	loadMoreVids.onclick = function() {
@@ -2195,7 +2368,7 @@ function disableInfiScroll2() {
 	loadMoreVids2.onclick = function() {
 	document.querySelector("ytd-two-column-browse-results-renderer[page-subtype='channels'] ytd-continuation-item-renderer").style.display = "block";
 	}
-}*/
+}
 function disableInfiScroll3() {
   	let loadMoreVids3 = document.querySelector('html[location="watch"] ytd-watch-flexy #related #bt-load-more-related a');
 	loadMoreVids3.onclick = function() {
@@ -2213,4 +2386,113 @@ function markSubbed() {
 }
 function markUnsubbed() {
 	document.querySelector("#owner").setAttribute("subscribed","false");
+}
+function getChannelVidsSort() {
+	if (BTConfig.channelVidsDropdown == "CVDDoff") {
+		document.querySelector("html").setAttribute("channel-vids-dropdown", "false");
+	} else {
+		if (document.querySelector("yt-formatted-string[title='Latest']") != null) {
+			document.querySelector("html").setAttribute("channel-vids-dropdown","true");
+			var chip_Newest = document.querySelector("yt-formatted-string[title='Latest']").parentNode;
+			chip_Newest.setAttribute("id", "chip_newest");
+			var isSelectedNewest = chip_Newest.getAttribute("aria-selected");
+			if (isSelectedNewest == "true") {
+				document.querySelector("#dropdown-btn").setAttribute("bt-state","newest");
+			}
+			document.querySelector("html").setAttribute("cv-sort-newest","true");
+		} else {
+			document.querySelector("html").setAttribute("cv-sort-newest","false");
+		}
+		if (document.querySelector("yt-formatted-string[title='Oldest']") != null) {
+			var chip_Oldest = document.querySelector("yt-formatted-string[title='Oldest']").parentNode;
+			chip_Oldest.setAttribute("id", "chip_oldest");
+			var isSelectedOldest = chip_Oldest.getAttribute("aria-selected");
+			if (isSelectedOldest == "true") {
+				document.querySelector("#dropdown-btn").setAttribute("bt-state","oldest");
+			}
+			document.querySelector("html").setAttribute("cv-sort-oldest","true");
+		} else {
+			document.querySelector("html").setAttribute("cv-sort-oldest","false");
+		}
+		if (document.querySelector("yt-formatted-string[title='Popular']") != null) {
+			var chip_Popular = document.querySelector("yt-formatted-string[title='Popular']").parentNode;
+			chip_Popular.setAttribute("id", "chip_popular");
+			var isSelectedPopular = chip_Popular.getAttribute("aria-selected");
+			if (isSelectedPopular == "true") {
+				document.querySelector("#dropdown-btn").setAttribute("bt-state","popular");
+			}
+			document.querySelector("html").setAttribute("cv-sort-popular","true");
+		} else {
+			document.querySelector("html").setAttribute("cv-sort-popular","false");
+		}
+		if (document.querySelector("yt-formatted-string[title='For you']") != null) {
+			var chip_FYou = document.querySelector("yt-formatted-string[title='For you']").parentNode;
+			var isSelectedForYou = chip_FYou.getAttribute("aria-selected");
+			if (isSelectedForYou == "true") {
+				document.querySelector("#dropdown-btn").setAttribute("bt-state","fyou");
+				//document.querySelector("#chip-newest").click();
+			}
+			chip_FYou.setAttribute("id", "chip_fyou");
+			document.querySelector("html").setAttribute("cv-sort-fyou","true");
+		} else {
+			document.querySelector("html").setAttribute("cv-sort-fyou","false");
+		}
+		if (document.querySelector("yt-formatted-string[title='Latest']") === null) {
+			setTimeout(doChipsFallback, 500);
+			console.log("[CustomTube] Couldn't find chips for sorting channel videos. Enabling fallback.");
+		if (document.querySelector("yt-formatted-string[title='Popular']") === null) {
+			setTimeout(doChipsFallback, 500);
+			console.log("[CustomTube] Couldn't find chips for sorting channel videos. Enabling fallback.");
+		}
+		}
+	}
+}
+function doChipsFallback() {
+	document.querySelector("html").setAttribute("channel-vids-dropdown", "false");
+}
+var a = document.createElement("script");
+a.textContent = `
+document.addEventListener("yt-page-data-updated", cbFunction); 
+function cbFunction() { 
+	var getYtdData = document.querySelector("ytd-app").data; 
+	//console.log(getYtdData); 
+	storeData();
+	function storeData() {
+		sessionStorage.setItem("ytd-app-data", JSON.stringify(getYtdData));
+	}
+}
+`
+document.body.insertAdjacentElement("beforeend", a);
+
+document.addEventListener("yt-page-data-updated", retrieveDataAttribute); 
+function retrieveDataAttribute() {
+	setTimeout(getHref, 10);
+	var ytdData = sessionStorage.getItem("ytd-app-data");
+	var convertedYtdData = JSON.parse(ytdData);
+	//console.log(JSON.parse(ytdData));
+	if (convertedYtdData.page == "watch") {
+		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer != null) {
+			var wpViewCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
+			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.dateText.simpleText;
+			var wpSubCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.subscriberCountText.simpleText;
+		}
+		// because for some ungodly reason ticket shelf comes before video info renderer
+		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer == null) {
+			var wpViewCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
+			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.dateText.simpleText;
+			var wpSubCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[2].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.subscriberCountText.simpleText;
+		}
+		sessionStorage.setItem("nebula-view-count", wpViewCount);
+		sessionStorage.setItem("nebula-upload-date", wpUploadDate);
+		sessionStorage.setItem("nebula-sub-count", wpSubCount);
+		if (document.querySelector("#bt-view-count") != null) {
+			setTimeout(watchPageEveryLoad, 10);
+		} else {
+			//Temporary
+			waitFor("#bt-view-count", 500, watchPageEveryLoad);
+		}
+	}
+	if (convertedYtdData.page == "channel") {
+		waitFor("#bt-chan-vids-dropdown", 200, getChannelVidsSort);
+	}		
 }

@@ -8,6 +8,21 @@ html[channel-style^="hitchhiker"] {
 --bt-channel-page-header-inner-padding: 0 36px 0 12px;
 --bt-channel-tagline-display: none;
 }
+@media only screen and (max-width: 1570px) {
+html[channel-style^="hitchhiker"] {
+--bt-channel-page-width: 1060px;
+--bt-channel-page-content-max-width: 1036px;
+--bt-channel-page-banner-height: 209px;
+--bt-channel-pfp-pos: absolute;
+--bt-channel-pfp-size: 100px;
+--bt-channel-pfp-left: 16px;
+--bt-channel-page-header-inner-padding: 0 36px 0 12px;
+}
+html {
+--bt-channel-page-width: 1060px;
+--bt-channel-page-content-max-width: 1036px;
+}
+}
 @media only screen and (max-width: 1444px) {
 html[channel-style^="hitchhiker"] {
 --bt-channel-page-width: 1060px;

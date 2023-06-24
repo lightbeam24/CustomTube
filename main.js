@@ -2439,10 +2439,10 @@ function getChannelVidsSort() {
 		}
 		if (document.querySelector("yt-formatted-string[title='Latest']") === null) {
 			setTimeout(doChipsFallback, 500);
-			console.log("[CustomTube] Couldn't find chips for sorting channel videos. Enabling fallback.");
+			//console.log("[CustomTube] Couldn't find chips for sorting channel videos. Enabling fallback.");
 		if (document.querySelector("yt-formatted-string[title='Popular']") === null) {
 			setTimeout(doChipsFallback, 500);
-			console.log("[CustomTube] Couldn't find chips for sorting channel videos. Enabling fallback.");
+			//console.log("[CustomTube] Couldn't find chips for sorting channel videos. Enabling fallback.");
 		}
 		}
 	}
@@ -2455,12 +2455,23 @@ a.textContent = `
 document.addEventListener("yt-page-data-updated", cbFunction); 
 function cbFunction() { 
 	var getYtdData = document.querySelector("ytd-app").data; 
-	//console.log(getYtdData); 
+	if (getYtdData.page == "watch") {
+		setTimeout(cbFunction, 5000);
+	}
 	storeData();
 	function storeData() {
 		sessionStorage.setItem("ytd-app-data", JSON.stringify(getYtdData));
 	}
 }
+/*
+setInterval (
+	var liveCount = document.querySelector("ytd-app").data.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
+	storeData();
+	function storeData() {
+		sessionStorage.setItem("ytd-live-views", JSON.stringify(liveCount));
+	}
+)
+*/
 `
 document.body.insertAdjacentElement("beforeend", a);
 
@@ -2471,6 +2482,7 @@ function retrieveDataAttribute() {
 	var convertedYtdData = JSON.parse(ytdData);
 	//console.log(JSON.parse(ytdData));
 	if (convertedYtdData.page == "watch") {
+		setTimeout(retrieveDataAttribute, 5000);
 		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer != null) {
 			var wpViewCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
 			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.dateText.simpleText;
@@ -2482,9 +2494,13 @@ function retrieveDataAttribute() {
 			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.dateText.simpleText;
 			var wpSubCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[2].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.subscriberCountText.simpleText;
 		}
-		sessionStorage.setItem("nebula-view-count", wpViewCount);
 		sessionStorage.setItem("nebula-upload-date", wpUploadDate);
 		sessionStorage.setItem("nebula-sub-count", wpSubCount);
+		if (wpViewCount != null) {
+			sessionStorage.setItem("nebula-view-count", wpViewCount);
+		} else if (wpViewCount == null) {
+			sessionStorage.setItem("nebula-view-count", "Just a moment...");
+		}
 		if (document.querySelector("#bt-view-count") != null) {
 			setTimeout(watchPageEveryLoad, 10);
 		} else {
@@ -2494,5 +2510,5 @@ function retrieveDataAttribute() {
 	}
 	if (convertedYtdData.page == "channel") {
 		waitFor("#bt-chan-vids-dropdown", 200, getChannelVidsSort);
-	}		
+	}	
 }

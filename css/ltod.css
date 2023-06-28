@@ -64,7 +64,7 @@ html[watch-metadata-style^="hitchhiker-2014"],
 html[watch-metadata-style^="hitchhiker-2013"] {
 /* ltod btn */
 --bt-ltod-btn-display: flex;
---bt-ltod-btn-margin-top: 36px; /* formerly 40 */
+--bt-ltod-btn-margin-top: 20px; /* formerly 36 */
 --bt-ltod-btn-padding-left: 12px;
 /* outer */
 --bt-toggle-button-icon-margin-right: 10px;
@@ -86,7 +86,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 html[watch-metadata-style^="hitchhiker-2013"] {
 /* ltod btn */
 --bt-ltod-btn-display: flex;
---bt-ltod-btn-margin-top: 36px; /* formerly 40 */
+--bt-ltod-btn-margin-top: 20px; /* formerly 36 */
 --bt-ltod-btn-padding-left: 12px;
 /* outer */
 --bt-toggle-button-icon-margin-right: 10px;

@@ -2102,7 +2102,11 @@ function watchPageEveryLoad() {
 		var trueViewCountTrimmed = cutString2[0];
 		//TEMP FIX
 		if (BTConfig.layoutSelect != "none") {
-			waitFor("#bt-view-count", 200, doViews);
+			if (document.querySelector("#bt-view-count") != null) {
+				doViews();
+			} else {
+				waitFor("#bt-view-count", 200, doViews);
+			}
 		}
 		function doViews() {
 		if (!BTVars.trimViews) {
@@ -2482,7 +2486,9 @@ function retrieveDataAttribute() {
 	var convertedYtdData = JSON.parse(ytdData);
 	//console.log(JSON.parse(ytdData));
 	if (convertedYtdData.page == "watch") {
-		setTimeout(retrieveDataAttribute, 5000);
+		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.isLive != null) {
+			setTimeout(retrieveDataAttribute, 5000);
+		}
 		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer != null) {
 			var wpViewCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
 			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.dateText.simpleText;

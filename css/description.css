@@ -102,8 +102,11 @@ html[watch-metadata-style] ytd-text-inline-expander {
 html[watch-metadata-style] #description .yt-core-attributed-string--link-inherit-color {
   color: var(--bt-desc-link-color) !important;
 }
-html[watch-metadata-style] #description:hover .yt-core-attributed-string--link-inherit-color {
+html[watch-metadata-style] #description:hover ytd-text-inline-expander a {
   color: var(--bt-desc-link-color-hover) !important;
+}
+html[watch-metadata-style] #description ytd-text-inline-expander a:hover {
+  text-decoration: var(--bt-desc-link-text-decoration-hover) !important;
 }
 
 html[watch-metadata-style^="cosmicpanda"] {
@@ -122,6 +125,7 @@ html[watch-metadata-style^="cosmicpanda"] {
 --bt-desc-line-height: 14px;
 --bt-desc-link-color: inherit;
 --bt-desc-link-color-hover: var(--bt-blue);
+--bt-desc-link-text-decoration-hover: underline;
 /* upload date */
 --bt-desc-upload-date-font-size: 11.5px;
 --bt-desc-upload-date-font-family: "YouTube Noto",Roboto,arial,sans-serif;
@@ -171,6 +175,7 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-desc-line-height: 14px;
 --bt-desc-link-color: inherit;
 --bt-desc-link-color-hover: var(--bt-blue);
+--bt-desc-link-text-decoration-hover: underline;
 /* upload date */
 --bt-desc-upload-date-font-size: 12px;
 --bt-desc-upload-date-font-family: "YouTube Noto",Roboto,arial,sans-serif;
@@ -211,6 +216,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-desc-line-height: 14px;
 --bt-desc-link-color: inherit;
 --bt-desc-link-color-hover: var(--bt-blue);
+--bt-desc-link-text-decoration-hover: underline;
 /* upload date */
 --bt-desc-upload-date-font-size: 13px;
 --bt-desc-upload-date-font-family: "YouTube Noto",Roboto,arial,sans-serif;
@@ -252,6 +258,7 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-desc-line-height: 2.1rem;
 --bt-desc-link-color: auto;
 --bt-desc-link-color-hover: auto;
+--bt-desc-link-text-decoration-hover: none;
 /* expand */
 --bt-desc-expand-border: none;
 --bt-desc-expand-border-top: 1px solid var(--bt-section-border-color);

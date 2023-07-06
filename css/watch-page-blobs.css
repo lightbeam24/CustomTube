@@ -268,12 +268,13 @@ html[watch-metadata-style^="cosmicpanda"] ytd-watch-metadata #actions.ytd-watch-
 /* end */
 /* nonspecific blobl */
 html[watch-metadata-style^="cosmicpanda"] #bt-above yt-formatted-string {
-  max-height: 30px;
   display: block;
-  overflow: scroll;
   text-overflow: "... (Scroll->)";
   white-space: nowrap;
   scrollbar-width: thin;
+  max-height: 43px;
+  overflow-x: scroll;
+  overflow-y: visible !important;
 }
 /* end */
 

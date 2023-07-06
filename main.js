@@ -2357,9 +2357,6 @@ var repeatedActions = setInterval(function()
 			window.location.reload();
 		}
 	}
-	if (document.querySelector('html[location="watch"] yt-confirm-dialog-renderer #confirm-button') != null) {
-		document.querySelector('yt-confirm-dialog-renderer #confirm-button').click();
-	}
 }, 600);
 function disableInfiScroll() {
   	let loadMoreVids = document.querySelector('ytd-two-column-browse-results-renderer[page-subtype="home"] #bt-load-more-homepage a');

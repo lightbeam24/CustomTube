@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
+		<title>CustomTube</title>
+		<style>
+		p {
+			margin: 0;
+		}
+		html {
+			font-family: arial;
+			--ribbon-title-padding-left: 20px;
+		}
+		background {
+			background-color: rgb(114,159,207);
+			background-image: url(images/beamtubebg.png);
+			background-repeat: no-repeat;
+			background-size: 100vw 100vh;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			display: block;
+			top: 0;
+			left: 0;
+			z-index: -2;
+		}
+		body {
+			width: 1000px;
+			margin: 0 auto;
+		}
+		#top {
+			font-weight: bold;
+			margin-top: 8px;
+			font-size: 20px;
+			margin-left: 2px;
+		}
+		#bt-icon {
+			display: inline-block;
+			margin-bottom: -10px;
+			margin-left: 4px;
+		}
+		#middle {
+			margin-left: 2px;
+		}
+		#clt {
+		  margin: 8px 15px 0 30px;
+		  background: linear-gradient(to top,#ddd,#eee);
+		  padding: 8px 10px 4px 10px;
+		}
+		#clt::before {
+		  content: "";
+		  display: block;
+		  clip-path: polygon(0 100%, 100% 100%, 100% 0);
+		  width: 15.5px;
+		  height: 31px;
+		  background: linear-gradient(135deg, #ccc 73%, #aaa);
+		  position: absolute;
+		  margin-top: -8px;
+		  margin-left: -25px;
+		  z-index: -1;
+		}
+		#changelog {
+			margin: 0 15px;
+			background: #444;
+			border: 3px solid #eee;
+			color: #fff;
+			box-shadow: inset 0 0 10px 10px rgba(0,0,0,0.4);
+			padding: 10px 15px;
+			margin-bottom: 12px;
+		}
+		#changelog-inner {
+		  overflow: scroll;
+		}
+		#changelog .title {
+			background: linear-gradient(to top, #c22, #f44);
+			padding: 4px 12px;
+			margin-left: -30px;
+			padding-left: var(--ribbon-title-padding-left);
+			width: 900px;
+			box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+			text-shadow: -1px -1px 1px rgba(0,0,0,0.15);
+		}
+		#changelog .title::before {
+		  content: "";
+		  width: 13px;
+		  height: 6px;
+		  display: block;
+		  clip-path: polygon(100% 1%, 0% 100%, 100% 100%);
+		  position: absolute;
+		  margin-top: -9.9px;
+		  margin-left: calc(var(--ribbon-title-padding-left) * -1);
+		  background: linear-gradient(135deg, #d00 55%, #900);
+		  z-index: -1;
+		}
+		#changelog .title::after {
+			content: "";
+			clip-path: polygon(0 0, 0% 100%, 100% 0);
+			display: block;
+			width: 20px;
+			height: 32.5px;
+			background: linear-gradient(to top, #c22, #f44);
+			position: absolute;
+			margin-top: -28.5px;
+			margin-left: 913px;
+		}
+		#changelog .title[yellow] {
+		  background: linear-gradient(to top, #22a, #44d);
+		}
+		#changelog .title[yellow]::before {
+		  background: linear-gradient(135deg, #00b 55%, #007);
+		}
+		#changelog .title[yellow]::after {
+			background: linear-gradient(to top, #22a, #44d);
+		}
+		@media only screen and (max-width: 4800px) {
+		#changelog .title::after {
+			height: 27.4px;
+			margin-top: -23.5px;
+			margin-left: 912px;
+		}
+		}		
+		@media only screen and (max-width: 1800px) {
+		#changelog .title::after {
+			height: 26.4px;
+			margin-top: -22.5px;
+		}
+		}		
+		@media only screen and (max-width: 1444px) {
+		#changelog .title::after {
+			height: 26.4px;
+			margin-top: -22.5px;
+		}
+		}
+		@media only screen and (max-width: 1200px) {
+		#changelog .title::after {
+			height: 26.4px;
+			margin-top: -22px;
+		}
+		}
+		.words {
+		  margin: 6px 0;
+		}
+		.words p,
+		.words strong {
+		  margin: 4px 0;
+		}
+		.smaller {
+		  font-size: 12px;
+		}
+		.notice {
+		  color: #ff0;
+		}
+		</style>
+		<script src="./initial-setup.js"></script>
+	</head>
+	<body>
+		<div id="top">
+			<p id="header"></p>
+			<p id="version"></p>
+		</div>
+		<div id="middle">
+			<p class="title" id="fit"></p>
+			<span class="title">You can access CustomTube's settings by clicking on the icon in the browser toolbar. Just look for this icon!</span><img id="bt-icon" src="images/32.png">
+		</div>
+		<div id="bottom">
+			<p class="title" id="clt">Changelog:</p>
+			<div id="changelog">
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.1.0.2 (1.1.0 Beta 2) - July 18, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Other: This is the first version of CustomTube available for Chromium based browsers.</p>
+						<p>- Other: The extension has been updated to Manifest V3.</p>
+						<p class="notice">- Notice: Version 1.1.0 is still in early development. The final version of 1.1.0 will most likely be very different from this beta version.</p>
+						</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.1.0.1 (1.1.0 Beta 1) - July 17, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<strong>- New: Added 2020 Layout option!</strong>
+						<p></p>
+						<strong>- New: Added 2021 Layout option!</strong>
+						<p></p>
+						<strong>- New: Added Late 2013 Layout option!</strong>
+						<p>- New: Added option to choose the number of videos per row on the home page and subscriptions page. [Compatible with all layouts from Early 2013 or later]</p>
+						<p>- New: Added option to choose the number of videos per row on channel video pages. [Compatible with all layouts from Mid 2013 or later]</p>
+						<p>- New: Added option to make clicking on the YouTube logo take you to the Subscriptions page as opposed to the Homepage. [Compatible with all layouts]</p>
+						<p>- New: Added option to move the Trending button to the main section of the sidebar. [Compatible with all layouts]</p>
+						<p>- New: Added "Home Page" tab to the Configuration Window's sidebar</p>
+						<p>- New: Added "Subs Page" tab to the Configuration Window's sidebar</p>
+						<p>- Improvement: A proper "My Channel" button. (The new one warm loads the channel page, the old one cold loads it, which was much slower)</p> 
+						<p>- Improvement: More old icons are restored</p> 
+						<p>- Change: "2013 Layout" has been renamed to "Mid 2013 Layout".</p>
+						<p>- Change: "Display Shorts Button" is now disabled by default.</p>
+						<p>- Change: "Display My Channel Button" is now enabled by default.</p>
+						<p class="notice">- Notice: Version 1.1.0 is still in early development. The final version of 1.1.0 will most likely be very different from this beta version.</p>
+						</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.4.4 - July 6, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Fix: Fixed a bug where you were unable to pin or delete comments [This bug affected all layouts]</p>
+						<p>- Fix: Fixed a bug where the bottom of the video title would be cut off [This bug affected the 2012 layout, and only affected Windows users]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.4.3 - June 30, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Improvement: Description links are now underlined when you hover over them [This affects all layouts from 2012 to 2017]</p>
+						<p>- Fix: Fixed a bug where all description text would be treated as a link [This bug affected all layouts from 2012 to 2017, and was caused by a YouTube update]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.4.2 - June 28, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Fix: Potential performance fix [This affects all layouts]</p>
+						<p>- Fix: The like and dislike buttons are now in the correct position [This bug affected all layouts from Early 2013 to 2014, and was caused by a YouTube update]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.4.1 - June 24, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Fix: Channel page dropdown is no longer broken when using a screen width of around 1440 pixels to 1570 pixels [This bug affected all layouts from 2013 onward]</p>
+						<p>- Fix: Fixed a bug where the view count would read "undefined" on live streams [This bug affected all layouts, excluding the unmodified current layout]</p>
+						<p>- Fix: The view count and "Started streaming x time ago" text now update every few seconds, as opposed to not updating at all [This bug affected all layouts, excluding the unmodified current layout]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.4 - June 16, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- New: Added "Channel Page" tab to the Configuration Window's sidebar</p>
+						<p>- New: Added "Video thumbnails fade in when loaded" option [Compatible with all layouts]</p>
+						<p>- New: Added option to restore the "Sort by" dropdown menu for channel videos. Defaults to "Auto". [Compatible with all layouts]</p>
+						<p>- Improvement: Minor channel page improvements [Affects all layouts, but 2019 was improved most]<p>
+						<p>- Improvement: Very minor watch page improvements [Affects all layouts from Early 2013-2017, but 2015 was improved most]<p>
+						<p>- Change: Newly added settings now have an indicator. This can be turned off in the settings, but will have to be turned off every update.</p>
+						<p>- Change: As a result of improvements to the code, the re-fogging of the view count when loading a new video is no longer necessary. It has been made optional and turned off by default. (This refers to when the view count turns into "???,???") [Affects all layouts, excluding the unmodifed current layout]</p>
+						<p>- Fix: Fixed a major bug where the watch metadata sometimes wouldn't update on slow connections [This bug affected all layouts, excluding the unmodifed current layout]</p>
+						<p>- Fix: Fixed a fairly serious bug where the like and dislike counts would read "??", instead of showing the actual counts [This bug affected all layouts from 2012 to 2014, and was caused by a YouTube update]<p>
+						<p>- Fix: Other minor bug fixes<p>
+						<p>- Other: You can now access this changelog from the Configuration Window. The link is under "Misc".</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.3 - May 24, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Improvement: Like and dislike buttons are now green and black respectively [Affects Early 2013 and 2013 layouts]</p>
+						<p>- Improvement: The watch page is now even more accurate to the original layout [Affects all layouts from 2012 to 2014]</p>
+						<p>- Improvement: Video thumbnails that appear once the video ends are now unrounded [Affects all layouts, excluding the unmodified current layout]</p>
+						<p>- Improvement: Dropdown menus are now unrounded [Affects all layouts, excluding the unmodified current layout]</p>
+						<p>- Change: You can now see CustomTube's version number on the Configuration Window's topbar</p>
+						<p>- Fix: Fixed a bug where the topbar stayed white while in theater mode, when it was supposed to become dark [This bug affected the 2019 layout]</p>
+						<p>- Fix: Fixed a bug where the topbar icons turned white while in theater mode, when they were supposed to remain dark [This bug affected the 2014-2017 layouts]</p>
+						<p>- Other: In response to a new change YouTube made, playlist thumbnail styling is temporarily disabled (Mix playlist thumbnails are unaffected) [This affects all layouts from 2012-2017]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.2 - May 21, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- New: Added "Smaller" option to "Related Videos Size". [Compatible with all layouts]</p>
+						<p>- Improvement: A couple of minor layout and CSS improvements [Affects all layouts to varying degrees, most notably the Early 2013-2014 layouts]</p>
+						<p>- Improvement: Using the site should feel a bit faster and smoother overall</p>
+						<p>- Improvement: If the comments haven't loaded after 5 seconds, the extension now forces them to</p>
+						<p>- Fix: Fixed a major bug where the performance would gradually degrade as you used the site [This bug affected all layouts]</p>
+						<p>- Fix: Fixed a bug where the Home Button text would not change according to the user's settings in certain situations (always happened when signed out, but could still happen when signed in) [This bug affected all layouts]</p>
+						<p>- Fix: Fixed a bug where the video wouldn't resize to fit inside the miniplayer [This bug affected the 2012 layout]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.1 - May 16, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- New: Added option to make the "C" in "My Channel" lowercase on the My Channel button [Compatible with all layouts]</p>
+						<p>- Improvement: A couple of very minor CSS improvements [Affects 2013 and 2014 layouts]</p>
+						<p>- Fix: Fixed a major bug where the watch page wouldn't load correctly if YouTube's langauge was set to something other than English [This bug affected all layouts from Early 2013 to 2017]</p>
+						<p>- Fix: Fixed a minor bug where the Share button (the one located in the video player itself) was invisible [This bug affected all layouts from Early 2013 to 2017]</p>
+						<p>- Fix: YouTube's experimental new icon system was causing fairly serious issues, now they are fixed [This bug affected all layouts, excluding the unmodified current layout]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.0 - May 12, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- First version of CustomTube! Notable features include choosing between the 2012-2017 and 2019 layouts, and being able to loop videos by default.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="./changelog.js"></script>
+		<background></background>
+	</body>
+</html>

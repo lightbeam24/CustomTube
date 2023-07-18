@@ -1,0 +1,92 @@
+{
+    "name": "CustomTube Beta",
+    "version": "1.1.0.2",
+    "description": "Choose your own YouTube layout, and more!",
+    "permissions": ["tabs", "storage", "scripting"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/16.png",
+        "32": "images/32.png",
+        "48": "images/48.png",
+        "128": "images/128.png"
+      }
+    },
+    "icons": {
+      "16": "images/16.png",
+      "32": "images/32.png",
+      "48": "images/48.png",
+      "128": "images/128.png"
+    },
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.youtube.com/*"],
+        "exclude_matches": ["*://*.youtube.com/embed/*"],
+        "css": [
+		"general.css",
+		"css/bt-universalized-elements.css",
+		"css/static.css",
+		"css/static-scrolling.css",
+		"css/psuedo-static.css",
+		"css/rich-grid.css",
+		"css/topbar.css",
+		"css/sidebar.css",
+		"css/chips.css",
+		"css/search.css",
+		"css/watch-page.css",
+		"css/watch-page-blobs.css",
+		"css/ltod.css",
+		"css/description.css",
+		"css/comments.css",
+		"css/playlist-panel.css",
+		"css/channel-rework.css",
+		"css/related-videos.css",
+		"css/cosmicpanda.css",
+		"css/polymer.css",
+		"css/sub-btn.css",
+		"css/menus.css",
+		"css/global-color-palette.css"
+		],
+        "run_at": "document_start"
+      },
+      {
+        "matches": ["*://*.youtube.com/*"],
+        "exclude_matches": ["*://*.youtube.com/embed/*"],
+        "js": [
+          "initial-setup.js"
+        ],
+        "run_at": "document_start"
+      },
+      {
+        "matches": ["*://*.youtube.com/*"],
+        "exclude_matches": ["*://*.youtube.com/embed/*"],
+        "js": ["main.js"]
+      }
+	  
+    ],
+	"web_accessible_resources": [	
+	{
+    	"resources": ["/images/*"],
+		"matches": ["*://*.youtube.com/*"],
+		"use_dynamic_url": true
+    },
+	{
+    	"resources": ["css/*"],
+		"matches": ["*://*.youtube.com/*"]
+    },
+	{
+        "resources": ["scripts/*"],
+        "matches": ["*://*.youtube.com/*"]
+	}
+	],
+    "browser_specific_settings": {
+      "gecko": {
+		"id": "{3317c4c9-c062-427a-9d29-15db676687eb}",
+		"update_url": "https://raw.githubusercontent.com/lightbeam24/CustomTube/main/firefox%20beta/updates.json"
+      }
+    },
+    "manifest_version": 3
+  }

@@ -1,0 +1,279 @@
+html[comments-style^="cosmicpanda"] {
+--bt-comments-bg: var(--bt-section-bg);
+--bt-comments-shadow: var(--bt-section-box-shadow);
+--bt-comments-inner-padding: 15px 15px 0 15px;
+--bt-comments-header-display: flex;
+--bt-comments-header-flex-dir: row-reverse;
+--bt-comments-header-text-transform: uppercase;
+--bt-comments-header-font-size: 13px;
+--bt-comments-header-text-color: var(--bt-text-color-5);
+--bt-comments-header-last-child-font-weight: 500;
+--bt-comments-header-last-child-after-content: "•";
+--bt-comments-header-last-child-after-margin: 0 4px;
+--bt-comments-author-text-color: var(--bt-blue);
+--bt-comments-author-text-color-hover: var(--bt-blue);
+--bt-comments-author-text-decoration-hover: underline;
+--bt-comments-pfp-size: 0px;
+--bt-comments-pfp-margin-right: 10px;
+--bt-comments-reply-pfp-size: 0px;
+--bt-comments-reply-pfp-margin-right: 0;
+--bt-comments-box-height: 44px;
+--bt-comments-box-radius: 0 3px 3px 3px;
+--bt-comments-box-border: 1.75px solid var(--bt-section-border-color);
+--bt-comments-box-font-size: 12px;
+--bt-comments-box-font-weight: 500;
+--bt-comments-box-inner-margin-left: 8px;
+--bt-comments-box-inner-margin-top: 8px;
+--bt-comments-box-placeholder-text-color: var(--bt-text-color-7, #aaa);
+--bt-comments-middle-count-display: none;
+--bt-comments-left-count-display: block;
+--bt-comments-left-count-color: var(--bt-blue);
+--bt-comments-left-count-margin-left: 40px;
+--bt-comments-reply-button-inner-margin-left: 0;
+--bt-comments-reply-button-text-color: var(--bt-text-color-6);
+--bt-comments-reply-button-inner-padding: 0 4px 0 0;
+--bt-comments-reply-button-font-weight: normal;
+--bt-comments-font-size: 13px;
+--bt-comments-line-height: 17px;
+--bt-comments-expand-button-height: 24px;
+--bt-comments-expand-button-bg-hover: transparent;
+--bt-comments-expand-button-text-decoration-hover: underline;
+--bt-comments-expand-button-font-size: 13px;
+--bt-comments-expand-button-text-color: var(--bt-blue);
+--bt-comments-expand-button-margin-left: -10px;
+}
+html[comments-style^="hitchhiker"] {
+--bt-comments-bg: var(--bt-section-bg);
+--bt-comments-shadow: var(--bt-section-box-shadow);
+--bt-comments-inner-padding: 15px 15px 0 15px;
+--bt-comments-header-display: flex;
+--bt-comments-header-flex-dir: row-reverse;
+--bt-comments-header-text-transform: uppercase;
+--bt-comments-header-font-size: 13px;
+--bt-comments-header-text-color: var(--bt-text-color-5);
+--bt-comments-header-last-child-font-weight: 500;
+--bt-comments-header-last-child-after-content: "•";
+--bt-comments-header-last-child-after-margin: 0 4px;
+--bt-comments-author-text-color: var(--bt-blue);
+--bt-comments-author-text-color-hover: var(--bt-blue);
+--bt-comments-author-text-decoration-hover: underline;
+--bt-comments-pfp-size: 48px;
+--bt-comments-pfp-margin-right: 10px;
+--bt-comments-reply-pfp-size: 24px;
+--bt-comments-reply-pfp-margin-right: 0;
+--bt-comments-box-height: 44px;
+--bt-comments-box-radius: 0 3px 3px 3px;
+--bt-comments-box-border: 1.75px solid var(--bt-section-border-color);
+--bt-comments-box-font-size: 12px;
+--bt-comments-box-font-weight: 500;
+--bt-comments-box-inner-margin-left: 8px;
+--bt-comments-box-inner-margin-top: 8px;
+--bt-comments-box-placeholder-text-color: var(--bt-text-color-7, #aaa);
+--bt-comments-middle-count-display: none;
+--bt-comments-left-count-display: block;
+--bt-comments-left-count-color: var(--bt-blue);
+--bt-comments-left-count-margin-left: 40px;
+--bt-comments-reply-button-inner-margin-left: 0;
+--bt-comments-reply-button-text-color: var(--bt-text-color-6);
+--bt-comments-reply-button-inner-padding: 0 4px 0 0;
+--bt-comments-reply-button-font-weight: normal;
+--bt-comments-font-size: 13px;
+--bt-comments-line-height: 17px;
+--bt-comments-expand-button-height: 24px;
+--bt-comments-expand-button-bg-hover: transparent;
+--bt-comments-expand-button-text-decoration-hover: underline;
+--bt-comments-expand-button-font-size: 13px;
+--bt-comments-expand-button-text-color: var(--bt-blue);
+--bt-comments-expand-button-margin-left: -10px;
+}
+html[comments-style^="hitchhiker-2014"],
+html[comments-style^="hitchhiker-2013"] {
+--bt-comments-header-display: flex;
+--bt-comments-header-flex-dir: row-reverse;
+--bt-comments-header-text-transform: none;
+--bt-comments-header-font-size: 12px;
+--bt-comments-header-text-color: var(--bt-text-color-4);
+--bt-comments-header-last-child-font-weight: 500;
+--bt-comments-header-last-child-before-content: "All ";
+--bt-comments-header-last-child-after-content: "";
+--bt-comments-header-last-child-after-margin: 0 2px;
+--bt-comments-header-first-child-before-content: "(";
+--bt-comments-header-first-child-after-content: ")";
+}
+html[lang="en"] {
+  --bt-comments-reply-button-position: absolute;
+}
+html:not([lang="en"]) {
+  --bt-comments-reply-button-position: relative;
+  --bt-comments-left-count-margin-left: 0px;
+}
+html[comments-style] ytd-comments {
+  background: var(--bt-comments-bg);
+  box-shadow: var(--bt-comments-shadow);
+}
+html[comments-style] ytd-comments ytd-item-section-renderer {
+  padding: var(--bt-comments-inner-padding);
+}
+html[comments-style] ytd-comments-header-renderer {
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--bt-section-border-color);
+  padding-bottom: 20px;
+}
+/* author thumb */
+html[comments-style] #author-thumbnail.ytd-comment-simplebox-renderer,
+html[comments-style] #author-thumbnail.ytd-comment-simplebox-renderer img {
+  width: var(--bt-comments-pfp-size);
+  height: var(--bt-comments-pfp-size);
+}
+html[comments-style] ytd-comment-renderer:not([engagement-panel]) #author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer {
+  width: var(--bt-comments-pfp-size);
+  height: var(--bt-comments-pfp-size);
+  margin-right: var(--bt-comments-pfp-margin-right);
+}
+html[comments-style] #author-thumbnail.ytd-commentbox,
+html[comments-style] #author-thumbnail.ytd-commentbox img {
+  width: var(--bt-comments-pfp-size);
+  height: var(--bt-comments-pfp-size);
+  margin-right: var(--bt-comments-pfp-margin-right);
+}
+html[comments-style] ytd-comment-replies-renderer #author-thumbnail yt-img-shadow,
+html[comments-style] ytd-comment-replies-renderer #author-thumbnail img {
+	width: var(--bt-comments-reply-pfp-size);
+	height: var(--bt-comments-reply-pfp-size);
+	margin-right: var(--bt-comments-reply-pfp-margin-right);
+}
+html[comments-style] .count-text.ytd-comments-header-renderer {
+  display: var(--bt-comments-header-display);
+  flex-direction: var(--bt-comments-header-flex-dir);
+  text-transform: var(--bt-comments-header-text-transform);
+  font-size: var(--bt-comments-header-font-size);
+  color: var(--bt-comments-header-text-color);
+}
+html[comments-style] .count-text.ytd-comments-header-renderer span:last-child {
+  font-weight: var(--bt-comments-header-last-child-font-weight);
+}
+html[comments-style] .count-text.ytd-comments-header-renderer span:last-child::after {
+  content: var(--bt-comments-header-last-child-after-content);
+  margin: var(--bt-comments-header-last-child-after-margin);
+}
+html[comments-style] .count-text.ytd-comments-header-renderer span:last-child::before {
+  content: var(--bt-comments-header-last-child-before-content);
+}
+html[comments-style] .count-text.ytd-comments-header-renderer span:first-child::before {
+  content: var(--bt-comments-header-first-child-before-content);
+}
+html[comments-style] .count-text.ytd-comments-header-renderer span:first-child::after {
+  content: var(--bt-comments-header-first-child-after-content);
+}
+
+
+/* button */
+ytd-app[layout="polymer"] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+  color: var(--bt-spec-text-primary);
+  background-color: transparent !important;
+}
+ytd-app[layout="polymer"] yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--touch-response {
+  display: none;
+}
+
+html[comments-style] #header-author.ytd-comment-renderer span {
+    color: var(--bt-comments-author-text-color);
+}
+html[comments-style] #header-author.ytd-comment-renderer span:hover {
+    color: var(--bt-comments-author-text-color-hover, var(--bt-comments-author-text-color));
+	text-decoration: var(--bt-comments-author-text-decoration-hover) !important;
+}
+html[comments-style] #vote-count-left {
+	display: var(--bt-comments-left-count-display) !important;
+	color: var(--bt-comments-left-count-color) !important;
+	margin-left: var(--bt-comments-left-count-margin-left) !important;
+}
+/* don't display if 0 votes */
+html[comments-style] #vote-count-left:not([aria-label]) {
+  visibility: hidden !important;
+  width: 0px !important;
+  padding: 0 !important;
+  margin: 0;
+}
+html[comments-style] #vote-count-middle {
+  display: var(--bt-comments-middle-count-display) !important;
+}
+html[comments-style] #reply-button-end {
+  position: var(--bt-comments-reply-button-position, absolute);
+}
+html[comments-style] #reply-button-end ytd-button-renderer {
+  margin-left: var(--bt-comments-reply-button-inner-margin-left) !important;
+}
+html[comments-style] #reply-button-end button,
+html[comments-style] #reply-button-end a {
+  color: var(--bt-comments-reply-button-text-color);
+  font-weight: var(--bt-comments-reply-button-font-weight);
+  padding: var(--bt-comments-reply-button-inner-padding);
+}
+html[comments-style] #content-text.ytd-comment-renderer {
+  font-size: var(--bt-comments-font-size);
+  line-height: var(--bt-comments-line-height);
+}
+/* view replies */
+html[comments-style] .more-button.ytd-comment-replies-renderer, 
+html[comments-style] .less-button.ytd-comment-replies-renderer {
+    height: var(--bt-comments-expand-button-height);
+}
+html[comments-style] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text:hover {
+  background-color: var(--bt-comments-expand-button-bg-hover) !important;
+  text-decoration: var(--bt-comments-expand-button-text-decoration-hover);
+}
+html[comments-style] .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading.yt-spec-button-shape-next--align-by-text {
+  margin-left: var(--bt-comments-expand-button-margin-left);
+  color: var(--bt-comments-expand-button-text-color);
+  font-size: var(--bt-comments-expand-button-font-size) !important;
+}
+
+html[comments-style^="hitchhiker"] ytd-comments .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading.yt-spec-button-shape-next--align-by-text .cbox::before {
+    content: "View ";
+}
+
+/* LTOD */
+html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #like-button yt-icon {
+	background: url('/images/like.png') !important;
+	height: 14px !important;
+	width: 14px !important;
+	background-size: 14px 14px !important;
+	margin-top: var(--bt-comments-new-icon-margin-top, 4px);
+	opacity: 0.2;
+}
+html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #like-button:hover yt-icon {
+	opacity: 0.7;
+}
+html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #like-button button[aria-pressed="true"] yt-icon {
+	background: url('/images/like-pressed.png') !important;
+	height: 14px !important;
+	width: 14px !important;
+	background-size: 14px 14px !important;
+	margin-top: var(--bt-comments-new-icon-margin-top, 4px);
+	opacity: 0.7;
+}
+html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #dislike-button yt-icon {
+	background: url('/images/dislike.png') !important;
+	height: 14px !important;
+	width: 14px !important;
+	background-size: 14px 14px !important;
+	margin-top: var(--bt-comments-new-icon-margin-top, 4px);
+	opacity: 0.2;
+}
+html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #dislike-button:hover yt-icon {
+	opacity: 0.7;
+}
+html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #dislike-button button[aria-pressed="true"] yt-icon {
+	background: url('/images/dislike-pressed.png') !important;
+	height: 14px !important;
+	width: 14px !important;
+	background-size: 14px 14px !important;
+	margin-top: var(--bt-comments-new-icon-margin-top, 4px);
+	opacity: 0.7;
+}
+html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #like-button yt-icon svg,
+html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #dislike-button yt-icon svg {
+	display: var(--og-comment-icons-display, none) !important;
+}

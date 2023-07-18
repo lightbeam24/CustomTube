@@ -1,0 +1,500 @@
+html[watch-metadata-style^="aozora"] {
+--bt-wp-columns-margin-top: 80px;
+/* view count */
+--bt-standard-view-count-display: block;
+--bt-standard-view-count-position: absolute;
+--bt-standard-view-count-right: 0;
+--bt-standard-view-count-font-size: 22px;
+--bt-standard-view-count-font-weight: 700;
+--bt-standard-view-count-text-color: var(--bt-text-color-5);
+--bt-standard-view-count-margin-top: 0;
+/* title */
+--bt-wp-title-font-family: arial;
+--bt-wp-title-font-size: 21px;
+--bt-wp-title-font-weight: bold;
+--bt-wp-title-padding: 5px 0;
+--bt-wp-above-title-padding: 0;
+--bt-wp-above-title-margin: 0;
+--bt-wp-above-title-margin-bottom: 0;
+--bt-wp-title-text-color: var(--bt-text-color-5);
+--bt-wp-title-text-color-hover: var(--bt-text-color-5);
+--bt-standard-view-count-text-color: var(--bt-text-color-5);
+--bt-standard-view-count-margin-top: 4px;
+--bt-wp-owner-pfp-display: none;
+/* channel name */
+--bt-wp-channel-name-display: block;
+--bt-wp-channel-name-text-color: var(--bt-blue);
+--bt-wp-channel-name-font-size:	14px;
+--bt-wp-channel-name-font-weight: 500;
+--bt-wp-channel-name-text-decoration-hover: underline;
+/* buttons */
+--bt-wp-button-text-transform: none;
+}
+html[watch-metadata-style^="cosmicpanda"] {
+--bt-wp-columns-margin-top: 80px;
+/* view count */
+--bt-standard-view-count-display: block;
+--bt-standard-view-count-position: absolute;
+--bt-standard-view-count-right: -4px;
+--bt-standard-view-count-font-size: 22px;
+--bt-standard-view-count-font-weight: 500;
+--bt-wp-top-row-actions-flex-dir: row;
+--bt-wp-top-row-actions-margin-top: 0;
+/* title */
+--bt-wp-title-font-family: arial;
+--bt-wp-title-font-size: 21px;
+--bt-wp-title-font-weight: bold;
+--bt-wp-title-padding: 5px 0;
+--bt-wp-above-title-padding: 0;
+--bt-wp-above-title-margin: 0;
+--bt-wp-above-title-margin-bottom: 0;
+--bt-wp-title-text-color: var(--bt-text-color-5);
+--bt-wp-title-text-color-hover: var(--bt-text-color-5);
+--bt-standard-view-count-text-color: var(--bt-text-color-5);
+--bt-standard-view-count-margin-top: 4px;
+--bt-wp-owner-pfp-display: none;
+/* buttons */
+--bt-wp-button-text-transform: none;
+}
+html[watch-metadata-style^="hitchhiker"] {
+--bt-wp-columns-margin-top: 100px;
+--bt-wp-primary-padding-right: 10px;
+/* view count */
+--bt-standard-view-count-display: block;
+--bt-standard-view-count-position: absolute;
+--bt-standard-view-count-right: 15px;
+--bt-standard-view-count-font-size: 19px;
+--bt-standard-view-count-font-weight: normal;
+--bt-standard-view-count-text-color: var(--bt-text-color-6);
+--bt-standard-view-count-margin-top: 47px;
+/* avatar */
+--bt-owner-pfp-size: 48px;
+--bt-owner-pfp-margin-right: 8px;
+/* top level buttons computed */
+--bt-top-level-buttons-position: relative;
+--bt-top-level-buttons-margin-right: -4px;
+/* from ryd */
+--bt-wp-top-row-border-bottom: var(--bt-section-border);
+--bt-wp-top-row-padding-bottom: 10px;
+--bt-wp-top-row-padding: 0 15px;
+--bt-wp-top-row-bg: var(--bt-section-bg);
+--bt-wp-top-row-box-shadow: var(--bt-section-box-shadow);
+/* title */
+--bt-wp-title-bg: var(--bt-section-bg);
+--bt-wp-title-box-shadow: var(--bt-section-box-shadow);
+--bt-wp-title-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-wp-title-font-size: 20px;
+--bt-wp-title-font-weight: normal;
+--bt-wp-title-padding: 15px 15px 0 15px;
+--bt-wp-above-title-padding: 6px 15px 7.5px 15px;
+--bt-wp-above-title-margin: 0;
+--bt-wp-above-title-margin-bottom: 10px;
+/* channel name */
+--bt-wp-channel-name-outer-margin-top: -2px;
+--bt-wp-channel-name-display: block;
+--bt-wp-channel-name-height: 22px;
+--bt-wp-channel-name-margin-top: -5px;
+--bt-wp-channel-name-text-color: #333; /* formerly text color 2 */
+--bt-wp-channel-name-font-size:	13px;
+--bt-wp-channel-name-font-weight: 500;
+--bt-wp-channel-name-text-decoration-hover: underline;
+/* sub btn NOTE MOVED */
+/* buttons */
+--bt-wp-button-text-transform: none;
+}
+html[watch-metadata-style^="hitchhiker-2015"] {
+--bt-wp-title-padding: 15px 15px 5px 15px;
+--bt-wp-title-font-size: 24px;
+}
+html[watch-metadata-style^="hitchhiker-2014"],
+html[watch-metadata-style^="hitchhiker-2013"] {
+--bt-wp-primary-inner-bg: var(--bt-section-bg);
+--bt-wp-primary-inner-border: 1px solid var(--bt-section-border-color);
+--bt-wp-top-row-border-bottom: none;
+--bt-wp-middle-row-border-bottom: var(--bt-section-border);
+/* title */
+--bt-wp-title-font-family: arial;
+--bt-wp-title-font-size: 24px;
+--bt-wp-title-font-weight: normal;
+--bt-wp-title-padding: 4px 15px;
+/* view count */
+--bt-standard-view-count-display: block;
+--bt-standard-view-count-position: absolute;
+--bt-standard-view-count-right: 15px;
+--bt-standard-view-count-font-size: 19px;
+--bt-standard-view-count-font-weight: normal;
+--bt-standard-view-count-text-color: var(--bt-text-color-5, #333);
+--bt-standard-view-count-margin-top: 14px;
+/* avatar */
+--bt-owner-pfp-size: 48px;
+--bt-owner-pfp-margin-right: 8px;
+/* top level buttons computed */
+--bt-top-level-buttons-position: absolute;
+--bt-top-level-buttons-margin-right: -4px;
+--bt-top-level-buttons-left: 0;
+}
+html[watch-metadata-style="hitchhiker-2013-1"] {
+/* title */
+--bt-wp-title-font-family: arial;
+--bt-wp-title-font-size: 19px;
+--bt-wp-title-font-weight: bold;
+}
+html[watch-metadata-style="hitchhiker-2014"] {
+--bt-wp-title-text-color: #222;
+--bt-wp-title-text-color-hover: #000;
+}
+html[dark][watch-metadata-style="hitchhiker-2014"] {
+--bt-wp-title-text-color: #ddd;
+--bt-wp-title-text-color-hover: #fff;
+}
+html[watch-metadata-style="polymer-2019"] {
+/* view count */
+--bt-standard-view-count-display: flex;
+--bt-standard-view-count-position: absolute;
+--bt-standard-view-count-right: unset;
+--bt-standard-view-count-left: 0;
+--bt-standard-view-count-font-size: 1.4rem;
+--bt-standard-view-count-font-weight: 400;
+--bt-standard-view-count-text-color: var(--bt-spec-text-secondary);
+--bt-standard-view-count-margin-top: 20px;
+/* avatar */
+--bt-owner-pfp-size: 48px;
+--bt-owner-pfp-margin-right: 12px;
+/* top level buttons computed */
+--bt-top-level-buttons-position: relative;
+--bt-top-level-buttons-margin-right: -4px;
+/* from ryd */
+--bt-wp-top-row-border-bottom: 1px solid var(--bt-spec-10-percent-layer);
+--bt-wp-top-row-padding-bottom: 10px;
+/* title */
+--bt-wp-title-font-family: Roboto, Arial, sans-serif;
+--bt-wp-title-font-size: 18px;
+--bt-wp-title-font-weight: 400;
+/* NOTE: SUB BTN MOVED */
+/* buttons */
+--bt-wp-button-text-transform: uppercase;
+}
+html[watch-metadata-style^="polymer-202"] {
+/* view count */
+--bt-standard-view-count-display: flex;
+--bt-standard-view-count-position: absolute;
+--bt-standard-view-count-right: unset;
+--bt-standard-view-count-left: 0;
+--bt-standard-view-count-font-size: 1.4rem;
+--bt-standard-view-count-font-weight: 400;
+--bt-standard-view-count-text-color: var(--yt-spec-text-secondary);
+--bt-standard-view-count-margin-top: 20px;
+/* avatar */
+--bt-owner-pfp-size: 48px;
+--bt-owner-pfp-margin-right: 12px;
+/* top level buttons computed */
+--bt-top-level-buttons-position: relative;
+--bt-top-level-buttons-margin-right: -4px;
+/* from ryd */
+--bt-wp-top-row-border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+--bt-wp-top-row-padding-bottom: 10px;
+/* title */
+--bt-wp-title-font-family: Roboto, Arial, sans-serif;
+--bt-wp-title-font-size: 18px;
+--bt-wp-title-font-weight: 400;
+/* NOTE: SUB BTN MOVED */
+/* buttons */
+--bt-wp-button-text-transform: uppercase;
+}
+/* OUTER */
+/* NOTE: this is probably ok to not be universal */
+ytd-watch-flexy:not([theater]):not([fullscreen]):not([no-top-margin]):not([reduced-top-margin]) #primary.ytd-watch-flexy, 
+ytd-watch-flexy:not([theater]):not([fullscreen]):not([no-top-margin]):not([reduced-top-margin]) #secondary.ytd-watch-flexy {
+  padding-top: var(--ytd-margin-4x);
+}
+/* make padding between cols less */
+html[watch-metadata-style]:not([disable-flexy-player]):not([static]):not([pseudo-static]) #primary.ytd-watch-flexy {
+  padding-right: var(--bt-wp-primary-padding-right);
+}
+html[title-on-top="true"] #primary.ytd-watch-flexy, 
+html[title-on-top="true"] #secondary.ytd-watch-flexy {
+  margin-top: var(--bt-wp-columns-margin-top) !important;
+}
+html[watch-metadata-style] #primary-inner.ytd-watch-flexy {
+  background: var(--bt-wp-primary-inner-bg);
+  border-right: var(--bt-wp-primary-inner-border);
+  border-left: var(--bt-wp-primary-inner-border);
+}
+html[watch-metadata-style] #primary.ytd-watch-flexy {
+  padding-right: var(--ytd-margin-3x);
+}
+/* ---------------------------- METADATA ----------------------------------------- */
+html[title-on-top="true"] #top-row {
+  padding-bottom: 21px !important;
+}
+html[title-on-top="true"][watch-metadata-style^="cosmicpanda"] #top-row {
+  padding-bottom: 0 !important;
+}
+/* NEW */
+html[title-on-top="true"] #bt-above {
+  position: absolute;
+  width: 1266px;
+  z-index: 192;
+}
+html[static][title-on-top="true"] #bt-above {
+  width: 1000px;
+}
+html[pseudo-static][title-on-top="true"] #bt-above {
+  width: 1010px;
+}
+html[watch-metadata-style] #bt-above #owner {
+  background: var(--bt-wp-title-bg);
+  box-shadow: var(--bt-wp-title-box-shadow);
+  margin: var(--bt-wp-above-title-margin);
+  padding: var(--bt-wp-above-title-padding);
+  margin-bottom: var(--bt-wp-above-title-margin-bottom);
+}
+html[watch-metadata-style] #owner yt-img-shadow {
+  display: var(--bt-wp-owner-pfp-display, inline-block);
+}
+/* end tot */
+html[watch-metadata-style] #bt-above #title,
+html[watch-metadata-style] #above-the-fold #title {
+  background: var(--bt-wp-title-bg);
+  padding: var(--bt-wp-title-padding);
+  box-shadow: var(--bt-wp-title-box-shadow);
+}
+/* video title */
+html[watch-metadata-style] h1.ytd-watch-metadata {
+  font-family: var(--bt-wp-title-font-family);
+  font-size: var(--bt-wp-title-font-size);
+  font-weight: var(--bt-wp-title-font-weight);
+  color: var(--bt-wp-title-text-color);
+}
+html[watch-metadata-style] h1.ytd-watch-metadata:hover {
+  color: var(--bt-wp-title-text-color-hover);
+}
+html[watch-metadata-style] #top-row {
+  background: var(--bt-wp-top-row-bg);
+  padding: var(--bt-wp-top-row-padding);
+  box-shadow: var(--bt-wp-top-row-box-shadow);
+}
+html[watch-metadata-style] #above-the-fold #actions {
+  flex-direction: var(--bt-wp-top-row-actions-flex-dir, row-reverse) !important;
+  margin-top: var(--bt-wp-top-row-actions-margin-top, 12px) !important;
+}
+/* BTSection Metadata */
+html[watch-metadata-style] #avatar.ytd-video-owner-renderer {
+  margin-right: var(--bt-owner-pfp-margin-right); /*former12*/
+  width: var(--bt-owner-pfp-size);
+  height: var(--bt-owner-pfp-size);
+}
+html[watch-metadata-style] #avatar.ytd-video-owner-renderer img {
+  width: var(--bt-owner-pfp-size);
+  height: var(--bt-owner-pfp-size);
+}
+/* channel name */
+/* position */
+html[watch-metadata-style] ytd-video-owner-renderer[modern-metapanel] #channel-name.ytd-video-owner-renderer {
+	margin-top: var(--bt-wp-channel-name-outer-margin-top);
+}
+html[watch-metadata-style] ytd-watch-flexy #text.complex-string.ytd-channel-name {
+  display: var(--bt-wp-channel-name-display);
+  height: var(--bt-wp-channel-name-height);
+  margin-top: var(--bt-wp-channel-name-margin-top);
+}
+/* styles */
+html[watch-metadata-style] ytd-watch-flexy ytd-channel-name a {
+  color: var(--bt-wp-channel-name-text-color) !important;
+  font-size: var(--bt-wp-channel-name-font-size);
+  font-weight: var(--bt-wp-channel-name-font-weight);
+}
+html[watch-metadata-style] ytd-watch-flexy ytd-channel-name a:hover {
+  text-decoration: var(--bt-wp-channel-name-text-decoration-hover) !important;
+}
+#bt-views-info {
+  display: var(--bt-standard-view-count-display);
+  position: var(--bt-standard-view-count-position);
+  right: var(--bt-standard-view-count-right);
+  left: var(--bt-standard-view-count-left);
+  font-size: var(--bt-standard-view-count-font-size);
+  font-weight: var(--bt-standard-view-count-font-weight);
+  color: var(--bt-standard-view-count-text-color);
+  margin-top: var(--bt-standard-view-count-margin-top);
+  z-index: 2001;
+}
+/* this is for everything. Needed. proably NOTE: intend for hh */
+html[no-ryd] ytd-menu-renderer,
+html ytd-menu-renderer {
+  overflow: visible;
+}
+html[no-ryd] #top-row {
+  border-bottom: var(--bt-wp-top-row-border-bottom) !important;
+  padding-bottom: var(--bt-wp-top-row-padding-bottom);
+}
+html:not([no-ryd]):not([watch-metadata-style^="hitchhiker"]) #top-row {
+  border-bottom: var(--bt-wp-top-row-border-bottom) !important;
+  padding-bottom: var(--bt-wp-top-row-padding-bottom);
+}
+html[watch-metadata-style^="hitchhiker"] #top-row {
+  border-bottom: none !important;
+}
+html:not([no-ryd])[watch-metadata-style^="hitchhiker"] middle-row-border {
+  border-top: var(--bt-wp-top-row-border-bottom);
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  display: block;
+}
+html:not([no-ryd])[watch-metadata-style^="hitchhiker-2014"] middle-row-border,
+html:not([no-ryd])[watch-metadata-style^="hitchhiker-2013"] middle-row-border {
+  display: none;
+}
+/* 1.1.0: Other buttons */
+html[watch-metadata-style] ytd-menu-renderer button {
+  text-transform: var(--bt-wp-button-text-transform);
+}
+/* ---------------------------- METADATA END ----------------------------------------- */
+/* pfp upload date is in universalized elements for now */
+
+/* Gaming */
+html[gaming-style^="cosmicpanda"] {
+--bt-wp-gaming-radius: 0;
+--bt-wp-gaming-bg: var(--bt-universal-site-bg);
+--bt-wp-gaming-box-shadow: var(--bt-section-box-shadow);
+--bt-wp-gaming-item-height: fit-content;
+--bt-wp-gaming-item-min-height: 50px;
+--bt-wp-gaming-box-width: 36px;
+--bt-wp-gaming-box-height: 50px;
+--bt-wp-gaming-box-margin: 0;
+--bt-wp-gaming-title-text-color: var(--bt-text-color-5);
+--bt-wp-gaming-title-font-size: 13px;
+--bt-wp-gaming-title-line-height: 18px;
+--bt-wp-gaming-subtitle-margin-top: 0;
+--bt-wp-gaming-subtitle-text-color: var(--bt-text-color-3);
+--bt-wp-gaming-subtitle-font-size: 11px;
+--bt-wp-gaming-subtitle-line-height: 11px;
+--bt-wp-gaming-link-margin-top: -2px;
+--bt-wp-gaming-link-text-color: var(--bt-text-color-3);
+--bt-wp-gaming-link-font-size: 13px;
+--bt-wp-gaming-link-line-height: 10px;
+--bt-wp-gaming-link-font-weight: normal;
+--bt-wp-gaming-link-text-transform: none;
+--bt-wp-gaming-link-text-color-hover: var(--bt-blue);
+--bt-wp-gaming-link-text-transform-hover: underline;
+--bt-wp-gaming-text-margin-left: 8px;
+--bt-wp-gaming-non-box-display: none;
+}
+html[gaming-style^="hitchhiker"] {
+--bt-wp-gaming-radius: 0;
+--bt-wp-gaming-bg: var(--bt-section-bg);
+--bt-wp-gaming-box-shadow: var(--bt-section-box-shadow);
+--bt-wp-gaming-item-height: fit-content;
+--bt-wp-gaming-item-min-height: 50px;
+--bt-wp-gaming-box-width: 36px;
+--bt-wp-gaming-box-height: 50px;
+--bt-wp-gaming-box-margin: 0;
+--bt-wp-gaming-title-text-color: var(--bt-text-color-5);
+--bt-wp-gaming-title-font-size: 13px;
+--bt-wp-gaming-title-line-height: 18px;
+--bt-wp-gaming-subtitle-margin-top: 0;
+--bt-wp-gaming-subtitle-text-color: var(--bt-text-color-3);
+--bt-wp-gaming-subtitle-font-size: 11px;
+--bt-wp-gaming-subtitle-line-height: 11px;
+--bt-wp-gaming-link-margin-top: -2px;
+--bt-wp-gaming-link-text-color: var(--bt-text-color-3);
+--bt-wp-gaming-link-font-size: 13px;
+--bt-wp-gaming-link-line-height: 10px;
+--bt-wp-gaming-link-font-weight: normal;
+--bt-wp-gaming-link-text-transform: none;
+--bt-wp-gaming-link-text-color-hover: var(--bt-blue);
+--bt-wp-gaming-link-text-transform-hover: underline;
+--bt-wp-gaming-text-margin-left: 8px;
+--bt-wp-gaming-non-box-display: none;
+}/*
+html[watch-metadata-style^="hitchhiker-2013"] {
+--bt-wp-gaming-radius: 2px;
+--bt-wp-gaming-bg: linear-gradient(to top, #02c,#03c);
+--bt-wp-gaming-box-shadow: var(--bt-section-box-shadow);
+}*/
+html[gaming-style^="hitchhiker-2017"] {
+--bt-wp-gaming-radius: 0;
+--bt-wp-gaming-bg: var(--bt-section-bg);
+--bt-wp-gaming-box-shadow: var(--bt-section-box-shadow);
+--bt-wp-gaming-item-height: fit-content;
+--bt-wp-gaming-item-min-height: 67px;
+--bt-wp-gaming-box-width: 44px;
+--bt-wp-gaming-box-height: 61px;
+--bt-wp-gaming-box-width: 48px;
+--bt-wp-gaming-box-height: 67px;
+--bt-wp-gaming-box-margin: 0;
+--bt-wp-gaming-title-text-color: var(--bt-text-color-5);
+--bt-wp-gaming-title-font-size: 13px;
+--bt-wp-gaming-title-line-height: 18px;
+--bt-wp-gaming-subtitle-margin-top: 0;
+--bt-wp-gaming-subtitle-text-color: var(--bt-text-color-3);
+--bt-wp-gaming-subtitle-font-size: 11px;
+--bt-wp-gaming-subtitle-line-height: 11px;
+--bt-wp-gaming-link-margin-top: -2px;
+--bt-wp-gaming-link-text-color: var(--bt-text-color-3);
+--bt-wp-gaming-link-font-size: 13px;
+--bt-wp-gaming-link-line-height: 10px;
+--bt-wp-gaming-link-font-weight: normal;
+--bt-wp-gaming-link-text-transform: none;
+--bt-wp-gaming-link-text-color-hover: var(--bt-blue);
+--bt-wp-gaming-link-text-transform-hover: underline;
+--bt-wp-gaming-text-margin-left: 12px;
+--bt-wp-gaming-non-box-display: none;
+}
+html[gaming-style] ytd-rich-metadata-renderer {
+  border-radius: var(--bt-wp-gaming-radius);
+  background: var(--bt-wp-gaming-bg);
+  box-shadow: var(--bt-wp-gaming-box-shadow);
+}
+html[gaming-style] ytd-rich-metadata-renderer[component-style="RICH_METADATA_RENDERER_STYLE_BOX_ART"] #thumbnail.ytd-rich-metadata-renderer {
+  width: var(--bt-wp-gaming-box-width);
+  height: var(--bt-wp-gaming-box-height);
+  margin: var(--bt-wp-gaming-box-margin);
+}
+html[gaming-style] .style-scope.ytd-rich-metadata-row-renderer {
+  height: var(--bt-wp-gaming-item-height);
+  min-height: var(--bt-wp-gaming-item-min-height);
+}
+html[gaming-style] .style-scope.ytd-rich-metadata-row-renderer #endpoint-link {
+  min-height: var(--bt-wp-gaming-item-min-height);
+}
+html[gaming-style] #title.ytd-rich-metadata-renderer {
+  color: var(--bt-wp-gaming-title-text-color);
+  font-size: var(--bt-wp-gaming-title-font-size);
+  line-height: var(--bt-wp-gaming-title-line-height);
+}
+html[gaming-style] #subtitle.ytd-rich-metadata-renderer {
+  color: var(--bt-wp-gaming-subtitle-text-color);
+  margin-top: var(--bt-wp-gaming-subtitle-margin-top);
+  font-size: var(--bt-wp-gaming-subtitle-font-size);
+  line-height: var(--bt-wp-gaming-subtitle-line-height);
+}
+html[gaming-style] #call-to-action.ytd-rich-metadata-renderer {
+  margin-top: var(--bt-wp-gaming-link-margin-top);
+  color: var(--bt-wp-gaming-link-text-color);
+  font-size: var(--bt-wp-gaming-link-font-size);
+  line-height: var(--bt-wp-gaming-link-line-height);
+  font-weight: var(--bt-wp-gaming-link-font-weight);
+  text-transform: var(--bt-wp-gaming-link-text-transform);
+}
+html[gaming-style] ytd-rich-metadata-renderer:hover #call-to-action.ytd-rich-metadata-renderer {
+  color: var(--bt-wp-gaming-link-text-color-hover);
+}
+html[gaming-style] #call-to-action.ytd-rich-metadata-renderer:hover {
+  text-decoration: var(--bt-wp-gaming-link-text-transform-hover);
+}
+html[gaming-style] ytd-rich-metadata-renderer:not([component-style="RICH_METADATA_RENDERER_STYLE_BOX_ART"]) #thumbnail.ytd-rich-metadata-renderer {
+  display: var(--bt-wp-gaming-non-box-display);
+}
+html[gaming-style] #text-container.ytd-rich-metadata-renderer {
+  margin-left: var(--bt-wp-gaming-text-margin-left);
+}
+
+/* Fix this really weird bug that only happens on hitchhiker 2013 and 2014 for whatever reason */
+ytd-watch-flexy #columns #primary #primary-inner {
+  padding-left: 0 !important;
+}
+html[no-join] #sponsor-button,
+html[no-clip] button[aria-label="Clip"],
+html[no-thanks] button[aria-label="Thanks"] {
+  display: none !important;
+}

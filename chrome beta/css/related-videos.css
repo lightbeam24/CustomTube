@@ -1,0 +1,327 @@
+/* For a potential 2011 layout option */
+html[related-videos^="aozora"] {
+--bt-related-bg: var(--bt-universal-white);
+--bt-related-margin-top: 0;
+--bt-related-padding-top: 0;
+--bt-related-padding: 0px 0px 0px 15px;
+--bt-related-margin-bottom: 10px;
+--bt-related-inner-padding-bottom: 14px;
+/* hover thing */
+--bt-related-video-outer-padding: 5px;
+--bt-related-video-outer-min-height: 64px;
+--bt-related-video-outer-margin: 0;
+--bt-related-video-outer-bg-hover: #d1e1fa;
+/* title */
+--bt-related-title-font-size: 1.0833em;
+--bt-related-title-margin: 0;
+--bt-related-title-line-height: 1.2;
+--bt-related-title-max-height: 2.4em;
+--bt-related-title-text-color: var(--bt-blue);
+--bt-related-title-text-color-hover: var(--bt-blue);
+--bt-related-title-text-decoration-hover: underline;
+/* meta */
+--bt-related-meta-text-color: var(--bt-text-color-6);
+--bt-related-meta-font-size: .9166em;
+--bt-related-meta-line-height: 1.4em;
+/* channel name */
+--bt-related-channel-name-margin-top: 2px;
+/* thumbs */
+--bt-related-thumb-inner-width: 96px;
+--bt-related-thumb-inner-height: 54px;
+--bt-related-thumb-inner-radius: 3px;
+--bt-related-thumb-inner-bg: var(--yt-spec-base-background);
+--bt-related-thumb-inner-padding: 4px;
+--bt-related-thumb-inner-border: 1px solid #d3d3d3;
+}
+html[related-videos="cosmicpanda-3"] {
+--bt-related-margin-top: 0;
+--bt-related-padding-top: 0;
+--bt-related-padding: 0px 15px 0px 20px;
+--bt-related-margin-bottom: 10px;
+--bt-related-inner-padding-bottom: 14px;
+/* hover thing */
+--bt-related-video-outer-padding: 5px;
+--bt-related-video-outer-min-height: 64px;
+--bt-related-video-outer-margin: 0;
+--bt-related-video-outer-bg-hover: var(--bt-section-bg);
+--bt-related-video-outer-box-shadow-hover: 1px 1px 1px #bababa;
+--bt-related-video-outer-radius: 2px;
+--bt-related-video-outer-transition: background .15s ease-in-out;
+/* title */
+--bt-related-title-font-size: 13px;
+--bt-related-title-margin: 0;
+--bt-related-title-line-height: 1.2;
+--bt-related-title-max-height: 2.4em;
+--bt-related-title-text-color: var(--bt-text-color-5);
+--bt-related-title-font-weight: bold;
+--bt-related-title-text-color-hover: var(--bt-blue);
+--bt-related-title-text-decoration-hover: underline;
+/* meta */
+--bt-related-meta-text-color: var(--bt-text-color-6);
+--bt-related-meta-font-size: .9166em;
+--bt-related-meta-line-height: 1.4em;
+/* channel name */
+--bt-related-channel-name-margin-top: 2px;
+}
+html[related-videos^="hitchhiker"] {
+--bt-related-bg: var(--bt-section-bg);
+--bt-related-margin-top: 0;
+--bt-related-padding-top: 0;
+--bt-related-box-shadow: var(--bt-section-box-shadow);
+--bt-related-padding: 0px 15px;
+--bt-related-margin-bottom: 10px;
+--bt-related-inner-padding-bottom: 14px;
+--bt-related-margin-left: 10px;
+/* hover thing */
+--bt-related-video-outer-padding: 7px 0;
+--bt-related-video-outer-margin: 0;
+/* title */
+--bt-related-title-font-size: 14px;
+--bt-related-title-margin: 0;
+--bt-related-title-line-height: 1.2;
+--bt-related-title-max-height: 2.4em;
+--bt-related-title-text-color: var(--bt-text-color-5);
+--bt-related-title-text-color-hover: var(--bt-blue);
+/* meta */
+--bt-related-meta-text-color: var(--bt-text-color-3);
+--bt-related-meta-font-size: 11px;
+--bt-related-meta-line-height: 1.3;
+/* channel name */
+--bt-related-channel-name-margin-top: 2px;
+}
+html[related-videos^="hitchhiker-2014"] {
+--bt-related-border-right: 1px solid var(--bt-section-border-color);
+}
+html[related-videos^="hitchhiker-2013"] {
+--bt-related-bg: var(--bt-site-bg);
+}
+html[related-videos-size="smaller"] {
+--bt-related-title-font-size: 11px;
+--bt-related-channel-name-margin-top: 2px;
+/* thumbs */
+--bt-related-thumb-width: 96px;
+--bt-related-thumb-height: 54px;
+}
+html[related-videos-size="smaller"][related-videos^="aozora"] {
+--bt-related-title-font-size: .9166em;
+--bt-related-channel-name-margin-top: 2px;
+/* thumbs */
+--bt-related-thumb-width: 106px;
+--bt-related-thumb-height: 54px;
+--bt-related-thumb-inner-width: 106px;
+--bt-related-thumb-inner-height: 54px;
+--bt-related-thumb-margin-right: 16px;
+}
+html[related-videos-size="small"] {
+--bt-related-title-font-size: 13px;
+--bt-related-channel-name-margin-top: 3px;
+/* thumbs */
+--bt-related-thumb-width: 120px;
+--bt-related-thumb-height: 68px;
+}
+html[related-videos-size="medium"] {
+--bt-related-title-font-size: 13px;
+--bt-related-channel-name-margin-top: 3px;
+/* thumbs */
+--bt-related-thumb-width: 140px;
+--bt-related-thumb-height: 79px;
+}
+html[related-videos-size="large"] {
+--bt-related-title-font-size: 14px;
+--bt-related-channel-name-margin-top: 2px;
+/* thumbs */
+--bt-related-thumb-width: 168px;
+--bt-related-thumb-height: 94px;
+}
+html[related-videos^="polymer"] {
+--bt-related-margin-top: 0;
+--bt-related-padding-top: 0;
+--bt-related-padding: 0px 15px;
+--bt-related-margin-bottom: 10px;
+--bt-related-inner-padding-bottom: 14px;
+/* hover thing */
+--bt-related-video-outer-padding: 7px 0;
+--bt-related-video-outer-margin: 0;
+/* title */
+--bt-related-title-font-size: 14px;
+--bt-related-title-margin: 0;
+--bt-related-title-line-height: 1.2;
+--bt-related-title-max-height: 4.8em;
+/* meta */
+--bt-related-meta-text-color: var(--bt-text-color-3);
+--bt-related-meta-font-size: 13px;
+--bt-related-meta-line-height: 1.8rem;
+/* channel name */
+--bt-related-channel-name-margin-top: 4px;
+--bt-related-metadata-line-margin-top: 4px;
+}
+
+
+/* BTSection Related Videos ====================================== */
+html[related-videos] ytd-watch-flexy #related {
+  background: var(--bt-related-bg);
+  margin-top: var(--bt-related-margin-top);
+  padding-top: var(--bt-related-padding-top) !important;
+  box-shadow: var(--bt-related-box-shadow);
+  padding: var(--bt-related-padding) !important;
+  margin-bottom: var(--bt-related-margin-bottom);
+  border-right: var(--bt-related-border-right, none);
+  /*margin-left: var(--bt-related-margin-left);*/
+}
+html[related-videos^="hitchhiker-2014"] ytd-watch-flexy #related {
+  margin-left: -12px;
+}
+html[related-videos] ytd-app[can-infi-scroll-related="no"] ytd-watch-next-secondary-results-renderer {
+  padding-bottom: var(--bt-related-inner-padding-bottom);
+}
+/* hover thing */
+html[related-videos] ytd-watch-flexy ytd-compact-video-renderer, 
+html[related-videos] ytd-watch-flexy ytd-compact-playlist-renderer, 
+html[related-videos] ytd-watch-flexy ytd-compact-radio-renderer {
+  padding: var(--bt-related-video-outer-padding);
+  min-height: var(--bt-related-video-outer-min-height);
+  margin: var(--bt-related-video-outer-margin);
+  border-radius: var(--bt-related-video-outer-radius);
+  transition: var(--bt-related-video-outer-transition);
+}
+html[related-videos] ytd-compact-video-renderer:hover,
+html[related-videos] ytd-compact-playlist-renderer:hover, 
+html[related-videos] ytd-compact-radio-renderer:hover {
+  background: var(--bt-related-video-outer-bg-hover);
+  box-shadow: var(--bt-related-video-outer-box-shadow-hover);
+}
+/* title */
+html[related-videos] ytd-watch-flexy #video-title.ytd-compact-video-renderer, 
+html[related-videos] ytd-watch-flexy ytd-compact-playlist-renderer #video-title.ytd-compact-playlist-renderer, 
+html[related-videos] ytd-watch-flexy ytd-compact-radio-renderer #video-title.ytd-compact-radio-renderer {
+  margin: var(--bt-related-title-margin);
+  font-size: var(--bt-related-title-font-size);
+  line-height: var(--bt-related-title-line-height);
+  max-height: var(--bt-related-title-max-height);
+  color: var(--bt-related-title-text-color);
+  font-weight: var(--bt-related-title-font-weight);
+}
+html[related-videos] ytd-watch-flexy ytd-compact-video-renderer:hover #video-title, 
+html[related-videos] ytd-watch-flexy ytd-compact-playlist-renderer:hover #video-title, 
+html[related-videos] ytd-watch-flexy ytd-compact-radio-renderer:hover #video-title {
+  color: var(--bt-related-title-text-color-hover);
+  text-decoration: var(--bt-related-title-text-decoration-hover);
+}
+/* metadata */
+html[related-videos] ytd-watch-flexy #metadata #text, 
+html[related-videos] ytd-watch-flexy #metadata span {
+  color: var(--bt-related-meta-text-color) !important;
+  font-size: var(--bt-related-meta-font-size) !important;
+  line-height: var(--bt-related-meta-line-height);
+}
+html[related-videos] ytd-watch-flexy #metadata-line {
+  margin-top: var(--bt-related-metadata-line-margin-top);
+}
+/* chan name only */
+html[related-videos] ytd-watch-flexy #metadata #text {
+  margin-top: var(--bt-related-channel-name-margin-top);
+}
+/* thumbs */
+html[related-videos] ytd-watch-next-secondary-results-renderer ytd-thumbnail, 
+html[related-videos] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
+html[related-videos-size] ytd-watch-next-secondary-results-renderer ytd-thumbnail, 
+html[related-videos-size] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
+  height: var(--bt-related-thumb-height) !important;
+  width: var(--bt-related-thumb-width) !important;
+  transition-duration: 0.25s;
+}
+/* playlists */
+html[related-videos] #related ytd-playlist-custom-thumbnail-renderer, 
+html[related-videos] #related ytd-playlist-custom-thumbnail-renderer img {
+  max-height: var(--bt-related-thumb-height);
+  width: auto;
+}
+/* thumbs inner */
+html[related-videos] ytd-watch-next-secondary-results-renderer ytd-thumbnail #thumbnail.ytd-thumbnail,
+html[related-videos] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail #thumbnail.ytd-playlist-thumbnail {
+  height: var(--bt-related-thumb-inner-height) !important;
+  width: var(--bt-related-thumb-inner-width) !important;
+  border: var(--bt-related-thumb-inner-border);
+  padding: var(--bt-related-thumb-inner-padding);
+  border-radius: var(--bt-related-thumb-inner-radius) !important;
+  background: var(--bt-related-thumb-inner-bg);
+}
+html[related-videos^="hitchhiker"]:not([related-videos^="hitchhiker-2013"]):not([related-videos^="hitchhiker-2014"]) #bt-load-more-related a {
+  width: 100%;
+  border: none;
+    border-top-color: currentcolor;
+    border-top-style: none;
+    border-top-width: medium;
+  border-top: 1px solid #e2e2e2;
+  background: transparent;
+  color: #767676;
+  text-transform: uppercase;
+  font-size: 11px;
+  height: 26px;
+  font-weight: bold !important;
+  font: 11px "YouTube Noto",Roboto,arial,sans-serif;
+    font-weight: normal;
+  cursor: pointer;
+  display: block;
+}
+html[related-videos^="hitchhiker"]:not([related-videos^="hitchhiker-2013"]):not([related-videos^="hitchhiker-2014"]) #bt-load-more-related a:hover {
+  color: #222;
+}
+html[related-videos^="hitchhiker"]:not([related-videos^="hitchhiker-2013"]):not([related-videos^="hitchhiker-2014"]) #bt-load-more-related span {
+  display: block;
+  margin: 6px auto;
+  width: fit-content;
+}
+html[related-videos^="hitchhiker"]:not([related-videos^="hitchhiker-2013"]):not([related-videos^="hitchhiker-2014"]) #bt-load-more-related #suggestions {
+  display: none;
+}
+html[related-videos^="polymer"] #bt-load-more-related #suggestions {
+  display: none;
+}
+html:not([related-videos]) #bt-load-more-related #suggestions {
+  display: none;
+}
+/* thumbnail overlay (unfinished) */
+html[watched-overlay^="hitchhiker"] ytd-thumbnail #progress[style="width: 100%;"]::after {
+  content: "Watched";
+  color: #ddd;
+  display: block;
+  background: rgba(0,0,0,0.8);
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: calc(var(--bt-related-thumb-height) * -0.9);
+  position: absolute;
+  padding: 2px 4px;
+  margin-left: calc(var(--bt-related-thumb-width) * 0.035);
+}
+html[watched-overlay^="hitchhiker"] #related ytd-thumbnail ytd-thumbnail-overlay-resume-playback-renderer {
+  background: transparent;
+}
+html[watched-overlay^="hitchhiker"] #related ytd-thumbnail ytd-thumbnail-overlay-resume-playback-renderer #progress {
+  background: transparent;
+}
+html[related-videos^="hitchhiker-2014"] #bt-load-more-related,
+html[related-videos^="hitchhiker-2013"] #bt-load-more-related {
+	display: inline-block;
+}
+/* shorts shelf */
+#related ytd-reel-shelf-renderer {
+  display: none !important;
+}
+/* anti watch_feed_bigger_thumbs */
+html[related-videos-size] #secondary.ytd-watch-flexy {
+  width: var(--bt-wp-secondary-width, 402px) !important;
+  min-width: var(--bt-wp-secondary-min-width, 300px) !important;
+}
+html[related-videos-size] #related ytd-thumbnail,
+html[related-videos-size] #related ytd-playlist-thumbnail {
+  margin-right: var(--bt-related-thumb-margin-right,8px) !important;
+}
+html[related-videos-size] ytd-watch-flexy #related #dismissible {
+  display: flex;
+  flex-direction: row !important;
+}
+html[related-videos-size] ytd-watch-flexy #related .metadata {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}

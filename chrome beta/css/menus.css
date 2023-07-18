@@ -1,0 +1,51 @@
+/* multiple dropdowns probably */
+html[menu-style="unrounded"] {
+--paper-menu-button-content-border-radius: 0 !important;
+}
+/* sort by */
+html[menu-style="unrounded"] .dropdown-content.tp-yt-paper-menu-button,
+html[menu-style="unrounded"] yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu {
+  border-radius: 0 !important;
+}
+
+/* Thanks to UnderscoreAngel for the code in this section */
+/*Fix for the rounded stuff*/
+
+/*More Popup in watch page*/
+html[menu-style="unrounded"] ytd-menu-popup-renderer {
+	border-radius: 0px;
+}
+
+/*Share Popup in watch page*/
+html[menu-style="unrounded"] tp-yt-paper-dialog[modern] {
+	border-radius: 0px;
+}
+
+/*buttons in comments*/
+html[menu-style="unrounded"] ytd-comments .yt-spec-button-shape-next--size-m {
+	height: 32px;
+	border-radius: 2px;
+}
+
+/*Search Bar Results (this one is not full i can't find the other stuff that makes it rounded)*/
+html[menu-style="unrounded"] .sbsb_a {
+	border-radius: 3px;
+}
+
+/*this is a certified "Show Chat Replay" Moment*/
+html[menu-style="unrounded"] ytd-watch-flexy #secondary .yt-spec-button-shape-next--size-m {
+ border-radius: 1px;
+}
+
+/*Notification & Account Panel*/
+html[menu-style="unrounded"] ytd-multi-page-menu-renderer {
+	/* display: inline-block; */
+	border-radius: 0px;
+
+}
+
+/*Clips Panel*/
+html[menu-style="unrounded"] ytd-engagement-panel-section-list-renderer[modern-panels] {
+	border-radius: 0px;
+	overflow: hidden;
+}

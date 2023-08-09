@@ -33,6 +33,18 @@
 		  margin-left: 8px;
 		  margin-top: 8px;
 		}
+		body[use-ct-branding="true"] #title {
+		  margin-left: 4px;
+		  margin-top: 4px;
+		}
+		body[use-ct-branding="true"] #title[nobrand],
+		body[use-ct-branding="false"] #title:not([nobrand])	{
+		  display: none;
+		}
+		#title img:nth-child(1) {
+		  margin-right: -12px;
+		  margin-left: -2px;
+		}
 		.subtitle {
 		  color: #555;
 		  font-size: 13px;
@@ -43,8 +55,11 @@
 		.small-sub {
 		  color: #777;
 		  font-size: 10px;
-		  margin-top: 13px;
+		  margin-top: 14px;
 		  margin-left: 4px;
+		}
+		body[use-ct-branding="true"] .small-sub {
+		  margin-left: 1px;
 		}
 		.top-item {
 		  height: 24px;
@@ -228,6 +243,9 @@
 		  animation-iteration-count: 1;
 		  z-index: 0;
 		}
+		body:not([show-all-active="true"]) .right[style="display: block;"] {
+		  margin-bottom: 68px;
+		}
 		.right[style="display: block"]:nth-last-child(1) {
 		  padding-bottom: 40px;
 		}
@@ -253,10 +271,10 @@
 		  overflow-y: scroll;
 		  margin-top: 4px;
 		}
-		#right1, #right3, #right4, #right5, #right6, #right7, #right8, #right9 {
+		#right1, #right3, #right4, #right5, #right6, #right7, #right8, #right9, #right10 {
 		  display: none;
 		}
-		#right9 {
+		#right10 {
 		  margin-bottom: 72px;
 		}
 		.right-inner {
@@ -370,7 +388,7 @@
 		  color: #880;
 		}
 		#bottom {
-		  width: 590px;
+		  width: 100%;
 		  position: fixed;
 		  bottom: 0;
 		  background: #fff;
@@ -418,13 +436,48 @@
 		  z-index: -1;
 		  color: transparent;
 		}
+		label[deprecated]::after {
+		  background: linear-gradient(to right, #f668, #f660);
+		  content: "Deprecated...";
+		  display: block;
+		  width: 300px;
+		  position: absolute;
+		  margin-top: -16px;
+		  z-index: -1;
+		  color: transparent;
+		}
+		@keyframes menu {
+		  0% {max-height: 0px;}
+		  0% {opacity: 0;}
+		  50% {max-height: 200px;}
+		  50% {opacity: 0;}
+		  100% {opacity: 1;}
+		}
+		@keyframes menuc {
+		  0% {max-height: 200px;}
+		  0% {opacity: 1;}
+		  50% {max-height: 200px;}
+		  50% {opacity: 0;}
+		  100% {max-height: 0px;}
+		}
+		body[no-flexy="true"] #noflexy-options {
+		  max-height: 200px;
+		}
+		body[no-flexy="false"] #noflexy-options {
+		  opacity: 0;
+		  max-height: 0px;
+		}
       </style>
     </head>
-    <body>
+    <body use-ct-branding="true">
 		<div id="top">
 			<div id="top-inner">
-				<p id="title">CustomTube</p>
-				<p class="small-sub">V1.1.0 Beta 2</p>
+				<p id="title" nobrand>CustomTube</p>
+				<p id="title">
+					<img src="images/logo.png" style="height: 28px;">
+					<img src="images/ctlogo.png" style="height: 28px;">
+				</p>
+				<p class="small-sub">V1.1.0 Beta 3</p>
 				<p class="subtitle">Configuration Window</p>
 				<div class="top-item" id="lmall" active="false">
 					<button id="sectall">Show All Settings</button>
@@ -481,12 +534,16 @@
 							<button id="sect7">Subs Page</button>
 							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm8" active="false">
+						<div class="left-item" id="lm8" active="false" new>
 							<button id="sect8">Watch Page</button>
 							<div class="new"></div>
 						</div>
 						<div class="left-item" id="lm9" active="false" new>
 							<button id="sect9">Channel Page</button>
+							<div class="new"></div>
+						</div>
+						<div class="left-item" id="lm10" active="false" new>
+							<button id="sect10">Search Page</button>
 							<div class="new"></div>
 						</div>
 					</div>
@@ -512,11 +569,6 @@
 						<opt title="">
 							<label><input type="checkbox" name="showChangelog" class="settings">Show Changelog on Update</label>
 							<a id="shownow" class="link">
-								<!--tooltip id="tt1">
-									<inner>
-										<span></span>
-									</inner>
-								</tooltip-->
 								Show Changelog Now
 								<svg height="12px" width="12px" style="margin-left:2px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
 									<style type="text/css">
@@ -568,9 +620,9 @@
 							<line-seperator></line-seperator>
 							<p class="mini-text info-text">Cosmic Panda Layout</p>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="cosmicpanda-3" style="display:inline-block;">Use 2012 Layout*</label><br>
-							<line-seperator></line-seperator>
-							<!--p class="mini-text info-text">Aozora Layout (unoffical codename)</p>
-							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="aozora-2011" style="display:inline-block;">Use 2011 Layout (won't be in 1.1.0, it's not nearly ready)*</label><br>
+							<!--line-seperator></line-seperator>
+							<p class="mini-text info-text">Aozora Layout (unofficial codename)</p>
+							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="aozora-2011" style="display:inline-block;">Use 2011 Layout (definitely 100% finished)*</label><br>
 							<line-seperator></line-seperator-->
 						</div>
 						<p class="subtitle">* Theater Mode is Not Supported.</p>
@@ -587,7 +639,7 @@
 						<subopt title="Don't loop the video by default when you are watching a playlist.">
 							<label><input type="checkbox" name="dontLoopPlaylists" class="settings">Disable for playlist videos</label>
 						</subopt>
-						<opt title="Estimates the full subscriber count by randomly generating the missing digits of the subscriber count. This does not show the real full subscriber count. I repeat, THIS DOES NOT SHOW THE TRUE, ACTUAL SUBSCRIBER COUNT. It is for asthetic purposes only.">
+						<opt title="Estimates the full subscriber count by randomly generating the missing digits of the subscriber count. This does not show the real full subscriber count. It is for asthetic purposes only. Currently only affects the watch page.">
 							<label new><input type="checkbox" name="randomSubCounts" class="settings">Unabbreviate sub counts (Estimated, hover for details)</label>
 						</opt>
 						<opt title="" class="">
@@ -623,6 +675,18 @@
 						<p>Advanced: Sidebar (Guide)</p>
 					</div>
 					<div class="right-inner">
+						<opt title="Always show the sidebar, even on the watch page. Only works on layouts from Early 2013 or later. The sidebar will be invisible on the channel page if you're using the Early 2013 layout.">
+							<label new><input type="checkbox" name="alwaysShowSidebar" class="settings">Always Show Sidebar</label>
+							<p class="mini-text">Limited compatibility. Hover for details.</p>
+						</opt>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Customization</p>
+						</div>
+						<div class="right-subtitle">
+							<p class="warning-text">Note: These settings don't work when signed out.</p>
+						</div>
 						<opt title="Whether or not to show the home button. If none of the sub options are selected, the text will depend on whatever layout you are using.">
 							<label><input type="checkbox" name="homeSidebarBtn" class="settings">Display Home Button</label>
 						</opt>
@@ -726,10 +790,34 @@
 						<div class="right-title">
 							<p>Video Player</p>
 						</div>
-						<opt title="Force the video player to always be 16:9 at a consistent size. Using a layout from 2013 or earlier will automatically enable this functionality regardless of this setting.">
-							<label><input type="checkbox" name="noFlexy" class="settings">Force consistent video size</label>
-							<p class="mini-text">Some layout options overwrite this setting (hover for details)</p>
+						<opt title="Prevents scrolling while in fullscreen mode.">
+							<label new><input type="checkbox" name="FSNoScroll" class="settings">True Fullscreen Mode</label>
 						</opt>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Video Player Size</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Change the size of the video player. Only affects layouts from 2014 or later, the 2013 layouts force a 640x360 player, and the 2012 layout forces a 586x330 player.</p>
+						</div>
+						<opt title="Allows you to choose a custom player size. (New options will appear if this option is enabled)">
+							<label new><input type="checkbox" name="noFlexy" class="settings">Use Custom Player Size (Size options will appear if enabled)</label>
+						</opt>
+						<div id="noflexy-options" style="margin-left: 24px; max-width: 600px; overflow: hidden;">
+							<line-seperator></line-seperator>
+							<p class="mini-text info-text">16:9</p>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS586x330" style="display:inline-block;">586x330</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS640x360" style="display:inline-block;">640x360</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS854x480" style="display:inline-block;">854x480</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS1024x576" style="display:inline-block;">1024x576</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS1280x720" style="display:inline-block;">1280x720</label><br>
+							<line-seperator></line-seperator>
+							<p class="mini-text info-text">4:3</p>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS640x480" style="display:inline-block;">640x480</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS768x576" style="display:inline-block;">768x576</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS960x720" style="display:inline-block;">960x720</label><br>
+						</div>
 					</div>
 					<div class="right-inner">
 						<div class="right-title">
@@ -768,14 +856,6 @@
 						<label class="logo-label" title="Always on"><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDon" style="display:inline-block;">On</label><br>
 						<label class="logo-label" title="Always off"><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDoff" style="display:inline-block;">Off</label><br>
 					</div>
-					<!--div class="right-inner">
-						<div class="right-title">
-							<p>Channel Videos Layout</p>
-						</div>
-						<div class="right-subtitle">
-							<p>Auto, rich grid, small grid, not smaller grid, list</p>
-						</div>
-					</div-->
 					<div class="right-inner">
 						<div class="right-title">
 							<p>Channel Videos Per Row</p>
@@ -783,18 +863,6 @@
 						<div class="right-subtitle">
 							<p>Only works on layouts from Mid 2013 onward.</p>
 						</div>
-						<!--div class="right-subtitle" id="CVPR-Auto">
-							<p>The channel videos layout will depend on the current layout.</p>
-						</div>
-						<div class="right-subtitle" id="CVPR-List">
-							<p>The channel videos page will use a list layout.</p>
-						</div>
-						<div class="right-subtitle" id="CVPR-SmallGrid">
-							<p>The channel videos page will use a small grid layout.</p>
-						</div>
-						<div class="right-subtitle" id="CVPR-RichGrid">
-							<p>The channel videos page will use the Rich Grid (big grid) layout.</p>
-						</div-->
 						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPRauto" style="display:inline-block;">Auto</label><br>
 						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR1" style="display:inline-block;">List View</label><br>
 						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR4" style="display:inline-block;">4</label><br>
@@ -802,18 +870,25 @@
 						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR6" style="display:inline-block;">6</label><br>
 						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR7" style="display:inline-block;">7</label><br>
 						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR8" style="display:inline-block;">8</label><br>
-						<!--div class="right-subtitle">
-							<p>5-8. Only works if Small grid is enabled. (If auto is selected, only layouts from 2013-2019 will work)</p>
+					</div>
+				</div>
+				<div id="right10" class="right">
+					<div class="right-supertitle">
+						<p>Advanced: Search Page</p>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Search Thumbnail Size (Overrides Layout Setting)</p>
 						</div>
 						<div class="right-subtitle">
-							<p>Alternatively, this will force Small grid.</p>
+							<p>Changes the size of the videos on the search page. Hover over each radio button to see the size in pixels.</p>
 						</div>
-						<div class="right-subtitle">
-							<p>ALTERNATIVELY, 5-8 auto enables small grid. 2-4 auto enables rich grid. 1 auto enables list.</p>
-						</div>
-						<div class="right-subtitle">
-							<p>Even more alternatively, you can only modify this if you have small grid set to on. (not auto)</p>
-						</div-->
+						<label class="logo-label" new title="The size will be determined by your layout setting."><input type="radio" name="videoRendererSize" class="settings" value="VRSizeAuto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" new title="138x77 pixels"><input type="radio" name="videoRendererSize" class="settings" value="VRSize138" style="display:inline-block;">Very Small (2012)</label><br>
+						<label class="logo-label" new title="185x102 pixels"><input type="radio" name="videoRendererSize" class="settings" value="VRSize185" style="display:inline-block;">Smaller (2013)</label><br>
+						<label class="logo-label" new title="196x109 pixels"><input type="radio" name="videoRendererSize" class="settings" value="VRSize196" style="display:inline-block;">Small (2014-2016)</label><br>
+						<label class="logo-label" new title="246x138 pixels"><input type="radio" name="videoRendererSize" class="settings" value="VRSize246" style="display:inline-block;">Medium (2017-2019)</label><br>
+						<label class="logo-label" new title="360x202 pixels"><input type="radio" name="videoRendererSize" class="settings" value="VRSize360" style="display:inline-block;">Large (2020-Present)</label><br>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 {
     "name": "CustomTube Beta",
-    "version": "1.1.0.2",
+    "version": "1.1.0.3",
     "description": "Choose your own YouTube layout, and more!",
     "permissions": ["tabs", "storage", "scripting"],
     "action": {
@@ -48,7 +48,8 @@
 		"css/polymer.css",
 		"css/sub-btn.css",
 		"css/menus.css",
-		"css/global-color-palette.css"
+		"css/global-color-palette.css",
+		"compatibility.css"
 		],
         "run_at": "document_start"
       },

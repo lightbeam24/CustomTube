@@ -10,6 +10,7 @@ let sect6 = document.querySelector('#sect6');
 let sect7 = document.querySelector('#sect7');
 let sect8 = document.querySelector('#sect8');
 let sect9 = document.querySelector('#sect9');
+let sect10 = document.querySelector('#sect10');
 let sectall = document.querySelector('#sectall');
 let shownow = document.querySelector('#shownow');
 sect1.onclick = function() {
@@ -31,7 +32,10 @@ sect1.onclick = function() {
 	document.querySelector("#lm8").setAttribute("active", "false");
 	document.getElementById("right9").style.display = "none";
 	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "none";
+	document.querySelector("#lm10").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
 }
 sect2.onclick = function() {
 	document.getElementById("right1").style.display = "none";
@@ -52,7 +56,10 @@ sect2.onclick = function() {
 	document.querySelector("#lm8").setAttribute("active", "false");
 	document.getElementById("right9").style.display = "none";
 	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "none";
+	document.querySelector("#lm10").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
 }
 sect3.onclick = function() {
 	document.getElementById("right1").style.display = "none";
@@ -73,7 +80,10 @@ sect3.onclick = function() {
 	document.querySelector("#lm8").setAttribute("active", "false");
 	document.getElementById("right9").style.display = "none";
 	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "none";
+	document.querySelector("#lm10").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
 }
 sect4.onclick = function() {
 	document.getElementById("right1").style.display = "none";
@@ -94,7 +104,10 @@ sect4.onclick = function() {
 	document.querySelector("#lm8").setAttribute("active", "false");
 	document.getElementById("right9").style.display = "none";
 	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "none";
+	document.querySelector("#lm10").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
 }
 sect5.onclick = function() {
 	document.getElementById("right1").style.display = "none";
@@ -115,7 +128,10 @@ sect5.onclick = function() {
 	document.querySelector("#lm8").setAttribute("active", "false");
 	document.getElementById("right9").style.display = "none";
 	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "none";
+	document.querySelector("#lm10").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
 }
 sect6.onclick = function() {
 	document.getElementById("right1").style.display = "none";
@@ -136,7 +152,10 @@ sect6.onclick = function() {
 	document.querySelector("#lm8").setAttribute("active", "false");
 	document.getElementById("right9").style.display = "none";
 	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "none";
+	document.querySelector("#lm10").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
 }
 sect7.onclick = function() {
 	document.getElementById("right1").style.display = "none";
@@ -157,7 +176,10 @@ sect7.onclick = function() {
 	document.querySelector("#lm8").setAttribute("active", "false");
 	document.getElementById("right9").style.display = "none";
 	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "none";
+	document.querySelector("#lm10").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
 }
 sect8.onclick = function() {
 	document.getElementById("right1").style.display = "none";
@@ -178,7 +200,10 @@ sect8.onclick = function() {
 	document.querySelector("#lm8").setAttribute("active", "true");
 	document.getElementById("right9").style.display = "none";
 	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "none";
+	document.querySelector("#lm10").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
 }
 sect9.onclick = function() {
 	document.getElementById("right1").style.display = "none";
@@ -199,7 +224,34 @@ sect9.onclick = function() {
 	document.querySelector("#lm8").setAttribute("active", "false");
 	document.getElementById("right9").style.display = "block";
 	document.querySelector("#lm9").setAttribute("active", "true");
+	document.getElementById("right10").style.display = "none";
+	document.querySelector("#lm10").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
+}
+sect10.onclick = function() {
+	document.getElementById("right1").style.display = "none";
+	document.querySelector("#lm1").setAttribute("active", "false");
+	document.getElementById("right2").style.display = "none";
+	document.querySelector("#lm2").setAttribute("active", "false");
+	document.getElementById("right3").style.display = "none";
+	document.querySelector("#lm3").setAttribute("active", "false");
+	document.getElementById("right4").style.display = "none";
+	document.querySelector("#lm4").setAttribute("active", "false");
+	document.getElementById("right5").style.display = "none";
+	document.querySelector("#lm5").setAttribute("active", "false");
+	document.getElementById("right6").style.display = "none";
+	document.querySelector("#lm6").setAttribute("active", "false");
+	document.getElementById("right7").style.display = "none";
+	document.querySelector("#lm7").setAttribute("active", "false");
+	document.getElementById("right8").style.display = "none";
+	document.querySelector("#lm8").setAttribute("active", "false");
+	document.getElementById("right9").style.display = "none";
+	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "block";
+	document.querySelector("#lm10").setAttribute("active", "true");
+	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
 }
 sectall.onclick = function() {
 	document.getElementById("right1").style.display = "block";
@@ -220,7 +272,10 @@ sectall.onclick = function() {
 	document.querySelector("#lm8").setAttribute("active", "false");
 	document.getElementById("right9").style.display = "block";
 	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "block";
+	document.querySelector("#lm10").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "true");
+	document.querySelector("body").setAttribute("show-all-active", "true");
 }
 shownow.onclick = function() {
 	browser.tabs.create({
@@ -344,7 +399,33 @@ function saveSettings() {
 			newSettings[subsVidsPerRow[i].name] = subsVidsPerRow[i].value;
 		}
 	}
+	//save videoRendererSize radio buttons
+	let videoRendererSize = document.querySelectorAll('input[type="radio"][name="videoRendererSize"]');
+	for (let i = 0; i < videoRendererSize.length; i++) {
+		if (videoRendererSize[i].checked) {
+			newSettings[videoRendererSize[i].name] = videoRendererSize[i].value;
+		}
+	}
+	//save videoPlayerSize radio buttons
+	let videoPlayerSize = document.querySelectorAll('input[type="radio"][name="videoPlayerSize"]');
+	for (let i = 0; i < videoPlayerSize.length; i++) {
+		if (videoPlayerSize[i].checked) {
+			newSettings[videoPlayerSize[i].name] = videoPlayerSize[i].value;
+		}
+	}
 	storage.set({BTConfig: newSettings});
+	if (!currentSettings.noFlexy) {
+		document.querySelector("body").setAttribute("no-flexy", "false");
+	}
+	if (currentSettings.noFlexy) {
+		document.querySelector("body").setAttribute("no-flexy", "true");
+	}
+	if (newSettings.noFlexy) {
+		document.querySelector("body").setAttribute("no-flexy", "true");
+	}
+	if (!newSettings.noFlexy) {
+		document.querySelector("body").setAttribute("no-flexy", "false");
+	}
 	if (!currentSettings.showNew) {
 		document.querySelector("body").setAttribute("show-new", "false");
 	}
@@ -364,6 +445,12 @@ function getSettings() {
 	if (currentSettings.showNew) {
 		document.querySelector("body").setAttribute("show-new", "true");
 	}
+	if (currentSettings.noFlexy) {
+		document.querySelector("body").setAttribute("no-flexy", "true");
+	}
+	if (!currentSettings.noFlexy) {
+		document.querySelector("body").setAttribute("no-flexy", "false");
+	}
 	let itemsCheck = document.querySelectorAll('input[type="checkbox"]');
 	//set checkboxes
 	for (let i = 0; i < itemsCheck.length; i++) {
@@ -381,6 +468,8 @@ function getSettings() {
 	document.querySelector(`input[type="radio"][value="${currentSettings.channelVidsPerRow}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.homepageVidsPerRow}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.subsVidsPerRow}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.videoRendererSize}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.videoPlayerSize}"]`).checked = true;
 }
 
 //main

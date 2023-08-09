@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html cr="">
     <head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="UTF-8">
@@ -47,6 +47,10 @@
 		  margin: 8px 15px 0 30px;
 		  background: linear-gradient(to top,#ddd,#eee);
 		  padding: 8px 10px 4px 10px;
+			font-size: 16px;
+		}
+		html[cr] #clt {
+		  font-size: 14px;
 		}
 		#clt::before {
 		  content: "";
@@ -80,6 +84,7 @@
 			width: 900px;
 			box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 			text-shadow: -1px -1px 1px rgba(0,0,0,0.15);
+			font-size: 16px;
 		}
 		#changelog .title::before {
 		  content: "";
@@ -144,12 +149,16 @@
 		.words p,
 		.words strong {
 		  margin: 4px 0;
+			font-size: 16px;
 		}
 		.smaller {
 		  font-size: 12px;
 		}
 		.notice {
 		  color: #ff0;
+		}
+		a {
+		  color: #42a8ff;
 		}
 		</style>
 		<script src="./initial-setup.js"></script>
@@ -169,11 +178,33 @@
 				<div class="changelog-inner">
 					<div class="title-area">
 						<div class="title" yellow>
+							<p>Version 1.1.0.3 (1.1.0 Beta 3) - August 9, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- CustomTube now has a new logo, made by UnderscoreAngel! <a href="https://github.com/UnderscoreAngel">Link to GitHub page</a></p>
+						<p>- New: Added option to choose the video player size [Compatible with all layouts from 2014 or later]</p>
+						<p>- New: Added option to always show the sidebar [Compatible with all layouts from Early 2013 or later]</p>
+						<p>- New: Added option to choose the size of the thumbnails on the search page [Compatible with all layouts]</p>
+						<p>- New: Added "Search Page" tab to the Configuration Window's sidebar</p>
+						<p>- Improvement: Greatly improved dark mode support [Affects all layouts, however 2012 still needs some work, which will hopefully be done in time for 1.1.0's release]</p>
+						<p>- Improvement: Partially fixed search header</p>
+						<p>- Fix: White (invisible) text on search bar when in theater mode [Affected hitchhiker layouts]</p>
+						<p>- Fix: [Chromium exclusive] Logo was not adapting to dark mode</p>
+						<p>- Fix: [Chromium exclusive] Like and dislike counts weren't displaying on 2012-2014 layouts</p>
+						<p>- Fix: Several other Chromium exclusive bugs</p>
+						<p>- Change: Minor changes to some of the labels on the configuration window</p>
+						<p>- Known Issue: The old logo is still used in some places [will be fixed for 1.1.0's release]</p>
+						<p class="notice">- Notice: Version 1.1.0 is nearing completion. This will likely be the final beta for version 1.1.0. The next beta will be for version 1.2.0.</p>
+						</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
 							<p>Version 1.1.0.2 (1.1.0 Beta 2) - July 18, 2023</p>
 						</div>
 					</div>
 					<div class="words">
-						<p>- Other: This is the first version of CustomTube available for Chromium based browsers.</p>
 						<p>- Other: The extension has been updated to Manifest V3.</p>
 						<p class="notice">- Notice: Version 1.1.0 is still in early development. The final version of 1.1.0 will most likely be very different from this beta version.</p>
 						</div>

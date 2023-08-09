@@ -1,6 +1,6 @@
 {
     "name": "CustomTube Beta",
-    "version": "1.1.0.2",
+    "version": "1.1.0.3",
     "description": "Choose your own YouTube layout, and more!",
     "permissions": ["tabs", "storage", "scripting"],
     "action": {
@@ -69,9 +69,8 @@
     ],
 	"web_accessible_resources": [	
 	{
-    	"resources": ["/images/*"],
-		"matches": ["*://*.youtube.com/*"],
-		"use_dynamic_url": true
+    	"resources": ["images/*"],
+		"matches": ["*://*.youtube.com/*"]
     },
 	{
     	"resources": ["css/*"],

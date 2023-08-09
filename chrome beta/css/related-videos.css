@@ -218,7 +218,7 @@ html[related-videos] ytd-watch-flexy #metadata-line {
   margin-top: var(--bt-related-metadata-line-margin-top);
 }
 /* chan name only */
-html[related-videos] ytd-watch-flexy #metadata #text {
+html[related-videos] ytd-watch-flexy #related #byline-container {
   margin-top: var(--bt-related-channel-name-margin-top);
 }
 /* thumbs */

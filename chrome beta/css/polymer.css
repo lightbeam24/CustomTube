@@ -444,8 +444,13 @@ html[layout^="polymer"] .yt-spec-button-shape-next--call-to-action.yt-spec-butto
   color: var(--bt-spec-icon-active-button-link);
   border: none;
 }
-html[layout^="polymer"] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+html[layout^="polymer-2019"] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
   color: red;
+  text-transform: uppercase;
+}
+html[layout^="polymer-202"] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+  color: var(--bt-blue);
+  text-transform: uppercase;
 }
 html[layout^="polymer"] #masthead #end .yt-spec-button-shape-next--size-m .yt-spec-button-shape-next__icon, 
 html[layout^="polymer"] #masthead #end .yt-spec-button-shape-next--size-m .yt-spec-button-shape-next__icon yt-icon {

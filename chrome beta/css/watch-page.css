@@ -1,7 +1,7 @@
 html[watch-metadata-style^="aozora"] {
 --bt-wp-columns-margin-top: 80px;
 /* view count */
---bt-standard-view-count-display: block;
+--bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
 --bt-standard-view-count-right: 0;
 --bt-standard-view-count-font-size: 22px;
@@ -33,7 +33,7 @@ html[watch-metadata-style^="aozora"] {
 html[watch-metadata-style^="cosmicpanda"] {
 --bt-wp-columns-margin-top: 80px;
 /* view count */
---bt-standard-view-count-display: block;
+--bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
 --bt-standard-view-count-right: -4px;
 --bt-standard-view-count-font-size: 22px;
@@ -60,7 +60,7 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-columns-margin-top: 100px;
 --bt-wp-primary-padding-right: 10px;
 /* view count */
---bt-standard-view-count-display: block;
+--bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
 --bt-standard-view-count-right: 15px;
 --bt-standard-view-count-font-size: 19px;
@@ -94,7 +94,7 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-channel-name-display: block;
 --bt-wp-channel-name-height: 22px;
 --bt-wp-channel-name-margin-top: -5px;
---bt-wp-channel-name-text-color: #333; /* formerly text color 2 */
+--bt-wp-channel-name-text-color: var(--bt-gcp-333); /* formerly text color 2 */
 --bt-wp-channel-name-font-size:	13px;
 --bt-wp-channel-name-font-weight: 500;
 --bt-wp-channel-name-text-decoration-hover: underline;
@@ -123,7 +123,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-standard-view-count-right: 15px;
 --bt-standard-view-count-font-size: 19px;
 --bt-standard-view-count-font-weight: normal;
---bt-standard-view-count-text-color: var(--bt-text-color-5, #333);
+--bt-standard-view-count-text-color: var(--bt-text-color-5, var(--bt-gcp-333));
 --bt-standard-view-count-margin-top: 14px;
 /* avatar */
 --bt-owner-pfp-size: 48px;
@@ -155,7 +155,7 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-standard-view-count-left: 0;
 --bt-standard-view-count-font-size: 1.4rem;
 --bt-standard-view-count-font-weight: 400;
---bt-standard-view-count-text-color: var(--bt-spec-text-secondary);
+--bt-standard-view-count-text-color: var(--yt-spec-text-secondary);
 --bt-standard-view-count-margin-top: 20px;
 /* avatar */
 --bt-owner-pfp-size: 48px;
@@ -411,6 +411,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-wp-gaming-bg: linear-gradient(to top, #02c,#03c);
 --bt-wp-gaming-box-shadow: var(--bt-section-box-shadow);
 }*/
+html[gaming-style^="hitchhiker-2016"],
 html[gaming-style^="hitchhiker-2017"] {
 --bt-wp-gaming-radius: 0;
 --bt-wp-gaming-bg: var(--bt-section-bg);

@@ -476,10 +476,75 @@ html[disable-flexy-player="true"]:not([static]):not([pseudo-static]) {
 --bt-player-width: 854px;
 --bt-player-height: 480px;
 }
+html[disable-flexy-player="true"][player-width="586"]:not([static]):not([pseudo-static]) {
+--bt-player-width: 586px;
+}
+html[disable-flexy-player="true"][player-height="330"]:not([static]):not([pseudo-static]) {
+--bt-player-height: 330px;
+}
+html[disable-flexy-player="true"][player-width="854"]:not([static]):not([pseudo-static]) {
+--bt-player-width: 854px;
+}
+html[disable-flexy-player="true"][player-height="480"]:not([static]):not([pseudo-static]) {
+--bt-player-height: 480px;
+}
+html[disable-flexy-player="true"][player-width="640"]:not([static]):not([pseudo-static]) {
+--bt-player-width: 640px;
+}
+html[disable-flexy-player="true"][player-height="360"]:not([static]):not([pseudo-static]) {
+--bt-player-height: 360px;
+}
+html[disable-flexy-player="true"][player-width="1024"]:not([static]):not([pseudo-static]) {
+--bt-player-width: 1024px;
+}
+html[disable-flexy-player="true"][player-height="576"]:not([static]):not([pseudo-static]) {
+--bt-player-height: 576px;
+}
+html[disable-flexy-player="true"][player-width="1280"]:not([static]):not([pseudo-static]) {
+--bt-player-width: 1280px;
+}
+html[disable-flexy-player="true"][player-height="720"]:not([static]):not([pseudo-static]) {
+--bt-player-height: 720px;
+}
+/* 480 x 360 */
+html[disable-flexy-player="true"][player-width="480"]:not([static]):not([pseudo-static]) {
+--bt-player-width: 480px;
+}
+html[disable-flexy-player="true"][player-height="360"]:not([static]):not([pseudo-static]) {
+--bt-player-height: 360px;
+}
+/* 640 x 480 */
+html[disable-flexy-player="true"][player-width="640"]:not([static]):not([pseudo-static]) {
+--bt-player-width: 640px;
+}
+html[disable-flexy-player="true"][player-height="480"]:not([static]):not([pseudo-static]) {
+--bt-player-height: 480px;
+}
+/* 768 x 576 */
+html[disable-flexy-player="true"][player-width="768"]:not([static]):not([pseudo-static]) {
+--bt-player-width: 768px;
+}
+html[disable-flexy-player="true"][player-height="576"]:not([static]):not([pseudo-static]) {
+--bt-player-height: 576px;
+}
+/* 960 x 720 */
+html[disable-flexy-player="true"][player-width="960"]:not([static]):not([pseudo-static]) {
+--bt-player-width: 960px;
+}
+html[disable-flexy-player="true"][player-height="720"]:not([static]):not([pseudo-static]) {
+--bt-player-height: 720px;
+}
+/* 360 x 640 */
+html[disable-flexy-player="true"][player-width="360"]:not([static]):not([pseudo-static]) {
+--bt-player-width: 360px;
+}
+html[disable-flexy-player="true"][player-height="640"]:not([static]):not([pseudo-static]) {
+--bt-player-height: 640px;
+}
 html[disable-flexy-player="true"]:not([static]):not([pseudo-static]) ytd-watch-flexy #primary.ytd-watch-flexy {
-  width: 854px !important;
-  min-width: 854px !important;
-  max-width: 854px !important;
+  width: var(--bt-player-width) !important;
+  min-width: var(--bt-player-width) !important;
+  max-width: var(--bt-player-width) !important;
 }
 
 /* Topbar */
@@ -487,45 +552,53 @@ html[location="watch"][disable-flexy-player="true"]:not([static]):not([pseudo-st
   margin: var(--tubek12-static-page-margin) !important;
 }
 html[disable-flexy-player="true"]:not([static]):not([pseudo-static]) ytd-watch-flexy:not([theater]):not([fullscreen]):not([no-top-margin]):not([reduced-top-margin]) {
-  --ytd-watch-flexy-player-width: 854px !important;
-  --ytd-watch-flexy-player-height: 480px !important;
+  --ytd-watch-flexy-player-width: var(--bt-player-width) !important;
+  --ytd-watch-flexy-player-height: var(--bt-player-height) !important;
 }
 html[disable-flexy-player="true"]:not([static]):not([pseudo-static]) ytd-watch-flexy:not([theater]):not([fullscreen]):not([no-top-margin]):not([reduced-top-margin]) #movie_player[aria-label="YouTube Video Player"] ytd-watch-flexy video {
-  width: 854px !important;
+  width: var(--bt-player-width) !important;
   margin: 0 auto !important;
   display: flex;
-  max-width: 854px !important;
+  max-width: var(--bt-player-width) !important;
   height: auto !important;
-  max-height: 480px !important;
+  max-height: var(--bt-player-height) !important;
   align-self: center !important;
-  min-height: 480px !important;
+  min-height: var(--bt-player-height) !important;
 }
 html[disable-flexy-player="true"]:not([static]):not([pseudo-static]) ytd-watch-flexy:not([theater]):not([fullscreen]):not([no-top-margin]):not([reduced-top-margin]) #player.ytd-watch-flexy {
   background: black;
-  width: 854px !important;
+  width: var(--bt-player-width) !important;
 }
 /* This code is necessary for non 16:9 videos to keep a consistent width. */
 html[disable-flexy-player="true"]:not([static]):not([pseudo-static]) ytd-watch-flexy:not([theater]):not([fullscreen]):not([no-top-margin]):not([reduced-top-margin]) #movie_player[aria-label="YouTube Video Player"] .ytp-chrome-bottom {
-    width: 830px !important;
+    width: calc(var(--bt-player-width) - 24px) !important;
 }
 /* These variables are required for non 16:9 non 1:1 videos to keep a consistent width. */
 html[disable-flexy-player="true"]:not([static]):not([pseudo-static]) ytd-watch-flexy[flexy] {
            --ytd-watch-flexy-width-ratio: 16 !important;
            --ytd-watch-flexy-height-ratio: 9 !important;
            --ytd-watch-flexy-space-below-player: 136px;
-           --ytd-watch-flexy-non-player-height: 480px !important;
-           --ytd-watch-flexy-non-player-width: 854px !important;
-           --ytd-watch-flexy-min-player-height: 480px !important;
-           --ytd-watch-flexy-min-player-width: 854px !important;
-           --ytd-watch-flexy-max-player-height: 480px !important;
-           --ytd-watch-flexy-max-player-width: 854px !important;
+           --ytd-watch-flexy-non-player-height: var(--bt-player-height) !important;
+           --ytd-watch-flexy-non-player-width: var(--bt-player-width) !important;
+           --ytd-watch-flexy-min-player-height: var(--bt-player-height) !important;
+           --ytd-watch-flexy-min-player-width: var(--bt-player-width) !important;
+           --ytd-watch-flexy-max-player-height: var(--bt-player-height) !important;
+           --ytd-watch-flexy-max-player-width: var(--bt-player-width) !important;
+}
+html[disable-flexy-player="true"][player-ratio="4:3"]:not([static]):not([pseudo-static]) ytd-watch-flexy[flexy] {
+           --ytd-watch-flexy-width-ratio: 4 !important;
+           --ytd-watch-flexy-height-ratio: 3 !important;
+}
+html[disable-flexy-player="true"][player-ratio="9:16"]:not([static]):not([pseudo-static]) ytd-watch-flexy[flexy] {
+           --ytd-watch-flexy-width-ratio: 9 !important;
+           --ytd-watch-flexy-height-ratio: 16 !important;
 }
 html[disable-flexy-player="true"]:not([static]):not([pseudo-static]) #primary.ytd-watch-flexy {
 	max-width: calc((100vh - (var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player))) * (${window.screen.width} / ${window.screen.height})) !important;
 	min-width: calc(var(--ytd-watch-flexy-min-player-height) * (${window.screen.width} / ${window.screen.height})) !important;
 }
 html[disable-flexy-player="true"]:not([static]):not([pseudo-static]) #player-container-outer {
-	max-width: 854px  !important;
+	max-width: var(--bt-player-width)  !important;
 	min-width: 0 !important;
 	position: relative !important;
 }
@@ -863,4 +936,13 @@ html[layout]:not([layout^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-time-s
   font-weight: 700;
   background: rgba(0,0,0,.75);
   letter-spacing:0;
+}
+
+/* player */
+html[disable-fullscreen-scroll="true"] ytd-watch-flexy[fullscreen] ytd-player {
+  position: fixed;
+  z-index: 99999999;
+}
+html[disable-fullscreen-scroll="true"] .ytp-fullerscreen-edu-button.ytp-button.ytp-fullerscreen-edu-button-subtle {
+  display: none;
 }

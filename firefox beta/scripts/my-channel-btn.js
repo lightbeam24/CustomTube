@@ -25,7 +25,26 @@ if (finished != true) {
 		document.querySelector("#bt-my-channel-button").data.navigationEndpoint.commandMetadata.webCommandMetadata.url = "/channel/" + theString1;
 		document.querySelector("#bt-my-channel-button").data.navigationEndpoint.commandMetadata.webCommandMetadata.webPageType = "WEB_PAGE_TYPE_CHANNEL";
 		document.querySelector("#bt-my-channel-button").data.navigationEndpoint.urlEndpoint = undefined;
+		setTimeout(redFunct, 10);
+		function redFunct() {
+			if (document.querySelector("html[my-channel-btn='true']") != null) {
+				var cCase = sessionStorage.getItem("lowerCaseC");
+				document.querySelector("html").setAttribute("my-channel-btn", "true");
+				if (cCase == "false") {
+					document.querySelector("#bt-my-channel-button yt-formatted-string").innerText = "My Channel";
+					document.querySelector("#bt-my-channel-button #endpoint").title = "My Channel";
+				}
+				if (cCase == "true") {
+					document.querySelector("#bt-my-channel-button yt-formatted-string").innerText = "My channel";
+					document.querySelector("#bt-my-channel-button #endpoint").title = "My channel";
+				}
+			}
+				//document.querySelector("#bt-your-vids-button").remove();
+			else {
+				document.querySelector("#bt-my-channel-button").remove();
+			}
+					sessionStorage.setItem("nebula-done-my-channel", "true");
+		}
 		finished == true;
-		sessionStorage.setItem("nebula-done-my-channel", "true");
 	}
 }

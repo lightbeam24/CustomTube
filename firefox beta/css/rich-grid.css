@@ -345,10 +345,12 @@ html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] #avatar.ytd-rich
   height: 30px;
 }
 /* metablock NEW */
-html[homepage="list"] ytd-browse[page-subtype="home"] ytd-video-meta-block, 
-html[homepage="list"] ytd-browse[page-subtype="home"] .ytd-video-meta-block[meta-block],
+html[homepage="list"][layout^="cosmicpanda"] ytd-browse[page-subtype="home"] ytd-video-meta-block, 
+html[homepage="list"][layout^="cosmicpanda"] ytd-browse[page-subtype="home"] .ytd-video-meta-block[meta-block],
+/*
 html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-video-meta-block, 
 html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] .ytd-video-meta-block[meta-block],
+*/
 html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-video-meta-block, 
 html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] .ytd-video-meta-block[meta-block] {
   margin-left: 36px;
@@ -362,7 +364,7 @@ html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-re
 html[homepage="list"] ytd-browse[page-subtype="home"] #video-title-link.ytd-rich-grid-media,
 html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] #video-title-link.ytd-rich-grid-media, 
 html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] #video-title-link.ytd-rich-grid-media {
-  display: block ruby;
+  display: block;
 }
 
 

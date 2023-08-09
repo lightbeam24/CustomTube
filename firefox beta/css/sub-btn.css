@@ -131,6 +131,8 @@ html[watch-metadata-style^="hitchhiker-2013-1"] #owner[subscribed="true"] {
 --bt-wp-sub-count-margin-left: 122px;
 }
 html[dark][watch-metadata-style^="hitchhiker"] {
+--bt-subbed-btn-bg: #1c1c1c;
+--bt-subbed-btn-border: 1px solid #555;
 --bt-wp-sub-count-bg: #1c1c1c;
 --bt-wp-sub-count-border: 1px solid #555;
 }
@@ -145,8 +147,8 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-wp-sub-btn-z-index: 999;
 /* styles */
 --bt-sub-btn-text-color: #fff;
---bt-sub-btn-bg: red;
---bt-sub-btn-bg-hover: red;
+--bt-sub-btn-bg: var(--bt-red);
+--bt-sub-btn-bg-hover: var(--bt-red);
 --bt-sub-btn-radius: 2px;
 --bt-sub-btn-height: 36px;
 --bt-sub-btn-padding: 0 16px;
@@ -155,9 +157,9 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-sub-btn-box-shadow: 0px 2px 2px rgba(0,0,0,0.15);
 --bt-sub-btn-text-transform: uppercase;
 /* subbed btn */
---bt-subbed-btn-bg: var(--bt-spec-feed-background-c);
+--bt-subbed-btn-bg: var(--bt-light-grey);
 --bt-subbed-btn-border: none;
---bt-subbed-btn-text-color: var(--bt-spec-brand-icon-inactive);
+--bt-subbed-btn-text-color: var(--yt-spec-brand-icon-inactive);
 --bt-subbed-btn-box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
 /* sub count */
 --bt-wp-sub-count-display: none;
@@ -176,8 +178,8 @@ html[watch-metadata-style^="polymer-202"] {
 --bt-wp-sub-btn-z-index: 999;
 /* styles */
 --bt-sub-btn-text-color: #fff;
---bt-sub-btn-bg: #c00;
---bt-sub-btn-bg-hover: #c00;
+--bt-sub-btn-bg: var(--bt-lesser-red);
+--bt-sub-btn-bg-hover: var(--bt-lesser-red);
 --bt-sub-btn-radius: 2px;
 --bt-sub-btn-height: 36px;
 --bt-sub-btn-padding: 0 16px;
@@ -186,7 +188,7 @@ html[watch-metadata-style^="polymer-202"] {
 --bt-sub-btn-box-shadow: none;
 --bt-sub-btn-text-transform: uppercase;
 /* subbed btn */
---bt-subbed-btn-bg: #e9e9e9;
+--bt-subbed-btn-bg: var(--bt-light-grey);
 --bt-subbed-btn-border: none;
 --bt-subbed-btn-text-color: var(--yt-spec-brand-icon-inactive);
 --bt-subbed-btn-box-shadow: none;
@@ -294,6 +296,7 @@ html[watch-metadata-style="polymer-2019"] #subscribe-button .yt-spec-button-shap
 html[watch-metadata-style="polymer-2019"] #subscribe-button .yt-spec-button-shape-next__button-text-content {
   /*text-transform: uppercase;*/
   word-spacing: 5px;
+  -webkit-mask-image: linear-gradient(to right,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 82px,rgba(255,255,255,0.75) 83px);
   mask-image: linear-gradient(to right,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 82px,rgba(255,255,255,0.75) 83px);
 }
 /* subscribed button */
@@ -351,6 +354,7 @@ html[watch-metadata-style^="hitchhiker"]  #subscribe-button .yt-spec-button-shap
     background-position: -51px -533px;
     background-repeat: no-repeat;
     opacity: 0.5;
+	filter: var(--bt-png-icon-filter);
 }
 html[watch-metadata-style^="hitchhiker"] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover::after {
     opacity: 0.6;

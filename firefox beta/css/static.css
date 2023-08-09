@@ -62,11 +62,9 @@ html[static] {
 --bt-player-height: 330px;
 }
 /* primary */
-ytd-app[static] #primary.ytd-watch-flexy {
-  margin-left: 0;
-}
-ytd-app[static] #primary.ytd-watch-flexy {
-  margin-left: -12px;
+html[static] #primary.ytd-watch-flexy {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
 ytd-app[static] #secondary.ytd-watch-flexy {
   padding-right: 0 !important;

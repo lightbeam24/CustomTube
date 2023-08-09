@@ -401,15 +401,23 @@ html[watch-metadata-style^="hitchhiker"] .yt-spec-button-shape-next--size-m.yt-s
 html[watch-metadata-style^="hitchhiker-2014"] #bt-counts,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-counts,
 html[watch-metadata-style^="cosmicpanda"] #bt-counts {
-  display: block ruby;
+  display: flex;
+  white-space: nowrap;
+  /* fallback for chromium */
+  float: right;
+  /* main float value */
   float: inline-end;
   margin-top: 2px;
 }
 html[watch-metadata-style^="hitchhiker"] #lcon {
   margin-right: 13px;
 }
+html[watch-metadata-style^="cosmicpanda"] #lcon {
+  margin-right: 4px;
+}
 #lcon, #dcon {
-  display: block ruby;
+  display: inline-flex;
+  white-space: nowrap;
 }
 html[watch-metadata-style^="hitchhiker-2014"] #bt-counts .bts,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-counts .bts {
@@ -419,23 +427,22 @@ html[watch-metadata-style^="cosmicpanda"] #bt-counts .bti {
   display: none;
 }
 #lcicon {
-  margin-bottom: -4px;
   background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldtjAOK.png) -28px -761px;
-    background-size: auto;
-  background-size: auto;
-  background-size: auto;
-  width: 13px;
-  height: 14px;
-  display: block;
 }
 #dcicon {
   background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldtjAOK.png) -36px -144px;
-    background-size: auto;
+}
+#lcicon,
+#dcicon {
   background-size: auto;
   width: 13px;
   height: 14px;
   display: block;
   margin-bottom: -4px;
+  margin-right: 2px;
+}
+.bts {
+  margin-left: 2px;
 }
 html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #segmented-like-button button,
 html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #segmented-dislike-button button {

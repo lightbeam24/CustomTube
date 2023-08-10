@@ -988,12 +988,18 @@ html[thumbs-fade-in="true"] .yt-core-image--loaded {
     opacity: 1;
 }
 /* timestatus */
-html[layout]:not([layout^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-time-status-renderer {
+html[layout]:not([layout^="polymer"]) ytd-thumbnail-overlay-time-status-renderer ytd-badge-supported-renderer {
+  display: none;
+}
+html[layout]:not([layout^="polymer"]) ytd-thumbnail #overlays ytd-thumbnail-overlay-time-status-renderer {
+  margin: 1px;
+}
+html[layout]:not([layout^="polymer"]) #time-status.ytd-thumbnail-overlay-time-status-renderer {
   margin: 2px;
   border-radius: 0 !important;
   padding: 1px 4px;
   font-size: 11px;
   font-weight: 700;
   background: rgba(0,0,0,.75);
-  letter-spacing:0;
+  letter-spacing: 0;
 }

@@ -53,6 +53,7 @@ html[channel-style^="cosmicpanda"] {
 --bt-channel-page-header-inner-padding: 0 36px 0 12px;
 --bt-channel-page-channel-name: #fff;
 --bt-channel-tagline-display: block;
+--bt-channel-page-tabs-margin: 0 auto 0 0;
 }
 html[channel-style^="polymer"] {
 --bt-channel-tagline-display: none;
@@ -122,7 +123,7 @@ html[channel-style]:not([channel-style^="polymer"]) ytd-browse[page-subtype="cha
 }
 html[channel-style]:not([channel-style^="polymer"]) tp-yt-paper-tabs {
   width: var(--bt-channel-page-width) !important;
-  margin: 0 auto;
+  margin: var(--bt-channel-page-tabs-margin) !important;
 }
 html[channel-style]:not([channel-style^="polymer"]) ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer {
   max-width: var(--bt-channel-page-content-max-width) !important;
@@ -131,7 +132,9 @@ html[channel-style]:not([channel-style^="polymer"]) ytd-browse[page-subtype="cha
     padding-bottom: 16px;
 }
 html[channel-style^="hitchhiker-2013-2"] ytd-browse[page-subtype="channels"] #header.ytd-browse,
-html[channel-style^="hitchhiker-2013-2"] ytd-browse[page-subtype="channels"] ytd-two-column-browse-results-renderer.grid:not(.grid-disabled) {
+html[channel-style^="hitchhiker-2013-2"] ytd-browse[page-subtype="channels"] ytd-two-column-browse-results-renderer.grid:not(.grid-disabled),
+html[channel-style^="hitchhiker-2013-3"] ytd-browse[page-subtype="channels"] #header.ytd-browse,
+html[channel-style^="hitchhiker-2013-3"] ytd-browse[page-subtype="channels"] ytd-two-column-browse-results-renderer.grid:not(.grid-disabled) {
   width: var(--bt-channel-page-width) !important;
   margin-left: -30px;
 }
@@ -154,11 +157,11 @@ html[channel-style] ytd-channel-avatar-editor {
   width: var(--bt-channel-pfp-size);
   height: var(--bt-channel-pfp-size);
 }
-html[channel-style]:not([channel-style^="polymer"]) ytd-channel-avatar-editor yt-img-shadow {
+html[channel-style] ytd-channel-avatar-editor yt-img-shadow {
   width: var(--bt-channel-pfp-size);
   height: var(--bt-channel-pfp-size);
 }
-html[channel-style]:not([channel-style^="polymer"]) ytd-channel-avatar-editor yt-icon {
+html[channel-style] ytd-channel-avatar-editor yt-icon {
   display: none;
 }
 /* channel name */

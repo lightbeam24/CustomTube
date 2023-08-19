@@ -61,7 +61,8 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-toggle-button-icon-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
 }
 html[watch-metadata-style^="hitchhiker-2014"],
-html[watch-metadata-style^="hitchhiker-2013"] {
+html[watch-metadata-style^="hitchhiker-2013"],
+html[watch-metadata-style^="hitchhiker-2013-3"] {
 /* ltod btn */
 --bt-ltod-btn-display: flex;
 --bt-ltod-btn-margin-top: 20px; /* formerly 36 */
@@ -83,7 +84,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-toggle-button-icon-height: 20px;
 --bt-toggle-button-icon-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
 }
-html[watch-metadata-style^="hitchhiker-2013"] {
+html[watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) {
 /* ltod btn */
 --bt-ltod-btn-display: flex;
 --bt-ltod-btn-margin-top: 20px; /* formerly 36 */
@@ -108,7 +109,8 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 /* BTMEGASection Metadata */
 /* BTSection Like and Dislike */
 /* For new like and dislike button */
-html[watch-metadata-style="polymer-2019"] {
+html[watch-metadata-style="polymer-2019"],
+html[watch-metadata-style="polymer-2020"] {
 /* ltod btn */
 --bt-ltod-btn-display: flex;
 --bt-ltod-btn-margin-top: 0px;
@@ -128,6 +130,10 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-toggle-button-icon-height: 20px;
 --bt-toggle-button-icon-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
 }
+html[watch-metadata-style="polymer-2020"] {
+--bt-toggle-button-icon-filter: none;
+}
+
 /* ltod */
 html[watch-metadata-style] ytd-watch-flexy #above-the-fold #top-level-buttons-computed {
   position: var(--bt-top-level-buttons-position) !important;
@@ -146,29 +152,29 @@ html[watch-metadata-style] #segmented-like-button {
 }
 /* BTSection Like and dislike Button */
 html[watch-metadata-style] #segmented-like-button yt-animated-icon {
-  display: var(--bt-animated-like-icon-display);
+  display: var(--bt-animated-like-icon-display, flex);
 }
 html[watch-metadata-style] #segmented-dislike-button yt-icon svg.style-scope,
 html[watch-metadata-style] #segmented-like-button yt-icon svg.style-scope {
   display: var(--bt-og-dislike-icon-display) !important;
 }
-html[watch-metadata-style] ytd-toggle-button-renderer button {
+html[watch-metadata-style] ytd-watch-flexy ytd-toggle-button-renderer button {
   color: var(--bt-toggle-button-text-color-1) !important;
 }
-html[watch-metadata-style] ytd-toggle-button-renderer button span {
+html[watch-metadata-style] ytd-watch-flexy ytd-toggle-button-renderer button span {
   color: var(--bt-toggle-button-text-color-2) !important;
   font-size: var(--bt-toggle-button-font-size);
 }
-html[watch-metadata-style] #segmented-like-button ytd-toggle-button-renderer button[aria-pressed="true"] {
+html[watch-metadata-style] ytd-watch-flexy #segmented-like-button ytd-toggle-button-renderer button[aria-pressed="true"] {
   color: var(--bt-toggle-button-text-color-4) !important;
 }
-html[watch-metadata-style] #segmented-like-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
+html[watch-metadata-style] ytd-watch-flexy #segmented-like-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
   color: var(--bt-toggle-button-text-color-4) !important;
 }
-html[watch-metadata-style] #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] {
+html[watch-metadata-style] ytd-watch-flexy #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] {
   color: var(--bt-toggle-button-text-color-3) !important;
 }
-html[watch-metadata-style] #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
+html[watch-metadata-style] ytd-watch-flexy #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
   color: var(--bt-toggle-button-text-color-3) !important;
 }
 html[watch-metadata-style] #bt-like,
@@ -219,6 +225,18 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-dislike-icon-bg: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -26px -85px;
 --bt-dislike-icon-opacity: 1;
 --bt-dislike-icon-bg-active: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -136px 0;
+--bt-dislike-icon-opacity-active: 1;
+}
+html[watch-metadata-style^="hitchhiker-2013-3"] {
+--bt-like-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -38px -688px;
+--bt-like-icon-opacity: 0.6;
+--bt-like-icon-bg-active: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -24px -1635px;
+--bt-like-icon-opacity-active: 1;
+--bt-dislike-icon-margin-right: 0;
+--bt-dislike-icon-margin-left: 5px;
+--bt-dislike-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -100px -1223px;
+--bt-dislike-icon-opacity: 0.6;
+--bt-dislike-icon-bg-active: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -100px -1223px;
 --bt-dislike-icon-opacity-active: 1;
 }
 html[watch-metadata-style^="cosmicpanda"] {
@@ -329,8 +347,9 @@ html[watch-metadata-style^="hitchhiker"] #bt-bar likes {
   width: 100%;
   display: block;
 }
-html[watch-metadata-style^="hitchhiker-2014"] #bt-bar likes {
-  background: #2793e6;
+html[watch-metadata-style^="hitchhiker-2014"] #bt-bar likes,
+html[watch-metadata-style^="hitchhiker-2013-3"] #bt-bar likes {
+  background: #2793e6 !important;
 }
 html[watch-metadata-style^="hitchhiker-2014"] #bt-bar dislikes {
   background: #ccc;
@@ -382,15 +401,23 @@ html[watch-metadata-style^="hitchhiker"] .yt-spec-button-shape-next--size-m.yt-s
 html[watch-metadata-style^="hitchhiker-2014"] #bt-counts,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-counts,
 html[watch-metadata-style^="cosmicpanda"] #bt-counts {
-  display: block ruby;
+  display: flex;
+  white-space: nowrap;
+  /* fallback for chromium */
+  float: right;
+  /* main float value */
   float: inline-end;
   margin-top: 2px;
 }
 html[watch-metadata-style^="hitchhiker"] #lcon {
   margin-right: 13px;
 }
+html[watch-metadata-style^="cosmicpanda"] #lcon {
+  margin-right: 4px;
+}
 #lcon, #dcon {
-  display: block ruby;
+  display: inline-flex;
+  white-space: nowrap;
 }
 html[watch-metadata-style^="hitchhiker-2014"] #bt-counts .bts,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-counts .bts {
@@ -400,23 +427,22 @@ html[watch-metadata-style^="cosmicpanda"] #bt-counts .bti {
   display: none;
 }
 #lcicon {
-  margin-bottom: -4px;
   background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldtjAOK.png) -28px -761px;
-    background-size: auto;
-  background-size: auto;
-  background-size: auto;
-  width: 13px;
-  height: 14px;
-  display: block;
 }
 #dcicon {
   background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldtjAOK.png) -36px -144px;
-    background-size: auto;
+}
+#lcicon,
+#dcicon {
   background-size: auto;
   width: 13px;
   height: 14px;
   display: block;
   margin-bottom: -4px;
+  margin-right: 2px;
+}
+.bts {
+  margin-left: 2px;
 }
 html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #segmented-like-button button,
 html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #segmented-dislike-button button {
@@ -428,8 +454,10 @@ html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #segmented
 }
 html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #segmented-like-button button:hover,
 html[watch-metadata-style^="hitchhiker-2013-2"] #above-the-fold #segmented-like-button button:hover,
+html[watch-metadata-style^="hitchhiker-2013-3"] #above-the-fold #segmented-like-button button:hover,
 html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #segmented-dislike-button button:hover,
-html[watch-metadata-style^="hitchhiker-2013-2"] #above-the-fold #segmented-dislike-button button:hover {
+html[watch-metadata-style^="hitchhiker-2013-2"] #above-the-fold #segmented-dislike-button button:hover,
+html[watch-metadata-style^="hitchhiker-2013-3"] #above-the-fold #segmented-dislike-button button:hover {
   background: linear-gradient(to bottom,#fcfcfc 0,#f8f8f8 100%) !important;
   border-radius: 2px !important;
   border: 1px solid #d3d3d3;

@@ -9,16 +9,18 @@ html[watch-metadata-style^="cosmicpanda"] {
 /* styles */
 --bt-sub-btn-text-color: #fff;
 --bt-sub-btn-bg: var(--bt-standard-btn-bg);
---bt-sub-btn-bg-hover: var(--bt-standard-btn-bg-hover);
---bt-sub-btn-radius: 2px 0 0 2px;
+--bt-sub-btn-bg-hover: linear-gradient(to bottom,#75be65 0,#37622d 100%);
+--bt-sub-btn-radius: 24px 6px 6px 24px;
 --bt-sub-btn-height: 23.5px;
 --bt-sub-btn-padding: var(--bt-standard-btn-padding);
 --bt-sub-btn-font-size: 12px;
 --bt-sub-btn-font-weight: bold;
 /* subbed btn */
---bt-subbed-btn-bg: #fafafa;
---bt-subbed-btn-border: 1px solid #ccc;
+--bt-subbed-btn-bg: var(--bt-standard-btn-bg);
+--bt-subbed-btn-bg-hover: linear-gradient(to bottom,#bc403a 0,#852f2b 100%);
+--bt-subbed-btn-border: none;
 --bt-subbed-btn-text-color: var(--bt-text-color-6);
+--bt-subbed-btn-text-color-hover: var(--bt-gcp-fff-u);
 --bt-subbed-btn-width: 90px;
 }
 html[watch-metadata-style^="hitchhiker"] {
@@ -40,8 +42,10 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-sub-btn-font-weight: normal;
 /* subbed btn */
 --bt-subbed-btn-bg: #fafafa;
+--bt-subbed-btn-bg-hover: var(--bt-subbed-btn-bg);
 --bt-subbed-btn-border: 1px solid #ccc;
 --bt-subbed-btn-text-color: var(--bt-text-color-6);
+--bt-subbed-btn-text-color-hover: var(--bt-subbed-btn-text-color);
 --bt-subbed-btn-width: 90px;
 /* sub count */
 --bt-wp-sub-count-display: block ruby;
@@ -83,6 +87,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-sub-btn-box-shadow-active: inset 0 2px 2px rgba(0,0,0,.75);/* not yet used */
 /* subbed btn */
 --bt-subbed-btn-bg: #fafafa; /* linear-gradient(to top,#23a723 0,#22c622 100%) maybe */
+--bt-subbed-btn-bg-hover: var(--bt-subbed-btn-bg);
 --bt-subbed-btn-border: 1px solid #ccc;
 --bt-subbed-btn-width: 90px;
 /* sub count */
@@ -131,6 +136,9 @@ html[watch-metadata-style^="hitchhiker-2013-1"] #owner[subscribed="true"] {
 --bt-wp-sub-count-margin-left: 122px;
 }
 html[dark][watch-metadata-style^="hitchhiker"] {
+--bt-subbed-btn-bg: #1c1c1c;
+--bt-subbed-btn-bg-hover: var(--bt-subbed-btn-bg);
+--bt-subbed-btn-border: 1px solid #555;
 --bt-wp-sub-count-bg: #1c1c1c;
 --bt-wp-sub-count-border: 1px solid #555;
 }
@@ -145,8 +153,8 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-wp-sub-btn-z-index: 999;
 /* styles */
 --bt-sub-btn-text-color: #fff;
---bt-sub-btn-bg: red;
---bt-sub-btn-bg-hover: red;
+--bt-sub-btn-bg: var(--bt-red);
+--bt-sub-btn-bg-hover: var(--bt-red);
 --bt-sub-btn-radius: 2px;
 --bt-sub-btn-height: 36px;
 --bt-sub-btn-padding: 0 16px;
@@ -155,9 +163,11 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-sub-btn-box-shadow: 0px 2px 2px rgba(0,0,0,0.15);
 --bt-sub-btn-text-transform: uppercase;
 /* subbed btn */
---bt-subbed-btn-bg: var(--bt-spec-feed-background-c);
+--bt-subbed-btn-bg: var(--bt-light-grey);
+--bt-subbed-btn-bg-hover: var(--bt-subbed-btn-bg);
 --bt-subbed-btn-border: none;
---bt-subbed-btn-text-color: var(--bt-spec-brand-icon-inactive);
+--bt-subbed-btn-text-color: var(--yt-spec-brand-icon-inactive);
+--bt-subbed-btn-text-color-hover: var(--bt-subbed-btn-text-color);
 --bt-subbed-btn-box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
 /* sub count */
 --bt-wp-sub-count-display: none;
@@ -168,6 +178,32 @@ html[watch-metadata-style="polymer-2019"][title-on-top="true"] {
 --bt-wp-sub-btn-right: unset;
 --bt-wp-sub-btn-z-index: 999;
 --bt-wp-sub-btn-margin-left: auto;
+}
+html[watch-metadata-style^="polymer-202"] {
+/* sub btn */
+--bt-wp-sub-btn-position: absolute;
+--bt-wp-sub-btn-right: 0;
+--bt-wp-sub-btn-z-index: 999;
+/* styles */
+--bt-sub-btn-text-color: #fff;
+--bt-sub-btn-bg: var(--bt-lesser-red);
+--bt-sub-btn-bg-hover: var(--bt-lesser-red);
+--bt-sub-btn-radius: 2px;
+--bt-sub-btn-height: 36px;
+--bt-sub-btn-padding: 0 16px;
+--bt-sub-btn-font-size: 14px;
+--bt-sub-btn-font-weight: 500;
+--bt-sub-btn-box-shadow: none;
+--bt-sub-btn-text-transform: uppercase;
+/* subbed btn */
+--bt-subbed-btn-bg: var(--bt-light-grey);
+--bt-subbed-btn-bg-hover: var(--bt-subbed-btn-bg);
+--bt-subbed-btn-border: none;
+--bt-subbed-btn-text-color: var(--yt-spec-brand-icon-inactive);
+--bt-subbed-btn-text-color-hover: var(--bt-subbed-btn-text-color);
+--bt-subbed-btn-box-shadow: none;
+/* sub count */
+--bt-wp-sub-count-display: block;
 }
 /* sub btn */
 /* position */
@@ -232,6 +268,7 @@ html[watch-metadata-style^="hitchhiker"] #subscribe-button .yt-spec-button-shape
     filter: var(--bt-paint-filter);
 }
 html[watch-metadata-style^="hitchhiker-2013-2"] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled::before,
+html[watch-metadata-style^="hitchhiker-2013-3"] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled::before,
 html[watch-metadata-style^="hitchhiker-2014"] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled::before  {
   background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflA_jq-Y.png) -48px -508px;
   background-size: auto;
@@ -269,6 +306,7 @@ html[watch-metadata-style="polymer-2019"] #subscribe-button .yt-spec-button-shap
 html[watch-metadata-style="polymer-2019"] #subscribe-button .yt-spec-button-shape-next__button-text-content {
   /*text-transform: uppercase;*/
   word-spacing: 5px;
+  -webkit-mask-image: linear-gradient(to right,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 82px,rgba(255,255,255,0.75) 83px);
   mask-image: linear-gradient(to right,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 82px,rgba(255,255,255,0.75) 83px);
 }
 /* subscribed button */
@@ -286,10 +324,12 @@ html[watch-metadata-style] #subscribe-button .yt-spec-button-shape-next--mono.yt
   box-shadow: var(--bt-subbed-btn-box-shadow);
   text-transform: var(--bt-sub-btn-text-transform);
 }
+html[watch-metadata-style] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover {
+  background: var(--bt-subbed-btn-bg-hover) !important;
+  color: var(--bt-subbed-btn-text-color-hover) !important;
+}
 html[watch-metadata-style^="hitchhiker"] ytd-subscription-notification-toggle-button-renderer-next .yt-spec-button-shape-next__icon::before {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -52px -254px;
-    background-size: auto;
-  background-size: auto;
   background-size: auto;
   width: 16px;
   height: 12px;
@@ -326,6 +366,7 @@ html[watch-metadata-style^="hitchhiker"]  #subscribe-button .yt-spec-button-shap
     background-position: -51px -533px;
     background-repeat: no-repeat;
     opacity: 0.5;
+	filter: var(--bt-png-icon-filter);
 }
 html[watch-metadata-style^="hitchhiker"] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover::after {
     opacity: 0.6;
@@ -360,7 +401,6 @@ html[watch-metadata-style="polymer-2019"] #notification-preference-button .yt-sp
 html[watch-metadata-style^="cosmicpanda"] tp-yt-paper-button.ytd-subscribe-button-renderer, 
 html[watch-metadata-style^="cosmicpanda"] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
   background: linear-gradient(to bottom,#fff 0,#e0e0e0 100%) !important;
-  border-radius: 24px 6px 6px 24px !important;
   padding: 5px 32px 5px 34px !important;
   white-space: nowrap;
   font-size: 1.1rem !important;

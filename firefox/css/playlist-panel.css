@@ -1,4 +1,4 @@
-html[watch-metadata-style^="polymer"] {
+html[watch-metadata-style^="polymer-2019"] {
 --bt-playlist-margin-left: -12px;
 --bt-playlist-radius: 0;
 --bt-playlist-border: none;
@@ -26,7 +26,7 @@ html[watch-metadata-style^="polymer"] {
 --bt-playlist-item-thumb-width: 100px;
 --bt-playlist-item-thumb-height: 56px;
 }
-html[dark][watch-metadata-style^="polymer"] {
+html[dark][watch-metadata-style^="polymer-2019"] {
 --bt-playlist-margin-left: -12px;
 --bt-playlist-radius: 0;
 --bt-playlist-border: none;
@@ -51,6 +51,34 @@ html[dark][watch-metadata-style^="polymer"] {
 --bt-playlist-item-byline-line-height: 12px;
 --bt-active-playlist-item-bg: #3a3a3a;
 --bt-active-playlist-item-text-color: #cacaca;
+--bt-playlist-item-thumb-width: 100px;
+--bt-playlist-item-thumb-height: 56px;
+}
+html[watch-metadata-style^="polymer-202"] {
+--bt-playlist-margin-left: 0px;
+--bt-playlist-radius: 0;
+--bt-playlist-border: 1px solid var(--yt-spec-10-percent-layer);
+--bt-playlist-header-bg: var(--bt-gcp-fff);
+--bt-playlist-header-text-color: var(--bt-gcp-000);
+--bt-playlist-header-byline-text-color: var(--bt-gcp-555);
+--bt-playlist-header-padding: 15px 15px 0;
+--bt-playlist-header-font-family: "Roboto",sans-serif;
+--bt-playlist-header-font-size: 14px;
+--bt-playlist-header-line-height: 15px;
+--bt-playlist-header-font-weight: 500;
+--bt-playlist-bg: var(--bt-gcp-fff);
+--bt-playlist-item-height: 56px;
+--bt-playlist-item-inner-padding: 10px 8px 10px 0;
+--bt-playlist-item-bg-hover: var(--bt-gcp-eee);
+--bt-playlist-item-text-color: var(--bt-text-color-5); /* since this will change in dark mode, don't use var */
+--bt-playlist-item-font-size: 13px;
+--bt-playlist-item-font-weight: normal;
+--bt-playlist-item-line-height: 16px;
+--bt-playlist-item-byline-text-color: #898989;
+--bt-playlist-item-byline-font-size: 11px;
+--bt-playlist-item-byline-line-height: 12px;
+--bt-active-playlist-item-bg: var(--bt-gcp-eee);
+--bt-active-playlist-item-text-color: var(--bt-gcp-444);
 --bt-playlist-item-thumb-width: 100px;
 --bt-playlist-item-thumb-height: 56px;
 }
@@ -205,10 +233,12 @@ html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #menu.ytd-play
 html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #menu.ytd-playlist-panel-video-renderer:hover {
   background: #2221;
   background: rgba(250,250,250,0.2);
+  -webkit-mask-image: linear-gradient(to left,#000,#444);
   mask-image: linear-gradient(to left,#000,#444);
 }
 html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #menu.ytd-playlist-panel-video-renderer:not(:hover):not(:active) {
   background: rgb(250, 250, 250);
+  -webkit-mask-image: linear-gradient(to top,rgba(0,0,0,0.0),rgba(0,0,0,0.0));
   mask-image: linear-gradient(to top,rgba(0,0,0,0.0),rgba(0,0,0,0.0));
 }
 html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #menu.ytd-playlist-panel-video-renderer {

@@ -110,6 +110,7 @@ html[related-videos-size="smaller"][related-videos^="aozora"] {
 --bt-related-thumb-height: 54px;
 --bt-related-thumb-inner-width: 106px;
 --bt-related-thumb-inner-height: 54px;
+--bt-related-thumb-margin-right: 16px;
 }
 html[related-videos-size="small"] {
 --bt-related-title-font-size: 13px;
@@ -132,7 +133,7 @@ html[related-videos-size="large"] {
 --bt-related-thumb-width: 168px;
 --bt-related-thumb-height: 94px;
 }
-html[related-videos="polymer-2019"] {
+html[related-videos^="polymer"] {
 --bt-related-margin-top: 0;
 --bt-related-padding-top: 0;
 --bt-related-padding: 0px 15px;
@@ -217,7 +218,7 @@ html[related-videos] ytd-watch-flexy #metadata-line {
   margin-top: var(--bt-related-metadata-line-margin-top);
 }
 /* chan name only */
-html[related-videos] ytd-watch-flexy #metadata #text {
+html[related-videos] ytd-watch-flexy #related #byline-container {
   margin-top: var(--bt-related-channel-name-margin-top);
 }
 /* thumbs */
@@ -303,7 +304,7 @@ html[related-videos^="hitchhiker-2014"] #bt-load-more-related,
 html[related-videos^="hitchhiker-2013"] #bt-load-more-related {
 	display: inline-block;
 }
-/* begone spawn of satan! */
+/* shorts shelf */
 #related ytd-reel-shelf-renderer {
   display: none !important;
 }
@@ -314,7 +315,7 @@ html[related-videos-size] #secondary.ytd-watch-flexy {
 }
 html[related-videos-size] #related ytd-thumbnail,
 html[related-videos-size] #related ytd-playlist-thumbnail {
-  margin-right: 8px !important;
+  margin-right: var(--bt-related-thumb-margin-right,8px) !important;
 }
 html[related-videos-size] ytd-watch-flexy #related #dismissible {
   display: flex;

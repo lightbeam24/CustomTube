@@ -13,6 +13,13 @@ html[show-upload-date-next-to-pfp="true"] {
 --bt-og-counts-display: block; /* Because for some reason this fixes an issue, I guess YT changed it to inline-flex. */
 --bt-pfp-upload-date-display: block;
 }
+html[show-upload-date-next-to-view-count="true"] {
+--bt-og-counts-opacity: 0;
+--bt-og-counts-width: 0;
+--bt-og-counts-height: 0;
+--bt-og-counts-display: block; /* Because for some reason this fixes an issue, I guess YT changed it to inline-flex. */
+--bt-pfp-upload-date-display: block;
+}
 html[show-upload-date-inside-desc] #above-the-fold #info-container {
   opacity: var(--bt-og-counts-opacity) !important;
   width: var(--bt-og-counts-width) !important;
@@ -98,10 +105,10 @@ html[watch-metadata-style] ytd-text-inline-expander {
   line-height: var(--bt-desc-line-height);
   font-weight: var(--bt-desc-font-weight);
 }
-/* links */
+/* links 
 html[watch-metadata-style] #description .yt-core-attributed-string--link-inherit-color {
   color: var(--bt-desc-link-color) !important;
-}
+}*/
 html[watch-metadata-style] #description:hover ytd-text-inline-expander a {
   color: var(--bt-desc-link-color-hover) !important;
 }
@@ -109,6 +116,52 @@ html[watch-metadata-style] #description ytd-text-inline-expander a:hover {
   text-decoration: var(--bt-desc-link-text-decoration-hover) !important;
 }
 
+html[watch-metadata-style^="aozora-2011"] {
+--bt-watch-metadata-desc-bg: var(--site-bg);
+--bt-watch-metadata-desc-radius: 0;
+--bt-watch-metadata-desc-inner-margin-bottom: -4px;
+/* snippet */
+--bt-desc-snippet-mask-image: none;
+--bt-desc-snippet-max-height: 50px;
+--bt-elipsis-display: none;
+/* text */
+--bt-desc-text-color: var(--bt-text-color-5);
+--bt-desc-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-font-size: 12px;
+--bt-desc-font-weight: normal;
+--bt-desc-line-height: 1.2;
+--bt-desc-link-color: inherit;
+--bt-desc-link-color-hover: var(--bt-blue);
+--bt-desc-link-text-decoration-hover: underline;
+/* upload date */
+--bt-desc-upload-date-font-size: 11.5px;
+--bt-desc-upload-date-font-family: "YouTube Noto",Roboto,arial,sans-serif;
+--bt-desc-upload-date-font-weight: 400;
+--bt-desc-upload-date-text-color: var(--bt-text-color-6);
+/* expand */
+--bt-desc-expand-outer-border-top: none;
+--bt-desc-expand-border: 0px solid transparent;
+--bt-desc-expand-border-top: 0px solid transparent;
+--bt-desc-expand-bg: transparent;
+--bt-desc-expand-width: 100%;
+--bt-desc-expand-text-transform: normal;
+--bt-desc-expand-height: 20px;
+--bt-desc-expand-font-size: 12px;
+--bt-desc-expand-font-weight: normal;
+--bt-desc-expand-font-family: arial;
+--bt-desc-expand-text-color: #222;
+--bt-desc-expand-cursor: pointer;
+--bt-desc-expand-radius: 0 0 5px 5px;
+--bt-desc-expand-text-color-hover: #669acc;
+--bt-desc-expand-inner-bg: linear-gradient(to bottom,#fff,#efefef);
+--bt-desc-expand-inner-border-bottom: 1px solid #ccc;
+--bt-desc-expand-inner-bg-hover: linear-gradient(to bottom,#ffffff,#eaf2fd);
+--bt-desc-expand-inner-border-bottom-hover: 1px solid #999;
+--bt-desc-expand-inner-width: 100%;
+--bt-desc-expand-inner-height: 18px;
+--bt-desc-expand-inner-margin: 0 auto;
+--bt-desc-expand-span-margin-top: 2px;
+}
 html[watch-metadata-style^="cosmicpanda"] {
 --bt-watch-metadata-desc-bg: var(--site-bg);
 --bt-watch-metadata-desc-radius: 0;
@@ -242,7 +295,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-desc-expand-span-margin-top: 2px;
 --bt-desc-expand-after-display: block;
 }
-html[watch-metadata-style="polymer-2019"] {
+html[watch-metadata-style^="polymer"] {
 --bt-watch-metadata-desc-radius: 0;
 --bt-watch-metadata-desc-inner-margin-bottom: 5px;
 --bt-watch-metadata-desc-margin-left: 48px;
@@ -251,7 +304,7 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-desc-snippet-max-height: 60px;
 --bt-elipsis-display: none;
 /* text */
---bt-desc-text-color: var(--bt-spec-text-primary);
+--bt-desc-text-color: var(--bt-spec-text-primary, var(--yt-spec-text-primary));
 --bt-desc-font-family: Roboto, Arial, sans-serif;
 --bt-desc-font-size: 1.4rem;
 --bt-desc-font-weight: 400;
@@ -269,9 +322,9 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-desc-expand-font-size: 1.3rem;
 --bt-desc-expand-font-weight: 500;
 --bt-desc-expand-font-family: Roboto, Arial, sans-serif;
---bt-desc-expand-text-color: var(--bt-spec-text-secondary);
+--bt-desc-expand-text-color: var(--bt-spec-text-secondary, var(--yt-spec-text-secondary));
 --bt-desc-expand-cursor: pointer;
---bt-desc-expand-text-color-hover: var(--bt-spec-text-secondary);
+--bt-desc-expand-text-color-hover: var(--bt-spec-text-secondary, var(--yt-spec-text-secondary));
 --bt-desc-expand-top-margin: 10px;
 --bt-desc-expand-padding: 0px;
 --bt-desc-expand-display: block ruby;
@@ -316,6 +369,7 @@ html[watch-metadata-style] #bt-show-more .visible-pseudo-button,
 html[watch-metadata-style] #bt-show-less .visible-pseudo-button {
   border: var(--bt-desc-expand-border);
   border-top: var(--bt-desc-expand-border-top);
+  border-bottom: var(--bt-desc-expand-inner-border-bottom);
   background: var(--bt-desc-expand-inner-bg, var(--bt-desc-expand-inner-bg));
   width: var(--bt-desc-expand-inner-width, var(--bt-desc-expand-width));
   text-transform: var(--bt-desc-expand-text-transform);
@@ -352,7 +406,8 @@ html[watch-metadata-style] .visible-pseudo-button span {
 	margin-top: var(--bt-desc-expand-span-margin-top);
 }
 
-html[watch-metadata-style="polymer-2019"]:not([title-on-top="true"]) #bottom-row.ytd-watch-metadata {
+/* todo: make this a var or something */
+html[watch-metadata-style^="polymer"]:not([title-on-top="true"]) #bottom-row.ytd-watch-metadata {
   margin-top: 60px;
   border-bottom: 1px solid var(--yt-spec-10-percent-layer);
   padding-bottom: 10px;
@@ -373,8 +428,10 @@ html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #bt-show-l
 }
 html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #bt-show-more .visible-pseudo-button:hover,
 html[watch-metadata-style^="hitchhiker-2013-2"] #above-the-fold #bt-show-more .visible-pseudo-button:hover,
+html[watch-metadata-style^="hitchhiker-2013-3"] #above-the-fold #bt-show-more .visible-pseudo-button:hover,
 html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #bt-show-less .visible-pseudo-button:hover,
-html[watch-metadata-style^="hitchhiker-2013-2"] #above-the-fold #bt-show-less .visible-pseudo-button:hover {
+html[watch-metadata-style^="hitchhiker-2013-2"] #above-the-fold #bt-show-less .visible-pseudo-button:hover,
+html[watch-metadata-style^="hitchhiker-2013-3"] #above-the-fold #bt-show-less .visible-pseudo-button:hover {
   background: linear-gradient(to bottom,#fcfcfc 0,#f8f8f8 100%) !important;
   border-radius: 2px !important;
   border: 1px solid #d3d3d3;

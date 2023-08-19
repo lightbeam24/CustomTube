@@ -1,17 +1,39 @@
 html[watch-metadata-style^="aozora"] {
+--bt-wp-columns-margin-top: 80px;
 /* view count */
---bt-standard-view-count-display: block;
+--bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
 --bt-standard-view-count-right: 0;
 --bt-standard-view-count-font-size: 22px;
 --bt-standard-view-count-font-weight: 700;
 --bt-standard-view-count-text-color: var(--bt-text-color-5);
 --bt-standard-view-count-margin-top: 0;
+/* title */
+--bt-wp-title-font-family: arial;
+--bt-wp-title-font-size: 21px;
+--bt-wp-title-font-weight: bold;
+--bt-wp-title-padding: 5px 0;
+--bt-wp-above-title-padding: 0;
+--bt-wp-above-title-margin: 0;
+--bt-wp-above-title-margin-bottom: 0;
+--bt-wp-title-text-color: var(--bt-text-color-5);
+--bt-wp-title-text-color-hover: var(--bt-text-color-5);
+--bt-standard-view-count-text-color: var(--bt-text-color-5);
+--bt-standard-view-count-margin-top: 4px;
+--bt-wp-owner-pfp-display: none;
+/* channel name */
+--bt-wp-channel-name-display: block;
+--bt-wp-channel-name-text-color: var(--bt-blue);
+--bt-wp-channel-name-font-size:	14px;
+--bt-wp-channel-name-font-weight: 500;
+--bt-wp-channel-name-text-decoration-hover: underline;
+/* buttons */
+--bt-wp-button-text-transform: none;
 }
 html[watch-metadata-style^="cosmicpanda"] {
 --bt-wp-columns-margin-top: 80px;
 /* view count */
---bt-standard-view-count-display: block;
+--bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
 --bt-standard-view-count-right: -4px;
 --bt-standard-view-count-font-size: 22px;
@@ -31,12 +53,14 @@ html[watch-metadata-style^="cosmicpanda"] {
 --bt-standard-view-count-text-color: var(--bt-text-color-5);
 --bt-standard-view-count-margin-top: 4px;
 --bt-wp-owner-pfp-display: none;
+/* buttons */
+--bt-wp-button-text-transform: none;
 }
 html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-columns-margin-top: 100px;
 --bt-wp-primary-padding-right: 10px;
 /* view count */
---bt-standard-view-count-display: block;
+--bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
 --bt-standard-view-count-right: 15px;
 --bt-standard-view-count-font-size: 19px;
@@ -70,11 +94,13 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-channel-name-display: block;
 --bt-wp-channel-name-height: 22px;
 --bt-wp-channel-name-margin-top: -5px;
---bt-wp-channel-name-text-color: #333; /* formerly text color 2 */
+--bt-wp-channel-name-text-color: var(--bt-gcp-333); /* formerly text color 2 */
 --bt-wp-channel-name-font-size:	13px;
 --bt-wp-channel-name-font-weight: 500;
 --bt-wp-channel-name-text-decoration-hover: underline;
 /* sub btn NOTE MOVED */
+/* buttons */
+--bt-wp-button-text-transform: none;
 }
 html[watch-metadata-style^="hitchhiker-2015"] {
 --bt-wp-title-padding: 15px 15px 5px 15px;
@@ -97,7 +123,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-standard-view-count-right: 15px;
 --bt-standard-view-count-font-size: 19px;
 --bt-standard-view-count-font-weight: normal;
---bt-standard-view-count-text-color: var(--bt-text-color-5, #333);
+--bt-standard-view-count-text-color: var(--bt-text-color-5, var(--bt-gcp-333));
 --bt-standard-view-count-margin-top: 14px;
 /* avatar */
 --bt-owner-pfp-size: 48px;
@@ -123,13 +149,13 @@ html[dark][watch-metadata-style="hitchhiker-2014"] {
 }
 html[watch-metadata-style="polymer-2019"] {
 /* view count */
---bt-standard-view-count-display: block;
+--bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
 --bt-standard-view-count-right: unset;
 --bt-standard-view-count-left: 0;
 --bt-standard-view-count-font-size: 1.4rem;
 --bt-standard-view-count-font-weight: 400;
---bt-standard-view-count-text-color: var(--bt-spec-text-secondary);
+--bt-standard-view-count-text-color: var(--yt-spec-text-secondary);
 --bt-standard-view-count-margin-top: 20px;
 /* avatar */
 --bt-owner-pfp-size: 48px;
@@ -145,6 +171,35 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-wp-title-font-size: 18px;
 --bt-wp-title-font-weight: 400;
 /* NOTE: SUB BTN MOVED */
+/* buttons */
+--bt-wp-button-text-transform: uppercase;
+}
+html[watch-metadata-style^="polymer-202"] {
+/* view count */
+--bt-standard-view-count-display: flex;
+--bt-standard-view-count-position: absolute;
+--bt-standard-view-count-right: unset;
+--bt-standard-view-count-left: 0;
+--bt-standard-view-count-font-size: 1.4rem;
+--bt-standard-view-count-font-weight: 400;
+--bt-standard-view-count-text-color: var(--yt-spec-text-secondary);
+--bt-standard-view-count-margin-top: 20px;
+/* avatar */
+--bt-owner-pfp-size: 48px;
+--bt-owner-pfp-margin-right: 12px;
+/* top level buttons computed */
+--bt-top-level-buttons-position: relative;
+--bt-top-level-buttons-margin-right: -4px;
+/* from ryd */
+--bt-wp-top-row-border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+--bt-wp-top-row-padding-bottom: 10px;
+/* title */
+--bt-wp-title-font-family: Roboto, Arial, sans-serif;
+--bt-wp-title-font-size: 18px;
+--bt-wp-title-font-weight: 400;
+/* NOTE: SUB BTN MOVED */
+/* buttons */
+--bt-wp-button-text-transform: uppercase;
 }
 /* OUTER */
 /* NOTE: this is probably ok to not be universal */
@@ -245,14 +300,14 @@ html[watch-metadata-style] ytd-watch-flexy #text.complex-string.ytd-channel-name
 }
 /* styles */
 html[watch-metadata-style] ytd-watch-flexy ytd-channel-name a {
-  color: var(--bt-wp-channel-name-text-color);
+  color: var(--bt-wp-channel-name-text-color) !important;
   font-size: var(--bt-wp-channel-name-font-size);
   font-weight: var(--bt-wp-channel-name-font-weight);
 }
 html[watch-metadata-style] ytd-watch-flexy ytd-channel-name a:hover {
   text-decoration: var(--bt-wp-channel-name-text-decoration-hover) !important;
 }
-#bt-view-count {
+#bt-views-info {
   display: var(--bt-standard-view-count-display);
   position: var(--bt-standard-view-count-position);
   right: var(--bt-standard-view-count-right);
@@ -289,6 +344,10 @@ html:not([no-ryd])[watch-metadata-style^="hitchhiker-2014"] middle-row-border,
 html:not([no-ryd])[watch-metadata-style^="hitchhiker-2013"] middle-row-border {
   display: none;
 }
+/* 1.1.0: Other buttons */
+html[watch-metadata-style] ytd-menu-renderer button {
+  text-transform: var(--bt-wp-button-text-transform);
+}
 /* ---------------------------- METADATA END ----------------------------------------- */
 /* pfp upload date is in universalized elements for now */
 
@@ -319,6 +378,7 @@ html[gaming-style^="cosmicpanda"] {
 --bt-wp-gaming-link-text-transform-hover: underline;
 --bt-wp-gaming-text-margin-left: 8px;
 --bt-wp-gaming-non-box-display: none;
+--bt-wp-gaming-icon-visibility: hidden;
 }
 html[gaming-style^="hitchhiker"] {
 --bt-wp-gaming-radius: 0;
@@ -346,12 +406,14 @@ html[gaming-style^="hitchhiker"] {
 --bt-wp-gaming-link-text-transform-hover: underline;
 --bt-wp-gaming-text-margin-left: 8px;
 --bt-wp-gaming-non-box-display: none;
+--bt-wp-gaming-icon-visibility: hidden;
 }/*
 html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-wp-gaming-radius: 2px;
 --bt-wp-gaming-bg: linear-gradient(to top, #02c,#03c);
 --bt-wp-gaming-box-shadow: var(--bt-section-box-shadow);
 }*/
+html[gaming-style^="hitchhiker-2016"],
 html[gaming-style^="hitchhiker-2017"] {
 --bt-wp-gaming-radius: 0;
 --bt-wp-gaming-bg: var(--bt-section-bg);
@@ -380,6 +442,7 @@ html[gaming-style^="hitchhiker-2017"] {
 --bt-wp-gaming-link-text-transform-hover: underline;
 --bt-wp-gaming-text-margin-left: 12px;
 --bt-wp-gaming-non-box-display: none;
+--bt-wp-gaming-icon-visibility: hidden;
 }
 html[gaming-style] ytd-rich-metadata-renderer {
   border-radius: var(--bt-wp-gaming-radius);
@@ -429,6 +492,9 @@ html[gaming-style] ytd-rich-metadata-renderer:not([component-style="RICH_METADAT
 html[gaming-style] #text-container.ytd-rich-metadata-renderer {
   margin-left: var(--bt-wp-gaming-text-margin-left);
 }
+html[gaming-style] ytd-rich-metadata-renderer #call-to-action yt-icon {
+  visibility: var(--bt-wp-gaming-icon-visibility);
+}
 
 /* Fix this really weird bug that only happens on hitchhiker 2013 and 2014 for whatever reason */
 ytd-watch-flexy #columns #primary #primary-inner {
@@ -436,6 +502,8 @@ ytd-watch-flexy #columns #primary #primary-inner {
 }
 html[no-join] #sponsor-button,
 html[no-clip] button[aria-label="Clip"],
-html[no-thanks] button[aria-label="Thanks"] {
+html[no-thanks] button[aria-label="Thanks"],
+html[no-download] ytd-download-button-renderer,
+html[no-cast] .ytp-remote-button {
   display: none !important;
 }

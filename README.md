@@ -6,6 +6,8 @@ What if you could just CHOOSE your YouTube layout? Well, now you can!
 
 Available as a Firefox extension: https://addons.mozilla.org/en-CA/firefox/addon/customtube/
 
+Chrome version is submitted for review.
+
 CustomTube does not collect user data. I don't even know how to program that and I wouldn't want to anyway.
 
 Credits are below screenshots.
@@ -28,6 +30,6 @@ Early 2013 Layout Watch Page
 Credits:
 -
 
-New logo made by UnderscoreAngel. [Github page](https://github.com/UnderscoreAngel) (The stable version of the extension still uses the old logo that I made)
+New logo made by UnderscoreAngel. [Github page](https://github.com/UnderscoreAngel)
 
-CustomTube shares a small amount of code with YouTube Redux, namely the code for managing user settings, and the code for resizing the video player (this was already mentioned in the main.js file itself, but I feel more visible credit is deserved).
+CustomTube shares a small amount of code with YouTube Redux, namely the code for managing user settings, and the code for resizing the video player.

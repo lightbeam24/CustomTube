@@ -1,6 +1,6 @@
 {
     "name": "CustomTube",
-    "version": "1.0.4.6",
+    "version": "1.1.0",
     "description": "Choose your own YouTube layout, and more!",
     "permissions": ["activeTab", "storage"],
     "browser_action": {
@@ -47,7 +47,8 @@
 		"css/cosmicpanda.css",
 		"css/polymer.css",
 		"css/sub-btn.css",
-		"css/menus.css"
+		"css/menus.css",
+		"css/global-color-palette.css"
 		],
         "run_at": "document_start"
       },

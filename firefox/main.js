@@ -5,6 +5,7 @@ function getRndInteger(min, max) {
 }
 var oldSubCount = "pla.hol";
 var oldSubCountFull = "placeholder";
+sessionStorage.setItem("nebula-done-my-channel", "false");
 // Most of the code in this section is from YouTube Redux.
 let flags = {
 	"recalcListenersAdded":false
@@ -20,18 +21,26 @@ let tasks = {
 	"movedGuideButton": false,
 	"appliedWatchMetadata": "false",
 	"moveVid": "false",
+	"createdNewUploadIcon": false,
 	"createdNewBellIcon": false,
 	"createdNewHomeIcon": false,
 	"createdMyChannelButton": false,
+	"populatedMyChannelButton": false,
+	"createdNewMyChannelIcon": false,
+	"createdNewTrendingButton": false,
+	"populatedTrendingButton": false,
 	"createdNewTrendingIcon": false,
+	"createdNewTrendingIcon2": false,
 	"createdNewSubsIcon": false,
+	"createdNewLibraryIcon": false,
 	"createdNewHistoryIcon": false,
 	"createdNewLikedVidsIcon": false,
+	"createdNewWatchLaterIcon": false,
 	"createdNewExpandIcon": false,
 	"createdNewCollapseIcon": false,
 	"createdNewExpandIcon2": false,
 	"createdAbove": false,
-	"createdStandardViewCount": false,
+	"createdViewsInfo": false,
 	"createdNewLikeIcon": false,
 	"createdNewDisLikeIcon": false,
 	"createdPfpUploadDate": false,
@@ -50,7 +59,11 @@ let tasks = {
 	"startVidIdStuff": true,
 	"finishedSidebar": false,
 	"finishedWatch": false,
-	"movedTitleToTop": false
+	"movedTitleToTop": false,
+	
+	
+	"changedLogoEndpoint": false,
+	"finishedMisc": false
 };
 let BTVars = {
 	"playlistWatch": false,
@@ -61,8 +74,77 @@ let BTVars = {
 };
 aspectRatio = (window.screen.width / window.screen.height).toFixed(2);
 playerSize = {};
-playerSize.width = 854;
-playerSize.height = 480;
+if (BTConfig.videoPlayerSize == "PSAuto") {
+	playerSize.width = 854;
+	playerSize.height = 480;
+	document.querySelector("html").setAttribute("player-width", "854");
+	document.querySelector("html").setAttribute("player-height", "480");
+}
+if (BTConfig.videoPlayerSize == "PS586x330") {
+	playerSize.width = 586;
+	playerSize.height = 330;
+	document.querySelector("html").setAttribute("player-width", "586");
+	document.querySelector("html").setAttribute("player-height", "330");
+}
+if (BTConfig.videoPlayerSize == "PS640x360") {
+	playerSize.width = 640;
+	playerSize.height = 360;
+	document.querySelector("html").setAttribute("player-width", "640");
+	document.querySelector("html").setAttribute("player-height", "360");
+}
+if (BTConfig.videoPlayerSize == "PS854x480") {
+	playerSize.width = 854;
+	playerSize.height = 480;
+	document.querySelector("html").setAttribute("player-width", "854");
+	document.querySelector("html").setAttribute("player-height", "480");
+}
+if (BTConfig.videoPlayerSize == "PS1024x576") {
+	playerSize.width = 1024;
+	playerSize.height = 575;
+	document.querySelector("html").setAttribute("player-width", "1024");
+	document.querySelector("html").setAttribute("player-height", "576");
+}
+if (BTConfig.videoPlayerSize == "PS1280x720") {
+	playerSize.width = 1280;
+	playerSize.height = 720;
+	document.querySelector("html").setAttribute("player-width", "1280");
+	document.querySelector("html").setAttribute("player-height", "720");
+}
+if (BTConfig.videoPlayerSize == "PS480x360") {
+	playerSize.width = 480;
+	playerSize.height = 360;
+	document.querySelector("html").setAttribute("player-width", "480");
+	document.querySelector("html").setAttribute("player-height", "360");
+	document.querySelector("html").setAttribute("player-ratio", "4:3");
+}
+if (BTConfig.videoPlayerSize == "PS640x480") {
+	playerSize.width = 640;
+	playerSize.height = 480;
+	document.querySelector("html").setAttribute("player-width", "640");
+	document.querySelector("html").setAttribute("player-height", "480");
+	document.querySelector("html").setAttribute("player-ratio", "4:3");
+}
+if (BTConfig.videoPlayerSize == "PS768x576") {
+	playerSize.width = 768;
+	playerSize.height = 576;
+	document.querySelector("html").setAttribute("player-width", "768");
+	document.querySelector("html").setAttribute("player-height", "576");
+	document.querySelector("html").setAttribute("player-ratio", "4:3");
+}
+if (BTConfig.videoPlayerSize == "PS960x720") {
+	playerSize.width = 960;
+	playerSize.height = 720;
+	document.querySelector("html").setAttribute("player-width", "960");
+	document.querySelector("html").setAttribute("player-height", "720");
+	document.querySelector("html").setAttribute("player-ratio", "4:3");
+}
+if (BTConfig.videoPlayerSize == "PS360x640") {
+	playerSize.width = 360;
+	playerSize.height = 640;
+	document.querySelector("html").setAttribute("player-width", "360");
+	document.querySelector("html").setAttribute("player-height", "640");
+	document.querySelector("html").setAttribute("player-ratio", "9:16");
+}
 let observerComments;
 let observerRelated;
 let intervalsArray = [];
@@ -160,6 +242,7 @@ function alignItems() {
 	}
 }
 function recalculateVideoSize() {
+	console.log("recalc");
 	function addListenersForRecalc() {
 		let buttons = [
 			document.querySelector('.ytp-size-button')
@@ -195,13 +278,11 @@ function recalculateVideoSize() {
 		if (height == undefined) {height = playerSize.height;}
 		let existingRecalc = document.querySelector('#redux-recalc');
 		if (existingRecalc) {existingRecalc.remove();}
+		document.body.setAttribute('redux-player-width', width);
+		document.body.setAttribute('redux-player-height', height);
 		let script = document.createElement('script');
 		script.id = 'redux-recalc';
-		let scriptInner = `
-            var player = document.querySelector('#movie_player');
-            player.setInternalSize(${width},${height});
-            `;
-		script.appendChild(document.createTextNode(scriptInner));
+		script.src = browser.runtime.getURL('/scripts/resize.js');
 		document.body.append(script);
 
 		if (!isCheckingRecalc) {
@@ -287,13 +368,91 @@ function isFullscreen() {
 // YouTube Redux Code Ends
 /* ----------------------------------------------------------- BT START ----------------------------------------------------------- */
 /* BTSection getPREF */
+/* global vars test */
+var ytdApp = "placeholder";
 
-waitFor('ytd-app', 1, getInitialVariables);
-waitFor('ytd-app', 1, assignOnInitialLoad);
-waitFor('ytd-app', 1, urlListen);
+var canGo = false;
+function timeout(durationMs)
+{
+    return new Promise( (resolve, reject) => {
+        setTimeout(function() {
+            resolve();
+        }, durationMs);
+    } );
+}
+async function waitForElement(elm)
+{
+    while (null == document.querySelector(elm))
+    {
+        await new Promise(r => requestAnimationFrame(r));
+    }
+	await timeout(1).then(function() {
+		canGo = true;
+		return document.querySelector(elm);
+	});
+}
+async function waitForElement500(elm)
+{
+    while (null == document.querySelector(elm))
+    {
+        await new Promise(r => requestAnimationFrame(r));
+    }
+	await timeout(500).then(function() {
+		canGo = true;
+		return document.querySelector(elm);
+	});
+}
+console.log("ytdApp" + ytdApp);
+if (BTConfig.logoEndpoint == "LESubscriptions") {
+	var elm = "ytd-app";
+	waitForElement500(elm).then(function(elm) {
+		if (canGo != false) {
+			let modifyYtdApp = document.createElement('script');
+			modifyYtdApp.id = 'customtube-logo-script';
+			modifyYtdApp.src = browser.runtime.getURL('/scripts/logo-endpoint.js');
+			document.body.append(modifyYtdApp);
+		}
+	});
+}
+
+var elm = "#bt-your-vids-button";
+waitForElement(elm).then(function(elm) {
+	if (canGo != false) {
+		if (BTConfig.lowerCaseC) {
+			sessionStorage.setItem("lowerCaseC", true);
+		}
+		if (!BTConfig.lowerCaseC) {
+			sessionStorage.setItem("lowerCaseC", false);
+		}
+		let modifyYtdApp = document.createElement('script');
+		modifyYtdApp.src = browser.runtime.getURL('/scripts/my-channel-btn.js');
+		document.body.append(modifyYtdApp);
+		tasks.populatedMyChannelButton = true;
+	}
+});
+var elm = "#bt-trending-button";
+waitForElement(elm).then(function(elm) {
+	if (canGo != false) {
+		setTimeout(startTrendingButton, 100);
+		function startTrendingButton() {
+			if (tasks.createdNewTrendingButton == false) {
+				setTimeout(startTrendingButton, 200);
+			} else {
+				let modifyYtdApp = document.createElement('script');
+				modifyYtdApp.src = browser.runtime.getURL('/scripts/trending-btn.js');
+				document.body.append(modifyYtdApp);
+				tasks.populatedTrendingButton = true;
+			}
+		}
+	}
+});
+
+waitFor('ytd-app', 50, getInitialVariables);
+waitFor('ytd-app', 50, assignOnInitialLoad);
+waitFor('ytd-app', 50, urlListen);
 setTimeout(createNewElements, 1);
 setTimeout(moveElements, 1);
-waitFor('ytd-app', 1, repeatedActions);
+waitFor('ytd-app', 50, repeatedActions);
 // IMPORTANT: This function is passive! It is for getting variables only! This function is NOT for executing foreign functions! Stuff like my channel will need a thing here as well as elsewhere.
 function getInitialVariables() {
 	waitFor('ytd-topbar-menu-button-renderer', 250, getSignedOut);
@@ -302,13 +461,22 @@ function getInitialVariables() {
 	setTimeout(getLayout, 5);
 	setTimeout(getMaterialSearch, 10);
 	setTimeout(getCVDD, 10);
+	setTimeout(getCVPR, 10);
+	setTimeout(getHPVPR, 10);
+	setTimeout(getSVPR, 10);
+	setTimeout(getHSS, 10);
+	setTimeout(getVidRenSize, 10);
 	setTimeout(getSquare, 10);
+	setTimeout(getShowSidebar, 10);
 	setTimeout(getMyChannel, 10);
+	setTimeout(getFSNoScroll, 10);
 	setTimeout(getInfiScroll, 10);
 	setTimeout(getFlexyPlayerOverride, 10);
 	setTimeout(getJoin, 10);
 	setTimeout(getClip, 10);
 	setTimeout(getThanks, 10);
+	setTimeout(getDownload, 10);
+	setTimeout(getCast, 10);
 	setTimeout(getTrimmedViewCount, 15);
 	setTimeout(getRelatedVideos, 10);
 	setTimeout(getTFI, 10);
@@ -334,11 +502,83 @@ function getInitialVariables() {
 		document.querySelector("html").setAttribute("title-on-top", "false");
 		document.querySelector("html").setAttribute("upload-btn", "false");
 		document.querySelector("html").setAttribute("related-videos-size", "large");
+		document.querySelector("html").setAttribute("button-style", "amsterdam-2023");
+		if (BTConfig.layoutSelect == "none") {
+			document.querySelector("html").setAttribute("icon-type", "outline");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "disabled");
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "false");
+		}
+		if (BTConfig.layoutSelect == "polymer-2021") {
+			document.querySelector("html").setAttribute("global-color-palette", "polymer-2021");
+			document.querySelector("ytd-app").setAttribute("layout", "polymer");
+			document.querySelector("html").setAttribute("layout", "polymer-2021");
+			document.querySelector("html").setAttribute("channel-rework", "true");
+			document.querySelector("html").setAttribute("related-videos", "polymer-2021");
+			document.querySelector("ytd-app").setAttribute("layout-theme", "polymer-2021");
+			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("search-bar-style", "polymer-2021");
+			document.querySelector("html").setAttribute("watch-metadata-style", "polymer-2021");
+			document.querySelector("html").setAttribute("chips-style", "polymer-2021");
+			document.querySelector("html").setAttribute("topbar-style", "polymer-2021");
+			document.querySelector("html").setAttribute("header-style", "polymer-2021");
+			document.querySelector("html").setAttribute("sidebar-style", "polymer-2021");
+			document.querySelector("html").setAttribute("homepage", "rich-grid"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+			document.querySelector("html").setAttribute("homepage-columns", "2"); 
+			document.querySelector("html").setAttribute("grid-styling", "polymer-2021"); 
+			document.querySelector("html").setAttribute("show-upload-date-next-to-view-count", "true");
+			document.querySelector("html").setAttribute("show-upload-date-next-to-pfp", "false");
+			document.querySelector("html").setAttribute("sub-button-nested-sub-count", "false");
+			document.querySelector("html").setAttribute("related-videos-size", "large");
+			document.querySelector("html").setAttribute("video-renderer-size", "360");
+			document.querySelector("html").setAttribute("upload-btn", "false");
+			document.querySelector("html").setAttribute("search-style", "polymer-2021");
+			document.querySelector("html").setAttribute("channel-style", "polymer-2021");
+			document.querySelector("html").setAttribute("unrounded-vids", "");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("icon-type", "outline");
+			document.querySelector("html").setAttribute("button-style", "polymer-2021");
+		}
+		if (BTConfig.layoutSelect == "polymer-2020") {
+			document.querySelector("html").setAttribute("global-color-palette", "polymer-2020");
+			document.querySelector("ytd-app").setAttribute("layout", "polymer");
+			document.querySelector("html").setAttribute("layout", "polymer-2020");
+			document.querySelector("html").setAttribute("channel-rework", "true");
+			document.querySelector("html").setAttribute("related-videos", "polymer-2020");
+			document.querySelector("ytd-app").setAttribute("layout-theme", "polymer-2020");
+			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("search-bar-style", "polymer-2020");
+			document.querySelector("html").setAttribute("watch-metadata-style", "polymer-2020");
+			document.querySelector("html").setAttribute("chips-style", "polymer-2020");
+			document.querySelector("html").setAttribute("topbar-style", "polymer-2020");
+			document.querySelector("html").setAttribute("header-style", "polymer-2020");
+			document.querySelector("html").setAttribute("sidebar-style", "polymer-2020");
+			document.querySelector("html").setAttribute("homepage", "rich-grid"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+			document.querySelector("html").setAttribute("homepage-columns", "2"); 
+			document.querySelector("html").setAttribute("grid-styling", "polymer-2020"); 
+			document.querySelector("html").setAttribute("show-upload-date-next-to-view-count", "true");
+			document.querySelector("html").setAttribute("show-upload-date-next-to-pfp", "false");
+			document.querySelector("html").setAttribute("sub-button-nested-sub-count", "false");
+			document.querySelector("html").setAttribute("related-videos-size", "large");
+			document.querySelector("html").setAttribute("video-renderer-size", "360");
+			document.querySelector("html").setAttribute("upload-btn", "false");
+			document.querySelector("html").setAttribute("search-style", "polymer-2020");
+			document.querySelector("html").setAttribute("channel-style", "polymer-2020");
+			document.querySelector("html").setAttribute("unrounded-vids", "");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "polymer-2020");
+		}
 		if (BTConfig.layoutSelect == "polymer-2019") {
 			document.querySelector("html").setAttribute("global-color-palette", "polymer-2019");
 			document.querySelector("ytd-app").setAttribute("layout", "polymer");
 			document.querySelector("html").setAttribute("layout", "polymer-2019");
-			document.querySelector("html").setAttribute("color-style", "plmr");
 			document.querySelector("html").setAttribute("channel-rework", "true");
 			document.querySelector("html").setAttribute("related-videos", "polymer-2019");
 			document.querySelector("ytd-app").setAttribute("layout-theme", "polymer-2019");
@@ -350,23 +590,27 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("header-style", "polymer-2019");
 			document.querySelector("html").setAttribute("sidebar-style", "polymer-2019");
 			document.querySelector("html").setAttribute("homepage", "small-grid"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "polymer-2019"); 
 			document.querySelector("html").setAttribute("show-upload-date-next-to-pfp", "true");
 			document.querySelector("html").setAttribute("sub-button-nested-sub-count", "true");
 			document.querySelector("html").setAttribute("related-videos-size", "large");
+			document.querySelector("html").setAttribute("video-renderer-size", "246");
 			document.querySelector("html").setAttribute("upload-btn", "false");
 			document.querySelector("html").setAttribute("search-style", "polymer-2019");
 			document.querySelector("html").setAttribute("channel-style", "polymer-2019");
 			document.querySelector("html").setAttribute("unrounded-vids", "");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "polymer-2019");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2017") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2017");
 			document.querySelector("ytd-app").setAttribute("layout", "hitchhiker");
 			document.querySelector("html").setAttribute("layout", "hitchhiker-2017");
-			document.querySelector("html").setAttribute("color-style", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("channel-rework", "true");
 			document.querySelector("html").setAttribute("related-videos", "hitchhiker-2017");
 			document.querySelector("ytd-app").setAttribute("layout-theme", "hitchhiker-2017");
@@ -380,10 +624,14 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("header-style", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("homepage", "small-grid"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2017"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
 			document.querySelector("html").setAttribute("related-videos-size", "large");
+			document.querySelector("html").setAttribute("video-renderer-size", "246");
 			document.querySelector("html").setAttribute("upload-btn", "false");
 			document.querySelector("html").setAttribute("search-style", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("comments-style", "hitchhiker-2017");
@@ -393,12 +641,12 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-pfps", "");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "hitchhiker-2017");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2016") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2016");
 			document.querySelector("ytd-app").setAttribute("layout", "hitchhiker");
 			document.querySelector("html").setAttribute("layout", "hitchhiker-2016");
-			document.querySelector("html").setAttribute("color-style", "hitchhiker-2016");
 			document.querySelector("html").setAttribute("channel-rework", "true");
 			document.querySelector("html").setAttribute("related-videos", "hitchhiker-2016");
 			document.querySelector("ytd-app").setAttribute("layout-theme", "hitchhiker-2016");
@@ -411,11 +659,15 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2016");
 			document.querySelector("html").setAttribute("header-style", "hitchhiker-2016");
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2016");
-			document.querySelector("html").setAttribute("homepage", "small-grid"); 
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2016"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
 			document.querySelector("html").setAttribute("related-videos-size", "small");
+			document.querySelector("html").setAttribute("video-renderer-size", "196");
 			document.querySelector("html").setAttribute("upload-btn", "true");
 			document.querySelector("html").setAttribute("search-style", "hitchhiker-2016");
 			document.querySelector("html").setAttribute("comments-style", "hitchhiker-2016");
@@ -425,12 +677,12 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-pfps", "");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "hitchhiker-2016");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2015") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2015");
 			document.querySelector("ytd-app").setAttribute("layout", "hitchhiker");
 			document.querySelector("html").setAttribute("layout", "hitchhiker-2015");
-			document.querySelector("html").setAttribute("color-style", "hitchhiker-2015");
 			document.querySelector("html").setAttribute("channel-rework", "true");
 			document.querySelector("html").setAttribute("related-videos", "hitchhiker-2015");
 			document.querySelector("ytd-app").setAttribute("layout-theme", "hitchhiker-2015");
@@ -443,11 +695,15 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2015");
 			document.querySelector("html").setAttribute("header-style", "hitchhiker-2015");
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2015");
-			document.querySelector("html").setAttribute("homepage", "small-grid"); 
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2015"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
 			document.querySelector("html").setAttribute("related-videos-size", "small");
+			document.querySelector("html").setAttribute("video-renderer-size", "196");
 			document.querySelector("html").setAttribute("upload-btn", "true");
 			document.querySelector("html").setAttribute("search-style", "hitchhiker-2015");
 			document.querySelector("html").setAttribute("comments-style", "hitchhiker-2015");
@@ -457,12 +713,12 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "hitchhiker-2015");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2014") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2014");
 			document.querySelector("ytd-app").setAttribute("layout", "hitchhiker");
 			document.querySelector("html").setAttribute("layout", "hitchhiker-2014");
-			document.querySelector("html").setAttribute("color-style", "hitchhiker-2014");
 			document.querySelector("html").setAttribute("channel-rework", "true");
 			document.querySelector("html").setAttribute("related-videos", "hitchhiker-2014");
 			document.querySelector("ytd-app").setAttribute("layout-theme", "hitchhiker-2014");
@@ -475,11 +731,15 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2014");
 			document.querySelector("html").setAttribute("header-style", "hitchhiker-2014");
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2014");
-			document.querySelector("html").setAttribute("homepage", "smaller-grid"); 
+			document.querySelector("html").setAttribute("homepage", "smaller-grid");
+			document.querySelector("html").setAttribute("channel-vidpage", "smaller-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "smaller-grid");
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2014"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
 			document.querySelector("html").setAttribute("related-videos-size", "small");
+			document.querySelector("html").setAttribute("video-renderer-size", "196");
 			document.querySelector("html").setAttribute("upload-btn", "true");
 			document.querySelector("html").setAttribute("search-style", "hitchhiker-2014");
 			document.querySelector("html").setAttribute("comments-style", "hitchhiker-2014");
@@ -490,12 +750,52 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013");
+		}
+		if (BTConfig.layoutSelect == "hitchhiker-2013-3") {
+			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-3");
+			document.querySelector("ytd-app").setAttribute("layout", "hitchhiker");
+			document.querySelector("html").setAttribute("layout", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("channel-rework", "true");
+			document.querySelector("html").setAttribute("related-videos", "hitchhiker-2013-3");
+			document.querySelector("ytd-app").setAttribute("layout-theme", "hitchhiker-2013-3");
+			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("search-bar-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
+			document.querySelector("html").setAttribute("watch-metadata-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("logo", "shady");
+			document.querySelector("html").setAttribute("chips-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("header-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("homepage", "smaller-grid");
+			document.querySelector("html").setAttribute("channel-vidpage", "smaller-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "smaller-grid");
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+			document.querySelector("html").setAttribute("homepage-columns", "2"); 
+			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2013-3"); 
+			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
+			document.querySelector("html").setAttribute("related-videos-size", "small");
+			document.querySelector("html").setAttribute("video-renderer-size", "185");
+			document.querySelector("html").setAttribute("upload-btn", "true");
+			document.querySelector("html").setAttribute("search-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("comments-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("channel-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("gaming-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("static-scrolling", "");
+			document.querySelector("ytd-app").setAttribute("static-scrolling", "");
+			document.querySelector("html").setAttribute("pseudo-static", "");
+			document.querySelector("html").setAttribute("unrounded-vids", "");
+			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013-3");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-2") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-2");
 			document.querySelector("ytd-app").setAttribute("layout", "hitchhiker");
 			document.querySelector("html").setAttribute("layout", "hitchhiker-2013-2");
-			document.querySelector("html").setAttribute("color-style", "hitchhiker-2013-2");
 			document.querySelector("html").setAttribute("channel-rework", "true");
 			document.querySelector("html").setAttribute("related-videos", "hitchhiker-2013-2");
 			document.querySelector("ytd-app").setAttribute("layout-theme", "hitchhiker-2013-2");
@@ -508,11 +808,15 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2013-2");
 			document.querySelector("html").setAttribute("header-style", "hitchhiker-2013-2");
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2013-2");
-			document.querySelector("html").setAttribute("homepage", "small-grid"); 
+			document.querySelector("html").setAttribute("homepage", "smaller-grid");
+			document.querySelector("html").setAttribute("channel-vidpage", "smaller-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "smaller-grid");
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2013-2"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
 			document.querySelector("html").setAttribute("related-videos-size", "small");
+			document.querySelector("html").setAttribute("video-renderer-size", "185");
 			document.querySelector("html").setAttribute("upload-btn", "true");
 			document.querySelector("html").setAttribute("search-style", "hitchhiker-2013-2");
 			document.querySelector("html").setAttribute("comments-style", "hitchhiker-2013-2");
@@ -526,12 +830,12 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013-2");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-1") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-1");
 			document.querySelector("ytd-app").setAttribute("layout", "hitchhiker");
 			document.querySelector("html").setAttribute("layout", "hitchhiker-2013-1");
-			document.querySelector("html").setAttribute("color-style", "hitchhiker-2013-1");
 			document.querySelector("html").setAttribute("channel-rework", "true");
 			document.querySelector("html").setAttribute("related-videos", "hitchhiker-2013-1");
 			document.querySelector("ytd-app").setAttribute("layout-theme", "hitchhiker-2013-1");
@@ -544,11 +848,15 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2013-1");
 			document.querySelector("html").setAttribute("header-style", "hitchhiker-2013-1");
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2013-1");
-			document.querySelector("html").setAttribute("homepage", "small-grid"); 
+			document.querySelector("html").setAttribute("homepage", "smaller-grid"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "smaller-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "smaller-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2013-1"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
 			document.querySelector("html").setAttribute("related-videos-size", "small");
+			document.querySelector("html").setAttribute("video-renderer-size", "185");
 			document.querySelector("html").setAttribute("search-style", "hitchhiker-2013-1");
 			document.querySelector("html").setAttribute("comments-style", "hitchhiker-2013-1");
 			document.querySelector("html").setAttribute("channel-style", "cosmicpanda-3");
@@ -562,12 +870,12 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013-1");
 		}
 		if (BTConfig.layoutSelect == "cosmicpanda-3") {
 			document.querySelector("html").setAttribute("global-color-palette", "cosmicpanda-3");
 			document.querySelector("ytd-app").setAttribute("layout", "cosmicpanda");
 			document.querySelector("html").setAttribute("layout", "cosmicpanda-3");
-			document.querySelector("html").setAttribute("color-style", "cosmicpanda-3");
 			document.querySelector("html").setAttribute("channel-rework", "true");
 			document.querySelector("html").setAttribute("related-videos", "cosmicpanda-3");
 			document.querySelector("ytd-app").setAttribute("layout-theme", "cosmicpanda-3");
@@ -582,10 +890,14 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("header-visible", "");
 			document.querySelector("html").setAttribute("sidebar-style", "cosmicpanda-3");
 			document.querySelector("html").setAttribute("homepage", "list"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "cosmicpanda-3"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
 			document.querySelector("html").setAttribute("related-videos-size", "small");
+			document.querySelector("html").setAttribute("video-renderer-size", "138");
 			document.querySelector("html").setAttribute("search-style", "cosmicpanda-3");
 			document.querySelector("html").setAttribute("comments-style", "cosmicpanda-3");
 			document.querySelector("html").setAttribute("channel-style", "cosmicpanda-3");
@@ -601,6 +913,50 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "cosmicpanda-3");
+		}
+		if (BTConfig.layoutSelect == "aozora-2011") {
+			document.querySelector("html").setAttribute("global-color-palette", "aozora-2011");
+			document.querySelector("ytd-app").setAttribute("layout", "cosmicpanda");
+			document.querySelector("html").setAttribute("layout", "aozora-2011");
+			document.querySelector("html").setAttribute("channel-rework", "true");
+			document.querySelector("html").setAttribute("related-videos", "aozora-2011");
+			document.querySelector("ytd-app").setAttribute("layout-theme", "aozora-2011");
+			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("search-bar-style", "aozora-2011");
+			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
+			document.querySelector("html").setAttribute("watch-metadata-style", "aozora-2011");
+			document.querySelector("html").setAttribute("logo", "glossy");
+			document.querySelector("html").setAttribute("chips-style", "aozora-2011");
+			document.querySelector("html").setAttribute("topbar-style", "aozora-2011");
+			document.querySelector("html").setAttribute("header-style", "aozora-2011");
+			document.querySelector("html").setAttribute("header-visible", "");
+			document.querySelector("html").setAttribute("sidebar-style", "aozora-2011");
+			document.querySelector("html").setAttribute("homepage", "small-grid"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+			document.querySelector("html").setAttribute("homepage-columns", "2"); 
+			document.querySelector("html").setAttribute("grid-styling", "aozora-2011"); 
+			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
+			document.querySelector("html").setAttribute("related-videos-size", "smaller");
+			document.querySelector("html").setAttribute("video-renderer-size", "138");
+			document.querySelector("html").setAttribute("search-style", "aozora-2011");
+			document.querySelector("html").setAttribute("comments-style", "aozora-2011");
+			document.querySelector("html").setAttribute("channel-style", "cosmicpanda-3");
+			document.querySelector("html").setAttribute("gaming-style", "aozora-2011");
+			document.querySelector("html").setAttribute("upload-btn", "true");
+			document.querySelector("html").setAttribute("static-scrolling", "");
+			document.querySelector("ytd-app").setAttribute("static-scrolling", "");
+			document.querySelector("html").setAttribute("static", "");
+			document.querySelector("ytd-app").setAttribute("static", "");
+			document.querySelector("html").setAttribute("unrounded-vids", "");
+			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
+			document.querySelector("html").setAttribute("title-on-top", "true");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "aozora-2011");
 		}
 	}
 	function getMaterialSearch() {
@@ -617,6 +973,133 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "false");
 		}
 	}
+	function getCVPR() {
+		if (BTConfig.channelVidsPerRow == "CVPR1") {
+			document.querySelector("html").setAttribute("channel-vidpage", "list");
+		}
+		if (BTConfig.channelVidsPerRow == "CVPR2") {
+			document.querySelector("html").setAttribute("channel-vids-per-row", "2");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+		}
+		if (BTConfig.channelVidsPerRow == "CVPR3") {
+			document.querySelector("html").setAttribute("channel-vids-per-row", "3");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+		}
+		if (BTConfig.channelVidsPerRow == "CVPR4") {
+			document.querySelector("html").setAttribute("channel-vids-per-row", "4");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+		}
+		if (BTConfig.channelVidsPerRow == "CVPR5") {
+			document.querySelector("html").setAttribute("channel-vids-per-row", "5");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+		}
+		if (BTConfig.channelVidsPerRow == "CVPR6") {
+			document.querySelector("html").setAttribute("channel-vids-per-row", "6");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+		}
+		if (BTConfig.channelVidsPerRow == "CVPR7") {
+			document.querySelector("html").setAttribute("channel-vids-per-row", "7");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+		}
+		if (BTConfig.channelVidsPerRow == "CVPR8") {
+			document.querySelector("html").setAttribute("channel-vids-per-row", "8");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+		}
+	}
+	function getHPVPR() {
+		if (BTConfig.homepageVidsPerRow == "HPVPR1") {
+			document.querySelector("html").setAttribute("homepage", "list");
+		}
+		if (BTConfig.homepageVidsPerRow == "HPVPR2") {
+			document.querySelector("html").setAttribute("homepage-vids-per-row", "2");
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+		}
+		if (BTConfig.homepageVidsPerRow == "HPVPR3") {
+			document.querySelector("html").setAttribute("homepage-vids-per-row", "3");
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+		}
+		if (BTConfig.homepageVidsPerRow == "HPVPR4") {
+			document.querySelector("html").setAttribute("homepage-vids-per-row", "4");
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+		}
+		if (BTConfig.homepageVidsPerRow == "HPVPR5") {
+			document.querySelector("html").setAttribute("homepage-vids-per-row", "5");
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+		}
+		if (BTConfig.homepageVidsPerRow == "HPVPR6") {
+			document.querySelector("html").setAttribute("homepage-vids-per-row", "6");
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+		}
+		if (BTConfig.homepageVidsPerRow == "HPVPR7") {
+			document.querySelector("html").setAttribute("homepage-vids-per-row", "7");
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+		}
+		if (BTConfig.homepageVidsPerRow == "HPVPR8") {
+			document.querySelector("html").setAttribute("homepage-vids-per-row", "8");
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+		}
+	}
+	function getSVPR() {
+		if (BTConfig.subsVidsPerRow == "SVPR1") {
+			document.querySelector("html").setAttribute("subs-page", "list");
+		}
+		if (BTConfig.subsVidsPerRow == "SVPR2") {
+			document.querySelector("html").setAttribute("subs-page-vids-per-row", "2");
+			document.querySelector("html").setAttribute("subs-page", "small-grid");
+		}
+		if (BTConfig.subsVidsPerRow == "SVPR3") {
+			document.querySelector("html").setAttribute("subs-page-vids-per-row", "3");
+			document.querySelector("html").setAttribute("subs-page", "small-grid");
+		}
+		if (BTConfig.subsVidsPerRow == "SVPR4") {
+			document.querySelector("html").setAttribute("subs-page-vids-per-row", "4");
+			document.querySelector("html").setAttribute("subs-page", "small-grid");
+		}
+		if (BTConfig.subsVidsPerRow == "SVPR5") {
+			document.querySelector("html").setAttribute("subs-page-vids-per-row", "5");
+			document.querySelector("html").setAttribute("subs-page", "small-grid");
+		}
+		if (BTConfig.subsVidsPerRow == "SVPR6") {
+			document.querySelector("html").setAttribute("subs-page-vids-per-row", "6");
+			document.querySelector("html").setAttribute("subs-page", "small-grid");
+		}
+		if (BTConfig.subsVidsPerRow == "SVPR7") {
+			document.querySelector("html").setAttribute("subs-page-vids-per-row", "7");
+			document.querySelector("html").setAttribute("subs-page", "small-grid");
+		}
+		if (BTConfig.subsVidsPerRow == "SVPR8") {
+			document.querySelector("html").setAttribute("subs-page-vids-per-row", "8");
+			document.querySelector("html").setAttribute("subs-page", "small-grid");
+		}
+	}
+	function getHSS() {
+		if (BTConfig.hideShortsSubs == "HSSon") {
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+		}
+		if (BTConfig.hideShortsSubs == "HSSoff") {
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "false");
+		}
+	}
+	function getVidRenSize() {
+		if (BTConfig.videoRendererSize == "VRSize138") {
+			document.querySelector("html").setAttribute("video-renderer-size", "138");
+		}
+		if (BTConfig.videoRendererSize == "VRSize185") {
+			document.querySelector("html").setAttribute("video-renderer-size", "185");
+		}
+		if (BTConfig.videoRendererSize == "VRSize196") {
+			document.querySelector("html").setAttribute("video-renderer-size", "196");
+		}
+		if (BTConfig.videoRendererSize == "VRSize246") {
+			document.querySelector("html").setAttribute("video-renderer-size", "246");
+		}
+		if (BTConfig.videoRendererSize == "VRSize360") {
+			document.querySelector("html").setAttribute("video-renderer-size", "360");
+		}
+		if (BTConfig.videoRendererSize == "VRSize420") {
+			document.querySelector("html").setAttribute("video-renderer-size", "420");
+		}
+	}
 	function getSquare() {
 		if (BTConfig.squareVid) {
 			document.querySelector("html").setAttribute("unrounded-vids", "");
@@ -625,10 +1108,22 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
 		}
 	}
+	function getShowSidebar() {
+		document.querySelector("html").setAttribute("sidebar-persistent", "false");
+		if (BTConfig.alwaysShowSidebar) {
+			document.querySelector("html").setAttribute("sidebar-persistent", "true");
+		}
+	}
 	function getMyChannel() {
 		document.querySelector("html").setAttribute("my-channel-btn", "false");
 		if (BTConfig.myChannelSidebarBtn) {
 			document.querySelector("html").setAttribute("my-channel-btn", "true");
+		}
+	}
+	function getFSNoScroll() {
+		document.querySelector("html").setAttribute("disable-fullscreen-scroll", "false");
+		if (BTConfig.FSNoScroll) {
+			document.querySelector("html").setAttribute("disable-fullscreen-scroll", "true");
 		}
 	}
 	function getInfiScroll() {
@@ -657,12 +1152,25 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("no-thanks", "");
 		}
 	}
+	function getDownload() {
+		if (BTConfig.noDownload) {
+			document.querySelector("html").setAttribute("no-download", "");
+		}
+	}
+	function getCast() {
+		if (BTConfig.noCast) {
+			document.querySelector("html").setAttribute("no-cast", "");
+		}
+	}
 	function getTrimmedViewCount() {
 		BTVars.trimViews = false;
 		if (BTConfig.layoutSelect == "hitchhiker-2015") {
 			BTVars.trimViews = true;
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2014") {
+			BTVars.trimViews = true;
+		}
+		if (BTConfig.layoutSelect == "hitchhiker-2013-3") {
 			BTVars.trimViews = true;
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-2") {
@@ -672,6 +1180,9 @@ function getInitialVariables() {
 		    BTVars.trimViews = true;
 		}
 		if (BTConfig.layoutSelect == "cosmicpanda-3") {
+		    BTVars.trimViews = true;
+		}
+		if (BTConfig.layoutSelect == "aozora-2011") {
 		    BTVars.trimViews = true;
 		}
 	}
@@ -696,23 +1207,50 @@ function getInitialVariables() {
 	}
 }
 function assignOnInitialLoad() {
-	waitFor('ytd-guide-entry-renderer #endpoint', 1000, assignSidebarItems);
+	waitFor('ytd-guide-entry-renderer #endpoint', 500, assignSidebarItems);
+	/*var elm = "ytd-guide-entry-renderer #endpoint";
+	waitForElement(elm).then(function(elm) {
+		if (canGo != false) {
+			assignSidebarItems();
+		}
+	});*/
 	function assignSidebarItems() {
 		var Section1 = document.querySelectorAll('ytd-guide-section-renderer')[0];
 		var Section2 = document.querySelectorAll('ytd-guide-section-renderer')[1];
 		Section1.querySelectorAll('ytd-guide-entry-renderer')[0].setAttribute("id", "bt-home-button");
 		//Section1.querySelectorAll('ytd-guide-entry-renderer')[1].setAttribute("id", "bt-shorts-button");
-		Section1.querySelector('ytd-guide-entry-renderer a[title="Shorts"]').parentNode.setAttribute("id", "bt-shorts-button");
-		Section1.querySelector('ytd-guide-entry-renderer a[title="Subscriptions"]').parentNode.setAttribute("id", "bt-subs-button");
+		if (document.querySelector("ytd-guide-entry-renderer a[title='Shorts']") != null) {
+			document.querySelector('ytd-guide-entry-renderer a[title="Shorts"]').parentNode.setAttribute("id", "bt-shorts-button");
+		}
+		if (document.querySelector("ytd-guide-entry-renderer a[href='/feed/subscriptions']") != null) {
+			document.querySelector('ytd-guide-entry-renderer a[href="/feed/subscriptions"]').parentNode.setAttribute("id", "bt-subs-button");
+		}
+		if (document.querySelector("ytd-guide-entry-renderer a[href='/feed/library']") != null) {
+			document.querySelector('ytd-guide-entry-renderer a[href="/feed/library"]').parentNode.setAttribute("identifier", "bt-library-button");
+		}
 		var loopThroughSidebarAssignments = setInterval(function() {
-			if (document.querySelector("#endpoint[title='Liked videos']") != null) {
+			if (document.querySelector("#endpoint[href='/playlist?list=LL']") != null) {
 				if (document.querySelector("#bt-liked-vids-button") == null) {
-					setTimeout(doLikedVidsBtn, 100);
+					setTimeout(doLikedVidsBtn, 10);
 				}
 			}
 			if (document.querySelector("ytd-guide-collapsible-entry-renderer[can-show-more]") != null) {
 				if (document.querySelector("#bt-show-more-button") == null) {
-					setTimeout(doDropDowns, 100);
+					setTimeout(doDropDowns, 10);
+				}
+			}
+			if (document.querySelector("#bt-your-vids-button") == null) {
+				if (document.querySelector("ytd-guide-entry-renderer #endpoint[href^='https://studio.youtube.com/channel']") != null) {
+					setTimeout(doYourVidsBtn, 10);
+					console.log("[CustomTube] Using definite method for creating My Channel button.");
+				} else if (document.querySelector("ytd-guide-section-renderer:nth-child(1) ytd-guide-collapsible-section-entry-renderer ytd-guide-entry-renderer:nth-child(2)") != null) {
+					setTimeout(doYourVidsBtn2, 100);
+					console.log("[CustomTube] Using alternate method for creating My Channel button.");
+				}
+			}
+			if (document.querySelector("#bt-watch-later-button") == null) {
+				if (document.querySelector("#endpoint[href='/playlist?list=WL']") != null) {
+					setTimeout(doWLBtn, 10);
 				}
 			}
 			if (document.querySelector("#bt-liked-vids-button") != null) {
@@ -722,28 +1260,45 @@ function assignOnInitialLoad() {
 					}
 				}
 			}
-		}, 600);
+		}, 250);
 		function doLikedVidsBtn() {
-			let likedVids = document.querySelector("#endpoint[title='Liked videos']");
+			let likedVids = document.querySelector("#endpoint[href='/playlist?list=LL']");
 			let likedVidsBtn = likedVids.parentNode;
 			likedVidsBtn.setAttribute("id", "bt-liked-vids-button");
 		}
-		let watchHistory = document.querySelector("#endpoint[title='History']");
-		let historyBtn = watchHistory.parentNode;
-		historyBtn.setAttribute("id", "bt-history-button");
+		function doYourVidsBtn() {
+			let yourVids = document.querySelector("ytd-guide-entry-renderer #endpoint[href^='https://studio.youtube.com/channel']");
+			let yourVidsBtn = yourVids.parentNode;
+			yourVidsBtn.setAttribute("id", "bt-your-vids-button");
+		}
+		function doYourVidsBtn2() {
+			let yourVids = document.querySelector("ytd-guide-section-renderer:nth-child(1) ytd-guide-collapsible-section-entry-renderer ytd-guide-entry-renderer:nth-child(2)");
+			yourVids.setAttribute("id", "bt-your-vids-button");
+		}
+		function doWLBtn() {
+			let wLater = document.querySelector("#endpoint[href='/playlist?list=WL']");
+			let wLaterBtn = wLater.parentNode;
+			wLaterBtn.setAttribute("id", "bt-watch-later-button");
+		}
+		if (document.querySelector("ytd-guide-entry-renderer a[href='/feed/history']") != null) {
+			let watchHistory = document.querySelector("#endpoint[href='/feed/history']");
+			let historyBtn = watchHistory.parentNode;
+			historyBtn.setAttribute("id", "bt-history-button");
+		}
 		// Note: no need to do this with show less, as it already has an id of #collapser-item.
 		//deletecwaitFor('ytd-guide-collapsible-entry-renderer[can-show-more]', 1, doDropDowns);
 		function doDropDowns() {
 			Section1.querySelector('ytd-guide-collapsible-entry-renderer[can-show-more]').setAttribute("id", "bt-show-more-button");
 			Section2.querySelector('ytd-guide-collapsible-entry-renderer[can-show-more]').setAttribute("id", "bt-show-more-button-2");
 		}
-		waitFor('ytd-guide-entry-renderer #endpoint[title="Trending"]', 1, mustWaitMore);
+		waitFor('ytd-guide-entry-renderer #endpoint[href^="/feed/trending"]', 1, mustWaitMore);
 		function mustWaitMore() {
 			var Section3 = document.querySelectorAll('ytd-guide-section-renderer')[2];
 			Section3.setAttribute("id","#bt-section-3");
-			Section3.querySelectorAll('ytd-guide-entry-renderer')[0].setAttribute("id", "bt-trending-button");
+			document.querySelector('ytd-guide-entry-renderer #endpoint[href^="/feed/trending"]').parentNode.setAttribute("id", "bt-trending-button");
 		}
-		waitFor('ytd-guide-entry-renderer', 5, shortsSidebarItemThing);
+		waitFor('ytd-guide-entry-renderer', 25, shortsSidebarItemThing);
+		//waitFor('#bt-your-vids-button', 250, sidebarItemThing);
 		function shortsSidebarItemThing() {
 			if (BTConfig.homeSidebarBtn) {
 				document.querySelector("html").setAttribute("home-btn", "true");
@@ -752,6 +1307,10 @@ function assignOnInitialLoad() {
 					document.querySelector("#bt-home-button #endpoint").title = "What to Watch";
 				}
 				if (BTConfig.layoutSelect == "hitchhiker-2014") {
+					document.querySelector("#bt-home-button yt-formatted-string").innerText = "What to Watch";
+					document.querySelector("#bt-home-button #endpoint").title = "What to Watch";
+				}
+				if (BTConfig.layoutSelect == "hitchhiker-2013-3") {
 					document.querySelector("#bt-home-button yt-formatted-string").innerText = "What to Watch";
 					document.querySelector("#bt-home-button #endpoint").title = "What to Watch";
 				}
@@ -780,19 +1339,43 @@ function assignOnInitialLoad() {
 					document.querySelector("#bt-home-button #endpoint").title = "Home";
 				}
 			} else {
-				document.querySelector("#bt-home-button").remove();
+				document.querySelector("#bt-home-button").style.display = "none";
 			}
 			if (BTConfig.shortsSidebarBtn) {
 				document.querySelector("html").setAttribute("shorts-btn", "true");
 			} else {
-				document.querySelector("#bt-shorts-button").remove();
+				document.querySelector("#bt-shorts-button").style.display = "none";
+			}
+			if (BTConfig.trendingSidebarBtn) {
+				document.querySelector("html").setAttribute("trending-btn", "true");
+				document.querySelector("#bt-trending-button").style.display = "none";
+			} else {
+				document.querySelector("#bt-trending-button-2").style.display = "none";
 			}
 			if (BTConfig.subsSidebarBtn) {
 				document.querySelector("html").setAttribute("subs-btn", "true");
 			} else {
-				document.querySelector("#bt-subs-button").remove();
+				document.querySelector("#bt-subs-button").style.display = "none";
 			}
 		}
+		//function sidebarItemThing() {
+			/*if (BTConfig.myChannelSidebarBtn) {
+				if (tasks.populatedMyChannelButton) {
+					document.querySelector("html").setAttribute("my-channel-btn", "true");
+					document.querySelector("#bt-my-channel-button yt-formatted-string").innerText = "My Channel";
+					document.querySelector("#bt-my-channel-button #endpoint").title = "My Channel";
+					if (BTConfig.lowerCaseC) {
+						document.querySelector("#bt-my-channel-button yt-formatted-string").innerText = "My channel";
+					}
+				}
+				else {
+					setTimeout(sidebarItemThing, 500);
+				}
+				//document.querySelector("#bt-your-vids-button").remove();
+			} else {
+				document.querySelector("#bt-my-channel-button").remove();
+			}*/
+		//}
 	}
 }
 /* BTSection getHREF */
@@ -842,7 +1425,7 @@ function getHref() {
 			document.querySelector("html").setAttribute("location", "channel");
 			if (location.href.includes('/videos')) {
 				document.querySelector("html").setAttribute("channel-page", "videos");
-				if (document.querySelector("html[channel-vids-dropdown]") != null) {
+				if (document.querySelector("html[channel-vids-dropdown='disabled']") == null) {
 					waitFor("#dropdown-btn", 250, getChannelVidsSort);
 				}
 			} else {
@@ -1023,7 +1606,9 @@ function createNewElements() {
 		waitFor('html[layout] ytd-masthead #end #buttons div', 300, createUploadButton);
 		waitFor('html[layout] #content.ytd-app', 100, createNewHeader);
 		waitFor('html[layout] ytd-notification-topbar-button-renderer yt-icon', 300, createNewBellIcon);
+		waitFor('html[layout]:not([signed-out]) ytd-topbar-menu-button-renderer yt-icon', 300, createNewUploadIcon);
 	}
+	waitFor('html[layout] #guide-button yt-icon', 1250, createGuideBlocker);
 	waitFor('html ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer', 800, createNewChanVidsDropDown);
 	setTimeout(loopThroughSidebarCreates, 1);
 	var loopThroughSidebarCreates = setInterval(function() {
@@ -1040,15 +1625,44 @@ function createNewElements() {
 					setTimeout(createMyChannel, 1);
 				}
 			}
+			//???
 			if (tasks.createdMyChannelButton) {
 				if (document.querySelector("html[layout]") == null) {
 					tasks.finishedSidebar = true;
+				}
+			}
+			if (!tasks.createdNewMyChannelIcon) {
+				if (tasks.populatedMyChannelButton) {
+					var proceed = sessionStorage.getItem("nebula-done-my-channel");
+					if (proceed != false) {
+						if (document.querySelector("#bt-my-channel-button yt-icon") != null) {
+							if (document.querySelector("#bt-your-vids-button") != null) {
+								if (document.querySelector("#bt-my-channel-icon") === null) {
+									setTimeout(createNewMyChannelIcon, 1);
+								}
+							}
+						}
+					}
+				}
+			}
+			if (!tasks.createdNewTrendingButton) {
+				if (document.querySelector("html #bt-trending-button-2 yt-icon") == null) {
+					setTimeout(createNewTrendingButton, 1);
 				}
 			}
 			if (!tasks.createdNewTrendingIcon) {
 				if (document.querySelector("html[layout] #bt-trending-button") != null) {
 					if (document.querySelector("#bt-trending-icon") === null) {
 						setTimeout(createNewTrendingIcon, 1);
+					}
+				}
+			}
+			if (!tasks.createdNewTrendingIcon2) {
+				if (tasks.populatedTrendingButton) {
+					if (document.querySelector("html[layout] #bt-trending-button-2") != null) {
+						if (document.querySelector("#bt-trending-icon-2") === null) {
+							setTimeout(createNewTrendingIcon2, 1);
+						}
 					}
 				}
 			}
@@ -1066,10 +1680,24 @@ function createNewElements() {
 					}
 				}
 			}
+			if (!tasks.createdNewLibraryIcon) {
+				if (document.querySelector("html[layout] ytd-guide-entry-renderer[identifier='bt-library-button']") != null) {
+					if (document.querySelector("#bt-library-icon") === null) {
+						setTimeout(createNewLibraryIcon, 1);
+					}
+				}
+			}
 			if (!tasks.createdNewLikedVidsIcon) {
 				if (document.querySelector("html[layout] #bt-liked-vids-button") != null) {
 					if (document.querySelector("#bt-liked-vids-icon") === null) {
 						setTimeout(createNewLikedVidsIcon, 1);
+					}
+				}
+			}
+			if (!tasks.createdNewWatchLaterIcon) {
+				if (document.querySelector("html[layout] #bt-watch-later-button") != null) {
+					if (document.querySelector("#bt-watch-later-icon") === null) {
+						setTimeout(createNewWatchLaterIcon, 1);
 					}
 				}
 			}
@@ -1101,10 +1729,15 @@ function createNewElements() {
 		if (
 			tasks.createdNewHomeIcon &&
 			tasks.createdMyChannelButton &&
+			tasks.createdNewMyChannelIcon &&
+			tasks.createdNewTrendingButton &&
 			tasks.createdNewTrendingIcon &&
+			tasks.createdNewTrendingIcon2 &&
 			tasks.createdNewSubsIcon &&
+			tasks.createdNewLibraryIcon &&
 			tasks.createdNewHistoryIcon &&
 			tasks.createdNewLikedVidsIcon &&
+			tasks.createdNewWatchLaterIcon &&
 			tasks.createdNewExpandIcon &&
 			tasks.createdNewExpandIcon2 &&
 			tasks.createdNewCollapseIcon
@@ -1128,13 +1761,20 @@ function createNewElements() {
 					}
 				}
 			}
-			if (!tasks.createdStandardViewCount) {
+			if (!tasks.createdViewsInfo) {
 				if (document.querySelector("html[layout] ytd-watch-flexy #top-row #owner") != null) {
-					if (document.querySelector("#bt-view-count") === null) {
-						setTimeout(createStandardViewCount, 1);
+					if (document.querySelector("#bt-views-info") === null) {
+						setTimeout(createViewsInfo, 1);
 					}
 				}
 			}
+		/*	if (!tasks.createdStandardUploadDate) {
+				if (document.querySelector("html[layout] ytd-watch-flexy #top-row #owner") != null) {
+					if (document.querySelector("#bt-upload-date") === null) {
+						setTimeout(createStandardUploadDate, 1);
+					}
+				}
+			}*/
 			if (!tasks.createdLtoDBar) {
 				if (document.querySelector("html[layout]:not([layout^='polymer']) ytd-watch-flexy #top-row #owner") != null) {
 					if (document.querySelector("#bt-bar") === null) {
@@ -1244,7 +1884,7 @@ function createNewElements() {
 	var getFinishedWatchCreates = setInterval(function() {
 		if (
 			tasks.createdAbove &&
-			tasks.createdStandardViewCount &&
+			tasks.createdViewsInfo &&
 			tasks.createdLtoDBar &&
 			tasks.createdNewLikeString &&
 			tasks.createdNewLikeIcon &&
@@ -1321,18 +1961,44 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#guide-button svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #guide-button svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		#guide-button yt-icon-shape {
+		html:not([icon-type="outline"]) #guide-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
 			</g>
 		</svg>
+		`;
+		container.insertBefore(newElem, container.children[0]);
+	}
+	function createGuideBlocker() {
+		let container = document.querySelector('#guide-button');
+		const newElem = document.createElement("bt-blocker");
+		newElem.id = 'bt-guide-blocker';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.setAttribute("title", "Guide Button disabled because CustomTube is set to always show the sidebar.");
+		newElem.innerHTML = `
+		<style>
+		html[sidebar-persistent="true"] #bt-guide-blocker {
+			display: block;
+			width: 44px;
+			height: 44px;
+			z-index: 9999999999;
+			cursor: not-allowed;
+			position: absolute;
+			margin-left: -11px;
+			margin-top: -11px;
+		}
+		html[sidebar-persistent="true"] #guide-button {
+			z-index: -9999999999;
+		}
+		</style>
 		`;
 		container.insertBefore(newElem, container.children[0]);
 	}
@@ -1349,21 +2015,53 @@ function createNewElements() {
 		`;
 		container.insertBefore(newElem, container.children[0].nextSibling);
 	}
+	function createNewUploadIcon() {
+		tasks.createdNewUploadIcon = true;
+		let container = document.querySelector('ytd-topbar-menu-button-renderer yt-icon');
+		const newElem = document.createElement("bt-icon");
+		newElem.id = 'bt-upload-icon';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<style>
+		html:not([icon-type="outline"]) ytd-topbar-menu-button-renderer svg:not([icon-type="filled"]) {
+			display: none !important;
+		}
+		html:not([icon-type="outline"]) ytd-topbar-menu-button-renderer yt-icon-shape {
+			display: none !important;
+		}
+		</style>
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+			<g class="yt-icon">
+				<path class="yt-icon" d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"></path>
+			</g>
+		</svg>
+		`;
+		container.insertBefore(newElem, container.children[0]);
+	}
 	function createNewBellIcon() {
 		tasks.createdNewBellIcon = true;
-		/*let container = document.querySelector('ytd-notification-topbar-button-renderer yt-icon');
+		let container = document.querySelector('ytd-notification-topbar-button-renderer yt-icon');
 		const newElem = document.createElement("bt-icon");
 		newElem.id = 'bt-notif-icon';
 		newElem.setAttribute("class", "bt-universalized-element");
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<style>
+		html:not([icon-type="outline"]) ytd-notification-topbar-button-renderer svg:not([icon-type="filled"]) {
+			display: none !important;
+		}
+		html:not([icon-type="outline"]) ytd-notification-topbar-button-renderer yt-icon-shape {
+			display: none !important;
+		}
+		</style>
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"></path>
 			</g>
 		</svg>
 		`;
-		container.insertBefore(newElem, container.children[0]);*/
+		container.insertBefore(newElem, container.children[0]);
 	}
 	function createNewHeader() {
 		let container = document.querySelector('#content.ytd-app');
@@ -1425,14 +2123,14 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#bt-home-button svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #bt-home-button svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		#bt-home-button yt-icon-shape {
+		html:not([icon-type="outline"]) #bt-home-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8"></path>
 			</g>
@@ -1441,55 +2139,62 @@ function createNewElements() {
 		container.insertBefore(newElem, container.children[0].nextSibling);
 	}
 	function createMyChannel() {
-		tasks.createdMyChannelButton = true;
 		let sidebar = document.querySelector('ytd-guide-section-renderer #items');
-		const myCh = document.createElement("bt-sidebar-item-renderer");
-		myCh.id = 'bt-my-channel-btn';
+		//const myCh = document.createElement("bt-sidebar-item-renderer");
+		const myCh = document.createElement("ytd-guide-entry-renderer");
+		myCh.id = 'bt-my-channel-button';
 		myCh.setAttribute("class", "bt-universalized-element style-scope bt-simple-sidebar-item");
 		myCh.setAttribute("bt-optimized-universal-element", "");
-		if (!BTConfig.lowerCaseC) {
-		myCh.innerHTML = `
-		<a href="/profile" title="My Channel">
-			<bt-icon id="filled">
-				<svg icon-type="plmr">
-					<g>
-						<path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"></path>
-					</g>
-				</svg>
-			</bt-icon>
-			<bt-icon id="outline">
-				<svg icon-type="PLMR">
-					<g>
-						<path d="M3,3v18h18V3H3z M4.99,20c0.39-2.62,2.38-5.1,7.01-5.1s6.62,2.48,7.01,5.1H4.99z M9,10c0-1.65,1.35-3,3-3s3,1.35,3,3 c0,1.65-1.35,3-3,3S9,11.65,9,10z M12.72,13.93C14.58,13.59,16,11.96,16,10c0-2.21-1.79-4-4-4c-2.21,0-4,1.79-4,4 c0,1.96,1.42,3.59,3.28,3.93c-4.42,0.25-6.84,2.8-7.28,6V4h16v15.93C19.56,16.73,17.14,14.18,12.72,13.93z"></path>
-					</g>
-				</svg>
-			</bt-icon>
-			<span id="text" bt-lang="en">My Channel</span>
-		</a>
-		`;
-		}
-		if (BTConfig.lowerCaseC) {
-		myCh.innerHTML = `
-		<a href="/profile" title="My channel">
-			<bt-icon id="filled">
-				<svg icon-type="plmr">
-					<g>
-						<path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"></path>
-					</g>
-				</svg>
-			</bt-icon>
-			<bt-icon id="outline">
-				<svg icon-type="PLMR">
-					<g>
-						<path d="M3,3v18h18V3H3z M4.99,20c0.39-2.62,2.38-5.1,7.01-5.1s6.62,2.48,7.01,5.1H4.99z M9,10c0-1.65,1.35-3,3-3s3,1.35,3,3 c0,1.65-1.35,3-3,3S9,11.65,9,10z M12.72,13.93C14.58,13.59,16,11.96,16,10c0-2.21-1.79-4-4-4c-2.21,0-4,1.79-4,4 c0,1.96,1.42,3.59,3.28,3.93c-4.42,0.25-6.84,2.8-7.28,6V4h16v15.93C19.56,16.73,17.14,14.18,12.72,13.93z"></path>
-					</g>
-				</svg>
-			</bt-icon>
-			<span id="text" bt-lang="en">My channel</span>
-		</a>
-		`;
-		}
 		sidebar.insertBefore(myCh, sidebar.children[0].nextSibling);	
+		tasks.createdMyChannelButton = true;
+	}
+	function createNewMyChannelIcon() {
+		tasks.createdNewMyChannelIcon = true;
+		let container = document.querySelector('#bt-my-channel-button yt-icon');
+		const newElem = document.createElement("bt-icon-container");
+		newElem.id = 'bt-my-channel-icon';
+		newElem.setAttribute("class", "bt-universalized-element bt-contents-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<style>
+		html:not([icon-type="outline"]) #bt-my-channel-button svg:not([icon-type="filled"]) {
+			display: none !important;
+		}
+		html[icon-type="outline"] #bt-my-channel-button[active] #outline {
+			display: none !important;
+		}
+		html[icon-type="outline"] #bt-my-channel-button[active] #filled {
+			display: block !important;
+		}
+		#bt-my-channel-button yt-icon-shape {
+			display: none !important;
+		}
+		</style>
+		<bt-icon id="filled">
+			<svg icon-type="filled">
+				<g>
+					<path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"></path>
+				</g>
+			</svg>
+		</bt-icon>
+		<bt-icon id="outline">
+			<svg icon-type="outline">
+				<g>
+					<path d="M3,3v18h18V3H3z M4.99,20c0.39-2.62,2.38-5.1,7.01-5.1s6.62,2.48,7.01,5.1H4.99z M9,10c0-1.65,1.35-3,3-3s3,1.35,3,3 c0,1.65-1.35,3-3,3S9,11.65,9,10z M12.72,13.93C14.58,13.59,16,11.96,16,10c0-2.21-1.79-4-4-4c-2.21,0-4,1.79-4,4 c0,1.96,1.42,3.59,3.28,3.93c-4.42,0.25-6.84,2.8-7.28,6V4h16v15.93C19.56,16.73,17.14,14.18,12.72,13.93z"></path>
+				</g>
+			</svg>
+		</bt-icon>
+		`;
+		container.insertBefore(newElem, container.children[0]);
+	}
+	function createNewTrendingButton() {
+		tasks.createdNewTrendingButton = true;
+		let sidebar = document.querySelector('ytd-guide-section-renderer #items');
+		const newElem = document.createElement("ytd-guide-entry-renderer");
+		newElem.id = 'bt-trending-button-2';
+		newElem.setAttribute("class", "bt-universalized-element style-scope bt-simple-sidebar-item");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		sidebar.insertBefore(newElem, sidebar.children[1].nextSibling);	
 	}
 	function createNewTrendingIcon() {
 		tasks.createdNewTrendingIcon = true;
@@ -1500,20 +2205,44 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#bt-trending-button svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #bt-trending-button svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		#bt-trending-button yt-icon-shape {
+		html:not([icon-type="outline"]) #bt-trending-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M19.642 10.63c-.314-.395-.658-.767-1.026-1.11-.87-.808-1.884-1.375-2.724-2.22-1.72-1.73-2.3-4.183-1.546-6.496.123-.375-.23-.72-.584-.566-.822.36-1.606.873-2.285 1.425-3.43 2.79-4.704 7.446-3.115 11.645.038.144.09.3.09.45 0 .3-.182.57-.448.687-.3.133-.62.044-.856-.175-.072-.068-.137-.143-.197-.222-1.11-1.452-1.52-3.386-1.21-5.19.08-.456-.49-.713-.77-.35-1.4 1.802-2.09 4.21-1.95 6.48.04.68.158 1.355.34 2.008.23.82.57 1.607 1.01 2.33 1.4 2.31 3.854 3.977 6.49 4.31 2.805.355 5.836-.162 7.997-2.15 2.408-2.217 3.285-5.74 2-8.823-.052-.123-.106-.243-.163-.363-.285-.596-.64-1.154-1.045-1.67m-4.288 8.098c-.366.324-.95.645-1.415.797-1.32.435-2.62-.083-3.516-.814-.13-.1-.084-.3.073-.35 1.37-.44 2.173-1.49 2.41-2.542.23-1.015-.182-1.885-.354-2.878-.14-.827-.128-1.544.135-2.297.047-.13.226-.147.283-.02.82 1.825 3.136 2.63 3.534 4.64.037.18.058.367.063.55.034 1.06-.427 2.226-1.21 2.92"></path>
 			</g>
 		</svg>
 		`;
 		container.insertBefore(newElem, container.children[0].nextSibling);
+	}
+	function createNewTrendingIcon2() {
+		tasks.createdNewTrendingIcon2 = true;
+		let container = document.querySelector('#bt-trending-button-2 yt-icon');
+		const newElem = document.createElement("bt-icon");
+		newElem.id = 'bt-trending-icon-2';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<style>
+		html:not([icon-type="outline"]) #bt-trending-button-2 svg:not([icon-type="filled"]) {
+			display: none !important;
+		}
+		html:not([icon-type="outline"]) #bt-trending-button-2 yt-icon-shape {
+			display: none !important;
+		}
+		</style>
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+			<g class="yt-icon">
+				<path class="yt-icon" d="M19.642 10.63c-.314-.395-.658-.767-1.026-1.11-.87-.808-1.884-1.375-2.724-2.22-1.72-1.73-2.3-4.183-1.546-6.496.123-.375-.23-.72-.584-.566-.822.36-1.606.873-2.285 1.425-3.43 2.79-4.704 7.446-3.115 11.645.038.144.09.3.09.45 0 .3-.182.57-.448.687-.3.133-.62.044-.856-.175-.072-.068-.137-.143-.197-.222-1.11-1.452-1.52-3.386-1.21-5.19.08-.456-.49-.713-.77-.35-1.4 1.802-2.09 4.21-1.95 6.48.04.68.158 1.355.34 2.008.23.82.57 1.607 1.01 2.33 1.4 2.31 3.854 3.977 6.49 4.31 2.805.355 5.836-.162 7.997-2.15 2.408-2.217 3.285-5.74 2-8.823-.052-.123-.106-.243-.163-.363-.285-.596-.64-1.154-1.045-1.67m-4.288 8.098c-.366.324-.95.645-1.415.797-1.32.435-2.62-.083-3.516-.814-.13-.1-.084-.3.073-.35 1.37-.44 2.173-1.49 2.41-2.542.23-1.015-.182-1.885-.354-2.878-.14-.827-.128-1.544.135-2.297.047-.13.226-.147.283-.02.82 1.825 3.136 2.63 3.534 4.64.037.18.058.367.063.55.034 1.06-.427 2.226-1.21 2.92"></path>
+			</g>
+		</svg>
+		`;
+		container.insertBefore(newElem, container.children[0]);
 	}
 	function createNewSubsIcon() {
 		tasks.createdNewSubsIcon = true;
@@ -1524,16 +2253,40 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#bt-subs-button svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #bt-subs-button svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		#bt-subs-button yt-icon-shape {
+		html:not([icon-type="outline"]) #bt-subs-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M18.7 8.7H5.3V7h13.4v1.7zm-1.7-5H7v1.6h10V3.7zm3.3 8.3v6.7c0 1-.7 1.6-1.6 1.6H5.3c-1 0-1.6-.7-1.6-1.6V12c0-1 .7-1.7 1.6-1.7h13.4c1 0 1.6.8 1.6 1.7zm-5 3.3l-5-2.7V18l5-2.7z"></path>
+			</g>
+		</svg>
+		`;
+		container.insertBefore(newElem, container.children[0].nextSibling);
+	}
+	function createNewLibraryIcon() {
+		tasks.createdNewLibraryIcon = true;
+		let container = document.querySelector('ytd-guide-entry-renderer[identifier="bt-library-button"] yt-icon');
+		const newElem = document.createElement("bt-icon");
+		newElem.id = 'bt-library-icon';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<style>
+		html:not([icon-type="outline"]) ytd-guide-entry-renderer[identifier='bt-library-button'] svg:not([icon-type="filled"]) {
+			display: none !important;
+		}
+		html:not([icon-type="outline"]) ytd-guide-entry-renderer[identifier='bt-library-button'] yt-icon-shape {
+			display: none !important;
+		}
+		</style>
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+			<g class="yt-icon">
+				<path class="yt-icon" d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"></path>
 			</g>
 		</svg>
 		`;
@@ -1548,14 +2301,14 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#bt-history-button svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #bt-history-button svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		#bt-history-button yt-icon-shape {
+		html:not([icon-type="outline"]) #bt-history-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M11.9 3.75c-4.55 0-8.23 3.7-8.23 8.25H.92l3.57 3.57.04.13 3.7-3.7H5.5c0-3.54 2.87-6.42 6.42-6.42 3.54 0 6.4 2.88 6.4 6.42s-2.86 6.42-6.4 6.42c-1.78 0-3.38-.73-4.54-1.9l-1.3 1.3c1.5 1.5 3.55 2.43 5.83 2.43 4.58 0 8.28-3.7 8.28-8.25 0-4.56-3.7-8.25-8.26-8.25zM11 8.33v4.6l3.92 2.3.66-1.1-3.2-1.9v-3.9H11z"></path>
 			</g>
@@ -1572,16 +2325,40 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#bt-liked-vids-button svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #bt-liked-vids-button svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		#bt-liked-vids-button yt-icon-shape {
+		html:not([icon-type="outline"]) #bt-liked-vids-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M3.75 18.75h3v-9h-3v9zm16.5-8.25c0-.83-.68-1.5-1.5-1.5h-4.73l.7-3.43.03-.24c0-.3-.13-.6-.33-.8l-.8-.78L8.7 8.7c-.3.26-.45.64-.45 1.05v7.5c0 .82.67 1.5 1.5 1.5h6.75c.62 0 1.15-.38 1.38-.9l2.27-5.3c.06-.18.1-.36.1-.55v-1.5z"></path>
+			</g>
+		</svg>
+		`;
+		container.insertBefore(newElem, container.children[0].nextSibling);
+	}
+	function createNewWatchLaterIcon() {
+		tasks.createdNewWatchLaterIcon = true;
+		let container = document.querySelector('#bt-watch-later-button yt-icon');
+		const newElem = document.createElement("bt-icon");
+		newElem.id = 'bt-watch-later-icon';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<style>
+		html:not([icon-type="outline"]) #bt-watch-later-button svg:not([icon-type="filled"]) {
+			display: none !important;
+		}
+		html:not([icon-type="outline"]) #bt-watch-later-button yt-icon-shape {
+			display: none !important;
+		}
+		</style>
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+			<g class="yt-icon">
+				<path class="yt-icon" d="M12 3.67c-4.58 0-8.33 3.75-8.33 8.33s3.75 8.33 8.33 8.33 8.33-3.75 8.33-8.33S16.58 3.67 12 3.67zm3.5 11.83l-4.33-2.67v-5h1.25v4.34l3.75 2.25-.67 1.08z"></path>
 			</g>
 		</svg>
 		`;
@@ -1596,14 +2373,14 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#bt-show-more-button:not([expanded]) svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #bt-show-more-button:not([expanded]) svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		#bt-show-more-button yt-icon-shape {
+		html:not([icon-type="outline"]) #bt-show-more-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
 			</g>
@@ -1620,14 +2397,14 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#collapser-item svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #collapser-item svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		#collapser-item yt-icon-shape {
+		html:not([icon-type="outline"]) #collapser-item yt-icon-shape {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>
 			</g>
@@ -1644,14 +2421,14 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#bt-show-more-button-2 svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #bt-show-more-button-2 svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		#bt-show-more-button-2 yt-icon-shape {
+		html:not([icon-type="outline"]) #bt-show-more-button-2 yt-icon-shape {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
 			</g>
@@ -1670,15 +2447,22 @@ function createNewElements() {
 		`;
 		container.insertBefore(newElem, container.children[0]);
 	}
-	function createStandardViewCount() {
-		tasks.createdStandardViewCount = true;
+	function createViewsInfo() {
+		tasks.createdViewsInfo = true;
 		let container = document.querySelector('ytd-watch-flexy #above-the-fold #top-row');
 		const newElem = document.createElement("div");
-		newElem.id = 'bt-view-count';
+		newElem.id = 'bt-views-info';
 		newElem.setAttribute("class", "bt-universalized-element");
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
-		<span>???,???</span>
+		<div id="bt-view-count">
+			<span>???,???</span>
+		</div>
+		<div id="bt-upload-date">
+			<span id="dot"> • </span>
+			<span id="precise-upload-date">Getting Upload Date...</span>
+			<span id="fuzzy-upload-date" style="display: none"></span>
+		</div>
 		`;
 		container.insertBefore(newElem, container.children[0].nextSibling);
 	}
@@ -1732,11 +2516,11 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#segmented-like-button svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #segmented-like-button svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
 			</g>
@@ -1753,14 +2537,14 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		#segmented-dislike-button svg:not([icon-type="plmr"s]) {
+		html:not([icon-type="outline"]) #segmented-dislike-button svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		#segmented-dislike-button yt-icon-shape {
+		html:not([icon-type="outline"]) #segmented-dislike-button yt-icon-shape {
 			display: none !important;
 		}
 		</style>
-		<svg class="yt-icon" icon-type="plmr" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
 			<g class="yt-icon">
 				<path class="yt-icon" d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
 			</g>
@@ -1970,6 +2754,9 @@ function createNewElements() {
 		if (BTConfig.layoutSelect == "hitchhiker-2014") {
 			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
 		}
+		if (BTConfig.layoutSelect == "hitchhiker-2013-3") {
+			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
+		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-2") {
 			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
 		}
@@ -1980,14 +2767,24 @@ function createNewElements() {
 			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
 		}
 		if (BTConfig.layoutSelect == "polymer-2019") {
+			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");
+			loadMore.setAttribute("type", "2");	
+		}
+		if (BTConfig.layoutSelect == "polymer-2020") {
 			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
+			loadMore.setAttribute("type", "2");	
+		}
+		if (BTConfig.layoutSelect == "polymer-2021") {
+			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");
+			loadMore.setAttribute("type", "2");	
 		}
 		loadMore.innerHTML = `
 		<a>
 		<span>Load more
-			<span id="suggestions" bt-lang="en"> suggestions</span>
+			<span id="suggestions" bt-lang="en"> suggestions
+			</span>
 		</span>
-		
+		<paper-ripple></paper-ripple>
 		</a>
 		`;
 		related.insertBefore(loadMore, related.children[2].nextSibling);	
@@ -2001,18 +2798,18 @@ function moveElements() {
 			if (document.querySelector("html[title-on-top='true'] ytd-watch-flexy #bt-above") != null) {
 				setTimeout(moveTitleToTop, 1);
 			}
-			if (document.querySelector("html[title-on-top='true']") === null) {
+			if (document.querySelector("html[title-on-top='false']") != null) {
 				tasks.movedTitleToTop = true;
 			}
 		}
 		if (tasks.movedTitleToTop) {
 			clearInterval(loopThroughTitleOnTop);
 		}
-	}, 10);
+	}, 500);
 	waitFor("html[location='watch'] ytd-app", 300, loopThroughMoveWatchButtons);
 	var loopThroughMoveWatchButtons = setInterval(function() {
 		if (!tasks.movedHHButtons) {
-			if (document.querySelector("html[watch-metadata-style^='hitchhiker's] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null) {
+			if (document.querySelector("html[watch-metadata-style^='hitchhiker'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null) {
 				setTimeout(prepFor, 100);
 			}
 			if (document.querySelector("html[watch-metadata-style^='cosmicpanda'][title-on-top='false'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null) {
@@ -2043,7 +2840,7 @@ function moveElements() {
 		if (tasks.movedGuideButton) {
 			clearInterval(loopThroughMoveGuideButton);
 		}
-	}, 500);
+	}, 150);
 	function prepFor() {
 		waitFor("#bt-middle-row", 100, moveWatchButtons);
 	}
@@ -2102,11 +2899,7 @@ function watchPageEveryLoad() {
 		var trueViewCountTrimmed = cutString2[0];
 		//TEMP FIX
 		if (BTConfig.layoutSelect != "none") {
-			if (document.querySelector("#bt-view-count") != null) {
-				doViews();
-			} else {
-				waitFor("#bt-view-count", 200, doViews);
-			}
+			waitFor("#bt-view-count", 200, doViews);
 		}
 		function doViews() {
 		if (!BTVars.trimViews) {
@@ -2119,6 +2912,7 @@ function watchPageEveryLoad() {
 		// Upload Date
 		//var trueUploadDate = cutString[1];
 		var trueUploadDate = sessionStorage.getItem("nebula-upload-date");
+		document.querySelector("#bt-upload-date #precise-upload-date").innerText = trueUploadDate;
 		let notNeedNewString = trueUploadDate.includes("d");
 		if (notNeedNewString == true) {
 		  waitFor("#bt-desc-upload-date #published-on", 100, ud1);
@@ -2174,7 +2968,6 @@ function watchPageEveryLoad() {
 			if (!trimmedSubCountt.includes("mi")) {
 				var trimmedSubCount =  trimmedSubCountt;
 			}
-			/* Unfinished, isn't actually used yet
 			if (BTConfig.randomSubCounts) {
 				if (subCount === oldSubCount) {
 					trimmedSubCount = oldSubCountFull;
@@ -2184,40 +2977,58 @@ function watchPageEveryLoad() {
 					if (trimmedSubCountt.includes("K")) {
 						var cutSubString2 = trimmedSubCountt.split('K');
 						var cutSubString3 = cutSubString2[0].split('.');
+						if (trimmedSubCountt.includes(".09")) {
+							var cutSubString4 = cutSubString3[0] + "," + "09" + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".08")) {
+							var cutSubString4 = cutSubString3[0] + "," + "08" + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".07")) {
+							var cutSubString4 = cutSubString3[0] + "," + "07" + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".06")) {
+							var cutSubString4 = cutSubString3[0] + "," + "06" + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".05")) {
+							var cutSubString4 = cutSubString3[0] + "," + "05" + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".04")) {
+							var cutSubString4 = cutSubString3[0] + "," + "04" + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".03")) {
+							var cutSubString4 = cutSubString3[0] + "," + "03" + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".02")) {
+							var cutSubString4 = cutSubString3[0] + "," + "02" + getRndInteger(0,9);
+						}
+						if (trimmedSubCountt.includes(".01")) {
+							var cutSubString4 = cutSubString3[0] + "," + "01" + getRndInteger(0,9);
+						}
 						if (trimmedSubCountt.includes(".9")) {
-							//var cutSubString4 = cutSubString3[0] + ",9" + getRndInteger(0,9) + getRndInteger(0,9);
 							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
 						}
 						if (trimmedSubCountt.includes(".8")) {
-							//var cutSubString4 = cutSubString3[0] + ",8" + getRndInteger(0,9) + getRndInteger(0,9);
 							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
 						}
 						if (trimmedSubCountt.includes(".7")) {
-							//var cutSubString4 = cutSubString3[0] + ",7" + getRndInteger(0,9) + getRndInteger(0,9);
 							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
 						}
 						if (trimmedSubCountt.includes(".6")) {
-							//var cutSubString4 = cutSubString3[0] + ",6" + getRndInteger(0,9) + getRndInteger(0,9);
 							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
 						}
 						if (trimmedSubCountt.includes(".5")) {
-							//var cutSubString4 = cutSubString3[0] + ",5" + getRndInteger(0,9) + getRndInteger(0,9);
 							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
 						}
 						if (trimmedSubCountt.includes(".4")) {
-							//var cutSubString4 = cutSubString3[0] + ",4" + getRndInteger(0,9) + getRndInteger(0,9);
 							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
 						}
 						if (trimmedSubCountt.includes(".3")) {
-							//var cutSubString4 = cutSubString3[0] + ",3" + getRndInteger(0,9) + getRndInteger(0,9);
 							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
 						}
 						if (trimmedSubCountt.includes(".2")) {
-							//var cutSubString4 = cutSubString3[0] + ",2" + getRndInteger(0,9) + getRndInteger(0,9);
 							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
 						}
 						if (trimmedSubCountt.includes(".1")) {
-							//var cutSubString4 = cutSubString3[0] + ",1" + getRndInteger(0,9) + getRndInteger(0,9);
 							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(0,9);
 						}
 						// Examples: 274K, 4K
@@ -2243,6 +3054,33 @@ function watchPageEveryLoad() {
 					if (trimmedSubCountt.includes("M")) {
 						var cutSubString2 = trimmedSubCountt.split('M');
 						var cutSubString3 = cutSubString2[0].split('.');
+						if (trimmedSubCountt.includes(".09")) {
+							var cutSubString4 = cutSubString3[0] + "," + "09" + getRndInteger(0,9) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".08")) {
+							var cutSubString4 = cutSubString3[0] + "," + "08" + getRndInteger(0,9) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".07")) {
+							var cutSubString4 = cutSubString3[0] + "," + "07" + getRndInteger(0,9) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".06")) {
+							var cutSubString4 = cutSubString3[0] + "," + "06" + getRndInteger(0,9) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".05")) {
+							var cutSubString4 = cutSubString3[0] + "," + "05" + getRndInteger(0,9) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".04")) {
+							var cutSubString4 = cutSubString3[0] + "," + "04" + getRndInteger(0,9) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".03")) {
+							var cutSubString4 = cutSubString3[0] + "," + "03" + getRndInteger(0,9) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".02")) {
+							var cutSubString4 = cutSubString3[0] + "," + "02" + getRndInteger(0,9) + "," + getRndInteger(100,999);
+						}
+						if (trimmedSubCountt.includes(".01")) {
+							var cutSubString4 = cutSubString3[0] + "," + "01" + getRndInteger(0,9) + "," + getRndInteger(100,999);
+						}
 						if (trimmedSubCountt.includes(".9")) {
 							var cutSubString4 = cutSubString3[0] + ",9" + getRndInteger(10,99) + "," + getRndInteger(100,999);
 						}
@@ -2273,7 +3111,7 @@ function watchPageEveryLoad() {
 						if (!trimmedSubCountt.includes(".")) {
 							var cutSubString4 = cutSubString3[0] + "," + getRndInteger(100,999) + "," + getRndInteger(100,999);
 						}
-						*//*if (
+						if (
 						trimmedSubCountt.includes(".") &&
 						!trimmedSubCountt.includes(".1M") &&
 						!trimmedSubCountt.includes(".2M") &&
@@ -2286,12 +3124,27 @@ function watchPageEveryLoad() {
 						!trimmedSubCountt.includes(".9M")
 						) {
 							var cutSubString4 = cutSubString3[0] + "," + cutSubString3[1] + getRndInteger(1,9) + "," + getRndInteger(100,999);
-						}*//*
+						}
 						var trimmedSubCount = cutSubString4;
 					}
 					oldSubCountFull = trimmedSubCount;
 				}
-			}*/
+			}
+			if (BTConfig.layoutSelect == "amsterdam-2023") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " subscribers";
+			}
+			if (BTConfig.layoutSelect == "amsterdam-2022") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " subscribers";
+			}
+			if (BTConfig.layoutSelect == "polymer-2022") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " subscribers";
+			}
+			if (BTConfig.layoutSelect == "polymer-2021") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " subscribers";
+			}
+			if (BTConfig.layoutSelect == "polymer-2020") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " subscribers";
+			}
 			if (BTConfig.layoutSelect == "hitchhiker-2017") {
 			document.querySelector("#owner-sub-count").innerText = trimmedSubCount;
 			}
@@ -2304,11 +3157,29 @@ function watchPageEveryLoad() {
 			if (BTConfig.layoutSelect == "hitchhiker-2014") {
 			document.querySelector("#owner-sub-count").innerText = trimmedSubCount;
 			}
+			if (BTConfig.layoutSelect == "hitchhiker-2013-3") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount;
+			}
 			if (BTConfig.layoutSelect == "hitchhiker-2013-2") {
 			document.querySelector("#owner-sub-count").innerText = trimmedSubCount;
 			}
 			if (BTConfig.layoutSelect == "hitchhiker-2013-1") {
 			document.querySelector("#owner-sub-count").innerText = trimmedSubCount;
+			}
+			if (BTConfig.layoutSelect == "cosmicpanda-3") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " Subscribers";
+			}
+			if (BTConfig.layoutSelect == "cosmicpanda-2") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " Subscribers";
+			}
+			if (BTConfig.layoutSelect == "cosmicpanda-1") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " Subscribers";
+			}
+			if (BTConfig.layoutSelect == "aozora-2011") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " Subscribers";
+			}
+			if (BTConfig.layoutSelect == "aozora-2010") {
+			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " Subscribers";
 			}
 			if (document.querySelector("html[sub-button-nested-sub-count='true']") != null) {
 				setTimeout(doButtonNestedCount, 10);
@@ -2331,6 +3202,7 @@ function watchPageEveryLoad() {
 }
 var repeatedActions = setInterval(function()
 {
+	var width = screen.width;
 	if (document.querySelector('ytd-watch-flexy[fullscreen]') != null) {
 		BTVars.playerState = "fullscreen";
 	}
@@ -2355,6 +3227,63 @@ var repeatedActions = setInterval(function()
 		function blockRGW() {
 			console.log("[CustomTube] Rich Grid Watch Detected. Reloading.");
 			window.location.reload();
+		}
+	}
+	if (BTConfig.alwaysShowSidebar) {
+		if (document.querySelector("#guide[persistent]") == null) {
+			if (document.querySelector("ytd-watch-flexy[fullscreen]") == null) {
+				if (document.querySelector("html[watch-metadata-style^='hitchhiker-2013']") != null) {
+					document.querySelector("ytd-watch-flexy").removeAttribute("guide");
+					document.querySelector("#guide").setAttribute("persistent","");
+					document.querySelector("#guide").setAttribute("opened","");
+				} else {
+					if (width < 1800) {
+						document.querySelector("ytd-app").setAttribute("guide-persistent-and-visible","");
+					}
+					if (
+						BTConfig.videoPlayerSize == "PS1024x576" ||
+						BTConfig.videoPlayerSize == "PS1280x720"
+					) {
+						document.querySelector("ytd-app").setAttribute("guide-persistent-and-visible","");
+					} 
+					else if (
+						width > 1930 &&
+						BTConfig.videoPlayerSize == "PS1024x576"
+					) {
+						document.querySelector("ytd-app").removeAttribute("guide-persistent-and-visible");
+					} 
+					else if (
+						width > 1800 &&
+						BTConfig.videoPlayerSize == "PS854x480"
+					) {
+						document.querySelector("ytd-app").removeAttribute("guide-persistent-and-visible");
+					} 
+					else if (
+						width > 1500 &&
+						BTConfig.videoPlayerSize == "PS640x360"
+					) {
+						document.querySelector("ytd-app").removeAttribute("guide-persistent-and-visible");
+					}
+					else if (
+						width > 1440 &&
+						BTConfig.videoPlayerSize == "PS586x330"
+					) {
+						document.querySelector("ytd-app").removeAttribute("guide-persistent-and-visible");
+					}
+					document.querySelector("#guide").setAttribute("persistent","");
+					document.querySelector("#guide").setAttribute("opened","");
+				}
+			}
+		}
+		if (document.querySelector("ytd-watch-flexy[fullscreen]") != null) {
+			if (document.querySelector("html[watch-metadata-style^='hitchhiker-2013']") != null) {
+				document.querySelector("ytd-watch-flexy").removeAttribute("guide");
+			}
+			if (document.querySelector("ytd-app[guide-persistent-and-visible]") != null) {
+				document.querySelector("ytd-app").removeAttribute("guide-persistent-and-visible");
+				document.querySelector("#guide").removeAttribute("persistent");
+				document.querySelector("#guide").removeAttribute("opened");
+			}
 		}
 	}
 }, 600);
@@ -2391,7 +3320,7 @@ function markUnsubbed() {
 function getChannelVidsSort() {
 	if (BTConfig.channelVidsDropdown == "CVDDoff") {
 		document.querySelector("html").setAttribute("channel-vids-dropdown", "false");
-	} else {
+	} else if (document.querySelector("html[channel-vids-dropdown='disabled']") == null) {
 		if (document.querySelector("yt-formatted-string[title='Latest']") != null) {
 			document.querySelector("html").setAttribute("channel-vids-dropdown","true");
 			var chip_Newest = document.querySelector("yt-formatted-string[title='Latest']").parentNode;
@@ -2440,10 +3369,10 @@ function getChannelVidsSort() {
 		}
 		if (document.querySelector("yt-formatted-string[title='Latest']") === null) {
 			setTimeout(doChipsFallback, 500);
-			//console.log("[CustomTube] Couldn't find chips for sorting channel videos. Enabling fallback.");
+			console.log("[CustomTube] Couldn't find chips for sorting channel videos. Enabling fallback.");
 		if (document.querySelector("yt-formatted-string[title='Popular']") === null) {
 			setTimeout(doChipsFallback, 500);
-			//console.log("[CustomTube] Couldn't find chips for sorting channel videos. Enabling fallback.");
+			console.log("[CustomTube] Couldn't find chips for sorting channel videos. Enabling fallback.");
 		}
 		}
 	}
@@ -2451,32 +3380,15 @@ function getChannelVidsSort() {
 function doChipsFallback() {
 	document.querySelector("html").setAttribute("channel-vids-dropdown", "false");
 }
-var a = document.createElement("script");
-a.textContent = `
-document.addEventListener("yt-page-data-updated", cbFunction); 
-function cbFunction() { 
-	var getYtdData = document.querySelector("ytd-app").data; 
-	if (getYtdData.page == "watch") {
-		setTimeout(cbFunction, 5000);
-	}
-	storeData();
-	function storeData() {
-		sessionStorage.setItem("ytd-app-data", JSON.stringify(getYtdData));
-	}
-}
-/*
-setInterval (
-	var liveCount = document.querySelector("ytd-app").data.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
-	storeData();
-	function storeData() {
-		sessionStorage.setItem("ytd-live-views", JSON.stringify(liveCount));
-	}
-)
-*/
-`
-document.body.insertAdjacentElement("beforeend", a);
+let dataScript = document.createElement('script');
+dataScript.src = browser.runtime.getURL('/scripts/dataget.js');
+document.body.append(dataScript);
 
-document.addEventListener("yt-page-data-updated", retrieveDataAttribute); 
+
+document.addEventListener("yt-page-data-updated", retrieveDataAttributePrep); 
+function retrieveDataAttributePrep() {
+	setTimeout(retrieveDataAttribute, 250);
+}
 function retrieveDataAttribute() {
 	setTimeout(getHref, 10);
 	var ytdData = sessionStorage.getItem("ytd-app-data");
@@ -2510,6 +3422,10 @@ function retrieveDataAttribute() {
 			//Temporary
 			waitFor("#bt-view-count", 500, watchPageEveryLoad);
 		}
+	}
+	if (convertedYtdData.page == "channel") {
+		var chanSubCount = convertedYtdData.response.header.c4TabbedHeaderRenderer.subscriberCountText.simpleText;
+		sessionStorage.setItem("nebula-channel-sub-count", chanSubCount);
 	}
 	if (convertedYtdData.page == "channel") {
 		waitFor("#bt-chan-vids-dropdown", 200, getChannelVidsSort);

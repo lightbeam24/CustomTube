@@ -16,25 +16,38 @@ const defaultSettings = {
 	"relatedSize": "auto", 
 	"searchbarStyle": "autoSearchBar", 
 	"channelVidsDropdown": "CVDDauto", 
+	"channelVidsPerRow": "CVPRauto", 
+	"homepageVidsPerRow": "HPVPRauto", 
+	"subsVidsPerRow": "SVPRauto", 
+	"videoRendererSize": "VRSizeAuto", 
+	"videoPlayerSize": "PS854x480", 
+	"hideShortsSubs": "HSSauto", 
 	"blockRGW": true,
+	"FSNoScroll": true,
+	"noCast": true,
 	"squarePfp": false,
 	"squareVid": false,
 	"dontLoopPlaylists": false,
+	/* sidebar */
+	"alwaysShowSidebar": false,
 	"homeSidebarBtn": true,
 	"wtwSidebarBtn": false,
 	"NOTwtwSidebarBtn": false,
 	"fytSidebarBtn": false,
-	"myChannelSidebarBtn": false,
+	"myChannelSidebarBtn": true,
 	"lowerCaseC": false,
-	"shortsSidebarBtn": true,
+	"shortsSidebarBtn": false,
 	"trendingSidebarBtn": true,
 	"subsSidebarBtn": true,
+	/* topbar */
+	"logoEndpoint": "LEHome",
 	"iUseRYD": false,
 	/* tweaks */
 	"loopByDefault": false,
 	"noJoin": false,
 	"noClip": false,
 	"noThanks": false,
+	"noDownload": false,
 	"betterSearch": true,
 	"thumbFadeIn": false,
 	"noInfi": false,
@@ -44,6 +57,7 @@ const defaultSettings = {
 	"showNew": true,
 	"showChangelog": true
 };
+storage.set({BTDefaultConfig: defaultSettings});
 initiate();
 function initiate() {
 	storage.get(['BTConfig'], function(result) {

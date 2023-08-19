@@ -16,7 +16,7 @@
 			background-color: rgb(114,159,207);
 			background-image: url(images/beamtubebg.png);
 			background-repeat: no-repeat;
-			background-size: 100vw;
+			background-size: 100vw 100vh;
 			width: 100%;
 			height: 100%;
 			position: fixed;
@@ -47,6 +47,10 @@
 		  margin: 8px 15px 0 30px;
 		  background: linear-gradient(to top,#ddd,#eee);
 		  padding: 8px 10px 4px 10px;
+			font-size: 16px;
+		}
+		html[cr] #clt {
+		  font-size: 14px;
 		}
 		#clt::before {
 		  content: "";
@@ -80,6 +84,7 @@
 			width: 900px;
 			box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 			text-shadow: -1px -1px 1px rgba(0,0,0,0.15);
+			font-size: 16px;
 		}
 		#changelog .title::before {
 		  content: "";
@@ -103,6 +108,15 @@
 			position: absolute;
 			margin-top: -28.5px;
 			margin-left: 913px;
+		}
+		#changelog .title[yellow] {
+		  background: linear-gradient(to top, #22a, #44d);
+		}
+		#changelog .title[yellow]::before {
+		  background: linear-gradient(135deg, #00b 55%, #007);
+		}
+		#changelog .title[yellow]::after {
+			background: linear-gradient(to top, #22a, #44d);
 		}
 		@media only screen and (max-width: 4800px) {
 		#changelog .title::after {
@@ -132,14 +146,22 @@
 		.words {
 		  margin: 6px 0;
 		}
-		.words p {
+		.words p,
+		.words strong {
 		  margin: 4px 0;
+			font-size: 16px;
 		}
 		.smaller {
 		  font-size: 12px;
 		}
 		.notice {
 		  color: #ff0;
+		}
+		a {
+		  color: #42a8ff;
+		}
+		html:not([cr]) .cr-only {
+		  display: none;
 		}
 		</style>
 		<script src="./initial-setup.js"></script>
@@ -156,6 +178,53 @@
 		<div id="bottom">
 			<p class="title" id="clt">Changelog:</p>
 			<div id="changelog">
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.1.0 - August 19, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p class="cr-only">- This is the first version of CustomTube avaliable for Google Chrome.</p>
+						<p>- CustomTube now has a new logo, made by UnderscoreAngel! <a href="https://github.com/UnderscoreAngel">Link to GitHub page</a></p>
+						<strong>- New: Added 2020 Layout option!</strong>
+						<p></p>
+						<strong>- New: Added 2021 Layout option!</strong>
+						<p></p>
+						<strong>- New: Added Late 2013 Layout option!</strong>
+						<p>- New: Added option to always show the sidebar [Compatible with all layouts from Early 2013 and later]</p>
+						<p>- New: Added option to choose the video player size [Compatible with all layouts from 2014 and later]</p>
+						<p>- New: Added option to choose the number of videos per row on the home page [Compatible with all layouts from Early 2013 and later]</p>
+						<p>- New: Added option to choose the number of videos per row on the subscriptions page [Compatible with all layouts from Early 2013 and later]</p>
+						<p>- New: Added option to choose the number of videos per row on channel video pages. [Compatible with all layouts from Mid 2013 and later]</p>
+						<p>- New: Added option to choose the size of the thumbnails on the search page [Compatible with all layouts]</p>
+						<p>- New: Added option to make clicking on the YouTube logo take you to the Subscriptions page instead of the Homepage. [Compatible with all layouts]</p>
+						<p>- New: Added option to move the Trending button to the main section of the sidebar. [Compatible with all layouts]</p>
+						<p>- New: Added option to show or hide the Shorts shelf on the subscriptions page [Compatible with all layouts]</p>
+						<p>- New: Added option to hide the Download button [Compatible with all layouts]</p>
+						<p>- New: Added option to hide the Cast button [Compatible with all layouts]</p>
+						<p>- New: Added option to show full (randomly generated) subscriber counts [Compatible with all layouts]</p>
+						<p>- New: Added True Fullscreen Mode option [Compatible with all layouts]</p>
+						<p>- Improvement: Greatly improved dark mode support [Affects all layouts]</p>
+						<p>- Improvement: More old icons are restored</p>
+						<p>- Improvement: A proper "My Channel" button. (The new one warm loads the channel page, the old one cold loads it, which was much slower)</p> 
+						<p>- Improvement: Partially fixed the new search header</p>
+						<p>- Improvement: Many other small improvements</p>
+						<p>- Fix: The Channel Videos Sort By Dropdown would still appear when set to Auto [This bug affected the unmodified current layout]</p> 
+						<p>- Fix: White (invisible) text on search bar when in theater mode [Affected all layouts from 2014-2017]</p>
+						<p>- Fix: Fixed a bug where if you liked or disliked a YouTube Short, the icon would not change color [Affected all layouts]</p>
+						<p>- Fix: Several others</p>
+						<p>- Change: "2013 Layout" has been renamed to "Mid 2013 Layout".</p>
+						<p>- Change: "Display Shorts Button" is now disabled by default.</p>
+						<p>- Change: "Display My Channel Button" is now enabled by default.</p>
+						<p>- Change: Minor changes to some of the labels on the configuration window</p>
+						<p>- Other: Added "Home Page" tab to the Configuration Window's sidebar</p>
+						<p>- Other: Added "Subs Page" tab to the Configuration Window's sidebar</p>
+						<p>- Other: Added "Search Page" tab to the Configuration Window's sidebar</p>
+						<p>- Other: Added "Donate" button to the Configuration Window's sidebar</p>
+						<p class="notice">- Notice: The transition to Manifest V3 has been postponed for compatibility reasons.</p>
+					</div>
+				</div>
 				<div class="changelog-inner">
 					<div class="title-area">
 						<div class="title">

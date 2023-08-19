@@ -33,6 +33,18 @@
 		  margin-left: 8px;
 		  margin-top: 8px;
 		}
+		body[use-ct-branding="true"] #title {
+		  margin-left: 4px;
+		  margin-top: 4px;
+		}
+		body[use-ct-branding="true"] #title[nobrand],
+		body[use-ct-branding="false"] #title:not([nobrand])	{
+		  display: none;
+		}
+		#title img:nth-child(1) {
+		  margin-right: -12px;
+		  margin-left: -2px;
+		}
 		.subtitle {
 		  color: #555;
 		  font-size: 13px;
@@ -43,8 +55,11 @@
 		.small-sub {
 		  color: #777;
 		  font-size: 10px;
-		  margin-top: 13px;
+		  margin-top: 14px;
 		  margin-left: 4px;
+		}
+		body[use-ct-branding="true"] .small-sub {
+		  margin-left: 1px;
 		}
 		.top-item {
 		  height: 24px;
@@ -174,6 +189,14 @@
 		  animation-iteration-count: 1;*/
 		  background: linear-gradient(to top, #282828, #555);
 		}
+		#donate-button[active="false"] button:hover {
+		  background: transparent;
+		  color: white;
+		  background: red;
+		  background: linear-gradient(to top, #900, #f00);
+		  background: linear-gradient(to top, #00b, #00f);
+		  text-shadow: -1.5px -1.5px 1px rgba(0,0,0,0.1);
+		}
 		body[show-new="true"] .left-item[new] .new {
 		  width: 4px;
 		  height: 4px;
@@ -220,6 +243,9 @@
 		  animation-iteration-count: 1;
 		  z-index: 0;
 		}
+		body:not([show-all-active="true"]) .right[style="display: block;"] {
+		  margin-bottom: 68px;
+		}
 		.right[style="display: block"]:nth-last-child(1) {
 		  padding-bottom: 40px;
 		}
@@ -245,10 +271,10 @@
 		  overflow-y: scroll;
 		  margin-top: 4px;
 		}
-		#right1, #right3, #right4, #right5, #right6, #right7 {
+		#right1, #right3, #right4, #right5, #right6, #right7, #right8, #right9, #right10 {
 		  display: none;
 		}
-		#right7 {
+		#right10 {
 		  margin-bottom: 72px;
 		}
 		.right-inner {
@@ -362,7 +388,7 @@
 		  color: #880;
 		}
 		#bottom {
-		  width: 590px;
+		  width: 100%;
 		  position: fixed;
 		  bottom: 0;
 		  background: #fff;
@@ -410,13 +436,48 @@
 		  z-index: -1;
 		  color: transparent;
 		}
+		label[deprecated]::after {
+		  background: linear-gradient(to right, #f668, #f660);
+		  content: "Deprecated...";
+		  display: block;
+		  width: 300px;
+		  position: absolute;
+		  margin-top: -16px;
+		  z-index: -1;
+		  color: transparent;
+		}
+		@keyframes menu {
+		  0% {max-height: 0px;}
+		  0% {opacity: 0;}
+		  50% {max-height: 200px;}
+		  50% {opacity: 0;}
+		  100% {opacity: 1;}
+		}
+		@keyframes menuc {
+		  0% {max-height: 200px;}
+		  0% {opacity: 1;}
+		  50% {max-height: 200px;}
+		  50% {opacity: 0;}
+		  100% {max-height: 0px;}
+		}
+		body[no-flexy="true"] #noflexy-options {
+		  max-height: 200px;
+		}
+		body[no-flexy="false"] #noflexy-options {
+		  opacity: 0;
+		  max-height: 0px;
+		}
       </style>
     </head>
-    <body>
+    <body use-ct-branding="true">
 		<div id="top">
 			<div id="top-inner">
-				<p id="title">CustomTube</p>
-				<p class="small-sub">V1.0.4.6</p>
+				<p id="title" nobrand>CustomTube</p>
+				<p id="title">
+					<img src="images/logo.png" style="height: 28px;">
+					<img src="images/ctlogo.png" style="height: 28px;">
+				</p>
+				<p class="small-sub">V1.1.0</p>
 				<p class="subtitle">Configuration Window</p>
 				<div class="top-item" id="lmall" active="false">
 					<button id="sectall">Show All Settings</button>
@@ -438,11 +499,11 @@
 						</div>
 					</div>
 					<div class="left-section">
-						<div class="left-item" id="lm1" active="false" new>
+						<div class="left-item" id="lm1" active="false">
 							<button id="sect1">Misc</button>
 							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm2" active="true">
+						<div class="left-item" id="lm2" active="true" new>
 							<button id="sect2">Layout</button>
 							<div class="new"></div>
 						</div>
@@ -457,20 +518,54 @@
 						</div>
 					</div>
 					<div class="left-section">
-						<div class="left-item" id="lm4" active="false">
+						<div class="left-item" id="lm4" active="false" new>
 							<button id="sect4">Sidebar</button>
 							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm5" active="false">
+						<div class="left-item" id="lm5" active="false" new>
 							<button id="sect5">Topbar</button>
 							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm6" active="false">
-							<button id="sect6">Watch Page</button>
+						<div class="left-item" id="lm6" active="false" new>
+							<button id="sect6">Home Page</button>
 							<div class="new"></div>
 						</div>
 						<div class="left-item" id="lm7" active="false" new>
-							<button id="sect7">Channel Page</button>
+							<button id="sect7">Subs Page</button>
+							<div class="new"></div>
+						</div>
+						<div class="left-item" id="lm8" active="false" new>
+							<button id="sect8">Watch Page</button>
+							<div class="new"></div>
+						</div>
+						<div class="left-item" id="lm9" active="false" new>
+							<button id="sect9">Channel Page</button>
+							<div class="new"></div>
+						</div>
+						<div class="left-item" id="lm10" active="false" new>
+							<button id="sect10">Search Page</button>
+							<div class="new"></div>
+						</div>
+					</div>
+					<div class="left-section">
+						<div class="left-title">
+							<p>Support me</p>
+						</div>
+					</div>
+					<div class="left-section">
+						<div class="left-item" id="donate-button" active="false" title="If you like CustomTube, you can support its development by supporting me on Ko-fi!">
+							<button id="sectdonate">Donate
+								<svg height="12px" width="12px" style="margin-left:2px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+										<style type="text/css">
+											.st1{fill:#000;}
+											#donate-button:hover .st1{fill:#fff;}
+										</style>
+										<g>
+											<path class="st1" d="M96,0v416h416V0H96z M472,376H136V112h336V376z"/>
+											<polygon class="st1" points="40,472 40,296 40,136 40,96 0,96 0,512 416,512 416,472 376,472  "/>
+										</g>
+								</svg>
+							</button>
 							<div class="new"></div>
 						</div>
 					</div>
@@ -485,11 +580,6 @@
 						<opt title="">
 							<label><input type="checkbox" name="showChangelog" class="settings">Show Changelog on Update</label>
 							<a id="shownow" class="link">
-								<!--tooltip id="tt1">
-									<inner>
-										<span></span>
-									</inner>
-								</tooltip-->
 								Show Changelog Now
 								<svg height="12px" width="12px" style="margin-left:2px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
 									<style type="text/css">
@@ -503,7 +593,7 @@
 							</a>
 						</opt>
 						<opt title="">
-							<label new><input type="checkbox" name="showNew" class="settings">Show indicators for settings new to Version 1.0.4</label>
+							<label new><input type="checkbox" name="showNew" class="settings">Show indicators for settings new to Version 1.1.0</label>
 						</opt>
 						<opt title="Allows CustomTube to better integrate the dislike count into the layout. Do not enable this if you aren't using the Return YouTube Dislike extension.">
 							<label><input type="checkbox" name="iUseRYD" class="settings">Enable Return YouTube Dislike compatibility</label>
@@ -526,6 +616,8 @@
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="none" style="display:inline-block;">Disabled (Use Current YouTube Layout)</label>
 							<line-seperator></line-seperator>
 							<p class="mini-text info-text">Polymer Layout</p>
+							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="polymer-2021" style="display:inline-block;">Use 2021 Layout</label><br>
+							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="polymer-2020" style="display:inline-block;">Use 2020 Layout</label><br>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="polymer-2019" style="display:inline-block;">Use 2019 Layout</label><br>
 							<line-seperator></line-seperator>
 							<p class="mini-text info-text">Standard Old YouTube Layout (officially codenamed "Hitchhiker")</p>
@@ -533,12 +625,16 @@
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2016" style="display:inline-block;">Use 2016 Layout</label><br>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2015" style="display:inline-block;">Use 2015 Layout</label><br>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2014" style="display:inline-block;">Use 2014 Layout</label><br>
-							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2013-2" style="display:inline-block;">Use 2013 Layout*</label><br>
+							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2013-3" style="display:inline-block;">Use Late 2013 Layout*</label><br>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2013-2" style="display:inline-block;">Use Mid 2013 Layout*</label><br>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="hitchhiker-2013-1" style="display:inline-block;">Use Early 2013 Layout*</label><br>
 							<line-seperator></line-seperator>
 							<p class="mini-text info-text">Cosmic Panda Layout</p>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="cosmicpanda-3" style="display:inline-block;">Use 2012 Layout*</label><br>
-							<line-seperator></line-seperator>
+							<!--line-seperator></line-seperator>
+							<p class="mini-text info-text">Aozora Layout (unofficial codename)</p>
+							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="aozora-2011" style="display:inline-block;">Use 2011 Layout (definitely 100% finished)*</label><br>
+							<line-seperator></line-seperator-->
 						</div>
 						<p class="subtitle">* Theater Mode is Not Supported.</p>
 					</div>
@@ -554,26 +650,32 @@
 						<subopt title="Don't loop the video by default when you are watching a playlist.">
 							<label><input type="checkbox" name="dontLoopPlaylists" class="settings">Disable for playlist videos</label>
 						</subopt>
-						<!--opt title="Estimates the full subscriber count by randomly generating the missing digits of the subscriber count. This does not show the real full subscriber count. I repeat, THIS DOES NOT SHOW THE TRUE, ACTUAL SUBSCRIBER COUNT. It is for asthetic purposes only.">
-							<label new><input type="checkbox" name="randomSubCounts" class="settings">Unabbreviate sub counts (Estimated, hover for details)*</label>
-						</opt-->
-						<opt title="" class="">
-							<label><input type="checkbox" name="noJoin" class="settings">Hide Join Button</label>
+						<opt title="Estimates the full subscriber count by randomly generating the missing digits of the subscriber count. This does not show the real full subscriber count. It is for asthetic purposes only. Currently only affects the watch page.">
+							<label new><input type="checkbox" name="randomSubCounts" class="settings">Show full sub counts (Randomly generated, hover for details)**</label>
 						</opt>
 						<opt title="" class="">
-							<label><input type="checkbox" name="noClip" class="settings">Hide Clip Button</label>
+							<label><input type="checkbox" name="noJoin" class="settings">Hide Join Button**</label>
 						</opt>
 						<opt title="" class="">
-							<label><input type="checkbox" name="noThanks" class="settings">Hide Thanks Button</label>
+							<label><input type="checkbox" name="noClip" class="settings">Hide Clip Button**</label>
+						</opt>
+						<opt title="" class="">
+							<label><input type="checkbox" name="noThanks" class="settings">Hide Thanks Button**</label>
+						</opt>
+						<opt title="" class="">
+							<label new><input type="checkbox" name="noDownload" class="settings">Hide Download Button</label>
+						</opt>
+						<opt title="Hide the 'Play on TV' button." class="">
+							<label new><input type="checkbox" name="noCast" class="settings">Hide Cast Button</label>
 						</opt>
 						<opt title="Removes 'sections' from search that are most likely unrelated to the search. These include: People also watched, For you, etc." class="">
 							<label><input type="checkbox" name="betterSearch" class="settings">Remove Irrelevant Search Results</label>
 						</opt>
 						<opt title="" class="">
-							<label new><input type="checkbox" name="thumbFadeIn" class="settings">Video thumbnails fade in when loaded</label>
+							<label><input type="checkbox" name="thumbFadeIn" class="settings">Video thumbnails fade in when loaded</label>
 						</opt>
 						<opt title="Turns the view count into '???,???' when the URL changes. A functionality that was turned off for CustomTube V1.0.4 because it was deemed no longer neccessary. If you like the way it looks, you can turn it back on here." class="">
-							<label new><input type="checkbox" name="viewCountFogging" class="settings">Re-fog view count when loading a new video</label>
+							<label><input type="checkbox" name="viewCountFogging" class="settings">Re-fog view count when loading a new video</label>
 						</opt>
 						<opt title="Make pfps square, like they were before the mid 2017 redesign. Using any layout setting from 2017 or earlier will automatically make pfps square regardless of this setting. (However, this setting can be used to unround the topbar profile picture in the 2016 and 2017 layouts.)">
 							<label><input type="checkbox" name="squarePfp" class="settings">Unrounded Profile Pictures</label>
@@ -583,6 +685,7 @@
 							<label><input type="checkbox" name="squareVid" class="settings">Unrounded Video Thumbnails</label>
 							<p class="mini-text">All layout options overwrite this setting</p>
 						</opt>
+						<p class="subtitle">** Only works if YouTube's language is set to English.</p>
 					</div>
 				</div>
 				<div id="right4" class="right">
@@ -590,38 +693,57 @@
 						<p>Advanced: Sidebar (Guide)</p>
 					</div>
 					<div class="right-inner">
-							<opt title="Whether or not to show the home button. If none of the sub options are selected, the text will depend on whatever layout you are using.">
-								<label><input type="checkbox" name="homeSidebarBtn" class="settings">Display Home Button</label>
-							</opt>
-								<subopt title="This is what the text has been since 2016. Some layouts automatically change this text, this setting will override that.">
-									<label><input type="checkbox" name="NOTwtwSidebarBtn" class="settings">Force text to always be "Home", regardless of Layout</label>
-								</subopt>
-								<subopt title="This is what the text was circa 2013-2015. Some layouts automatically change this text, this setting will override that.">
-									<label><input type="checkbox" name="wtwSidebarBtn" class="settings">Force text to always be "What To Watch"</label>
-								</subopt>
-								<subopt title="This is what the text was circa 2012. Some layouts automatically change this text, this setting will override that.">
-									<label><input type="checkbox" name="fytSidebarBtn" class="settings">Force text to always be "From YouTube"</label>
-								</subopt>
-							<opt title="Adds a My Channel button under the Home button.">
-								<label><input type="checkbox" name="myChannelSidebarBtn" class="settings">Display My Channel Button</label>
-							</opt>
-								<subopt title="'My Channel' -> 'My channel'">
-									<label><input type="checkbox" name="lowerCaseC" class="settings">Make the "C" lowercase</label>
-								</subopt>
-							<opt title="Uncheck this to hide the Shorts button.">
-								<label><input type="checkbox" name="shortsSidebarBtn" class="settings">Display Shorts Button</label>
-							</opt>
-							<opt title="Uncheck this to hide the Trending button.">
-								<label><input type="checkbox" name="trendingSidebarBtn" class="settings">Display Trending Button</label>
-							</opt>
-							<opt title="Uncheck this to hide the Subscriptions button.">
-								<label><input type="checkbox" name="subsSidebarBtn" class="settings">Display Subscriptions Button</label>
-							</opt>
+						<opt title="Always show the sidebar, even on the watch page. Only works on layouts from Early 2013 or later. The sidebar will be invisible on the channel page if you're using the Early 2013 layout.">
+							<label new><input type="checkbox" name="alwaysShowSidebar" class="settings">Always Show Sidebar</label>
+							<p class="mini-text">Limited compatibility. Hover for details.</p>
+						</opt>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Customization</p>
+						</div>
+						<opt title="Whether or not to show the home button. If none of the sub options are selected, the text will depend on whatever layout you are using.">
+							<label><input type="checkbox" name="homeSidebarBtn" class="settings">Display Home Button</label>
+						</opt>
+							<subopt title="This is what the text has been since 2016. Some layouts automatically change this text, this setting will override that.">
+								<label><input type="checkbox" name="NOTwtwSidebarBtn" class="settings">Force text to always be "Home", regardless of Layout</label>
+							</subopt>
+							<subopt title="This is what the text was circa 2013-2015. Some layouts automatically change this text, this setting will override that.">
+								<label><input type="checkbox" name="wtwSidebarBtn" class="settings">Force text to always be "What To Watch"</label>
+							</subopt>
+							<subopt title="This is what the text was circa 2012. Some layouts automatically change this text, this setting will override that.">
+								<label><input type="checkbox" name="fytSidebarBtn" class="settings">Force text to always be "From YouTube"</label>
+							</subopt>
+						<opt title="Adds a My Channel button under the Home button.">
+							<label><input type="checkbox" name="myChannelSidebarBtn" class="settings">Display My Channel Button</label>
+						</opt>
+							<subopt title="'My Channel' -> 'My channel'">
+								<label><input type="checkbox" name="lowerCaseC" class="settings">Make the "C" lowercase</label>
+							</subopt>
+						<opt title="Uncheck this to hide the Shorts button.">
+							<label><input type="checkbox" name="shortsSidebarBtn" class="settings">Display Shorts Button</label>
+						</opt>
+						<opt title="Puts the trending button above 'Subscriptions'.">
+							<label new><input type="checkbox" name="trendingSidebarBtn" class="settings">Move Trending Button to main section</label>
+						</opt>
+						<opt title="Uncheck this to hide the Subscriptions button.">
+							<label><input type="checkbox" name="subsSidebarBtn" class="settings">Display Subscriptions Button</label>
+						</opt>
 					</div>
 				</div>
 				<div id="right5" class="right">
 					<div class="right-supertitle">
 						<p>Advanced: Topbar</p>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Logo Hyperlink</p>
+						</div>
+						<div class="right-subtitle">
+							<p>When you click on the YouTube logo, it will take you to whatever page is selected here.</p>
+						</div>
+						<label new class="logo-label" title=""><input type="radio" name="logoEndpoint" class="settings" value="LEHome" style="display:inline-block;">Home</label><br>
+						<label new class="logo-label" title=""><input type="radio" name="logoEndpoint" class="settings" value="LESubscriptions" style="display:inline-block;">Subscriptions</label><br>
 					</div>
 					<div class="right-inner">
 						<div class="right-title">
@@ -635,6 +757,53 @@
 				</div>
 				<div id="right6" class="right">
 					<div class="right-supertitle">
+						<p>Advanced: Home Page</p>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Homepage Videos Per Row</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Only works on layouts from Early 2013 onward.</p>
+						</div>
+						<label class="logo-label" new title=""><input type="radio" name="homepageVidsPerRow" class="settings" value="HPVPRauto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="homepageVidsPerRow" class="settings" value="HPVPR1" style="display:inline-block;">List View</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="homepageVidsPerRow" class="settings" value="HPVPR4" style="display:inline-block;">4</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="homepageVidsPerRow" class="settings" value="HPVPR5" style="display:inline-block;">5</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="homepageVidsPerRow" class="settings" value="HPVPR6" style="display:inline-block;">6</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="homepageVidsPerRow" class="settings" value="HPVPR7" style="display:inline-block;">7</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="homepageVidsPerRow" class="settings" value="HPVPR8" style="display:inline-block;">8</label><br>
+					</div>
+				</div>
+				<div id="right7" class="right">
+					<div class="right-supertitle">
+						<p>Advanced: Subscriptions Page</p>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Subscriptions Page Videos Per Row</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Only works on layouts from Early 2013 onward. Only affects YouTube's built in grid view for subscriptions.</p>
+						</div>
+						<label class="logo-label" new title=""><input type="radio" name="subsVidsPerRow" class="settings" value="SVPRauto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="subsVidsPerRow" class="settings" value="SVPR4" style="display:inline-block;">4</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="subsVidsPerRow" class="settings" value="SVPR5" style="display:inline-block;">5</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="subsVidsPerRow" class="settings" value="SVPR6" style="display:inline-block;">6</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="subsVidsPerRow" class="settings" value="SVPR7" style="display:inline-block;">7</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="subsVidsPerRow" class="settings" value="SVPR8" style="display:inline-block;">8</label><br>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Hide Shorts Shelf</p>
+						</div>
+						<label class="logo-label" new title="It will be hidden on all layouts except for the unmodified current layout."><input type="radio" name="hideShortsSubs" class="settings" value="HSSauto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" new title="Always hide it"><input type="radio" name="hideShortsSubs" class="settings" value="HSSon" style="display:inline-block;">On</label><br>
+						<label class="logo-label" new title="Never hide it"><input type="radio" name="hideShortsSubs" class="settings" value="HSSoff" style="display:inline-block;">Off</label><br>
+					</div>
+				</div>
+				<div id="right8" class="right">
+					<div class="right-supertitle">
 						<p>Advanced: Watch Page</p>
 					</div>
 					<div class="right-inner">
@@ -644,10 +813,34 @@
 						<div class="right-title">
 							<p>Video Player</p>
 						</div>
-						<opt title="Force the video player to always be 16:9 at a consistent size. Using a layout from 2013 or earlier will automatically enable this functionality regardless of this setting.">
-							<label><input type="checkbox" name="noFlexy" class="settings">Force consistent video size</label>
-							<p class="mini-text">Some layout options overwrite this setting (hover for details)</p>
+						<opt title="Prevents scrolling while in fullscreen mode.">
+							<label new><input type="checkbox" name="FSNoScroll" class="settings">True Fullscreen Mode</label>
 						</opt>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Video Player Size</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Change the size of the video player. Only affects layouts from 2014 or later, the 2013 layouts force a 640x360 player, and the 2012 layout forces a 586x330 player.</p>
+						</div>
+						<opt title="Allows you to choose a custom player size. (New options will appear if this option is enabled)">
+							<label new><input type="checkbox" name="noFlexy" class="settings">Use Custom Player Size (Size options will appear if enabled)</label>
+						</opt>
+						<div id="noflexy-options" style="margin-left: 24px; max-width: 600px; overflow: hidden;">
+							<line-seperator></line-seperator>
+							<p class="mini-text info-text">16:9</p>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS586x330" style="display:inline-block;">586x330</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS640x360" style="display:inline-block;">640x360</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS854x480" style="display:inline-block;">854x480</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS1024x576" style="display:inline-block;">1024x576</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS1280x720" style="display:inline-block;">1280x720</label><br>
+							<line-seperator></line-seperator>
+							<p class="mini-text info-text">4:3</p>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS640x480" style="display:inline-block;">640x480</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS768x576" style="display:inline-block;">768x576</label><br>
+							<label new class="logo-label"><input type="radio" name="videoPlayerSize" class="settings" value="PS960x720" style="display:inline-block;">960x720</label><br>
+						</div>
 					</div>
 					<div class="right-inner">
 						<div class="right-title">
@@ -671,7 +864,7 @@
 						<label class="logo-label " title="168x94 pixels"><input type="radio" name="relatedSize" class="settings" value="large" style="display:inline-block;">Large (2017-Present)</label><br>
 					</div>
 				</div>
-				<div id="right7" class="right">
+				<div id="right9" class="right">
 					<div class="right-supertitle">
 						<p>Advanced: Channel Page</p>
 					</div>
@@ -682,9 +875,43 @@
 						<div class="right-subtitle">
 							<p>Restore the dropdown for sorting channel videos.</p>
 						</div>
-						<label class="logo-label" new title="It will be on for all layouts other than the unmodified current layout."><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDauto" style="display:inline-block;">Auto</label><br>
-						<label class="logo-label" new title="Always on"><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDon" style="display:inline-block;">On</label><br>
-						<label class="logo-label" new title="Always off"><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDoff" style="display:inline-block;">Off</label><br>
+						<label class="logo-label" title="It will be on for all layouts other than the unmodified current layout."><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDauto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" title="Always on"><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDon" style="display:inline-block;">On</label><br>
+						<label class="logo-label" title="Always off"><input type="radio" name="channelVidsDropdown" class="settings" value="CVDDoff" style="display:inline-block;">Off</label><br>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Channel Videos Per Row</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Only works on layouts from Mid 2013 onward.</p>
+						</div>
+						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPRauto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR1" style="display:inline-block;">List View</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR4" style="display:inline-block;">4</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR5" style="display:inline-block;">5</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR6" style="display:inline-block;">6</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR7" style="display:inline-block;">7</label><br>
+						<label class="logo-label" new title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR8" style="display:inline-block;">8</label><br>
+					</div>
+				</div>
+				<div id="right10" class="right">
+					<div class="right-supertitle">
+						<p>Advanced: Search Page</p>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Search Thumbnail Size (Overrides Layout Setting)</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Changes the size of the videos on the search page. Hover over each radio button to see the size in pixels.</p>
+						</div>
+						<label class="logo-label" new title="The size will be determined by your layout setting."><input type="radio" name="videoRendererSize" class="settings" value="VRSizeAuto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" new title="138x77 pixels"><input type="radio" name="videoRendererSize" class="settings" value="VRSize138" style="display:inline-block;">Very Small (2012)</label><br>
+						<label class="logo-label" new title="185x102 pixels"><input type="radio" name="videoRendererSize" class="settings" value="VRSize185" style="display:inline-block;">Smaller (2013)</label><br>
+						<label class="logo-label" new title="196x109 pixels"><input type="radio" name="videoRendererSize" class="settings" value="VRSize196" style="display:inline-block;">Small (2014-2016)</label><br>
+						<label class="logo-label" new title="246x138 pixels"><input type="radio" name="videoRendererSize" class="settings" value="VRSize246" style="display:inline-block;">Medium (2017-2019)</label><br>
+						<label class="logo-label" new title="360x202 pixels"><input type="radio" name="videoRendererSize" class="settings" value="VRSize360" style="display:inline-block;">Large (2020-Present)</label><br>
 					</div>
 				</div>
 			</div>

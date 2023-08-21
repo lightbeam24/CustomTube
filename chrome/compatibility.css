@@ -1,0 +1,6 @@
+/* Code to fix issues that are exclusive to the Chromium port of CustomTube. This file is not present in the Firefox version. */
+
+.btc,
+.bts {
+  margin-top: 1px;
+}

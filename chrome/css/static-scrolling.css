@@ -1,0 +1,34 @@
+/* Section regardless of page */
+/* This code makes everything static on most pages */
+ytd-app[static-scrolling] #masthead-container.ytd-app {
+	position: absolute;
+}
+ytd-app[static-scrolling] #guide {
+	position: absolute;
+}
+/* Chips. */
+ytd-app[static-scrolling][location="home"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+  position: absolute !important;
+}
+/* Section playlist page */
+ytd-app[static-scrolling] ytd-playlist-header-renderer {
+  left: initial !important;
+  position: absolute !important;
+}
+ytd-app[static-scrolling] #footer {
+  pointer-events: all;
+}
+/* fix scroll */
+ytd-app[static-scrolling] #guide-inner-content.ytd-app {
+  scrollbar-width: none !important;
+  background: none;
+  z-index: 0;
+  overscroll-behavior: unset !important;
+  pointer-events: none;
+}
+ytd-app[static-scrolling] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer {
+  pointer-events: all;
+}
+ytd-app[static-scrolling] tp-yt-paper-item:focus::before.tp-yt-paper-item.tp-yt-paper-item:focus::before {
+  pointer-events: all !important;
+}

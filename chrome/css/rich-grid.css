@@ -1,0 +1,485 @@
+html[homepage="small-grid"] #home-page-skeleton .rich-grid-media-skeleton {
+    width: calc(100% / 6 - 4px) !important;
+    min-width: unset !important;
+    margin: 0 2px !important;
+}
+/* Section hitchhiker grid */
+/* This code sets width and position of grid as a whole. */
+html[homepage="small-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
+html[channel-vidpage="small-grid"] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer,
+html[subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer {
+  max-width: 1262px !important;
+  margin-top: 20px;
+  padding: 16px 12px;
+}
+html[static][homepage="small-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
+html[static][channel-vidpage="small-grid"] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer,
+html[static][subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer {
+  max-width: 650px !important;
+}
+/* This code fixes the grid. */
+html[homepage="small-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[channel-vidpage="small-grid"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 6 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+html[static][homepage="small-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[static][channel-vidpage="small-grid"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[static][subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 3 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+html[homepage="small-grid"] ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-row,
+html[homepage="small-grid"] ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-row > #contents,
+html[channel-vidpage="small-grid"] ytd-browse[page-subtype="channels"] #contents > ytd-rich-grid-row,
+html[channel-vidpage="small-grid"] ytd-browse[page-subtype="channels"] #contents > ytd-rich-grid-row > #contents,
+html[subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] #contents > ytd-rich-grid-row,
+html[subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] #contents > ytd-rich-grid-row > #contents {
+    display: contents !important;
+}
+html[homepage="small-grid"] ytd-browse[page-subtype="home"] ytd-rich-item-renderer,
+html[channel-vidpage="small-grid"] ytd-browse[page-subtype="channels"] ytd-rich-item-renderer,
+html[subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer {
+    margin-bottom: 12px !important;
+}
+html[homepage="small-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer .ghost-grid.ytd-ghost-grid-renderer,
+html[channel-vidpage="small-grid"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer .ghost-grid.ytd-ghost-grid-renderer,
+html[subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer .ghost-grid.ytd-ghost-grid-renderer {
+    margin: 0 !important;
+}
+html[homepage="small-grid"] ytd-section-list-renderer[page-subtype="history"] #separator.ytd-video-meta-block:not([hidden]) {
+    display: inline-block !important;
+    color: var(--yt-spec-text-secondary) !important;
+    margin: 0 4px !important;
+}
+/* smaller grid 2014 */
+html[homepage="smaller-grid"] #home-page-skeleton .rich-grid-media-skeleton {
+    width: calc(100% / 6 - 4px) !important;
+    min-width: unset !important;
+    margin: 0 2px !important;
+}
+/* Section hitchhiker grid */
+/* This code sets width and position of grid as a whole. */
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
+html[channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer,
+html[subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer {
+  max-width: 1136px !important;
+  margin-top: 20px;
+  padding: 16px 12px;
+}
+html[static][homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
+html[static][channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer,
+html[static][subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer {
+  max-width: 650px !important;
+}
+/* This code fixes the grid. */
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 6 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+html[static][homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[static][channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[static][subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 3 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-row,
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-row > #contents,
+html[channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] #contents > ytd-rich-grid-row,
+html[channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] #contents > ytd-rich-grid-row > #contents,
+html[subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] #contents > ytd-rich-grid-row,
+html[subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] #contents > ytd-rich-grid-row > #contents {
+    display: contents !important;
+}
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-rich-item-renderer,
+html[channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] ytd-rich-item-renderer,
+html[subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer {
+    margin-bottom: 12px !important;
+}
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer .ghost-grid.ytd-ghost-grid-renderer,
+html[channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer .ghost-grid.ytd-ghost-grid-renderer,
+html[subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer .ghost-grid.ytd-ghost-grid-renderer {
+    margin: 0 !important;
+}
+html[homepage="smaller-grid"] ytd-section-list-renderer[page-subtype="history"] #separator.ytd-video-meta-block:not([hidden]) {
+    display: inline-block !important;
+    color: var(--yt-spec-text-secondary) !important;
+    margin: 0 4px !important;
+}
+/* skeleton; not needed for actual thing 
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #home-page-skeleton .rich-grid-media-skeleton {
+    width: calc(100% / 6 - 4px) !important;
+    min-width: unset !important;
+    margin: 0 2px !important;
+}
+/* Section hitchhiker grid */
+/* This code sets width and position of grid as a whole. 
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  max-width: 1136px !important;
+  margin-top: 20px;
+  padding: 16px 12px;
+}
+html[static][homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  max-width: 650px !important;
+}
+/* This code fixes the grid. 
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 6 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+html[static][homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 3 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-row,
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-row > #contents {
+    display: contents !important;
+}
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-rich-item-renderer {
+    margin-bottom: 12px !important;
+}
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer .ghost-grid.ytd-ghost-grid-renderer {
+    margin: 0 !important;
+}
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-section-list-renderer[page-subtype="history"] #separator.ytd-video-meta-block:not([hidden]) {
+    display: inline-block !important;
+    color: var(--yt-spec-text-secondary) !important;
+    margin: 0 4px !important;
+}
+/* Section Styles */
+/* sets grid width */
+/* pfp hide */
+html[grid-styling^="cosmicpanda"] {
+--bt-small-grid-background: var(--bt-universal-white);
+--bt-small-grid-link-color: var(--bt-blue);
+--bt-small-grid-title-margin: 4px 0 1px 0;
+--bt-small-grid-title-font-size: 13px;
+--bt-small-grid-title-font-weight: 500;
+--bt-small-grid-title-line-height: 1.3em;
+--bt-small-grid-title-max-height: 2.6em;
+--bt-small-grid-title-text-decoration-hover: underline;
+--bt-small-grid-hover-meta-text-decoration: underline;
+--bt-small-grid-meta-block-byline-line-height: 1.2rem;
+--bt-small-grid-meta-block-line-height: 1.4rem;
+--bt-small-grid-meta-block-font-size: 11px;
+--bt-small-grid-meta-block-text-color: var(--bt-text-color-3);
+--bt-small-grid-pfp-display: block;
+--bt-small-grid-section-display: none;
+}
+html[grid-styling^="hitchhiker"] {
+--bt-small-grid-background: var(--bt-section-bg);
+--bt-small-grid-box-shadow: var(--bt-section-box-shadow);
+--bt-small-grid-link-color: var(--bt-blue);
+--bt-small-grid-title-margin: 4px 0 1px 0;
+--bt-small-grid-title-font-size: 13px;
+--bt-small-grid-title-font-weight: 500;
+--bt-small-grid-title-line-height: 1.3em;
+--bt-small-grid-title-max-height: 2.6em;
+--bt-small-grid-title-text-decoration-hover: underline;
+--bt-small-grid-hover-meta-text-decoration: underline;
+--bt-small-grid-meta-block-byline-line-height: 1.2rem;
+--bt-small-grid-meta-block-line-height: 1.4rem;
+--bt-small-grid-meta-block-font-size: 11px;
+--bt-small-grid-meta-block-text-color: var(--bt-text-color-3);
+--bt-small-grid-pfp-display: none;
+--bt-small-grid-section-display: none;
+}
+html[grid-styling^="polymer-2019"],
+html[grid-styling^="polymer-2020"],
+html[grid-styling^="polymer-2021"],
+html[grid-styling^="polymer-2022"] {
+--bt-small-grid-title-margin: 8px 0 6px 0;
+--bt-small-grid-title-font-size: 14px;
+--bt-small-grid-title-font-weight: 500;
+--bt-small-grid-title-line-height: 1.6rem;
+--bt-small-grid-meta-block-byline-line-height: 1.8rem;
+--bt-small-grid-meta-block-line-height: 1.8rem;
+--bt-small-grid-meta-block-font-size: 1.3rem;
+--bt-small-grid-pfp-display: none;
+--bt-small-grid-section-display: none;
+}
+html[grid-styling^="polymer-2020"],
+html[grid-styling^="polymer-2021"],
+html[grid-styling^="polymer-2022"] {
+--bt-small-grid-pfp-display: none;
+}
+/* TODO: Grid styling depends on whether it's rich grid or not */
+/*
+html[grid-styling][disable-infi-scroll="true"] {
+--bt-rich-grid-padding-bottom: 60px;
+--bt-rich-grid-load-more-margin-top: -50px;
+--bt-rich-grid-load-more-margin-bottom: 20px;
+}
+*/
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
+html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer,
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer {
+  background: var(--bt-small-grid-background);
+  box-shadow: var(--bt-small-grid-box-shadow);
+}
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] #avatar-link.ytd-rich-grid-media,
+html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] #avatar-link.ytd-rich-grid-media,
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] #avatar-link.ytd-rich-grid-media {
+  display: var(--bt-small-grid-pfp-display);
+}
+/* video titles */
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] h3.ytd-rich-grid-media,
+html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] h3.ytd-rich-grid-media,
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] h3.ytd-rich-grid-media {
+  margin: var(--bt-small-grid-title-margin);
+}
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] #video-title.ytd-rich-grid-media,
+html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] #video-title.ytd-rich-grid-media,
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] #video-title.ytd-rich-grid-media {
+  color: var(--bt-small-grid-link-color, revert);
+  font-size: var(--bt-small-grid-title-font-size);
+  line-height: var(--bt-small-grid-title-line-height);
+  font-weight: var(--bt-small-grid-title-font-weight);
+  max-height: var(--bt-small-grid-title-max-height);
+}
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] #video-title.ytd-rich-grid-media:hover,
+html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] #video-title.ytd-rich-grid-media:hover,
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] #video-title.ytd-rich-grid-media:hover {
+  text-decoration: var(--bt-small-grid-title-text-decoration-hover);
+}
+/* other meta */
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] ytd-video-meta-block[rich-meta] #byline-container.ytd-video-meta-block,
+html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] ytd-video-meta-block[rich-meta] #byline-container.ytd-video-meta-block,
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] ytd-video-meta-block[rich-meta] #byline-container.ytd-video-meta-block {
+	line-height: var(--bt-small-grid-meta-block-byline-line-height) !important;
+}
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] ytd-video-meta-block #metadata span, 
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] ytd-video-meta-block #metadata a,
+html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] ytd-video-meta-block #metadata span, 
+html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] ytd-video-meta-block #metadata a,
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] ytd-video-meta-block #metadata span, 
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] ytd-video-meta-block #metadata a {
+  color: var(--bt-small-grid-meta-block-text-color);
+  font-size: var(--bt-small-grid-meta-block-font-size);
+  line-height: var(--bt-small-grid-meta-block-line-height) !important;
+}
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] ytd-rich-item-renderer:hover ytd-video-meta-block #metadata a,
+html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] ytd-rich-item-renderer:hover ytd-video-meta-block #metadata a,
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer:hover ytd-video-meta-block #metadata a {
+  color: var(--bt-small-grid-link-color);
+}
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] ytd-video-meta-block #metadata a:hover,
+html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] ytd-video-meta-block #metadata a:hover,
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] ytd-video-meta-block #metadata a:hover {
+  text-decoration: var(--bt-small-grid-hover-meta-text-decoration);
+}
+/*html[grid-styling] ytd-rich-section-renderer {
+	display: var(--bt-small-grid-section-display);
+}*/
+/*
+html[grid-styling][disable-infi-scroll="true"] #contents.ytd-rich-grid-renderer {
+  padding-bottom: var(--bt-rich-grid-padding-bottom);
+}*/
+#bt-load-more-homepage,
+#bt-load-more-channel {
+  margin-top: var(--bt-rich-grid-load-more-margin-top);
+  margin-bottom: var(--bt-rich-grid-load-more-margin-bottom);
+}
+/* LIST */
+/* desc and other text for list */
+html[homepage="list"] ytd-browse[page-subtype="home"] #details.ytd-rich-grid-media,
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] #details.ytd-rich-grid-media,
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] #details.ytd-rich-grid-media {
+  position: absolute;
+  margin: 0 -600px 0 210px !important;
+  flex: auto;
+  display: flex;
+  flex-direction: row;
+}
+/* list layout margins and stuff */
+html[homepage="list"] ytd-browse[page-subtype="home"] ytd-rich-grid-row #contents.ytd-rich-grid-row,
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-row #contents.ytd-rich-grid-row,
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-row #contents.ytd-rich-grid-row {
+  width: 100%;
+  margin: 0 -3px;
+  display: inline-grid;
+  max-width: 100% !important;
+}
+html[homepage="list"] ytd-browse[page-subtype="home"] ytd-rich-item-renderer,
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-rich-item-renderer,
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer {
+  margin-bottom: -60px !important;
+  height: 180px !important;
+  min-width: 203px;
+  max-width: 203px;
+}
+/* text */
+html[homepage="list"] ytd-browse[page-subtype="home"] ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media,
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media,
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media {
+  margin-bottom: 2px;
+}
+/* text title */
+html[homepage="list"] ytd-browse[page-subtype="home"] h3.ytd-rich-grid-media,
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] h3.ytd-rich-grid-media,
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] h3.ytd-rich-grid-media {
+  color: var(--yt-spec-text-primary);
+  margin: 3px 0;
+}
+/* thumbnails */
+html[homepage="list"] ytd-browse[page-subtype="home"] ytd-rich-grid-media[mini-mode],
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-media[mini-mode],
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-media[mini-mode] {
+  max-width: 200px;
+}
+/* pfp NEW */
+html[homepage="list"] ytd-browse[page-subtype="home"] #avatar-link.ytd-rich-grid-media,
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] #avatar-link.ytd-rich-grid-media,
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] #avatar-link.ytd-rich-grid-media {
+  height: 30px;
+  margin-top: 25px;
+  margin-right: -30px;
+}
+html[homepage="list"] ytd-browse[page-subtype="home"] #avatar.ytd-rich-grid-media,
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] #avatar.ytd-rich-grid-media,
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] #avatar.ytd-rich-grid-media {
+  width: 30px;
+  height: 30px;
+}
+/* metablock NEW */
+html[homepage="list"][layout^="cosmicpanda"] ytd-browse[page-subtype="home"] ytd-video-meta-block, 
+html[homepage="list"][layout^="cosmicpanda"] ytd-browse[page-subtype="home"] .ytd-video-meta-block[meta-block],
+/*
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-video-meta-block, 
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] .ytd-video-meta-block[meta-block],
+*/
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-video-meta-block, 
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] .ytd-video-meta-block[meta-block] {
+  margin-left: 36px;
+}
+
+html[homepage="list"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer #contents.ytd-rich-grid-renderer,
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer #contents.ytd-rich-grid-renderer,
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer #contents.ytd-rich-grid-renderer {
+  padding-top: 8px !important;
+}
+html[homepage="list"] ytd-browse[page-subtype="home"] #video-title-link.ytd-rich-grid-media,
+html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] #video-title-link.ytd-rich-grid-media, 
+html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] #video-title-link.ytd-rich-grid-media {
+  display: block;
+}
+
+
+/* for channel grid */
+html[layout] ytd-rich-item-renderer[is-slim-grid]:first-of-type {
+  margin-left: calc(var(--ytd-rich-grid-item-margin) * 0.7) !important;
+}
+
+html[homepage-vids-per-row] ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-row,
+html[homepage-vids-per-row] ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-row > #contents,
+html[channel-vids-per-row] ytd-browse[page-subtype="channels"] #contents > ytd-rich-grid-row,
+html[channel-vids-per-row] ytd-browse[page-subtype="channels"] #contents > ytd-rich-grid-row > #contents,
+html[subs-page-vids-per-row] ytd-browse[page-subtype="subscriptions"] #contents > ytd-rich-grid-row,
+html[subs-page-vids-per-row] ytd-browse[page-subtype="subscriptions"] #contents > ytd-rich-grid-row > #contents {
+    display: contents !important;
+}
+html[homepage-vids-per-row="2"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[channel-vids-per-row="2"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[subs-page-vids-per-row="2"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 2 !important;
+    --ytd-rich-grid-item-margin: 0px !important;
+}
+html[homepage-vids-per-row="3"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[channel-vids-per-row="3"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[subs-page-vids-per-row="3"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 3 !important;
+    --ytd-rich-grid-item-margin: 2px !important;
+}
+html[homepage-vids-per-row="4"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[channel-vids-per-row="4"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[subs-page-vids-per-row="4"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 4 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+html[homepage-vids-per-row="5"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[channel-vids-per-row="5"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[subs-page-vids-per-row="5"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 5 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+html[homepage-vids-per-row="6"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[channel-vids-per-row="6"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[subs-page-vids-per-row="6"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 6 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+html[homepage-vids-per-row="7"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[channel-vids-per-row="7"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[subs-page-vids-per-row="7"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 7 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+html[homepage-vids-per-row="8"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
+html[channel-vids-per-row="8"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
+html[subs-page-vids-per-row="8"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 8 !important;
+    --ytd-rich-grid-item-margin: 4px !important;
+}
+/* regular grid */
+html[grid-styling^="polymer"] {
+  --bt-ytd-grid-video-width: 210px;
+  --bt-ytd-grid-video-height: 118px;
+}
+html[grid-styling^="hitchhiker"] {
+  --bt-ytd-grid-video-width: 201px;
+  --bt-ytd-grid-video-height: 113px;
+}
+html[grid-styling^="cosmicpanda"] {
+  --bt-ytd-grid-video-width: 201px;
+  --bt-ytd-grid-video-height: 113px;
+}
+html[grid-styling^="aozora"] {
+  --bt-ytd-grid-video-width: 201px;
+  --bt-ytd-grid-video-height: 113px;
+}
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer #video-title.yt-simple-endpoint,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer #video-title.yt-simple-endpoint{
+  color: var(--bt-small-grid-link-color, revert);
+  font-size: var(--bt-small-grid-title-font-size);
+  line-height: var(--bt-small-grid-title-line-height);
+  font-weight: var(--bt-small-grid-title-font-weight);
+  max-height: var(--bt-small-grid-title-max-height);
+}
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer #video-title.yt-simple-endpoint:hover,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer #video-title.yt-simple-endpoint:hover {
+  text-decoration: var(--bt-small-grid-title-text-decoration-hover);
+}
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer #metadata span,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer ytd-channel-name,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer #metadata span,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer ytd-channel-name {
+  color: var(--bt-small-grid-meta-block-text-color);
+  font-size: var(--bt-small-grid-meta-block-font-size);
+  line-height: var(--bt-small-grid-meta-block-line-height) !important;
+}
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer ytd-channel-name:hover #text a,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer ytd-channel-name:hover #text a {
+  text-decoration: var(--bt-small-grid-hover-meta-text-decoration);
+  color: var(--bt-small-grid-link-color) !important;
+}
+html[grid-styling] ytd-thumbnail.ytd-grid-video-renderer,
+html[grid-styling] ytd-playlist-thumbnail.ytd-grid-playlist-renderer {
+  width: var(--bt-ytd-grid-video-width);
+  height: var(--bt-ytd-grid-video-height);
+}
+html[grid-styling] #items.yt-horizontal-list-renderer > .yt-horizontal-list-renderer {
+  width: var(--bt-ytd-grid-video-width);
+}
+
+/* home grid fix */
+html[homepage="small-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  margin-top: 60px !important;
+}
+html[homepage="rich-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer, 
+html:not([homepage]) ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  margin-top: 60px;
+}

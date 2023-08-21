@@ -1,0 +1,117 @@
+/* Section regardless of page */
+/* Topbar. This code works perfectly and is all that's needed for all pages. */
+ytd-app[static] ytd-masthead {
+  width: var(--tubek12-static-page-width) !important;
+}
+ytd-app[static] ytd-two-column-browse-results-renderer.grid:not(.grid-disabled),
+html[layout="hitchhiker-2013-1"][location="channel"] ytd-two-column-browse-results-renderer.grid:not(.grid-disabled) {
+  max-width: calc(var(--tubek12-static-page-width) - var(--app-drawer-width)) !important;
+}
+html[channel-style^="cosmicpanda"][location="channel"] ytd-app:not([masthead-hidden]) #page-manager {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+html[layout="hitchhiker-2013-1"][location="channel"] tp-yt-app-drawer {
+  display: none;
+}
+/* This code makes the page itself static, as well as the OUTER video player, but not the controls or the video element itself. */
+ytd-app[static] ytd-watch-flexy {
+  --ytd-watch-flexy-player-width: 586px !important;
+  --ytd-watch-flexy-player-height: 330px !important;
+}
+/* This code is to make reduce margin with related. */
+ytd-app[static] #primary.ytd-watch-flexy {
+  padding-right: 0;
+}
+html[static] ytd-watch-flexy #primary.ytd-watch-flexy {
+  width: 586px !important;
+  min-width: 586px !important;
+  max-width: 586px !important;
+}
+/* SubSection Video */
+/* This code seems to make videos work pretty much perfectly, except for non 16:9 videos. The min-height property is required for 4:3 videos to keep a consistent width. */
+ytd-app[static] ytd-watch-flexy #movie_player[aria-label="YouTube Video Player"] video {
+  width: auto !important;
+  width: 586px !important;
+  margin: 0 auto !important;
+  display: flex;
+  max-width: 586px !important;
+  height: auto !important;
+  max-height: 336px !important;
+  align-self: center !important;
+  min-height: 330px !important;
+}
+/* This code is necessary for non 16:9 videos to keep a consistent width. */
+ytd-app[static] #movie_player[aria-label="YouTube Video Player"] .ytp-chrome-bottom {
+    width: 566px !important;
+}
+/* These variables are required for non 16:9 non 1:1 videos to keep a consistent width. */
+ytd-app[static] ytd-watch-flexy[flexy] {
+           --ytd-watch-flexy-width-ratio: 16 !important;
+           --ytd-watch-flexy-height-ratio: 9 !important;
+           --ytd-watch-flexy-space-below-player: 136px;
+           --ytd-watch-flexy-non-player-height: 330px !important;
+           --ytd-watch-flexy-non-player-width: 586px !important;
+           --ytd-watch-flexy-min-player-height: 330px !important;
+           --ytd-watch-flexy-min-player-width: 586px !important;
+           --ytd-watch-flexy-max-player-height: 330px !important;
+           --ytd-watch-flexy-max-player-width: 586px !important;
+}
+html[static] {
+--bt-player-width: 586px;
+--bt-player-height: 330px;
+}
+/* primary */
+html[static] #primary.ytd-watch-flexy {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+ytd-app[static] #secondary.ytd-watch-flexy {
+  padding-right: 0 !important;
+}
+ytd-app[static] #secondary-inner {
+  width: 330px !important;
+}
+ytd-app[static] #secondary-inner {
+  width: 360px !important;
+}
+ytd-app[static] #secondary-inner {
+  width: 380px !important;
+}
+/* Section pages that aren't watch */
+/* This code makes the screen static on pages that aren't watch. Absolutely must be disabled on watch page. */
+html[static] ytd-app:not([masthead-hidden]) {
+    width: var(--tubek12-static-page-width) !important;
+    margin: var(--tubek12-static-page-margin) !important;
+}
+/* This code makes sidebar attach itself to edge of page, instead of screen. Needs to be disabled on watch pages. */
+html[static] ytd-app:not([masthead-hidden]) tp-yt-app-drawer {
+  left: initial !important;
+}
+/* Section playlist page */
+ytd-app[static] ytd-playlist-header-renderer {
+  left: initial !important;
+}
+html[static] #primary.ytd-watch-flexy {
+	max-width: calc((100vh - (var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player))) * (${window.screen.width} / ${window.screen.height})) !important;
+	min-width: calc(var(--ytd-watch-flexy-min-player-height) * (${window.screen.width} / ${window.screen.height})) !important;
+}
+html[static] #player-container-outer {
+	max-width: 586px  !important;
+	min-width: 0 !important;
+	position: relative !important;
+}
+html[static] #player-container-inner {
+	padding-top: calc(${window.screen.height} / ${window.screen.width} * 100%) !important;
+}
+html[static] .html5-video-container {
+	width:100% !important;
+	height:100% !important;
+}
+html[static] .html5-video-container video {
+	width:100% !important;
+	height:100% !important;
+	left:0 !important;
+	top: 0 !important;
+	object-fit: contain !important;
+}

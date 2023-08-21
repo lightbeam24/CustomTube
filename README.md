@@ -4,9 +4,9 @@
 
 What if you could just CHOOSE your YouTube layout? Well, now you can!
 
-Available as a Firefox extension: https://addons.mozilla.org/en-CA/firefox/addon/customtube/
+Firefox: https://addons.mozilla.org/en-CA/firefox/addon/customtube/
 
-Chrome version is submitted for review.
+Chrome: https://chrome.google.com/webstore/detail/customtube/iedffooliepgabiihipcbokboecnfcbe
 
 CustomTube does not collect user data. I don't even know how to program that and I wouldn't want to anyway.
 

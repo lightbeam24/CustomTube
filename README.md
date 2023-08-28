@@ -4,9 +4,9 @@
 
 What if you could just CHOOSE your YouTube layout? Well, now you can!
 
-Firefox: https://addons.mozilla.org/en-CA/firefox/addon/customtube/
+[![Firefox](https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/en-CA/firefox/addon/customtube/)
+[![Chrome](https://wd.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/RQMv2HZ0v6NKfFn7XCeU.png?auto=format&w=228)](https://chromewebstore.google.com/detail/customtube/iedffooliepgabiihipcbokboecnfcbe)
 
-Chrome: https://chrome.google.com/webstore/detail/customtube/iedffooliepgabiihipcbokboecnfcbe
 
 CustomTube does not collect user data. I don't even know how to program that and I wouldn't want to anyway.
 
@@ -15,21 +15,21 @@ Credits are below screenshots.
 Screenshots:
 -
 
-2017 Layout Watch Page
-![ScreenScreen](https://github.com/lightbeam24/customtube/assets/105595945/965b6933-a59c-425a-b784-cacecf9cee1c)
+![ss1](https://github.com/lightbeam24/CustomTube/assets/105595945/90283c3b-86ae-419d-9663-be540a929349)
 
-Early 2013 Layout Watch Page
-![ShotShot](https://github.com/lightbeam24/customtube/assets/105595945/e77c54f5-ded7-4692-9431-84c8a5950e90)
+![ss2](https://github.com/lightbeam24/CustomTube/assets/105595945/3c7345bf-c1f8-4378-9c29-7e1fcab8822e)
 
-2019 Layout Homepage
-![ShotScreen](https://github.com/lightbeam24/customtube/assets/105595945/9dc693c5-3b1b-4b4e-a968-f1c5d6275eed)
+![ss6](https://github.com/lightbeam24/CustomTube/assets/105595945/cc4a19e6-ca85-469f-a945-fcea3710fd50)
 
-2012 Layout Homepage
-![ScreetShon](https://github.com/lightbeam24/customtube/assets/105595945/4332dd6b-0625-4ba7-a986-aa6e087842c8)
+![ss7](https://github.com/lightbeam24/CustomTube/assets/105595945/ebb24f00-fa78-4fd5-a9b2-21764056e7d4)
+
+![ss8](https://github.com/lightbeam24/CustomTube/assets/105595945/64903dd3-e3b5-4380-85ec-b9906dda577e)
+
+![ss5](https://github.com/lightbeam24/CustomTube/assets/105595945/faa2507b-358f-43bb-8d4a-4fd503979baa)
 
 Credits:
 -
 
-New logo made by UnderscoreAngel. [Github page](https://github.com/UnderscoreAngel)
+Logo made by UnderscoreAngel. [Github page](https://github.com/UnderscoreAngel)
 
 CustomTube shares a small amount of code with YouTube Redux, namely the code for managing user settings, and the code for resizing the video player.

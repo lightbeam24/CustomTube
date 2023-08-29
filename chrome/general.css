@@ -998,3 +998,19 @@ html[disable-fullscreen-scroll="true"] ytd-watch-flexy[fullscreen] ytd-player {
 html[disable-fullscreen-scroll="true"] .ytp-fullerscreen-edu-button.ytp-button.ytp-fullerscreen-edu-button-subtle {
   display: none;
 }
+
+
+/* patch */
+html[disable-flexy-player="true"] .html5-endscreen {
+  background: black;
+  overflow: visible !important;
+  height: var(--bt-player-height);
+}
+html[disable-flexy-player="true"] ytd-watch-flexy[fullscreen] .html5-endscreen {
+  background: black;
+  height: 100vh;
+  top: 0;
+}
+yt-report-details-form-renderer #description {
+  pointer-events: all !important;
+}

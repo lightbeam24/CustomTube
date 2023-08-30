@@ -4,9 +4,31 @@ html[layout^="aozora"] {
 html[layout^="cosmicpanda"] {
 --bt-chips-display: none;
 }
-html[chips-style^="hitchhiker"],
-html[chips-style^="hitchhiker-2013"] {
+html[chips-style^="hitchhiker"] {
+--bt-chips-display: block;
 --bt-outer-chips-position: fixed;
+--bt-outer-chips-height: 40px;
+--bt-outer-chips-top: var(--bt-topbar-height);
+--bt-outer-chips-bg: var(--yt-spec-brand-background-primary);
+--bt-outer-chips-border-top: none;
+--bt-outer-chips-border-bottom: 1px solid var(--bt-section-border-color);
+--bt-chip-margin-top: 6px;
+--bt-chip-padding-bottom: 3px;
+--bt-chip-radius: 0;
+--bt-chip-font-size: 13px;
+--bt-chip-text-transform: none;
+--bt-chip-border-bottom-hover: 3px solid var(--bt-spec-emphasis);
+--bt-active-chip-bg: none;
+--bt-active-chip-text-color: var(--yt-spec-text-primary);
+--bt-active-chip-border: none;
+--bt-active-chip-border-bottom: 3px solid var(--bt-spec-emphasis);
+--bt-inactive-chip-bg: none;
+--bt-inactive-chip-text-color: var(--yt-spec-text-primary);
+--bt-inactive-chip-border: none;
+}
+html[chips-style^="hitchhiker-2013"] {
+--bt-chips-display: none;
+--bt-outer-chips-position: absolute;
 --bt-outer-chips-height: 40px;
 --bt-outer-chips-top: var(--bt-topbar-height);
 --bt-outer-chips-bg: var(--yt-spec-brand-background-primary);
@@ -87,6 +109,24 @@ html[chips-style] ytd-feed-filter-chip-bar-renderer:not([not-sticky]) #chips-wra
   border-top: var(--bt-outer-chips-border-top);
   border-bottom: var(--bt-outer-chips-border-bottom);
 }
+/* patch */
+ytd-browse[page-subtype="home"] ytd-feed-filter-chip-bar-renderer {
+  display: var(--bt-chips-display) !important;
+  position: fixed !important;
+  z-index: 1919;
+  width: calc(100vw - var(--bt-sidebar-width)) !important;
+  max-width: calc(100vw - var(--bt-sidebar-width)) !important;
+  min-width: calc(100vw - var(--bt-sidebar-width)) !important;
+  left: var(--bt-sidebar-width);
+}
+ytd-feed-filter-chip-bar-renderer #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+  width: calc(100vw - var(--bt-sidebar-width)) !important;
+}
+ytd-feed-filter-chip-bar-renderer #scroll-container.ytd-feed-filter-chip-bar-renderer {
+  width: calc(98vw - var(--bt-sidebar-width)) !important;
+  margin: 0 auto;
+}
+/* patch end */
 /* all chips */
 html[chips-style] yt-chip-cloud-chip-renderer {
   margin-top: var(--bt-chip-margin-top);

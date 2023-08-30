@@ -32,6 +32,44 @@ html {
 /* arrow */
 --bt-standard-btn-arrow-display: none;
 }
+html[button-style^="aozora"] {
+--bt-standard-btn-outer-display: inline-block;
+--bt-standard-btn-outer-margin-right: 8px;
+/* inner normal */
+--bt-standard-btn-display: flex;
+--bt-standard-btn-height: 2.0833em;
+--bt-standard-btn-padding: 0 .5em;
+--bt-standard-btn-box-shadow: none;
+--bt-standard-btn-border: 1px solid;
+--bt-standard-btn-border-color: #ccc;
+--bt-standard-btn-border-color-2: #999;
+--bt-standard-btn-outline: 0;
+--bt-standard-btn-bg: linear-gradient(to top,#efefef,#fff);
+--bt-standard-btn-radius: 3px;
+--bt-standard-btn-text-color: var(--bt-gcp-000);
+--bt-standard-btn-text-decoration: none;
+--bt-standard-btn-text-shadow: none;
+--bt-standard-btn-font-size: 12px;
+--bt-standard-btn-font-weight: 400;
+--bt-standard-btn-cursor: pointer;
+--bt-standard-btn-text-transform: none;
+/* inner hover */
+--bt-standard-btn-border-hover: 1px solid;
+--bt-standard-btn-border-color-hover: #aaa #aaa #999;
+--bt-standard-btn-bg-hover: linear-gradient(to bottom,#f0f0f0 0,#e6e6e6 100%);
+--bt-standard-btn-box-shadow-hover: 0 1px 2px rgba(0,0,0,0.25),inset 0 0 3px #fff;
+/* inner active */
+--bt-standard-btn-border-active: var(--bt-standard-btn-border-hover);
+--bt-standard-btn-border-color-active: #888 #aaa #ccc;
+--bt-standard-btn-bg-active: linear-gradient(to bottom,#c8c8c8 0,#e6e6e6 100%);
+--bt-standard-btn-box-shadow-active: inset 0 1px 5px rgba(0,0,0,0.25),0 1px 0 #fff;
+/* text */
+--bt-standard-btn-inner-display: block;
+--bt-standard-btn-inner-display: block ruby;
+--bt-standard-btn-inner-margin-top: 5px;
+/* arrow */
+--bt-standard-btn-arrow-display: block;
+}
 html[button-style^="cosmicpanda"] {
 --bt-standard-btn-outer-display: inline-block;
 --bt-standard-btn-outer-margin-right: 8px;
@@ -340,6 +378,9 @@ html[dark][layout]:not([layout^="polymer"]):not([layout^="hitchhiker"]) .bt-stan
 .bt-standard-button #ct-dropdown-arrow {
   display: var(--bt-standard-btn-arrow-display);
 }
+.bt-standard-button span::selection {
+  display: none;
+}
 
 
 /* hide custom elements when in fullscreen */
@@ -416,21 +457,6 @@ html[show-upload-date-next-to-pfp="true"] #owner-sub-count {
 html[show-upload-date-inside-desc="false"] #bt-desc-upload-date,
 html:not([show-upload-date-inside-desc="true"]) #bt-desc-upload-date {
 	display: none;
-}
-
-/* Buttons watch page cosmic */
-html[watch-metadata-style^="cosmicpanda"] #above-the-fold .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
-  background: linear-gradient(to bottom,#fafafa 0,#dcdcdc 100%) !important;
-  border: 1px solid;
-    border-top-color: currentcolor;
-    border-right-color: currentcolor;
-    border-bottom-color: currentcolor;
-    border-left-color: currentcolor;
-  border-color: #ccc #ccc #aaa;
-  box-shadow: inset 0 0 1px #fff;
-  text-shadow: 0 1px 0 #fff;
-  color: #555 !important;
-  border-radius: 2px;
 }
 
 

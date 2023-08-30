@@ -1,0 +1,99 @@
+html[disable-flexy-player="true"][player-style]:not([player-style="2015"]):not([player-style="2019"]):not([player-style="2020"]):not([player-style="2021"]) ytd-page-manager ytd-watch-flexy:not([theater]):not([fullscreen]):not([no-top-margin]):not([reduced-top-margin]) ytd-player #container #movie_player[aria-label="YouTube Video Player"] .ytp-chrome-bottom {
+  width: var(--bt-player-width) !important;
+  left: 0 !important;
+}
+html[player-style^="2011"] {
+  --bt-player-progressbar-bottom: 26px;
+  --bt-player-progressbar-height: 10px;
+  --bt-player-progressbar-bg: linear-gradient(to top, rgba(30,31,31,0.75) 89%, #2f2f2f 90%);
+  --bt-player-progressbar-progress-bg: linear-gradient(to bottom,#c00 0,#600 100%);
+  --bt-player-progressbar-load-bg: linear-gradient(to top,rgba(60,61,61,.75) 89%,#6f6f6f 90%);
+  --bt-player-progressbar-circle-top: -2px;
+  /* bottom */
+  --bt-player-bottom-height: 26px;
+  --bt-player-bottom-bg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAdCAYAAABrAQZpAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAABIAAAASABGyWs+AAAACXZwQWcAAAABAAAAHQAh4gKwAAAAMUlEQVQI12OQlJD4x2Sgr8/I9OTZs5dM//79Y2T6//8/IyqLAcLClEBjYahDKCHSKADN5VNQpdTxzgAAAABJRU5ErkJggg==") !important;
+}
+html[player-style^="2012"] {
+  --bt-player-progressbar-bottom: 26px;
+  --bt-player-progressbar-height: 10px;
+  --bt-player-progressbar-bg: linear-gradient(to top, rgba(30,31,31,0.75) 89%, #2f2f2f 90%);
+  --bt-player-progressbar-progress-bg: linear-gradient(to bottom,#c00 0,#600 100%);
+  --bt-player-progressbar-load-bg: linear-gradient(to top,rgba(60,61,61,.75) 89%,#6f6f6f 90%);
+  --bt-player-progressbar-circle-top: -2px;
+  /* bottom */
+  --bt-player-bottom-height: 26px;
+  --bt-player-bottom-bg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAdCAYAAABrAQZpAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAABIAAAASABGyWs+AAAACXZwQWcAAAABAAAAHQAh4gKwAAAAMUlEQVQI12OQlJD4x2Sgr8/I9OTZs5dM//79Y2T6//8/IyqLAcLClEBjYahDKCHSKADN5VNQpdTxzgAAAABJRU5ErkJggg==") !important;
+}
+html[player-style^="2013"] {
+  --bt-player-progressbar-bottom: 30px;
+  --bt-player-progressbar-height: 10px;
+  --bt-player-progressbar-bg: rgba(255,255,255,.2);
+  --bt-player-progressbar-progress-bg: #ba1818;
+  --bt-player-progressbar-load-bg: rgba(255,255,255,.4);
+  --bt-player-progressbar-circle-top: -2px;
+  /* bottom */
+  --bt-player-bottom-height: 30px;
+  --bt-player-bottom-bg: #1b1b1b;
+}
+html[player-style^="2015"] {
+  --bt-player-progressbar-bottom: 32px;
+  --bt-player-progressbar-height: 5px;
+  --bt-player-progressbar-bg: rgba(255,255,255,.2);
+  --bt-player-progressbar-progress-bg: red;
+  --bt-player-progressbar-load-bg: rgba(255,255,255,.4);
+  --bt-player-progressbar-circle-top: -4px;
+  /* bottom */
+  --bt-player-bottom-height: 32px;
+  --bt-player-bottom-bg: auto;
+}
+html[player-style][disable-flexy-player="true"] .ytp-chrome-bottom {
+  height: var(--bt-player-bottom-height) !important;
+  background: var(--bt-player-bottom-bg);
+  background-repeat: repeat-x;
+}
+html[player-style][disable-flexy-player="true"] .ytp-chrome-controls {
+  height: var(--bt-player-bottom-height) !important;
+}
+html[player-style][disable-flexy-player="true"] .ytp-progress-bar-container {
+  bottom: var(--bt-player-progressbar-bottom);
+  height: var(--bt-player-progressbar-height);
+}
+html[player-style][disable-flexy-player="true"] .ytp-swatch-background-color {
+  background: var(--bt-player-progressbar-progress-bg);
+}
+html[player-style][disable-flexy-player="true"] .ytp-progress-list {
+  background: var(--bt-player-progressbar-bg);
+}
+html[player-style][disable-flexy-player="true"] .ytp-load-progress {
+  background: var(--bt-player-progressbar-load-bg);
+}
+html[player-style][disable-flexy-player="true"]  .ytp-scrubber-container {
+  top: var(--bt-player-progressbar-circle-top);
+}
+html[player-style][disable-flexy-player="true"] .ytp-scrubber-button {
+  background: #ebeaea;	
+}
+html[player-style][disable-flexy-player="true"] .ytp-time-display {
+  line-height: var(--bt-player-bottom-height);
+}
+
+html[player-style][disable-flexy-player="true"] ytd-watch-flexy[fullscreen] .ytp-chrome-bottom {
+  width: 100% !important;
+  left: 0 !important;
+}
+html[player-style][disable-flexy-player="true"] ytd-watch-flexy[fullscreen] .ytp-progress-bar-container {
+  width: calc(100% - 48px) !important;
+  left: 24px !important;
+}
+
+/* fix end screen thing */
+html[disable-flexy-player="true"] .html5-endscreen {
+  background: black;
+  overflow: visible !important;
+  height: var(--bt-player-height);
+}
+html[disable-flexy-player="true"] ytd-watch-flexy[fullscreen] .html5-endscreen {
+  background: black;
+  height: 100vh;
+  top: 0;
+}

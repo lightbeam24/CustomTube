@@ -1,3 +1,47 @@
+html[comments-style^="aozora"] {
+--bt-comments-bg: var(--bt-section-bg);
+--bt-comments-shadow: var(--bt-section-box-shadow);
+--bt-comments-inner-padding: 15px 15px 0 15px;
+--bt-comments-header-display: flex;
+--bt-comments-header-flex-dir: row-reverse;
+--bt-comments-header-text-transform: uppercase;
+--bt-comments-header-font-size: 13px;
+--bt-comments-header-text-color: var(--bt-text-color-5);
+--bt-comments-header-last-child-font-weight: 500;
+--bt-comments-header-last-child-after-content: "•";
+--bt-comments-header-last-child-after-margin: 0 4px;
+--bt-comments-author-text-color: var(--bt-blue);
+--bt-comments-author-text-color-hover: var(--bt-blue);
+--bt-comments-author-text-decoration-hover: underline;
+--bt-comments-pfp-size: 0px;
+--bt-comments-pfp-margin-right: 10px;
+--bt-comments-reply-pfp-size: 0px;
+--bt-comments-reply-pfp-margin-right: 0;
+--bt-comments-box-height: 44px;
+--bt-comments-box-radius: 0 3px 3px 3px;
+--bt-comments-box-border: 1.75px solid var(--bt-section-border-color);
+--bt-comments-box-font-size: 12px;
+--bt-comments-box-font-weight: 500;
+--bt-comments-box-inner-margin-left: 8px;
+--bt-comments-box-inner-margin-top: 8px;
+--bt-comments-box-placeholder-text-color: var(--bt-text-color-7, #aaa);
+--bt-comments-middle-count-display: none;
+--bt-comments-left-count-display: block;
+--bt-comments-left-count-color: var(--bt-blue);
+--bt-comments-left-count-margin-left: 40px;
+--bt-comments-reply-button-inner-margin-left: 0;
+--bt-comments-reply-button-text-color: var(--bt-text-color-6);
+--bt-comments-reply-button-inner-padding: 0 4px 0 0;
+--bt-comments-reply-button-font-weight: normal;
+--bt-comments-font-size: 13px;
+--bt-comments-line-height: 17px;
+--bt-comments-expand-button-height: 24px;
+--bt-comments-expand-button-bg-hover: transparent;
+--bt-comments-expand-button-text-decoration-hover: underline;
+--bt-comments-expand-button-font-size: 13px;
+--bt-comments-expand-button-text-color: var(--bt-blue);
+--bt-comments-expand-button-margin-left: -10px;
+}
 html[comments-style^="cosmicpanda"] {
 --bt-comments-bg: var(--bt-section-bg);
 --bt-comments-shadow: var(--bt-section-box-shadow);
@@ -235,7 +279,8 @@ html[comments-style^="hitchhiker"] ytd-comments .yt-spec-button-shape-next--size
 
 /* LTOD */
 html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #like-button yt-icon,
-html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #like-button yt-icon {
+html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #like-button yt-icon,
+html[comments-style^="aozora"] ytd-comment-action-buttons-renderer #like-button yt-icon {
 	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -89px -369px;
 	height: 14px !important;
 	width: 14px !important;
@@ -244,19 +289,22 @@ html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #like-bu
 	filter: var(--bt-png-icon-filter);
 }
 html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #like-button:hover yt-icon,
-html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #like-button:hover yt-icon {
+html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #like-button:hover yt-icon,
+html[comments-style^="aozora"] ytd-comment-action-buttons-renderer #like-button:hover yt-icon {
 	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -380px -457px;
 	opacity: 0.7;
 	filter: none;
 }
 html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #like-button button[aria-pressed="true"] yt-icon,
-html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #like-button button[aria-pressed="true"] yt-icon {
+html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #like-button button[aria-pressed="true"] yt-icon,
+html[comments-style^="aozora"] ytd-comment-action-buttons-renderer #like-button button[aria-pressed="true"] yt-icon {
 	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -380px -457px;
 	opacity: 1;
 	filter: none;
 }
 html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #dislike-button yt-icon,
-html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #dislike-button yt-icon {
+html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #dislike-button yt-icon,
+html[comments-style^="aozora"] ytd-comment-action-buttons-renderer #dislike-button yt-icon {
 	height: 14px !important;
 	width: 14px !important;
 	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -146px -334px;
@@ -265,14 +313,20 @@ html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #dislike
 	filter: var(--bt-png-icon-filter);
 }
 html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #dislike-button:hover yt-icon,
-html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #dislike-button:hover yt-icon {
+html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #dislike-button:hover yt-icon,
+html[comments-style^="aozora"] ytd-comment-action-buttons-renderer #dislike-button:hover yt-icon {
 	opacity: 0.7;
 }
 html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #dislike-button button[aria-pressed="true"] yt-icon,
-html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #dislike-button button[aria-pressed="true"] yt-icon {
+html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #dislike-button button[aria-pressed="true"] yt-icon,
+html[comments-style^="aozora"] ytd-comment-action-buttons-renderer #dislike-button button[aria-pressed="true"] yt-icon {
 	opacity: 1;
 }
 html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #like-button yt-icon svg,
-html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #dislike-button yt-icon svg {
+html[comments-style^="hitchhiker"] ytd-comment-action-buttons-renderer #dislike-button yt-icon svg,
+html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #like-button yt-icon svg,
+html[comments-style^="cosmicpanda"] ytd-comment-action-buttons-renderer #dislike-button yt-icon svg,
+html[comments-style^="aozora"] ytd-comment-action-buttons-renderer #like-button yt-icon svg,
+html[comments-style^="aozora"] ytd-comment-action-buttons-renderer #dislike-button yt-icon svg {
 	display: var(--og-comment-icons-display, none) !important;
 }

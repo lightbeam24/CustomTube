@@ -146,6 +146,36 @@ html[watch-metadata-style^="cosmicpanda"] {
 --bt-playlist-icon-color: #ccc;
 --bt-playlist-link-color: #ccc;
 }
+html[watch-metadata-style^="aozora"] {
+--bt-playlist-margin-left: -12px;
+--bt-playlist-radius: 0;
+--bt-playlist-border: none;
+--bt-playlist-header-bg: #1a1a1a;
+--bt-playlist-header-text-color: #fff;
+--bt-playlist-header-byline-text-color: #b8b8b8;
+--bt-playlist-header-padding: 15px 15px 0;
+--bt-playlist-header-font-family: "Roboto",sans-serif;
+--bt-playlist-header-font-size: 14px;
+--bt-playlist-header-line-height: 15px;
+--bt-playlist-header-font-weight: 500;
+--bt-playlist-bg: #222;
+--bt-playlist-item-height: 40px;
+--bt-playlist-item-inner-padding: 10px 8px 10px 0;
+--bt-playlist-item-bg-hover: #525252;
+--bt-playlist-item-text-color: var(--bt-unchanging-text-color-1); /* since this will change in dark mode, don't use var */
+--bt-playlist-item-font-size: 13px;
+--bt-playlist-item-font-weight: normal;
+--bt-playlist-item-line-height: 16px;
+--bt-playlist-item-byline-text-color: #767676;
+--bt-playlist-item-byline-font-size: 11px;
+--bt-playlist-item-byline-line-height: 12px;
+--bt-active-playlist-item-bg: #3a3a3a;
+--bt-active-playlist-item-text-color: #cacaca;
+--bt-playlist-item-thumb-width: 72px;
+--bt-playlist-item-thumb-height: 40px;
+--bt-playlist-icon-color: #ccc;
+--bt-playlist-link-color: #ccc;
+}
 html[watch-metadata-style][disable-flexy-player] ytd-watch-flexy[flexy][js-panel-height_] #playlist.ytd-watch-flexy, 
 html[watch-metadata-style][disable-flexy-player] ytd-watch-flexy[flexy][js-panel-height_] #panels.ytd-watch-flexy ytd-engagement-panel-section-list-renderer.ytd-watch-flexy,
 html[watch-metadata-style][static] ytd-watch-flexy[flexy][js-panel-height_] #playlist.ytd-watch-flexy, 
@@ -233,10 +263,12 @@ html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #menu.ytd-play
 html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #menu.ytd-playlist-panel-video-renderer:hover {
   background: #2221;
   background: rgba(250,250,250,0.2);
+  -webkit-mask-image: linear-gradient(to left,#000,#444);
   mask-image: linear-gradient(to left,#000,#444);
 }
 html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #menu.ytd-playlist-panel-video-renderer:not(:hover):not(:active) {
   background: rgb(250, 250, 250);
+  -webkit-mask-image: linear-gradient(to top,rgba(0,0,0,0.0),rgba(0,0,0,0.0));
   mask-image: linear-gradient(to top,rgba(0,0,0,0.0),rgba(0,0,0,0.0));
 }
 html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #menu.ytd-playlist-panel-video-renderer {

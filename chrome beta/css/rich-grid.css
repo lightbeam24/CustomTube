@@ -67,6 +67,9 @@ html[subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] #content
   max-width: 1136px !important;
   margin-top: 20px;
   padding: 16px 12px;
+  padding: 0 !important;
+  left: -14px;
+  position: relative;
 }
 html[static][homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
 html[static][channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer,
@@ -83,7 +86,7 @@ html[subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich
 html[static][homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
 html[static][channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
 html[static][subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
-    --ytd-rich-grid-items-per-row: 3 !important;
+    --ytd-rich-grid-items-per-row: 4 !important;
     --ytd-rich-grid-item-margin: 4px !important;
 }
 html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-row,
@@ -152,6 +155,31 @@ html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-section-list-r
 /* Section Styles */
 /* sets grid width */
 /* pfp hide */
+html[grid-styling^="aozora"] {
+--bt-small-grid-background: var(--bt-universal-white);
+--bt-small-grid-link-color: var(--bt-blue);
+--bt-small-grid-title-margin: 2px 0 1px 0;
+--bt-small-grid-title-font-size: 12px;
+--bt-small-grid-title-font-weight: 400;
+--bt-small-grid-title-line-height: 1.2em;
+--bt-small-grid-title-max-height: 2.4em;
+--bt-small-grid-title-text-decoration-hover: underline;
+--bt-small-grid-hover-meta-text-decoration: underline;
+--bt-small-grid-meta-block-byline-line-height: 1.2rem;
+--bt-small-grid-meta-block-line-height: 1.4rem;
+--bt-small-grid-meta-block-font-size: 11px;
+--bt-small-grid-meta-block-text-color: var(--bt-text-color-3);
+--bt-small-grid-pfp-display: none;
+--bt-small-grid-section-display: none;
+
+--bt-small-grid-thumb-margin: 0;
+--bt-small-grid-thumb-inner-width: 138px;
+--bt-small-grid-thumb-inner-height: 77px;
+--bt-small-grid-thumb-inner-radius: 3px;
+--bt-small-grid-thumb-inner-bg: var(--yt-spec-base-background);
+--bt-small-grid-thumb-inner-padding: 4px;
+--bt-small-grid-thumb-inner-border: 1px solid #d3d3d3;
+}
 html[grid-styling^="cosmicpanda"] {
 --bt-small-grid-background: var(--bt-universal-white);
 --bt-small-grid-link-color: var(--bt-blue);
@@ -270,6 +298,23 @@ html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] y
 html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] ytd-video-meta-block #metadata a:hover,
 html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] ytd-video-meta-block #metadata a:hover {
   text-decoration: var(--bt-small-grid-hover-meta-text-decoration);
+}
+html[grid-styling^="aozora"]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] a#thumbnail,
+/*
+html[grid-styling^="aozora"]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] a#thumbnail,
+*/
+html[grid-styling^="aozora"]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] a#thumbnail {
+  height: var(--bt-small-grid-thumb-inner-height) !important;
+  width: var(--bt-small-grid-thumb-inner-width) !important;
+  border: var(--bt-small-grid-thumb-inner-border);
+  padding: var(--bt-small-grid-thumb-inner-padding);
+  border-radius: var(--bt-small-grid-thumb-inner-radius) !important;
+  background: var(--bt-small-grid-thumb-inner-bg);
+  margin: var(--bt-small-grid-thumb-margin);
+}
+html[grid-styling^="aozora"] ytd-thumbnail.ytd-rich-grid-media::before, 
+html[grid-styling^="aozora"] ytd-playlist-thumbnail.ytd-rich-grid-media::before {
+  background: none;
 }
 /*html[grid-styling] ytd-rich-section-renderer {
 	display: var(--bt-small-grid-section-display);
@@ -422,4 +467,78 @@ html[channel-vids-per-row="8"] ytd-browse[page-subtype="channels"] ytd-rich-grid
 html[subs-page-vids-per-row="8"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
     --ytd-rich-grid-items-per-row: 8 !important;
     --ytd-rich-grid-item-margin: 4px !important;
+}
+/* regular grid */
+html[grid-styling^="polymer"] {
+  --bt-ytd-grid-video-width: 210px;
+  --bt-ytd-grid-video-height: 118px;
+}
+html[grid-styling^="hitchhiker"] {
+  --bt-ytd-grid-video-width: 201px;
+  --bt-ytd-grid-video-height: 113px;
+}
+html[grid-styling^="cosmicpanda"] {
+  --bt-ytd-grid-video-width: 201px;
+  --bt-ytd-grid-video-height: 113px;
+}
+html[grid-styling^="aozora"] {
+  --bt-ytd-grid-video-width: 201px;
+  --bt-ytd-grid-video-height: 113px;
+}
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer #video-title.yt-simple-endpoint,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer #video-title.yt-simple-endpoint{
+  color: var(--bt-small-grid-link-color, revert);
+  font-size: var(--bt-small-grid-title-font-size);
+  line-height: var(--bt-small-grid-title-line-height);
+  font-weight: var(--bt-small-grid-title-font-weight);
+  max-height: var(--bt-small-grid-title-max-height);
+}
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer #video-title.yt-simple-endpoint:hover,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer #video-title.yt-simple-endpoint:hover {
+  text-decoration: var(--bt-small-grid-title-text-decoration-hover);
+}
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer #metadata span,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer ytd-channel-name,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer #metadata span,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer ytd-channel-name {
+  color: var(--bt-small-grid-meta-block-text-color);
+  font-size: var(--bt-small-grid-meta-block-font-size);
+  line-height: var(--bt-small-grid-meta-block-line-height) !important;
+}
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer ytd-channel-name:hover #text a,
+html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer ytd-channel-name:hover #text a {
+  text-decoration: var(--bt-small-grid-hover-meta-text-decoration);
+  color: var(--bt-small-grid-link-color) !important;
+}
+html[grid-styling] ytd-thumbnail.ytd-grid-video-renderer,
+html[grid-styling] ytd-playlist-thumbnail.ytd-grid-playlist-renderer {
+  width: var(--bt-ytd-grid-video-width);
+  height: var(--bt-ytd-grid-video-height);
+}
+html[grid-styling] #items.yt-horizontal-list-renderer > .yt-horizontal-list-renderer {
+  width: var(--bt-ytd-grid-video-width);
+}
+
+/* home grid fix */
+html[homepage="small-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  margin-top: 60px !important;
+}
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  margin-top: 44px !important;
+}
+html[homepage="smaller-grid"][layout^="aozora"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer::before {
+  content: "Recommended";
+  font-size: var(--bt-sidebar-non-item-font-size);
+  color: var(--bt-sidebar-non-item-text-color);
+  text-transform: var(--bt-sidebar-non-item-text-transform);
+  font-weight: var(--bt-sidebar-non-item-font-weight);
+  padding: var(--bt-sidebar-non-item-padding, 6px 12px 4px);
+  border-bottom: var(--bt-sidebar-non-item-border-bottom);
+  position: absolute;
+  width: 650px;
+  margin-top: -38px;
+}
+html[homepage="rich-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer, 
+html:not([homepage]) ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  margin-top: 60px;
 }

@@ -12,6 +12,7 @@ let sect9 = document.querySelector('#sect9');
 let sect10 = document.querySelector('#sect10');
 let sectall = document.querySelector('#sectall');
 let shownow = document.querySelector('#shownow');
+let donate = document.querySelector('#donate-button');
 sect1.onclick = function() {
 	document.getElementById("right1").style.display = "block";
 	document.querySelector("#lm1").setAttribute("active", "true");
@@ -281,6 +282,11 @@ shownow.onclick = function() {
 		url: `./changelog.html#check`
 	});
 }
+donate.onclick = function() {
+	browser.tabs.create({
+		url: `https://www.ko-fi.com/lightbeam24`
+	});
+}
 if (navigator.userAgent.match(/Firefox\/([^\s]+)/)) {
 	if (parseInt(navigator.userAgent.match(/Firefox\/([^\s]+)/)[1]) >= minVersion) {
 		storage = browser.storage.sync;
@@ -326,6 +332,7 @@ document.querySelector('#restore-defaults').addEventListener('click', () => {
 	const confirmation = confirm('All settings will be reset to default values. The current tab will also refresh. Are you sure?');
 	if (confirmation) {
 		browser.storage.sync.clear();
+		storage.set({BTConfig: BTDefaultConfig});
 		browser.tabs.reload();
 		window.close();
 	}
@@ -412,6 +419,20 @@ function saveSettings() {
 			newSettings[videoPlayerSize[i].name] = videoPlayerSize[i].value;
 		}
 	}
+	//save videoPlayerStyle radio buttons
+	let videoPlayerStyle = document.querySelectorAll('input[type="radio"][name="videoPlayerStyle"]');
+	for (let i = 0; i < videoPlayerStyle.length; i++) {
+		if (videoPlayerStyle[i].checked) {
+			newSettings[videoPlayerStyle[i].name] = videoPlayerStyle[i].value;
+		}
+	}
+	//save hideShortsSubs radio buttons
+	let hideShortsSubs = document.querySelectorAll('input[type="radio"][name="hideShortsSubs"]');
+	for (let i = 0; i < hideShortsSubs.length; i++) {
+		if (hideShortsSubs[i].checked) {
+			newSettings[hideShortsSubs[i].name] = hideShortsSubs[i].value;
+		}
+	}
 	storage.set({BTConfig: newSettings});
 	if (!currentSettings.noFlexy) {
 		document.querySelector("body").setAttribute("no-flexy", "false");
@@ -469,9 +490,16 @@ function getSettings() {
 	document.querySelector(`input[type="radio"][value="${currentSettings.subsVidsPerRow}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.videoRendererSize}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.videoPlayerSize}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.videoPlayerStyle}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.hideShortsSubs}"]`).checked = true;
 }
 
 //main
+storage.get(['BTDefaultConfig'], function(result) {
+	if (result) {
+		BTDefaultConfig = result.BTDefaultConfig;
+	}
+});
 storage.get(['BTConfig'], function(result) {
 	if (result) {
 		currentSettings = result.BTConfig;

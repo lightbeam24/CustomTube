@@ -274,11 +274,36 @@ function recalculateVideoSize() {
 	}
 
 	function insertRecalcScript(width, height) {
-		if (width == undefined) {width = playerSize.width;}
-		if (height == undefined) {height = playerSize.height;}
+					
+		if (BTConfig.videoPlayerStyle == "PSTauto") {
+			if (
+			BTConfig.layoutSelect == "hitchhiker-2015" ||
+			BTConfig.layoutSelect == "hitchhiker-2014" ||
+			BTConfig.layoutSelect == "hitchhiker-2013-3" ||
+			BTConfig.layoutSelect == "hitchhiker-2013-2" ||
+			BTConfig.layoutSelect == "hitchhiker-2013-1" ||
+			BTConfig.layoutSelect == "cosmicpanda-3" ||
+			BTConfig.layoutSelect == "aozora-2011"
+			) {
+				var playerOffsetWidth = 24;
+			}
+		} else if (
+			BTConfig.videoPlayerStyle == "PST2013" ||
+			BTConfig.videoPlayerStyle == "PST2012"
+		) {
+			var playerOffsetWidth = 24;
+		} else {
+			var playerOffsetWidth = 0;
+		}
+		if (width == undefined) {
+			width = playerSize.width + playerOffsetWidth;
+		}
+		if (height == undefined) {
+			height = playerSize.height;
+		}
 		let existingRecalc = document.querySelector('#redux-recalc');
 		if (existingRecalc) {existingRecalc.remove();}
-		document.body.setAttribute('redux-player-width', width);
+		document.body.setAttribute('redux-player-width', width + playerOffsetWidth);
 		document.body.setAttribute('redux-player-height', height);
 		let script = document.createElement('script');
 		script.id = 'redux-recalc';
@@ -323,8 +348,7 @@ function recalculateVideoSize() {
 				let specialHeight = document.querySelector('video').offsetHeight;
 				insertRecalcScript(specialWidth, specialHeight);
 			}
-
-			if (progressBar != null && (leftEdgeDistancePlayer > leftEdgeDistanceInfo+10 
+				if (progressBar != null && (leftEdgeDistancePlayer > leftEdgeDistanceInfo+10 
 				|| (progressBar.offsetWidth+24) <= videoElement.offsetWidth*0.95 
 				|| (progressBar.offsetWidth+24) >= videoElement.offsetWidth*1.05) && !isTheater() && !isFullscreen()) { //TODO more precise condition
 				insertRecalcScript();
@@ -415,44 +439,6 @@ if (BTConfig.logoEndpoint == "LESubscriptions") {
 	});
 }
 
-/*setTimeout(loopThroughMisc, 1);
-var loopThroughMisc = setInterval(function() {
-	if (!tasks.populatedMyChannelButton) {
-		if (document.querySelector("#bt-your-vids-button") != null) {
-			let modifyYtdApp = document.createElement('script');
-			modifyYtdApp.src = browser.runtime.getURL('/scripts/my-channel-btn.js');
-			document.body.append(modifyYtdApp);
-			tasks.populatedMyChannelButton = true;
-			if (BTConfig.lowerCaseC) {
-				document.querySelector("#bt-my-channel-button yt-formatted-string").innerText = "My channel";
-			}
-		}
-	}
-	if (tasks.createdNewTrendingButton) {
-		if (!tasks.populatedTrendingButton) {
-			let modifyYtdApp = document.createElement('script');
-			modifyYtdApp.src = browser.runtime.getURL('/scripts/trending-btn.js');
-			document.body.append(modifyYtdApp);
-			tasks.populatedTrendingButton = true;
-		}
-	}
-}, 300);
-setTimeout(getFinishedMisc, 1);
-var getFinishedMisc = setInterval(function() {
-	if (
-		tasks.populatedTrendingButton &&
-		tasks.populatedMyChannelButton
-	) {
-		if (document.querySelector("html[layout] #bt-trending-icon") != null) {
-			tasks.finishedMisc = true;
-		}
-	}
-	if (tasks.finishedMisc) {
-		clearInterval(loopThroughMisc);
-		clearInterval(getFinishedMisc);
-	}
-}, 1000);*/
-
 var elm = "#bt-your-vids-button";
 waitForElement(elm).then(function(elm) {
 	if (canGo != false) {
@@ -497,11 +483,13 @@ function getInitialVariables() {
 	setTimeout(getRYD, 5);
 	setTimeout(getBetterSearch, 5);
 	setTimeout(getLayout, 5);
+	setTimeout(getPlayerStyle, 10);
 	setTimeout(getMaterialSearch, 10);
 	setTimeout(getCVDD, 10);
 	setTimeout(getCVPR, 10);
 	setTimeout(getHPVPR, 10);
 	setTimeout(getSVPR, 10);
+	setTimeout(getHSS, 10);
 	setTimeout(getVidRenSize, 10);
 	setTimeout(getSquare, 10);
 	setTimeout(getShowSidebar, 10);
@@ -512,6 +500,8 @@ function getInitialVariables() {
 	setTimeout(getJoin, 10);
 	setTimeout(getClip, 10);
 	setTimeout(getThanks, 10);
+	setTimeout(getDownload, 10);
+	setTimeout(getCast, 10);
 	setTimeout(getTrimmedViewCount, 15);
 	setTimeout(getRelatedVideos, 10);
 	setTimeout(getTFI, 10);
@@ -540,6 +530,8 @@ function getInitialVariables() {
 		document.querySelector("html").setAttribute("button-style", "amsterdam-2023");
 		if (BTConfig.layoutSelect == "none") {
 			document.querySelector("html").setAttribute("icon-type", "outline");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "disabled");
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "false");
 		}
 		if (BTConfig.layoutSelect == "polymer-2021") {
 			document.querySelector("html").setAttribute("global-color-palette", "polymer-2021");
@@ -551,6 +543,7 @@ function getInitialVariables() {
 			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("search-bar-style", "polymer-2021");
 			document.querySelector("html").setAttribute("watch-metadata-style", "polymer-2021");
+			//document.querySelector("html").setAttribute("player-style", "2021");
 			document.querySelector("html").setAttribute("chips-style", "polymer-2021");
 			document.querySelector("html").setAttribute("topbar-style", "polymer-2021");
 			document.querySelector("html").setAttribute("header-style", "polymer-2021");
@@ -558,6 +551,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("homepage", "rich-grid"); 
 			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
 			document.querySelector("html").setAttribute("subs-page", "small-grid"); 
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "polymer-2021"); 
 			document.querySelector("html").setAttribute("show-upload-date-next-to-view-count", "true");
@@ -584,6 +578,7 @@ function getInitialVariables() {
 			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("search-bar-style", "polymer-2020");
 			document.querySelector("html").setAttribute("watch-metadata-style", "polymer-2020");
+			//document.querySelector("html").setAttribute("player-style", "2020");
 			document.querySelector("html").setAttribute("chips-style", "polymer-2020");
 			document.querySelector("html").setAttribute("topbar-style", "polymer-2020");
 			document.querySelector("html").setAttribute("header-style", "polymer-2020");
@@ -591,6 +586,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("homepage", "rich-grid"); 
 			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
 			document.querySelector("html").setAttribute("subs-page", "small-grid"); 
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "polymer-2020"); 
 			document.querySelector("html").setAttribute("show-upload-date-next-to-view-count", "true");
@@ -616,6 +612,7 @@ function getInitialVariables() {
 			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("search-bar-style", "polymer-2019");
 			document.querySelector("html").setAttribute("watch-metadata-style", "polymer-2019");
+			//document.querySelector("html").setAttribute("player-style", "2019");
 			document.querySelector("html").setAttribute("chips-style", "polymer-2019");
 			document.querySelector("html").setAttribute("topbar-style", "polymer-2019");
 			document.querySelector("html").setAttribute("header-style", "polymer-2019");
@@ -623,6 +620,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("homepage", "small-grid"); 
 			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
 			document.querySelector("html").setAttribute("subs-page", "small-grid"); 
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "polymer-2019"); 
 			document.querySelector("html").setAttribute("show-upload-date-next-to-pfp", "true");
@@ -648,6 +646,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-bar-style", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("search-placeholder-style", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("watch-metadata-style", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("player-style", "2015");
 			document.querySelector("html").setAttribute("logo", "minimalism");
 			document.querySelector("html").setAttribute("chips-style", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2017");
@@ -656,6 +655,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("homepage", "small-grid"); 
 			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
 			document.querySelector("html").setAttribute("subs-page", "small-grid"); 
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2017"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
@@ -683,6 +683,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-bar-style", "hitchhiker-2016");
 			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
 			document.querySelector("html").setAttribute("watch-metadata-style", "hitchhiker-2016");
+			document.querySelector("html").setAttribute("player-style", "2015");
 			document.querySelector("html").setAttribute("logo", "iconic");
 			document.querySelector("html").setAttribute("chips-style", "hitchhiker-2016");
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2016");
@@ -690,7 +691,8 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2016");
 			document.querySelector("html").setAttribute("homepage", "small-grid");
 			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
-			document.querySelector("html").setAttribute("subs-page", "small-grid"); 			
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2016"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
@@ -718,6 +720,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-bar-style", "hitchhiker-2015");
 			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
 			document.querySelector("html").setAttribute("watch-metadata-style", "hitchhiker-2015");
+			document.querySelector("html").setAttribute("player-style", "2013");
 			document.querySelector("html").setAttribute("logo", "shady");
 			document.querySelector("html").setAttribute("chips-style", "hitchhiker-2015");
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2015");
@@ -725,7 +728,8 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2015");
 			document.querySelector("html").setAttribute("homepage", "small-grid");
 			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
-			document.querySelector("html").setAttribute("subs-page", "small-grid"); 				
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2015"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
@@ -753,14 +757,16 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-bar-style", "hitchhiker-2014");
 			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
 			document.querySelector("html").setAttribute("watch-metadata-style", "hitchhiker-2014");
+			document.querySelector("html").setAttribute("player-style", "2013");
 			document.querySelector("html").setAttribute("logo", "shady");
 			document.querySelector("html").setAttribute("chips-style", "hitchhiker-2014");
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2014");
 			document.querySelector("html").setAttribute("header-style", "hitchhiker-2014");
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2014");
-			document.querySelector("html").setAttribute("homepage", "smaller-grid");
-			document.querySelector("html").setAttribute("channel-vidpage", "smaller-grid"); 
-			document.querySelector("html").setAttribute("subs-page", "smaller-grid"); 		
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid");
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2014"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
@@ -789,14 +795,16 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-bar-style", "hitchhiker-2013-3");
 			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
 			document.querySelector("html").setAttribute("watch-metadata-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("player-style", "2013");
 			document.querySelector("html").setAttribute("logo", "shady");
 			document.querySelector("html").setAttribute("chips-style", "hitchhiker-2013-3");
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2013-3");
 			document.querySelector("html").setAttribute("header-style", "hitchhiker-2013-3");
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2013-3");
-			document.querySelector("html").setAttribute("homepage", "smaller-grid");
-			document.querySelector("html").setAttribute("channel-vidpage", "smaller-grid"); 
-			document.querySelector("html").setAttribute("subs-page", "smaller-grid"); 		 
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid");
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2013-3"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
@@ -828,14 +836,16 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-bar-style", "hitchhiker-2013-2");
 			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
 			document.querySelector("html").setAttribute("watch-metadata-style", "hitchhiker-2013-2");
+			document.querySelector("html").setAttribute("player-style", "2013");
 			document.querySelector("html").setAttribute("logo", "squished");
 			document.querySelector("html").setAttribute("chips-style", "hitchhiker-2013-2");
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2013-2");
 			document.querySelector("html").setAttribute("header-style", "hitchhiker-2013-2");
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2013-2");
-			document.querySelector("html").setAttribute("homepage", "smaller-grid");
-			document.querySelector("html").setAttribute("channel-vidpage", "smaller-grid"); 
-			document.querySelector("html").setAttribute("subs-page", "smaller-grid"); 		 
+			document.querySelector("html").setAttribute("homepage", "small-grid");
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid");
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2013-2"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
@@ -867,14 +877,16 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-bar-style", "hitchhiker-2013-1");
 			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
 			document.querySelector("html").setAttribute("watch-metadata-style", "hitchhiker-2013-1");
+			document.querySelector("html").setAttribute("player-style", "2013");
 			document.querySelector("html").setAttribute("logo", "squished");
 			document.querySelector("html").setAttribute("chips-style", "hitchhiker-2013-1");
 			document.querySelector("html").setAttribute("topbar-style", "hitchhiker-2013-1");
 			document.querySelector("html").setAttribute("header-style", "hitchhiker-2013-1");
 			document.querySelector("html").setAttribute("sidebar-style", "hitchhiker-2013-1");
-			document.querySelector("html").setAttribute("homepage", "smaller-grid"); 
-			document.querySelector("html").setAttribute("channel-vidpage", "smaller-grid"); 
-			document.querySelector("html").setAttribute("subs-page", "smaller-grid"); 		
+			document.querySelector("html").setAttribute("homepage", "small-grid"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "hitchhiker-2013-1"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
@@ -906,6 +918,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-bar-style", "cosmicpanda-3");
 			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
 			document.querySelector("html").setAttribute("watch-metadata-style", "cosmicpanda-3");
+			document.querySelector("html").setAttribute("player-style", "2012");
 			document.querySelector("html").setAttribute("logo", "soft");
 			document.querySelector("html").setAttribute("chips-style", "cosmicpanda-3");
 			document.querySelector("html").setAttribute("topbar-style", "cosmicpanda-3");
@@ -915,6 +928,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("homepage", "list"); 
 			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
 			document.querySelector("html").setAttribute("subs-page", "small-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "cosmicpanda-3"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
@@ -948,15 +962,17 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-bar-style", "aozora-2011");
 			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
 			document.querySelector("html").setAttribute("watch-metadata-style", "aozora-2011");
+			document.querySelector("html").setAttribute("player-style", "2011");
 			document.querySelector("html").setAttribute("logo", "glossy");
 			document.querySelector("html").setAttribute("chips-style", "aozora-2011");
 			document.querySelector("html").setAttribute("topbar-style", "aozora-2011");
 			document.querySelector("html").setAttribute("header-style", "aozora-2011");
-			document.querySelector("html").setAttribute("header-visible", "");
 			document.querySelector("html").setAttribute("sidebar-style", "aozora-2011");
-			document.querySelector("html").setAttribute("homepage", "small-grid"); 
+			document.querySelector("html").setAttribute("guide-right-aligned", "");
+			document.querySelector("html").setAttribute("homepage", "smaller-grid"); 
 			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
-			document.querySelector("html").setAttribute("subs-page", "small-grid"); 		
+			document.querySelector("html").setAttribute("subs-page", "smaller-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
 			document.querySelector("html").setAttribute("homepage-columns", "2"); 
 			document.querySelector("html").setAttribute("grid-styling", "aozora-2011"); 
 			document.querySelector("html").setAttribute("show-upload-date-inside-desc", "true");
@@ -978,6 +994,21 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "aozora-2011");
+		}
+	}
+	function getPlayerStyle() {
+		if (BTConfig.videoPlayerStyle == "PST2012") {
+			document.querySelector("html").setAttribute("player-style", "2012");
+		}
+		if (BTConfig.videoPlayerStyle == "PST2013") {
+			document.querySelector("html").setAttribute("player-style", "2013");
+		}
+		if (BTConfig.videoPlayerStyle == "PST2015") {
+			document.querySelector("html").setAttribute("player-style", "2015");
+		}
+		if (BTConfig.videoPlayerStyle == "PST2021") {
+			document.querySelector("html").setAttribute("player-style", "");
+			document.querySelector("html").removeAttribute("player-style");
 		}
 	}
 	function getMaterialSearch() {
@@ -1093,6 +1124,14 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("subs-page", "small-grid");
 		}
 	}
+	function getHSS() {
+		if (BTConfig.hideShortsSubs == "HSSon") {
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+		}
+		if (BTConfig.hideShortsSubs == "HSSoff") {
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "false");
+		}
+	}
 	function getVidRenSize() {
 		if (BTConfig.videoRendererSize == "VRSize138") {
 			document.querySelector("html").setAttribute("video-renderer-size", "138");
@@ -1165,6 +1204,16 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("no-thanks", "");
 		}
 	}
+	function getDownload() {
+		if (BTConfig.noDownload) {
+			document.querySelector("html").setAttribute("no-download", "");
+		}
+	}
+	function getCast() {
+		if (BTConfig.noCast) {
+			document.querySelector("html").setAttribute("no-cast", "");
+		}
+	}
 	function getTrimmedViewCount() {
 		BTVars.trimViews = false;
 		if (BTConfig.layoutSelect == "hitchhiker-2015") {
@@ -1223,13 +1272,13 @@ function assignOnInitialLoad() {
 		Section1.querySelectorAll('ytd-guide-entry-renderer')[0].setAttribute("id", "bt-home-button");
 		//Section1.querySelectorAll('ytd-guide-entry-renderer')[1].setAttribute("id", "bt-shorts-button");
 		if (document.querySelector("ytd-guide-entry-renderer a[title='Shorts']") != null) {
-			Section1.querySelector('ytd-guide-entry-renderer a[title="Shorts"]').parentNode.setAttribute("id", "bt-shorts-button");
+			document.querySelector('ytd-guide-entry-renderer a[title="Shorts"]').parentNode.setAttribute("id", "bt-shorts-button");
 		}
 		if (document.querySelector("ytd-guide-entry-renderer a[href='/feed/subscriptions']") != null) {
-			Section1.querySelector('ytd-guide-entry-renderer a[href="/feed/subscriptions"]').parentNode.setAttribute("id", "bt-subs-button");
+			document.querySelector('ytd-guide-entry-renderer a[href="/feed/subscriptions"]').parentNode.setAttribute("id", "bt-subs-button");
 		}
 		if (document.querySelector("ytd-guide-entry-renderer a[href='/feed/library']") != null) {
-			Section1.querySelector('ytd-guide-entry-renderer a[href="/feed/library"]').parentNode.setAttribute("identifier", "bt-library-button");
+			document.querySelector('ytd-guide-entry-renderer a[href="/feed/library"]').parentNode.setAttribute("identifier", "bt-library-button");
 		}
 		var loopThroughSidebarAssignments = setInterval(function() {
 			if (document.querySelector("#endpoint[href='/playlist?list=LL']") != null) {
@@ -1298,7 +1347,7 @@ function assignOnInitialLoad() {
 		function mustWaitMore() {
 			var Section3 = document.querySelectorAll('ytd-guide-section-renderer')[2];
 			Section3.setAttribute("id","#bt-section-3");
-			Section3.querySelector('ytd-guide-entry-renderer #endpoint[href^="/feed/trending"]').parentNode.setAttribute("id", "bt-trending-button");
+			document.querySelector('ytd-guide-entry-renderer #endpoint[href^="/feed/trending"]').parentNode.setAttribute("id", "bt-trending-button");
 		}
 		waitFor('ytd-guide-entry-renderer', 25, shortsSidebarItemThing);
 		//waitFor('#bt-your-vids-button', 250, sidebarItemThing);
@@ -1428,7 +1477,7 @@ function getHref() {
 			document.querySelector("html").setAttribute("location", "channel");
 			if (location.href.includes('/videos')) {
 				document.querySelector("html").setAttribute("channel-page", "videos");
-				if (document.querySelector("html[channel-vids-dropdown]") != null) {
+				if (document.querySelector("html[channel-vids-dropdown='disabled']") == null) {
 					waitFor("#dropdown-btn", 250, getChannelVidsSort);
 				}
 			} else {
@@ -1684,7 +1733,7 @@ function createNewElements() {
 				}
 			}
 			if (!tasks.createdNewLibraryIcon) {
-				if (document.querySelector("html[layout] #header-entry") != null) {
+				if (document.querySelector("html[layout] ytd-guide-entry-renderer[identifier='bt-library-button']") != null) {
 					if (document.querySelector("#bt-library-icon") === null) {
 						setTimeout(createNewLibraryIcon, 1);
 					}
@@ -2273,17 +2322,17 @@ function createNewElements() {
 	}
 	function createNewLibraryIcon() {
 		tasks.createdNewLibraryIcon = true;
-		let container = document.querySelector('#header-entry yt-icon');
+		let container = document.querySelector('ytd-guide-entry-renderer[identifier="bt-library-button"] yt-icon');
 		const newElem = document.createElement("bt-icon");
 		newElem.id = 'bt-library-icon';
 		newElem.setAttribute("class", "bt-universalized-element");
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		html:not([icon-type="outline"]) #header-entry svg:not([icon-type="filled"]) {
+		html:not([icon-type="outline"]) ytd-guide-entry-renderer[identifier='bt-library-button'] svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		html:not([icon-type="outline"]) #header-entry yt-icon-shape {
+		html:not([icon-type="outline"]) ytd-guide-entry-renderer[identifier='bt-library-button'] yt-icon-shape {
 			display: none !important;
 		}
 		</style>
@@ -2767,6 +2816,12 @@ function createNewElements() {
 			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
 		}
 		if (BTConfig.layoutSelect == "cosmicpanda-3") {
+			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
+		}
+		if (BTConfig.layoutSelect == "aozora-2011") {
+			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
+		}
+		if (BTConfig.layoutSelect == "aozora-2010") {
 			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
 		}
 		if (BTConfig.layoutSelect == "polymer-2019") {
@@ -3323,7 +3378,7 @@ function markUnsubbed() {
 function getChannelVidsSort() {
 	if (BTConfig.channelVidsDropdown == "CVDDoff") {
 		document.querySelector("html").setAttribute("channel-vids-dropdown", "false");
-	} else {
+	} else if (document.querySelector("html[channel-vids-dropdown='disabled']") == null) {
 		if (document.querySelector("yt-formatted-string[title='Latest']") != null) {
 			document.querySelector("html").setAttribute("channel-vids-dropdown","true");
 			var chip_Newest = document.querySelector("yt-formatted-string[title='Latest']").parentNode;

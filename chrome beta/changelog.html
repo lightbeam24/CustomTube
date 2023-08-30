@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html cr="">
+<html cr>
     <head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="UTF-8">
@@ -160,6 +160,9 @@
 		a {
 		  color: #42a8ff;
 		}
+		html:not([cr]) .cr-only {
+		  display: none;
+		}
 		</style>
 		<script src="./initial-setup.js"></script>
 	</head>
@@ -178,62 +181,94 @@
 				<div class="changelog-inner">
 					<div class="title-area">
 						<div class="title" yellow>
-							<p>Version 1.1.0.3 (1.1.0 Beta 3) - August 9, 2023</p>
+							<p>Version 1.2.0 Beta 1 - August 30, 2023</p>
 						</div>
 					</div>
 					<div class="words">
+						<strong>- New: Added 2011 Layout option!</strong>
+						<p>- New: Added option to choose the video player style [The style is chosen by your selected layout by default]</p>
+						<p>- Improvement: Slight improvement to the Search Page [This affects the 2012 layout]</p>
+						<p class="notice">- Note: V1.2.0 is still in early development.</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.1.0.1 - August 29, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Fix: Fixed a bug where you were unable to provide additional details when reporting a video [This bug affected all layouts, excluding the unmodified current layout]</p>
+						<p>- Fix: Fixed a bug where the video would not black out after finishing [This bug happened when using custom player sizes]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.1.0 - August 19, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p class="cr-only">- This is the first version of CustomTube avaliable for Google Chrome.</p>
 						<p>- CustomTube now has a new logo, made by UnderscoreAngel! <a href="https://github.com/UnderscoreAngel">Link to GitHub page</a></p>
-						<p>- New: Added option to choose the video player size [Compatible with all layouts from 2014 or later]</p>
-						<p>- New: Added option to always show the sidebar [Compatible with all layouts from Early 2013 or later]</p>
-						<p>- New: Added option to choose the size of the thumbnails on the search page [Compatible with all layouts]</p>
-						<p>- New: Added "Search Page" tab to the Configuration Window's sidebar</p>
-						<p>- Improvement: Greatly improved dark mode support [Affects all layouts, however 2012 still needs some work, which will hopefully be done in time for 1.1.0's release]</p>
-						<p>- Improvement: Partially fixed search header</p>
-						<p>- Fix: White (invisible) text on search bar when in theater mode [Affected hitchhiker layouts]</p>
-						<p>- Fix: [Chromium exclusive] Logo was not adapting to dark mode</p>
-						<p>- Fix: [Chromium exclusive] Like and dislike counts weren't displaying on 2012-2014 layouts</p>
-						<p>- Fix: Several other Chromium exclusive bugs</p>
-						<p>- Change: Minor changes to some of the labels on the configuration window</p>
-						<p>- Known Issue: The old logo is still used in some places [will be fixed for 1.1.0's release]</p>
-						<p class="notice">- Notice: Version 1.1.0 is nearing completion. This will likely be the final beta for version 1.1.0. The next beta will be for version 1.2.0.</p>
-						</div>
-				</div>
-				<div class="changelog-inner">
-					<div class="title-area">
-						<div class="title" yellow>
-							<p>Version 1.1.0.2 (1.1.0 Beta 2) - July 18, 2023</p>
-						</div>
-					</div>
-					<div class="words">
-						<p>- Other: The extension has been updated to Manifest V3.</p>
-						<p class="notice">- Notice: Version 1.1.0 is still in early development. The final version of 1.1.0 will most likely be very different from this beta version.</p>
-						</div>
-				</div>
-				<div class="changelog-inner">
-					<div class="title-area">
-						<div class="title" yellow>
-							<p>Version 1.1.0.1 (1.1.0 Beta 1) - July 17, 2023</p>
-						</div>
-					</div>
-					<div class="words">
 						<strong>- New: Added 2020 Layout option!</strong>
 						<p></p>
 						<strong>- New: Added 2021 Layout option!</strong>
 						<p></p>
 						<strong>- New: Added Late 2013 Layout option!</strong>
-						<p>- New: Added option to choose the number of videos per row on the home page and subscriptions page. [Compatible with all layouts from Early 2013 or later]</p>
-						<p>- New: Added option to choose the number of videos per row on channel video pages. [Compatible with all layouts from Mid 2013 or later]</p>
-						<p>- New: Added option to make clicking on the YouTube logo take you to the Subscriptions page as opposed to the Homepage. [Compatible with all layouts]</p>
+						<p>- New: Added option to always show the sidebar [Compatible with all layouts from Early 2013 and later]</p>
+						<p>- New: Added option to choose the video player size [Compatible with all layouts from 2014 and later]</p>
+						<p>- New: Added option to choose the number of videos per row on the home page [Compatible with all layouts from Early 2013 and later]</p>
+						<p>- New: Added option to choose the number of videos per row on the subscriptions page [Compatible with all layouts from Early 2013 and later]</p>
+						<p>- New: Added option to choose the number of videos per row on channel video pages. [Compatible with all layouts from Mid 2013 and later]</p>
+						<p>- New: Added option to choose the size of the thumbnails on the search page [Compatible with all layouts]</p>
+						<p>- New: Added option to make clicking on the YouTube logo take you to the Subscriptions page instead of the Homepage. [Compatible with all layouts]</p>
 						<p>- New: Added option to move the Trending button to the main section of the sidebar. [Compatible with all layouts]</p>
-						<p>- New: Added "Home Page" tab to the Configuration Window's sidebar</p>
-						<p>- New: Added "Subs Page" tab to the Configuration Window's sidebar</p>
+						<p>- New: Added option to show or hide the Shorts shelf on the subscriptions page [Compatible with all layouts]</p>
+						<p>- New: Added option to hide the Download button [Compatible with all layouts]</p>
+						<p>- New: Added option to hide the Cast button [Compatible with all layouts]</p>
+						<p>- New: Added option to show full (randomly generated) subscriber counts [Compatible with all layouts]</p>
+						<p>- New: Added True Fullscreen Mode option [Compatible with all layouts]</p>
+						<p>- Improvement: Greatly improved dark mode support [Affects all layouts]</p>
+						<p>- Improvement: More old icons are restored</p>
 						<p>- Improvement: A proper "My Channel" button. (The new one warm loads the channel page, the old one cold loads it, which was much slower)</p> 
-						<p>- Improvement: More old icons are restored</p> 
+						<p>- Improvement: Partially fixed the new search header</p>
+						<p>- Improvement: Many other small improvements</p>
+						<p>- Fix: The Channel Videos Sort By Dropdown would still appear when set to Auto [This bug affected the unmodified current layout]</p> 
+						<p>- Fix: White (invisible) text on search bar when in theater mode [Affected all layouts from 2014-2017]</p>
+						<p>- Fix: Fixed a bug where if you liked or disliked a YouTube Short, the icon would not change color [Affected all layouts]</p>
+						<p>- Fix: Several others</p>
 						<p>- Change: "2013 Layout" has been renamed to "Mid 2013 Layout".</p>
 						<p>- Change: "Display Shorts Button" is now disabled by default.</p>
 						<p>- Change: "Display My Channel Button" is now enabled by default.</p>
-						<p class="notice">- Notice: Version 1.1.0 is still in early development. The final version of 1.1.0 will most likely be very different from this beta version.</p>
+						<p>- Change: Minor changes to some of the labels on the configuration window</p>
+						<p>- Other: Added "Home Page" tab to the Configuration Window's sidebar</p>
+						<p>- Other: Added "Subs Page" tab to the Configuration Window's sidebar</p>
+						<p>- Other: Added "Search Page" tab to the Configuration Window's sidebar</p>
+						<p>- Other: Added "Donate" button to the Configuration Window's sidebar</p>
+						<p class="notice">- Notice: The transition to Manifest V3 has been postponed for compatibility reasons.</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.4.6 - August 15, 2023</p>
 						</div>
+					</div>
+					<div class="words">
+						<p>- Fix: Fixed a major bug where the homepage was "shaking" [This bug affected all layouts except for the 2012 and 2019 layouts, and was caused by a YouTube update]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.0.4.5 - August 10, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Fix: Fixed a bug where the timestamps on video thumbnails were glitched [This bug affected all layouts from 2012-2017, and was caused by a YouTube update]</p>
+						<p class="notice">- Notice: This will be the last version of CustomTube to use Manifest V2. The next version will use Manifest V3, meaning the extension will only run on Firefox versions 109 and newer. This won't affect the vast majority of users. CustomTube will be actively tested on Firefox 115 ESR for the forseeable future, so Windows 7 and 8 users can still use the extension.</p>
+					</div>
 				</div>
 				<div class="changelog-inner">
 					<div class="title-area">

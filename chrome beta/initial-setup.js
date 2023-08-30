@@ -21,9 +21,12 @@ const defaultSettings = {
 	"homepageVidsPerRow": "HPVPRauto", 
 	"subsVidsPerRow": "SVPRauto", 
 	"videoRendererSize": "VRSizeAuto", 
-	"videoPlayerSize": "PS854x480", 
+	"videoPlayerSize": "PS854x480",
+	"videoPlayerStyle": "PSTauto", 	
+	"hideShortsSubs": "HSSauto", 
 	"blockRGW": true,
 	"FSNoScroll": true,
+	"noCast": true,
 	"squarePfp": false,
 	"squareVid": false,
 	"dontLoopPlaylists": false,
@@ -46,6 +49,7 @@ const defaultSettings = {
 	"noJoin": false,
 	"noClip": false,
 	"noThanks": false,
+	"noDownload": false,
 	"betterSearch": true,
 	"thumbFadeIn": false,
 	"noInfi": false,
@@ -55,6 +59,7 @@ const defaultSettings = {
 	"showNew": true,
 	"showChangelog": true
 };
+storage.set({BTDefaultConfig: defaultSettings});
 initiate();
 function initiate() {
 	storage.get(['BTConfig'], function(result) {

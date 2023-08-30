@@ -17,6 +17,7 @@ html[related-videos^="aozora"] {
 --bt-related-title-line-height: 1.2;
 --bt-related-title-max-height: 2.4em;
 --bt-related-title-text-color: var(--bt-blue);
+--bt-related-title-font-weight: normal;
 --bt-related-title-text-color-hover: var(--bt-blue);
 --bt-related-title-text-decoration-hover: underline;
 /* meta */
@@ -32,6 +33,7 @@ html[related-videos^="aozora"] {
 --bt-related-thumb-inner-bg: var(--yt-spec-base-background);
 --bt-related-thumb-inner-padding: 4px;
 --bt-related-thumb-inner-border: 1px solid #d3d3d3;
+--bt-related-thumb-margin-right: 12px;
 }
 html[related-videos="cosmicpanda-3"] {
 --bt-related-margin-top: 0;
@@ -104,6 +106,7 @@ html[related-videos-size="smaller"] {
 }
 html[related-videos-size="smaller"][related-videos^="aozora"] {
 --bt-related-title-font-size: .9166em;
+--bt-related-title-font-size: 1.0833em;
 --bt-related-channel-name-margin-top: 2px;
 /* thumbs */
 --bt-related-thumb-width: 106px;
@@ -119,6 +122,11 @@ html[related-videos-size="small"] {
 --bt-related-thumb-width: 120px;
 --bt-related-thumb-height: 68px;
 }
+html[related-videos-size="small"][related-videos^="aozora"] {
+--bt-related-thumb-inner-width: 114px;
+--bt-related-thumb-inner-height: 64px;
+--bt-related-video-outer-min-height: 74px;
+}
 html[related-videos-size="medium"] {
 --bt-related-title-font-size: 13px;
 --bt-related-channel-name-margin-top: 3px;
@@ -126,12 +134,22 @@ html[related-videos-size="medium"] {
 --bt-related-thumb-width: 140px;
 --bt-related-thumb-height: 79px;
 }
+html[related-videos-size="medium"][related-videos^="aozora"] {
+--bt-related-thumb-inner-width: 134px;
+--bt-related-thumb-inner-height: 75px;
+--bt-related-video-outer-min-height: 84px;
+}
 html[related-videos-size="large"] {
 --bt-related-title-font-size: 14px;
 --bt-related-channel-name-margin-top: 2px;
 /* thumbs */
 --bt-related-thumb-width: 168px;
 --bt-related-thumb-height: 94px;
+}
+html[related-videos-size="large"][related-videos^="aozora"] {
+--bt-related-thumb-inner-width: 162px;
+--bt-related-thumb-inner-height: 91px;
+--bt-related-video-outer-min-height: 100px;
 }
 html[related-videos^="polymer"] {
 --bt-related-margin-top: 0;

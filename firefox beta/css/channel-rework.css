@@ -6,6 +6,9 @@ html[channel-style^="hitchhiker"] {
 --bt-channel-pfp-size: 100px;
 --bt-channel-pfp-left: 16px;
 --bt-channel-page-header-inner-padding: 0 36px 0 12px;
+--bt-channel-page-channel-name-text-color: var(--bt-gcp-000);
+--bt-channel-page-channel-name-font-size: 24px;
+--bt-channel-page-channel-name-font-weight: 400;
 --bt-channel-tagline-display: none;
 }
 @media only screen and (max-width: 1570px) {
@@ -51,11 +54,16 @@ html[channel-style^="cosmicpanda"] {
 --bt-channel-page-content-margin-right: auto;
 --bt-channel-pfp-size: 60px;
 --bt-channel-page-header-inner-padding: 0 36px 0 12px;
---bt-channel-page-channel-name: #fff;
+--bt-channel-page-channel-name-text-color: var(--bt-gcp-fff-u);
+--bt-channel-page-channel-name-font-size: 24px;
+--bt-channel-page-channel-name-font-weight: 400;
 --bt-channel-tagline-display: block;
 --bt-channel-page-tabs-margin: 0 auto 0 0;
 }
 html[channel-style^="polymer"] {
+--bt-channel-page-channel-name-text-color: var(--bt-gcp-000);
+--bt-channel-page-channel-name-font-size: 24px;
+--bt-channel-page-channel-name-font-weight: 400;
 --bt-channel-tagline-display: none;
 --bt-channel-pfp-size: 100px;
 }
@@ -114,6 +122,11 @@ html[channel-style]:not([channel-style^="polymer"]) #backgroundFrontLayer.tp-yt-
 html[channel-style]:not([channel-style^="polymer"]) #backgroundRearLayer.tp-yt-app-header {
   transform: none !important;
 }
+html[channel-style] .page-header-banner.style-scope.ytd-c4-tabbed-header-renderer {
+  max-width: var(--bt-channel-page-width);
+  margin: 0 auto !important;
+  border-radius: var(--bt-channel-page-banner-radius, 0) !important;
+}
 /* notfrombutneeded */
 html[channel-style]:not([channel-style^="polymer"]) #contentContainer.tp-yt-app-header-layout {
   display: none;
@@ -165,8 +178,10 @@ html[channel-style] ytd-channel-avatar-editor yt-icon {
   display: none;
 }
 /* channel name */
-html[channel-style]:not([channel-style^="polymer"]) ytd-browse[page-subtype="channels"] #header #text.ytd-channel-name {
-  color: var(--bt-channel-page-channel-name);
+html[channel-style]/*:not([channel-style^="polymer"])*/ ytd-browse[page-subtype="channels"] #header #text.ytd-channel-name {
+  color: var(--bt-channel-page-channel-name-text-color);
+  font-size: var(--bt-channel-page-channel-name-font-size);
+  font-weight: var(--bt-channel-page-channel-name-font-weight);
 }
 /* This code fixes the grid. */
 html[channel-style^="cosmicpanda"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer {
@@ -183,7 +198,23 @@ html[channel-style]:not([channel-style^="polymer"]) ytd-c4-tabbed-header-rendere
 html[channel-style]:not([channel-style^="polymer"]) #banner-editor {
   height: var(--bt-channel-page-banner-height) !important;
 }
+html[channel-style^="amsterdam"] {
+--bt-tab-shape-height: 48px;
+--bt-tab-shape-margin-right: 24px;
+--bt-tab-shape-padding: 0;
+--bt-tab-shape-slider-display: block;
+}
+html[channel-style^="polymer"] {
+--bt-tab-shape-height: 48px;
+--bt-tab-shape-margin-right: 24px;
+--bt-tab-shape-padding: 0 20px;
+--bt-tab-shape-slider-display: block;
 
+--bt-channel-page-tab-font-size: 1.4rem;
+--bt-channel-page-tab-font-weight: 500;
+--bt-channel-page-tab-text-transform: uppercase;
+--bt-channel-page-tab-letter-spacing: 0.4px;
+}
 html[channel-style^="hitchhiker"] {
 --bt-channel-page-tab-strip-padding: 0;
 --bt-channel-page-tab-height: 29px;
@@ -196,6 +227,11 @@ html[channel-style^="hitchhiker"] {
 --bt-channel-page-tab-border-bottom-hover: 3px solid var(--bt-emphasis);
 --bt-channel-page-tab-border-bottom-active: 3px solid var(--bt-emphasis);
 --bt-channel-page-og-tab-bar-display: none;
+
+--bt-tab-shape-height: 30px;
+--bt-tab-shape-margin-right: 12px;
+--bt-tab-shape-padding: 0;
+--bt-tab-shape-slider-display: none;
 }
 html[channel-style^="cosmicpanda"] {
 --bt-channel-page-header-bg: #202020 url(http://s.ytimg.com/yt/img/channels/c3/bg-channel-header-vfl6TeHdT.png) repeat-x;
@@ -264,18 +300,20 @@ yt-tab-shape[aria-selected="true"] {
 }
 /* text */
 html[channel-style]:not([channel-style^="polymer"]) .tab-title.style-scope.ytd-c4-tabbed-header-renderer,
-html[channel-style]:not([channel-style^="polymer"]) .yt-tab-shape-wiz__tab {
+html[channel-style] .yt-tab-shape-wiz__tab {
   font-size: var(--bt-channel-page-tab-font-size);
   text-transform: var(--bt-channel-page-tab-text-transform);
   font-weight: var(--bt-channel-page-tab-font-weight);
+  letter-spacing: var(--bt-channel-page-tab-letter-spacing, auto);
 }
 html[channel-style] .yt-tab-shape-wiz {
-  height: 30px;
-  margin-right: 12px;
+  height: var(--bt-tab-shape-height);
+  margin-right: var(--bt-tab-shape-margin-right);
+  padding: var(--bt-tab-shape-padding);
 }
 html[channel-style] .yt-tab-group-shape-wiz__slider,
 html[channel-style] .yt-tab-shape-wiz__tab-bar {
-	display: none;
+	display: var(--bt-tab-shape-slider-display);
 }
 /* for inline */
 html[channel-style^="cosmicpanda"][location="inline-channel"] tp-yt-app-header #avatar {

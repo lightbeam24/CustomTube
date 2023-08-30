@@ -1,3 +1,39 @@
+html[watch-metadata-style^="aozora"] {
+/* sub btn */
+--bt-wp-sub-btn-position: relative;
+--bt-wp-sub-btn-margin-left: -20px; /* formerly 10px */
+--bt-wp-sub-btn-margin-top: 0px;
+--bt-wp-sub-btn-height: 28px;
+--bt-wp-sub-btn-margin-top-static: 19.5px;
+--bt-wp-sub-btn-height-static: 23.5px;
+/* styles */
+--bt-sub-btn-text-color: var(--bt-standard-btn-text-color);
+--bt-sub-btn-bg: var(--bt-standard-btn-bg);
+--bt-sub-btn-bg-hover: var(--bt-standard-btn-bg-hover);
+--bt-sub-btn-border: 1px solid var(--bt-standard-btn-border-color);
+--bt-sub-btn-border-hover: 1px solid var(--bt-standard-btn-border-color);
+--bt-sub-btn-radius: var(--bt-standard-btn-radius);
+--bt-sub-btn-height: var(--bt-standard-btn-height);
+--bt-sub-btn-padding: var(--bt-standard-btn-padding);
+--bt-sub-btn-font-size: var(--bt-standard-btn-font-size);
+--bt-sub-btn-font-weight: var(--bt-standard-btn-font-weight);
+/* subbed btn */
+--bt-subbed-btn-bg: var(--bt-standard-btn-bg);
+--bt-subbed-btn-bg-hover: var(--bt-standard-btn-bg-hover);
+--bt-subbed-btn-border: 1px solid var(--bt-standard-btn-border-color);
+--bt-subbed-btn-hover: 1px solid var(--bt-standard-btn-border-color);
+--bt-subbed-btn-text-color: var(--bt-standard-btn-text-color);
+--bt-subbed-btn-text-color-hover: var(--bt-standard-btn-text-color);
+--bt-subbed-btn-width: 90px;
+/* count */
+--bt-wp-sub-count-radius: 3px;
+--bt-wp-sub-count-padding: 0 4px 4px;
+--bt-wp-sub-count-bg: var(--bt-gcp-fff);
+--bt-wp-sub-count-border: 1px solid #eaeaea;
+--bt-wp-sub-count-text-color: var(--bt-gcp-000); /* ADD THIS VAR */
+--bt-wp-sub-count-display: block;
+--bt-wp-sub-count-margin-left: 10px;
+}
 html[watch-metadata-style^="cosmicpanda"] {
 /* sub btn */
 --bt-wp-sub-btn-position: relative;
@@ -9,16 +45,18 @@ html[watch-metadata-style^="cosmicpanda"] {
 /* styles */
 --bt-sub-btn-text-color: #fff;
 --bt-sub-btn-bg: var(--bt-standard-btn-bg);
---bt-sub-btn-bg-hover: var(--bt-standard-btn-bg-hover);
---bt-sub-btn-radius: 2px 0 0 2px;
+--bt-sub-btn-bg-hover: linear-gradient(to bottom,#75be65 0,#37622d 100%);
+--bt-sub-btn-radius: 24px 6px 6px 24px;
 --bt-sub-btn-height: 23.5px;
 --bt-sub-btn-padding: var(--bt-standard-btn-padding);
 --bt-sub-btn-font-size: 12px;
 --bt-sub-btn-font-weight: bold;
 /* subbed btn */
---bt-subbed-btn-bg: #fafafa;
---bt-subbed-btn-border: 1px solid #ccc;
+--bt-subbed-btn-bg: var(--bt-standard-btn-bg);
+--bt-subbed-btn-bg-hover: linear-gradient(to bottom,#bc403a 0,#852f2b 100%);
+--bt-subbed-btn-border: none;
 --bt-subbed-btn-text-color: var(--bt-text-color-6);
+--bt-subbed-btn-text-color-hover: var(--bt-gcp-fff-u);
 --bt-subbed-btn-width: 90px;
 }
 html[watch-metadata-style^="hitchhiker"] {
@@ -40,8 +78,10 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-sub-btn-font-weight: normal;
 /* subbed btn */
 --bt-subbed-btn-bg: #fafafa;
+--bt-subbed-btn-bg-hover: var(--bt-subbed-btn-bg);
 --bt-subbed-btn-border: 1px solid #ccc;
 --bt-subbed-btn-text-color: var(--bt-text-color-6);
+--bt-subbed-btn-text-color-hover: var(--bt-subbed-btn-text-color);
 --bt-subbed-btn-width: 90px;
 /* sub count */
 --bt-wp-sub-count-display: block ruby;
@@ -83,6 +123,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-sub-btn-box-shadow-active: inset 0 2px 2px rgba(0,0,0,.75);/* not yet used */
 /* subbed btn */
 --bt-subbed-btn-bg: #fafafa; /* linear-gradient(to top,#23a723 0,#22c622 100%) maybe */
+--bt-subbed-btn-bg-hover: var(--bt-subbed-btn-bg);
 --bt-subbed-btn-border: 1px solid #ccc;
 --bt-subbed-btn-width: 90px;
 /* sub count */
@@ -132,6 +173,7 @@ html[watch-metadata-style^="hitchhiker-2013-1"] #owner[subscribed="true"] {
 }
 html[dark][watch-metadata-style^="hitchhiker"] {
 --bt-subbed-btn-bg: #1c1c1c;
+--bt-subbed-btn-bg-hover: var(--bt-subbed-btn-bg);
 --bt-subbed-btn-border: 1px solid #555;
 --bt-wp-sub-count-bg: #1c1c1c;
 --bt-wp-sub-count-border: 1px solid #555;
@@ -158,8 +200,10 @@ html[watch-metadata-style="polymer-2019"] {
 --bt-sub-btn-text-transform: uppercase;
 /* subbed btn */
 --bt-subbed-btn-bg: var(--bt-light-grey);
+--bt-subbed-btn-bg-hover: var(--bt-subbed-btn-bg);
 --bt-subbed-btn-border: none;
 --bt-subbed-btn-text-color: var(--yt-spec-brand-icon-inactive);
+--bt-subbed-btn-text-color-hover: var(--bt-subbed-btn-text-color);
 --bt-subbed-btn-box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
 /* sub count */
 --bt-wp-sub-count-display: none;
@@ -189,8 +233,10 @@ html[watch-metadata-style^="polymer-202"] {
 --bt-sub-btn-text-transform: uppercase;
 /* subbed btn */
 --bt-subbed-btn-bg: var(--bt-light-grey);
+--bt-subbed-btn-bg-hover: var(--bt-subbed-btn-bg);
 --bt-subbed-btn-border: none;
 --bt-subbed-btn-text-color: var(--yt-spec-brand-icon-inactive);
+--bt-subbed-btn-text-color-hover: var(--bt-subbed-btn-text-color);
 --bt-subbed-btn-box-shadow: none;
 /* sub count */
 --bt-wp-sub-count-display: block;
@@ -314,10 +360,12 @@ html[watch-metadata-style] #subscribe-button .yt-spec-button-shape-next--mono.yt
   box-shadow: var(--bt-subbed-btn-box-shadow);
   text-transform: var(--bt-sub-btn-text-transform);
 }
+html[watch-metadata-style] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover {
+  background: var(--bt-subbed-btn-bg-hover) !important;
+  color: var(--bt-subbed-btn-text-color-hover) !important;
+}
 html[watch-metadata-style^="hitchhiker"] ytd-subscription-notification-toggle-button-renderer-next .yt-spec-button-shape-next__icon::before {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -52px -254px;
-    background-size: auto;
-  background-size: auto;
   background-size: auto;
   width: 16px;
   height: 12px;
@@ -389,7 +437,6 @@ html[watch-metadata-style="polymer-2019"] #notification-preference-button .yt-sp
 html[watch-metadata-style^="cosmicpanda"] tp-yt-paper-button.ytd-subscribe-button-renderer, 
 html[watch-metadata-style^="cosmicpanda"] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
   background: linear-gradient(to bottom,#fff 0,#e0e0e0 100%) !important;
-  border-radius: 24px 6px 6px 24px !important;
   padding: 5px 32px 5px 34px !important;
   white-space: nowrap;
   font-size: 1.1rem !important;

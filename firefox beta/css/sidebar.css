@@ -33,6 +33,59 @@ html[static][location="likedvideos"] {
 html[sidebar-style^="aozora"] {
 --bt-sidebar-item-icon-display: none;
 }
+html[sidebar-style^="aozora"] {
+--bt-sidebar-bg: transparent;
+--bt-sidebar-width: 320px;
+--bt-sidebar-border-right: none;
+--bt-sidebar-section-padding: 0;
+--bt-sidebar-section-border-top: 1px solid var(--yt-spec-10-percent-layer);
+--bt-sidebar-section-margin-top: 6px;
+--bt-sidebar-section-margin-bottom: -6px;
+--bt-sidebar-section-padding-top: 6px;
+--bt-sidebar-first-section-padding-top: 7px;
+/* non items */
+--bt-sidebar-non-item-text-color: var(--bt-gcp-000);
+--bt-sidebar-non-item-text-transform: none;
+--bt-sidebar-non-item-font-size: 16px;
+--bt-sidebar-non-item-font-weight: 400;
+--bt-sidebar-non-item-border-bottom: 1px solid var(--bt-gcp-ccc);
+--bt-sidebar-non-item-padding: 4px 0;
+/* items */
+--bt-sidebar-item-height: 24px;
+--bt-sidebar-item-width: 320px;
+--bt-sidebar-item-margin-left: 0px;
+--bt-sidebar-item-radius: 0;
+--bt-sidebar-item-border-top: none;
+--bt-sidebar-item-border-bottom: none;
+--bt-sidebar-item-text-color: var(--bt-blue);
+--bt-sidebar-item-bg: none;
+--bt-sidebar-item-border-right: none;
+--bt-sidebar-item-transition: border 0.2s ease;
+/* active */
+--bt-active-sidebar-item-bg: #d1e1fa; /* make var */
+--bt-active-sidebar-item-bg-hover: #d1e1fa;
+--bt-active-sidebar-item-text-shadow: none;
+--bt-active-sidebar-item-text-color: var(--bt-gcp-000);
+--bt-active-sidebar-item-border-right: none;
+/* hover */
+--bt-sidebar-item-bg-hover: #d1e1fa;
+--bt-sidebar-item-text-shadow-hover: none;
+--bt-sidebar-item-text-decoration-hover: underline;
+--bt-sidebar-item-text-color-hover: var(--bt-blue);
+--bt-sidebar-item-border-right-hover: none;
+/* ghost thing */
+--bt-sidebar-item-og-ghost-display: none;
+/* inner */
+--bt-sidebar-item-inner-padding: 0 9px;
+/* icon */
+--bt-sidebar-item-icon-width: 18px;
+--bt-sidebar-item-icon-height: 18px;
+--bt-sidebar-item-icon-margin-right: 6px;
+/* img */
+--bt-sidebar-item-image-radius: 0;
+/* text */
+--bt-sidebar-item-font-size: 12px;
+}
 /* NEOSection CosmicPanda */
 html[sidebar-style^="cosmicpanda"] {
 --bt-sidebar-bg: #272727;
@@ -85,10 +138,7 @@ html[sidebar-style^="cosmicpanda"] {
 --bt-sidebar-item-font-size: 13px;
 }
 /* NEOSection Hitchhiker */
-html[sidebar-style="hitchhiker-2017"],
-html[sidebar-style="hitchhiker-2016"],
-html[sidebar-style="hitchhiker-2015"],
-html[sidebar-style="hitchhiker-2014"] {
+html[sidebar-style^="hitchhiker"]:not([sidebar-style^="hitchhiker-2013"]) {
 --bt-sidebar-bg: var(--bt-section-bg);
 --bt-sidebar-width: 230px;
 --bt-sidebar-border-right: var(--bt-section-border);
@@ -511,6 +561,7 @@ html[sidebar-style] #guide-section-title.ytd-guide-section-renderer {
   text-transform: var(--bt-sidebar-non-item-text-transform);
   font-weight: var(--bt-sidebar-non-item-font-weight);
   padding: var(--bt-sidebar-non-item-padding, 6px 12px 4px);
+  border-bottom: var(--bt-sidebar-non-item-border-bottom);
 }
 /* first sidebar section */
 html[sidebar-style] ytd-guide-renderer #sections.ytd-guide-renderer > .ytd-guide-renderer:first-child {
@@ -575,6 +626,11 @@ html[sidebar-style] ytd-guide-entry-renderer bt-icon svg {
   width: 24px;
   height: 24px;
 }
+html[sidebar-style^="cosmicpanda"] ytd-guide-entry-renderer bt-icon svg {
+  color: var(--bt-sidebar-item-svg-color);
+  width: 20px;
+  height: 20px;
+}
 html[sidebar-style] ytd-guide-entry-renderer[active] bt-icon svg {
   color: var(--bt-active-sidebar-item-svg-color);
 }
@@ -591,6 +647,7 @@ html[sidebar-style] ytd-guide-entry-renderer:not([active]):hover .guide-icon.ytd
 html[sidebar-style] ytd-guide-entry-renderer:not([active]):hover .title.ytd-guide-entry-renderer {
   color: var(--bt-sidebar-item-text-color-hover);
   text-shadow: var(--bt-sidebar-item-text-shadow-hover);
+  text-decoration: var(--bt-sidebar-item-text-decoration-hover, none);
 }
 /* active sidebar item */
 html[sidebar-style] ytd-guide-entry-renderer[active] {
@@ -736,82 +793,123 @@ html[sidebar-style^="cosmicpanda"] ytd-guide-entry-renderer:not([active]) yt-ico
   color: #ccc !important;
 }
 /* sidebar icons */
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Home"] .guide-icon.ytd-guide-entry-renderer svg, 
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/"] .guide-icon.ytd-guide-entry-renderer svg, 
 html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="My Channel"] .guide-icon.ytd-guide-entry-renderer svg, 
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Trending"] .guide-icon.ytd-guide-entry-renderer svg, 
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Subscriptions"] .guide-icon.ytd-guide-entry-renderer svg, 
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Browse channels"] .guide-icon.ytd-guide-entry-renderer svg,
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="History"] .guide-icon.ytd-guide-entry-renderer svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href^="/feed/trending"] .guide-icon.ytd-guide-entry-renderer svg, 
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/subscriptions"] .guide-icon.ytd-guide-entry-renderer svg, 
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/guide_builder"] .guide-icon.ytd-guide-entry-renderer svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/history"] .guide-icon.ytd-guide-entry-renderer svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href^="/playlist"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/playlist?list=LL"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/playlist?list=WL"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/storefront?bp=ogUCKAI%3D"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UC4R8DWoMoI7CAwX8_LjQHig"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/gaming"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UCYfdidRxbB8Qhf0Nx7ioOYw"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UCEgdi0XIXXZ-qJOFPf4JSKw"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UCtFRv9O2AHqOZjjynzrv-xg"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UCrpQ4p1Ql_hG8rKXIKM1MOQ"] svg,
+html[sidebar-style^="hitchhiker"] ytd-guide-collapsible-entry-renderer svg,
 html[sidebar-style^="hitchhiker"] #bt-home-button svg {
   display: none !important;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Home"] .guide-icon.ytd-guide-entry-renderer,
-html[sidebar-style^="hitchhiker"] #bt-home-button .guide-icon.ytd-guide-entry-renderer {
-  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflYQU35a.png) -63px -27px;
+html[sidebar-style^="hitchhiker"] .guide-icon.ytd-guide-entry-renderer  {
   background-size: auto;
   width: 20px;
   height: 20px;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Home"] .guide-icon.ytd-guide-entry-renderer, 
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Home"] .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/"] .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] #bt-home-button .guide-icon.ytd-guide-entry-renderer {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflYQU35a.png) -63px -27px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/"] .guide-icon.ytd-guide-entry-renderer, 
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/"] .guide-icon.ytd-guide-entry-renderer,
 html[sidebar-style^="hitchhiker"] #bt-home-button[active] .guide-icon.ytd-guide-entry-renderer,
 html[sidebar-style^="hitchhiker"] #bt-home-button:hover .guide-icon.ytd-guide-entry-renderer  {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -24px -1565px;
-  background-size: auto;
-  width: 20px;
-  height: 20px;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Browse channels"] .guide-icon.ytd-guide-entry-renderer {
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/guide_builder"] .guide-icon.ytd-guide-entry-renderer {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -100px -560px;
-  background-size: auto;
-  width: 20px;
-  height: 20px;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Browse channels"] .guide-icon.ytd-guide-entry-renderer, 
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Browse channels"] .guide-icon.ytd-guide-entry-renderer  {
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/guide_builder"] .guide-icon.ytd-guide-entry-renderer, 
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/guide_builder"] .guide-icon.ytd-guide-entry-renderer  {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) 0px -1589px;
-  background-size: auto;
-  width: 20px;
-  height: 20px;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Trending"] .guide-icon.ytd-guide-entry-renderer {
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href^="/feed/trending"] .guide-icon.ytd-guide-entry-renderer {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) 0 -814px;
-  background-size: auto;
-  width: 20px;
-  height: 20px;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Trending"] .guide-icon.ytd-guide-entry-renderer,
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Trending"] .guide-icon.ytd-guide-entry-renderer {
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href^="/feed/trending"] .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href^="/feed/trending"] .guide-icon.ytd-guide-entry-renderer {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) 0 -344px;
-  background-size: auto;
-  width: 20px;
-  height: 20px;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Subscriptions"] .guide-icon.ytd-guide-entry-renderer {
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/subscriptions"] .guide-icon.ytd-guide-entry-renderer {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -53px -320px;
-  background-size: auto;
-  width: 20px;
-  height: 20px;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Subscriptions"] .guide-icon.ytd-guide-entry-renderer,
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="Subscriptions"] .guide-icon.ytd-guide-entry-renderer {
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/subscriptions"] .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/subscriptions"] .guide-icon.ytd-guide-entry-renderer {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -1px -1261px;
-  background-size: auto;
-  width: 20px;
-  height: 20px;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="History"] .guide-icon.ytd-guide-entry-renderer {
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/history"] .guide-icon.ytd-guide-entry-renderer {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) 0 -86px;
-  background-size: auto;
-  width: 20px;
-  height: 20px;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="History"] .guide-icon.ytd-guide-entry-renderer,
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[title="History"] .guide-icon.ytd-guide-entry-renderer {
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/history"] .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/history"] .guide-icon.ytd-guide-entry-renderer {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -113px -1533px;
-  background-size: auto;
-  width: 20px;
-  height: 20px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href^="/playlist"] .guide-icon.ytd-guide-entry-renderer {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflNlthLq.webp) -288px -110px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href^="/playlist"] .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href^="/playlist"] .guide-icon.ytd-guide-entry-renderer {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflNlthLq.webp) -731px -201px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/playlist?list=LL"] .guide-icon.ytd-guide-entry-renderer {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflNlthLq.webp) -568px -209px;
+
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/playlist?list=LL"] .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/playlist?list=LL"] .guide-icon.ytd-guide-entry-renderer {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflNlthLq.webp) -288px -167px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/playlist?list=WL"] .guide-icon.ytd-guide-entry-renderer {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflNlthLq.webp) -507px -233px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer[active] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/playlist?list=WL"] .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:hover #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/playlist?list=WL"] .guide-icon.ytd-guide-entry-renderer {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflNlthLq.webp) -628px -306px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"] .guide-icon.ytd-guide-entry-renderer {
+  background: url(https://i.imgur.com/O23MSHE.jpg);
+  background-size: 20px 20px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/storefront?bp=ogUCKAI%3D"] .guide-icon.ytd-guide-entry-renderer {
+  background: url(https://i.imgur.com/d9E8OCy.png);
+  background-size: 20px 20px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UC4R8DWoMoI7CAwX8_LjQHig"] .guide-icon.ytd-guide-entry-renderer {
+  background: url(https://i.imgur.com/jOdXjgf.png);
+  background-size: 20px 20px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/gaming"] .guide-icon.ytd-guide-entry-renderer {
+  background: url(https://i.imgur.com/CAeYhgx.jpg);
+  background-size: 20px 20px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UCYfdidRxbB8Qhf0Nx7ioOYw"] .guide-icon.ytd-guide-entry-renderer {
+  background: url(https://i.imgur.com/7m2aTbj.png);
+  background-size: 20px 20px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UCEgdi0XIXXZ-qJOFPf4JSKw"] .guide-icon.ytd-guide-entry-renderer {
+  background: url(https://i.imgur.com/CLfCPqH.jpg);
+  background-size: 20px 20px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UCtFRv9O2AHqOZjjynzrv-xg"] .guide-icon.ytd-guide-entry-renderer {
+  background: url(https://i.imgur.com/brFBqll.jpg);
+  background-size: 20px 20px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/channel/UCrpQ4p1Ql_hG8rKXIKM1MOQ"] .guide-icon.ytd-guide-entry-renderer {
+  background: url(https://i.imgur.com/cKPRYCx.png);
+  background-size: 20px 20px;
 }
 html[sidebar-style^="hitchhiker"] #bt-liked-vids-button:not([active]):not(:hover) svg[icon-type="filled"],
 html[sidebar-style^="hitchhiker"] #bt-trending-button:not([active]):not(:hover) svg[icon-type="filled"],
@@ -836,8 +934,8 @@ html[sidebar-style^="hitchhiker"] #bt-my-channel-button:hover .guide-icon.ytd-gu
 html[my-channel-btn="true"] #bt-your-vids-button,
 html[my-channel-btn="false"] #bt-my-channel-button,
 html[signed-out] #bt-my-channel-button,
-html[signed-out] #bt-trending-button-2,
-html[trending-button="true"] #bt-trending-button,
+html[trending-btn="true"] #bt-trending-button,
+html[trending-btn="false"] #bt-trending-button-2,
 html[sidebar-style^="hitchhiker"] #bt-my-channel-button svg {
   display: none;
 }
@@ -870,4 +968,13 @@ html[sidebar-style] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus 
 
 html[sidebar-persistent="true"] #guide #header.ytd-app {
   display: none;
+}
+
+/* for 2011 */
+html[guide-right-aligned] #guide {
+  right: 0;
+}
+html[guide-right-aligned][sidebar-style] ytd-app[guide-persistent-and-visible] ytd-page-manager.ytd-app {
+  margin-right: var(--bt-sidebar-width) !important;
+  margin-left: 0;
 }

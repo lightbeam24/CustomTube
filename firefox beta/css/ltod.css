@@ -13,14 +13,40 @@ html[watch-metadata-style] .yt-spec-touch-feedback-shape--touch-response .yt-spe
 /* BTMEGASection Metadata */
 /* BTSection Like and Dislike */
 html[watch-metadata-style^="hitchhiker"],
-html[watch-metadata-style^="cosmicpanda"] {
+html[watch-metadata-style^="cosmicpanda"],
+html[watch-metadata-style^="aozora"] {
 --bt-ltod-og-icon-display: none;
 }
 /* For new like and dislike button */
+html[watch-metadata-style^="aozora"] {
+/* ltod btn */
+--bt-ltod-btn-display: flex;
+--bt-ltod-btn-padding-left: 0px;
+--bt-ltod-like-btn-radius: 3px 0 0 3px;
+--bt-ltod-dislike-btn-radius: 0 3px 3px 0;
+/* outer */
+--bt-toggle-button-icon-margin-right: 0px;
+/* button */
+--bt-toggle-button-text-color-1: var(--bt-standard-btn-text-color);
+--bt-toggle-button-text-color-2: var(--bt-standard-btn-text-color);
+--bt-toggle-button-text-color-3: var(--bt-standard-btn-text-color);
+--bt-toggle-button-text-color-4: var(--bt-standard-btn-text-color);
+--bt-toggle-button-font-size: var(--bt-standard-btn-font-size);
+/* og icon */
+--bt-animated-like-icon-display: none;
+--bt-og-dislike-icon-display: none;
+/* new icon */
+--bt-toggle-button-icon-display: block;
+--bt-toggle-button-icon-width: 16px;
+--bt-toggle-button-icon-height: 18px;
+--bt-toggle-button-icon-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+}
 html[watch-metadata-style^="cosmicpanda"] {
 /* ltod btn */
 --bt-ltod-btn-display: flex;
 --bt-ltod-btn-padding-left: 0px;
+--bt-ltod-like-btn-radius: 0;
+--bt-ltod-dislike-btn-radius: 0;
 /* outer */
 --bt-toggle-button-icon-margin-right: 10px;
 /* button */
@@ -43,6 +69,8 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-ltod-btn-display: flex;
 --bt-ltod-btn-margin-top: 58px;
 --bt-ltod-btn-padding-left: 12px;
+--bt-ltod-like-btn-radius: 0;
+--bt-ltod-dislike-btn-radius: 0;
 /* outer */
 --bt-toggle-button-icon-margin-right: 10px;
 /* button */
@@ -114,6 +142,8 @@ html[watch-metadata-style="polymer-2020"] {
 /* ltod btn */
 --bt-ltod-btn-display: flex;
 --bt-ltod-btn-margin-top: 0px;
+--bt-ltod-like-btn-radius: 0;
+--bt-ltod-dislike-btn-radius: 0;
 /* outer */
 --bt-toggle-button-icon-margin-right: 10px;
 /* button */
@@ -144,11 +174,17 @@ html[watch-metadata-style] ytd-segmented-like-dislike-button-renderer {
   display: var(--bt-ltod-btn-display);
   margin-top: var(--bt-ltod-btn-margin-top);
 }
-html[watch-metadata-style] ytd-segmented-like-dislike-button-renderer button {
-  border-radius: 0 !important;
+html[watch-metadata-style] #segmented-like-button button {
+  border-radius: var(--bt-ltod-like-btn-radius) !important;
+}
+html[watch-metadata-style] #segmented-dislike-button button {
+  border-radius: var(--bt-ltod-dislike-btn-radius) !important;
 }
 html[watch-metadata-style] #segmented-like-button {
 	  padding-left: var(--bt-ltod-btn-padding-left); /* for ltod bar width */
+}
+html[watch-metadata-style^="aozora"] #above-the-fold #segmented-like-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+    padding: 0 28px 0 6px;
 }
 /* BTSection Like and dislike Button */
 html[watch-metadata-style] #segmented-like-button yt-animated-icon {
@@ -158,23 +194,23 @@ html[watch-metadata-style] #segmented-dislike-button yt-icon svg.style-scope,
 html[watch-metadata-style] #segmented-like-button yt-icon svg.style-scope {
   display: var(--bt-og-dislike-icon-display) !important;
 }
-html[watch-metadata-style] ytd-toggle-button-renderer button {
+html[watch-metadata-style] ytd-watch-flexy ytd-toggle-button-renderer button {
   color: var(--bt-toggle-button-text-color-1) !important;
 }
-html[watch-metadata-style] ytd-toggle-button-renderer button span {
+html[watch-metadata-style] ytd-watch-flexy ytd-toggle-button-renderer button span {
   color: var(--bt-toggle-button-text-color-2) !important;
   font-size: var(--bt-toggle-button-font-size);
 }
-html[watch-metadata-style] #segmented-like-button ytd-toggle-button-renderer button[aria-pressed="true"] {
+html[watch-metadata-style] ytd-watch-flexy #segmented-like-button ytd-toggle-button-renderer button[aria-pressed="true"] {
   color: var(--bt-toggle-button-text-color-4) !important;
 }
-html[watch-metadata-style] #segmented-like-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
+html[watch-metadata-style] ytd-watch-flexy #segmented-like-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
   color: var(--bt-toggle-button-text-color-4) !important;
 }
-html[watch-metadata-style] #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] {
+html[watch-metadata-style] ytd-watch-flexy #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] {
   color: var(--bt-toggle-button-text-color-3) !important;
 }
-html[watch-metadata-style] #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
+html[watch-metadata-style] ytd-watch-flexy #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
   color: var(--bt-toggle-button-text-color-3) !important;
 }
 html[watch-metadata-style] #bt-like,
@@ -254,6 +290,21 @@ html[watch-metadata-style^="cosmicpanda"] {
 --bt-dislike-icon-bg-active: no-repeat url(http://s.ytimg.com/yt/imgbin/www-refresh-vflXkUAsM.png) -125px -91px;
 --bt-dislike-icon-opacity-active: 1;
 }
+html[watch-metadata-style^="aozora"] {
+--bt-ltod-icon-margin-top: 1px;
+--bt-like-icon-margin-right: 0px;
+--bt-like-icon-margin-left: 8px;
+--bt-like-icon-bg: no-repeat url(http://s.ytimg.com/yt/imgbin/www-master-vfl8ZHa_q.png) -267px -71px;
+--bt-like-icon-opacity: 1;
+--bt-like-icon-bg-active: no-repeat url(http://s.ytimg.com/yt/imgbin/www-master-vfl8ZHa_q.png) -84px -82px;
+--bt-like-icon-opacity-active: 1;
+--bt-dislike-icon-margin-right: -4px;
+--bt-dislike-icon-margin-left: 7px;
+--bt-dislike-icon-bg: no-repeat url(http://s.ytimg.com/yt/imgbin/www-master-vfl8ZHa_q.png) -267px -107px;
+--bt-dislike-icon-opacity: 1;
+--bt-dislike-icon-bg-active: no-repeat url(http://s.ytimg.com/yt/imgbin/www-master-vfl8ZHa_q.png) -245px -20px;
+--bt-dislike-icon-opacity-active: 1;
+}
 html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #segmented-like-button button[aria-pressed="false"] #bt-like {
   background: var(--bt-like-icon-bg);
   opacity: var(--bt-like-icon-opacity);
@@ -294,7 +345,8 @@ html[watch-metadata-style^="cosmicpanda"] #segmented-dislike-button #bt-dislike 
 
 
 html[watch-metadata-style^="hitchhiker"] .ryd-tooltip,
-html[watch-metadata-style^="cosmicpanda"] .ryd-tooltip {
+html[watch-metadata-style^="cosmicpanda"] .ryd-tooltip,
+html[watch-metadata-style^="aozora"] .ryd-tooltip {
   margin-bottom: 48px;
   opacity: 0;
 }
@@ -324,6 +376,9 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-bar-margin-top: 40px;
 }
 html[watch-metadata-style^="cosmicpanda"] {
+--bt-bar-margin-top: 40px;
+}
+html[watch-metadata-style^="aozora"] {
 --bt-bar-margin-top: 40px;
 }
 html[watch-metadata-style^="hitchhiker"] #bt-bar {
@@ -360,6 +415,7 @@ html[watch-metadata-style^="hitchhiker-2013"] #bt-bar likes {
 html[watch-metadata-style^="hitchhiker-2013"] #bt-bar dislikes {
   background: #ccc;
 }
+/* universalize this todo */
 html[watch-metadata-style^="cosmicpanda"] #bt-bar {
   height: 16px;
   width: 160px;
@@ -384,6 +440,30 @@ html[watch-metadata-style^="cosmicpanda"] #bt-bar dislikes {
   display: block;
   border: 1px solid #ccc;
 }
+html[watch-metadata-style^="aozora"] #bt-bar {
+  height: 16px;
+  width: 160px;
+  display: block;
+  position: absolute;
+  right: 0;
+  margin-top: var(--bt-bar-margin-top);
+  border-radius: 3px;
+  cursor: pointer;
+}
+html[watch-metadata-style^="aozora"] #bt-bar likes {
+  background: #060;
+  height: 4px;
+  width: 100%;
+  display: block;
+  border-right: 1px solid #ccc;
+}
+html[watch-metadata-style^="aozora"] #bt-bar dislikes {
+  background: #c00;
+  height: 4px;
+  width: 100%;
+  display: block;
+  border: 1px solid #ccc;
+}
 
 
 /* todo investigate */
@@ -400,7 +480,8 @@ html[watch-metadata-style^="hitchhiker"] .yt-spec-button-shape-next--size-m.yt-s
 }
 html[watch-metadata-style^="hitchhiker-2014"] #bt-counts,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-counts,
-html[watch-metadata-style^="cosmicpanda"] #bt-counts {
+html[watch-metadata-style^="cosmicpanda"] #bt-counts,
+html[watch-metadata-style^="aozora"] #bt-counts {
   display: flex;
   white-space: nowrap;
   /* fallback for chromium */
@@ -412,7 +493,11 @@ html[watch-metadata-style^="cosmicpanda"] #bt-counts {
 html[watch-metadata-style^="hitchhiker"] #lcon {
   margin-right: 13px;
 }
+/* todo this too */
 html[watch-metadata-style^="cosmicpanda"] #lcon {
+  margin-right: 4px;
+}
+html[watch-metadata-style^="aozora"] #lcon {
   margin-right: 4px;
 }
 #lcon, #dcon {
@@ -423,7 +508,8 @@ html[watch-metadata-style^="hitchhiker-2014"] #bt-counts .bts,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-counts .bts {
   display: none;
 }
-html[watch-metadata-style^="cosmicpanda"] #bt-counts .bti {
+html[watch-metadata-style^="cosmicpanda"] #bt-counts .bti,
+html[watch-metadata-style^="aozora"] #bt-counts .bti {
   display: none;
 }
 #lcicon {

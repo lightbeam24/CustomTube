@@ -88,11 +88,13 @@ html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy #guide-button svg 
 /* HITCHHIKER IN GENERAL */
 /* overlayTime Status. Probably safe to leave this as a blob */
 html[watch-metadata-style^="hitchhiker"] ytd-thumbnail #thumbnail.ytd-thumbnail,
-html[watch-metadata-style^="cosmicpanda"] ytd-thumbnail #thumbnail.ytd-thumbnail {
+html[watch-metadata-style^="cosmicpanda"] ytd-thumbnail #thumbnail.ytd-thumbnail,
+html[watch-metadata-style^="aozora"] ytd-thumbnail #thumbnail.ytd-thumbnail {
   overflow: visible;
 }
 html[watch-metadata-style^="hitchhiker"] #thumbnail-container,
-html[watch-metadata-style^="cosmicpanda"] #thumbnail-container {
+html[watch-metadata-style^="cosmicpanda"] #thumbnail-container,
+html[watch-metadata-style^="aozora"] #thumbnail-container {
   overflow: visible !important;
 }
 @keyframes timeStatusFadeIn {
@@ -101,10 +103,15 @@ html[watch-metadata-style^="cosmicpanda"] #thumbnail-container {
 100% {opacity: 1;}
 }
 html[watch-metadata-style^="hitchhiker"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
-html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="aozora"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
   right: -302px;
   top: -54px;
   top: 6px;
+}
+html[watch-metadata-style^="hitchhiker"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer #time-status.ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer #time-status.ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="aozora"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer #time-status.ytd-thumbnail-overlay-time-status-renderer {
   background: none;
   font-size: 13px;
   font-weight: normal;
@@ -119,7 +126,8 @@ html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-vide
   margin: 4px !important;
  /* background: rgba(250,250,250,0.2);*/
 }
-html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="aozora"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
   right: -278px;
 }
 /*
@@ -309,8 +317,8 @@ html[watch-metadata-style^="cosmicpanda"] ytd-watch-metadata #actions.ytd-watch-
 }
 /* end */
 /* nonspecific blobl */
-html[watch-metadata-style^="aozora"] #bt-above yt-formatted-string,
-html[watch-metadata-style^="cosmicpanda"] #bt-above yt-formatted-string {
+html[watch-metadata-style^="aozora"] #bt-above #title yt-formatted-string,
+html[watch-metadata-style^="cosmicpanda"] #bt-above #title yt-formatted-string {
   display: block;
   text-overflow: "... (Scroll->)";
   white-space: nowrap;
@@ -363,4 +371,21 @@ html[watch-metadata-style] ytd-watch-metadata #bottom-row #action-buttons.ytd-vi
 /*Non-rounded buttons*/
 html[watch-metadata-style] ytd-watch-metadata #bottom-row .yt-spec-button-shape-next--size-m {
 	border-radius: 1px;
+}
+
+/* aozora blob */
+html[layout^="aozora"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button::after {
+  content: "More actions";
+  position: relative !important;
+  top: 0 !important;
+  height: auto !important;
+  width: max-content !important;
+  background: none !important;
+  padding-right: 2px;
+  font-size: 13px;
+  font-weight: normal;
+  margin-left: -21px;
+}
+html[layout^="aozora"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button {
+  width: fit-content;
 }

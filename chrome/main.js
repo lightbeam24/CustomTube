@@ -3395,13 +3395,13 @@ function retrieveDataAttribute() {
 	var convertedYtdData = JSON.parse(ytdData);
 	//console.log(JSON.parse(ytdData));
 	if (convertedYtdData.page == "watch") {
-		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.isLive != null) {
-			setTimeout(retrieveDataAttribute, 5000);
-		}
 		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer != null) {
 			var wpViewCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
 			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.dateText.simpleText;
 			var wpSubCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.subscriberCountText.simpleText;
+			if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.isLive != null) {
+				setTimeout(retrieveDataAttribute, 5000);
+			}
 		}
 		// because for some ungodly reason ticket shelf comes before video info renderer
 		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer == null) {

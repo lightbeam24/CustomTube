@@ -1,7 +1,49 @@
-/* For a potential 2011 layout option */
+html[related-videos^="stargazer"] {
+--bt-related-bg: var(--bt-universal-white);
+--bt-related-margin-top: 40px;
+--bt-related-padding-top: 0;
+--bt-related-padding: 0;
+--bt-related-margin-bottom: 10px;
+--bt-related-margin-left: 15px;
+--bt-related-inner-padding-bottom: 14px;
+--bt-related-overflow-y: scroll;
+--bt-related-overflow-x: clip;
+--bt-related-max-height: 438px;
+--bt-related-border: 1px solid var(--bt-gcp-ccc);
+--bt-related-overscroll-behavior: contain;
+--bt-related-width: 320px;
+/* hover thing */
+--bt-related-video-outer-padding: 5px;
+--bt-related-video-outer-min-height: 64px;
+--bt-related-video-outer-margin: 0;
+--bt-related-video-outer-bg-hover: #d1e1fa;
+/* title */
+--bt-related-title-font-size: 1.0833em;
+--bt-related-title-margin: 0;
+--bt-related-title-line-height: 1.2;
+--bt-related-title-max-height: 2.4em;
+--bt-related-title-text-color: var(--bt-blue);
+--bt-related-title-font-weight: normal;
+--bt-related-title-text-color-hover: var(--bt-blue);
+--bt-related-title-text-decoration-hover: underline;
+/* meta */
+--bt-related-meta-text-color: var(--bt-text-color-6);
+--bt-related-meta-font-size: .9166em;
+--bt-related-meta-line-height: 1.4em;
+/* channel name */
+--bt-related-channel-name-margin-top: 2px;
+/* thumbs */
+--bt-related-thumb-inner-width: 96px;
+--bt-related-thumb-inner-height: 54px;
+--bt-related-thumb-inner-radius: 3px;
+--bt-related-thumb-inner-bg: var(--yt-spec-base-background);
+--bt-related-thumb-inner-padding: 4px;
+--bt-related-thumb-inner-border: 1px solid #d3d3d3;
+--bt-related-thumb-margin-right: 12px;
+}
 html[related-videos^="aozora"] {
 --bt-related-bg: var(--bt-universal-white);
---bt-related-margin-top: 0;
+--bt-related-margin-top: 0px;
 --bt-related-padding-top: 0;
 --bt-related-padding: 0px 0px 0px 15px;
 --bt-related-margin-bottom: 10px;
@@ -36,7 +78,7 @@ html[related-videos^="aozora"] {
 --bt-related-thumb-margin-right: 12px;
 }
 html[related-videos="cosmicpanda-3"] {
---bt-related-margin-top: 0;
+--bt-related-margin-top: 0px;
 --bt-related-padding-top: 0;
 --bt-related-padding: 0px 15px 0px 20px;
 --bt-related-margin-bottom: 10px;
@@ -67,7 +109,7 @@ html[related-videos="cosmicpanda-3"] {
 }
 html[related-videos^="hitchhiker"] {
 --bt-related-bg: var(--bt-section-bg);
---bt-related-margin-top: 0;
+--bt-related-margin-top: 0px;
 --bt-related-padding-top: 0;
 --bt-related-box-shadow: var(--bt-section-box-shadow);
 --bt-related-padding: 0px 15px;
@@ -93,9 +135,11 @@ html[related-videos^="hitchhiker"] {
 }
 html[related-videos^="hitchhiker-2014"] {
 --bt-related-border-right: 1px solid var(--bt-section-border-color);
+--bt-related-margin-left: 0;
 }
 html[related-videos^="hitchhiker-2013"] {
 --bt-related-bg: var(--bt-site-bg);
+--bt-related-margin-left: 0;
 }
 html[related-videos-size="smaller"] {
 --bt-related-title-font-size: 11px;
@@ -104,7 +148,8 @@ html[related-videos-size="smaller"] {
 --bt-related-thumb-width: 96px;
 --bt-related-thumb-height: 54px;
 }
-html[related-videos-size="smaller"][related-videos^="aozora"] {
+html[related-videos-size="smaller"][related-videos^="aozora"],
+html[related-videos-size="smaller"][related-videos^="stargazer"] {
 --bt-related-title-font-size: .9166em;
 --bt-related-title-font-size: 1.0833em;
 --bt-related-channel-name-margin-top: 2px;
@@ -112,7 +157,7 @@ html[related-videos-size="smaller"][related-videos^="aozora"] {
 --bt-related-thumb-width: 106px;
 --bt-related-thumb-height: 54px;
 --bt-related-thumb-inner-width: 106px;
---bt-related-thumb-inner-height: 54px;
+--bt-related-thumb-inner-height: 56px;
 --bt-related-thumb-margin-right: 16px;
 }
 html[related-videos-size="small"] {
@@ -122,7 +167,8 @@ html[related-videos-size="small"] {
 --bt-related-thumb-width: 120px;
 --bt-related-thumb-height: 68px;
 }
-html[related-videos-size="small"][related-videos^="aozora"] {
+html[related-videos-size="small"][related-videos^="aozora"],
+html[related-videos-size="small"][related-videos^="stargazer"] {
 --bt-related-thumb-inner-width: 114px;
 --bt-related-thumb-inner-height: 64px;
 --bt-related-video-outer-min-height: 74px;
@@ -134,7 +180,8 @@ html[related-videos-size="medium"] {
 --bt-related-thumb-width: 140px;
 --bt-related-thumb-height: 79px;
 }
-html[related-videos-size="medium"][related-videos^="aozora"] {
+html[related-videos-size="medium"][related-videos^="aozora"],
+html[related-videos-size="medium"][related-videos^="stargazer"] {
 --bt-related-thumb-inner-width: 134px;
 --bt-related-thumb-inner-height: 75px;
 --bt-related-video-outer-min-height: 84px;
@@ -146,13 +193,14 @@ html[related-videos-size="large"] {
 --bt-related-thumb-width: 168px;
 --bt-related-thumb-height: 94px;
 }
-html[related-videos-size="large"][related-videos^="aozora"] {
+html[related-videos-size="large"][related-videos^="aozora"],
+html[related-videos-size="large"][related-videos^="stargazer"] {
 --bt-related-thumb-inner-width: 162px;
 --bt-related-thumb-inner-height: 91px;
 --bt-related-video-outer-min-height: 100px;
 }
 html[related-videos^="polymer"] {
---bt-related-margin-top: 0;
+--bt-related-margin-top: 0px;
 --bt-related-padding-top: 0;
 --bt-related-padding: 0px 15px;
 --bt-related-margin-bottom: 10px;
@@ -176,18 +224,44 @@ html[related-videos^="polymer"] {
 
 
 /* BTSection Related Videos ====================================== */
-html[related-videos] ytd-watch-flexy #related {
+html[related-videos] ytd-watch-flexy #related.ytd-watch-flexy {
   background: var(--bt-related-bg);
-  margin-top: var(--bt-related-margin-top);
+  margin-top: var(--bt-related-margin-top, 18px);
   padding-top: var(--bt-related-padding-top) !important;
   box-shadow: var(--bt-related-box-shadow);
   padding: var(--bt-related-padding) !important;
   margin-bottom: var(--bt-related-margin-bottom);
+  margin-left: var(--bt-related-margin-left, 0);
   border-right: var(--bt-related-border-right, none);
   /*margin-left: var(--bt-related-margin-left);*/
+  overflow-y: var(--bt-related-overflow-y, clip) !important;
+  overflow-x: var(--bt-related-overflow-x, clip) !important;
+  max-height: var(--bt-related-max-height, unset);
+  border: var(--bt-related-border);
+  overscroll-behavior: var(--bt-related-overscroll-behavior, auto);
+  width: var(--bt-related-width, unset);
 }
 html[related-videos^="hitchhiker-2014"] ytd-watch-flexy #related {
   margin-left: -12px;
+}
+html[related-videos^="aozora"] ytd-watch-flexy #related.ytd-watch-flexy::before {
+  content: "Suggestions";
+  font-size: 12px;
+  font-family: arial;
+  color: var(--bt-gcp-666);
+  width: 340px;
+  border-bottom: 1px solid var(--bt-gcp-999);
+  padding-bottom: 3px;
+  display: block;
+}
+html[related-videos^="stargazer"] ytd-watch-flexy #related.ytd-watch-flexy::before {
+  content: "Related Videos";
+  font-size: 16px;
+  font-family: arial;
+  color: var(--bt-gcp-000);
+  font-weight: bold;
+  position: absolute;
+  margin-top: -24px;
 }
 html[related-videos] ytd-app[can-infi-scroll-related="no"] ytd-watch-next-secondary-results-renderer {
   padding-bottom: var(--bt-related-inner-padding-bottom);

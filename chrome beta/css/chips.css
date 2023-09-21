@@ -1,3 +1,6 @@
+html[layout^="stargazer"] {
+--bt-chips-display: none;
+}
 html[layout^="aozora"] {
 --bt-chips-display: none;
 }

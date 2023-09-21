@@ -14,10 +14,34 @@ html[watch-metadata-style] .yt-spec-touch-feedback-shape--touch-response .yt-spe
 /* BTSection Like and Dislike */
 html[watch-metadata-style^="hitchhiker"],
 html[watch-metadata-style^="cosmicpanda"],
-html[watch-metadata-style^="aozora"] {
+html[watch-metadata-style^="aozora"],
+html[watch-metadata-style^="stargazer"] {
 --bt-ltod-og-icon-display: none;
 }
 /* For new like and dislike button */
+html[watch-metadata-style^="stargazer"] {
+/* ltod btn */
+--bt-ltod-btn-display: flex;
+--bt-ltod-btn-padding-left: 0px;
+--bt-ltod-like-btn-radius: 3px 0 0 3px;
+--bt-ltod-dislike-btn-radius: 0 3px 3px 0;
+/* outer */
+--bt-toggle-button-icon-margin-right: 0px;
+/* button */
+--bt-toggle-button-text-color-1: var(--bt-standard-btn-text-color);
+--bt-toggle-button-text-color-2: var(--bt-standard-btn-text-color);
+--bt-toggle-button-text-color-3: var(--bt-standard-btn-text-color);
+--bt-toggle-button-text-color-4: var(--bt-standard-btn-text-color);
+--bt-toggle-button-font-size: var(--bt-standard-btn-font-size);
+/* og icon */
+--bt-animated-like-icon-display: none;
+--bt-og-dislike-icon-display: none;
+/* new icon */
+--bt-toggle-button-icon-display: block;
+--bt-toggle-button-icon-width: 16px;
+--bt-toggle-button-icon-height: 18px;
+--bt-toggle-button-icon-filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+}
 html[watch-metadata-style^="aozora"] {
 /* ltod btn */
 --bt-ltod-btn-display: flex;
@@ -183,7 +207,10 @@ html[watch-metadata-style] #segmented-dislike-button button {
 html[watch-metadata-style] #segmented-like-button {
 	  padding-left: var(--bt-ltod-btn-padding-left); /* for ltod bar width */
 }
-html[watch-metadata-style^="aozora"] #above-the-fold #segmented-like-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+html[watch-metadata-style^="aozora"] #above-the-fold #segmented-like-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style^="aozora"] #bt-place-metadata #segmented-like-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style^="stargazer"] #above-the-fold #segmented-like-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style^="stargazer"] #bt-place-metadata #segmented-like-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
     padding: 0 28px 0 6px;
 }
 /* BTSection Like and dislike Button */
@@ -195,6 +222,15 @@ html[watch-metadata-style] #segmented-like-button yt-icon svg.style-scope {
   display: var(--bt-og-dislike-icon-display) !important;
 }
 html[watch-metadata-style] ytd-watch-flexy ytd-toggle-button-renderer button {
+  color: var(--bt-toggle-button-text-color-1) !important;
+}
+html[watch-metadata-style] ytd-watch-flexy #bt-share-button button {
+  color: var(--bt-toggle-button-text-color-1) !important;
+}
+html[watch-metadata-style] ytd-watch-flexy #bt-save-button button {
+  color: var(--bt-toggle-button-text-color-1) !important;
+}
+html[watch-metadata-style] ytd-watch-flexy #button-shape button {
   color: var(--bt-toggle-button-text-color-1) !important;
 }
 html[watch-metadata-style] ytd-watch-flexy ytd-toggle-button-renderer button span {
@@ -220,7 +256,10 @@ html[watch-metadata-style] #bt-dislike {
 	height: var(--bt-toggle-button-icon-height);
 }
 html[watch-metadata-style] #bt-like svg,
-html[watch-metadata-style] #bt-dislike svg {
+html[watch-metadata-style] #bt-dislike svg,
+html[watch-metadata-style] #bt-share svg,
+html[watch-metadata-style] #bt-save svg,
+html[watch-metadata-style] #button-shape svg {
   filter: var(--bt-toggle-button-icon-filter);
 }
 html[watch-metadata-style] ytd-segmented-like-dislike-button-renderer svg {
@@ -305,6 +344,21 @@ html[watch-metadata-style^="aozora"] {
 --bt-dislike-icon-bg-active: no-repeat url(http://s.ytimg.com/yt/imgbin/www-master-vfl8ZHa_q.png) -245px -20px;
 --bt-dislike-icon-opacity-active: 1;
 }
+html[watch-metadata-style^="stargazer"] {
+--bt-ltod-icon-margin-top: 1px;
+--bt-like-icon-margin-right: 0px;
+--bt-like-icon-margin-left: 8px;
+--bt-like-icon-bg: no-repeat url(http://s.ytimg.com/yt/imgbin/www-master-vfl8ZHa_q.png) -267px -71px;
+--bt-like-icon-opacity: 1;
+--bt-like-icon-bg-active: no-repeat url(http://s.ytimg.com/yt/imgbin/www-master-vfl8ZHa_q.png) -84px -82px;
+--bt-like-icon-opacity-active: 1;
+--bt-dislike-icon-margin-right: -4px;
+--bt-dislike-icon-margin-left: 7px;
+--bt-dislike-icon-bg: no-repeat url(http://s.ytimg.com/yt/imgbin/www-master-vfl8ZHa_q.png) -267px -107px;
+--bt-dislike-icon-opacity: 1;
+--bt-dislike-icon-bg-active: no-repeat url(http://s.ytimg.com/yt/imgbin/www-master-vfl8ZHa_q.png) -245px -20px;
+--bt-dislike-icon-opacity-active: 1;
+}
 html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #segmented-like-button button[aria-pressed="false"] #bt-like {
   background: var(--bt-like-icon-bg);
   opacity: var(--bt-like-icon-opacity);
@@ -346,9 +400,11 @@ html[watch-metadata-style^="cosmicpanda"] #segmented-dislike-button #bt-dislike 
 
 html[watch-metadata-style^="hitchhiker"] .ryd-tooltip,
 html[watch-metadata-style^="cosmicpanda"] .ryd-tooltip,
-html[watch-metadata-style^="aozora"] .ryd-tooltip {
+html[watch-metadata-style^="aozora"] .ryd-tooltip,
+html[watch-metadata-style^="stargazer"] .ryd-tooltip {
   margin-bottom: 48px;
   opacity: 0;
+  z-index: -1;
 }
 html[watch-metadata-style^="hitchhiker-2014"] .ryd-tooltip,
 html[watch-metadata-style^="hitchhiker-2013"] .ryd-tooltip {
@@ -361,7 +417,8 @@ html[watch-metadata-style^="hitchhiker-2013"] .ryd-tooltip {
   right: -183%;
   position: relative;
 }
-html[watch-metadata-style^="hitchhiker"] #ryd-bar {
+html[watch-metadata-style^="polymer-2019"] #ryd-bar,
+html[watch-metadata-style^="polymer-2020"] #ryd-bar {
   background: var(--bt-blue);
 }
 html[watch-metadata-style^="hitchhiker"] #ryd-bar-container {
@@ -381,10 +438,13 @@ html[watch-metadata-style^="cosmicpanda"] {
 html[watch-metadata-style^="aozora"] {
 --bt-bar-margin-top: 40px;
 }
-html[watch-metadata-style^="hitchhiker"] #bt-bar {
+html[watch-metadata-style^="stargazer"] {
+--bt-bar-margin-top: 10px;
+}
+html[watch-metadata-style^="hitchhiker"] #bt-ltod {
   height: 16px;
   width: 160px;
-  display: block;
+  display: flex;
   position: absolute;
   right: 15px;
   margin-top: var(--bt-bar-margin-top);
@@ -416,10 +476,10 @@ html[watch-metadata-style^="hitchhiker-2013"] #bt-bar dislikes {
   background: #ccc;
 }
 /* universalize this todo */
-html[watch-metadata-style^="cosmicpanda"] #bt-bar {
+html[watch-metadata-style^="cosmicpanda"] #bt-ltod {
   height: 16px;
   width: 160px;
-  display: block;
+  display: flex;
   position: absolute;
   right: 0;
   margin-top: var(--bt-bar-margin-top);
@@ -440,10 +500,10 @@ html[watch-metadata-style^="cosmicpanda"] #bt-bar dislikes {
   display: block;
   border: 1px solid #ccc;
 }
-html[watch-metadata-style^="aozora"] #bt-bar {
+html[watch-metadata-style^="aozora"] #bt-ltod {
   height: 16px;
   width: 160px;
-  display: block;
+  display: flex;
   position: absolute;
   right: 0;
   margin-top: var(--bt-bar-margin-top);
@@ -464,7 +524,99 @@ html[watch-metadata-style^="aozora"] #bt-bar dislikes {
   display: block;
   border: 1px solid #ccc;
 }
-
+html[watch-metadata-style^="stargazer"] #bt-bar {
+  height: 15px;
+  width: 75px;
+  display: flex;
+  position: absolute;
+  right: unset;
+  left: 0;
+  margin-top: var(--bt-bar-margin-top);
+  border-radius: 0;
+  cursor: pointer;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar likes {
+  background: #060;
+  height: 4px;
+  width: 100%;
+  display: block;
+  border-right: 1px solid #ccc;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar dislikes {
+  background: #c00;
+  height: 4px;
+  width: 100%;
+  display: block;
+  border: 1px solid #ccc;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars stars,
+html[watch-metadata-style^="stars"] #bt-bar #bt-stars stars {
+  width: 75px;
+  height: 15px;
+  vertical-align: top;
+  background: white url(https://i.imgur.com/hcxA2dh.png);
+  background-position-x: 0%;
+  background-position-y: 0%;
+  display: block;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="5.0"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="5.0"] stars {
+  background-position: 0 -411px;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="4.5"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="4.5"] stars {
+  background-position: 0 -426px;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="4.0"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="4.0"] stars {
+  background-position: -15px -411px;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="3.5"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="3.5"] stars {
+  background-position: -15px -426px;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="3.0"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="3.0"] stars {
+  background-position: -30px -411px;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="2.5"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="2.5"] stars {
+  background-position: -30px -426px;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="2.0"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="2.0"] stars {
+  background-position: -45px -411px;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="1.5"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="1.5"] stars {
+  background-position: -45px -426px;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="1.0"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="1.0"] stars {
+  background-position: -60px -411px;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="0.5"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="0.5"] stars {
+  background-position: -60px -426px;
+}
+html[watch-metadata-style^="stargazer"] #bt-bar #bt-stars[rating="0.0"] stars,
+html[watch-metadata-style^="aozora"] #bt-bar #bt-stars[rating="0.0"] stars {
+  background-position: -75px -411px;
+}
+html[rating-type^="ltod"] {
+  --bt-ltod-display: block;
+  --bt-stars-display: none;
+}
+html[rating-type^="stars"] {
+  --bt-ltod-display: none;
+  --bt-stars-display: block;
+}
+html #bt-bar #bt-star-ratings {
+  display: var(--bt-stars-display);
+}
+html #bt-bar #bt-ltod {
+  display: var(--bt-ltod-display);
+}
 
 /* todo investigate */
 html[watch-metadata-style] .yt-spec-button-shape-next--size-m {
@@ -481,7 +633,8 @@ html[watch-metadata-style^="hitchhiker"] .yt-spec-button-shape-next--size-m.yt-s
 html[watch-metadata-style^="hitchhiker-2014"] #bt-counts,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-counts,
 html[watch-metadata-style^="cosmicpanda"] #bt-counts,
-html[watch-metadata-style^="aozora"] #bt-counts {
+html[watch-metadata-style^="aozora"] #bt-counts,
+html[watch-metadata-style^="stargazer"] #bt-counts {
   display: flex;
   white-space: nowrap;
   /* fallback for chromium */
@@ -500,6 +653,9 @@ html[watch-metadata-style^="cosmicpanda"] #lcon {
 html[watch-metadata-style^="aozora"] #lcon {
   margin-right: 4px;
 }
+html[watch-metadata-style^="stargazer"] #lcon {
+  margin-right: 4px;
+}
 #lcon, #dcon {
   display: inline-flex;
   white-space: nowrap;
@@ -509,7 +665,8 @@ html[watch-metadata-style^="hitchhiker-2013"] #bt-counts .bts {
   display: none;
 }
 html[watch-metadata-style^="cosmicpanda"] #bt-counts .bti,
-html[watch-metadata-style^="aozora"] #bt-counts .bti {
+html[watch-metadata-style^="aozora"] #bt-counts .bti,
+html[watch-metadata-style^="stargazer"] #bt-counts .bti {
   display: none;
 }
 #lcicon {

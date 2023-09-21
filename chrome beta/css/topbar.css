@@ -25,6 +25,9 @@ html[topbar-style^="hitchhiker-2013"] {
 html[topbar-style^="aozora"] {
 --bt-topbar-border: 1px solid var(--bt-section-border-color, var(--bt-gcp-eee));
 }
+html[topbar-style^="stargazer"] {
+--bt-topbar-border: 1px solid var(--bt-section-border-color, var(--bt-gcp-eee));
+}
 html[topbar-style] #masthead-container.ytd-app {
 	position: var(--bt-topbar-position);
 	border-bottom: var(--bt-topbar-border);
@@ -52,7 +55,8 @@ html[logo="iconic"],
 html[logo="shady"],
 html[logo="squished"],
 html[logo="soft"],
-html[logo="glossy"] {
+html[logo="glossy"],
+html[logo="broadcast"] {
 /* #logo */
 --bt-logo-width: 73px;
 /* og logo */
@@ -115,6 +119,16 @@ html[logo="glossy"] {
 --bt-logo-width: 100px;
 --bt-logo-height: 40px;
 }
+html[logo="broadcast"] {
+/* topbar logo renderer */
+--bt-logo-position: absolute;
+--bt-logo-left: 0px;
+/* yt icon */
+--bt-logo-bg: transparent url(https://i.imgur.com/hcxA2dh.png) repeat-x scroll 0 0;
+--bt-logo-bg-size: auto;
+--bt-logo-width: 110px;
+--bt-logo-height: 54px;
+}
 html[logo] #logo yt-icon-shape {
   display: none;
 }
@@ -168,6 +182,70 @@ html[logo="soft"][dark] #start #logo yt-icon::after {
   mask-image: linear-gradient(to right,rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255,0) 36px,rgb(255, 255, 255) 28.1px);
 }
 /* BTSection Search bar */
+html[search-bar-style^="stargazer-2009"] {
+/* topbar */
+/* masthead */
+--bt-topbar-height: 74px;
+/* ytdsearchbox ytd masthead (outer bar) */
+--bt-searchbar-outer-margin: -16px 0 0 0;
+--bt-searchbar-outer-padding: 3px;
+--bt-searchbar-outer-bg: #eaeaea;
+--bt-searchbar-outer-border: 1px solid var(--bt-gcp-ccc);
+--bt-searchbar-outer-radius: 3px;
+/* center ytd masthead */
+--bt-searchbar-left: 140px;
+--bt-searchbar-position: absolute;
+--bt-searchbar-width: 335px;
+--bt-static-searchbar-width: 335px;
+/* container ytd searchbox */
+--bt-searchbar-input-box-shadow: inset 0 0px 0px rgba(0,0,0,0.0);
+--bt-searchbar-input-border: 1px solid var(--bt-gcp-666);
+--bt-searchbar-input-border-right: 1px solid var(--bt-gcp-666);
+--bt-searchbar-input-padding: 2px 4px 2px 6px;
+--bt-searchbar-input-radius: 0;
+--bt-searchbar-input-margin-left: 0;
+--bt-searchbar-input-transition: 0.2s ease;
+--bt-searchbar-input-bg: var(--bt-universal-white);
+/* container ytd searchbox focus */
+--bt-searchbar-input-focus-margin-left: 0;
+--bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+--bt-searchbar-input-focus-border: 1px solid #1c62b9;
+/* search form ytd searchbox */
+--bt-searchbar-height: 25px;
+/* input search icon */
+--bt-search-input-pre-icon-display: none;
+/* input new pre icon 
+Redir: See Material Search Bar
+/* search placeholder */
+/*--bt-search-placeholder-text-color: #767676;
+/* search button icon legacy ytd searchbox */
+--bt-search-btn-width: 62px;
+--bt-search-btn-height: var(--bt-searchbar-height);
+--bt-search-btn-radius: 3px;
+--bt-search-btn-border: 1px solid #a0b1dc;
+--bt-search-btn-bg: #c6d7f3 url(https://i.imgur.com/hcxA2dh.png) repeat-x center -1602px;
+--bt-search-btn-bg-hover: #c6d7f3 url(https://i.imgur.com/hcxA2dh.png) repeat-x center -1802px;
+--bt-search-btn-content-display: block;
+--bt-search-btn-text-color: #039;
+--bt-search-btn-font-weight: bold;
+--bt-search-btn-font-size: 12px;
+--bt-search-btn-text-decoration-hover: underline;
+--bt-search-btn-margin-left: 4px;
+/* search button icon */
+--bt-search-btn-icon-display: none;
+--bt-search-btn-icon-margin-top: -2px;
+--bt-search-btn-icon-color: var(--bt-standard-btn-text-color);
+--bt-search-btn-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -72px -877px;
+--bt-search-btn-icon-width: 15px;
+--bt-search-btn-icon-height: 15px;
+--bt-search-btn-icon-opacity: 0.6;
+/* search button hover icon */
+--bt-search-btn-icon-opacity-hover: 1;
+/* search button OG icon */
+--bt-search-btn-og-icon-display: none;
+/* voice search */
+--bt-voice-search-btn-display: none;
+}
 html[search-bar-style^="aozora-2011"] {
 /* topbar */
 /* masthead */
@@ -582,6 +660,9 @@ html[watch-metadata-style^="hitchhiker-2013"] ytd-masthead #guide-button {
 html[search-bar-style] ytd-searchbox.ytd-masthead {
   margin: var(--bt-searchbar-outer-margin);	
   padding: var(--bt-searchbar-outer-padding);
+  background: var(--bt-searchbar-outer-bg);
+  border: var(--bt-searchbar-outer-border);
+  border-radius: var(--bt-searchbar-outer-radius);
 }
 /* material search bar */
 html[search-bar-style] #center.ytd-masthead {
@@ -656,12 +737,17 @@ html[search-bar-style] #search-icon-legacy.ytd-searchbox {
   border-bottom: var(--bt-search-btn-border-bottom, var(--bt-search-btn-border));
   background: var(--bt-search-btn-bg);
   box-shadow: var(--bt-search-btn-box-shadow);
+  color: var(--bt-search-btn-text-color, auto);
+  font-weight: var(--bt-search-btn-font-weight);
+  font-size: var(--bt-search-btn-font-size, 13.3333px);
+  margin-left: var(--bt-search-btn-margin-left);
 }
 html[search-bar-style] #search-icon-legacy.ytd-searchbox:hover {
   border: var(--bt-search-btn-border-hover, var(--bt-search-btn-border));
   border-bottom: var(--bt-search-btn-border-bottom-hover, var(--bt-search-btn-border));
   box-shadow: var(--bt-search-btn-box-shadow-hover);
   background: var(--bt-search-btn-bg-hover, var(--bt-search-btn-bg));
+  text-decoration: var(--bt-search-btn-text-decoration-hover);
 }
 html[search-bar-style] #search-icon-legacy.ytd-searchbox:active {
   border: var(--bt-search-btn-border-active, var(--bt-search-btn-border));
@@ -709,6 +795,21 @@ html[search-bar-style="material"]:not([dark]) .sbsb_a {
   border-radius: 0;
   background: transparent;
 }
+
+/* buttons */
+html[topbar-style^="stargazer"] {
+--bt-topbar-btns-margin-bottom: 20px;
+--bt-topbar-pfp-size: 24px;
+}
+html[topbar-style] #buttons.ytd-masthead {
+  margin-bottom: var(--bt-topbar-btns-margin-bottom);
+}
+/* account button */
+html[topbar-style^="stargazer"] yt-img-shadow.ytd-topbar-menu-button-renderer,
+html[topbar-style^="stargazer"] yt-img-shadow.ytd-topbar-menu-button-renderer img {
+  width: var(--bt-topbar-pfp-size, 32px);
+  height: var(--bt-topbar-pfp-size, 32px);
+}
 /* BTSection Upload Button */
 html[upload-btn="false"] {
 /* og */
@@ -722,6 +823,11 @@ html[upload-btn="true"] {
 /* outer */
 --bt-new-upload-btn-display: block;
 }
+html[topbar-style^="stargazer"] {
+--bt-new-upload-btn-position: absolute;
+--bt-new-upload-btn-margin-top: 44px;
+--bt-new-upload-btn-margin-right: 4px;
+}
 /* og upload btn */
 html:not([signed-out]) ytd-topbar-menu-button-renderer:nth-child(1)  {
   display: var(--bt-og-upload-btn-display) !important;
@@ -732,6 +838,9 @@ html[topbar-style^="hitchhiker"] #bt-upload-icon {
 /* new button (styling is in bt universalized */
 #bt-upload-button {
   display: var(--bt-new-upload-btn-display);
+  position: var(--bt-new-upload-btn-position);
+  margin-top: var(--bt-new-upload-btn-margin-top);
+  margin-right: var(--bt-new-upload-btn-margin-right);
 }
 html[topbar-style^="hitchhiker-2013"] #bt-upload-button {
   position: absolute;
@@ -743,7 +852,8 @@ html[topbar-style^="hitchhiker"] ytd-notification-topbar-button-renderer {
 }
 html[topbar-style^="hitchhiker"] ytd-notification-topbar-button-renderer yt-icon,
 html[topbar-style^="cosmicpanda"] ytd-notification-topbar-button-renderer yt-icon,
-html[topbar-style^="aozora"] ytd-notification-topbar-button-renderer yt-icon {
+html[topbar-style^="aozora"] ytd-notification-topbar-button-renderer yt-icon,
+html[topbar-style^="stargazer"] ytd-notification-topbar-button-renderer yt-icon {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -48px -707px;
   width: 24px;
   height: 24px;
@@ -752,12 +862,14 @@ html[topbar-style^="aozora"] ytd-notification-topbar-button-renderer yt-icon {
 }
 html[topbar-style^="hitchhiker"] ytd-notification-topbar-button-renderer:hover yt-icon,
 html[topbar-style^="cosmicpanda"] ytd-notification-topbar-button-renderer:hover yt-icon,
-html[topbar-style^="aozora"] ytd-notification-topbar-button-renderer:hover yt-icon {
+html[topbar-style^="aozora"] ytd-notification-topbar-button-renderer:hover yt-icon,
+html[topbar-style^="stargazer"] ytd-notification-topbar-button-renderer:hover yt-icon {
   opacity: 1;
 }
 html[topbar-style^="hitchhiker"] #bt-notif-icon svg,
 html[topbar-style^="cosmicpanda"] #bt-notif-icon svg,
-html[topbar-style^="aozora"] #bt-notif-icon svg {
+html[topbar-style^="aozora"] #bt-notif-icon svg,
+html[topbar-style^="stargazer"] #bt-notif-icon svg {
   display: none !important;
 }
 /* sign in */

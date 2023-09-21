@@ -636,141 +636,140 @@ html[hide-shorts-shelf-subs="true"] ytd-rich-shelf-renderer[is-shorts] {
 html[layout] ytd-browse:not([page-subtype="subscriptions"]) ytd-rich-section-renderer {
   display: none;
 }
-/* hitchhiker mix */
-html[layout]:not([layout^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer {
-  width: 43.75%;
-  left: unset;
-  height: 100%;
-  background: rgba(0,0,0,.8) !important;
-  display: flex;
-  flex-direction: column;
+
+
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) {
+  --bt-mix-thumbnail-width: 43.75%;
+  --bt-mix-thumbnail-left: unset;
+  --bt-mix-thumbnail-height: 100%;
+  --bt-mix-thumbnail-bg: rgba(0,0,0,.8);
+  --bt-mix-thumbnail-display: flex;
+  --bt-mix-thumbnail-flex-dir: column;
+  
+  --bt-mix-thumbnail-50-content: "50+";
+  --bt-mix-thumbnail-50-font-weight: normal;
+  --bt-mix-thumbnail-50-font-family: "arial";
+  --bt-mix-thumbnail-50-text-color: #cfcfcf;
+  
+  --bt-mix-thumbnail-50-font-size: 18px;
+  --bt-mix-thumbnail-50-line-height: 22px;
+  --bt-mix-thumbnail-50-margin-top: 11px;
+
+  --bt-mix-thumbnail-videos-content: "Videos";
+  --bt-mix-thumbnail-videos-text-transform: uppercase;
+  --bt-mix-thumbnail-videos-font-family: var(--bt-mix-thumbnail-50-font-family);
+  --bt-mix-thumbnail-videos-text-color: var(--bt-mix-thumbnail-50-text-color);
+  
+  --bt-mix-thumbnail-videos-font-size: 10px;
+  --bt-mix-thumbnail-videos-line-height: 1.25em;
+  --bt-mix-thumbnail-videos-margin-top: -9px;
+  
+  --bt-mix-thumbnail-icon-content: "";
+  --bt-mix-thumbnail-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflYQU35a.png) -225px -563px;
+  --bt-mix-thumbnail-icon-bg-size: auto;
+  
+  --bt-mix-thumbnail-icon-size: 32px;
+  --bt-mix-thumbnail-icon-margin-top: -11px;
+  --bt-mix-thumbnail-icon-margin-bottom: 11px;
 }
-/* hitchhiker playlists */
-html[layout]:not([layout^="polymer"]) ytd-thumbnail-overlay-side-panel-renderer {
-  width: 43.75% !important;
-  left: unset;
-  height: 100%;
-  background: rgba(0,0,0,.8) !important;
-  display: flex;
-  flex-direction: column;	
+html[thumbnail-style]:not([thumbnail-style^="polymer"])[related-videos-size^="small"] {
+  --bt-related-mix-thumbnail-50-font-size: 14px;
+  --bt-related-mix-thumbnail-50-line-height: 22px;
+  --bt-related-mix-thumbnail-50-margin-top: 7px;
+  
+  --bt-related-mix-thumbnail-videos-font-size: 8px;
+  --bt-related-mix-thumbnail-videos-line-height: 1.25em;
+  --bt-related-mix-thumbnail-videos-margin-top: -11px;
+  
+  --bt-related-mix-thumbnail-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflCwII0O.png) 0 -1622px;
+  --bt-related-mix-thumbnail-icon-size: 24px;
+  --bt-related-mix-thumbnail-icon-margin-top: -11px;
+  --bt-related-mix-thumbnail-icon-margin-bottom: 11px;
 }
-/* related */
-html[layout]:not([layout^="polymer"]) #related yt-formatted-string.ytd-thumbnail-overlay-side-panel-renderer {
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 22px;
-  margin-top: 7px;
-  margin-bottom: -5px;
-  font-family: arial !important;
-  color: #cfcfcf;
+html[thumbnail-style]:not([thumbnail-style^="polymer"])[related-videos-size^="medium"] {
+  --bt-related-mix-thumbnail-50-font-size: 15px;
+  --bt-related-mix-thumbnail-50-line-height: 22px;
+  --bt-related-mix-thumbnail-50-margin-top: 10px;
+  
+  --bt-related-mix-thumbnail-videos-font-size: 9px;
+  --bt-related-mix-thumbnail-videos-line-height: 1.25em;
+  --bt-related-mix-thumbnail-videos-margin-top: -10px;
+  
+  --bt-related-mix-thumbnail-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflCwII0O.png) 0 -1622px;
+  --bt-related-mix-thumbnail-icon-size: 24px;
+  --bt-related-mix-thumbnail-icon-margin-top: -9px;
+  --bt-related-mix-thumbnail-icon-margin-bottom: 9px;
 }
-html[layout]:not([layout^="polymer"]) ytd-search yt-formatted-string.ytd-thumbnail-overlay-side-panel-renderer,
-html[layout]:not([layout^="polymer"]) ytd-rich-grid-renderer yt-formatted-string.ytd-thumbnail-overlay-side-panel-renderer,
-html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] yt-formatted-string.ytd-thumbnail-overlay-side-panel-renderer {
-  font-size: 18px;
-  font-weight: normal;
-  line-height: 22px;
-  margin-top: 11px;
-  margin-bottom: -5px;
-  font-family: arial !important;
-  color: #cfcfcf;
+html[thumbnail-style]:not([thumbnail-style^="polymer"])[related-videos-size^="large"] {
+  --bt-related-mix-thumbnail-50-font-size: 18px;
+  --bt-related-mix-thumbnail-50-line-height: 22px;
+  --bt-related-mix-thumbnail-50-margin-top: 13px;
+  
+  --bt-related-mix-thumbnail-videos-font-size: 10px;
+  --bt-related-mix-thumbnail-videos-line-height: 1.25em;
+  --bt-related-mix-thumbnail-videos-margin-top: -8px;
+  
+  --bt-related-mix-thumbnail-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflYQU35a.png) -225px -563px;
+  --bt-related-mix-thumbnail-icon-size: 32px;
+  --bt-related-mix-thumbnail-icon-margin-top: -11px;
+  --bt-related-mix-thumbnail-icon-margin-bottom: 11px;
 }
-/* related */
-html[layout]:not([layout^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::before {
-  content: "50+";
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 22px;
-  margin-top: 7px;
-  font-family: arial;
-  color: #cfcfcf;
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer {
+  width: var(--bt-mix-thumbnail-width);
+  left: var(--bt-mix-thumbnail-left);
+  height: var(--bt-mix-thumbnail-height);
+  background: var(--bt-mix-thumbnail-bg) !important;
+  display: var(--bt-mix-thumbnail-display);
+  flex-direction: var(--bt-mix-thumbnail-flex-dir);
 }
-html[layout]:not([layout^="polymer"]) ytd-search ytd-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::before,
-html[layout]:not([layout^="polymer"]) ytd-rich-grid-renderer ytd-thumbnail-overlay-bottom-panel-renderer::before,
-html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::before {
-  content: "50+";
-  font-size: 18px;
-  font-weight: normal;
-  line-height: 22px;
-  margin-top: 11px;
-  font-family: arial;
-  color: #cfcfcf;
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer::before {
+  content: var(--bt-mix-thumbnail-50-content);
+  font-weight: var(--bt-mix-thumbnail-50-font-weight);
+  font-family: var(--bt-mix-thumbnail-50-font-family);
+  color: var(--bt-mix-thumbnail-50-text-color);
+  
+  font-size: var(--bt-mix-thumbnail-50-font-size);
+  line-height: var(--bt-mix-thumbnail-50-line-height);
+  margin-top: var(--bt-mix-thumbnail-50-margin-top);
 }
-/* related */
-html[layout]:not([layout^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
-html[layout]:not([layout^="polymer"]) #related ytd-thumbnail-overlay-side-panel-renderer yt-icon::after {
-  content: "Videos";
-  text-transform: uppercase;
-  font-size: 8px;
-  line-height: 1.25em;
-  margin-top: -11px;
-  font-family: arial;
-  color: #cfcfcf;
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::before {
+  font-size: var(--bt-related-mix-thumbnail-50-font-size);
+  line-height: var(--bt-related-mix-thumbnail-50-line-height);
+  margin-top: var(--bt-related-mix-thumbnail-50-margin-top);
 }
-html[layout]:not([layout^="polymer"]) ytd-search ytd-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
-html[layout]:not([layout^="polymer"]) ytd-rich-grid-renderer ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
-html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after,
-html[layout]:not([layout^="polymer"]) ytd-search ytd-thumbnail-overlay-side-panel-renderer yt-icon::after,
-html[layout]:not([layout^="polymer"]) ytd-rich-grid-renderer ytd-thumbnail-overlay-side-panel-renderer yt-icon::after,
-html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-thumbnail-overlay-side-panel-renderer yt-icon::after {
-  content: "Videos";
-  text-transform: uppercase;
-  font-size: 10px !important;
-  line-height: 1.25em;
-  margin-top: -9px;
-  font-family: arial;
-  color: #cfcfcf;
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after {
+  content: var(--bt-mix-thumbnail-videos-content);
+  text-transform: var(--bt-mix-thumbnail-videos-text-transform);
+  font-family: var(--bt-mix-thumbnail-videos-font-family);
+  color: var(--bt-mix-thumbnail-videos-text-color);
+
+  font-size: var(--bt-mix-thumbnail-videos-font-size);
+  line-height: var(--bt-mix-thumbnail-videos-line-height);
+  margin-top: var(--bt-mix-thumbnail-videos-margin-top);
 }
-/* related */
-html[layout]:not([layout^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::after {
-  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflCwII0O.png) 0 -1622px;
-  background-size: auto;
-  width: 24px;
-  height: 24px;
-  content: "";
-  margin-top: -11px;
-  margin-bottom: 11px;
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after {
+  font-size: var(--bt-related-mix-thumbnail-videos-font-size);
+  line-height: var(--bt-related-mix-thumbnail-videos-line-height);
+  margin-top: var(--bt-related-mix-thumbnail-videos-margin-top);
 }
-html[layout]:not([layout^="polymer"]) ytd-search ytd-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::after,
-html[layout]:not([layout^="polymer"]) ytd-rich-grid-renderer ytd-thumbnail-overlay-bottom-panel-renderer::after,
-html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::after {
-  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflYQU35a.png) -225px -563px;
-  background-size: auto;
-  width: 32px;
-  height: 32px;
-  content: "";
-  margin-top: -11px;
-  margin-bottom: 11px;
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer::after {
+  background: var(--bt-mix-thumbnail-icon-bg);
+  background-size: var(--bt-mix-thumbnail-icon-bg-size);
+  content: var(--bt-mix-thumbnail-icon-content);
+  
+  width: var(--bt-mix-thumbnail-icon-size);
+  height: var(--bt-mix-thumbnail-icon-size);
+  margin-top: var(--bt-mix-thumbnail-icon-margin-top);
+  margin-bottom: var(--bt-mix-thumbnail-icon-margin-bottom);
 }
-/* related */
-html[layout]:not([layout^="polymer"]) #related ytd-thumbnail-overlay-side-panel-renderer::after {
-	background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflCwII0O.png) 0 -1013px;
-	background-size: auto;
-	width: 18px;
-	height: 18px;
-	content: "";
-  margin-top: -11px;
-  margin-bottom: 11px;
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::after {
+  background: var(--bt-related-mix-thumbnail-icon-bg);
+  width: var(--bt-related-mix-thumbnail-icon-size);
+  height: var(--bt-related-mix-thumbnail-icon-size);
+  margin-top: var(--bt-related-mix-thumbnail-icon-margin-top);
+  margin-bottom: var(--bt-related-mix-thumbnail-icon-margin-bottom);
 }
-html[layout]:not([layout^="polymer"]) ytd-search ytd-thumbnail-overlay-side-panel-renderer::after,
-html[layout]:not([layout^="polymer"]) ytd-rich-grid-renderer ytd-thumbnail-overlay-side-panel-renderer::after,
-html[layout]:not([layout^="polymer"]) ytd-browse[page-subtype="channels"] ytd-thumbnail-overlay-side-panel-renderer::after {
-    background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflYQU35a.png) -217px -456px;
-	background-size: auto;
-	width: 24px;
-	height: 24px;
-	content: "";
-  margin-top: -11px;
-  margin-bottom: 11px;
-}
-/* playlist 
-ytd-playlist-thumbnail yt-formatted-string {
-  width: 44px;
-  font-size: 22px;
-  height: 18px;
-  margin-top: -147px;
-  overflow: hidden;
-}*/
+
 
 /* subs page */
 html[grid-styling^="hitchhiker"] .style-scope.ytd-browse.grid.grid-5-columns,
@@ -1020,4 +1019,8 @@ html[layout]:not([layout^="polymer"]) .badge-style-type-verified > yt-icon.ytd-b
 }
 html[layout]:not([layout^="polymer"]) .badge-style-type-verified > yt-icon.ytd-badge-supported-renderer:hover {
     background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfllYIUv0.png) -81px -314px;
+}
+
+html[disable-flexy-player="true"] ytd-app:not([masthead-hidden]) #page-manager.ytd-app {
+  margin-top: var(--bt-topbar-height) !important;
 }

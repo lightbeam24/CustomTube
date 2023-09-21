@@ -40,9 +40,13 @@ let tasks = {
 	"createdNewCollapseIcon": false,
 	"createdNewExpandIcon2": false,
 	"createdAbove": false,
+	"createdMetaSide": false,
+	"createdPlaceMetadata": false,
 	"createdViewsInfo": false,
 	"createdNewLikeIcon": false,
 	"createdNewDisLikeIcon": false,
+	"createdNewShareIcon": false,
+	"createdNewSaveIcon": false,
 	"createdPfpUploadDate": false,
 	"createdMiddleRow": false,
 	"createdFakeAboutButton": false,
@@ -60,6 +64,7 @@ let tasks = {
 	"finishedSidebar": false,
 	"finishedWatch": false,
 	"movedTitleToTop": false,
+	"movedMetaToSide": false,
 	
 	
 	"changedLogoEndpoint": false,
@@ -283,7 +288,8 @@ function recalculateVideoSize() {
 			BTConfig.layoutSelect == "hitchhiker-2013-2" ||
 			BTConfig.layoutSelect == "hitchhiker-2013-1" ||
 			BTConfig.layoutSelect == "cosmicpanda-3" ||
-			BTConfig.layoutSelect == "aozora-2011"
+			BTConfig.layoutSelect == "aozora-2011" ||
+			BTConfig.layoutSelect == "stargazer-2009-3"
 			) {
 				var playerOffsetWidth = 24;
 			}
@@ -339,9 +345,15 @@ function recalculateVideoSize() {
 		let checkingVideo = setInterval(() => { //check in loop for X seconds if player size is correct; reset checking if it's not; applied to fix initial page elements load
 			let progressBar = document.querySelector('ytd-watch-flexy .ytp-chrome-bottom');
 			let leftEdgeDistancePlayer = document.querySelector('#player-container-outer').getBoundingClientRect().x;
-			let leftEdgeDistanceInfo = document.querySelector('#page-manager.ytd-app #primary-inner #info').getBoundingClientRect().x;
+			let leftEdgeDistanceInfo = document.querySelector('#page-manager.ytd-app #primary-inner ytd-comments').getBoundingClientRect().x;
+			let widthCtrlElement = document.querySelector('#columns > #primary > #primary-inner ytd-watch-metadata');
+			if (document.querySelector("#columns > #primary > #primary-inner #info") != null) {
+				leftEdgeDistanceInfo = document.querySelector('#page-manager.ytd-app #primary-inner #info').getBoundingClientRect().x;
+				widthCtrlElement = document.querySelector('#columns > #primary > #primary-inner #info');
+			}
+			if (document.querySelector("#columns > #primary > #primary-inner #info") == null) {
+			}
 			let videoElement = document.querySelector('video');
-			let widthCtrlElement = document.querySelector('#columns > #primary > #primary-inner #info');
 
 			if ((widthCtrlElement.offsetWidth) < (playerSize.width-1)) { //condition for starting page in small window
 				let specialWidth = document.querySelector('video').offsetWidth;
@@ -525,7 +537,9 @@ function getInitialVariables() {
 	}
 	function getLayout() {
 		document.querySelector("html").setAttribute("title-on-top", "false");
+		document.querySelector("html").setAttribute("meta-on-side", "false");
 		document.querySelector("html").setAttribute("upload-btn", "false");
+		document.querySelector("html").setAttribute("rating-type", "ltod");
 		document.querySelector("html").setAttribute("related-videos-size", "large");
 		document.querySelector("html").setAttribute("button-style", "amsterdam-2023");
 		if (BTConfig.layoutSelect == "none") {
@@ -567,6 +581,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("icon-type", "outline");
 			document.querySelector("html").setAttribute("button-style", "polymer-2021");
+			document.querySelector("html").setAttribute("thumbnail-style", "polymer-2021");
 		}
 		if (BTConfig.layoutSelect == "polymer-2020") {
 			document.querySelector("html").setAttribute("global-color-palette", "polymer-2020");
@@ -601,6 +616,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "polymer-2020");
+			document.querySelector("html").setAttribute("thumbnail-style", "polymer-2020");
 		}
 		if (BTConfig.layoutSelect == "polymer-2019") {
 			document.querySelector("html").setAttribute("global-color-palette", "polymer-2019");
@@ -634,6 +650,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "polymer-2019");
+			document.querySelector("html").setAttribute("thumbnail-style", "polymer-2019");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2017") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2017");
@@ -671,6 +688,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2017");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2016") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2016");
@@ -708,6 +726,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2016");
+			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2016");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2015") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2015");
@@ -745,6 +764,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("menu-style", "unrounded");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2015");
+			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2015");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2014") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2014");
@@ -783,6 +803,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013");
+			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2014");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-3") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-3");
@@ -824,6 +845,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2013-3");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-2") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-2");
@@ -865,6 +887,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013-2");
+			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2013-2");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-1") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-1");
@@ -906,6 +929,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013-1");
+			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2013-1");
 		}
 		if (BTConfig.layoutSelect == "cosmicpanda-3") {
 			document.querySelector("html").setAttribute("global-color-palette", "cosmicpanda-3");
@@ -950,6 +974,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "cosmicpanda-3");
+			document.querySelector("html").setAttribute("thumbnail-style", "cosmicpanda-3");
 		}
 		if (BTConfig.layoutSelect == "aozora-2011") {
 			document.querySelector("html").setAttribute("global-color-palette", "aozora-2011");
@@ -962,7 +987,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("search-bar-style", "aozora-2011");
 			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
 			document.querySelector("html").setAttribute("watch-metadata-style", "aozora-2011");
-			document.querySelector("html").setAttribute("player-style", "2011");
+			document.querySelector("html").setAttribute("player-style", "2012");
 			document.querySelector("html").setAttribute("logo", "glossy");
 			document.querySelector("html").setAttribute("chips-style", "aozora-2011");
 			document.querySelector("html").setAttribute("topbar-style", "aozora-2011");
@@ -994,6 +1019,54 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "aozora-2011");
+			document.querySelector("html").setAttribute("thumbnail-style", "aozora-2011");
+		}
+		if (BTConfig.layoutSelect == "stargazer-2009-3") {
+			document.querySelector("html").setAttribute("global-color-palette", "stargazer-2009-3");
+			document.querySelector("ytd-app").setAttribute("layout", "cosmicpanda");
+			document.querySelector("html").setAttribute("layout", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("channel-rework", "true");
+			document.querySelector("html").setAttribute("related-videos", "stargazer-2009-3");
+			document.querySelector("ytd-app").setAttribute("layout-theme", "stargazer-2009-3");
+			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("search-bar-style", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
+			document.querySelector("html").setAttribute("watch-metadata-style", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("rating-type", "stars");
+			document.querySelector("html").setAttribute("player-style", "2012");
+			document.querySelector("html").setAttribute("logo", "broadcast");
+			document.querySelector("html").setAttribute("chips-style", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("topbar-style", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("header-style", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("sidebar-style", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("guide-right-aligned", "");
+			document.querySelector("html").setAttribute("homepage", "smaller-grid"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "smaller-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+			document.querySelector("html").setAttribute("homepage-columns", "2"); 
+			document.querySelector("html").setAttribute("grid-styling", "stargazer-2009-3"); 
+			document.querySelector("html").setAttribute("show-upload-date-next-to-pfp", "true");
+			document.querySelector("html").setAttribute("related-videos-size", "smaller");
+			document.querySelector("html").setAttribute("video-renderer-size", "138");
+			document.querySelector("html").setAttribute("search-style", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("comments-style", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("channel-style", "cosmicpanda-3");
+			document.querySelector("html").setAttribute("gaming-style", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("upload-btn", "true");
+			document.querySelector("html").setAttribute("static-scrolling", "");
+			document.querySelector("ytd-app").setAttribute("static-scrolling", "");
+			document.querySelector("html").setAttribute("static", "");
+			document.querySelector("ytd-app").setAttribute("static", "");
+			document.querySelector("html").setAttribute("unrounded-vids", "");
+			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
+			document.querySelector("html").setAttribute("title-on-top", "true");
+			document.querySelector("html").setAttribute("meta-on-side", "true");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "stargazer-2009-3");
+			document.querySelector("html").setAttribute("thumbnail-style", "stargazer-2009-3");
 		}
 	}
 	function getPlayerStyle() {
@@ -1026,102 +1099,123 @@ function getInitialVariables() {
 		}
 	}
 	function getCVPR() {
-		if (BTConfig.channelVidsPerRow == "CVPR1") {
-			document.querySelector("html").setAttribute("channel-vidpage", "list");
-		}
-		if (BTConfig.channelVidsPerRow == "CVPR2") {
-			document.querySelector("html").setAttribute("channel-vids-per-row", "2");
-			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
-		}
-		if (BTConfig.channelVidsPerRow == "CVPR3") {
-			document.querySelector("html").setAttribute("channel-vids-per-row", "3");
-			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
-		}
-		if (BTConfig.channelVidsPerRow == "CVPR4") {
-			document.querySelector("html").setAttribute("channel-vids-per-row", "4");
-			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
-		}
-		if (BTConfig.channelVidsPerRow == "CVPR5") {
-			document.querySelector("html").setAttribute("channel-vids-per-row", "5");
-			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
-		}
-		if (BTConfig.channelVidsPerRow == "CVPR6") {
-			document.querySelector("html").setAttribute("channel-vids-per-row", "6");
-			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
-		}
-		if (BTConfig.channelVidsPerRow == "CVPR7") {
-			document.querySelector("html").setAttribute("channel-vids-per-row", "7");
-			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
-		}
-		if (BTConfig.channelVidsPerRow == "CVPR8") {
-			document.querySelector("html").setAttribute("channel-vids-per-row", "8");
-			document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+		if (
+			!BTConfig.layoutSelect == "stargazer-2009-3" ||
+			!BTConfig.layoutSelect == "aozora-2010" ||
+			!BTConfig.layoutSelect == "aozora-2011" ||
+			!BTConfig.layoutSelect == "cosmicpanda-3"
+		) {
+			if (BTConfig.channelVidsPerRow == "CVPR1") {
+				document.querySelector("html").setAttribute("channel-vidpage", "list");
+			}
+			if (BTConfig.channelVidsPerRow == "CVPR2") {
+				document.querySelector("html").setAttribute("channel-vids-per-row", "2");
+				document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+			}
+			if (BTConfig.channelVidsPerRow == "CVPR3") {
+				document.querySelector("html").setAttribute("channel-vids-per-row", "3");
+				document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+			}
+			if (BTConfig.channelVidsPerRow == "CVPR4") {
+				document.querySelector("html").setAttribute("channel-vids-per-row", "4");
+				document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+			}
+			if (BTConfig.channelVidsPerRow == "CVPR5") {
+				document.querySelector("html").setAttribute("channel-vids-per-row", "5");
+				document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+			}
+			if (BTConfig.channelVidsPerRow == "CVPR6") {
+				document.querySelector("html").setAttribute("channel-vids-per-row", "6");
+				document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+			}
+			if (BTConfig.channelVidsPerRow == "CVPR7") {
+				document.querySelector("html").setAttribute("channel-vids-per-row", "7");
+				document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+			}
+			if (BTConfig.channelVidsPerRow == "CVPR8") {
+				document.querySelector("html").setAttribute("channel-vids-per-row", "8");
+				document.querySelector("html").setAttribute("channel-vidpage", "small-grid");
+			}
 		}
 	}
 	function getHPVPR() {
-		if (BTConfig.homepageVidsPerRow == "HPVPR1") {
-			document.querySelector("html").setAttribute("homepage", "list");
-		}
-		if (BTConfig.homepageVidsPerRow == "HPVPR2") {
-			document.querySelector("html").setAttribute("homepage-vids-per-row", "2");
-			document.querySelector("html").setAttribute("homepage", "small-grid");
-		}
-		if (BTConfig.homepageVidsPerRow == "HPVPR3") {
-			document.querySelector("html").setAttribute("homepage-vids-per-row", "3");
-			document.querySelector("html").setAttribute("homepage", "small-grid");
-		}
-		if (BTConfig.homepageVidsPerRow == "HPVPR4") {
-			document.querySelector("html").setAttribute("homepage-vids-per-row", "4");
-			document.querySelector("html").setAttribute("homepage", "small-grid");
-		}
-		if (BTConfig.homepageVidsPerRow == "HPVPR5") {
-			document.querySelector("html").setAttribute("homepage-vids-per-row", "5");
-			document.querySelector("html").setAttribute("homepage", "small-grid");
-		}
-		if (BTConfig.homepageVidsPerRow == "HPVPR6") {
-			document.querySelector("html").setAttribute("homepage-vids-per-row", "6");
-			document.querySelector("html").setAttribute("homepage", "small-grid");
-		}
-		if (BTConfig.homepageVidsPerRow == "HPVPR7") {
-			document.querySelector("html").setAttribute("homepage-vids-per-row", "7");
-			document.querySelector("html").setAttribute("homepage", "small-grid");
-		}
-		if (BTConfig.homepageVidsPerRow == "HPVPR8") {
-			document.querySelector("html").setAttribute("homepage-vids-per-row", "8");
-			document.querySelector("html").setAttribute("homepage", "small-grid");
+		if (
+			!BTConfig.layoutSelect == "stargazer-2009-3" ||
+			!BTConfig.layoutSelect == "aozora-2010" ||
+			!BTConfig.layoutSelect == "aozora-2011" ||
+			!BTConfig.layoutSelect == "cosmicpanda-3"
+		) {
+			if (BTConfig.homepageVidsPerRow == "HPVPR1") {
+				document.querySelector("html").setAttribute("homepage", "list");
+			}
+			if (BTConfig.homepageVidsPerRow == "HPVPR2") {
+				document.querySelector("html").setAttribute("homepage-vids-per-row", "2");
+				document.querySelector("html").setAttribute("homepage", "small-grid");
+			}
+			if (BTConfig.homepageVidsPerRow == "HPVPR3") {
+				document.querySelector("html").setAttribute("homepage-vids-per-row", "3");
+				document.querySelector("html").setAttribute("homepage", "small-grid");
+			}
+			if (BTConfig.homepageVidsPerRow == "HPVPR4") {
+				document.querySelector("html").setAttribute("homepage-vids-per-row", "4");
+				document.querySelector("html").setAttribute("homepage", "small-grid");
+			}
+			if (BTConfig.homepageVidsPerRow == "HPVPR5") {
+				document.querySelector("html").setAttribute("homepage-vids-per-row", "5");
+				document.querySelector("html").setAttribute("homepage", "small-grid");
+			}
+			if (BTConfig.homepageVidsPerRow == "HPVPR6") {
+				document.querySelector("html").setAttribute("homepage-vids-per-row", "6");
+				document.querySelector("html").setAttribute("homepage", "small-grid");
+			}
+			if (BTConfig.homepageVidsPerRow == "HPVPR7") {
+				document.querySelector("html").setAttribute("homepage-vids-per-row", "7");
+				document.querySelector("html").setAttribute("homepage", "small-grid");
+			}
+			if (BTConfig.homepageVidsPerRow == "HPVPR8") {
+				document.querySelector("html").setAttribute("homepage-vids-per-row", "8");
+				document.querySelector("html").setAttribute("homepage", "small-grid");
+			}
 		}
 	}
 	function getSVPR() {
-		if (BTConfig.subsVidsPerRow == "SVPR1") {
-			document.querySelector("html").setAttribute("subs-page", "list");
-		}
-		if (BTConfig.subsVidsPerRow == "SVPR2") {
-			document.querySelector("html").setAttribute("subs-page-vids-per-row", "2");
-			document.querySelector("html").setAttribute("subs-page", "small-grid");
-		}
-		if (BTConfig.subsVidsPerRow == "SVPR3") {
-			document.querySelector("html").setAttribute("subs-page-vids-per-row", "3");
-			document.querySelector("html").setAttribute("subs-page", "small-grid");
-		}
-		if (BTConfig.subsVidsPerRow == "SVPR4") {
-			document.querySelector("html").setAttribute("subs-page-vids-per-row", "4");
-			document.querySelector("html").setAttribute("subs-page", "small-grid");
-		}
-		if (BTConfig.subsVidsPerRow == "SVPR5") {
-			document.querySelector("html").setAttribute("subs-page-vids-per-row", "5");
-			document.querySelector("html").setAttribute("subs-page", "small-grid");
-		}
-		if (BTConfig.subsVidsPerRow == "SVPR6") {
-			document.querySelector("html").setAttribute("subs-page-vids-per-row", "6");
-			document.querySelector("html").setAttribute("subs-page", "small-grid");
-		}
-		if (BTConfig.subsVidsPerRow == "SVPR7") {
-			document.querySelector("html").setAttribute("subs-page-vids-per-row", "7");
-			document.querySelector("html").setAttribute("subs-page", "small-grid");
-		}
-		if (BTConfig.subsVidsPerRow == "SVPR8") {
-			document.querySelector("html").setAttribute("subs-page-vids-per-row", "8");
-			document.querySelector("html").setAttribute("subs-page", "small-grid");
+		if (
+			!BTConfig.layoutSelect == "stargazer-2009-3" ||
+			!BTConfig.layoutSelect == "aozora-2010" ||
+			!BTConfig.layoutSelect == "aozora-2011" ||
+			!BTConfig.layoutSelect == "cosmicpanda-3"
+		) {
+			if (BTConfig.subsVidsPerRow == "SVPR1") {
+				document.querySelector("html").setAttribute("subs-page", "list");
+			}
+			if (BTConfig.subsVidsPerRow == "SVPR2") {
+				document.querySelector("html").setAttribute("subs-page-vids-per-row", "2");
+				document.querySelector("html").setAttribute("subs-page", "small-grid");
+			}
+			if (BTConfig.subsVidsPerRow == "SVPR3") {
+				document.querySelector("html").setAttribute("subs-page-vids-per-row", "3");
+				document.querySelector("html").setAttribute("subs-page", "small-grid");
+			}
+			if (BTConfig.subsVidsPerRow == "SVPR4") {
+				document.querySelector("html").setAttribute("subs-page-vids-per-row", "4");
+				document.querySelector("html").setAttribute("subs-page", "small-grid");
+			}
+			if (BTConfig.subsVidsPerRow == "SVPR5") {
+				document.querySelector("html").setAttribute("subs-page-vids-per-row", "5");
+				document.querySelector("html").setAttribute("subs-page", "small-grid");
+			}
+			if (BTConfig.subsVidsPerRow == "SVPR6") {
+				document.querySelector("html").setAttribute("subs-page-vids-per-row", "6");
+				document.querySelector("html").setAttribute("subs-page", "small-grid");
+			}
+			if (BTConfig.subsVidsPerRow == "SVPR7") {
+				document.querySelector("html").setAttribute("subs-page-vids-per-row", "7");
+				document.querySelector("html").setAttribute("subs-page", "small-grid");
+			}
+			if (BTConfig.subsVidsPerRow == "SVPR8") {
+				document.querySelector("html").setAttribute("subs-page-vids-per-row", "8");
+				document.querySelector("html").setAttribute("subs-page", "small-grid");
+			}
 		}
 	}
 	function getHSS() {
@@ -1655,10 +1749,11 @@ function createNewElements() {
 	//TEMP FIX
 	if (BTConfig.layoutSelect != "none") {
 		waitFor('html[layout] #guide-button yt-icon', 100, createNewGuideIcon);
-		waitFor('html[layout] ytd-masthead #end #buttons div', 300, createUploadButton);
+		waitFor('html[layout] ytd-masthead #end #buttons div', 350, createUploadButton);
+		waitFor('html[layout] ytd-masthead #end #buttons div', 700, createTopbarButtons);
 		waitFor('html[layout] #content.ytd-app', 100, createNewHeader);
-		waitFor('html[layout] ytd-notification-topbar-button-renderer yt-icon', 300, createNewBellIcon);
-		waitFor('html[layout]:not([signed-out]) ytd-topbar-menu-button-renderer yt-icon', 300, createNewUploadIcon);
+		waitFor('html[layout] ytd-notification-topbar-button-renderer yt-icon', 350, createNewBellIcon);
+		waitFor('html[layout]:not([signed-out]) ytd-topbar-menu-button-renderer yt-icon', 350, createNewUploadIcon);
 	}
 	waitFor('html[layout] #guide-button yt-icon', 1250, createGuideBlocker);
 	waitFor('html ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer', 800, createNewChanVidsDropDown);
@@ -1813,6 +1908,20 @@ function createNewElements() {
 					}
 				}
 			}
+			if (!tasks.createdMetaSide) {
+				if (document.querySelector("html[layout] ytd-watch-flexy #top-row #owner") != null) {
+					if (document.querySelector("#bt-meta-side") === null) {
+						setTimeout(createMetaSide, 1);
+					}
+				}
+			}
+			if (!tasks.createdPlaceMetadata) {
+				if (document.querySelector("html[layout] ytd-watch-flexy #top-row #owner") != null) {
+					if (document.querySelector("#bt-place-metadata") === null) {
+						setTimeout(createPlaceMetadata, 1);
+					}
+				}
+			}
 			if (!tasks.createdViewsInfo) {
 				if (document.querySelector("html[layout] ytd-watch-flexy #top-row #owner") != null) {
 					if (document.querySelector("#bt-views-info") === null) {
@@ -1852,6 +1961,20 @@ function createNewElements() {
 				if (document.querySelector("html[layout] #segmented-like-button") != null) {
 					if (document.querySelector("#bt-dislike") === null) {
 						setTimeout(createNewDisLikeIcon, 1);
+					}
+				}
+			}
+			if (!tasks.createdNewShareIcon) {
+				if (document.querySelector("html[layout] #bt-share-button") != null) {
+					if (document.querySelector("#bt-share") === null) {
+						setTimeout(createNewShareIcon, 1);
+					}
+				}
+			}
+			if (!tasks.createdNewSaveIcon) {
+				if (document.querySelector("html[layout] #bt-save-button") != null) {
+					if (document.querySelector("#bt-save") === null) {
+						setTimeout(createNewSaveIcon, 1);
 					}
 				}
 			}
@@ -1936,11 +2059,15 @@ function createNewElements() {
 	var getFinishedWatchCreates = setInterval(function() {
 		if (
 			tasks.createdAbove &&
+			tasks.createdMetaSide &&
+			tasks.createdPlaceMetadata &&
 			tasks.createdViewsInfo &&
 			tasks.createdLtoDBar &&
 			tasks.createdNewLikeString &&
 			tasks.createdNewLikeIcon &&
 			tasks.createdNewDisLikeIcon &&
+			tasks.createdNewShareIcon &&
+			tasks.createdNewSaveIcon &&
 			tasks.createdPfpUploadDate &&
 			tasks.createdMiddleRow &&
 			tasks.createdFakeAboutButton &&
@@ -2060,6 +2187,7 @@ function createNewElements() {
 		newElem.id = 'bt-upload-button';
 		newElem.setAttribute("class", "bt-universalized-element bt-standard-button");
 		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.setAttribute("stargazer-style", "short-cta");
 		newElem.innerHTML = `
 		<a id="upload-btn" href="https://www.youtube.com/upload">
 			<span bt-lang="en">Upload</span>
@@ -2114,6 +2242,52 @@ function createNewElements() {
 		</svg>
 		`;
 		container.insertBefore(newElem, container.children[0]);
+	}
+	function createTopbarButtons() {
+		let container = document.querySelector('ytd-masthead #center');
+		const newElem = document.createElement("div");
+		newElem.id = 'masthead-nav-main';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<style>
+		html:not([topbar-style^="stargazer-2009-3"]) #masthead-nav-main {
+			display: none;
+		}
+		#masthead-nav-main {
+			position: absolute;
+			margin-top: 44px;
+			font-family: arial !important;
+			display: flex;
+			width: 784px;
+			z-index: 8000;
+		}
+		#masthead-nav-main a {
+		  color: var(--bt-blue, #03c);
+		  font-size: 13px;
+		  font-weight: bold;
+		  text-decoration: none;
+		  margin-right: 13px;
+		}
+		#masthead-nav-main a:hover {
+		  text-decoration: underline;
+		}
+		#sector-2 {
+		  margin-left: auto;
+		}
+		</style>
+		<div id="sector-1">
+			<a href="https://www.youtube.com/">Home</a>
+			<a href="https://www.youtube.com/videos">Videos</a>
+			<a href="https://www.youtube.com/channels">Channels</a>
+			<a href="https://www.youtube.com/shows">Shows</a>
+		</div>
+		<div id="sector-2">
+			<a href="https://www.youtube.com/feed/subscriptions">Subscriptions</a>
+			<a href="https://www.youtube.com/feed/history">History</a>
+		</div>
+		`;
+		container.insertBefore(newElem, container.children[0].nextSibling);
 	}
 	function createNewHeader() {
 		let container = document.querySelector('#content.ytd-app');
@@ -2499,6 +2673,28 @@ function createNewElements() {
 		`;
 		container.insertBefore(newElem, container.children[0]);
 	}
+	function createMetaSide() {
+		tasks.createdMetaSide = true;
+		let container = document.querySelector('ytd-watch-flexy #secondary-inner');
+		const newElem = document.createElement("div");
+		newElem.id = 'bt-meta-side';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		`;
+		container.insertBefore(newElem, container.children[0]);
+	}
+	function createPlaceMetadata() {
+		tasks.createdPlaceMetadata = true;
+		let container = document.querySelector('ytd-watch-flexy #primary-inner #below');
+		const newElem = document.createElement("div");
+		newElem.id = 'bt-place-metadata';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		`;
+		container.insertBefore(newElem, container.children[0]);
+	}
 	function createViewsInfo() {
 		tasks.createdViewsInfo = true;
 		let container = document.querySelector('ytd-watch-flexy #above-the-fold #top-row');
@@ -2525,23 +2721,32 @@ function createNewElements() {
 		newElem.id = 'bt-bar';
 		newElem.setAttribute("class", "bt-universalized-element");
 		newElem.setAttribute("bt-optimized-universal-element", "");
-		if (!BTConfig.iUseRYD) {
-			newElem.setAttribute("title", "Turn on Return YouTube Dislike compatibility in CustomTube settings for like/dislike ratio (Return YouTube Dislike extension required)");
-		}
+		//if (!BTConfig.iUseRYD) {
+		//	newElem.setAttribute("title", "Turn on Return YouTube Dislike compatibility in CustomTube settings for like/dislike ratio (Return YouTube Dislike extension required)");
+		//}
 		newElem.innerHTML = `
-		<dislikes>
-			<likes></likes>
-		</dislikes>
-		<div id="bt-counts">
-			<div id="lcon">
-				<span id="lcicon" class="bti"></span>
-				<span id="lc" class="btc">??</span>
-				<span id="lcs" class="bts" bt-lang="en"> likes,</span>
+		<div id="bt-ltod" title="Turn on Return YouTube Dislike compatibility in CustomTube settings for like/dislike ratio (Return YouTube Dislike extension required)">
+			<dislikes>
+				<likes></likes>
+			</dislikes>
+			<div id="bt-counts">
+				<div id="lcon">
+					<span id="lcicon" class="bti"></span>
+					<span id="lc" class="btc">??</span>
+					<span id="lcs" class="bts" bt-lang="en"> likes,</span>
+				</div>
+				<div id="dcon">
+					<span id="dcicon" class="bti"></span>
+					<span id="dc" class="btc">??</span>
+					<span id="dcs" class="bts" bt-lang="en"> dislikes</span>
+				</div>
 			</div>
-			<div id="dcon">
-				<span id="dcicon" class="bti"></span>
-				<span id="dc" class="btc">??</span>
-				<span id="dcs" class="bts" bt-lang="en"> dislikes</span>
+		</div>
+		<div id="bt-star-ratings">
+			<div id="bt-stars" rating="0.0" title="Turn on Return YouTube Dislike compatibility in CustomTube settings for star ratings (Return YouTube Dislike extension required)">
+				<stars></stars>
+			</div>
+			<div id="bt-rc-text" style="display: none">
 			</div>
 		</div>
 		`;
@@ -2603,6 +2808,48 @@ function createNewElements() {
 		</svg>
 		`;
 		container.insertBefore(newElem, container.children[0].nextSibling);
+	}
+	function createNewShareIcon() {
+		tasks.createdNewShareIcon = true;
+		let container = document.querySelector('#bt-share-button yt-icon');
+		const newElem = document.createElement("bt-icon");
+		newElem.id = 'bt-share';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<style>
+		html:not([icon-type="outline"]) #bt-share-button svg:not([icon-type="filled"]) {
+			display: none !important;
+		}
+		</style>
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+			<g class="yt-icon">
+				<path class="yt-icon" d="M11.7333 8.26667V4L19.2 11.4667L11.7333 18.9333V14.56C6.4 14.56 2.66667 16.2667 0 20C1.06667 14.6667 4.26667 9.33333 11.7333 8.26667Z"></path>
+			</g>
+		</svg>
+		`;
+		container.insertBefore(newElem, container.children[0]);
+	}
+	function createNewSaveIcon() {
+		tasks.createdNewSaveIcon = true;
+		let container = document.querySelector('#bt-save-button yt-icon');
+		const newElem = document.createElement("bt-icon");
+		newElem.id = 'bt-save';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<style>
+		html:not([icon-type="outline"]) #bt-save-button svg:not([icon-type="filled"]) {
+			display: none !important;
+		}
+		</style>
+		<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+			<g class="yt-icon">
+				<path class="yt-icon" d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"></path>
+			</g>
+		</svg>
+		`;
+		container.insertBefore(newElem, container.children[0]);
 	}
 	function createPfpUploadDate() {
 		tasks.createdPfpUploadDate = true;
@@ -2824,6 +3071,9 @@ function createNewElements() {
 		if (BTConfig.layoutSelect == "aozora-2010") {
 			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
 		}
+		if (BTConfig.layoutSelect == "stargazer-2009-3") {
+			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
+		}
 		if (BTConfig.layoutSelect == "polymer-2019") {
 			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");
 			loadMore.setAttribute("type", "2");	
@@ -2864,14 +3114,39 @@ function moveElements() {
 			clearInterval(loopThroughTitleOnTop);
 		}
 	}, 500);
+	waitFor("html[title-on-top]", 100, loopThroughMetaOnSide);
+	var loopThroughMetaOnSide = setInterval(function() {
+		if (!tasks.movedMetaToSide) {
+			if (document.querySelector("html[meta-on-side='true'] ytd-watch-flexy #bt-above") != null) {
+				setTimeout(moveMetaToSide, 1);
+			}
+			if (document.querySelector("html[meta-on-side='false']") != null) {
+				tasks.movedMetaToSide = true;
+			}
+		}
+		if (tasks.movedMetaToSide) {
+			clearInterval(loopThroughMetaOnSide);
+		}
+	}, 500);
 	waitFor("html[location='watch'] ytd-app", 300, loopThroughMoveWatchButtons);
 	var loopThroughMoveWatchButtons = setInterval(function() {
 		if (!tasks.movedHHButtons) {
-			if (document.querySelector("html[watch-metadata-style^='hitchhiker'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null) {
+			if (
+			document.querySelector("html[watch-metadata-style^='hitchhiker'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null &&
+			document.querySelector('path[d="M22 13h-4v4h-2v-4h-4v-2h4V7h2v4h4v2zm-8-6H2v1h12V7zM2 12h8v-1H2v1zm0 4h8v-1H2v1z"]') != null &&
+			document.querySelector('#above-the-fold #top-level-buttons-computed ytd-button-renderer button') != null
+			) {
 				setTimeout(prepFor, 100);
 			}
-			if (document.querySelector("html[watch-metadata-style^='cosmicpanda'][title-on-top='false'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null) {
+			if (
+			document.querySelector("html[watch-metadata-style^='cosmicpanda'][title-on-top='false'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null &&
+			document.querySelector('path[d="M22 13h-4v4h-2v-4h-4v-2h4V7h2v4h4v2zm-8-6H2v1h12V7zM2 12h8v-1H2v1zm0 4h8v-1H2v1z"]') != null &&
+			document.querySelector('#above-the-fold #top-level-buttons-computed ytd-button-renderer button') != null
+			) {
 				setTimeout(prepFor, 100);
+			}
+			if (document.querySelector("html[watch-metadata-style^='polymer'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null) {
+				setTimeout(assignWatchButtons, 100);
 			}
 			if (document.querySelector("#bt-middle-row #middle button") != null) {
 				if (document.querySelector("#bt-middle-row #flexible-item-buttons") != null) {
@@ -2902,6 +3177,20 @@ function moveElements() {
 	function prepFor() {
 		waitFor("#bt-middle-row", 100, moveWatchButtons);
 	}
+	function assignWatchButtons() {
+		var flexMenu = document.querySelector("ytd-menu-renderer.ytd-watch-metadata");
+		flexMenu.setAttribute("has-items", "5");
+		var flexItems = document.querySelector('#above-the-fold ytd-menu-renderer #flexible-item-buttons');
+		let share = document.querySelector("ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer button");
+		let share1 = share.parentNode;
+		let shareButton = share1.parentNode;
+		shareButton.setAttribute("id", "bt-share-button");
+		//path[d="M15 5.63 20.66 12 15 18.37V14h-1c-3.96 0-7.14 1-9.75 3.09 1.84-4.07 5.11-6.4 9.89-7.1l.86-.13V5.63M14 3v6C6.22 10.13 3.11 15.33 2 21c2.78-3.97 6.44-6 12-6v6l8-9-8-9z"]
+		let addTo = document.querySelector('path[d="M22 13h-4v4h-2v-4h-4v-2h4V7h2v4h4v2zm-8-6H2v1h12V7zM2 12h8v-1H2v1zm0 4h8v-1H2v1z"]');
+		let addToButton = addTo.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+		addToButton.setAttribute("id", "bt-save-button");
+		var moreButton = document.querySelector('#above-the-fold ytd-menu-renderer #button-shape');
+	}
 	function moveWatchButtons() {
 		var flexMenu = document.querySelector("ytd-menu-renderer.ytd-watch-metadata");
 		flexMenu.setAttribute("has-items", "5");
@@ -2910,6 +3199,10 @@ function moveElements() {
 		let share1 = share.parentNode;
 		let shareButton = share1.parentNode;
 		shareButton.setAttribute("id", "bt-share-button");
+		//path[d="M15 5.63 20.66 12 15 18.37V14h-1c-3.96 0-7.14 1-9.75 3.09 1.84-4.07 5.11-6.4 9.89-7.1l.86-.13V5.63M14 3v6C6.22 10.13 3.11 15.33 2 21c2.78-3.97 6.44-6 12-6v6l8-9-8-9z"]
+		let addTo = document.querySelector('path[d="M22 13h-4v4h-2v-4h-4v-2h4V7h2v4h4v2zm-8-6H2v1h12V7zM2 12h8v-1H2v1zm0 4h8v-1H2v1z"]');
+		let addToButton = addTo.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+		addToButton.setAttribute("id", "bt-save-button");
 		var moreButton = document.querySelector('#above-the-fold ytd-menu-renderer #button-shape');
 		var newHome1 = document.querySelector('#bt-middle-row #watch-buttons-inner #left');
 		var newHome2 = document.querySelector('#bt-middle-row #watch-buttons-inner #middle');
@@ -2927,6 +3220,20 @@ function moveElements() {
 		var newHome4 = document.querySelector('#bt-above');
 		newHome4.appendChild(title);
 		newHome4.appendChild(topRow);
+	}
+	function moveMetaToSide() {
+		tasks.movedMetaToSide = true;
+		var bottomRow = document.querySelector('ytd-watch-metadata');
+		var owner = document.querySelector('#bt-above #owner');
+		var newHome4 = document.querySelector('ytd-watch-flexy #bt-meta-side');
+		newHome4.insertBefore(bottomRow, newHome4.children[0]);
+		newHome4.insertBefore(owner, newHome4.children[0]);
+		setTimeout(moveOtherStuffBack, 100);
+		function moveOtherStuffBack() {
+			var theTopRow = document.querySelector('ytd-watch-metadata #top-row');
+			var newHome5 = document.querySelector('ytd-watch-flexy #bt-place-metadata');
+			newHome5.insertBefore(theTopRow, newHome5.children[0]);
+		}
 	}
 	function moveGuideButton() {
 		var theBtn = document.querySelector('#guide-button');
@@ -3003,11 +3310,15 @@ function watchPageEveryLoad() {
 			waitFor("#segmented-like-button span", 200, doCounts);
 		}
 		function doCounts() {
+			var starRating = sessionStorage.getItem("star-rating");
 			let likeCount = document.querySelector("#segmented-like-button span").textContent;
 			document.querySelector("#lc").innerText = likeCount;
+			//document.querySelector("#lc").innerText = starRating + "stars";
 			if (BTConfig.iUseRYD) {
 				let dislikeCount = document.querySelector("#segmented-dislike-button span").textContent;
+				var ratingCount = likeCount + dislikeCount;
 				document.querySelector("#dc").innerText = dislikeCount;
+			//	document.querySelector("#dc").innerText = ratingCount + "ratings";
 			}
 		}
 		/* sub counts */
@@ -3239,6 +3550,9 @@ function watchPageEveryLoad() {
 			if (BTConfig.layoutSelect == "aozora-2010") {
 			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " Subscribers";
 			}
+			if (BTConfig.layoutSelect == "stargazer-2009-3") {
+			document.querySelector("#bt-meta-side #owner-sub-count").innerText = trimmedSubCount + " Subscribers";
+			}
 			if (document.querySelector("html[sub-button-nested-sub-count='true']") != null) {
 				setTimeout(doButtonNestedCount, 10);
 			}
@@ -3252,7 +3566,92 @@ function watchPageEveryLoad() {
 		function getRydCounts() {
 			var rydPercent =  document.querySelector("#ryd-bar").style.width;
 			document.querySelector("#bt-bar likes").style.width = rydPercent;
-			document.querySelector("#bt-bar").setAttribute("title", rydPercent + " of viewers like this video");
+			document.querySelector("#bt-bar #bt-ltod").setAttribute("title", rydPercent + " of viewers like this video");
+			var rydPercentTrimmed = rydPercent.split('%');
+			var stars = rydPercentTrimmed[0];
+			/*if (stars <= 100) {
+				var starRating = 5;
+				document.querySelector("#bt-stars").setAttribute("rating", "5.0");
+			}
+			if (stars <= 90) {
+				var starRating = 4.5;
+				document.querySelector("#bt-stars").setAttribute("rating", "4.5");
+			}
+			if (stars <= 80) {
+				var starRating = 4;
+				document.querySelector("#bt-stars").setAttribute("rating", "4.0");
+			}
+			if (stars <= 70) {
+				var starRating = 3.5;
+				document.querySelector("#bt-stars").setAttribute("rating", "3.5");
+			}
+			if (stars <= 60) {
+				var starRating = 3;
+				document.querySelector("#bt-stars").setAttribute("rating", "3.0");
+			}
+			if (stars <= 50) {
+				var starRating = 2.5;
+				document.querySelector("#bt-stars").setAttribute("rating", "2.5");
+			}
+			if (stars <= 40) {
+				var starRating = 2;
+				document.querySelector("#bt-stars").setAttribute("rating", "2.0");
+			}
+			if (stars <= 30) {
+				var starRating = 1.5;
+				document.querySelector("#bt-stars").setAttribute("rating", "1.5");
+			}
+			if (stars <= 20) {
+				var starRating = 1;
+				document.querySelector("#bt-stars").setAttribute("rating", "1.0");
+			}
+			if (stars <= 10) {
+				var starRating = 0.5;
+				document.querySelector("#bt-stars").setAttribute("rating", "0.5");
+			}
+			if (stars <= 0) {
+				var starRating = 0;
+				document.querySelector("#bt-stars").setAttribute("rating", "0.0");
+			}*/
+			if (stars <= 100) {
+				var starRating = 5;
+				document.querySelector("#bt-stars").setAttribute("rating", "5.0");
+			}
+			if (stars <= 89) {
+				var starRating = 4.5;
+				document.querySelector("#bt-stars").setAttribute("rating", "4.5");
+			}
+			if (stars <= 78) {
+				var starRating = 4;
+				document.querySelector("#bt-stars").setAttribute("rating", "4.0");
+			}
+			if (stars <= 67) {
+				var starRating = 3.5;
+				document.querySelector("#bt-stars").setAttribute("rating", "3.5");
+			}
+			if (stars <= 55) {
+				var starRating = 3;
+				document.querySelector("#bt-stars").setAttribute("rating", "3.0");
+			}
+			if (stars <= 44) {
+				var starRating = 2.5;
+				document.querySelector("#bt-stars").setAttribute("rating", "2.5");
+			}
+			if (stars <= 33) {
+				var starRating = 2;
+				document.querySelector("#bt-stars").setAttribute("rating", "2.0");
+			}
+			if (stars <= 22) {
+				var starRating = 1.5;
+				document.querySelector("#bt-stars").setAttribute("rating", "1.5");
+			}
+			if (stars <= 11) {
+				var starRating = 1;
+				document.querySelector("#bt-stars").setAttribute("rating", "1.0");
+			}
+			sessionStorage.setItem("star-rating", starRating);
+			document.querySelector("#bt-bar #bt-stars").setAttribute("title", starRating + " stars (" + rydPercent + " upvoted)");
+			//document.querySelector("#bt-bar").setAttribute("title", stars + " of viewers like this video");
 		}
 		//}
 
@@ -3453,13 +3852,13 @@ function retrieveDataAttribute() {
 	var convertedYtdData = JSON.parse(ytdData);
 	//console.log(JSON.parse(ytdData));
 	if (convertedYtdData.page == "watch") {
-		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.isLive != null) {
-			setTimeout(retrieveDataAttribute, 5000);
-		}
 		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer != null) {
 			var wpViewCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
 			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.dateText.simpleText;
 			var wpSubCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.subscriberCountText.simpleText;
+			if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.isLive != null) {
+				setTimeout(retrieveDataAttribute, 5000);
+			}
 		}
 		// because for some ungodly reason ticket shelf comes before video info renderer
 		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer == null) {

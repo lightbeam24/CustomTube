@@ -1,8 +1,8 @@
 {
     "name": "CustomTube Beta",
-    "version": "1.2.0.1",
+    "version": "1.2.0.2",
     "description": "Choose your own YouTube layout, and more!",
-    "permissions": ["tabs", "storage"],
+    "permissions": ["storage"],
     "action": {
       "default_popup": "popup.html",
       "default_icon": {

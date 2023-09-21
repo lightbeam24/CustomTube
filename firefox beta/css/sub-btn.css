@@ -1,3 +1,39 @@
+html[watch-metadata-style^="stargazer"] {
+/* sub btn */
+--bt-wp-sub-btn-position: relative;
+--bt-wp-sub-btn-margin-left: auto;
+--bt-wp-sub-btn-margin-top: -20px;
+--bt-wp-sub-btn-height: 28px;
+--bt-wp-sub-btn-margin-top-static: 19.5px;
+--bt-wp-sub-btn-height-static: 23.5px;
+/* styles */
+--bt-sub-btn-text-color: #994800;
+--bt-sub-btn-bg: var(--bt-standard-btn-cta-bg);
+--bt-sub-btn-bg-hover: var(--bt-standard-btn-cta-bg-hover);
+--bt-sub-btn-border: 1px solid #ecc101;
+--bt-sub-btn-border-hover: 1px solid #ecc101;
+--bt-sub-btn-radius: var(--bt-standard-btn-radius);
+--bt-sub-btn-height: var(--bt-standard-btn-height);
+--bt-sub-btn-padding: var(--bt-standard-btn-padding);
+--bt-sub-btn-font-size: 12px;
+--bt-sub-btn-font-weight: bold;
+/* subbed btn */
+--bt-subbed-btn-bg: var(--bt-standard-btn-bg);
+--bt-subbed-btn-bg-hover: var(--bt-standard-btn-bg-hover);
+--bt-subbed-btn-border: 1px solid var(--bt-standard-btn-border-color);
+--bt-subbed-btn-hover: 1px solid var(--bt-standard-btn-border-color);
+--bt-subbed-btn-text-color: var(--bt-standard-btn-text-color);
+--bt-subbed-btn-text-color-hover: var(--bt-standard-btn-text-color);
+--bt-subbed-btn-width: 90px;
+/* count */
+--bt-wp-sub-count-radius: 3px;
+--bt-wp-sub-count-padding: 0;
+--bt-wp-sub-count-bg: none;
+--bt-wp-sub-count-border: none;
+--bt-wp-sub-count-text-color: var(--bt-gcp-333); /* ADD THIS VAR */
+--bt-wp-sub-count-display: block;
+--bt-wp-sub-count-margin-left: 0;
+}
 html[watch-metadata-style^="aozora"] {
 /* sub btn */
 --bt-wp-sub-btn-position: relative;
@@ -32,7 +68,7 @@ html[watch-metadata-style^="aozora"] {
 --bt-wp-sub-count-border: 1px solid #eaeaea;
 --bt-wp-sub-count-text-color: var(--bt-gcp-000); /* ADD THIS VAR */
 --bt-wp-sub-count-display: block;
---bt-wp-sub-count-margin-left: 10px;
+--bt-wp-sub-count-margin-left: 12px;
 }
 html[watch-metadata-style^="cosmicpanda"] {
 /* sub btn */
@@ -270,6 +306,7 @@ html[watch-metadata-style] #owner-sub-count {
   text-overflow: var(--bt-wp-sub-count-text-overflow) !important;
   display: var(--bt-wp-sub-count-display, contents) !important;
   margin-top: var(--bt-wp-sub-count-margin-top);
+  color: var(--bt-wp-sub-count-text-color, rgb(96,96,96)) !important;
 }
 /* styles */
 html[watch-metadata-style] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {

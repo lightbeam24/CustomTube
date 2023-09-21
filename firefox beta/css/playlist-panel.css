@@ -114,7 +114,7 @@ html[watch-metadata-style^="hitchhiker"] {
 }
 html[watch-metadata-style^="hitchhiker-2014"],
 html[watch-metadata-style^="hitchhiker-2013"] {
---bt-playlist-margin-left: -13px;
+--bt-playlist-margin-left: 0px;
 }
 html[watch-metadata-style^="cosmicpanda"] {
 --bt-playlist-margin-left: -12px;
@@ -163,6 +163,36 @@ html[watch-metadata-style^="aozora"] {
 --bt-playlist-item-inner-padding: 10px 8px 10px 0;
 --bt-playlist-item-bg-hover: #525252;
 --bt-playlist-item-text-color: var(--bt-unchanging-text-color-1); /* since this will change in dark mode, don't use var */
+--bt-playlist-item-font-size: 13px;
+--bt-playlist-item-font-weight: normal;
+--bt-playlist-item-line-height: 16px;
+--bt-playlist-item-byline-text-color: #767676;
+--bt-playlist-item-byline-font-size: 11px;
+--bt-playlist-item-byline-line-height: 12px;
+--bt-active-playlist-item-bg: #3a3a3a;
+--bt-active-playlist-item-text-color: #cacaca;
+--bt-playlist-item-thumb-width: 72px;
+--bt-playlist-item-thumb-height: 40px;
+--bt-playlist-icon-color: #ccc;
+--bt-playlist-link-color: #ccc;
+}
+html[watch-metadata-style^="stargazer"] {
+--bt-playlist-margin-left: 15px;
+--bt-playlist-radius: 0;
+--bt-playlist-border: 1px solid var(--bt-gcp-ccc);
+--bt-playlist-header-bg: var(--bt-gcp-eee);
+--bt-playlist-header-text-color: var(--bt-gcp-222);
+--bt-playlist-header-byline-text-color: var(--bt-gcp-555);
+--bt-playlist-header-padding: 15px 15px 0;
+--bt-playlist-header-font-family: arial;
+--bt-playlist-header-font-size: 12px;
+--bt-playlist-header-line-height: 13px;
+--bt-playlist-header-font-weight: 500;
+--bt-playlist-bg: none;
+--bt-playlist-item-height: 40px;
+--bt-playlist-item-inner-padding: 10px 8px 10px 0;
+--bt-playlist-item-bg-hover: var(--bt-blue);
+--bt-playlist-item-text-color: var(--bt-gcp-222); /* since this will change in dark mode, don't use var */
 --bt-playlist-item-font-size: 13px;
 --bt-playlist-item-font-weight: normal;
 --bt-playlist-item-line-height: 16px;
@@ -277,6 +307,11 @@ html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) #menu.ytd-play
   margin-top: 10px;
   z-index: 9;
 }
+/*
+html[watch-metadata-style]:not([watch-metadata-style^="polymer"]) ytd-playlist-panel-video-renderer:has(button:hover) ytd-thumbnail-overlay-time-status-renderer #time-status {
+  color: #ddd !important;
+}
+*/
 /* icons */
 html[watch-metadata-style] ytd-playlist-panel-renderer yt-icon {
   color: var(--bt-playlist-icon-color, auto) !important;

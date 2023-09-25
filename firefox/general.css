@@ -1014,3 +1014,7 @@ html[disable-flexy-player="true"] ytd-watch-flexy[fullscreen] .html5-endscreen {
 yt-report-details-form-renderer #description {
   pointer-events: all !important;
 }
+/* 1.1.0.3 Patch */
+html[watch-metadata-style] {
+  --bt-watch-metadata-desc-min-width: min(450px,100%);
+}

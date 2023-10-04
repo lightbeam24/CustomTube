@@ -191,7 +191,7 @@ html[watch-metadata-style^="stargazer"] {
 --bt-playlist-bg: none;
 --bt-playlist-item-height: 40px;
 --bt-playlist-item-inner-padding: 10px 8px 10px 0;
---bt-playlist-item-bg-hover: var(--bt-blue);
+--bt-playlist-item-bg-hover: var(--bt-gcp-ddd);
 --bt-playlist-item-text-color: var(--bt-gcp-222); /* since this will change in dark mode, don't use var */
 --bt-playlist-item-font-size: 13px;
 --bt-playlist-item-font-weight: normal;
@@ -205,6 +205,10 @@ html[watch-metadata-style^="stargazer"] {
 --bt-playlist-item-thumb-height: 40px;
 --bt-playlist-icon-color: #ccc;
 --bt-playlist-link-color: #ccc;
+}
+html[watch-metadata-style^="stargazer"] ytd-playlist-panel-renderer {
+  width: 322px;
+  margin-top: 12px;
 }
 html[watch-metadata-style][disable-flexy-player] ytd-watch-flexy[flexy][js-panel-height_] #playlist.ytd-watch-flexy, 
 html[watch-metadata-style][disable-flexy-player] ytd-watch-flexy[flexy][js-panel-height_] #panels.ytd-watch-flexy ytd-engagement-panel-section-list-renderer.ytd-watch-flexy,

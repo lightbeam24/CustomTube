@@ -24,15 +24,25 @@ html[topbar-style^="hitchhiker-2013"] {
 }
 html[topbar-style^="aozora"] {
 --bt-topbar-border: 1px solid var(--bt-section-border-color, var(--bt-gcp-eee));
+--bt-notif-icon-size: 20px;
 }
 html[topbar-style^="stargazer"] {
 --bt-topbar-border: 1px solid var(--bt-section-border-color, var(--bt-gcp-eee));
+--bt-notif-icon-size: 20px;
+}
+html[topbar-style^="stargazer-2008"] {
+--bt-topbar-border: none;
+--bt-topbar-margin-top: 10px;
+  --bt-new-upload-btn-margin-top: 70px !important;
+  --bt-new-upload-btn-margin-top: 110px !important;
+  --bt-new-upload-btn-margin-right: 8px !important;
 }
 html[topbar-style] #masthead-container.ytd-app {
 	position: var(--bt-topbar-position);
 	border-bottom: var(--bt-topbar-border);
 	background: var(--bt-masthead-bg);
 	box-shadow: var(--bt-topbar-box-shadow);
+	margin-top: var(--bt-topbar-margin-top);
 }
 
 html[topbar-style] #container.ytd-masthead {
@@ -56,7 +66,8 @@ html[logo="shady"],
 html[logo="squished"],
 html[logo="soft"],
 html[logo="glossy"],
-html[logo="broadcast"] {
+html[logo="broadcast"],
+html[logo="2008"] {
 /* #logo */
 --bt-logo-width: 73px;
 /* og logo */
@@ -129,6 +140,16 @@ html[logo="broadcast"] {
 --bt-logo-width: 110px;
 --bt-logo-height: 54px;
 }
+html[logo="2008"] {
+/* topbar logo renderer */
+--bt-logo-position: absolute;
+--bt-logo-left: 0px;
+/* yt icon */
+--bt-logo-bg: transparent url(https://i.imgur.com/oHAJEQq.gif) no-repeat scroll 0px 0px;
+--bt-logo-bg-size: auto;
+--bt-logo-width: 132px;
+--bt-logo-height: 63px;
+}
 html[logo] #logo yt-icon-shape {
   display: none;
 }
@@ -136,6 +157,12 @@ html[logo="polyvert"] ytd-logo svg {
   width: 96px !important;
 }
 /* logo */
+html[logo] ytd-yoodle-renderer picture {
+  display: none;
+}
+html[logo] ytd-yoodle-renderer ytd-logo[hidden] {
+  display: block !important;
+}
 html[logo] ytd-topbar-logo-renderer {
   position: var(--bt-logo-position);
   left: var(--bt-logo-left);
@@ -182,6 +209,73 @@ html[logo="soft"][dark] #start #logo yt-icon::after {
   mask-image: linear-gradient(to right,rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255,0) 36px,rgb(255, 255, 255) 28.1px);
 }
 /* BTSection Search bar */
+html[search-bar-style^="stargazer-2008"] {
+/* topbar */
+/* masthead */
+--bt-topbar-height: 125px;
+/* ytdsearchbox ytd masthead (outer bar) */
+--bt-searchbar-outer-margin: 70px 0 0 0;
+--bt-searchbar-outer-padding: 5px 364px;
+--bt-searchbar-outer-bg: transparent url(https://i.imgur.com/oHAJEQq.gif) repeat-x scroll 0 -63px;
+--bt-searchbar-outer-border: none;
+--bt-searchbar-outer-radius: 5px;
+--bt-searchbar-outer-position: absolute;
+--bt-searchbar-outer-left: -220px;
+/* center ytd masthead */
+--bt-searchbar-left: 220px;
+--bt-searchbar-position: absolute;
+--bt-searchbar-width: 211px;
+--bt-static-searchbar-width: 211px;
+/* container ytd searchbox */
+--bt-searchbar-input-box-shadow: inset 0 0px 0px rgba(0,0,0,0.0);
+--bt-searchbar-input-border: 1px solid var(--bt-gcp-999);
+--bt-searchbar-input-border-right: 1px solid var(--bt-gcp-999);
+--bt-searchbar-input-padding: 2px 4px 2px 6px;
+--bt-searchbar-input-radius: 0;
+--bt-searchbar-input-margin-left: 0;
+--bt-searchbar-input-transition: 0.2s ease;
+--bt-searchbar-input-bg: var(--bt-universal-white);
+--bt-searchbar-input-font-size: 13px;
+/* container ytd searchbox focus */
+--bt-searchbar-input-focus-margin-left: 0;
+--bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+--bt-searchbar-input-focus-border: 1px solid #1c62b9;
+/* search form ytd searchbox */
+--bt-searchbar-height: 25px;
+/* input search icon */
+--bt-search-input-pre-icon-display: none;
+/* input new pre icon 
+Redir: See Material Search Bar
+/* search placeholder */
+/*--bt-search-placeholder-text-color: #767676;
+/* search button icon legacy ytd searchbox */
+--bt-search-btn-width: 54px;
+--bt-search-btn-height: var(--bt-searchbar-height);
+--bt-search-btn-radius: 3px;
+--bt-search-btn-border: 1px solid #9f9fad;
+--bt-search-btn-bg: #e9e9ed;
+--bt-search-btn-bg-hover: #d0d0d7;
+--bt-search-btn-content-display: block;
+--bt-search-btn-text-color: #000;
+--bt-search-btn-font-weight: normal;
+--bt-search-btn-font-size: 13px;
+--bt-search-btn-text-decoration-hover: none;
+--bt-search-btn-margin-left: 4px;
+/* search button icon */
+--bt-search-btn-icon-display: none;
+--bt-search-btn-icon-margin-top: -2px;
+--bt-search-btn-icon-color: var(--bt-standard-btn-text-color);
+--bt-search-btn-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -72px -877px;
+--bt-search-btn-icon-width: 15px;
+--bt-search-btn-icon-height: 15px;
+--bt-search-btn-icon-opacity: 0.6;
+/* search button hover icon */
+--bt-search-btn-icon-opacity-hover: 1;
+/* search button OG icon */
+--bt-search-btn-og-icon-display: none;
+/* voice search */
+--bt-voice-search-btn-display: none;
+}
 html[search-bar-style^="stargazer-2009"] {
 /* topbar */
 /* masthead */
@@ -206,6 +300,7 @@ html[search-bar-style^="stargazer-2009"] {
 --bt-searchbar-input-margin-left: 0;
 --bt-searchbar-input-transition: 0.2s ease;
 --bt-searchbar-input-bg: var(--bt-universal-white);
+--bt-searchbar-input-font-size: 13px;
 /* container ytd searchbox focus */
 --bt-searchbar-input-focus-margin-left: 0;
 --bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
@@ -266,6 +361,7 @@ html[search-bar-style^="aozora-2011"] {
 --bt-searchbar-input-radius: 0;
 --bt-searchbar-input-margin-left: 0;
 --bt-searchbar-input-transition: 0.2s ease;
+--bt-searchbar-input-font-size: 14px;
 /* container ytd searchbox focus */
 --bt-searchbar-input-focus-margin-left: 0;
 --bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
@@ -626,6 +722,12 @@ Redir: See Material Search Bar
 /* voice search */
 --bt-voice-search-btn-display: block;
 }
+html[layout="amsterdam-2022"],
+html[layout="amsterdam-2023"],
+html:not([layout]) {
+/* masthead */
+--bt-topbar-height: 56px;
+}
 html[search-placeholder-style^="hitchhiker-2017"] {
 /* search placeholder */
 --bt-search-placeholder-text-color: #767676;
@@ -663,6 +765,8 @@ html[search-bar-style] ytd-searchbox.ytd-masthead {
   background: var(--bt-searchbar-outer-bg);
   border: var(--bt-searchbar-outer-border);
   border-radius: var(--bt-searchbar-outer-radius);
+  position: var(--bt-searchbar-outer-position, static);
+  left: var(--bt-searchbar-outer-left, unset);
 }
 /* material search bar */
 html[search-bar-style] #center.ytd-masthead {
@@ -710,6 +814,9 @@ html[search-placeholder-style] #search::placeholder {
 html[search-bar-style^="hitchhiker"] #search,
 html[search-bar-style^="hitchhiker"] #search-form input {
   color: var(--bt-gcp-000) !important;
+}
+html[search-bar-style] #search-form input {
+  font-size: var(--bt-searchbar-input-font-size, 16px);
 }
 /* new pre icon */ 
 html[search-bar-style] #container.ytd-searchbox::before {
@@ -828,6 +935,9 @@ html[topbar-style^="stargazer"] {
 --bt-new-upload-btn-margin-top: 44px;
 --bt-new-upload-btn-margin-right: 4px;
 }
+html[topbar-style^="aozora"] {
+--bt-new-upload-btn-margin-right: 16px;
+}
 /* og upload btn */
 html:not([signed-out]) ytd-topbar-menu-button-renderer:nth-child(1)  {
   display: var(--bt-og-upload-btn-display) !important;
@@ -840,7 +950,7 @@ html[topbar-style^="hitchhiker"] #bt-upload-icon {
   display: var(--bt-new-upload-btn-display);
   position: var(--bt-new-upload-btn-position);
   margin-top: var(--bt-new-upload-btn-margin-top);
-  margin-right: var(--bt-new-upload-btn-margin-right);
+  margin-right: var(--bt-new-upload-btn-margin-right, 8px);
 }
 html[topbar-style^="hitchhiker-2013"] #bt-upload-button {
   position: absolute;
@@ -850,14 +960,24 @@ html[topbar-style^="hitchhiker-2013"] #bt-upload-button {
 html[topbar-style^="hitchhiker"] ytd-notification-topbar-button-renderer {
   margin-left: 6px;
 }
+html[topbar-style] yt-icon-button.ytd-notification-topbar-button-renderer {
+  width: var(--bt-notif-icon-size, 40px);
+  height: var(--bt-notif-icon-size, 40px);
+}
 html[topbar-style^="hitchhiker"] ytd-notification-topbar-button-renderer yt-icon,
-html[topbar-style^="cosmicpanda"] ytd-notification-topbar-button-renderer yt-icon,
-html[topbar-style^="aozora"] ytd-notification-topbar-button-renderer yt-icon,
-html[topbar-style^="stargazer"] ytd-notification-topbar-button-renderer yt-icon {
+html[topbar-style^="cosmicpanda"] ytd-notification-topbar-button-renderer yt-icon {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -48px -707px;
   width: 24px;
   height: 24px;
   opacity: 0.6;
+  filter: var(--bt-png-icon-filter);
+}
+html[topbar-style^="aozora"] ytd-notification-topbar-button-renderer yt-icon,
+html[topbar-style^="stargazer"] ytd-notification-topbar-button-renderer yt-icon {
+  background: transparent url(https://i.imgur.com/hcxA2dh.png) repeat-x scroll 0 -736px;
+  width: 14px;
+  height: 21px;
+  opacity: 1;
   filter: var(--bt-png-icon-filter);
 }
 html[topbar-style^="hitchhiker"] ytd-notification-topbar-button-renderer:hover yt-icon,

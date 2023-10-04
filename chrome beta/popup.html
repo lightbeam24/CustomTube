@@ -140,6 +140,10 @@
 		  color: red;
 		  font-weight: bold;
 		}
+		body[ct-colors-text="true"] .left-title p {
+		  color: #3a6ac0;
+		  color: #3a3ad0;
+		}
 		.left-item {
 		  height: 24px;
 		}
@@ -159,6 +163,9 @@
 		  background: linear-gradient(to top, #900, #f00);
 		  background: linear-gradient(to top, #b00, #f00);
 		  text-shadow: -1.5px -1.5px 1px rgba(0,0,0,0.1);
+		}
+		body[ct-colors="true"] .left-item[active="true"] button {
+		  background: linear-gradient(to top, #3a3ad0, #6c6cf7);
 		}
 		.left-item[active="false"] button {
 		  background: transparent;
@@ -254,6 +261,9 @@
 		  font-size: 14px;
 		  color: red;
 		  font-weight: bold;
+		}
+		body[ct-colors-text="true"] .right-title p {
+		  color: #3a3ad0;
 		}
 		.right-supertitle p {
 		  margin: 0 6px 2px 6px;
@@ -477,7 +487,7 @@
 					<img src="images/logo.png" style="height: 28px;">
 					<img src="images/ctlogo.png" style="height: 28px;">
 				</p>
-				<p class="small-sub">V1.2.0 Beta 2</p>
+				<p class="small-sub">V1.2.0 Beta 3</p>
 				<p class="subtitle">Configuration Window</p>
 				<div class="top-item" id="lmall" active="false">
 					<button id="sectall">Show All Settings</button>
@@ -637,6 +647,7 @@
 							<line-seperator></line-seperator>
 							<p class="mini-text info-text">Stargazer Layout (unofficial codename)</p>
 							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="stargazer-2009-3" style="display:inline-block;">Use Late 2009 Layout*</label><br>
+							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="stargazer-2008-1" style="display:inline-block;">Use 2008 Layout*</label><br>
 							<line-seperator></line-seperator>
 						</div>
 						<p class="subtitle">* Theater Mode is Not Supported.</p>
@@ -825,7 +836,7 @@
 							<p>Video Player Size</p>
 						</div>
 						<div class="right-subtitle">
-							<p>Change the size of the video player. Only affects layouts from 2014 or later, the 2013 layouts force a 640x360 player, and the 2012 and 2011 layouts force a 586x330 player. But it's best to have it enabled when using the 2011-2013 layouts anyway.</p>
+							<p>Change the size of the video player. Only affects layouts from 2014 or later, all older layouts force a 640x360 player. But it's best to have this option enabled when using the 2008-2013 layouts anyway.</p>
 						</div>
 						<opt title="Allows you to choose a custom player size. (New options will appear if this option is enabled)">
 							<label><input type="checkbox" name="noFlexy" class="settings">Use Custom Player Size (Size options will appear if enabled)</label>
@@ -850,12 +861,12 @@
 							<p>Video Player Style</p>
 						</div>
 						<div class="right-subtitle">
-							<p>Make the player look like it used to. <span class="warning-text">Only works when using a custom player size.</span></p>
+							<p>Choose the look of the video player. <span class="warning-text">Only works when using a custom player size.</span></p>
 						</div>
 						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PSTauto" style="display:inline-block;">Auto</label><br>
 						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PST2012" style="display:inline-block;">2012</label><br>
 						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PST2013" style="display:inline-block;">2013-2015</label><br>
-						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PST2015" style="display:inline-block;">2016-2019</label><br>
+						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PST2015" style="display:inline-block;">2015-2019</label><br>
 						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PST2021" style="display:inline-block;">Use current player</label>
 					</div>
 					<div class="right-inner">

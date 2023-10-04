@@ -469,6 +469,10 @@ html[layout^="hitchhiker"] paper-ripple,
 html[layout^="hitchhiker"] yt-interaction, 
 html[layout^="cosmicpanda"] paper-ripple, 
 html[layout^="cosmicpanda"] yt-interaction,
+html[layout^="aozora"] paper-ripple, 
+html[layout^="aozora"] yt-interaction, 
+html[layout^="stargazer"] paper-ripple, 
+html[layout^="stargazer"] yt-interaction,
 html[layout^="polymer-2019"] yt-interaction {
 	display: none !important;
 }
@@ -1023,4 +1027,9 @@ html[layout]:not([layout^="polymer"]) .badge-style-type-verified > yt-icon.ytd-b
 
 html[disable-flexy-player="true"] ytd-app:not([masthead-hidden]) #page-manager.ytd-app {
   margin-top: var(--bt-topbar-height) !important;
+}
+
+/* history */
+html[static] ytd-two-column-browse-results-renderer[page-subtype="history"][has-secondary-column-data] #primary.ytd-two-column-browse-results-renderer {
+  padding-right: 0;
 }

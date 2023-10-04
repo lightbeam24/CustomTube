@@ -4,3 +4,7 @@
 .bts {
   margin-top: 1px;
 }
+html[channel-style^="aozora"] #channel-header::after,
+html[channel-style^="stargazer"] #channel-header::after {
+	left: 300px;
+}

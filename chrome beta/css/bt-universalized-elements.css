@@ -38,6 +38,7 @@ html[button-style^="stargazer"] {
 /* inner normal */
 --bt-standard-btn-cta-display: flex;
 --bt-standard-btn-cta-height: 2.0833em;
+--bt-standard-btn-cta-height: 23px;
 --bt-standard-btn-cta-padding: 0 .5em;
 --bt-standard-btn-cta-box-shadow: none;
 --bt-standard-btn-cta-border: 1px solid;
@@ -484,6 +485,31 @@ html[button-style^="stargazer"] .bt-standard-button[stargazer-style="short-cta"]
   padding: 0 12px;
   font-family: arial !important;
 }
+html[button-style^="stargazer"] .bt-standard-button[stargazer-style="cta"] a {
+  display: var(--bt-standard-btn-cta-display);
+  height: var(--bt-standard-btn-cta-height);
+  border: var(--bt-standard-btn-cta-border);
+  border-color: var(--bt-standard-btn-cta-border-color, currentcolor);
+  padding: var(--bt-standard-btn-cta-padding);
+  color: var(--bt-standard-btn-cta-text-color);
+  background: var(--bt-standard-btn-cta-bg);
+  outline: var(--bt-standard-btn-cta-outline);
+  font-weight: var(--bt-standard-btn-cta-font-weight);
+  font-size: var(--bt-standard-btn-cta-font-size);
+  text-shadow: var(--bt-standard-btn-cta-text-shadow);
+  text-decoration: var(--bt-standard-btn-cta-text-decoration);
+  /*white-space: nowrap;
+  word-wrap: normal;
+  line-height: normal;
+  vertical-align: middle;*/
+  cursor: var(--bt-standard-btn-cta-cursor);
+  /**overflow: visible;*/
+  border-radius: var(--bt-standard-btn-cta-radius);
+  box-shadow: var(--bt-standard-btn-cta-box-shadow);
+  text-transform: var(--bt-standard-btn-cta-text-transform);
+  padding: 0 12px;
+  font-family: arial !important;
+}
 html[button-style^="stargazer"] .bt-standard-button[stargazer-style="short-cta"] a span {
   margin-top: 2px;
 }
@@ -506,6 +532,22 @@ html[topbar-style^="hitchhiker"] .yt-spec-icon-badge-shape--type-notification .y
   border-radius: 0 !important;
   border: none !important;
   max-width: 16px !important;
+}
+html[topbar-style^="aozora"] .yt-spec-icon-badge-shape--type-notification .yt-spec-icon-badge-shape__badge, 
+html[topbar-style^="stargazer"] .yt-spec-icon-badge-shape--type-notification .yt-spec-icon-badge-shape__badge {
+  background: var(--bt-notif-badge-bg, #ff3000) !important;
+  color: transparent;
+  font-weight: bold !important;
+  border-radius: 50% !important;
+  border: none !important;
+  max-width: 8px !important;
+  font-size: 1px !important;
+  min-width: 8px !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  max-height: 8px !important;
+  margin-top: 5px;
+  margin-left: 3px;
 }
 html[layout] #ghost-cards {
   display: none !important;

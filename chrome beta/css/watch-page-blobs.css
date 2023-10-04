@@ -142,7 +142,7 @@ html[watch-metadata-style^="stargazer"] :is(#playlist) ytd-playlist-panel-video-
   right: -232px;
 }
 html[watch-metadata-style^="stargazer"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
-  right: -202px;
+  right: -210px;
 }
 /*
 ytd-thumbnail-overlay-time-status-renderer {

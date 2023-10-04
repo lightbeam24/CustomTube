@@ -289,7 +289,10 @@ function recalculateVideoSize() {
 			BTConfig.layoutSelect == "hitchhiker-2013-1" ||
 			BTConfig.layoutSelect == "cosmicpanda-3" ||
 			BTConfig.layoutSelect == "aozora-2011" ||
-			BTConfig.layoutSelect == "stargazer-2009-3"
+			BTConfig.layoutSelect == "stargazer-2009-3" ||
+			BTConfig.layoutSelect == "stargazer-2009-2" ||
+			BTConfig.layoutSelect == "stargazer-2009-1" ||
+			BTConfig.layoutSelect == "stargazer-2008-1"
 			) {
 				var playerOffsetWidth = 24;
 			}
@@ -547,6 +550,17 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "disabled");
 			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "false");
 		}
+		if (BTConfig.layoutSelect == "amsterdam-2022") {
+			document.querySelector("html").setAttribute("layout", "amsterdam-2022");
+			document.querySelector("html").setAttribute("channel-rework", "true");
+			document.querySelector("html").setAttribute("homepage", "rich-grid"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "rich-grid");
+			document.querySelector("html").setAttribute("grid-styling", "polymer-2021"); 
+			document.querySelector("html").setAttribute("subs-page", "small-grid"); 
+			document.querySelector("html").setAttribute("icon-type", "outline");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "disabled");
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+		}
 		if (BTConfig.layoutSelect == "polymer-2021") {
 			document.querySelector("html").setAttribute("global-color-palette", "polymer-2021");
 			document.querySelector("ytd-app").setAttribute("layout", "polymer");
@@ -628,7 +642,7 @@ function getInitialVariables() {
 			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("search-bar-style", "polymer-2019");
 			document.querySelector("html").setAttribute("watch-metadata-style", "polymer-2019");
-			//document.querySelector("html").setAttribute("player-style", "2019");
+			//ocument.querySelector("html").setAttribute("player-style", "2019");
 			document.querySelector("html").setAttribute("chips-style", "polymer-2019");
 			document.querySelector("html").setAttribute("topbar-style", "polymer-2019");
 			document.querySelector("html").setAttribute("header-style", "polymer-2019");
@@ -1005,7 +1019,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("video-renderer-size", "138");
 			document.querySelector("html").setAttribute("search-style", "aozora-2011");
 			document.querySelector("html").setAttribute("comments-style", "aozora-2011");
-			document.querySelector("html").setAttribute("channel-style", "cosmicpanda-3");
+			document.querySelector("html").setAttribute("channel-style", "aozora-2011");
 			document.querySelector("html").setAttribute("gaming-style", "aozora-2011");
 			document.querySelector("html").setAttribute("upload-btn", "true");
 			document.querySelector("html").setAttribute("static-scrolling", "");
@@ -1051,7 +1065,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("video-renderer-size", "138");
 			document.querySelector("html").setAttribute("search-style", "stargazer-2009-3");
 			document.querySelector("html").setAttribute("comments-style", "stargazer-2009-3");
-			document.querySelector("html").setAttribute("channel-style", "cosmicpanda-3");
+			document.querySelector("html").setAttribute("channel-style", "stargazer-2009-3");
 			document.querySelector("html").setAttribute("gaming-style", "stargazer-2009-3");
 			document.querySelector("html").setAttribute("upload-btn", "true");
 			document.querySelector("html").setAttribute("static-scrolling", "");
@@ -1068,6 +1082,147 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("button-style", "stargazer-2009-3");
 			document.querySelector("html").setAttribute("thumbnail-style", "stargazer-2009-3");
 		}
+		if (BTConfig.layoutSelect == "stargazer-2009-2") {
+			document.querySelector("html").setAttribute("global-color-palette", "stargazer-2009-2");
+			document.querySelector("ytd-app").setAttribute("layout", "cosmicpanda");
+			document.querySelector("html").setAttribute("layout", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("channel-rework", "true");
+			document.querySelector("html").setAttribute("related-videos", "stargazer-2009-2");
+			document.querySelector("ytd-app").setAttribute("layout-theme", "stargazer-2009-2");
+			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("search-bar-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
+			document.querySelector("html").setAttribute("watch-metadata-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("rating-type", "stars");
+			document.querySelector("html").setAttribute("player-style", "2012");
+			document.querySelector("html").setAttribute("logo", "broadcast");
+			document.querySelector("html").setAttribute("chips-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("topbar-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("header-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("sidebar-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("guide-right-aligned", "");
+			document.querySelector("html").setAttribute("homepage", "smaller-grid"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "smaller-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+			document.querySelector("html").setAttribute("homepage-columns", "2"); 
+			document.querySelector("html").setAttribute("grid-styling", "stargazer-2009-2"); 
+			document.querySelector("html").setAttribute("show-upload-date-next-to-pfp", "true");
+			document.querySelector("html").setAttribute("related-videos-size", "smaller");
+			document.querySelector("html").setAttribute("video-renderer-size", "138");
+			document.querySelector("html").setAttribute("search-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("comments-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("channel-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("gaming-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("upload-btn", "true");
+			document.querySelector("html").setAttribute("static-scrolling", "");
+			document.querySelector("ytd-app").setAttribute("static-scrolling", "");
+			document.querySelector("html").setAttribute("static", "");
+			document.querySelector("ytd-app").setAttribute("static", "");
+			document.querySelector("html").setAttribute("unrounded-vids", "");
+			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
+			document.querySelector("html").setAttribute("title-on-top", "true");
+			document.querySelector("html").setAttribute("meta-on-side", "true");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "stargazer-2009-2");
+			document.querySelector("html").setAttribute("thumbnail-style", "stargazer-2009-2");
+		}
+		if (BTConfig.layoutSelect == "stargazer-2009-1") {
+			document.querySelector("html").setAttribute("global-color-palette", "stargazer-2009-1");
+			document.querySelector("ytd-app").setAttribute("layout", "cosmicpanda");
+			document.querySelector("html").setAttribute("layout", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("channel-rework", "true");
+			document.querySelector("html").setAttribute("related-videos", "stargazer-2009-1");
+			document.querySelector("ytd-app").setAttribute("layout-theme", "stargazer-2009-1");
+			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("search-bar-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
+			document.querySelector("html").setAttribute("watch-metadata-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("rating-type", "stars");
+			document.querySelector("html").setAttribute("player-style", "2012");
+			document.querySelector("html").setAttribute("logo", "broadcast");
+			document.querySelector("html").setAttribute("chips-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("topbar-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("header-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("sidebar-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("guide-right-aligned", "");
+			document.querySelector("html").setAttribute("homepage", "small-list"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "smaller-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+			document.querySelector("html").setAttribute("homepage-columns", "2"); 
+			document.querySelector("html").setAttribute("grid-styling", "stargazer-2009-1"); 
+			document.querySelector("html").setAttribute("show-upload-date-next-to-pfp", "true");
+			document.querySelector("html").setAttribute("related-videos-size", "smaller");
+			document.querySelector("html").setAttribute("video-renderer-size", "138");
+			document.querySelector("html").setAttribute("search-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("comments-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("channel-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("gaming-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("upload-btn", "true");
+			document.querySelector("html").setAttribute("static-scrolling", "");
+			document.querySelector("ytd-app").setAttribute("static-scrolling", "");
+			document.querySelector("html").setAttribute("static", "");
+			document.querySelector("ytd-app").setAttribute("static", "");
+			document.querySelector("html").setAttribute("unrounded-vids", "");
+			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
+			document.querySelector("html").setAttribute("title-on-top", "true");
+			document.querySelector("html").setAttribute("meta-on-side", "true");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "stargazer-2009-1");
+			document.querySelector("html").setAttribute("thumbnail-style", "stargazer-2009-1");
+		}
+		if (BTConfig.layoutSelect == "stargazer-2008-1") {
+			document.querySelector("html").setAttribute("global-color-palette", "stargazer-2008-1");
+			document.querySelector("ytd-app").setAttribute("layout", "cosmicpanda");
+			document.querySelector("html").setAttribute("layout", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("channel-rework", "true");
+			document.querySelector("html").setAttribute("related-videos", "stargazer-2008-1");
+			document.querySelector("ytd-app").setAttribute("layout-theme", "stargazer-2008-1");
+			//document.querySelector("html").setAttribute("layout-theme", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("search-bar-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("search-placeholder-style", "invisible");
+			document.querySelector("html").setAttribute("watch-metadata-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("rating-type", "stars");
+			document.querySelector("html").setAttribute("player-style", "2012");
+			document.querySelector("html").setAttribute("logo", "2008");
+			document.querySelector("html").setAttribute("chips-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("topbar-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("header-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("sidebar-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("guide-right-aligned", "");
+			document.querySelector("html").setAttribute("homepage", "small-list"); 
+			document.querySelector("html").setAttribute("channel-vidpage", "small-grid"); 
+			document.querySelector("html").setAttribute("subs-page", "smaller-grid"); 		
+			document.querySelector("html").setAttribute("hide-shorts-shelf-subs", "true");
+			document.querySelector("html").setAttribute("homepage-columns", "2"); 
+			document.querySelector("html").setAttribute("grid-styling", "stargazer-2008-1"); 
+			document.querySelector("html").setAttribute("show-upload-date-next-to-pfp", "true");
+			document.querySelector("html").setAttribute("related-videos-size", "smaller");
+			document.querySelector("html").setAttribute("video-renderer-size", "138");
+			document.querySelector("html").setAttribute("search-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("comments-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("channel-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("gaming-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("upload-btn", "true");
+			document.querySelector("html").setAttribute("static-scrolling", "");
+			document.querySelector("ytd-app").setAttribute("static-scrolling", "");
+			document.querySelector("html").setAttribute("static", "");
+			document.querySelector("ytd-app").setAttribute("static", "");
+			document.querySelector("html").setAttribute("unrounded-vids", "");
+			document.querySelector("html").setAttribute("unrounded-pfps", "strict");
+			document.querySelector("html").setAttribute("title-on-top", "true");
+			document.querySelector("html").setAttribute("meta-on-side", "true");
+			document.querySelector("html").setAttribute("menu-style", "unrounded");
+			document.querySelector("html").setAttribute("classic-ltod-strings", "true");
+			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
+			document.querySelector("html").setAttribute("button-style", "stargazer-2008-1");
+			document.querySelector("html").setAttribute("thumbnail-style", "stargazer-2008-1");
+		}
 	}
 	function getPlayerStyle() {
 		if (BTConfig.videoPlayerStyle == "PST2012") {
@@ -1079,6 +1234,13 @@ function getInitialVariables() {
 		if (BTConfig.videoPlayerStyle == "PST2015") {
 			document.querySelector("html").setAttribute("player-style", "2015");
 		}
+		/*if (BTConfig.videoPlayerStyle == "PST2019") {
+			document.querySelector("html").setAttribute("player-style", "2019");
+		}
+		if (BTConfig.videoPlayerStyle == "PST2020") {
+			document.querySelector("html").setAttribute("player-style", "2020");
+		}
+		*/
 		if (BTConfig.videoPlayerStyle == "PST2021") {
 			document.querySelector("html").setAttribute("player-style", "");
 			document.querySelector("html").removeAttribute("player-style");
@@ -1100,10 +1262,11 @@ function getInitialVariables() {
 	}
 	function getCVPR() {
 		if (
-			!BTConfig.layoutSelect == "stargazer-2009-3" ||
-			!BTConfig.layoutSelect == "aozora-2010" ||
-			!BTConfig.layoutSelect == "aozora-2011" ||
-			!BTConfig.layoutSelect == "cosmicpanda-3"
+			BTConfig.layoutSelect != "stargazer-2008-1" ||
+			BTConfig.layoutSelect != "stargazer-2009-3" ||
+			BTConfig.layoutSelect != "aozora-2010" ||
+			BTConfig.layoutSelect != "aozora-2011" ||
+			BTConfig.layoutSelect != "cosmicpanda-3"
 		) {
 			if (BTConfig.channelVidsPerRow == "CVPR1") {
 				document.querySelector("html").setAttribute("channel-vidpage", "list");
@@ -1140,10 +1303,11 @@ function getInitialVariables() {
 	}
 	function getHPVPR() {
 		if (
-			!BTConfig.layoutSelect == "stargazer-2009-3" ||
-			!BTConfig.layoutSelect == "aozora-2010" ||
-			!BTConfig.layoutSelect == "aozora-2011" ||
-			!BTConfig.layoutSelect == "cosmicpanda-3"
+			BTConfig.layoutSelect != "stargazer-2008-1" ||
+			BTConfig.layoutSelect != "stargazer-2009-3" ||
+			BTConfig.layoutSelect != "aozora-2010" ||
+			BTConfig.layoutSelect != "aozora-2011" ||
+			BTConfig.layoutSelect != "cosmicpanda-3"
 		) {
 			if (BTConfig.homepageVidsPerRow == "HPVPR1") {
 				document.querySelector("html").setAttribute("homepage", "list");
@@ -1180,10 +1344,11 @@ function getInitialVariables() {
 	}
 	function getSVPR() {
 		if (
-			!BTConfig.layoutSelect == "stargazer-2009-3" ||
-			!BTConfig.layoutSelect == "aozora-2010" ||
-			!BTConfig.layoutSelect == "aozora-2011" ||
-			!BTConfig.layoutSelect == "cosmicpanda-3"
+			BTConfig.layoutSelect != "stargazer-2008-1" ||
+			BTConfig.layoutSelect != "stargazer-2009-3" ||
+			BTConfig.layoutSelect != "aozora-2010" ||
+			BTConfig.layoutSelect != "aozora-2011" ||
+			BTConfig.layoutSelect != "cosmicpanda-3"
 		) {
 			if (BTConfig.subsVidsPerRow == "SVPR1") {
 				document.querySelector("html").setAttribute("subs-page", "list");
@@ -1979,9 +2144,9 @@ function createNewElements() {
 				}
 			}
 			if (!tasks.createdPfpUploadDate) {
-				if (document.querySelector("html[location='watch'] #owner-sub-count") != null) {
+				if (document.querySelector("ytd-watch-metadata #owner-sub-count") != null) {
 					if (document.querySelector("#bt-pfp-upload-date") === null) {
-						setTimeout(createPfpUploadDate, 1);
+						setTimeout(createPfpUploadDate, 10);
 					}
 				}
 			}
@@ -2187,7 +2352,18 @@ function createNewElements() {
 		newElem.id = 'bt-upload-button';
 		newElem.setAttribute("class", "bt-universalized-element bt-standard-button");
 		newElem.setAttribute("bt-optimized-universal-element", "");
-		newElem.setAttribute("stargazer-style", "short-cta");
+		if (BTConfig.layoutSelect == "stargazer-2009-3") {
+			newElem.setAttribute("stargazer-style", "short-cta");
+		}
+		if (BTConfig.layoutSelect == "stargazer-2009-2") {
+			newElem.setAttribute("stargazer-style", "cta");
+		}
+		if (BTConfig.layoutSelect == "stargazer-2009-1") {
+			newElem.setAttribute("stargazer-style", "cta");
+		}
+		if (BTConfig.layoutSelect == "stargazer-2008-1") {
+			newElem.setAttribute("stargazer-style", "cta");
+		}
 		newElem.innerHTML = `
 		<a id="upload-btn" href="https://www.youtube.com/upload">
 			<span bt-lang="en">Upload</span>
@@ -2251,7 +2427,7 @@ function createNewElements() {
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		html:not([topbar-style^="stargazer-2009-3"]) #masthead-nav-main {
+		html:not([topbar-style^="stargazer-2009-3"]):not([topbar-style^="stargazer-2008-1"]) #masthead-nav-main {
 			display: none;
 		}
 		#masthead-nav-main {
@@ -2262,6 +2438,9 @@ function createNewElements() {
 			width: 784px;
 			z-index: 8000;
 		}
+		html[topbar-style^="stargazer-2008"] #masthead-nav-main {
+		  margin-left: 40px;
+		}
 		#masthead-nav-main a {
 		  color: var(--bt-blue, #03c);
 		  font-size: 13px;
@@ -2269,22 +2448,110 @@ function createNewElements() {
 		  text-decoration: none;
 		  margin-right: 13px;
 		}
-		#masthead-nav-main a:hover {
+		html[topbar-style^="stargazer-2008"] #masthead-nav-main a {
+		  width: 114px;
+		  display: flex;
+		  height: 22px;
+		  background: transparent url(https://i.imgur.com/oHAJEQq.gif) no-repeat scroll 0 -137px;
+		  font-size: 14px;
+		  font-weight: bold;
+		  padding: 6px 0 0 0;
+		  border-radius: 5px;
+		  margin-right: 7px;
+		  color: #039;
+		}
+		html[topbar-style^="stargazer-2008"] #masthead-nav-main a::before,
+		html[topbar-style^="stargazer-2008"] #masthead-nav-main a::after {
+		  display: block;
+		  position: absolute;
+		  width: 5px;
+		  height: 28px;
+		  background: transparent url(https://i.imgur.com/oHAJEQq.gif) no-repeat scroll -152px 0px;
+		  content: "";
+		  margin-top: -6px;
+		  margin-left: -1px;
+		}
+		html[topbar-style^="stargazer-2008"] #masthead-nav-main a::after {
+		  margin-left: 110px;
+		  background: transparent url(https://i.imgur.com/oHAJEQq.gif) no-repeat scroll -157px 0px;
+		}
+		html[topbar-style^="stargazer-2009-3"] #masthead-nav-main a:hover {
 		  text-decoration: underline;
+		}
+		html[topbar-style^="stargazer-2008"] #sector-1 {
+		  display: flex;
+		}
+		html[topbar-style^="stargazer-2008"] #sector-2 {
+		  display: none;
 		}
 		#sector-2 {
 		  margin-left: auto;
 		}
+		html[topbar-style^="stargazer-2008"] #masthead-nav-main span {
+		  display: block;
+		  margin: 0 auto;
+		}
+		html[topbar-style^="stargazer-2008"] #masthead-nav-main {
+		  margin-top: 7px;
+		}
+		html[topbar-style^="stargazer-2008"] #masthead-nav-main a:hover {
+		  text-decoration: none;
+		}
+		html[topbar-style^="stargazer-2008"] #start.ytd-masthead, 
+		html[topbar-style^="stargazer-2008"] #end.ytd-masthead {
+		  margin-top: -40px;
+		}
+		html[topbar-style^="stargazer-2008"] #masthead-nav-main #bt-shows-link,
+		html[topbar-style^="stargazer-2009-3"] #masthead-nav-main #bt-community-link {
+		  display: none;
+		}
+		html[topbar-style^="stargazer-2008"][location="home"] #masthead-nav-main #bt-home-link,
+		html[topbar-style^="stargazer-2008"][location="watch"] #masthead-nav-main #bt-videos-link,
+		html[topbar-style^="stargazer-2008"][location="subscriptions"] #masthead-nav-main #bt-videos-link,
+		html[topbar-style^="stargazer-2008"][location="trending"] #masthead-nav-main #bt-videos-link,
+		html[topbar-style^="stargazer-2008"][location="channel"] #masthead-nav-main #bt-channels-link {
+		  background-position: 0 -100px;
+		  color: #333 !important;
+		}
+		html[topbar-style^="stargazer-2008"][location="home"] #masthead-nav-main #bt-home-link::before,
+		html[topbar-style^="stargazer-2008"][location="watch"] #masthead-nav-main #bt-videos-link::before,
+		html[topbar-style^="stargazer-2008"][location="subscriptions"] #masthead-nav-main #bt-videos-link::before,
+		html[topbar-style^="stargazer-2008"][location="trending"] #masthead-nav-main #bt-videos-link::before,
+		html[topbar-style^="stargazer-2008"][location="channel"] #masthead-nav-main #bt-channels-link::before {
+		  background-position: -142px 0;
+		}
+		html[topbar-style^="stargazer-2008"][location="home"] #masthead-nav-main #bt-home-link::after,
+		html[topbar-style^="stargazer-2008"][location="watch"] #masthead-nav-main #bt-videos-link::after,
+		html[topbar-style^="stargazer-2008"][location="subscriptions"] #masthead-nav-main #bt-videos-link::after,
+		html[topbar-style^="stargazer-2008"][location="trending"] #masthead-nav-main #bt-videos-link::after,
+		html[topbar-style^="stargazer-2008"][location="channel"] #masthead-nav-main #bt-channels-link::after {
+		  background-position: -147px 0;
+		}
 		</style>
 		<div id="sector-1">
-			<a href="https://www.youtube.com/">Home</a>
-			<a href="https://www.youtube.com/videos">Videos</a>
-			<a href="https://www.youtube.com/channels">Channels</a>
-			<a href="https://www.youtube.com/shows">Shows</a>
+			<a id="bt-home-link" href="https://www.youtube.com/">
+				<span>Home</span>
+			</a>
+			<a id="bt-videos-link" href="https://www.youtube.com/videos">
+				<span>Videos</span>
+			</a>
+			<a id="bt-channels-link" href="https://www.youtube.com/channels">
+				<span>Channels</span>
+			</a>
+			<a id="bt-shows-link" href="https://www.youtube.com/shows">
+				<span>Shows</span>
+			</a>
+			<a id="bt-community-link" href="https://www.youtube.com/community">
+				<span>Community</span>
+			</a>
 		</div>
 		<div id="sector-2">
-			<a href="https://www.youtube.com/feed/subscriptions">Subscriptions</a>
-			<a href="https://www.youtube.com/feed/history">History</a>
+			<a href="https://www.youtube.com/feed/subscriptions">
+				<span>Subscriptions</span>
+			</a>
+			<a href="https://www.youtube.com/feed/history">
+				<span>History</span>
+			</a>
 		</div>
 		`;
 		container.insertBefore(newElem, container.children[0].nextSibling);
@@ -2853,7 +3120,7 @@ function createNewElements() {
 	}
 	function createPfpUploadDate() {
 		tasks.createdPfpUploadDate = true;
-		let container = document.querySelector('ytd-watch-flexy #upload-info');
+		let container = document.querySelector('ytd-watch-flexy ytd-watch-metadata #upload-info');
 		const newElem = document.createElement("div");
 		newElem.id = 'bt-pfp-upload-date';
 		newElem.setAttribute("class", "bt-universalized-element");
@@ -3072,6 +3339,9 @@ function createNewElements() {
 			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
 		}
 		if (BTConfig.layoutSelect == "stargazer-2009-3") {
+			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
+		}
+		if (BTConfig.layoutSelect == "stargazer-2008-1") {
 			loadMore.setAttribute("class", "bt-universalized-element bt-standard-button");	
 		}
 		if (BTConfig.layoutSelect == "polymer-2019") {
@@ -3551,6 +3821,15 @@ function watchPageEveryLoad() {
 			document.querySelector("#owner-sub-count").innerText = trimmedSubCount + " Subscribers";
 			}
 			if (BTConfig.layoutSelect == "stargazer-2009-3") {
+			document.querySelector("#bt-meta-side #owner-sub-count").innerText = trimmedSubCount + " Subscribers";
+			}
+			if (BTConfig.layoutSelect == "stargazer-2009-2") {
+			document.querySelector("#bt-meta-side #owner-sub-count").innerText = trimmedSubCount + " Subscribers";
+			}
+			if (BTConfig.layoutSelect == "stargazer-2009-1") {
+			document.querySelector("#bt-meta-side #owner-sub-count").innerText = trimmedSubCount + " Subscribers";
+			}
+			if (BTConfig.layoutSelect == "stargazer-2008-1") {
 			document.querySelector("#bt-meta-side #owner-sub-count").innerText = trimmedSubCount + " Subscribers";
 			}
 			if (document.querySelector("html[sub-button-nested-sub-count='true']") != null) {

@@ -458,6 +458,31 @@ function saveSettings() {
 	if (!newSettings.showNew) {
 		document.querySelector("body").setAttribute("show-new", "false");
 	}
+	/*if (!currentSettings.configWindowCTColors) {
+		document.querySelector("body").setAttribute("ct-colors", "false");
+	}
+	if (currentSettings.configWindowCTColors) {
+		document.querySelector("body").setAttribute("ct-colors", "true");
+	}
+	if (newSettings.configWindowCTColors) {
+		document.querySelector("body").setAttribute("ct-colors", "true");
+	}
+	if (!newSettings.configWindowCTColors) {
+		document.querySelector("body").setAttribute("ct-colors", "false");
+	}
+	if (!currentSettings.configWindowCTColorsText) {
+		document.querySelector("body").setAttribute("ct-colors-text", "false");
+	}
+	if (currentSettings.configWindowCTColorsText) {
+		document.querySelector("body").setAttribute("ct-colors-text", "true");
+	}
+	if (newSettings.configWindowCTColorsText) {
+		document.querySelector("body").setAttribute("ct-colors-text", "true");
+	}
+	if (!newSettings.configWindowCTColorsText) {
+		document.querySelector("body").setAttribute("ct-colors-text", "false");
+	}
+	*/
 	storage.set({BTConfig: newSettings});
 }
 function getSettings() {
@@ -465,6 +490,13 @@ function getSettings() {
 	if (currentSettings.showNew) {
 		document.querySelector("body").setAttribute("show-new", "true");
 	}
+	/*if (currentSettings.configWindowCTColors) {
+		document.querySelector("body").setAttribute("ct-colors", "true");
+	}
+	if (currentSettings.configWindowCTColorsText) {
+		document.querySelector("body").setAttribute("ct-colors-text", "true");
+	}
+	*/
 	if (currentSettings.noFlexy) {
 		document.querySelector("body").setAttribute("no-flexy", "true");
 	}

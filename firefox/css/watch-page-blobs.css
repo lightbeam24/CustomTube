@@ -88,11 +88,15 @@ html[watch-metadata-style^="hitchhiker-2013"] ytd-watch-flexy #guide-button svg 
 /* HITCHHIKER IN GENERAL */
 /* overlayTime Status. Probably safe to leave this as a blob */
 html[watch-metadata-style^="hitchhiker"] ytd-thumbnail #thumbnail.ytd-thumbnail,
-html[watch-metadata-style^="cosmicpanda"] ytd-thumbnail #thumbnail.ytd-thumbnail {
+html[watch-metadata-style^="cosmicpanda"] ytd-thumbnail #thumbnail.ytd-thumbnail,
+html[watch-metadata-style^="aozora"] ytd-thumbnail #thumbnail.ytd-thumbnail,
+html[watch-metadata-style^="stargazer"] ytd-thumbnail #thumbnail.ytd-thumbnail {
   overflow: visible;
 }
 html[watch-metadata-style^="hitchhiker"] #thumbnail-container,
-html[watch-metadata-style^="cosmicpanda"] #thumbnail-container {
+html[watch-metadata-style^="cosmicpanda"] #thumbnail-container,
+html[watch-metadata-style^="aozora"] #thumbnail-container,
+html[watch-metadata-style^="stargazer"] #thumbnail-container {
   overflow: visible !important;
 }
 @keyframes timeStatusFadeIn {
@@ -101,13 +105,23 @@ html[watch-metadata-style^="cosmicpanda"] #thumbnail-container {
 100% {opacity: 1;}
 }
 html[watch-metadata-style^="hitchhiker"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
-html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="aozora"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="stargazer"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
   right: -302px;
   top: -54px;
   top: 6px;
 }
+html[watch-metadata-style^="hitchhiker-2014"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+  right: -292px;
+}
+html[watch-metadata-style^="hitchhiker-2013"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+  right: -270px !important;
+}
 html[watch-metadata-style^="hitchhiker"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer #time-status.ytd-thumbnail-overlay-time-status-renderer,
-html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer #time-status.ytd-thumbnail-overlay-time-status-renderer {
+html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer #time-status.ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="aozora"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer #time-status.ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="stargazer"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer #time-status.ytd-thumbnail-overlay-time-status-renderer {
   background: none;
   font-size: 13px;
   font-weight: normal;
@@ -122,8 +136,13 @@ html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-vide
   margin: 4px !important;
  /* background: rgba(250,250,250,0.2);*/
 }
-html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
-  right: -278px;
+html[watch-metadata-style^="cosmicpanda"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="aozora"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
+html[watch-metadata-style^="stargazer"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+  right: -232px;
+}
+html[watch-metadata-style^="stargazer"] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
+  right: -210px;
 }
 /*
 ytd-thumbnail-overlay-time-status-renderer {
@@ -133,7 +152,7 @@ ytd-thumbnail-overlay-time-status-renderer {
 }*/
 html[watch-metadata-style^="hitchhiker"][static] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer,
 html[watch-metadata-style^="hitchhiker"][pseudo-static] :is(#playlist) ytd-playlist-panel-video-renderer ytd-thumbnail-overlay-time-status-renderer {
-  right: -278px;
+  right: -280px;
 }
 /* end blob */
 /* hitchhiker blob */
@@ -239,6 +258,9 @@ html[watch-metadata-style^="hitchhiker-2013"] button[aria-label="More actions"] 
 html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"] {
 	margin-left: 10px;
 }
+html[watch-metadata-style^="stargazer"] {
+--bt-wp-og-icons-display: none;
+}
 html[watch-metadata-style^="aozora"] {
 --bt-wp-og-icons-display: none;
 }
@@ -254,7 +276,11 @@ html[watch-metadata-style^="polymer"] {
 html[watch-metadata-style] ytd-watch-flexy #above-the-fold button[aria-label="Save to playlist"] svg,
 html[watch-metadata-style] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer svg,
 html[watch-metadata-style] ytd-watch-flexy #above-the-fold button[aria-label="Share"] svg,
-html[watch-metadata-style] ytd-watch-flexy #above-the-fold button[aria-label="More actions"] svg {
+html[watch-metadata-style] ytd-watch-flexy #above-the-fold button[aria-label="More actions"] svg,
+html[watch-metadata-style] ytd-watch-flexy #bt-place-metadata button[aria-label="Save to playlist"] svg,
+html[watch-metadata-style] ytd-watch-flexy #bt-place-metadata #top-level-buttons-computed ytd-button-renderer svg,
+html[watch-metadata-style] ytd-watch-flexy #bt-place-metadata button[aria-label="Share"] svg,
+html[watch-metadata-style] ytd-watch-flexy #bt-place-metadata button[aria-label="More actions"] svg {
 	display: var(--bt-wp-og-icons-display, none) !important;
 }
 html[watch-metadata-style^="hitchhiker"] button[aria-label="More actions"]::after {
@@ -312,8 +338,9 @@ html[watch-metadata-style^="cosmicpanda"] ytd-watch-metadata #actions.ytd-watch-
 }
 /* end */
 /* nonspecific blobl */
-html[watch-metadata-style^="aozora"] #bt-above yt-formatted-string,
-html[watch-metadata-style^="cosmicpanda"] #bt-above yt-formatted-string {
+html[watch-metadata-style^="stargazer"] #bt-above #title yt-formatted-string,
+html[watch-metadata-style^="aozora"] #bt-above #title yt-formatted-string,
+html[watch-metadata-style^="cosmicpanda"] #bt-above #title yt-formatted-string {
   display: block;
   text-overflow: "... (Scroll->)";
   white-space: nowrap;
@@ -366,4 +393,71 @@ html[watch-metadata-style] ytd-watch-metadata #bottom-row #action-buttons.ytd-vi
 /*Non-rounded buttons*/
 html[watch-metadata-style] ytd-watch-metadata #bottom-row .yt-spec-button-shape-next--size-m {
 	border-radius: 1px;
+}
+
+/* aozora blob */
+html[layout^="aozora"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button::after,
+html[layout^="stargazer"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button::after {
+  content: "More actions";
+  position: relative !important;
+  top: 0 !important;
+  height: auto !important;
+  width: max-content !important;
+  background: none !important;
+  padding-right: 2px;
+  font-size: 13px;
+  font-weight: normal;
+  margin-left: -21px;
+}
+html[layout^="aozora"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button,
+html[layout^="stargazer"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button {
+  width: fit-content;
+}
+
+/* Stargazer Blob */
+html[meta-on-side="true"] #bt-meta-side {
+  margin: calc(var(--ytd-margin-4x) * -1 - 2px) 0 0 15px;
+}
+#secondary #bt-meta-side ytd-watch-metadata.ytd-watch-flexy {
+  margin: 0 !important;
+}
+#bt-above #owner-sub-count.ytd-video-owner-renderer {
+  white-space: nowrap !important;
+}
+#actions.ytd-watch-metadata {
+  margin-top: 30px;
+  min-width: 0;
+}
+html[meta-on-side="true"] #bt-meta-side #owner {
+  position: absolute;
+  width: calc(var(--bt-related-width) - 12px);
+  margin-left: 6px !important;
+  margin-right: 0 !important;
+  margin-top: 6px;
+}
+html[watch-metadata-style^="stargazer"] {
+  --bt-wp-button-bg: none !important;
+  --bt-wp-button-border: none !important;
+  --bt-wp-button-text-color: var(--bt-blue) !important;
+  --bt-wp-button-padding: !important;
+  --bt-wp-button-font-weight: bold !important;
+}
+html[watch-metadata-style^="stargazer"] #above-the-fold .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal, 
+html[watch-metadata-style^="stargazer"] #bt-place-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+  background: none;
+  border: none !important;
+  color: var(--bt-blue) !important;
+  border-radius: var(--bt-wp-button-radius);
+  height: var(--bt-wp-button-height);
+  padding: var(--bt-wp-button-padding);
+  font-size: var(--bt-wp-button-font-size);
+  font-weight: bold !important;
+}
+html[watch-metadata-style^="stargazer"] ytd-watch-flexy #bt-place-metadata ytd-toggle-button-renderer button span {
+  color: var(--bt-blue) !important;
+}
+
+/* fix 2014 player? */
+html[watch-metadata-style] #secondary.ytd-watch-flexy {
+  margin-right: 0 !important;
 }

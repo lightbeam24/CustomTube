@@ -67,6 +67,9 @@ html[subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] #content
   max-width: 1136px !important;
   margin-top: 20px;
   padding: 16px 12px;
+  padding: 0 !important;
+  left: -14px;
+  position: relative;
 }
 html[static][homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
 html[static][channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer,
@@ -83,7 +86,7 @@ html[subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich
 html[static][homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer,
 html[static][channel-vidpage="smaller-grid"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer,
 html[static][subs-page="smaller-grid"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
-    --ytd-rich-grid-items-per-row: 3 !important;
+    --ytd-rich-grid-items-per-row: 4 !important;
     --ytd-rich-grid-item-margin: 4px !important;
 }
 html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-row,
@@ -152,10 +155,70 @@ html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] ytd-section-list-r
 /* Section Styles */
 /* sets grid width */
 /* pfp hide */
+html[grid-styling^="stargazer"] {
+--bt-small-grid-background: var(--bt-universal-white);
+--bt-small-grid-border: 1px solid var(--bt-gcp-ccc);
+--bt-small-grid-radius: 6px;
+--bt-small-grid-margin-top: 16px;
+--bt-homepage-small-grid-margin-top: 16px;
+--bt-small-grid-margin-left: -16px;
+--bt-small-grid-padding-top: 40px;
+--bt-small-grid-link-color: var(--bt-blue);
+--bt-small-grid-title-margin: 2px 0 1px 0;
+--bt-small-grid-title-font-size: 12px;
+--bt-small-grid-title-font-weight: 400;
+--bt-small-grid-title-line-height: 1.2em;
+--bt-small-grid-title-max-height: 2.4em;
+--bt-small-grid-title-text-decoration-hover: underline;
+--bt-small-grid-hover-meta-text-decoration: underline;
+--bt-small-grid-meta-block-byline-line-height: 1.2rem;
+--bt-small-grid-meta-block-line-height: 1.4rem;
+--bt-small-grid-meta-block-font-size: 11px;
+--bt-small-grid-meta-block-text-color: var(--bt-text-color-3);
+--bt-small-grid-pfp-display: none;
+--bt-small-grid-section-display: none;
+
+--bt-small-grid-thumb-margin: 0;
+--bt-small-grid-thumb-inner-width: 138px;
+--bt-small-grid-thumb-inner-height: 77px;
+--bt-small-grid-thumb-inner-radius: 3px;
+--bt-small-grid-thumb-inner-bg: var(--yt-spec-base-background);
+--bt-small-grid-thumb-inner-padding: 4px;
+--bt-small-grid-thumb-inner-border: 1px solid #d3d3d3;
+}
+html[grid-styling^="aozora"] {
+--bt-small-grid-background: var(--bt-universal-white);
+--bt-small-grid-margin-top: 28px;
+--bt-homepage-small-grid-margin-top: 28px;
+--bt-small-grid-link-color: var(--bt-blue);
+--bt-small-grid-title-margin: 2px 0 1px 0;
+--bt-small-grid-title-font-size: 12px;
+--bt-small-grid-title-font-weight: 400;
+--bt-small-grid-title-line-height: 1.2em;
+--bt-small-grid-title-max-height: 2.4em;
+--bt-small-grid-title-text-decoration-hover: underline;
+--bt-small-grid-hover-meta-text-decoration: underline;
+--bt-small-grid-meta-block-byline-line-height: 1.2rem;
+--bt-small-grid-meta-block-line-height: 1.4rem;
+--bt-small-grid-meta-block-font-size: 11px;
+--bt-small-grid-meta-block-text-color: var(--bt-text-color-3);
+--bt-small-grid-pfp-display: none;
+--bt-small-grid-section-display: none;
+
+--bt-small-grid-thumb-margin: 0;
+--bt-small-grid-thumb-inner-width: 138px;
+--bt-small-grid-thumb-inner-height: 77px;
+--bt-small-grid-thumb-inner-radius: 3px;
+--bt-small-grid-thumb-inner-bg: var(--yt-spec-base-background);
+--bt-small-grid-thumb-inner-padding: 4px;
+--bt-small-grid-thumb-inner-border: 1px solid #d3d3d3;
+}
 html[grid-styling^="cosmicpanda"] {
 --bt-small-grid-background: var(--bt-universal-white);
+--bt-small-grid-margin-top: -10px;
+--bt-homepage-small-grid-margin-top: -10px;
 --bt-small-grid-link-color: var(--bt-blue);
---bt-small-grid-title-margin: 4px 0 1px 0;
+--bt-small-grid-title-margin: 2px 0 1px 0;
 --bt-small-grid-title-font-size: 13px;
 --bt-small-grid-title-font-weight: 500;
 --bt-small-grid-title-line-height: 1.3em;
@@ -186,6 +249,9 @@ html[grid-styling^="hitchhiker"] {
 --bt-small-grid-meta-block-text-color: var(--bt-text-color-3);
 --bt-small-grid-pfp-display: none;
 --bt-small-grid-section-display: none;
+}
+html[grid-styling^="hitchhiker-2013"] {
+--bt-homepage-small-grid-margin-top: 28px;
 }
 html[grid-styling^="polymer-2019"],
 html[grid-styling^="polymer-2020"],
@@ -219,6 +285,14 @@ html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="c
 html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer {
   background: var(--bt-small-grid-background);
   box-shadow: var(--bt-small-grid-box-shadow);
+  border: var(--bt-small-grid-border);
+  border-radius: var(--bt-small-grid-radius);
+  padding-top: var(--bt-small-grid-padding-top, 16px) !important;
+  margin-top: var(--bt-small-grid-margin-top, 22px) !important;
+  margin-left: var(--bt-small-grid-margin-left, 0);
+}
+html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  margin-top: var(--bt-homepage-small-grid-margin-top, 60px) !important;
 }
 html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] #avatar-link.ytd-rich-grid-media,
 html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] #avatar-link.ytd-rich-grid-media,
@@ -271,6 +345,27 @@ html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="c
 html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] ytd-video-meta-block #metadata a:hover {
   text-decoration: var(--bt-small-grid-hover-meta-text-decoration);
 }
+html[grid-styling^="aozora"]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] a#thumbnail,
+html[grid-styling^="stargazer"]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] a#thumbnail,
+/*
+html[grid-styling^="aozora"]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] a#thumbnail,
+*/
+html[grid-styling^="aozora"]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] a#thumbnail,
+html[grid-styling^="stargazer"]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] a#thumbnail {
+  height: var(--bt-small-grid-thumb-inner-height) !important;
+  width: var(--bt-small-grid-thumb-inner-width) !important;
+  border: var(--bt-small-grid-thumb-inner-border);
+  padding: var(--bt-small-grid-thumb-inner-padding);
+  border-radius: var(--bt-small-grid-thumb-inner-radius) !important;
+  background: var(--bt-small-grid-thumb-inner-bg);
+  margin: var(--bt-small-grid-thumb-margin);
+}
+html[grid-styling^="aozora"] ytd-thumbnail.ytd-rich-grid-media::before, 
+html[grid-styling^="aozora"] ytd-playlist-thumbnail.ytd-rich-grid-media::before,
+html[grid-styling^="stargazer"] ytd-thumbnail.ytd-rich-grid-media::before, 
+html[grid-styling^="stargazer"] ytd-playlist-thumbnail.ytd-rich-grid-media::before {
+  background: none;
+}
 /*html[grid-styling] ytd-rich-section-renderer {
 	display: var(--bt-small-grid-section-display);
 }*/
@@ -294,10 +389,27 @@ html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] #details.ytd-ric
   display: flex;
   flex-direction: row;
 }
+html[homepage="small-list"] ytd-browse[page-subtype="home"] #details.ytd-rich-grid-media,
+html[channel-vidpage="small-list"] ytd-browse[page-subtype="channels"] #details.ytd-rich-grid-media,
+html[subs-page="small-list"] ytd-browse[page-subtype="subscriptions"] #details.ytd-rich-grid-media {
+  position: absolute;
+  margin: 0 -500px 0 154px !important;
+  flex: auto;
+  display: flex;
+  flex-direction: row;
+}
 /* list layout margins and stuff */
 html[homepage="list"] ytd-browse[page-subtype="home"] ytd-rich-grid-row #contents.ytd-rich-grid-row,
 html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-row #contents.ytd-rich-grid-row,
 html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-row #contents.ytd-rich-grid-row {
+  width: 100%;
+  margin: 0 -3px;
+  display: inline-grid;
+  max-width: 100% !important;
+}
+html[homepage="small-list"] ytd-browse[page-subtype="home"] ytd-rich-grid-row #contents.ytd-rich-grid-row,
+html[channel-vidpage="small-list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-row #contents.ytd-rich-grid-row,
+html[subs-page="small-list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-row #contents.ytd-rich-grid-row {
   width: 100%;
   margin: 0 -3px;
   display: inline-grid;
@@ -311,10 +423,27 @@ html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-re
   min-width: 203px;
   max-width: 203px;
 }
+html[homepage="small-list"] ytd-browse[page-subtype="home"] ytd-rich-item-renderer,
+html[channel-vidpage="small-list"] ytd-browse[page-subtype="channels"] ytd-rich-item-renderer,
+html[subs-page="small-list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer {
+  margin-bottom: -60px !important;
+  height: 156px !important;
+  min-width: 146px;
+  max-width: 146px;
+}
+html[grid-styling][homepage="small-list"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  padding-top: 40px !important;
+  border: none !important;
+}
 /* text */
 html[homepage="list"] ytd-browse[page-subtype="home"] ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media,
 html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media,
 html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media {
+  margin-bottom: 2px;
+}
+html[homepage="small-list"] ytd-browse[page-subtype="home"] ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media,
+html[channel-vidpage="small-list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media,
+html[subs-page="small-list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media {
   margin-bottom: 2px;
 }
 /* text title */
@@ -324,10 +453,21 @@ html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] h3.ytd-rich-grid
   color: var(--yt-spec-text-primary);
   margin: 3px 0;
 }
+html[homepage="small-list"] ytd-browse[page-subtype="home"] h3.ytd-rich-grid-media,
+html[channel-vidpage="small-list"] ytd-browse[page-subtype="channels"] h3.ytd-rich-grid-media,
+html[subs-page="small-list"] ytd-browse[page-subtype="subscriptions"] h3.ytd-rich-grid-media {
+  color: var(--yt-spec-text-primary);
+  margin: 3px 0;
+}
 /* thumbnails */
 html[homepage="list"] ytd-browse[page-subtype="home"] ytd-rich-grid-media[mini-mode],
 html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-media[mini-mode],
 html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-media[mini-mode] {
+  max-width: 200px;
+}
+html[homepage="small-list"] ytd-browse[page-subtype="home"] ytd-rich-grid-media[mini-mode],
+html[channel-vidpage="small-list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-media[mini-mode],
+html[subs-page="small-list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-media[mini-mode] {
   max-width: 200px;
 }
 /* pfp NEW */
@@ -338,9 +478,22 @@ html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] #avatar-link.ytd
   margin-top: 25px;
   margin-right: -30px;
 }
+html[homepage="small-list"] ytd-browse[page-subtype="home"] #avatar-link.ytd-rich-grid-media,
+html[channel-vidpage="small-list"] ytd-browse[page-subtype="channels"] #avatar-link.ytd-rich-grid-media,
+html[subs-page="small-list"] ytd-browse[page-subtype="subscriptions"] #avatar-link.ytd-rich-grid-media {
+  height: 30px;
+  margin-top: 25px;
+  margin-right: -30px;
+}
 html[homepage="list"] ytd-browse[page-subtype="home"] #avatar.ytd-rich-grid-media,
 html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] #avatar.ytd-rich-grid-media,
 html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] #avatar.ytd-rich-grid-media {
+  width: 30px;
+  height: 30px;
+}
+html[homepage="small-list"] ytd-browse[page-subtype="home"] #avatar.ytd-rich-grid-media,
+html[channel-vidpage="small-list"] ytd-browse[page-subtype="channels"] #avatar.ytd-rich-grid-media,
+html[subs-page="small-list"] ytd-browse[page-subtype="subscriptions"] #avatar.ytd-rich-grid-media {
   width: 30px;
   height: 30px;
 }
@@ -361,11 +514,22 @@ html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-r
 html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer #contents.ytd-rich-grid-renderer {
   padding-top: 8px !important;
 }
+html[homepage="small-list"] ytd-browse[page-subtype="home"] ytd-rich-grid-renderer #contents.ytd-rich-grid-renderer,
+html[channel-vidpage="small-list"] ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer #contents.ytd-rich-grid-renderer,
+html[subs-page="small-list"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer #contents.ytd-rich-grid-renderer {
+  padding-top: 8px !important;
+}
 html[homepage="list"] ytd-browse[page-subtype="home"] #video-title-link.ytd-rich-grid-media,
 html[channel-vidpage="list"] ytd-browse[page-subtype="channels"] #video-title-link.ytd-rich-grid-media, 
 html[subs-page="list"] ytd-browse[page-subtype="subscriptions"] #video-title-link.ytd-rich-grid-media {
   display: block;
 }
+html[homepage="small-list"] ytd-browse[page-subtype="home"] #video-title-link.ytd-rich-grid-media,
+html[channel-vidpage="small-list"] ytd-browse[page-subtype="channels"] #video-title-link.ytd-rich-grid-media, 
+html[subs-page="small-list"] ytd-browse[page-subtype="subscriptions"] #video-title-link.ytd-rich-grid-media {
+  display: block;
+}
+
 
 
 /* for channel grid */
@@ -440,6 +604,10 @@ html[grid-styling^="aozora"] {
   --bt-ytd-grid-video-width: 201px;
   --bt-ytd-grid-video-height: 113px;
 }
+html[grid-styling^="stargazer"] {
+  --bt-ytd-grid-video-width: 201px;
+  --bt-ytd-grid-video-height: 113px;
+}
 html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-video-renderer #video-title.yt-simple-endpoint,
 html[grid-styling]:not([grid-styling^="polymer"]) ytd-grid-playlist-renderer #video-title.yt-simple-endpoint{
   color: var(--bt-small-grid-link-color, revert);
@@ -475,9 +643,51 @@ html[grid-styling] #items.yt-horizontal-list-renderer > .yt-horizontal-list-rend
 }
 
 /* home grid fix */
-html[homepage="small-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
-html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+html[homepage="small-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
   margin-top: 60px !important;
+}
+html[homepage="smaller-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  margin-top: 44px !important;
+}
+html[homepage="small-list"][layout^="stargazer"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer::before {
+  content: "Featured Videos";
+  font-size: 19px;
+  color: var(--bt-sidebar-non-item-text-color);
+  text-transform: var(--bt-sidebar-non-item-text-transform);
+  font-weight: bold;
+  padding: var(--bt-sidebar-non-item-padding, 6px 12px 4px);
+  border-bottom: var(--bt-sidebar-non-item-border-bottom);
+  position: absolute;
+  width: 650px;
+  margin-top: -38px;
+  margin-left: 10px;
+  font-family: arial !important;
+}
+html[homepage="smaller-grid"][layout^="stargazer"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer::before {
+  content: "Recommended for You";
+  font-size: 16px;
+  color: var(--bt-sidebar-non-item-text-color);
+  text-transform: var(--bt-sidebar-non-item-text-transform);
+  font-weight: 600;
+  padding: 5px 8px;
+  border-bottom: var(--bt-sidebar-non-item-border-bottom);
+  position: absolute;
+  width: 634px;
+  margin-top: -40px;
+  background: #eaeaea;
+  border-radius: 6px 6px 0 0;
+}
+html[homepage="smaller-grid"][layout^="aozora"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer::before {
+  content: "Recommended";
+  font-size: var(--bt-sidebar-non-item-font-size);
+  color: var(--bt-sidebar-non-item-text-color);
+  text-transform: var(--bt-sidebar-non-item-text-transform);
+  font-weight: var(--bt-sidebar-non-item-font-weight);
+  padding: var(--bt-sidebar-non-item-padding, 6px 12px 4px);
+  border-bottom: var(--bt-sidebar-non-item-border-bottom);
+  position: absolute;
+  width: 650px;
+  margin-top: -38px;
 }
 html[homepage="rich-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer, 
 html:not([homepage]) ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {

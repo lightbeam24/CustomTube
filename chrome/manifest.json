@@ -1,8 +1,8 @@
 {
     "name": "CustomTube",
-    "version": "1.1.0.3",
+    "version": "1.2.0",
     "description": "Choose your own YouTube layout, and more!",
-    "permissions": ["tabs", "storage"],
+    "permissions": ["storage"],
     "action": {
       "default_popup": "popup.html",
       "default_icon": {
@@ -48,6 +48,7 @@
 		"css/polymer.css",
 		"css/sub-btn.css",
 		"css/menus.css",
+		"css/player.css",
 		"css/global-color-palette.css",
 		"compatibility.css"
 		],

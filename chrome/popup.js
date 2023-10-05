@@ -420,6 +420,13 @@ function saveSettings() {
 			newSettings[videoPlayerSize[i].name] = videoPlayerSize[i].value;
 		}
 	}
+	//save videoPlayerStyle radio buttons
+	let videoPlayerStyle = document.querySelectorAll('input[type="radio"][name="videoPlayerStyle"]');
+	for (let i = 0; i < videoPlayerStyle.length; i++) {
+		if (videoPlayerStyle[i].checked) {
+			newSettings[videoPlayerStyle[i].name] = videoPlayerStyle[i].value;
+		}
+	}
 	//save hideShortsSubs radio buttons
 	let hideShortsSubs = document.querySelectorAll('input[type="radio"][name="hideShortsSubs"]');
 	for (let i = 0; i < hideShortsSubs.length; i++) {
@@ -452,6 +459,31 @@ function saveSettings() {
 	if (!newSettings.showNew) {
 		document.querySelector("body").setAttribute("show-new", "false");
 	}
+	/*if (!currentSettings.configWindowCTColors) {
+		document.querySelector("body").setAttribute("ct-colors", "false");
+	}
+	if (currentSettings.configWindowCTColors) {
+		document.querySelector("body").setAttribute("ct-colors", "true");
+	}
+	if (newSettings.configWindowCTColors) {
+		document.querySelector("body").setAttribute("ct-colors", "true");
+	}
+	if (!newSettings.configWindowCTColors) {
+		document.querySelector("body").setAttribute("ct-colors", "false");
+	}
+	if (!currentSettings.configWindowCTColorsText) {
+		document.querySelector("body").setAttribute("ct-colors-text", "false");
+	}
+	if (currentSettings.configWindowCTColorsText) {
+		document.querySelector("body").setAttribute("ct-colors-text", "true");
+	}
+	if (newSettings.configWindowCTColorsText) {
+		document.querySelector("body").setAttribute("ct-colors-text", "true");
+	}
+	if (!newSettings.configWindowCTColorsText) {
+		document.querySelector("body").setAttribute("ct-colors-text", "false");
+	}
+	*/
 	storage.set({BTConfig: newSettings});
 }
 function getSettings() {
@@ -459,6 +491,13 @@ function getSettings() {
 	if (currentSettings.showNew) {
 		document.querySelector("body").setAttribute("show-new", "true");
 	}
+	/*if (currentSettings.configWindowCTColors) {
+		document.querySelector("body").setAttribute("ct-colors", "true");
+	}
+	if (currentSettings.configWindowCTColorsText) {
+		document.querySelector("body").setAttribute("ct-colors-text", "true");
+	}
+	*/
 	if (currentSettings.noFlexy) {
 		document.querySelector("body").setAttribute("no-flexy", "true");
 	}
@@ -484,6 +523,7 @@ function getSettings() {
 	document.querySelector(`input[type="radio"][value="${currentSettings.subsVidsPerRow}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.videoRendererSize}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.videoPlayerSize}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.videoPlayerStyle}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.hideShortsSubs}"]`).checked = true;
 }
 

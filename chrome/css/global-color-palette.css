@@ -505,6 +505,8 @@ html[global-color-palette^="hitchhiker-2013"] {
 /* color */
 --bt-blue: var(--bt-gcp-2014-blue-1);
 --bt-spec-blue: var(--bt-gcp-2014-blue-1);
+/* section */
+--bt-section-box-shadow: none;
 }
 html[global-color-palette^="hitchhiker-2013"] {
 /* surface */
@@ -546,6 +548,14 @@ html[global-color-palette^="cosmicpanda"] {
 --bt-section-bg: var(--bt-gcp-2017-surface-color-1);
 }
 html[global-color-palette^="aozora"] {
+/* color */
+--bt-blue: var(--bt-gcp-2011-blue-1);
+--bt-spec-blue: var(--bt-gcp-2011-blue-1);
+
+/* surface */
+--bt-site-bg: var(--bt-gcp-2011-surface-color-1) !important;
+}
+html[global-color-palette^="stargazer"] {
 /* color */
 --bt-blue: var(--bt-gcp-2011-blue-1);
 --bt-spec-blue: var(--bt-gcp-2011-blue-1);

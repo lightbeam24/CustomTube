@@ -31,9 +31,9 @@ html[pseudo-static] #primary.ytd-watch-flexy {
   padding-right: 0;
 }
 html[pseudo-static] ytd-watch-flexy #primary.ytd-watch-flexy {
-  width: 640px !important;
-  min-width: 640px !important;
-  max-width: 640px !important;
+  width: 641px !important;
+  min-width: 641px !important;
+  max-width: 641px !important;
 }
 /* SubSection Video */
 /* This code seems to make videos work pretty much perfectly, except for non 16:9 videos. The min-height property is required for 4:3 videos to keep a consistent width. */
@@ -57,11 +57,11 @@ html[pseudo-static] ytd-watch-flexy[flexy] {
            --ytd-watch-flexy-height-ratio: 9 !important;
            --ytd-watch-flexy-space-below-player: 136px;
            --ytd-watch-flexy-non-player-height: 360px !important;
-           --ytd-watch-flexy-non-player-width: 640px !important;
+           --ytd-watch-flexy-non-player-width: 641px !important;
            --ytd-watch-flexy-min-player-height: 360px !important;
-           --ytd-watch-flexy-min-player-width: 640px !important;
+           --ytd-watch-flexy-min-player-width: 641px !important;
            --ytd-watch-flexy-max-player-height: 360px !important;
-           --ytd-watch-flexy-max-player-width: 640px !important;
+           --ytd-watch-flexy-max-player-width: 641px !important;
 }
 html[pseudo-static] {
 --bt-player-width: 640px;
@@ -111,4 +111,7 @@ html[pseudo-static] .html5-video-container video {
 	left:0 !important;
 	top: 0 !important;
 	object-fit: contain !important;
+}
+html[pseudo-static] #player {
+  width: 641px;
 }

@@ -2,7 +2,7 @@
 
 ![Mainfull](https://github.com/lightbeam24/CustomTube/assets/105595945/e9e27f41-4587-4f4c-b505-525520a62e73)
 
-What if you could just CHOOSE your YouTube layout? Well, now you can! CustomTube lets you use any YouTube layout from 2012-2021!
+What if you could just CHOOSE your YouTube layout? Well, now you can! CustomTube lets you use almost any YouTube layout from 2008-2021!
 
 [![Firefox](https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/en-CA/firefox/addon/customtube/)
 [![Chrome](https://wd.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/RQMv2HZ0v6NKfFn7XCeU.png?auto=format&w=228)](https://chromewebstore.google.com/detail/customtube/iedffooliepgabiihipcbokboecnfcbe)

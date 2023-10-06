@@ -265,7 +265,7 @@ html[watch-metadata-style^="aozora"] {
 --bt-wp-og-icons-display: none;
 }
 html[watch-metadata-style^="cosmicpanda"] {
---bt-wp-og-icons-display: block;
+--bt-wp-og-icons-display: none;
 }
 html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-og-icons-display: none;
@@ -395,6 +395,34 @@ html[watch-metadata-style] ytd-watch-metadata #bottom-row .yt-spec-button-shape-
 	border-radius: 1px;
 }
 
+/* cosmic panda blob */
+html[layout^="cosmicpanda"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button::after {
+  content: "More actions";
+  position: relative !important;
+  top: 0 !important;
+  height: auto !important;
+  width: max-content !important;
+  background: none !important;
+  padding-right: 2px;
+  margin-left: -21px;
+  color: var(--bt-wp-button-text-color);
+  font-size: var(--bt-wp-button-font-size);
+  font-weight: var(--bt-wp-button-font-weight);
+}
+html[watch-metadata-style^="cosmicpanda"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content span {
+	visibility: hidden;
+}
+html[watch-metadata-style^="cosmicpanda"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content span::after {
+  visibility: visible !important;
+  content: "Add to";
+  position: relative;
+  font-family: var(--bt-watch-metadata-buttons-font-family, arial);
+  color: var(--bt-wp-button-text-color);
+  font-size: var(--bt-wp-button-font-size);
+  font-weight: var(--bt-wp-button-font-weight);
+  margin-left: -23px;
+}
+
 /* aozora blob */
 html[layout^="aozora"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button::after,
 html[layout^="stargazer"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button::after {
@@ -409,9 +437,10 @@ html[layout^="stargazer"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-
   font-weight: normal;
   margin-left: -21px;
 }
+html[layout^="cosmicpanda"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button,
 html[layout^="aozora"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button,
 html[layout^="stargazer"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button {
-  width: fit-content;
+  width:  fit-content;
 }
 
 /* Stargazer Blob */
@@ -460,4 +489,74 @@ html[watch-metadata-style^="stargazer"] ytd-watch-flexy #bt-place-metadata ytd-t
 /* fix 2014 player? */
 html[watch-metadata-style] #secondary.ytd-watch-flexy {
   margin-right: 0 !important;
+}
+
+/* prob ok to stay as blob */
+html[watch-metadata-style^="cosmicpanda"] #bt-above ytd-channel-name #text-container {
+	padding-right: 8px;
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above ytd-channel-name a {
+  display: var(--bt-standard-btn-display);
+  height: calc(var(--bt-standard-btn-height) - 4px);
+  border: var(--bt-standard-btn-border);
+  border-color: var(--bt-standard-btn-border-color, currentcolor);
+  padding: 4px 10px 0 10px;
+  color: var(--bt-standard-btn-text-color) !important;
+  background: var(--bt-standard-btn-bg);
+  outline: var(--bt-standard-btn-outline);
+  font-weight: var(--bt-standard-btn-font-weight);
+  font-size: var(--bt-standard-btn-font-size);
+  text-shadow: var(--bt-standard-btn-text-shadow);
+  text-decoration: var(--bt-standard-btn-text-decoration);
+  cursor: var(--bt-standard-btn-cursor);
+  border-radius: var(--bt-standard-btn-radius);
+  box-shadow: var(--bt-standard-btn-box-shadow);
+  text-transform: var(--bt-standard-btn-text-transform);
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above ytd-channel-name a:hover {
+  border: var(--bt-standard-btn-border-hover);
+  border-color: var(--bt-standard-btn-border-color-hover, currentcolor);
+  background: var(--bt-standard-btn-bg-hover);
+  box-shadow: var(--bt-standard-btn-box-shadow-hover);
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above ytd-channel-name a:active,
+html[watch-metadata-style^="cosmicpanda"] #bt-above ytd-channel-name a:focus {
+  border: var(--bt-standard-btn-border-active);
+  border-color: var(--bt-standard-btn-border-color-active, currentcolor);
+  background: var(--bt-standard-btn-bg-active);
+  box-shadow: var(--bt-standard-btn-box-shadow-active);
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above #owner-sub-count.ytd-video-owner-renderer {
+ /* margin-left: 610px !important; */
+  display: block !important;
+  height: calc(var(--bt-channel-sub-button-height) - 6px) !important;
+  border: var(--bt-standard-btn-border);
+  border-color: var(--bt-standard-btn-border-color, currentcolor);
+  padding: 6px 10px 0 10px;
+  color: var(--bt-standard-btn-text-color) !important;
+  background: var(--bt-standard-btn-bg);
+  outline: var(--bt-standard-btn-outline);
+  font-weight: var(--bt-standard-btn-font-weight);
+  font-size: var(--bt-standard-btn-font-size);
+  text-shadow: var(--bt-standard-btn-text-shadow);
+  text-decoration: var(--bt-standard-btn-text-decoration);
+  cursor: var(--bt-standard-btn-cursor);
+  border-radius: var(--bt-standard-btn-radius);
+  box-shadow: var(--bt-standard-btn-box-shadow);
+  text-transform: var(--bt-standard-btn-text-transform);
+  max-height: 50px;
+  margin-left: -8px !important;
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above #owner-sub-count.ytd-video-owner-renderer:hover {
+  border: var(--bt-standard-btn-border-hover);
+  border-color: var(--bt-standard-btn-border-color-hover, currentcolor);
+  background: var(--bt-standard-btn-bg-hover);
+  box-shadow: var(--bt-standard-btn-box-shadow-hover);
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above #owner-sub-count.ytd-video-owner-renderer:active,
+html[watch-metadata-style^="cosmicpanda"] #bt-above #owner-sub-count.ytd-video-owner-renderer:focus {
+  border: var(--bt-standard-btn-border-active);
+  border-color: var(--bt-standard-btn-border-color-active, currentcolor);
+  background: var(--bt-standard-btn-bg-active);
+  box-shadow: var(--bt-standard-btn-box-shadow-active);
 }

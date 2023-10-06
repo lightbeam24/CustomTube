@@ -355,7 +355,7 @@ html[search-bar-style^="aozora-2011"] {
 --bt-static-searchbar-width: 365px;
 /* container ytd searchbox */
 --bt-searchbar-input-box-shadow: inset 0 0px 0px rgba(0,0,0,0.0);
---bt-searchbar-input-border: 1px solid #ccc;
+--bt-searchbar-input-border: 1px solid #999;
 --bt-searchbar-input-border-right: 1px solid transparent;
 --bt-searchbar-input-padding: 2px 4px 2px 6px;
 --bt-searchbar-input-radius: 0;
@@ -380,6 +380,13 @@ Redir: See Material Search Bar
 --bt-search-btn-radius: 0 3px 3px 0;
 --bt-search-btn-border: 1px solid var(--bt-standard-btn-border-color-2);
 --bt-search-btn-bg: var(--bt-standard-btn-bg);
+--bt-search-btn-box-shadow: var(--bt-standard-btn-box-shadow);
+--bt-search-btn-box-shadow-hover: var(--bt-standard-btn-box-shadow-hover);
+--bt-search-btn-border-hover: 1px solid var(--bt-standard-btn-border-color-hover);
+--bt-search-btn-bg-hover: var(--bt-standard-btn-bg-hover);
+--bt-search-btn-box-shadow-active: var(--bt-standard-btn-box-shadow-active);
+--bt-search-btn-border-active: 1px solid var(--bt-standard-btn-border-color-active);
+--bt-search-btn-bg-active: var(--bt-standard-btn-bg-active);
 --bt-search-btn-content-display: block;
 /* search button icon */
 --bt-search-btn-icon-display: none;

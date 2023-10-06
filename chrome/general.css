@@ -1038,3 +1038,13 @@ html[static] ytd-two-column-browse-results-renderer[page-subtype="history"][has-
 html[layout^="aozora"][channel-style^="aozora"] ytd-app ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer {
     padding-top: 32px !important;
 }
+
+/* font */
+html[layout^="stargazer"] span,
+html[layout^="stargazer"] yt-formatted-string,
+html[layout^="aozora"] span,
+html[layout^="aozora"] yt-formatted-string,
+html[layout^="comsicpanda"] span,
+html[layout^="cosmicpanda"] yt-formatted-string {
+  font-family: arial !important;
+}

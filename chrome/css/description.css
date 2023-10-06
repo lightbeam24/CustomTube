@@ -255,6 +255,7 @@ html[watch-metadata-style^="cosmicpanda"] {
 --bt-desc-expand-text-color-hover: #555;
 --bt-desc-expand-inner-bg: transparent;
 --bt-desc-expand-inner-bg-hover: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
+--bt-desc-expand-inner-border-bottom: 1px solid transparent;
 --bt-desc-expand-inner-border-bottom-hover: 1px solid #999;
 --bt-desc-expand-inner-width: 82px;
 --bt-desc-expand-inner-height: 18px;

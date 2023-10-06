@@ -411,6 +411,7 @@ html[watch-metadata-style^="hitchhiker"] ytd-subscription-notification-toggle-bu
   display: block;
   margin-top: 6px;
 }
+html[watch-metadata-style^="cosmicpanda"] ytd-subscription-notification-toggle-button-renderer-next .yt-spec-button-shape-next__icon svg,
 html[watch-metadata-style^="hitchhiker"] ytd-subscription-notification-toggle-button-renderer-next .yt-spec-button-shape-next__icon svg {
   display: var(--bt-subbed-btn-og-icon-display, none) !important;
 }
@@ -465,6 +466,7 @@ html[watch-metadata-style="polymer-2019"] #notification-preference-button .yt-sp
   margin-right: 26px;
 }
 /* arrow */
+html[watch-metadata-style^="cosmicpanda"] #notification-preference-button .yt-spec-button-shape-next__secondary-icon,
 html[watch-metadata-style^="hitchhiker"] #notification-preference-button .yt-spec-button-shape-next__secondary-icon,
 html[watch-metadata-style="polymer-2019"] #notification-preference-button .yt-spec-button-shape-next__secondary-icon {
   display: none;
@@ -519,3 +521,95 @@ html[watch-metadata-style^="cosmicpanda"]:not([subscribed="true"])  #subscribe-b
   margin-top: 10px;
 }
 /* end */
+html[watch-metadata-style^="cosmicpanda"] {
+--bt-wp-sub-button-height: var(--bt-standard-btn-height-no-inner-margin, var(--bt-standard-btn-height));
+--bt-wp-sub-button-bg: var(--bt-standard-btn-bg);
+--bt-wp-sub-button-bg-hover: var(--bt-standard-btn-bg-hover);
+--bt-wp-sub-button-bg-active: var(--bt-standard-btn-bg-active);
+--bt-wp-sub-button-border: var(--bt-standard-btn-border);
+--bt-wp-sub-button-border-hover: var(--bt-standard-btn-border-hover);
+--bt-wp-sub-button-border-active: var(--bt-standard-btn-border-active);
+--bt-wp-sub-button-border-color: var(--bt-standard-btn-border-color);
+--bt-wp-sub-button-border-color-hover: var(--bt-standard-btn-border-color-hover);
+--bt-wp-sub-button-border-color-active: var(--bt-standard-btn-border-color-active);
+--bt-wp-sub-button-box-shadow: var(--bt-standard-btn-box-shadow);
+--bt-wp-sub-button-box-shadow-hover: var(--bt-standard-btn-box-shadow-hover);
+--bt-wp-sub-button-box-shadow-active: var(--bt-standard-btn-box-shadow-active);
+--bt-wp-sub-button-text-color: var(--bt-standard-btn-text-color);
+--bt-wp-sub-button-text-shadow: var(--bt-standard-btn-text-shadow);
+--bt-wp-sub-button-radius: var(--bt-standard-btn-radius);
+--bt-wp-sub-button-font-weight: var(--bt-standard-btn-font-weight);
+--bt-wp-sub-button-font-size: var(--bt-standard-btn-font-size);
+--bt-wp-sub-button-padding: var(--bt-standard-btn-padding);
+}
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #subscribe-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--filled,
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #notification-preference-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+  background: var(--bt-wp-sub-button-bg) !important;
+  border: var(--bt-wp-sub-button-border) !important;
+  border-color: var(--bt-wp-sub-button-border-color) !important;
+  box-shadow: var(--bt-wp-sub-button-box-shadow) !important;
+  color: var(--bt-wp-sub-button-text-color) !important;
+  border-radius: var(--bt-wp-sub-button-radius) !important;
+  height: calc(var(--bt-wp-sub-button-height) + 2px) !important;
+  padding: 0 0 0 14px !important;
+  font-size: var(--bt-wp-sub-button-font-size) !important;
+  font-weight: var(--bt-wp-sub-button-font-weight) !important;
+  text-shadow: var(--bt-wp-sub-button-text-shadow) !important;
+  margin-top: -3px;
+  margin-left: -42px;
+  margin-left: -28px;
+  width: 106px;
+}
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #subscribe-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--filled span,
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #notification-preference-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal span {
+  color: var(--bt-wp-sub-button-text-color) !important;
+  text-shadow: var(--bt-wp-sub-button-text-shadow) !important;
+}
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #subscribe-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--filled:hover,
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #notification-preference-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal:hover {
+  background: var(--bt-wp-sub-button-bg-hover) !important;
+  border: var(--bt-wp-button-border-hover) !important;
+  border-color: var(--bt-wp-sub-button-border-color-hover) !important;
+  box-shadow: var(--bt-wp-sub-button-box-shadow-hover) !important;
+}
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #subscribe-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--filled:active,
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #notification-preference-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal:active {
+  background: var(--bt-wp-sub-button-bg-active) !important;
+  border: var(--bt-wp-sub-button-border-active) !important;
+  border-color: var(--bt-wp-sub-button-border-color-active) !important;
+  box-shadow: var(--bt-wp-sub-button-box-shadow-active) !important;
+}
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled::before,
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled:hover::before {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-refresh-vflrvDBWB.png) -276px -142px;
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: relative;
+  margin-left: -18px;
+  margin-top: 0px;
+  margin-right: 10px;
+}
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #notification-preference-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal::before {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-refresh-vflrvDBWB.png) -291px -94px;
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: relative;
+  margin-left: -18px;
+  margin-top: 0px;
+  margin-right: 10px;
+}
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #notification-preference-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover::before {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-refresh-vflrvDBWB.png) -309px -113px;
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: relative;
+  margin-left: -18px;
+  margin-top: 0px;
+  margin-right: 10px;
+}
+html[watch-metadata-style^="cosmicpanda"] ytd-watch-flexy #notification-preference-button .yt-spec-button-shape-next__icon {
+  display: none;
+}

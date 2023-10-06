@@ -2364,6 +2364,12 @@ function createNewElements() {
 		if (BTConfig.layoutSelect == "stargazer-2008-1") {
 			newElem.setAttribute("stargazer-style", "cta");
 		}
+		if (
+		BTConfig.layoutSelect == "aozora-2011" ||
+		BTConfig.layoutSelect == "cosmicpanda-3"
+		) {
+			newElem.setAttribute("is-link", "");
+		}
 		newElem.innerHTML = `
 		<a id="upload-btn" href="https://www.youtube.com/upload">
 			<span bt-lang="en">Upload</span>

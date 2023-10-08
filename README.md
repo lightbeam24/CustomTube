@@ -21,7 +21,7 @@ CustomTube is currently only tested with these extensions/scripts:
 
 [Restore YouTube Username from Handle to Custom](https://greasyfork.org/en/scripts/468740-restore-youtube-username-from-handle-to-custom)
 
-Using it with other extensions or scripts (such as Enhancer for YouTube) often causes issues and is therefore not recommended.
+Using it with other extensions or scripts often causes issues and is therefore not recommended.
 
 Screenshots:
 -

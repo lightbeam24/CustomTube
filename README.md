@@ -9,7 +9,19 @@ What if you could just CHOOSE your YouTube layout? Well, now you can! CustomTube
 
 CustomTube does not collect user data. I don't even know how to program that and I wouldn't want to anyway.
 
-Credits are below screenshots.
+Compatible Extensions:
+-
+CustomTube is currently only tested with these extensions/scripts:
+
+[Return YouTube Dislike](https://github.com/Anarios/return-youtube-dislike)
+
+[Annotations Restored for YouTube](https://github.com/isaackd/AnnotationsRestored)
+
+[uBlock Origin](https://github.com/gorhill/uBlock)
+
+[Restore YouTube Username from Handle to Custom](https://greasyfork.org/en/scripts/468740-restore-youtube-username-from-handle-to-custom)
+
+Using it with other extensions or scripts (such as Enhancer for YouTube) often causes issues and is therefore not recommended.
 
 Screenshots:
 -

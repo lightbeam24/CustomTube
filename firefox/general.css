@@ -1048,3 +1048,117 @@ html[layout^="comsicpanda"] span,
 html[layout^="cosmicpanda"] yt-formatted-string {
   font-family: arial !important;
 }
+
+/* dropdowns */
+html[button-style^="hitchhiker"] {
+--bt-yt-dropdown-btn-flex-dir: row-reverse;
+--bt-yt-dropdown-btn-icon-margin-left: 4px;
+--bt-yt-dropdown-btn-icon-margin-right: 0;
+}
+html[button-style^="cosmicpanda"] {
+--bt-yt-dropdown-btn-flex-dir: row-reverse;
+--bt-yt-dropdown-btn-icon-margin-left: 4px;
+--bt-yt-dropdown-btn-icon-margin-right: 0;
+}
+html[button-style^="aozora"] {
+--bt-yt-dropdown-btn-flex-dir: row-reverse;
+--bt-yt-dropdown-btn-icon-margin-left: 4px;
+--bt-yt-dropdown-btn-icon-margin-right: 0;
+}
+html[button-style^="stargazer"] {
+--bt-yt-dropdown-btn-flex-dir: row-reverse;
+--bt-yt-dropdown-btn-icon-margin-left: 4px;
+--bt-yt-dropdown-btn-icon-margin-right: 0;
+}
+html[button-style]:not([button-style^="polymer"]) tp-yt-paper-button.yt-dropdown-menu {
+  padding: var(--bt-standard-btn-padding) !important;
+  background: var(--bt-standard-btn-bg);
+  border: var(--bt-standard-btn-border);
+  height: var(--bt-standard-btn-height);
+  border-color: var(--bt-standard-btn-border-color);
+  border-radius: var(--bt-standard-btn-radius);
+  text-shadow: var(--bt-standard-btn-text-shadow);
+  box-shadow: var(--bt-standard-btn-box-shadow);
+  
+  flex-direction: var(--bt-yt-dropdown-btn-flex-dir) !important;
+}
+html[button-style]:not([button-style^="polymer"]) tp-yt-paper-button.yt-dropdown-menu:hover {
+  background: var(--bt-standard-btn-bg-hover);
+  border-color: var(--bt-standard-btn-border-color-hover);
+  box-shadow: var(--bt-standard-btn-box-shadow-hover);
+}
+html[button-style]:not([button-style^="polymer"]) tp-yt-paper-button.yt-dropdown-menu[aria-expanded="true"]{
+  background: var(--bt-standard-btn-bg-active);
+  border-color: var(--bt-standard-btn-border-color-active);
+  box-shadow: var(--bt-standard-btn-box-shadow-active);
+}
+html[button-style]:not([button-style^="polymer"]) #icon-label.yt-dropdown-menu,
+html[button-style]:not([button-style^="polymer"]) #label-text.yt-dropdown-menu {
+  font-size: var(--bt-standard-btn-font-size);
+  font-weight: var(--bt-standard-btn-font-weight);
+  color: var(--bt-standard-btn-text-color);
+  letter-spacing: 0;
+}
+html[button-style]:not([button-style^="polymer"]) yt-icon.yt-dropdown-menu {
+  margin-left: var(--bt-yt-dropdown-btn-icon-margin-left);
+  margin-right: var(--bt-yt-dropdown-btn-icon-margin-right) !important;
+  position: absolute;
+  visibility: hidden;
+}
+/* tooltips */
+/* tooltip */
+html[button-style^="hitchhiker"] {
+--bt-tooltip-bg: #000;
+--bt-tooltip-border: none;
+--bt-tooltip-radius: 2px;
+--bt-tooltip-text-color: #fff;
+--bt-tooltip-box-shadow: 0 1px 1px rgba(0,0,0,.25);
+--bt-tooltip-padding: 0.5em;
+--bt-tooltip-font-size: 11px;
+--bt-tooltip-font-family: arial;
+--bt-tooltip-line-height: normal;
+}
+html[button-style^="cosmicpanda"] {
+--bt-tooltip-bg: linear-gradient(to bottom,#4a4a4a 0,#000 100%);
+--bt-tooltip-border: none;
+--bt-tooltip-radius: 2px;
+--bt-tooltip-text-color: #fff;
+--bt-tooltip-box-shadow: 0 0 3px #333;
+--bt-tooltip-padding: 0.75em;
+--bt-tooltip-font-size: 12px;
+--bt-tooltip-font-family: arial;
+--bt-tooltip-line-height: normal;
+}
+html[button-style^="aozora"] {
+--bt-tooltip-bg: rgba(0,0,0,0.85);
+--bt-tooltip-border: 1px solid #ccc;
+--bt-tooltip-radius: 5px;
+--bt-tooltip-text-color: #fff;
+--bt-tooltip-box-shadow: 0px 0px 3px #333;
+--bt-tooltip-padding: 0.5em;
+--bt-tooltip-font-size: 12px;
+--bt-tooltip-font-family: arial;
+--bt-tooltip-line-height: normal;
+}
+html[button-style^="stargazer"] {
+--bt-tooltip-bg: rgba(0,0,0,0.85);
+--bt-tooltip-border: 1px solid #ccc;
+--bt-tooltip-radius: 5px;
+--bt-tooltip-text-color: #fff;
+--bt-tooltip-box-shadow: 0px 0px 3px #333;
+--bt-tooltip-padding: 0.5em;
+--bt-tooltip-font-size: 12px;
+--bt-tooltip-font-family: arial;
+--bt-tooltip-line-height: normal;
+}
+html[button-style]:not([button-style^="polymer"]) tp-yt-paper-tooltip .tp-yt-paper-tooltip[style-target="tooltip"] {
+  background: var(--bt-tooltip-bg);
+  border: var(--bt-tooltip-border);
+  border-radius: var(--bt-tooltip-radius) !important;
+  color: var(--bt-tooltip-text-color);
+  box-shadow: var(--bt-tooltip-box-shadow);
+  padding: var(--bt-tooltip-padding);
+  font-size: var(--bt-tooltip-font-size);
+  font-family: var(--bt-tooltip-font-family) !important;
+  line-height: var(--bt-tooltip-line-height);
+}

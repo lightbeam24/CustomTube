@@ -1,5 +1,6 @@
 // NOTE: CustomTube's codename is BeamTube, which is why "bt" appears everywhere in the code.
 
+sessionStorage.setItem("RYD_Compat_Warning","Show");
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -1838,7 +1839,7 @@ var urlListen = setInterval(function()
 
 		//setTimeout(getHref, 100);
 		if (BTConfig.loopByDefault) {
-			waitFor('video', 4000, prepForLoopVideo);
+			waitFor('#movie_player:not(.ad-showing) video', 4000, prepForLoopVideo);
 		}
        
     }
@@ -3587,8 +3588,12 @@ function watchPageEveryLoad() {
 		}
 		function doCounts() {
 			var starRating = sessionStorage.getItem("star-rating");
-			let likeCount = document.querySelector("#segmented-like-button span").textContent;
+			//let likeCount = document.querySelector("#segmented-like-button span").textContent;
+			let likeCount = sessionStorage.getItem("nebula-like-count");
+			var cutLCString = likeCount.split(' l');
+			likeCount = cutLCString[0];
 			document.querySelector("#lc").innerText = likeCount;
+			//document.querySelector("#bt-like-string").innerText = likeCount;
 			//document.querySelector("#lc").innerText = starRating + "stars";
 			if (BTConfig.iUseRYD) {
 				let dislikeCount = document.querySelector("#segmented-dislike-button span").textContent;
@@ -3846,97 +3851,271 @@ function watchPageEveryLoad() {
 				document.querySelector("html[location='watch'] ytd-watch-flexy #subscribe-button #notification-preference-button yt-button-shape span").innerText = "Subscribed " + " " + trimmedSubCount;
 			}
 		}
-
 		waitFor("html:not([no-ryd]) #segmented-dislike-button span", 1000, getRydCounts);
 		function getRydCounts() {
-			var rydPercent =  document.querySelector("#ryd-bar").style.width;
-			document.querySelector("#bt-bar likes").style.width = rydPercent;
-			document.querySelector("#bt-bar #bt-ltod").setAttribute("title", rydPercent + " of viewers like this video");
-			var rydPercentTrimmed = rydPercent.split('%');
-			var stars = rydPercentTrimmed[0];
-			/*if (stars <= 100) {
-				var starRating = 5;
-				document.querySelector("#bt-stars").setAttribute("rating", "5.0");
+			if (document.querySelector("#ryd-bar") != null) {
+				continueRydCounts();
 			}
-			if (stars <= 90) {
-				var starRating = 4.5;
-				document.querySelector("#bt-stars").setAttribute("rating", "4.5");
+			else if (document.querySelector("#ryd-bar") == null) {
+				setTimeout(checkAgain, 2000);
 			}
-			if (stars <= 80) {
-				var starRating = 4;
-				document.querySelector("#bt-stars").setAttribute("rating", "4.0");
+			function checkAgain() {
+				var showWarning = sessionStorage.getItem("RYD_Compat_Warning");
+				if (document.querySelector("#ryd-bar") != null) {
+					continueRydCounts();
+				}
+				else if (
+				document.querySelector("#ryd-bar") == null &&
+				document.querySelector(".animated-rolling-number-wiz") != null &&
+				showWarning == "Show"
+				) {
+					warnUser();
+				}
+				function warnUser() {
+				//	alert("[CustomTube] Return YouTube Dislike either failed to load correctly or is not installed. This will prevent CustomTube from fully constructing the watch page. Try disabling 'Re-format like numbers' in Return YouTube Dislike settings. If that doesn't fix it, turn off 'Enable Return YouTube Dislike Compatibility' in CustomTube settings. CustomTube will now attempt to construct the page, but will most likely fail.");
+					sessionStorage.setItem("RYD_Compat_Warning","Hide");
+				//	continueRydCounts();
+				//document.querySelector("#bt-bar likes").style.width = "0%";
+				//document.querySelector("#bt-bar #bt-ltod").setAttribute("title","Return YouTube Dislike bar not found. Try disabling 'Re-format like numbers' in Return YouTube Dislike settings. If that doesn't fix it, turn off 'Enable Return YouTube Dislike Compatibility' in CustomTube settings.");
+				//document.querySelector("#bt-stars").setAttribute("rating", "0.0");
+			//	document.querySelector("#bt-bar #bt-stars").setAttribute("title","Return YouTube Dislike bar not found. Try disabling 'Re-format like numbers' in Return YouTube Dislike settings. If that doesn't fix it, turn off 'Enable Return YouTube Dislike Compatibility' in CustomTube settings.");;
+				createWarningBlock();
+				function createWarningBlock() {
+					let container = document.querySelector('ytd-watch-flexy');
+					const newElem = document.createElement("div");
+					newElem.id = 'bt-ryd-alert-banner';
+					newElem.setAttribute("class", "bt-universalized-element bt-banner bt-alert-banner");
+					newElem.setAttribute("bt-optimized-universal-element", "");
+					newElem.setAttribute("title", "");
+					newElem.innerHTML = `
+					<style>
+					.bt-banner {
+					  width: calc(var(--bt-player-width) + 402px);
+					  margin: 0 auto;
+					  border: 1px solid;
+					  color: #fff;
+					  text-shadow: 0 0 1px rgba(0,0,0,.45);
+					  padding: 10px;
+					  font-size: 13px;
+					  font-weight: bold;
+					  margin-top: 15px;
+					}
+					html[pseudo-static] .bt-banner {
+					  margin-left: 220px;
+					  width: 1000px;
+					}
+					html[static] .bt-banner {
+					  margin-left: 0;
+					  width: 978px;
+					}
+					.bt-alert-banner {
+					  background: #c00;	
+					  border-color: #b11b1b;
+					}
+					html[layout^="polymer"] .bt-alert-banner {
+					  background: var(--yt-spec-10-percent-layer);
+					  color: var(--yt-spec-text-secondary);
+					  border-radius: 2px;
+					  border: none;
+					  text-shadow: none;
+					}
+					/*html[layout="hitchhiker-2017"] .bt-alert-banner {
+					  background: #f00;	
+					  border-color: #e11b1b;
+					}*/
+					html[layout="hitchhiker-2013-1"] .bt-alert-banner {
+					  background: #a93630;	
+					  border-color: #a11b1b;
+					}
+					html[layout^="cosmicpanda"] .bt-alert-banner {
+					  background: linear-gradient(to bottom,#c95145 0,#913d37 45px);
+					  border-radius: 3px;
+					  border: none;
+					  box-shadow: 0 1px 2px rgba(0,0,0,.5),inset 0 0 1px rgba(0,0,0,.2);
+					  text-shadow: 0 -1px 1px rgba(0,0,0,.45);
+					}
+					html[layout^="aozora"] .bt-alert-banner,
+					html[layout^="stargazer"] .bt-alert-banner {
+					  background: #000;
+					  color: #fff;
+					  border-radius: 5px;
+					  border-color: #000;
+					}
+					html[layout^="aozora"][dark] .bt-alert-banner,
+					html[layout^="stargazer"][dark] .bt-alert-banner {
+					  border-color: #fff;
+					}
+					.bt-banner-inner {
+					  display: flex;
+					}
+					.bt-alert-banner .bt-banner-left-inner {
+					  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflaJ9wdK.png) 0 -238px;
+					}
+					html[layout^="cosmicpanda"] .bt-alert-banner .bt-banner-left-inner {
+					  background: no-repeat url(https://s.ytimg.com/yt/imgbin/www-refresh-vflmpZ5kj.png) -22px 0;
+					}
+					html[layout^="aozora"] .bt-alert-banner .bt-banner-left-inner,
+					html[layout^="stargazer"] .bt-alert-banner .bt-banner-left-inner {
+					  background: no-repeat url(https://s.ytimg.com/yt/imgbin/www-master-vflai4i-q.png) -135px -40px;
+					}
+					html[layout^="polymer"] .bt-alert-banner .bt-banner-left {
+						display: none;
+					}
+					.bt-banner-left {
+					  margin-right: 36px;
+					}
+					.bt-banner-left-inner {
+					  height: 34px;
+					  width: 34px;
+					}
+					.bt-banner-middle {
+					  margin: 0 15px 0 0;
+					  text-align: center;
+					}
+					.bt-banner-close {
+					  margin:0;
+					  padding:10px;
+					  opacity:.5;
+					  -moz-border-radius:0;
+					  -webkit-border-radius:0;
+					  border-radius:4px;
+					  background: none;
+					  border: none;
+					  filter: brightness(10);
+					  cursor: pointer;
+					}
+					.bt-banner-close:hover {
+					  opacity:1;
+					  background-color: rgba(0,0,0,0.25);
+					}
+					.bt-banner-close div {
+					  background:no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflaJ9wdK.png) -163px -255px;
+					  width:9px;
+					  height:9px;
+					}
+					html[layout^="polymer"] .bt-banner-close {
+					  filter: invert(1);
+					}
+					</style>
+					<div class="bt-banner-inner">
+						<div class="bt-banner-left">
+							<div class="bt-banner-left-inner">
+							</div>
+						</div>
+						<div class="bt-banner-middle">
+							<div class="bt-banner-middle-inner">
+								<span>Due to a new change made by YouTube, Return YouTube Dislike failed to load correctly,
+								preventing CustomTube from fully loading this page. 
+								Either turn off 'Re-format like numbers' in Return YouTube Dislike settings, or
+								turn off 'Enable Return YouTube Dislike Compatibility' in CustomTube settings.
+								</span>
+							</div>
+						</div>
+						<div class="bt-banner-right">
+							<div class="bt-banner-right-inner">
+								<button class="bt-banner-close" onclick="document.querySelector('#bt-ryd-alert-banner').remove();">
+									<div></div>
+								</button>
+							</div>
+						</div>
+					</div>
+					`;
+					container.insertBefore(newElem, container.children[0]);
+				}
 			}
-			if (stars <= 70) {
-				var starRating = 3.5;
-				document.querySelector("#bt-stars").setAttribute("rating", "3.5");
 			}
-			if (stars <= 60) {
-				var starRating = 3;
-				document.querySelector("#bt-stars").setAttribute("rating", "3.0");
+			function continueRydCounts() {
+				var rydPercent =  document.querySelector("#ryd-bar").style.width;
+				document.querySelector("#bt-bar likes").style.width = rydPercent;
+				document.querySelector("#bt-bar #bt-ltod").setAttribute("title", rydPercent + " of viewers like this video");
+				var rydPercentTrimmed = rydPercent.split('%');
+				var stars = rydPercentTrimmed[0];
+				/*if (stars <= 100) {
+					var starRating = 5;
+					document.querySelector("#bt-stars").setAttribute("rating", "5.0");
+				}
+				if (stars <= 90) {
+					var starRating = 4.5;
+					document.querySelector("#bt-stars").setAttribute("rating", "4.5");
+				}
+				if (stars <= 80) {
+					var starRating = 4;
+					document.querySelector("#bt-stars").setAttribute("rating", "4.0");
+				}
+				if (stars <= 70) {
+					var starRating = 3.5;
+					document.querySelector("#bt-stars").setAttribute("rating", "3.5");
+				}
+				if (stars <= 60) {
+					var starRating = 3;
+					document.querySelector("#bt-stars").setAttribute("rating", "3.0");
+				}
+				if (stars <= 50) {
+					var starRating = 2.5;
+					document.querySelector("#bt-stars").setAttribute("rating", "2.5");
+				}
+				if (stars <= 40) {
+					var starRating = 2;
+					document.querySelector("#bt-stars").setAttribute("rating", "2.0");
+				}
+				if (stars <= 30) {
+					var starRating = 1.5;
+					document.querySelector("#bt-stars").setAttribute("rating", "1.5");
+				}
+				if (stars <= 20) {
+					var starRating = 1;
+					document.querySelector("#bt-stars").setAttribute("rating", "1.0");
+				}
+				if (stars <= 10) {
+					var starRating = 0.5;
+					document.querySelector("#bt-stars").setAttribute("rating", "0.5");
+				}
+				if (stars <= 0) {
+					var starRating = 0;
+					document.querySelector("#bt-stars").setAttribute("rating", "0.0");
+				}*/
+				if (stars <= 100) {
+					var starRating = 5;
+					document.querySelector("#bt-stars").setAttribute("rating", "5.0");
+				}
+				if (stars <= 89) {
+					var starRating = 4.5;
+					document.querySelector("#bt-stars").setAttribute("rating", "4.5");
+				}
+				if (stars <= 78) {
+					var starRating = 4;
+					document.querySelector("#bt-stars").setAttribute("rating", "4.0");
+				}
+				if (stars <= 67) {
+					var starRating = 3.5;
+					document.querySelector("#bt-stars").setAttribute("rating", "3.5");
+				}
+				if (stars <= 55) {
+					var starRating = 3;
+					document.querySelector("#bt-stars").setAttribute("rating", "3.0");
+				}
+				if (stars <= 44) {
+					var starRating = 2.5;
+					document.querySelector("#bt-stars").setAttribute("rating", "2.5");
+				}
+				if (stars <= 33) {
+					var starRating = 2;
+					document.querySelector("#bt-stars").setAttribute("rating", "2.0");
+				}
+				if (stars <= 22) {
+					var starRating = 1.5;
+					document.querySelector("#bt-stars").setAttribute("rating", "1.5");
+				}
+				if (stars <= 11) {
+					var starRating = 1;
+					document.querySelector("#bt-stars").setAttribute("rating", "1.0");
+				}
+				sessionStorage.setItem("star-rating", starRating);
+				let likeCount = sessionStorage.getItem("nebula-like-count");
+				let dislikeCount = document.querySelector("#segmented-dislike-button span").textContent;
+				document.querySelector("#bt-bar #bt-stars").setAttribute("title", starRating + " stars (" + likeCount + ", " + dislikeCount + " dislikes, " + rydPercent + " liked)");
+				//document.querySelector("#bt-bar").setAttribute("title", stars + " of viewers like this video");
 			}
-			if (stars <= 50) {
-				var starRating = 2.5;
-				document.querySelector("#bt-stars").setAttribute("rating", "2.5");
-			}
-			if (stars <= 40) {
-				var starRating = 2;
-				document.querySelector("#bt-stars").setAttribute("rating", "2.0");
-			}
-			if (stars <= 30) {
-				var starRating = 1.5;
-				document.querySelector("#bt-stars").setAttribute("rating", "1.5");
-			}
-			if (stars <= 20) {
-				var starRating = 1;
-				document.querySelector("#bt-stars").setAttribute("rating", "1.0");
-			}
-			if (stars <= 10) {
-				var starRating = 0.5;
-				document.querySelector("#bt-stars").setAttribute("rating", "0.5");
-			}
-			if (stars <= 0) {
-				var starRating = 0;
-				document.querySelector("#bt-stars").setAttribute("rating", "0.0");
-			}*/
-			if (stars <= 100) {
-				var starRating = 5;
-				document.querySelector("#bt-stars").setAttribute("rating", "5.0");
-			}
-			if (stars <= 89) {
-				var starRating = 4.5;
-				document.querySelector("#bt-stars").setAttribute("rating", "4.5");
-			}
-			if (stars <= 78) {
-				var starRating = 4;
-				document.querySelector("#bt-stars").setAttribute("rating", "4.0");
-			}
-			if (stars <= 67) {
-				var starRating = 3.5;
-				document.querySelector("#bt-stars").setAttribute("rating", "3.5");
-			}
-			if (stars <= 55) {
-				var starRating = 3;
-				document.querySelector("#bt-stars").setAttribute("rating", "3.0");
-			}
-			if (stars <= 44) {
-				var starRating = 2.5;
-				document.querySelector("#bt-stars").setAttribute("rating", "2.5");
-			}
-			if (stars <= 33) {
-				var starRating = 2;
-				document.querySelector("#bt-stars").setAttribute("rating", "2.0");
-			}
-			if (stars <= 22) {
-				var starRating = 1.5;
-				document.querySelector("#bt-stars").setAttribute("rating", "1.5");
-			}
-			if (stars <= 11) {
-				var starRating = 1;
-				document.querySelector("#bt-stars").setAttribute("rating", "1.0");
-			}
-			sessionStorage.setItem("star-rating", starRating);
-			document.querySelector("#bt-bar #bt-stars").setAttribute("title", starRating + " stars (" + rydPercent + " upvoted)");
-			//document.querySelector("#bt-bar").setAttribute("title", stars + " of viewers like this video");
 		}
 		//}
 
@@ -3971,6 +4150,15 @@ var repeatedActions = setInterval(function()
 			window.location.reload();
 		}
 	}
+	/* always show sidebar old layouts 
+	if (document.querySelector("html[static]") != null) {
+		if (document.querySelector("#guide[persistent]") == null) {
+			document.querySelector("#guide").setAttribute("persistent","");			
+			document.querySelector("#guide").setAttribute("opened","");
+			document.querySelector("ytd-app").setAttribute("guide-persistent-and-visible","");
+		}
+	}
+	*/
 	if (BTConfig.alwaysShowSidebar) {
 		if (document.querySelector("#guide[persistent]") == null) {
 			if (document.querySelector("ytd-watch-flexy[fullscreen]") == null) {
@@ -4140,6 +4328,7 @@ function retrieveDataAttribute() {
 		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer != null) {
 			var wpViewCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
 			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.dateText.simpleText;
+			var wpLikeCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].segmentedLikeDislikeButtonRenderer.likeButton.toggleButtonRenderer.defaultText.accessibility.accessibilityData.label;
 			var wpSubCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.subscriberCountText.simpleText;
 			if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.isLive != null) {
 				setTimeout(retrieveDataAttribute, 5000);
@@ -4149,9 +4338,11 @@ function retrieveDataAttribute() {
 		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer == null) {
 			var wpViewCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
 			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.dateText.simpleText;
+			var wpLikeCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].segmentedLikeDislikeButtonRenderer.likeButton.toggleButtonRenderer.defaultText.accessibility.accessibilityData.label;
 			var wpSubCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[2].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.subscriberCountText.simpleText;
 		}
 		sessionStorage.setItem("nebula-upload-date", wpUploadDate);
+		sessionStorage.setItem("nebula-like-count", wpLikeCount);
 		sessionStorage.setItem("nebula-sub-count", wpSubCount);
 		if (wpViewCount != null) {
 			sessionStorage.setItem("nebula-view-count", wpViewCount);

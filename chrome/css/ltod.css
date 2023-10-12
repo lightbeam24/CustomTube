@@ -249,6 +249,14 @@ html[watch-metadata-style] ytd-watch-flexy #segmented-dislike-button ytd-toggle-
 html[watch-metadata-style] ytd-watch-flexy #segmented-dislike-button ytd-toggle-button-renderer button[aria-pressed="true"] span {
   color: var(--bt-toggle-button-text-color-3) !important;
 }
+/* wiz rolling number */
+html[watch-metadata-style] #segmented-like-button .animated-rolling-number-wiz {
+  color: var(--bt-toggle-button-text-color-2) !important;
+  font-size: var(--bt-toggle-button-font-size) !important;
+}
+html[watch-metadata-style] #segmented-like-button button[aria-pressed="true"] .animated-rolling-number-wiz {
+  color: var(--bt-toggle-button-text-color-4) !important;
+}
 html[watch-metadata-style] #bt-like,
 html[watch-metadata-style] #bt-dislike {
 	display: var(--bt-toggle-button-icon-display);
@@ -687,6 +695,10 @@ html[watch-metadata-style^="stargazer"] #bt-counts .bti {
 .bts {
   margin-left: 2px;
 }
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #segmented-buttons-wrapper button,
+html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold #segmented-buttons-wrapper button {
+  border: 1px solid transparent;
+}
 html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #segmented-like-button button,
 html[watch-metadata-style^="hitchhiker-2013-1"] #above-the-fold:hover #segmented-dislike-button button {
   background: linear-gradient(to bottom,#fcfcfc 0,#f8f8f8 100%) !important;
@@ -714,7 +726,8 @@ html[watch-metadata-style^="hitchhiker-2013"] #segmented-dislike-button button {
   border: 1px solid transparent;
 }
 /* 2012-2014 */
-html[classic-ltod-strings="true"] #segmented-like-button ytd-toggle-button-renderer button span::after {
+html[classic-ltod-strings="true"] #segmented-like-button ytd-toggle-button-renderer button span::after,
+html[classic-ltod-strings="true"] #segmented-like-button ytd-toggle-button-renderer button .animated-rolling-number-wiz::after  {
   content: "Like";
   opacity: 1 !important;
   position: absolute;
@@ -722,7 +735,33 @@ html[classic-ltod-strings="true"] #segmented-like-button ytd-toggle-button-rende
   margin-top: -36px;
   display: block;
 }
-html[classic-ltod-strings="true"] #segmented-like-button ytd-toggle-button-renderer button span {
+html[watch-metadata-style] {
+--bt-watch-metadata-wiz-like-count-after-top: 36px;
+}
+html[watch-metadata-style^="hitchhiker-2014"],
+html[watch-metadata-style^="hitchhiker-2013"] {
+--bt-watch-metadata-wiz-like-count-after-top: 34px;
+}
+html[watch-metadata-style^="cosmicpanda"] {
+--bt-watch-metadata-wiz-like-count-after-top: 33px;
+--bt-watch-metadata-wiz-like-count-after-font-weight: bold;
+}
+html[watch-metadata-style^="aozora"] {
+--bt-watch-metadata-wiz-like-count-after-top: 29px;
+--bt-watch-metadata-wiz-like-count-after-font-weight: normal;	
+}
+html[watch-metadata-style^="stargazer"] {
+--bt-watch-metadata-wiz-like-count-after-top: 29px;
+--bt-watch-metadata-wiz-like-count-after-font-weight: bold;	
+--bt-watch-metadata-wiz-like-count-after-text-color: var(--bt-blue);
+}
+html[classic-ltod-strings="true"] #segmented-like-button ytd-toggle-button-renderer button .animated-rolling-number-wiz::after {
+  top: var(--bt-watch-metadata-wiz-like-count-after-top);
+  font-weight: var(--bt-watch-metadata-wiz-like-count-after-font-weight);
+  color: var(--bt-watch-metadata-wiz-like-count-after-text-color);
+}
+html[classic-ltod-strings="true"] #segmented-like-button ytd-toggle-button-renderer button span,
+html[classic-ltod-strings="true"] #segmented-like-button ytd-toggle-button-renderer button .animated-rolling-number-wiz {
   width: 0px;
   display: block;
 }
@@ -742,4 +781,13 @@ html[classic-ltod-strings="true"][watch-metadata-style^="hitchhiker"] #segmented
 }
 html[classic-ltod-strings="true"][watch-metadata-style^="hitchhiker"] #segmented-dislike-button button {
   width: 38px !important;
+}
+/* patch */
+html[watch-metadata-style^="aozora"] #actions-inner.ytd-watch-metadata {
+  flex-direction: row !important;
+}
+html[watch-metadata-style^="aozora"] #segmented-dislike-button button,
+html[watch-metadata-style^="stargazer"] #segmented-dislike-button button {
+  width: 28px;
+  padding: 0 6px 0 2px !important;
 }

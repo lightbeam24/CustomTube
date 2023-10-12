@@ -76,7 +76,7 @@ html[button-style^="stargazer"] {
 --bt-standard-btn-outer-margin-right: 8px;
 /* inner normal */
 --bt-standard-btn-display: flex;
---bt-standard-btn-height: 2.0833em;
+--bt-standard-btn-height: 25px;
 --bt-standard-btn-padding: 0 .5em;
 --bt-standard-btn-box-shadow: none;
 --bt-standard-btn-border: 1px solid;
@@ -114,7 +114,7 @@ html[button-style^="aozora"] {
 --bt-standard-btn-outer-margin-right: 8px;
 /* inner normal */
 --bt-standard-btn-display: flex;
---bt-standard-btn-height: 2.0833em;
+--bt-standard-btn-height: 25px; /* 2.0833em */
 --bt-standard-btn-padding: 0 .5em;
 --bt-standard-btn-box-shadow: none;
 --bt-standard-btn-border: 1px solid;
@@ -409,7 +409,7 @@ html[button-style^="cosmicpanda"] {
   display: var(--bt-standard-btn-outer-display);
   margin-right: var(--bt-standard-btn-outer-margin-right);
 }
-html[dark][layout]:not([layout^="polymer"]):not([layout^="hitchhiker"]):not([layout^="cosmicpanda"]) .bt-standard-button:not([is-link]) {
+html[dark][layout]:not([layout^="polymer"]):not([layout^="hitchhiker"]):not([layout^="cosmicpanda"]):not([layout^="stargazer"]) .bt-standard-button:not([is-link]) {
   filter: invert(1);
 }
 .bt-standard-button:not([is-link]) span {
@@ -696,6 +696,8 @@ html[layout^="polymer"] #dropdown-btn:active {
   border-width: 4px 4px 0;
   width: 0;
   height: 0;
+  content: "";
+  visibility: visible !important;
 }
 tp-bt-titanium-dropdown:not([bt-visible]) {
   display: none;

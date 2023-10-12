@@ -35,6 +35,9 @@ html[show-upload-date-next-to-pfp] #above-the-fold #info-container {
 html[watch-metadata-style^="stargazer"] #published-on {
   display: none !important;
 }
+html[watch-metadata-style] ytd-watch-info-text {
+  display: none;
+}
 /* IMPORTANT: THIS IS UNIVERSAL */
 /* BTSection description */
 html[watch-metadata-style] {
@@ -125,7 +128,7 @@ html[watch-metadata-style^="stargazer"] {
 --bt-watch-metadata-desc-outer-margin-right: 0;
 --bt-watch-metadata-desc-inner-margin: 50px 4px 4px 4px;
 --bt-watch-metadata-desc-inner-margin-bottom: -4px;
---bt-watch-metadata-desc-min-width: 0;
+--bt-watch-metadata-desc-min-width: min(450px,100%);
 --bt-watch-metadata-desc-max-width: 320px !important;
 /* snippet */
 --bt-desc-snippet-mask-image: none;
@@ -399,7 +402,7 @@ html[watch-metadata-style] #secondary #description.ytd-watch-metadata {
   box-shadow: var(--bt-watch-metadata-desc-box-shadow);
   margin-left: var(--bt-watch-metadata-desc-margin-left);
   margin-top: var(--bt-watch-metadata-desc-margin-top, 12px) !important;
-  min-width: var(--bt-watch-metadata-desc-min-width, unset);
+  min-width: var(--bt-watch-metadata-desc-min-width, min(450px,100%));
   max-width: var(--bt-watch-metadata-desc-max-width, unset) !important;
   margin-right: var(--bt-watch-metadata-desc-outer-margin-right, 12px);
 }

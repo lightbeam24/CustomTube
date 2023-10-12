@@ -326,8 +326,9 @@ html[channel-style] ytd-channel-avatar-editor yt-icon {
   display: none;
 }
 /* channel name */
-html[channel-style]:not([channel-style^="polymer"])  #channel-name.ytd-c4-tabbed-header-renderer {
-  margin-top: var(--bt-channel-page-channel-name-outer-margin-top); /* 4px */
+html[channel-style]:not([channel-style^="polymer"]) #channel-name.ytd-c4-tabbed-header-renderer {
+  margin-top: var(--bt-channel-page-channel-name-outer-margin-top);
+  display: flex;
 }
 html[channel-style]:not([channel-style^="polymer"]) #meta.ytd-c4-tabbed-header-renderer {
   min-width: var(--bt-channel-page-meta-min-width, 150px); /* 110px */

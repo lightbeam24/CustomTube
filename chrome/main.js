@@ -4363,4 +4363,4 @@ function retrieveDataAttribute() {
 	if (convertedYtdData.page == "channel") {
 		waitFor("#bt-chan-vids-dropdown", 200, getChannelVidsSort);
 	}	
-}
+} 

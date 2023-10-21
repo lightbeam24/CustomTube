@@ -2,7 +2,22 @@
 
 ![Mainfull](https://github.com/lightbeam24/CustomTube/assets/105595945/e9e27f41-4587-4f4c-b505-525520a62e73)
 
-What if you could just CHOOSE your YouTube layout? Well, now you can! CustomTube lets you use almost any YouTube layout from 2008-2021!
+What if you could just CHOOSE your YouTube layout? Well, now you can! CustomTube lets you use almost any YouTube layout from 2008-2021! It is also more accurate than YouTube Redux, examples created by ArbestRiAgain:
+
+Home Page
+-
+YouTube Redux
+<img width="1440" alt="Screenshot 2023-10-21 at 4 07 52 PM" src="https://github.com/ArbestRiAgain/CustomTube/assets/132712354/463e74a3-d594-4419-8d4b-1d26921d7151">
+CustomTube
+<img width="1440" alt="Screenshot 2023-10-21 at 4 08 15 PM" src="https://github.com/ArbestRiAgain/CustomTube/assets/132712354/1e62a7ad-2842-476b-8f16-cb687a145080">
+
+Watch Page
+-
+YouTube Redux
+<img width="1440" alt="Screenshot 2023-10-21 at 4 08 55 PM" src="https://github.com/ArbestRiAgain/CustomTube/assets/132712354/1a526793-620e-4817-9dac-d7482e82e6e8">
+CustomTube (+PlayerTube)
+<img width="1440" alt="Screenshot 2023-10-21 at 4 09 08 PM" src="https://github.com/ArbestRiAgain/CustomTube/assets/132712354/1fcc7838-782e-4f45-921a-c2e8497ea79b">
+
 
 [![Firefox](https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/en-CA/firefox/addon/customtube/)
 [![Chrome](https://wd.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/RQMv2HZ0v6NKfFn7XCeU.png?auto=format&w=228)](https://chromewebstore.google.com/detail/customtube/iedffooliepgabiihipcbokboecnfcbe)

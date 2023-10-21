@@ -2,7 +2,7 @@
 
 ![Mainfull](https://github.com/lightbeam24/CustomTube/assets/105595945/e9e27f41-4587-4f4c-b505-525520a62e73)
 
-What if you could just CHOOSE your YouTube layout? Well, now you can! CustomTube lets you use almost any YouTube layout from 2008-2021! It is also more accurate than YouTube Redux, examples created by ArbestRiAgain:
+What if you could just CHOOSE your YouTube layout? Well, now you can! CustomTube lets you use almost any YouTube layout from 2008-2021! It is also more accurate than YouTube Redux (at replicating the 2016 layout), examples created by ArbestRiAgain:
 
 Home Page
 -

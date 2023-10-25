@@ -160,7 +160,8 @@
 		a {
 		  color: #42a8ff;
 		}
-		html:not([cr]) .cr-only {
+		html:not([cr]) .cr-only,
+		html[cr] .gk-only {
 		  display: none;
 		}
 		</style>
@@ -178,6 +179,22 @@
 		<div id="bottom">
 			<p class="title" id="clt">Changelog:</p>
 			<div id="changelog">
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.3 - October 25, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Improvement: The video titles on the related videos section are now less bold [This affects the 2019-2021 layouts]</p>
+						<p>- Fix: Fixed several issues caused by YouTube layout updates [This affects all layouts]</p>
+						<p>- Fix: The watch page would be messed up if you didn't have "Use Custom Player Size" enabled [This bug affected the 2008-2011 layouts]</p>
+						<p>- Fix: The video creator's profile picture would be very big on lower resolutions [This bug affected the 2008-Late 2009 layouts]</p>
+						<p>- Fix: The channel videos grid would clip into the dropdown button [This bug affected the 2019-2021 layouts]</p>
+						<p>- Fix: The player resizer should work more reliably now [Affects custom player sizes]</p>
+						<p>- Fix: Fixed Material Search Bar option</p>
+					</div>
+				</div>
 				<div class="changelog-inner">
 					<div class="title-area">
 						<div class="title" yellow>

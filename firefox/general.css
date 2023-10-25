@@ -718,7 +718,7 @@ html[thumbnail-style]:not([thumbnail-style^="polymer"])[related-videos-size^="la
   --bt-related-mix-thumbnail-icon-margin-top: -11px;
   --bt-related-mix-thumbnail-icon-margin-bottom: 11px;
 }
-html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer {
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer:not([use-modern-collections-v2]):not([use-modern-collections]) {
   width: var(--bt-mix-thumbnail-width);
   left: var(--bt-mix-thumbnail-left);
   height: var(--bt-mix-thumbnail-height);
@@ -726,7 +726,7 @@ html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbn
   display: var(--bt-mix-thumbnail-display);
   flex-direction: var(--bt-mix-thumbnail-flex-dir);
 }
-html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer::before {
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer:not([use-modern-collections-v2]):not([use-modern-collections])::before {
   content: var(--bt-mix-thumbnail-50-content);
   font-weight: var(--bt-mix-thumbnail-50-font-weight);
   font-family: var(--bt-mix-thumbnail-50-font-family);
@@ -736,12 +736,12 @@ html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbn
   line-height: var(--bt-mix-thumbnail-50-line-height);
   margin-top: var(--bt-mix-thumbnail-50-margin-top);
 }
-html[thumbnail-style]:not([thumbnail-style^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::before {
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer:not([use-modern-collections-v2]):not([use-modern-collections])::before {
   font-size: var(--bt-related-mix-thumbnail-50-font-size);
   line-height: var(--bt-related-mix-thumbnail-50-line-height);
   margin-top: var(--bt-related-mix-thumbnail-50-margin-top);
 }
-html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after {
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer:not([use-modern-collections-v2]):not([use-modern-collections]) yt-icon::after {
   content: var(--bt-mix-thumbnail-videos-content);
   text-transform: var(--bt-mix-thumbnail-videos-text-transform);
   font-family: var(--bt-mix-thumbnail-videos-font-family);
@@ -751,12 +751,12 @@ html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbn
   line-height: var(--bt-mix-thumbnail-videos-line-height);
   margin-top: var(--bt-mix-thumbnail-videos-margin-top);
 }
-html[thumbnail-style]:not([thumbnail-style^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer yt-icon::after {
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer:not([use-modern-collections-v2]):not([use-modern-collections]) yt-icon::after {
   font-size: var(--bt-related-mix-thumbnail-videos-font-size);
   line-height: var(--bt-related-mix-thumbnail-videos-line-height);
   margin-top: var(--bt-related-mix-thumbnail-videos-margin-top);
 }
-html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer::after {
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbnail-overlay-bottom-panel-renderer:not([use-modern-collections-v2]):not([use-modern-collections])::after {
   background: var(--bt-mix-thumbnail-icon-bg);
   background-size: var(--bt-mix-thumbnail-icon-bg-size);
   content: var(--bt-mix-thumbnail-icon-content);
@@ -766,7 +766,7 @@ html[thumbnail-style]:not([thumbnail-style^="polymer"]) ytd-thumbnail ytd-thumbn
   margin-top: var(--bt-mix-thumbnail-icon-margin-top);
   margin-bottom: var(--bt-mix-thumbnail-icon-margin-bottom);
 }
-html[thumbnail-style]:not([thumbnail-style^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer::after {
+html[thumbnail-style]:not([thumbnail-style^="polymer"]) #related ytd-compact-radio-renderer ytd-thumbnail-overlay-bottom-panel-renderer:not([use-modern-collections-v2]):not([use-modern-collections])::after {
   background: var(--bt-related-mix-thumbnail-icon-bg);
   width: var(--bt-related-mix-thumbnail-icon-size);
   height: var(--bt-related-mix-thumbnail-icon-size);

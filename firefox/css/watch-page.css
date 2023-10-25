@@ -34,6 +34,7 @@ html[watch-metadata-style^="stargazer"] {
 --bt-wp-title-text-color: var(--bt-text-color-5);
 --bt-wp-title-text-color-hover: var(--bt-text-color-5);
 --bt-wp-owner-pfp-display: block;
+--bt-owner-pfp-size: 48px;
 /* channel name */
 --bt-wp-channel-name-display: block;
 --bt-wp-channel-name-text-color: var(--bt-blue);

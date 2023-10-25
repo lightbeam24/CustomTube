@@ -559,11 +559,13 @@ html[player-style^="2013"][disable-flexy-player="true"] .ytp-big-mode .ytp-setti
 html[player-style][disable-flexy-player="true"] .ytp-miniplayer-button {
   display: var(--bt-player-miniplayer-display);
 }
-html[player-style][disable-flexy-player="true"] .ytp-size-button[data-title-no-tooltip="Theater mode"] {
+html[player-style][disable-flexy-player="true"] .ytp-size-button[data-title-no-tooltip="Theater mode"],
+html[player-style][disable-flexy-player="true"] .ytp-size-button[data-title-no-tooltip="Cinema mode"] {
   background: no-repeat var(--bt-player-buttons-bg);
   background-position: var(--bt-player-theater-bg-pos) !important;
 }
-html[player-style][disable-flexy-player="true"] .ytp-size-button[data-title-no-tooltip="Theater mode"]:hover {
+html[player-style][disable-flexy-player="true"] .ytp-size-button[data-title-no-tooltip="Theater mode"]:hover,
+html[player-style][disable-flexy-player="true"] .ytp-size-button[data-title-no-tooltip="Cinema mode"]:hover {
   background-position: var(--bt-player-theater-bg-pos-hover) !important;
 }
 html[player-style][disable-flexy-player="true"] .ytp-size-button[data-title-no-tooltip="Default view"] {

@@ -213,6 +213,7 @@ html[related-videos^="polymer"] {
 --bt-related-title-margin: 0;
 --bt-related-title-line-height: 1.2;
 --bt-related-title-max-height: 4.8em;
+--bt-related-title-font-weight: 500;
 /* meta */
 --bt-related-meta-text-color: var(--bt-text-color-3);
 --bt-related-meta-font-size: 13px;
@@ -374,7 +375,8 @@ html:not([related-videos]) #bt-load-more-related #suggestions {
   display: none;
 }
 /* thumbnail overlay (unfinished) */
-html[watched-overlay^="hitchhiker"] ytd-thumbnail #progress[style="width: 100%;"]::after {
+html[watched-overlay^="hitchhiker"] ytd-thumbnail #progress[style="width: 100%;"]::after,
+html[watched-overlay^="hitchhiker"] ytd-thumbnail #progress::after {
   content: "Watched";
   color: #ddd;
   display: block;

@@ -197,6 +197,17 @@ html[comments-style^="hitchhiker-2013"] {
 --bt-comments-header-first-child-before-content: "(";
 --bt-comments-header-first-child-after-content: ")";
 }
+html[layout^="polymer"] {
+--bt-comments-header-display: flow-root;
+--bt-comments-header-flex-dir: row;
+--bt-comments-header-text-transform: none;
+--bt-comments-header-font-size: 1.6rem;
+--bt-comments-header-font-weight: 400;
+--bt-comments-header-text-color: var(--yt-spec-text-primary);
+--bt-comments-header-last-child-font-weight: 400;
+--bt-comments-header-last-child-after-content: "";
+--bt-comments-header-last-child-after-margin: 0 4px;
+}
 html[lang="en"] {
   --bt-comments-reply-button-position: absolute;
 }
@@ -241,11 +252,19 @@ html[comments-style] ytd-comment-replies-renderer #author-thumbnail img {
 	margin-right: var(--bt-comments-reply-pfp-margin-right);
 }
 html[comments-style] .count-text.ytd-comments-header-renderer {
-  display: var(--bt-comments-header-display);
-  flex-direction: var(--bt-comments-header-flex-dir);
-  text-transform: var(--bt-comments-header-text-transform);
-  font-size: var(--bt-comments-header-font-size);
-  color: var(--bt-comments-header-text-color);
+  display: var(--bt-comments-header-display) !important;
+  flex-direction: var(--bt-comments-header-flex-dir) !important;
+  text-transform: var(--bt-comments-header-text-transform) !important;
+  font-size: var(--bt-comments-header-font-size) !important;
+  color: var(--bt-comments-header-text-color) !important;
+}
+html[layout^="polymer"] .count-text.ytd-comments-header-renderer {
+  display: var(--bt-comments-header-display) !important;
+  flex-direction: var(--bt-comments-header-flex-dir) !important;
+  text-transform: var(--bt-comments-header-text-transform) !important;
+  font-size: var(--bt-comments-header-font-size) !important;
+  color: var(--bt-comments-header-text-color) !important;
+  font-weight: var(--bt-comments-header-font-weight) !important;
 }
 html[comments-style] .count-text.ytd-comments-header-renderer span:last-child {
   font-weight: var(--bt-comments-header-last-child-font-weight);

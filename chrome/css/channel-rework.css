@@ -128,6 +128,7 @@ html[channel-style^="polymer"] {
 --bt-channel-page-channel-name-font-weight: 400;
 --bt-channel-tagline-display: none;
 --bt-channel-pfp-size: 100px;
+--bt-small-grid-channel-padding-top: 40px;
 }
 /* channel tagline */
 html[channel-style] #channel-tagline {
@@ -328,6 +329,8 @@ html[channel-style] ytd-channel-avatar-editor yt-icon {
 /* channel name */
 html[channel-style]:not([channel-style^="polymer"]) #channel-name.ytd-c4-tabbed-header-renderer {
   margin-top: var(--bt-channel-page-channel-name-outer-margin-top);
+}
+html[channel-style] #channel-name.ytd-c4-tabbed-header-renderer {
   display: flex;
 }
 html[channel-style]:not([channel-style^="polymer"]) #meta.ytd-c4-tabbed-header-renderer {
@@ -413,6 +416,8 @@ html[channel-style^="cosmicpanda"] {
 --bt-channel-page-tab-font-weight: normal;
 --bt-channel-page-tab-text-transform: none;
 --bt-channel-page-og-tab-bar-display: none;
+
+--bt-tab-shape-slider-display: none;
 }
 html[channel-style^="aozora"] {
 --bt-channel-page-header-bg: #ebeff0;
@@ -439,6 +444,8 @@ html[channel-style^="aozora"] {
 --bt-channel-page-tab-font-weight: bold;
 --bt-channel-page-tab-text-transform: none;
 --bt-channel-page-og-tab-bar-display: none;
+
+--bt-tab-shape-slider-display: none;
 }
 html[channel-style^="stargazer"] {
 --bt-channel-page-header-bg: #ebeff0;
@@ -466,6 +473,8 @@ html[channel-style^="stargazer"] {
 --bt-channel-page-tab-font-weight: bold;
 --bt-channel-page-tab-text-transform: none;
 --bt-channel-page-og-tab-bar-display: none;
+
+--bt-tab-shape-slider-display: none;
 }
 html[channel-style^="stargazer"][location="channel"],
 html[channel-style^="aozora"][location="channel"] {
@@ -499,8 +508,24 @@ html[channel-style^="hitchhiker"] #inner-header-container.ytd-c4-tabbed-header-r
   margin-top: 2px;
   margin-bottom: 6px;
 }
-html[channel-style^="polymer"] #inner-header-container.ytd-c4-tabbed-header-renderer {
+html[channel-style^="polymer"] ytd-c4-tabbed-header-renderer:not([use-page-header-style]) #inner-header-container.ytd-c4-tabbed-header-renderer {
   margin-top: 24px;
+}
+/* bandage fix */
+html[channel-style] ytd-c4-tabbed-header-renderer[use-page-header-style] #meta.ytd-c4-tabbed-header-renderer {
+  width: 0%;
+}
+html[channel-style] ytd-c4-tabbed-header-renderer[use-page-header-style] #inner-header-container.ytd-c4-tabbed-header-renderer {
+  flex-direction: row !important;
+  align-items: center !important;
+}
+html[channel-style]:not([channel-style^="polymer"]) ytd-c4-tabbed-header-renderer[use-page-header-style] #channel-header.ytd-c4-tabbed-header-renderer {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+html[channel-style^="aozora"] ytd-c4-tabbed-header-renderer[use-page-header-style] #inner-header-container ytd-channel-name, 
+html[channel-style^="stargazer"] ytd-c4-tabbed-header-renderer[use-page-header-style] #inner-header-container ytd-channel-name {
+  margin-top: 16px !important;
 }
 /* tabs */
 html[channel-style]:not([channel-style^="polymer"]) tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer {
@@ -562,10 +587,10 @@ html[channel-style] .yt-tab-shape-wiz__tab {
   font-weight: var(--bt-channel-page-tab-font-weight);
   letter-spacing: var(--bt-channel-page-tab-letter-spacing, auto);
 }
-html[channel-style] .yt-tab-shape-wiz {
+html[channel-style] yt-tab-shape {
   height: var(--bt-tab-shape-height);
   margin-right: var(--bt-tab-shape-margin-right);
-  padding: var(--bt-tab-shape-padding);
+  padding: var(--bt-tab-shape-padding) !important;
 }
 html[channel-style] .yt-tab-group-shape-wiz__slider,
 html[channel-style] .yt-tab-shape-wiz__tab-bar {
@@ -579,6 +604,42 @@ html[channel-style^="cosmicpanda"][location="inline-channel"] tp-yt-app-header #
 	opacity: 0;
 	margin-left: 100px;
 }
+
+/* shelf */
+/* modern typography */
+html[channel-style^="amsterdam-2023-1"],
+html[channel-style^="amsterdam-2022"],
+html[channel-style^="polymer"],
+html[channel-style^="hitchhiker"],
+html[channel-style^="cosmicpanda"],
+html[channel-style^="aozora"],
+html[channel-style^="stargazer"] {
+--bt-shelf-title-text-color: var(--yt-spec-text-primary);
+--bt-shelf-title-font-family: "Roboto","Arial",sans-serif;
+--bt-shelf-title-font-size: 1.6rem;
+--bt-shelf-title-line-height: 2.2rem;
+--bt-shelf-title-font-weight: 500;
+--bt-shelf-title-max-height: 2.2rem;
+}
+html[channel-style] #title.ytd-shelf-renderer,
+html[channel-style] #title.ytd-reel-reel-shelf-renderer {
+  color: var(--bt-shelf-title-text-color) !important;
+  font-family: var(--bt-shelf-title-font-family) !important;
+  font-size: var(--bt-shelf-title-font-size) !important;
+  line-height: var(--bt-shelf-title-line-height) !important;
+  font-weight: var(--bt-shelf-title-font-weight) !important;
+  max-height: var(--bt-shelf-title-max-height) !important;
+}
+html[channel-style] ytd-engagement-panel-title-header-renderer #title-text.ytd-engagement-panel-title-header-renderer {
+  color: var(--bt-shelf-title-text-color) !important;
+  font-family: var(--bt-shelf-title-font-family) !important;
+  font-size: var(--bt-shelf-title-font-size) !important;
+  line-height: var(--bt-shelf-title-line-height) !important;
+  font-weight: var(--bt-shelf-title-font-weight) !important;
+  max-height: var(--bt-shelf-title-max-height) !important;
+}
+
+/* videos page */
 html[channel-style] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer {
   border-top: var(--bt-section-border);
 }
@@ -589,7 +650,9 @@ html[channel-style][layout]:not([channel-style^="polymer"]) ytd-browse[page-subt
   margin-top: var(--bt-small-grid-channel-margin-top, var(--bt-small-grid-margin-top)) !important;
   padding-top: var(--bt-small-grid-channel-padding-top, 16px) !important;
 }
-
+html[channel-style][layout] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer {
+  padding-top: var(--bt-small-grid-channel-padding-top, 16px) !important;
+}
 html[channel-style^="stargazer"][location="channel"] a.yt-simple-endpoint.yt-formatted-string,
 html[channel-style^="aozora"][location="channel"] a.yt-simple-endpoint.yt-formatted-string,
 html[channel-style^="stargazer"][location="channel"] #title.ytd-shelf-renderer,

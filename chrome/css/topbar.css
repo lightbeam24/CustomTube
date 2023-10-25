@@ -565,7 +565,7 @@ html[search-bar-style^="hitchhiker-2013"] {
 --bt-search-btn-icon-width: 14px;
 --bt-search-btn-icon-height: 14px;
 }
-html[search-bar-style="material"] {
+html[search-bar-style="material"][layout][related-videos-size] {
 --bt-searchbar-input-padding: 2px 4px 2px 6px;
 --nostalgic-search-bar-input-padding: 2px 4px 2px 80px;
 /* topbar */
@@ -584,7 +584,7 @@ html[search-bar-style="material"] {
 /* container ytd searchbox */
 --bt-searchbar-input-box-shadow: none;
 --bt-searchbar-input-border: none;
---bt-searchbar-input-bg: #f0f0f0;
+--bt-searchbar-input-bg: #f0f0f0 !important;
 --bt-searchbar-input-padding: 2px 4px 2px 80px;
 --bt-searchbar-input-radius: 0;
 --bt-searchbar-input-margin-left: 0;
@@ -614,9 +614,9 @@ html[search-bar-style="material"] {
 /* voice search */
 --bt-voice-search-btn-display: none;
 }
-html[dark][search-bar-style="material"] {
+html[dark][search-bar-style="material"][layout][related-videos-size] {
 --bt-searchbar-input-border: none;
---bt-searchbar-input-bg: #101010;
+--bt-searchbar-input-bg: #101010 !important;
 --bt-search-input-new-pre-icon-bg: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -72px -877px;
 --bt-search-input-new-pre-icon-opacity: 1;
 --bt-search-input-new-pre-icon-opacity-2: 0.9;
@@ -729,6 +729,58 @@ Redir: See Material Search Bar
 /* voice search */
 --bt-voice-search-btn-display: block;
 }
+html[search-bar-style="polymer-2022"] {
+/* topbar */
+/* masthead */
+--bt-topbar-height: 56px;
+/* ytdsearchbox ytd masthead (outer bar) */
+--bt-searchbar-outer-margin: 0;
+--bt-searchbar-outer-padding: 0;
+/* center ytd masthead */
+--bt-searchbar-width: 576px;
+--bt-static-searchbar-width: 400px;
+/* container ytd searchbox */
+--bt-searchbar-input-box-shadow: inset 0 0px 0px rgba(0,0,0,0.0);
+--bt-searchbar-input-border: 1px solid var(--bt-gcp-ccc);
+--bt-searchbar-input-border-right: 1px solid transparent;
+--bt-searchbar-input-padding: 2px 4px 2px 6px;
+--bt-searchbar-input-radius: 2px 0 0 2px;
+--bt-searchbar-input-margin-left: 0;
+/* container ytd searchbox focus */
+--bt-searchbar-input-focus-margin-left: -36px;
+--bt-searchbar-input-focus-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+--bt-searchbar-input-focus-border: 1px solid #1c62b9;
+--bt-searchbar-input-focus-padding: 2px 4px 2px 42px;
+/* search form ytd searchbox */
+--bt-searchbar-height: 40px;
+/* input search icon */
+--bt-search-input-pre-icon-display: block;
+/* input new pre icon 
+Redir: See Material Search Bar
+/* search placeholder */
+--bt-search-placeholder-text-color: #767676;
+/* search button icon legacy ytd searchbox */
+--bt-search-btn-width: 66px;
+--bt-search-btn-height: var(--bt-searchbar-height);
+--bt-search-btn-radius: 0 2px 2px 0;
+--bt-search-btn-border: 1px solid var(--ytd-searchbox-legacy-button-border-color);
+--bt-search-btn-bg: var(--ytd-searchbox-legacy-button-color);
+--bt-search-btn-content-display: none;
+/* search button icon */
+--bt-search-btn-icon-display: inline-flex;
+--bt-search-btn-icon-margin-top: 0;
+--bt-search-btn-icon-color: var(--yt-spec-text-primary);
+--bt-search-btn-icon-bg: none;
+--bt-search-btn-icon-width: 24px;
+--bt-search-btn-icon-height: 24px;
+--bt-search-btn-icon-opacity: 1;
+/* search button hover icon */
+--bt-search-btn-icon-opacity-hover: 1;
+/* search button OG icon */
+--bt-search-btn-og-icon-display: block;
+/* voice search */
+--bt-voice-search-btn-display: block;
+}
 html[layout="amsterdam-2022"],
 html[layout="amsterdam-2023"],
 html:not([layout]) {
@@ -756,7 +808,8 @@ html[dark][search-bar-style^="polymer-2019"] {
 html[search-bar-style] {
 --bt-search-btn-icon-filter: var(--bt-png-icon-filter);
 }
-html[search-bar-style^="polymer-2021"] {
+html[search-bar-style^="polymer-2021"],
+html[search-bar-style^="polymer-2022"] {
 --bt-search-btn-icon-filter: none;
 }
 
@@ -797,10 +850,13 @@ html[search-bar-style] #container.ytd-searchbox {
   margin-left: var(--bt-searchbar-input-margin-left);
   transition: var(--bt-searchbar-input-transition);
 }
+html[search-bar-style="material"] ytd-app ytd-masthead #container.ytd-searchbox {
+  background: var(--bt-searchbar-input-bg) !important;
+}
 html[search-bar-style] ytd-searchbox[has-focus] #container.ytd-searchbox {
   box-shadow: var(--bt-searchbar-input-focus-box-shadow);
   border: var(--bt-searchbar-input-focus-border);
-  padding: var(--bt-searchbar-input-padding) !important;
+  padding: var(--bt-searchbar-input-focus-padding, var(--bt-searchbar-input-padding)) !important;
   margin-left: var(--bt-searchbar-input-focus-margin-left);
 }
 html[search-bar-style] #search-form.ytd-searchbox {

@@ -625,12 +625,12 @@ html[sidebar-style] ytd-guide-renderer #sections.ytd-guide-renderer > .ytd-guide
 }
 /* non item text */
 html[sidebar-style] #guide-section-title.ytd-guide-section-renderer {
-  font-size: var(--bt-sidebar-non-item-font-size);
-  color: var(--bt-sidebar-non-item-text-color);
-  text-transform: var(--bt-sidebar-non-item-text-transform);
-  font-weight: var(--bt-sidebar-non-item-font-weight);
-  padding: var(--bt-sidebar-non-item-padding, 6px 12px 4px);
-  border-bottom: var(--bt-sidebar-non-item-border-bottom);
+  font-size: var(--bt-sidebar-non-item-font-size) !important;
+  color: var(--bt-sidebar-non-item-text-color) !important;
+  text-transform: var(--bt-sidebar-non-item-text-transform) !important;
+  font-weight: var(--bt-sidebar-non-item-font-weight) !important;
+  padding: var(--bt-sidebar-non-item-padding, 6px 12px 4px) !important;
+  border-bottom: var(--bt-sidebar-non-item-border-bottom) !important;
 }
 /* first sidebar section */
 html[sidebar-style] ytd-guide-renderer #sections.ytd-guide-renderer > .ytd-guide-renderer:first-child {
@@ -987,14 +987,17 @@ html[sidebar-style^="hitchhiker"] #header-entry:not([active]):not(:hover) svg[ic
 html[sidebar-style^="hitchhiker"] #bt-watch-later-button:not([active]):not(:hover) svg[icon-type="filled"] {
   color: var(--bt-text-color-6);
 }
-html[sidebar-style^="hitchhiker"] #bt-my-channel-button .guide-icon.ytd-guide-entry-renderer {
+html[sidebar-style^="hitchhiker"] #bt-my-channel-button .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] #bt-your-channel-button .guide-icon.ytd-guide-entry-renderer {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) -71px -675px;
   background-size: auto;
   width: 20px;
   height: 20px;
 }
 html[sidebar-style^="hitchhiker"] #bt-my-channel-button[active] .guide-icon.ytd-guide-entry-renderer,
-html[sidebar-style^="hitchhiker"] #bt-my-channel-button:hover .guide-icon.ytd-guide-entry-renderer {
+html[sidebar-style^="hitchhiker"] #bt-my-channel-button:hover .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] #bt-your-channel-button[active] .guide-icon.ytd-guide-entry-renderer,
+html[sidebar-style^="hitchhiker"] #bt-your-channel-button:hover .guide-icon.ytd-guide-entry-renderer {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) 0px -1081px;
   background-size: auto;
   width: 20px;
@@ -1006,30 +1009,40 @@ html[my-channel-btn="false"] #bt-my-channel-button,
 html[signed-out] #bt-my-channel-button,
 html[trending-btn="true"] #bt-trending-button,
 html[trending-btn="false"] #bt-trending-button-2,
-html[sidebar-style^="hitchhiker"] #bt-my-channel-button svg {
-  display: none;
+html[sidebar-style^="hitchhiker"] #bt-my-channel-button svg,
+html[sidebar-style^="hitchhiker"] #bt-your-channel-button svg {
+  display: none !important;
 }
 
-html[sidebar-style^="hitchhiker"] [href="/feed/library"] yt-icon {
+html[sidebar-style^="hitchhiker"] #header-entry yt-icon {
   display: none !important;
 }
 html[sidebar-style^="hitchhiker"] #header-entry:not([active]):hover, 
 html[sidebar-style^="hitchhiker"] #header-entry[active] {
   background: none !important;
+  color: var(--bt-sidebar-non-item-text-color) !important;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:not(:focus):not(:hover):not([active]) [href="/feed/library"] yt-formatted-string, 
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer [href="/feed/library"] yt-formatted-string {
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer:not(:focus):not(:hover):not([active])#header-entry yt-formatted-string, 
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #header-entry yt-formatted-string {
   color: var(--bt-sidebar-non-item-text-color) !important;
   font-size: var(--bt-sidebar-non-item-font-size) !important;
   text-transform: var(--bt-sidebar-non-item-text-transform);
   font-weight: var(--bt-sidebar-non-item-font-weight);
   text-shadow: none !important;
 }
-html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer [href="/feed/library"] tp-yt-paper-item.ytd-guide-entry-renderer {
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer#header-entry tp-yt-paper-item.ytd-guide-entry-renderer {
   padding: 0;
 }
-html[sidebar-style^="hitchhiker"] [href="/feed/library"] yt-formatted-string:hover {
+html[sidebar-style^="hitchhiker"] #header-entry yt-formatted-string:hover {
   text-decoration: underline !important;
+  color: var(--bt-sidebar-non-item-text-color) !important;
+}
+html[sidebar-style^="hitchhiker"] #header-entry:not([active]):hover yt-formatted-string, 
+html[sidebar-style^="hitchhiker"] #header-entry[active] yt-formatted-string {
+  color: var(--bt-sidebar-non-item-text-color) !important;
+  text-shadow: none !important;
+  font-size: var(--bt-sidebar-non-item-font-size) !important;
+  text-transform: var(--bt-sidebar-non-item-text-transform);
 }
 html[sidebar-style] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover, 
 html[sidebar-style] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus {

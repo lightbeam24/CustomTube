@@ -21,7 +21,9 @@ CustomTube is currently only tested with these extensions/scripts:
 
 [Restore YouTube Username from Handle to Custom](https://greasyfork.org/en/scripts/468740-restore-youtube-username-from-handle-to-custom)
 
-Using it with other extensions or scripts often causes issues and is therefore not recommended.
+Using it with other extensions or scripts often causes issues and is therefore not recommended. 
+
+If you have a user agent switcher installed, make sure it is disabled on youtube.com, as you may not be able to use anything other than the default 2017 layout otherwise.
 
 Screenshots:
 -

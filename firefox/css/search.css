@@ -249,7 +249,8 @@ html[video-renderer-size] #channel-thumbnail.ytd-video-renderer {
 /* videos */
 html[video-renderer-size] ytd-search ytd-video-renderer ytd-thumbnail.ytd-video-renderer,
 html[video-renderer-size] ytd-search ytd-playlist-renderer ytd-playlist-thumbnail.ytd-playlist-renderer,
-html[video-renderer-size] ytd-search ytd-radio-renderer ytd-thumbnail.ytd-radio-renderer {
+html[video-renderer-size] ytd-search ytd-radio-renderer ytd-thumbnail.ytd-radio-renderer,
+html[video-renderer-size] ytd-search ytd-radio-renderer ytd-playlist-thumbnail.ytd-radio-renderer {
   max-width: var(--bt-search-thumbnail-width) !important;
   min-width: var(--bt-search-thumbnail-width) !important;
   margin-right: var(--bt-search-thumbnail-margin-right, 14px) !important;

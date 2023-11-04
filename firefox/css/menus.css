@@ -49,3 +49,26 @@ html[menu-style="unrounded"] ytd-engagement-panel-section-list-renderer[modern-p
 	border-radius: 0px;
 	overflow: hidden;
 }
+html[menu-style="unrounded"]:not([layout^="polymer"]) .sbdd_a {
+  margin-top: -4px;
+}
+html[menu-style="unrounded"]:not([layout^="polymer"]) .sbdd_b {
+  border-radius: 0;	
+}
+html[menu-style="unrounded"]:not([layout^="polymer"]) .sbsb_a {
+  padding: 2px;
+  border-radius: 0px;
+}
+html[menu-style="unrounded"]:not([layout^="polymer"]) .gsfs {
+  font-size: 16px;
+  padding: 0px 4px !important;
+}
+html[menu-style="unrounded"]:not([layout^="polymer"]) .sbsb_c {
+  line-height: 22px;
+}
+html[menu-style="unrounded"]:not([layout^="polymer"]) .sbqs_c::before {
+  display: none;
+}
+html[menu-style="unrounded"]:not([layout^="polymer"]) .sbfl_a {
+  margin: -5px 0px -5px 0;
+}

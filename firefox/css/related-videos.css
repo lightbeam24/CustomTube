@@ -294,6 +294,13 @@ html[related-videos] ytd-watch-flexy ytd-compact-radio-renderer #video-title.ytd
   color: var(--bt-related-title-text-color);
   font-weight: var(--bt-related-title-font-weight);
 }
+html[related-videos-size] .video-list .video-list-item .title {
+  margin: var(--bt-related-title-margin);
+  font-size: var(--bt-related-title-font-size);
+  line-height: var(--bt-related-title-line-height);
+  max-height: var(--bt-related-title-max-height);
+  color: var(--bt-related-title-text-color);
+}
 html[related-videos] ytd-watch-flexy ytd-compact-video-renderer:hover #video-title, 
 html[related-videos] ytd-watch-flexy ytd-compact-playlist-renderer:hover #video-title, 
 html[related-videos] ytd-watch-flexy ytd-compact-radio-renderer:hover #video-title {
@@ -301,6 +308,12 @@ html[related-videos] ytd-watch-flexy ytd-compact-radio-renderer:hover #video-tit
   text-decoration: var(--bt-related-title-text-decoration-hover);
 }
 /* metadata */
+html[related-videos-size] .related-list-item .content-wrapper {
+  margin-left: calc(var(--bt-related-thumb-width) + 13px);
+}
+html[related-videos-size] .related-list-item .content-link {
+  min-height: var(--bt-related-thumb-height);
+}
 html[related-videos] ytd-watch-flexy #metadata #text, 
 html[related-videos] ytd-watch-flexy #metadata span {
   color: var(--bt-related-meta-text-color) !important;
@@ -318,14 +331,19 @@ html[related-videos] ytd-watch-flexy #related #byline-container {
 html[related-videos] ytd-watch-next-secondary-results-renderer ytd-thumbnail, 
 html[related-videos] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
 html[related-videos-size] ytd-watch-next-secondary-results-renderer ytd-thumbnail, 
-html[related-videos-size] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
+html[related-videos-size] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
+html[related-videos-size] .ct-hitchhiker-compatibility-enabled .related-list-item .thumb-wrapper,
+html[related-videos-size] .ct-hitchhiker-compatibility-enabled .related-list-item .thumb-wrapper img,
+html[related-videos-size] .ct-hitchhiker-compatibility-enabled .related-list-item .yt-thumb,
+html[related-videos-size] .ct-hitchhiker-compatibility-enabled .related-list-item .yt-thumb img {
   height: var(--bt-related-thumb-height) !important;
   width: var(--bt-related-thumb-width) !important;
   transition-duration: 0.25s;
 }
 /* playlists */
 html[related-videos] #related ytd-playlist-custom-thumbnail-renderer, 
-html[related-videos] #related ytd-playlist-custom-thumbnail-renderer img {
+html[related-videos] #related ytd-playlist-custom-thumbnail-renderer img,
+html[related-videos-size] .ct-hitchhiker-compatibility-enabled .yt-uix-simple-thumb-related {
   max-height: var(--bt-related-thumb-height);
   width: auto;
 }

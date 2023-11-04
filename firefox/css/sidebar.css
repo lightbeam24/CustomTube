@@ -234,6 +234,8 @@ html[sidebar-style^="hitchhiker"]:not([sidebar-style^="hitchhiker-2013"]) {
 --bt-sidebar-item-bg-hover: #444;
 --bt-sidebar-item-text-shadow-hover: -1px -1px 0 rgba(0,0,0,0.25);
 --bt-sidebar-item-text-color-hover: #fff;
+/* expander */
+--bt-sidebar-expander-item-text-color: var(--bt-gcp-767676);
 /* ghost thing */
 --bt-sidebar-item-og-ghost-display: none;
 /* inner */
@@ -650,6 +652,10 @@ html[sidebar-style] ytd-guide-entry-renderer {
 }
 html[sidebar-style] ytd-guide-entry-renderer:not(:focus):not(:hover):not([active]) yt-formatted-string {
   color: var(--bt-sidebar-item-text-color) !important;
+}
+html[sidebar-style] #expander-item:not(:focus):not(:hover):not([active]) yt-formatted-string,
+html[sidebar-style] #collapser-item:not(:focus):not(:hover):not([active]) yt-formatted-string {
+  color: var(--bt-sidebar-expander-item-text-color, var(--bt-sidebar-item-text-color)) !important;
 }
 /* ghost thing */ 
 html[sidebar-style] tp-yt-paper-item:focus::before, 

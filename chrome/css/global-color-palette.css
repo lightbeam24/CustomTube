@@ -170,6 +170,7 @@ html[global-color-palette] {
 /* } */
 /* odd { */
 	--bt-gcp-606060-icon: #606060;
+	--bt-gcp-767676: #767676;
 /* } */
 /* even unchaning { */
 	--bt-gcp-000-u: #000;
@@ -191,6 +192,7 @@ html[global-color-palette] {
 /* } */
 /* odd unchanging { */
 	--bt-gcp-686868-u: #686868;
+	--bt-gcp-767676-u: #767676;
 	--bt-gcp-878787-u: #878787;
 	--bt-gcp-909090-u: #909090;
 /* } */
@@ -200,9 +202,13 @@ html[global-color-palette] {
 	/* 2012 */
 	--bt-gcp-1c62b9-u: #1c62b9;
 	/* Early 2013 */
+	/* red */
 	--bt-gcp-930-u: #930;
 	--bt-gcp-e62117-u: #e62117;
 	--bt-gcp-gradient-red-2013-u: linear-gradient(to bottom,#af2b26 0,#942422 100%);
+	
+	/* green */
+	--bt-gcp-590-u: #590;
 	/* 2014 */
 	--bt-gcp-2793e6-u: #2793e6;
 	/* 2016 */
@@ -353,6 +359,7 @@ html[global-color-palette][dark] {
 /* } */
 /* odd { */
 	--bt-gcp-606060-icon: #909090;
+	--bt-gcp-767676: #898989;
 /* } */
 /* effect { */
 	--bt-gcp-invert-default: invert(1);

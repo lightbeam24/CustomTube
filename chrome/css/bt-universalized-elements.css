@@ -653,6 +653,16 @@ html[show-upload-date-inside-desc="false"] #bt-desc-upload-date,
 html:not([show-upload-date-inside-desc="true"]) #bt-desc-upload-date {
 	display: none;
 }
+html[layout^="aozora"] #bt-desc-upload-date #published-on,
+html[layout^="cosmicpanda"] #bt-desc-upload-date #published-on,
+html:not([layout^="aozora"]):not([layout^="cosmicpanda"]) #bt-desc-upload-date #uploaded-by,
+html:not([layout^="aozora"]):not([layout^="cosmicpanda"]) #bt-desc-upload-date #second-on, 
+html:not([layout^="aozora"]):not([layout^="cosmicpanda"]) #bt-desc-upload-date #author-text {
+	display: none !important;
+}
+html[watch-metadata-style^="stargazer"] #published-on {
+  display: none !important;
+}
 
 
 
@@ -683,7 +693,7 @@ html[layout]:not([layout^="polymer"]) {
 html[layout^="polymer"] #dropdown-btn:active {
   background: var(--bt-standard-btn-bg) !important;
 }
-.yt-uix-button-arrow {
+.ct-uix-button-arrow {
   margin-top: 12px !important;
   margin-left: 5px;
   border: 1px solid transparent;

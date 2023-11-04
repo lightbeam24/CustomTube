@@ -421,8 +421,8 @@ html[watch-metadata-style^="hitchhiker-2013"] .ryd-tooltip {
 }
 html[watch-metadata-style^="hitchhiker-2014"] .ryd-tooltip, 
 html[watch-metadata-style^="hitchhiker-2013"] .ryd-tooltip {
-  margin-bottom: 90px;
-  right: -183%;
+  margin-bottom: 90px; /* 0px */
+  right: 0; /* -183% */
   position: relative;
 }
 html[watch-metadata-style^="polymer-2019"] #ryd-bar,
@@ -444,7 +444,7 @@ html[watch-metadata-style^="cosmicpanda"] {
 --bt-bar-margin-top: 40px;
 }
 html[watch-metadata-style^="aozora"] {
---bt-bar-margin-top: 40px;
+--bt-bar-margin-top: 32px;
 }
 html[watch-metadata-style^="stargazer"] {
 --bt-bar-margin-top: 10px;

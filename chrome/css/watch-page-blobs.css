@@ -167,8 +167,8 @@ html[watch-metadata-style^="hitchhiker-2014"],
 html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-middle-row-icon-display: none;
 }
-html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading .yt-spec-button-shape-next__icon {
+html[watch-metadata-style^="hitchhiker-2014"] #flexible-item-buttons .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker-2013"] #flexible-item-buttons .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading .yt-spec-button-shape-next__icon {
   display: var(--bt-middle-row-icon-display);
 }
 /* anything middle row related can be hh only */
@@ -186,11 +186,17 @@ html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row {
 html:not([watch-metadata-style^="hitchhiker"]):not([watch-metadata-style^="cosmicpanda"]) #bt-middle-row {
   display: none;
 }
+html[watch-metadata-style^="hitchhiker-2013"] #flexible-item-buttons button,
+html[watch-metadata-style^="hitchhiker-2014"] #flexible-item-buttons button,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row button,
 html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row button {
   border-bottom: 3px solid transparent !important;
   border-radius: 0;
 }
+html[watch-metadata-style^="hitchhiker-2013"] #flexible-item-buttons button:hover,
+html[watch-metadata-style^="hitchhiker-2013"] #flexible-item-buttons button:focus,
+html[watch-metadata-style^="hitchhiker-2014"] #flexible-item-buttons button:hover,
+html[watch-metadata-style^="hitchhiker-2014"] #flexible-item-buttons button:focus,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row button:hover,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row button:focus,
 html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row button:hover,
@@ -324,7 +330,8 @@ html[watch-metadata-style^="hitchhiker-2013"] #bt-fake-about span {
 #fake-about-inner {
   margin-top: 10px;
 }
-#bt-middle-row span {
+#bt-middle-row span,
+html[watch-metadata-style^="hitchhiker"] #above-the-fold #actions ytd-button-renderer span {
   font-family: var(--bt-watch-metadata-buttons-font-family, "YouTube Noto",Roboto,arial);
   font-size: var(--bt-watch-metadata-font-size, 11px);
   opacity: 0.6;

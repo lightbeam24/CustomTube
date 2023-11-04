@@ -5,6 +5,10 @@ html[disable-flexy-player="true"][player-style]:not([player-style="2015"]):not([
 html[disable-flexy-player="true"][player-style]:not([player-style="2015"]):not([player-style="2019"]):not([player-style="2020"]):not([player-style="2021"]):not([player-style="2022"]) ytd-page-manager ytd-watch-flexy:not([fullscreen]) ytd-player #container #movie_player[aria-label="YouTube Video Player"] .ytp-chrome-bottom {
   left: 0 !important;
 }
+html[disable-flexy-player="true"][player-style]:not([player-style="2015"]):not([player-style="2019"]):not([player-style="2020"]):not([player-style="2021"]):not([player-style="2022"]) .ct-hitchhiker-compatibility-enabled .watch #movie_player:not(.ytp-big-mode) .ytp-chrome-bottom {
+  width: 100% !important;
+  left: 0 !important;
+}
 /*
 html[disable-flexy-player="true"][player-style]:not([player-style="2015"]):not([player-style="2019"]):not([player-style="2020"]):not([player-style="2021"]) ytd-page-manager ytd-watch-flexy[fullscreen] ytd-player #container #movie_player .ytp-chrome-bottom {
  /* width: 100vw !important;

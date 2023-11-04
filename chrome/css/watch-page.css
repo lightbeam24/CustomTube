@@ -53,6 +53,7 @@ html[watch-metadata-style^="stargazer"] {
 }
 html[watch-metadata-style^="aozora"] {
 --bt-wp-columns-margin-top: 54px;
+--bt-watch-metadata-margin-bottom: 0;
 /* view count */
 --bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
@@ -60,7 +61,7 @@ html[watch-metadata-style^="aozora"] {
 --bt-standard-view-count-font-size: 22px;
 --bt-standard-view-count-font-weight: 700;
 --bt-standard-view-count-text-color: var(--bt-text-color-5);
---bt-standard-view-count-margin-top: 4px;
+--bt-standard-view-count-margin-top: 0; /* 4px formerly */
 --bt-wp-top-row-actions-flex-dir: row;
 --bt-wp-top-row-actions-margin-top: 0;
 /* upload info */
@@ -107,12 +108,15 @@ html[watch-metadata-style^="aozora"] {
 }
 html[watch-metadata-style^="cosmicpanda"] {
 --bt-wp-columns-margin-top: 64px; /* formerly 80 */
+--bt-watch-metadata-margin-bottom: 0;
 /* view count */
 --bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
 --bt-standard-view-count-right: -4px;
 --bt-standard-view-count-font-size: 22px;
 --bt-standard-view-count-font-weight: 400;
+--bt-standard-view-count-text-color: var(--bt-text-color-5);
+--bt-standard-view-count-margin-top: 4px;
 --bt-wp-top-row-actions-flex-dir: row;
 --bt-wp-top-row-actions-margin-top: 0;
 /* upload info */
@@ -127,8 +131,6 @@ html[watch-metadata-style^="cosmicpanda"] {
 --bt-wp-above-title-margin-bottom: 0;
 --bt-wp-title-text-color: var(--bt-text-color-5);
 --bt-wp-title-text-color-hover: var(--bt-text-color-5);
---bt-standard-view-count-text-color: var(--bt-text-color-5);
---bt-standard-view-count-margin-top: 4px;
 --bt-wp-owner-pfp-display: none;
 /* channel name */
 --bt-wp-channel-name-font-weight: 600;
@@ -206,6 +208,7 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-button-text-transform: none;
 --bt-wp-button-padding: 0 8px;
 --bt-wp-button-height: 32px;
+--bt-wp-button-text-color: var(--bt-gcp-000-u);
 }
 html[watch-metadata-style^="hitchhiker-2015"] {
 --bt-wp-title-padding: 15px 15px 5px 15px;
@@ -215,6 +218,7 @@ html[watch-metadata-style^="hitchhiker-2014"],
 html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-wp-primary-inner-bg: var(--bt-section-bg);
 --bt-wp-primary-inner-border: 1px solid var(--bt-section-border-color);
+--bt-watch-metadata-margin-bottom: 0;
 --bt-wp-top-row-border-bottom: none;
 --bt-wp-middle-row-border-bottom: var(--bt-section-border);
 /* title */
@@ -352,6 +356,9 @@ html[watch-metadata-style^="hitchhiker-2014"] #primary.ytd-watch-flexy {
   padding-right: 0;
 }
 /* ---------------------------- METADATA ----------------------------------------- */
+html[watch-metadata-style] ytd-watch-metadata.ytd-watch-flexy {
+  margin-bottom: var(--bt-watch-metadata-margin-bottom, var(--ytd-margin-6x));	
+}
 html[title-on-top="true"] #top-row {
   padding-bottom: 21px !important;
 }

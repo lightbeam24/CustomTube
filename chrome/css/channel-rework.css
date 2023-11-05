@@ -375,6 +375,9 @@ html[channel-style]:not([channel-style^="polymer"]) ytd-c4-tabbed-header-rendere
 html[channel-style]:not([channel-style^="polymer"]) #banner-editor {
   height: var(--bt-channel-page-banner-height) !important;
 }
+html[channel-style] ytd-browse[page-subtype="channels"] .page-header-banner {
+  height: var(--bt-channel-page-banner-height);
+}
 html[channel-style^="amsterdam"] {
 --bt-tab-shape-height: 48px;
 --bt-tab-shape-margin-right: 24px;

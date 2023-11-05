@@ -1,6 +1,6 @@
 {
     "name": "CustomTube",
-    "version": "1.2.4",
+    "version": "1.2.4.1",
     "description": "Choose your own YouTube layout, and more!",
     "permissions": ["storage"],
     "action": {

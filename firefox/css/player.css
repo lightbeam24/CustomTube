@@ -665,6 +665,14 @@ html[disable-flexy-player="true"] ytd-watch-flexy[fullscreen] .html5-endscreen {
   height: 100vh;
   top: 0;
 }
+html[disable-flexy-player="true"] ytd-watch-flexy[theater] .html5-endscreen,
+html[disable-flexy-player="true"] ytd-watch-flexy[cinema] .html5-endscreen {
+  background: none;
+  height: unset;
+}
+html[disable-flexy-player="true"] .ended-mode video {
+  display: none !important;
+}
 
 
 /*

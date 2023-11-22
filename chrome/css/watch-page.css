@@ -220,6 +220,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-wp-primary-inner-border: 1px solid var(--bt-section-border-color);
 --bt-watch-metadata-margin-bottom: 0;
 --bt-wp-top-row-border-bottom: none;
+--bt-wp-top-row-actions-margin-top: 48px !important;
 --bt-wp-middle-row-border-bottom: var(--bt-section-border);
 /* title */
 --bt-wp-title-font-family: arial;
@@ -529,9 +530,11 @@ html[watch-metadata-style] ytd-menu-renderer button {
 }
 html[watch-metadata-style] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[watch-metadata-style] #above-the-fold ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style] #above-the-fold segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[watch-metadata-style] #above-the-fold #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[watch-metadata-style] #bt-place-metadata ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style] #bt-place-metadata segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
   background: var(--bt-wp-button-bg) !important;
   border: var(--bt-wp-button-border);
@@ -547,9 +550,11 @@ html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shap
 }
 html[watch-metadata-style] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
 html[watch-metadata-style] #above-the-fold ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
+html[watch-metadata-style] #above-the-fold segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
 html[watch-metadata-style] #above-the-fold #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
 html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
-html[watch-metadata-style] #bt-place-metadata ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover
+html[watch-metadata-style] #bt-place-metadata ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
+html[watch-metadata-style] #bt-place-metadata segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
 html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover {
   background: var(--bt-wp-button-bg-hover) !important;
   border: var(--bt-wp-button-border-hover);
@@ -558,9 +563,11 @@ html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shap
 }
 html[watch-metadata-style] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
 html[watch-metadata-style] #above-the-fold ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
+html[watch-metadata-style] #above-the-fold segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
 html[watch-metadata-style] #above-the-fold #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
 html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
-html[watch-metadata-style] #bt-place-metadata ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active
+html[watch-metadata-style] #bt-place-metadata ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
+html[watch-metadata-style] #bt-place-metadata segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
 html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active {
   background: var(--bt-wp-button-bg-active) !important;
   border: var(--bt-wp-button-border-active);

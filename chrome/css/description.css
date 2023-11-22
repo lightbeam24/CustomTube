@@ -181,10 +181,10 @@ html[watch-metadata-style^="stargazer"] {
 }
 html[watch-metadata-style^="aozora-2011"] {
 --bt-watch-metadata-desc-bg: var(--site-bg);
---bt-watch-metadata-desc-margin-top: -16px;
+--bt-watch-metadata-desc-margin-top: -14px;
 --bt-watch-metadata-desc-radius: 0;
 --bt-watch-metadata-desc-inner-margin: 0;
---bt-watch-metadata-desc-inner-margin-bottom: -6px; /* formerly -4px */
+--bt-watch-metadata-desc-inner-margin-bottom: -4px; /* formerly -4px */
 /* snippet */
 --bt-desc-snippet-mask-image: none;
 --bt-desc-snippet-max-height: 50px;
@@ -229,7 +229,7 @@ html[watch-metadata-style^="aozora-2011"] {
 }
 html[watch-metadata-style^="cosmicpanda"] {
 --bt-watch-metadata-desc-bg: var(--site-bg);
---bt-watch-metadata-desc-margin-top: 4px;
+--bt-watch-metadata-desc-margin-top: 8px;
 --bt-watch-metadata-desc-radius: 0;
 --bt-watch-metadata-desc-inner-margin: 0;
 --bt-watch-metadata-desc-inner-margin-bottom: -4px;

@@ -2017,7 +2017,7 @@ function createNewElements() {
 				}
 			}*/
 			if (!tasks.createdLtoDBar) {
-				if (document.querySelector("html[layout]:not([layout^='polymer']) ytd-watch-flexy #top-row #owner") != null) {
+				if (document.querySelector("html[layout] ytd-watch-flexy #top-row #owner") != null) {
 					if (document.querySelector("#bt-bar") === null) {
 						setTimeout(createLtoDBar, 1);
 					}
@@ -2036,9 +2036,19 @@ function createNewElements() {
 						setTimeout(createNewLikeIcon, 1);
 					}
 				}
+				else if (document.querySelector("html[layout] like-button-view-model yt-icon") != null) {
+					if (document.querySelector("#bt-like") === null) {
+						setTimeout(createNewLikeIcon, 1);
+					}
+				}
 			}
 			if (!tasks.createdNewDisLikeIcon) {
 				if (document.querySelector("html[layout] #segmented-like-button") != null) {
+					if (document.querySelector("#bt-dislike") === null) {
+						setTimeout(createNewDisLikeIcon, 1);
+					}
+				}
+				else if (document.querySelector("html[layout] dislike-button-view-model yt-icon") != null) {
 					if (document.querySelector("#bt-dislike") === null) {
 						setTimeout(createNewDisLikeIcon, 1);
 					}
@@ -2074,7 +2084,7 @@ function createNewElements() {
 					}
 				}
 				if (!BTConfig.iUseRYD) {
-					if (document.querySelector("html[layout] #segmented-like-button") != null) {
+					if (document.querySelector("html[layout] ytd-button-renderer span") != null) {
 						if (document.querySelector("#bt-middle-row") === null) {
 							setTimeout(createMiddleRow, 1);
 						}
@@ -2983,6 +2993,11 @@ function createNewElements() {
 		//	newElem.setAttribute("title", "Turn on Return YouTube Dislike compatibility in CustomTube settings for like/dislike ratio (Return YouTube Dislike extension required)");
 		//}
 		newElem.innerHTML = `
+		<style>
+		html[layout^="polymer"] #bt-bar {
+			display: none;
+		}
+		</style>
 		<div id="bt-ltod" title="Turn on Return YouTube Dislike compatibility in CustomTube settings for like/dislike ratio (Return YouTube Dislike extension required)">
 			<dislikes>
 				<likes></likes>
@@ -3024,14 +3039,14 @@ function createNewElements() {
 	}
 	function createNewLikeIcon() {
 		tasks.createdNewLikeIcon = true;
-		let container = document.querySelector('#segmented-like-button yt-icon');
 		const newElem = document.createElement("bt-icon");
 		newElem.id = 'bt-like';
 		newElem.setAttribute("class", "bt-universalized-element");
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		html:not([icon-type="outline"]) #segmented-like-button svg:not([icon-type="filled"]) {
+		html:not([icon-type="outline"]) #segmented-like-button svg:not([icon-type="filled"]),
+		html:not([icon-type="outline"]) like-button-view-model svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
 		</style>
@@ -3041,21 +3056,28 @@ function createNewElements() {
 			</g>
 		</svg>
 		`;
-		container.insertBefore(newElem, container.children[0]);
+		if (document.querySelector("#segmented-like-button") != null) {
+			let container = document.querySelector('#segmented-like-button yt-icon');
+			container.insertBefore(newElem, container.children[0]);
+		} else {
+			let container = document.querySelector('like-button-view-model yt-icon');
+			container.insertBefore(newElem, container.children[0]);
+		}
 	}
 	function createNewDisLikeIcon() {
 		tasks.createdNewDisLikeIcon = true;
-		let container = document.querySelector('#segmented-dislike-button yt-icon');
 		const newElem = document.createElement("bt-icon");
 		newElem.id = 'bt-dislike';
 		newElem.setAttribute("class", "bt-universalized-element");
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.innerHTML = `
 		<style>
-		html:not([icon-type="outline"]) #segmented-dislike-button svg:not([icon-type="filled"]) {
+		html:not([icon-type="outline"]) #segmented-dislike-button svg:not([icon-type="filled"]),
+		html:not([icon-type="outline"]) dislike-button-view-model svg:not([icon-type="filled"]) {
 			display: none !important;
 		}
-		html:not([icon-type="outline"]) #segmented-dislike-button yt-icon-shape {
+		html:not([icon-type="outline"]) #segmented-dislike-button yt-icon-shape,
+		html:not([icon-type="outline"]) dislike-button-view-model yt-icon-shape {
 			display: none !important;
 		}
 		</style>
@@ -3065,7 +3087,13 @@ function createNewElements() {
 			</g>
 		</svg>
 		`;
-		container.insertBefore(newElem, container.children[0].nextSibling);
+		if (document.querySelector("#segmented-dislike-button") != null) {
+			let container = document.querySelector('#segmented-dislike-button yt-icon');
+			container.insertBefore(newElem, container.children[0]);
+		} else {
+			let container = document.querySelector('dislike-button-view-model yt-icon');
+			container.insertBefore(newElem, container.children[0]);
+		}
 	}
 	function createNewShareIcon() {
 		tasks.createdNewShareIcon = true;
@@ -3445,7 +3473,7 @@ function moveElements() {
 			}
 		}
 	}, 500);
-	setTimeout(loopThroughTitleOnTop, 100)
+	setTimeout(loopThroughTitleOnTop, 100);
 	var loopThroughMetaOnSide = setInterval(function() {
 		if (document.querySelector("html[meta-on-side]") != null) {
 			if (!tasks.movedMetaToSide) {
@@ -3463,7 +3491,7 @@ function moveElements() {
 	}, 500);
 	waitFor("html[location='watch'] ytd-app", 300, loopThroughMoveWatchButtons);
 	var loopThroughMoveWatchButtons = setInterval(function() {
-		if (!tasks.movedHHButtons) {
+		/*if (!tasks.movedHHButtons) {
 			if (
 			document.querySelector("html[watch-metadata-style^='hitchhiker'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null &&
 			document.querySelector('path[d="M22 13h-4v4h-2v-4h-4v-2h4V7h2v4h4v2zm-8-6H2v1h12V7zM2 12h8v-1H2v1zm0 4h8v-1H2v1z"]') != null &&
@@ -3478,14 +3506,15 @@ function moveElements() {
 			) {
 				setTimeout(prepFor, 100);
 			}
-			if (document.querySelector("html[watch-metadata-style^='polymer'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null) {
-				setTimeout(assignWatchButtons, 100);
-			}
 			if (document.querySelector("#bt-middle-row #middle button") != null) {
 				if (document.querySelector("#bt-middle-row #flexible-item-buttons") != null) {
 					tasks.movedHHButtons = true;
 				}
 			}
+		}
+		*/
+		if (document.querySelector("html[watch-metadata-style^='polymer'] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer") != null) {
+			setTimeout(assignWatchButtons, 100);
 		}
 		if (tasks.movedHHButtons) {
 			clearInterval(loopThroughMoveWatchButtons);
@@ -3539,6 +3568,7 @@ function moveElements() {
 		let addToButton = addTo.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
 		addToButton.setAttribute("id", "bt-save-button");
 		var moreButton = document.querySelector('#above-the-fold ytd-menu-renderer #button-shape');
+		tasks.movedHHButtons = true;
 	}
 	function moveWatchButtons() {
 		var flexMenu = document.querySelector("ytd-menu-renderer.ytd-watch-metadata");
@@ -3600,6 +3630,92 @@ function moveElements() {
 }
 function watchPageEveryLoad() {
 	//if (BTVars.btlocation == "watch") {
+		if (document.querySelector("html[layout] like-button-view-model yt-icon") != null) {
+			if (document.querySelector("#bt-like") === null) {
+				const newElem = document.createElement("bt-icon");
+				newElem.id = 'bt-like';
+				newElem.setAttribute("class", "bt-universalized-element");
+				newElem.setAttribute("bt-optimized-universal-element", "");
+				newElem.innerHTML = `
+				<style>
+				html:not([icon-type="outline"]) #segmented-like-button svg:not([icon-type="filled"]),
+				html:not([icon-type="outline"]) like-button-view-model svg:not([icon-type="filled"]) {
+					display: none !important;
+				}
+				</style>
+				<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+					<g class="yt-icon">
+						<path class="yt-icon" d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+					</g>
+				</svg>
+				`;
+				if (document.querySelector("#segmented-like-button") != null) {
+					let container = document.querySelector('#segmented-like-button yt-icon');
+					container.insertBefore(newElem, container.children[0]);
+				} else {
+					let container = document.querySelector('like-button-view-model yt-icon');
+					container.insertBefore(newElem, container.children[0]);
+				}
+			}
+		}
+		if (document.querySelector("html[layout] dislike-button-view-model yt-icon") != null) {
+			if (document.querySelector("#bt-dislike") === null) {
+				const newElem = document.createElement("bt-icon");
+				newElem.id = 'bt-dislike';
+				newElem.setAttribute("class", "bt-universalized-element");
+				newElem.setAttribute("bt-optimized-universal-element", "");
+				newElem.innerHTML = `
+				<style>
+				html:not([icon-type="outline"]) #segmented-dislike-button svg:not([icon-type="filled"]),
+				html:not([icon-type="outline"]) dislike-button-view-model svg:not([icon-type="filled"]) {
+					display: none !important;
+				}
+				html:not([icon-type="outline"]) #segmented-dislike-button yt-icon-shape,
+				html:not([icon-type="outline"]) dislike-button-view-model yt-icon-shape {
+					display: none !important;
+				}
+				</style>
+				<svg class="yt-icon" icon-type="filled" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+					<g class="yt-icon">
+						<path class="yt-icon" d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
+					</g>
+				</svg>
+				`;
+				if (document.querySelector("#segmented-dislike-button") != null) {
+					let container = document.querySelector('#segmented-dislike-button yt-icon');
+					container.insertBefore(newElem, container.children[0]);
+				} else {
+					let container = document.querySelector('dislike-button-view-model yt-icon');
+					container.insertBefore(newElem, container.children[0]);
+				}
+			}
+		}
+		if (
+		document.querySelector("html[watch-metadata-style^='hitchhiker-2014']") != null ||
+		document.querySelector("html[watch-metadata-style^='hitchhiker-2013']") != null
+		) {
+			var shareButton = document.querySelector('#top-level-buttons-computed ytd-button-renderer');
+			if (shareButton.querySelector("span") == null) {
+				shareButton = document.querySelectorAll('#top-level-buttons-computed ytd-button-renderer')[1];
+				console.log("[CT] Alternate share button method used.");
+			}
+			var moreActions = document.querySelector('#button-shape');
+			newHome1 = document.querySelector('#above-the-fold ytd-menu-renderer #flexible-item-buttons');
+			newHome1.appendChild(shareButton);
+			newHome1.appendChild(moreActions);
+			const newElem = document.createElement("div");
+			newElem.id = 'bt-fake-about';
+			newElem.setAttribute("class", "bt-universalized-element");
+			newElem.setAttribute("bt-optimized-universal-element", "");
+			newElem.innerHTML = `
+			<div id="fake-about-inner">
+				<span bt-lang="en" class="bt-localized">About</span>
+				<span bt-lang="ja" class="bt-localized">概要</span>
+				<span bt-lang="es" class="bt-localized">Información</span>
+			</div>
+			`;
+			newHome1.insertBefore(newElem, newHome1.children[0]);
+		}
 		setTimeout(fixComments, 5000);
 		function fixComments() {
 			if (document.querySelector("ytd-comments ytd-continuation-item-renderer[style^='display: none']") != null) {
@@ -3759,29 +3875,46 @@ function watchPageEveryLoad() {
 		BTConfig.layoutSelect != "none" &&
 		BTConfig.layoutSelect != "polymer-2022"
 		) {
-			waitFor("#segmented-dislike-button span", 200, doCounts);
+			if (document.querySelector("dislike-button-view-model") == null) {
+				waitFor("#segmented-dislike-button span", 200, doCounts);
+			} else {
+				//waitFor("dislike-button-view-model", 200, doCounts);
+				doCounts();
+			}
 		}
 		if (
 		!BTConfig.iUseRYD &&
 		BTConfig.layoutSelect != "none" &&
 		BTConfig.layoutSelect != "polymer-2022"
 		) {
-			waitFor("#segmented-like-button span", 200, doCounts);
+			if (document.querySelector("like-button-view-model") == null) {
+				waitFor("#segmented-like-button", 200, doCounts);
+			} else {
+				//waitFor("like-button-view-model", 200, doCounts);
+				doCounts();
+			}
 		}
 		function doCounts() {
 			var starRating = sessionStorage.getItem("star-rating");
 			//let likeCount = document.querySelector("#segmented-like-button span").textContent;
 			let likeCount = sessionStorage.getItem("nebula-like-count");
-			var cutLCString = likeCount.split(' l');
-			likeCount = cutLCString[0];
+			console.log(likeCount);
+			if (document.querySelector("like-button-view-model") == null) {
+				if (likeCount.includes("l")) {
+					var cutLCString = likeCount.split(' l');
+					likeCount = cutLCString[0];
+				}
+			}
 			document.querySelector("#lc").innerText = likeCount;
 			//document.querySelector("#bt-like-string").innerText = likeCount;
 			//document.querySelector("#lc").innerText = starRating + "stars";
 			if (BTConfig.iUseRYD) {
-				let dislikeCount = document.querySelector("#segmented-dislike-button span").textContent;
-				var ratingCount = likeCount + dislikeCount;
-				document.querySelector("#dc").innerText = dislikeCount;
-			//	document.querySelector("#dc").innerText = ratingCount + "ratings";
+				if (document.querySelector("dislike-button-view-model") == null) {
+					let dislikeCount = document.querySelector("#segmented-dislike-button span").textContent;
+					var ratingCount = likeCount + dislikeCount;
+					document.querySelector("#dc").innerText = dislikeCount;
+				//	document.querySelector("#dc").innerText = ratingCount + "ratings";
+				}
 			}
 		}
 		/* sub counts */
@@ -4655,7 +4788,11 @@ function retrieveDataAttribute() {
 		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer != null) {
 			var wpViewCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
 			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.dateText.simpleText;
-			var wpLikeCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].segmentedLikeDislikeButtonRenderer.likeButton.toggleButtonRenderer.defaultText.accessibility.accessibilityData.label;
+			if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].segmentedLikeDislikeButtonRenderer != null) {
+				var wpLikeCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].segmentedLikeDislikeButtonRenderer.likeButton.toggleButtonRenderer.defaultText.accessibility.accessibilityData.label;
+			} else {
+				var wpLikeCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].segmentedLikeDislikeButtonViewModel.likeButtonViewModel.likeButtonViewModel.toggleButtonViewModel.toggleButtonViewModel.defaultButtonViewModel.buttonViewModel.title;
+			}
 			var wpSubCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.subscriberCountText.simpleText;
 			var wpAuthor = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.title.runs[0].text;
 			var wpAuthorLink = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.title.runs[0].navigationEndpoint.commandMetadata.webCommandMetadata.url;
@@ -4696,7 +4833,11 @@ function retrieveDataAttribute() {
 		if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[0].videoPrimaryInfoRenderer == null) {
 			var wpViewCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.viewCount.videoViewCountRenderer.viewCount.simpleText;
 			var wpUploadDate = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.dateText.simpleText;
-			var wpLikeCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].segmentedLikeDislikeButtonRenderer.likeButton.toggleButtonRenderer.defaultText.accessibility.accessibilityData.label;
+			if (convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].segmentedLikeDislikeButtonRenderer != null) {
+				var wpLikeCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].segmentedLikeDislikeButtonRenderer.likeButton.toggleButtonRenderer.defaultText.accessibility.accessibilityData.label;
+			} else {
+				var wpLikeCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[1].videoPrimaryInfoRenderer.videoActions.menuRenderer.topLevelButtons[0].segmentedLikeDislikeButtonViewModel.likeButtonViewModel.likeButtonViewModel.toggleButtonViewModel.toggleButtonViewModel.defaultButtonViewModel.buttonViewModel.title;
+			}
 			var wpSubCount = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[2].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.subscriberCountText.simpleText;
 			var wpAuthor = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[2].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.title.runs[0].text;
 			var wpAuthorLink = convertedYtdData.response.contents.twoColumnWatchNextResults.results.results.contents[2].videoSecondaryInfoRenderer.owner.videoOwnerRenderer.title.runs[0].navigationEndpoint.commandMetadata.webCommandMetadata.url;

@@ -292,10 +292,10 @@ ytd-app[layout="polymer"] yt-spec-touch-feedback-shape yt-spec-touch-feedback-sh
   display: none;
 }
 
-html[comments-style] #header-author.ytd-comment-renderer span {
+html[comments-style] #header-author.ytd-comment-renderer yt-formatted-string {
     color: var(--bt-comments-author-text-color);
 }
-html[comments-style] #header-author.ytd-comment-renderer span:hover {
+html[comments-style] #header-author.ytd-comment-renderer yt-formatted-string:hover {
     color: var(--bt-comments-author-text-color-hover, var(--bt-comments-author-text-color));
 	text-decoration: var(--bt-comments-author-text-decoration-hover) !important;
 }

@@ -309,18 +309,23 @@ html[watch-metadata-style^="hitchhiker-2013"] button[aria-label="More actions"] 
 html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata ytd-button-renderer .yt-spec-button-shape-next__icon,
 html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata button[aria-label="More actions"] .yt-spec-button-shape-next__icon,
 html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #segmented-like-button button[aria-pressed="false"] .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #segmented-dislike-button .yt-spec-button-shape-next__icon {
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #segmented-dislike-button .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata like-button-view-model button[aria-pressed="false"] .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata dislike-button-view-model button .yt-spec-button-shape-next__icon {
   filter: var(--bt-watch-metadata-icon-filter);
 }
 #bt-fake-about {
   display: none;
 }
-html[watch-metadata-style^="hitchhiker-2014"] #bt-fake-about,
+html[watch-metadata-style^="hitchhiker-2014"] #bt-fake-about, 
 html[watch-metadata-style^="hitchhiker-2013"] #bt-fake-about {
   display: block;
   border-bottom: 3px solid var(--bt-emphasis);
-  padding: 0 7px;
+  padding: 0px 11px;
   cursor: pointer;
+  height: 33px;
+  font-weight: bold;
+  font-family: arial !important;
 }
 html[watch-metadata-style^="hitchhiker-2014"] #bt-fake-about span,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-fake-about span {
@@ -566,4 +571,157 @@ html[watch-metadata-style^="cosmicpanda"] #bt-above #owner-sub-count.ytd-video-o
   border-color: var(--bt-standard-btn-border-color-active, currentcolor);
   background: var(--bt-standard-btn-bg-active);
   box-shadow: var(--bt-standard-btn-box-shadow-active);
+}
+
+
+/* Needs optimizing */
+
+html[watch-metadata-style^="polymer"] {
+  --bt-wp-top-row-actions-border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+  --bt-wp-top-row-actions-padding-bottom: 9px;
+}
+html[watch-metadata-style^="hitchhiker"] {
+  --bt-wp-top-row-padding-bottom: 36px !important;
+  --bt-wp-top-row-padding-bottom: 40px !important;
+  
+  --bt-wp-top-row-actions-width: calc(100% - 30px);
+  --bt-wp-top-row-actions-pos: absolute;
+  --bt-wp-top-row-actions-margin-top: 2px;
+  --bt-wp-top-row-actions-padding-top: 2px;
+  --bt-wp-top-row-actions-border-top: 1px solid var(--bt-section-border-color);
+  --bt-wp-top-row-actions-border-bottom: none;
+  
+  --bt-wp-top-row-actions-inner-width: 100%;
+  
+  --bt-wp-top-level-buttons-order: 2;
+  
+  --bt-wp-share-button-order: -1;
+  --bt-wp-share-button-margin-right: auto;
+  --bt-wp-share-button-margin-left: 0;
+  
+  --bt-ltod-btn-margin-top: 0 !important;
+  --bt-wp-ltod-btn-pos: absolute;
+  --bt-wp-ltod-btn-right: 0;
+  --bt-wp-ltod-btn-left: unset;
+  
+  --bt-wp-flex-items-pos: relative;
+  --bt-wp-flex-items-right: unset;
+  --bt-wp-flex-items-left: 0;
+  
+  --bt-wp-button-shape-order: 1;
+  
+  --bt-standard-view-count-margin-top: -24px !important;
+  --bt-bar-margin-top: 0 !important;
+}
+html[watch-metadata-style^="hitchhiker-2014"],
+html[watch-metadata-style^="hitchhiker-2013"] {
+  --bt-wp-top-row-padding-bottom: 52px !important;
+  
+  --bt-wp-top-row-actions-width: calc(100% - 30px);
+  --bt-wp-top-row-actions-pos: absolute;
+  --bt-wp-top-row-actions-margin-top: 24px;
+  --bt-wp-top-row-actions-border-top: none;
+  --bt-wp-top-row-actions-border-bottom: 1px solid var(--bt-section-border-color);
+  
+  --bt-wp-top-row-actions-inner-width: 100%;
+  
+  --bt-wp-top-level-buttons-order: -1;
+  
+  --bt-wp-share-button-order: 0;
+  --bt-wp-share-button-margin-right: -52px;
+  --bt-wp-share-button-margin-right: 0px;
+  --bt-wp-share-button-margin-left: auto;
+  
+  --bt-ltod-btn-margin-top: 0 !important;
+  --bt-wp-ltod-btn-pos: absolute;
+  --bt-wp-ltod-btn-right: unset;
+  --bt-wp-ltod-btn-left: 0;
+  
+  --bt-wp-flex-items-pos: absolute;
+  --bt-wp-flex-items-order: 2;
+  --bt-wp-flex-items-right: 0px;
+  --bt-wp-flex-items-left: unset;
+  
+  --bt-wp-button-shape-order: 2;
+  
+  --bt-standard-view-count-margin-top: -44px !important; /* -24px */
+  --bt-bar-margin-top: -20px !important; /* 0 */
+}
+html[watch-metadata-style^="aozora"] {
+  --bt-wp-top-row-padding-bottom: 14px;
+}
+
+html[watch-metadata-style] #above-the-fold #actions {
+  flex-direction: var(--bt-wp-top-row-actions-flex-dir, row-reverse) !important;
+  margin-top: var(--bt-wp-top-row-actions-margin-top, 12px) !important;
+  padding-top: var(--bt-wp-top-row-actions-padding-top, 0px) !important;
+  width: var(--bt-wp-top-row-actions-width) !important;
+  position: var(--bt-wp-top-row-actions-pos) !important;
+  border-top: var(--bt-wp-top-row-actions-border-top);
+  border-bottom: var(--bt-wp-top-row-actions-border-bottom);
+  padding-bottom: var(--bt-wp-top-row-actions-padding-bottom, 0);
+}
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #actions-inner,
+html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold #actions-inner {
+  margin-top: -71px !important;
+}
+html[watch-metadata-style] #above-the-fold #actions-inner {
+  width: var(--bt-wp-top-row-actions-inner-width) !important;
+}
+html[watch-metadata-style] #above-the-fold #top-row {
+  padding-bottom: var(--bt-wp-top-row-padding-bottom) !important;
+  padding-top: 5px;
+  border-bottom: none !important;
+  margin-top: -12px;
+}
+middle-row-border {
+  display: none !important;
+}
+html[watch-metadata-style^="hitchhiker"] #above-the-fold #top-level-buttons-computed ytd-button-renderer, 
+html[watch-metadata-style^="cosmicpanda"]:not([title-on-top="true"]) #above-the-fold #top-level-buttons-computed ytd-button-renderer {
+  display: block !important;
+}
+html[watch-metadata-style^="hitchhiker"] #above-the-fold ytd-menu-renderer {
+  display: flex !important;
+  flex-wrap: nowrap;
+}
+html[watch-metadata-style^="hitchhiker"] #top-level-buttons-computed {
+  order: var(--bt-wp-top-level-buttons-order);
+  width: 100%;
+  display: flex;
+  align-items: unset !important;
+}
+html[watch-metadata-style^="hitchhiker"] #top-level-buttons-computed ytd-button-renderer {
+  order: var(--bt-wp-share-button-order);
+  margin-right: var(--bt-wp-share-button-margin-right);
+  margin-left: var(--bt-wp-share-button-margin-left);
+}
+html[watch-metadata-style^="hitchhiker"] #flexible-item-buttons {
+  position: var(--bt-wp-flex-items-pos);
+  order: var(--bt-wp-flex-items-order);
+  right: var(--bt-wp-flex-items-right);
+  left: var(--bt-wp-flex-items-left);
+  display: flex;
+  min-height: 40px !important;
+}
+html[watch-metadata-style] ytd-segmented-like-dislike-button-renderer {
+  position: var(--bt-wp-ltod-btn-pos);
+  right: var(--bt-wp-ltod-btn-right);
+  left: var(--bt-wp-ltod-btn-left);
+}
+html[watch-metadata-style^="hitchhiker"]:not([watch-metadata-style^="hitchhiker-2014"]):not([watch-metadata-style^="hitchhiker-2013"]) #button-shape {
+  margin-right: auto;
+  order: var(--bt-wp-button-shape-order);
+  margin-right: -112px;
+  margin-left: 66px;
+  z-index: 1000;
+}
+html[watch-metadata-style^="hitchhiker"] #bt-middle-row {
+  position: absolute;
+  opacity: 0;
+  display: none !important;
+}
+html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row,
+html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row {
+  opacity: 1;
 }

@@ -54,4 +54,4 @@ Credits:
 
 Logo made by UnderscoreAngel. [Github page](https://github.com/UnderscoreAngel)
 
-CustomTube shares a small amount of code with YouTube Redux, namely the code for managing user settings, and the code for resizing the video player.
+CustomTube shares a small amount of code with YouTube Redux, namely the code for managing user settings.

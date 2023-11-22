@@ -3694,27 +3694,30 @@ function watchPageEveryLoad() {
 		document.querySelector("html[watch-metadata-style^='hitchhiker-2014']") != null ||
 		document.querySelector("html[watch-metadata-style^='hitchhiker-2013']") != null
 		) {
-			var shareButton = document.querySelector('#top-level-buttons-computed ytd-button-renderer');
-			if (shareButton.querySelector("span") == null) {
-				shareButton = document.querySelectorAll('#top-level-buttons-computed ytd-button-renderer')[1];
-				console.log("[CT] Alternate share button method used.");
+			waitFor("#button-shape", 200, moveWatch7Buttons);
+			function moveWatch7Buttons() {
+				if (document.querySelector('#segmented-like-button') != null) {
+					var shareButton = document.querySelector('#top-level-buttons-computed ytd-button-renderer span').parentNode.parentNode.parentNode.parentNode;
+				} else {
+					var shareButton = document.querySelector('#top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__button-text-content').parentNode.parentNode.parentNode;
+				}
+				var moreActions = document.querySelector('#above-the-fold #button-shape');
+				newHome1 = document.querySelector('#above-the-fold ytd-menu-renderer #flexible-item-buttons');
+				newHome1.appendChild(shareButton);
+				newHome1.appendChild(moreActions);
+				const newElem = document.createElement("div");
+				newElem.id = 'bt-fake-about';
+				newElem.setAttribute("class", "bt-universalized-element");
+				newElem.setAttribute("bt-optimized-universal-element", "");
+				newElem.innerHTML = `
+				<div id="fake-about-inner">
+					<span bt-lang="en" class="bt-localized">About</span>
+					<span bt-lang="ja" class="bt-localized">概要</span>
+					<span bt-lang="es" class="bt-localized">Información</span>
+				</div>
+				`;
+				newHome1.insertBefore(newElem, newHome1.children[0]);
 			}
-			var moreActions = document.querySelector('#button-shape');
-			newHome1 = document.querySelector('#above-the-fold ytd-menu-renderer #flexible-item-buttons');
-			newHome1.appendChild(shareButton);
-			newHome1.appendChild(moreActions);
-			const newElem = document.createElement("div");
-			newElem.id = 'bt-fake-about';
-			newElem.setAttribute("class", "bt-universalized-element");
-			newElem.setAttribute("bt-optimized-universal-element", "");
-			newElem.innerHTML = `
-			<div id="fake-about-inner">
-				<span bt-lang="en" class="bt-localized">About</span>
-				<span bt-lang="ja" class="bt-localized">概要</span>
-				<span bt-lang="es" class="bt-localized">Información</span>
-			</div>
-			`;
-			newHome1.insertBefore(newElem, newHome1.children[0]);
 		}
 		setTimeout(fixComments, 5000);
 		function fixComments() {

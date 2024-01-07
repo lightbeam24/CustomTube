@@ -308,6 +308,40 @@ html[watch-metadata-style] #owner-sub-count {
   margin-top: var(--bt-wp-sub-count-margin-top);
   color: var(--bt-wp-sub-count-text-color, rgb(96,96,96)) !important;
 }
+html[watch-metadata-style^="hitchhiker-2013"][lang^="en"] #owner-sub-count::after,
+html[watch-metadata-style^="hitchhiker-2014"][lang^="en"] #owner-sub-count::after {
+  margin-top: 2px;
+}
+html[watch-metadata-style^="hitchhiker-2013"][lang^="en"] #owner-sub-count::after,
+html[watch-metadata-style^="hitchhiker-2014"][lang^="en"] #owner-sub-count::after {
+  content: '';
+  position: absolute;
+  margin-top: -9px;
+  left: 161px;
+  border-width: 5px 5px 5px 0;
+  border-style: solid;
+  border-color: transparent #fafafa;
+}
+html[watch-metadata-style^="hitchhiker-2013-1"][lang^="en"] #owner-sub-count::after {
+  left: 167px;
+}
+html[watch-metadata-style^="hitchhiker-2013"][lang^="en"] #owner-sub-count::before,
+html[watch-metadata-style^="hitchhiker-2014"][lang^="en"] #owner-sub-count::before {
+  margin-top: 2px;
+  border-color: transparent #ccc;
+}
+html[watch-metadata-style^="hitchhiker-2013"][lang^="en"] #owner-sub-count::before,
+html[watch-metadata-style^="hitchhiker-2014"][lang^="en"] #owner-sub-count::before {
+  content: '';
+  position: absolute;
+  margin-top: -10px;
+  left: 160px;
+  border-width: 6px 6px 6px 0;
+  border-style: solid;
+}
+html[watch-metadata-style^="hitchhiker-2013-1"][lang^="en"] #owner-sub-count::before {
+  left: 166px;
+}
 /* styles */
 html[watch-metadata-style] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
   color: var(--bt-sub-btn-text-color);
@@ -383,12 +417,12 @@ html[watch-metadata-style="polymer-2019"] #subscribe-button .yt-spec-button-shap
   mask-image: linear-gradient(to right,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 82px,rgba(255,255,255,0.75) 83px);
 }
 /* subscribed button */
-html[watch-metadata-style] ytd-subscription-notification-toggle-button-renderer-next .yt-spec-button-shape-next--size-m {
+html[watch-metadata-style][layout] body ytd-app ytd-page-manager #subscribe-button.style-scope yt-button-shape button {
   height: var(--bt-sub-btn-height);
   border-radius: var(--bt-sub-btn-radius);
   padding: var(--bt-sub-btn-padding);
 }
-html[watch-metadata-style] #subscribe-button .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+html[watch-metadata-style][layout] body ytd-app ytd-page-manager #subscribe-button.style-scope ytd-subscribe-button-renderer[subscribed] yt-button-shape button {
   background: var(--bt-subbed-btn-bg) !important;
   border: var(--bt-subbed-btn-border);
   font-weight: var(--bt-sub-btn-font-weight);

@@ -398,8 +398,8 @@ html[channel-style^="polymer"] {
 html[channel-style^="hitchhiker"] {
 --bt-channel-page-tab-strip-padding: 0;
 --bt-channel-page-tab-height: 29px;
---bt-channel-page-tab-padding: 0 6px;
---bt-channel-page-tab-margin: -4px 6px 0 6px;
+--bt-channel-page-tab-padding: 0px; /* formerly 0 6px */
+--bt-channel-page-tab-margin: -4px 0 0 20px;
 --bt-channel-page-tab-font-size: 13px;
 --bt-channel-page-tab-font-weight: normal;
 --bt-channel-page-tab-text-transform: none;
@@ -572,6 +572,7 @@ html[channel-style]:not([channel-style^="polymer"]) yt-tab-shape {
   background: var(--bt-channel-page-tab-bg);
   color: var(--bt-channel-page-tab-text-color) !important;
   border-radius: var(--bt-channel-page-tab-radius);
+  font-family: arial !important;
 }
 /* remove bar */
 html[channel-style]:not([channel-style^="polymer"]) .selection-bar.tp-yt-paper-tabs {
@@ -591,6 +592,10 @@ html[channel-style]:not([channel-style^="polymer"]) yt-tab-shape[aria-selected="
   border-bottom: var(--bt-channel-page-tab-border-bottom-active) !important;
   color: var(--bt-channel-page-tab-text-color-active, var(--bt-channel-page-tab-text-color)) !important;
   background: var(--bt-channel-page-tab-bg-active);
+}
+html[channel-style^="hitchhiker"]:not([channel-style^="polymer"]) tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer #tabs-inner-container.ytd-c4-tabbed-header-renderer yt-tab-shape[aria-selected="true"] div {
+  font-weight: bold !important;
+  color: var(--bt-gcp-333) !important;
 }
 html[channel-style]:not([channel-style^="polymer"]) yt-tab-shape[aria-selected="true"] div {
   color: var(--bt-channel-page-tab-text-color-active, var(--bt-channel-page-tab-text-color)) !important;

@@ -112,6 +112,6 @@ html[pseudo-static] .html5-video-container video {
 	top: 0 !important;
 	object-fit: contain !important;
 }
-html[pseudo-static] #player {
+html[pseudo-static] ytd-watch-flexy #player {
   width: 641px;
 }

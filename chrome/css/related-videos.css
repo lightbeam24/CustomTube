@@ -115,7 +115,7 @@ html[related-videos^="hitchhiker"] {
 --bt-related-padding: 0px 15px;
 --bt-related-margin-bottom: 10px;
 --bt-related-inner-padding-bottom: 14px;
---bt-related-margin-left: 10px;
+--bt-related-margin-left: 0px; /* formerly 10px */
 /* hover thing */
 --bt-related-video-outer-padding: 7px 0;
 --bt-related-video-outer-margin: 0;

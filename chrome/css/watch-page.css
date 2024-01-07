@@ -169,7 +169,7 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-standard-view-count-font-size: 19px;
 --bt-standard-view-count-font-weight: normal;
 --bt-standard-view-count-text-color: var(--bt-text-color-6);
---bt-standard-view-count-margin-top: 47px;
+--bt-standard-view-count-margin-top: -26px;
 /* upload info */
 --bt-wp-upload-info-flex-dir: column;
 /* avatar */
@@ -234,7 +234,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-standard-view-count-font-size: 19px;
 --bt-standard-view-count-font-weight: normal;
 --bt-standard-view-count-text-color: var(--bt-text-color-5, var(--bt-gcp-333));
---bt-standard-view-count-margin-top: 14px;
+--bt-standard-view-count-margin-top: -46px;
 /* avatar */
 --bt-owner-pfp-size: 48px;
 --bt-owner-pfp-margin-right: 8px;
@@ -409,7 +409,7 @@ html[watch-metadata-style] #above-the-fold #title {
   height: var(--bt-wp-title-height, unset);
 }
 /* video title */
-html[watch-metadata-style] h1.ytd-watch-metadata {
+html[watch-metadata-style] #title h1.ytd-watch-metadata {
   font-family: var(--bt-wp-title-font-family);
   font-size: var(--bt-wp-title-font-size);
   font-weight: var(--bt-wp-title-font-weight);
@@ -528,8 +528,7 @@ html[watch-metadata-style^="stargazer"] #bottom-row.ytd-watch-metadata {
 html[watch-metadata-style] ytd-menu-renderer button {
   text-transform: var(--bt-wp-button-text-transform);
 }
-html[watch-metadata-style] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-html[watch-metadata-style] #above-the-fold ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style] #above-the-fold button.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[watch-metadata-style] #above-the-fold segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[watch-metadata-style] #above-the-fold #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
@@ -548,8 +547,7 @@ html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shap
   font-weight: var(--bt-wp-button-font-weight);
   text-shadow: var(--bt-wp-button-text-shadow);
 }
-html[watch-metadata-style] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
-html[watch-metadata-style] #above-the-fold ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
+html[watch-metadata-style] #above-the-fold button.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
 html[watch-metadata-style] #above-the-fold segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
 html[watch-metadata-style] #above-the-fold #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
 html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
@@ -561,8 +559,7 @@ html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shap
   border-color: var(--bt-wp-button-border-color-hover);
   box-shadow: var(--bt-wp-button-box-shadow-hover);
 }
-html[watch-metadata-style] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
-html[watch-metadata-style] #above-the-fold ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
+html[watch-metadata-style] #above-the-fold button.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
 html[watch-metadata-style] #above-the-fold segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
 html[watch-metadata-style] #above-the-fold #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
 html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
@@ -575,7 +572,9 @@ html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shap
   box-shadow: var(--bt-wp-button-box-shadow-active);
 }
 html[watch-metadata-style] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon,
-html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon {
+html[watch-metadata-style] #above-the-fold button-view-model .yt-spec-button-shape-next__icon,
+html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon,
+html[watch-metadata-style] #bt-place-metadata button-view-model .yt-spec-button-shape-next__icon {
   display: var(--bt-wp-button-icon-display);
 }
 /* Buttons watch page cosmic 

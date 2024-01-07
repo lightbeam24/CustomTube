@@ -223,27 +223,33 @@ html[watch-metadata-style^="hitchhiker"] button[aria-label="Save to playlist"] .
 	height: 20px;
 	opacity: 0.6;
 }
-html[watch-metadata-style^="hitchhiker"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content span {
+html[watch-metadata-style^="hitchhiker"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content {
 	visibility: hidden;
 }
-html[watch-metadata-style^="hitchhiker"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content span::after {
+html[watch-metadata-style^="hitchhiker"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content::after {
   visibility: visible !important;
   content: "Add to";
   position: relative;
   font-family: var(--bt-watch-metadata-buttons-font-family, "YouTube Noto",Roboto,);
   font-size: var(--bt-watch-metadata-font-size, 11px);
   font-weight: 500;
-  margin-left: -23px;
+  margin-left: -21px;
+  opacity: 0.6;
+}
+html[watch-metadata-style^="hitchhiker"][lang="en"] button[aria-label="Save to playlist"]:hover .yt-spec-button-shape-next__button-text-content::after {
+  opacity: 1;
 }
 html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy button[aria-label="Share"] .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__icon {
+html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed button-view-model .yt-spec-button-shape-next__icon {
 	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -21px -1679px;
 	width: 20px;
 	height: 20px;
 	opacity: 0.6;
 }
 html[watch-metadata-style^="hitchhiker-2015"] ytd-watch-flexy button[aria-label="Share"] .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="hitchhiker-2015"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__icon {
+html[watch-metadata-style^="hitchhiker-2015"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker-2015"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed button-view-model .yt-spec-button-shape-next__icon {
 	background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -304px -393px;
 	width: 20px;
 	height: 20px;
@@ -609,8 +615,7 @@ html[watch-metadata-style^="hitchhiker"] {
   --bt-wp-flex-items-left: 0;
   
   --bt-wp-button-shape-order: 1;
-  
-  --bt-standard-view-count-margin-top: -24px !important;
+ 
   --bt-bar-margin-top: 0 !important;
 }
 html[watch-metadata-style^="hitchhiker-2014"],
@@ -644,7 +649,6 @@ html[watch-metadata-style^="hitchhiker-2013"] {
   
   --bt-wp-button-shape-order: 2;
   
-  --bt-standard-view-count-margin-top: -44px !important; /* -24px */
   --bt-bar-margin-top: -20px !important; /* 0 */
 }
 html[watch-metadata-style^="aozora"] {

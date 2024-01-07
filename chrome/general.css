@@ -896,6 +896,7 @@ html[unrounded-vids] #ytd-player.ytd-watch-flexy {
 html[unrounded-pfps="strict"] yt-img-shadow.ytd-topbar-menu-button-renderer, 
 html[unrounded-pfps] yt-img-shadow.ytd-guide-entry-renderer, 
 html[unrounded-pfps] #author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer, 
+html[unrounded-pfps] ytd-comment-view-model #author-thumbnail yt-img-shadow, 
 html[unrounded-pfps] #author-thumbnail.ytd-comment-simplebox-renderer, 
 html[unrounded-pfps] yt-img-shadow.ytd-channel-renderer, 
 html[unrounded-pfps] #author-thumbnail.ytd-backstage-post-renderer yt-img-shadow.ytd-backstage-post-renderer, 
@@ -908,7 +909,7 @@ html[unrounded-pfps] ytd-commentbox[is-reply][is-backstage-comment] #author-thum
 html[unrounded-pfps] yt-img-shadow.ytd-grid-channel-renderer,
 html[unrounded-pfps] .avatar.ytd-recognition-shelf-renderer,
 html[unrounded-pfps] .yt-content-preview-image-view-model-wiz--circle-image {
-	  border-radius: 0;
+	  border-radius: 0 !important;
 }
 html[unrounded-pfps] #avatar {
 	  border-radius: 0 !important;

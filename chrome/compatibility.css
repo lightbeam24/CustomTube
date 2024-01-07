@@ -18,3 +18,19 @@ html[watch-metadata-style^="cosmicpanda"] #bt-above #title yt-formatted-string {
     max-height: 30px !important;
     overflow-x: visible !important;
 }
+html[watch-metadata-style^="hitchhiker-2013"][lang^="en"] #owner-sub-count::before,
+html[watch-metadata-style^="hitchhiker-2014"][lang^="en"] #owner-sub-count::before {
+  margin-top: 4px !important;
+  left: 161px !important;
+}
+html[watch-metadata-style^="hitchhiker-2013"][lang^="en"] #owner-sub-count::after,
+html[watch-metadata-style^="hitchhiker-2014"][lang^="en"] #owner-sub-count::after {
+  margin-top: 5px !important;
+  left: 162px !important;
+}
+html[watch-metadata-style^="hitchhiker-2013-1"][lang^="en"] #owner-sub-count::after {
+  left: 166px !important;
+}
+html[watch-metadata-style^="hitchhiker-2013-1"][lang^="en"] #owner-sub-count::before {
+  left: 167px !important;
+}

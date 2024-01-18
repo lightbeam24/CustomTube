@@ -59,6 +59,7 @@ let tasks = {
 	"finishedWatch": false,
 	"movedTitleToTop": false,
 	"movedMetaToSide": false,
+	"createdVideosDropdown": false,
 	
 	
 	"changedLogoEndpoint": false,
@@ -2150,6 +2151,13 @@ function createNewElements() {
 					tasks.createdShowMoreRelated = true;
 				}
 			}
+			if (!tasks.createdVideosDropdown) {
+				if (document.querySelector("html[layout] ytd-watch-flexy ytd-video-owner-renderer") != null) {
+					if (document.querySelector("#bt-videos-dropdown") === null) {
+						setTimeout(createVideosDropdown, 1);
+					}
+				}
+			}
 		}
 	}, 300);
 	setTimeout(getFinishedWatchCreates, 1);
@@ -2173,7 +2181,8 @@ function createNewElements() {
 			tasks.createdDescRules2 &&
 			tasks.createdNewShowMoreButton &&
 			tasks.createdNewShowLessButton &&
-			tasks.createdCommentsTeaser
+			tasks.createdCommentsTeaser &&
+			tasks.createdVideosDropdown
 		) {
 			if (tasks.createdShowMoreRelated) {
 				tasks.finishedWatch = true;
@@ -2448,7 +2457,9 @@ function createNewElements() {
 		html[topbar-style^="stargazer-2008"][location="watch"] #masthead-nav-main #bt-videos-link,
 		html[topbar-style^="stargazer-2008"][location="subscriptions"] #masthead-nav-main #bt-videos-link,
 		html[topbar-style^="stargazer-2008"][location="trending"] #masthead-nav-main #bt-videos-link,
-		html[topbar-style^="stargazer-2008"][location="channel"] #masthead-nav-main #bt-channels-link {
+		html[topbar-style^="stargazer-2008"][location="channel"] #masthead-nav-main #bt-channels-link,
+		html[topbar-style^="stargazer-2008"][location="browse-channels"] #masthead-nav-main #bt-channels-link,
+		html[topbar-style^="stargazer-2008"][location="you"] #masthead-nav-main #bt-community-link {
 		  background-position: 0 -100px;
 		  color: #333 !important;
 		}
@@ -2456,39 +2467,43 @@ function createNewElements() {
 		html[topbar-style^="stargazer-2008"][location="watch"] #masthead-nav-main #bt-videos-link::before,
 		html[topbar-style^="stargazer-2008"][location="subscriptions"] #masthead-nav-main #bt-videos-link::before,
 		html[topbar-style^="stargazer-2008"][location="trending"] #masthead-nav-main #bt-videos-link::before,
-		html[topbar-style^="stargazer-2008"][location="channel"] #masthead-nav-main #bt-channels-link::before {
+		html[topbar-style^="stargazer-2008"][location="channel"] #masthead-nav-main #bt-channels-link::before,
+		html[topbar-style^="stargazer-2008"][location="browse-channels"] #masthead-nav-main #bt-channels-link::before,
+		html[topbar-style^="stargazer-2008"][location="you"] #masthead-nav-main #bt-community-link::before {
 		  background-position: -142px 0;
 		}
 		html[topbar-style^="stargazer-2008"][location="home"] #masthead-nav-main #bt-home-link::after,
 		html[topbar-style^="stargazer-2008"][location="watch"] #masthead-nav-main #bt-videos-link::after,
 		html[topbar-style^="stargazer-2008"][location="subscriptions"] #masthead-nav-main #bt-videos-link::after,
 		html[topbar-style^="stargazer-2008"][location="trending"] #masthead-nav-main #bt-videos-link::after,
-		html[topbar-style^="stargazer-2008"][location="channel"] #masthead-nav-main #bt-channels-link::after {
+		html[topbar-style^="stargazer-2008"][location="channel"] #masthead-nav-main #bt-channels-link::after,
+		html[topbar-style^="stargazer-2008"][location="browse-channels"] #masthead-nav-main #bt-channels-link::after,
+		html[topbar-style^="stargazer-2008"][location="you"] #masthead-nav-main #bt-community-link::after {
 		  background-position: -147px 0;
 		}
 		</style>
 		<div id="sector-1">
-			<a id="bt-home-link" href="https://www.youtube.com/">
+			<a id="bt-home-link" class="yt-simple-endpoint" href="https://www.youtube.com/">
 				<span>Home</span>
 			</a>
-			<a id="bt-videos-link" href="https://www.youtube.com/videos">
+			<a id="bt-videos-link" class="yt-simple-endpoint" href="https://www.youtube.com/feed/subscriptions">
 				<span>Videos</span>
 			</a>
-			<a id="bt-channels-link" href="https://www.youtube.com/channels">
+			<a id="bt-channels-link" class="yt-simple-endpoint" href="https://www.youtube.com/channels">
 				<span>Channels</span>
 			</a>
-			<a id="bt-shows-link" href="https://www.youtube.com/shows">
+			<a id="bt-shows-link" class="yt-simple-endpoint" href="https://www.youtube.com/shows">
 				<span>Shows</span>
 			</a>
-			<a id="bt-community-link" href="https://www.youtube.com/community">
+			<a id="bt-community-link" class="yt-simple-endpoint" href="https://www.youtube.com/community">
 				<span>Community</span>
 			</a>
 		</div>
 		<div id="sector-2">
-			<a href="https://www.youtube.com/feed/subscriptions">
+			<a id="bt-subs-link" href="https://www.youtube.com/feed/subscriptions" class="yt-simple-endpoint">
 				<span>Subscriptions</span>
 			</a>
-			<a href="https://www.youtube.com/feed/history">
+			<a id="bt-history-link" href="https://www.youtube.com/feed/history" class="yt-simple-endpoint">
 				<span>History</span>
 			</a>
 		</div>
@@ -2505,7 +2520,7 @@ function createNewElements() {
 		<div id="bt-header-inner">
 		<div id="left">
 			<div id="left-inner">
-				<a id="browse-chan" href="https://www.youtube.com/feed/guide_builder">
+				<a id="browse-chan" class="yt-simple-endpoint" href="https://www.youtube.com/feed/guide_builder">
 					<div id="browse-chan-inner">
 						<span bt-lang="en">Browse Channels</span>
 					</div>
@@ -3263,7 +3278,7 @@ function createNewElements() {
 		<span id="uploaded-by" style="display: none">
 			<span bt-lang="en">Uploaded by </span>
 		</span>
-		<a id="author-text" style="display: none">
+		<a id="author-text" class="yt-simple-endpoint" style="display: none">
 			<span bt-lang="en">Author </span>
 		</a>
 		<span id="second-on" style="display: none">
@@ -3455,6 +3470,17 @@ function createNewElements() {
 		`;
 		related.insertBefore(loadMore, related.children[2].nextSibling);	
 		setTimeout(disableInfiScroll3, 100);
+	}
+	function createVideosDropdown() {
+		tasks.createdVideosDropdown = true;
+		/*let container = document.querySelector('ytd-video-owner-renderer');
+		const newElem = document.createElement("div");
+		newElem.id = 'bt-videos-dropdown';
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.innerHTML = `
+		`;
+		container.insertBefore(newElem, container.children[2]);	*/
 	}
 }
 function moveElements() {
@@ -3702,7 +3728,11 @@ function watchPageEveryLoad() {
 				if (document.querySelector('#segmented-like-button') != null) {
 					var shareButton = document.querySelector('#top-level-buttons-computed ytd-button-renderer span').parentNode.parentNode.parentNode.parentNode;
 				} else {
-					var shareButton = document.querySelector('#top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__button-text-content').parentNode.parentNode.parentNode;
+					if (document.querySelector('#top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__button-text-content') != null) {
+						var shareButton = document.querySelector('#top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__button-text-content').parentNode.parentNode.parentNode;
+					} else {
+						var shareButton = document.querySelector('#top-level-buttons-computed yt-button-view-model .yt-spec-button-shape-next__button-text-content').parentNode.parentNode.parentNode;
+					}
 				}
 				var moreActions = document.querySelector('#above-the-fold #button-shape');
 				newHome1 = document.querySelector('#above-the-fold ytd-menu-renderer #flexible-item-buttons');
@@ -3836,7 +3866,7 @@ function watchPageEveryLoad() {
 		var videoAuthorHandle = sessionStorage.getItem("nebula-video-author-handle");
 		document.querySelector("#bt-upload-date #precise-upload-date").innerText = trueUploadDate;
 		document.querySelector("#bt-desc-upload-date #author-text").innerText = videoAuthor;
-		document.querySelector("#bt-desc-upload-date #author-text").setAttribute("href",videoAuthorLink);
+		//document.querySelector("#bt-desc-upload-date #author-text").setAttribute("href","https://www.youtube.com/channel/" + videoAuthorId);
 		document.querySelector("#bt-desc-upload-date #author-text").setAttribute("channel-id",videoAuthorId);
 		document.querySelector("#bt-desc-upload-date #author-text").setAttribute("channel-handle",videoAuthorHandle);
 		let notNeedNewString = trueUploadDate.includes("d");

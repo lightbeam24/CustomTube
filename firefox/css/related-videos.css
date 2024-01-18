@@ -437,3 +437,12 @@ html[related-videos-size] ytd-watch-flexy #related .metadata {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
+html[related-videos-size] ytd-ad-slot-renderer.ytd-watch-next-secondary-results-renderer,
+html[related-videos-size] ytd-compact-video-renderer.ytd-watch-next-secondary-results-renderer:not([expansion="collapsed"]), 
+html[related-videos-size] ytd-compact-radio-renderer.ytd-watch-next-secondary-results-renderer, 
+html[related-videos-size] ytd-compact-movie-renderer.ytd-watch-next-secondary-results-renderer, 
+html[related-videos-size] ytd-compact-playlist-renderer.ytd-watch-next-secondary-results-renderer, 
+html[related-videos-size] ytd-compact-promoted-video-renderer.ytd-watch-next-secondary-results-renderer, 
+html[related-videos-size] ytd-promoted-sparkles-web-renderer.ytd-watch-next-secondary-results-renderer {
+  margin-bottom: 0px;
+}

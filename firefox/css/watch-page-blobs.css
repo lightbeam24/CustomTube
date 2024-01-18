@@ -320,6 +320,12 @@ html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata like-button-view-mod
 html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata dislike-button-view-model button .yt-spec-button-shape-next__icon {
   filter: var(--bt-watch-metadata-icon-filter);
 }
+/* for new view models */
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #flexible-item-buttons button,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #top-level-buttons-computed ytd-button-renderer span,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #top-level-buttons-computed yt-button-view-model button {
+  filter: var(--bt-watch-metadata-icon-filter);
+}
 #bt-fake-about {
   display: none;
 }
@@ -695,7 +701,8 @@ html[watch-metadata-style^="hitchhiker"] #top-level-buttons-computed {
   display: flex;
   align-items: unset !important;
 }
-html[watch-metadata-style^="hitchhiker"] #top-level-buttons-computed ytd-button-renderer {
+html[watch-metadata-style^="hitchhiker"] #top-level-buttons-computed ytd-button-renderer,
+html[watch-metadata-style^="hitchhiker"] #top-level-buttons-computed yt-button-view-model {
   order: var(--bt-wp-share-button-order);
   margin-right: var(--bt-wp-share-button-margin-right);
   margin-left: var(--bt-wp-share-button-margin-left);

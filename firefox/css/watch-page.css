@@ -1,6 +1,6 @@
 html[watch-metadata-style^="stargazer"] {
---bt-wp-columns-margin-top: 22px;
---bt-wp-secondary-margin-top: 40px;
+--bt-wp-columns-margin-top: -10px; /* formerly 22 */
+--bt-wp-secondary-margin-top: 8px; /* formerly 40 */
 /* view count */
 --bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
@@ -52,7 +52,7 @@ html[watch-metadata-style^="stargazer"] {
 --bt-wp-button-icon-display: none;
 }
 html[watch-metadata-style^="aozora"] {
---bt-wp-columns-margin-top: 54px;
+--bt-wp-columns-margin-top: 0px; /* formerly 54 */
 --bt-watch-metadata-margin-bottom: 0;
 /* view count */
 --bt-standard-view-count-display: flex;
@@ -107,7 +107,7 @@ html[watch-metadata-style^="aozora"] {
 --bt-wp-button-icon-display: none;
 }
 html[watch-metadata-style^="cosmicpanda"] {
---bt-wp-columns-margin-top: 64px; /* formerly 80 */
+--bt-wp-columns-margin-top: 0px; /* formerly 64, formerly 80 */
 --bt-watch-metadata-margin-bottom: 0;
 /* view count */
 --bt-standard-view-count-display: flex;
@@ -371,6 +371,9 @@ html[title-on-top="true"] #bt-above {
   position: absolute;
   width: 1266px;
   z-index: 192;
+}
+html[title-on-top="true"] #bt-above {
+  position: relative;
 }
 html[static][title-on-top="true"] #bt-above {
   width: 1000px;

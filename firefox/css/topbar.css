@@ -1355,8 +1355,19 @@ html[dark][topbar-style^="hitchhiker"] ytd-masthead:hover #guide-icon {
 }
 html[topbar-style^="hitchhiker-2015"] ytd-masthead #guide-button.ytd-masthead #guide-icon,
 html[topbar-style^="hitchhiker-2014"] ytd-masthead #guide-button.ytd-masthead #guide-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflvB63an.png) 0 -1285px;
+  margin-top: 2px;
+  opacity: 0.5;
+}
+html[topbar-style^="hitchhiker-2015"] ytd-masthead:hover #guide-button.ytd-masthead #guide-icon,
+html[topbar-style^="hitchhiker-2014"] ytd-masthead:hover #guide-button.ytd-masthead #guide-icon {
+  opacity: 1;
+}
+html[topbar-style^="hitchhiker-2015"] [guide-persistent-and-visible] ytd-masthead #guide-button.ytd-masthead #guide-icon,
+html[topbar-style^="hitchhiker-2014"] [guide-persistent-and-visible] ytd-masthead #guide-button.ytd-masthead #guide-icon {
   background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -137px -162px;
   margin-top: 2px;
+  opacity: 1;
 }
 html[topbar-style^="hitchhiker-2015"] ytd-masthead #guide-button.ytd-masthead #guide-icon::after,
 html[topbar-style^="hitchhiker-2014"] ytd-masthead #guide-button.ytd-masthead #guide-icon::after {
@@ -1365,10 +1376,14 @@ html[topbar-style^="hitchhiker-2014"] ytd-masthead #guide-button.ytd-masthead #g
   width: 0;
   height: 0;
   margin-left: 10px;
-  border-top-color: #e63127 !important;
+  border-top-color: #888 !important;
   border-width: 3px 3px 0 !important;
   border: 1px solid transparent;
   margin-top: 1px;
+}
+html[topbar-style^="hitchhiker-2015"] [guide-persistent-and-visible] ytd-masthead #guide-button.ytd-masthead #guide-icon::after,
+html[topbar-style^="hitchhiker-2014"] [guide-persistent-and-visible] ytd-masthead #guide-button.ytd-masthead #guide-icon::after {
+  border-top-color: #e63127 !important;
 }
 html[topbar-style^="hitchhiker-2015"] ytd-masthead #guide-button.ytd-masthead:hover #guide-icon::after {
   border-top-color: #333 !important;

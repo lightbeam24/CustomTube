@@ -833,3 +833,6 @@ html[watch-metadata-style^="aozora"] like-button-view-model .yt-spec-button-shap
 html[watch-metadata-style^="stargazer"] like-button-view-model .yt-spec-button-shape-next__icon {
   margin-left: -24px !important;	
 }
+html[layout]:not([layout^="polymer"]) like-button-view-model yt-icon-shape {
+	display: none;
+}

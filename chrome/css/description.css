@@ -291,14 +291,14 @@ html[watch-metadata-style^="hitchhiker"] {
 /* text */
 --bt-desc-text-color: var(--bt-text-color-5);
 --bt-desc-font-family: "YouTube Noto",Roboto,arial,sans-serif;
---bt-desc-font-size: 12px;
+--bt-desc-font-size: 13px;
 --bt-desc-font-weight: normal;
 --bt-desc-line-height: 14px;
 --bt-desc-link-color: inherit;
 --bt-desc-link-color-hover: var(--bt-blue);
 --bt-desc-link-text-decoration-hover: underline;
 /* upload date */
---bt-desc-upload-date-font-size: 12px;
+--bt-desc-upload-date-font-size: 13px;
 --bt-desc-upload-date-font-family: "YouTube Noto",Roboto,arial,sans-serif;
 --bt-desc-upload-date-font-weight: 500;
 --bt-desc-upload-date-text-color: var(--bt-desc-text-color);

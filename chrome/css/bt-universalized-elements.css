@@ -481,7 +481,8 @@ html[dark][layout]:not([layout^="polymer"]):not([layout^="hitchhiker"]):not([lay
   box-shadow: var(--bt-standard-btn-2-box-shadow-hover);
 }
 .bt-standard-button:not([is-link]) a:active,
-.bt-standard-button:not([is-link]) a:focus {
+.bt-standard-button:not([is-link]) a:focus,
+.bt-standard-button:not([is-link])[active] a {
   border: var(--bt-standard-btn-border-active);
   border-color: var(--bt-standard-btn-border-color-active, currentcolor);
   background: var(--bt-standard-btn-bg-active);
@@ -499,6 +500,10 @@ html[dark][layout]:not([layout^="polymer"]):not([layout^="hitchhiker"]):not([lay
 }
 .bt-standard-button:not([is-link]) span::selection {
   display: none;
+}
+.bt-standard-button[disabled] {
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 html[button-style^="stargazer"] .bt-standard-button[stargazer-style="short-cta"] a {
@@ -708,6 +713,10 @@ html[layout^="polymer"] #dropdown-btn:active {
   height: 0;
   content: "";
   visibility: visible !important;
+}
+[layout^="cosmicpanda"] .ct-uix-button-arrow {
+  border-top-color: #555;
+  margin-top: 13px !important;
 }
 tp-bt-titanium-dropdown:not([bt-visible]) {
   display: none;

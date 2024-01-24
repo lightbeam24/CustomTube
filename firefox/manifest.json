@@ -1,6 +1,6 @@
 {
     "name": "CustomTube",
-    "version": "1.2.6",
+    "version": "1.2.7",
     "description": "Choose your own YouTube layout, and more!",
     "permissions": ["activeTab", "storage"],
     "browser_action": {
@@ -49,6 +49,7 @@
 		"css/sub-btn.css",
 		"css/menus.css",
 		"css/player.css",
+		"css/appbar.css",
 		"css/global-color-palette.css"
 		],
         "run_at": "document_start"

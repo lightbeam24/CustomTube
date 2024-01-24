@@ -1103,6 +1103,53 @@ html[button-style]:not([button-style^="polymer"]) yt-icon.yt-dropdown-menu {
   position: absolute;
   visibility: hidden;
 }
+html[button-style]:not([button-style^="polymer"]) #cancel-button.ytd-commentbox button,
+html[button-style]:not([button-style^="polymer"]) #submit-button.ytd-commentbox button {
+  padding: var(--bt-standard-btn-padding) !important;
+  background: var(--bt-standard-btn-bg);
+  border: var(--bt-standard-btn-border);
+  height: var(--bt-standard-btn-height);
+  border-color: var(--bt-standard-btn-border-color);
+  border-radius: var(--bt-standard-btn-radius);
+  text-shadow: var(--bt-standard-btn-text-shadow);
+  box-shadow: var(--bt-standard-btn-box-shadow);
+  font-size: var(--bt-standard-btn-font-size);
+  
+  flex-direction: var(--bt-yt-dropdown-btn-flex-dir) !important;
+}
+html[button-style]:not([button-style^="polymer"]) #buttons.ytd-commentbox {
+  margin-top: 8px;
+}
+html[button-style]:not([button-style^="polymer"]) #cancel-button.ytd-commentbox button:hover {
+  background: var(--bt-standard-btn-bg-hover);
+  border: var(--bt-standard-btn-border-hover);
+  border-color: var(--bt-standard-btn-border-color-hover);
+  box-shadow: var(--bt-standard-btn-box-shadow-hover);
+}
+html[button-style]:not([button-style^="polymer"]) #cancel-button.ytd-commentbox button:active {
+  background: var(--bt-standard-btn-bg-active);
+  border: var(--bt-standard-btn-border-active);
+  border-color: var(--bt-standard-btn-border-color-active);
+  box-shadow: var(--bt-standard-btn-box-shadow-active);
+}
+html[button-style]:not([button-style^="polymer"]) #submit-button.ytd-commentbox button {
+  background: var(--bt-cta-btn-bg);
+  border: var(--bt-cta-btn-border);
+  border-color: var(--bt-cta-btn-border-color);
+  color: #fff;
+}
+html[button-style]:not([button-style^="polymer"]) #submit-button.ytd-commentbox button:hover {
+  background: var(--bt-cta-btn-bg-hover);
+  border: var(--bt-cta-btn-border-hover);
+  border-color: var(--bt-cta-btn-border-color-hover);
+  color: #fff;
+}
+html[button-style]:not([button-style^="polymer"]) #submit-button.ytd-commentbox button:active {
+  background: var(--bt-cta-btn-bg-active);
+  border: var(--bt-cta-btn-border-active);
+  border-color: var(--bt-cta-btn-border-color-active);
+  color: #fff;
+}
 /* tooltips */
 /* tooltip */
 html[button-style^="hitchhiker"] {
@@ -1149,7 +1196,7 @@ html[button-style^="stargazer"] {
 --bt-tooltip-font-family: arial;
 --bt-tooltip-line-height: normal;
 }
-html[button-style]:not([button-style^="polymer"]) tp-yt-paper-tooltip .tp-yt-paper-tooltip[style-target="tooltip"] {
+html[layout]:not([button-style^="polymer"]) tp-yt-paper-tooltip .tp-yt-paper-tooltip[style-target="tooltip"] {
   background: var(--bt-tooltip-bg);
   border: var(--bt-tooltip-border);
   border-radius: var(--bt-tooltip-radius) !important;
@@ -1182,5 +1229,13 @@ html:not([lang^="en"]):not([lang^="ja"]):not([lang^="es"]) .bt-localized[bt-lang
 
 /* collection thumbnails */
 html[layout] yt-collections-stack {
+  display: none;
+}
+.flex {
+  display: flex;
+}
+/* remove glow on buttons */
+.smartimation__border,
+yt-animated-action {
   display: none;
 }

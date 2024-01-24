@@ -10,8 +10,11 @@ let sect7 = document.querySelector('#sect7');
 let sect8 = document.querySelector('#sect8');
 let sect9 = document.querySelector('#sect9');
 let sect10 = document.querySelector('#sect10');
+let sect11 = document.querySelector('#sect11');
 let sectall = document.querySelector('#sectall');
 let shownow = document.querySelector('#shownow');
+let shownow2 = document.querySelector('#shownow2');
+let github = document.querySelector('#github');
 let donate = document.querySelector('#donate-button');
 sect1.onclick = function() {
 	document.getElementById("right1").style.display = "block";
@@ -34,6 +37,8 @@ sect1.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "false");
 	document.getElementById("right10").style.display = "none";
 	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "none";
+	document.querySelector("#lm11").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 	document.querySelector("body").setAttribute("show-all-active", "false");
 }
@@ -58,6 +63,8 @@ sect2.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "false");
 	document.getElementById("right10").style.display = "none";
 	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "none";
+	document.querySelector("#lm11").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 	document.querySelector("body").setAttribute("show-all-active", "false");
 }
@@ -82,6 +89,8 @@ sect3.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "false");
 	document.getElementById("right10").style.display = "none";
 	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "none";
+	document.querySelector("#lm11").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 	document.querySelector("body").setAttribute("show-all-active", "false");
 }
@@ -106,6 +115,8 @@ sect4.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "false");
 	document.getElementById("right10").style.display = "none";
 	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "none";
+	document.querySelector("#lm11").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 	document.querySelector("body").setAttribute("show-all-active", "false");
 }
@@ -130,6 +141,8 @@ sect5.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "false");
 	document.getElementById("right10").style.display = "none";
 	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "none";
+	document.querySelector("#lm11").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 	document.querySelector("body").setAttribute("show-all-active", "false");
 }
@@ -154,6 +167,8 @@ sect6.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "false");
 	document.getElementById("right10").style.display = "none";
 	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "none";
+	document.querySelector("#lm11").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 	document.querySelector("body").setAttribute("show-all-active", "false");
 }
@@ -178,6 +193,8 @@ sect7.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "false");
 	document.getElementById("right10").style.display = "none";
 	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "none";
+	document.querySelector("#lm11").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 	document.querySelector("body").setAttribute("show-all-active", "false");
 }
@@ -202,6 +219,8 @@ sect8.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "false");
 	document.getElementById("right10").style.display = "none";
 	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "none";
+	document.querySelector("#lm11").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 	document.querySelector("body").setAttribute("show-all-active", "false");
 }
@@ -226,6 +245,8 @@ sect9.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "true");
 	document.getElementById("right10").style.display = "none";
 	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "none";
+	document.querySelector("#lm11").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "false");
 	document.querySelector("body").setAttribute("show-all-active", "false");
 }
@@ -250,6 +271,34 @@ sect10.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "false");
 	document.getElementById("right10").style.display = "block";
 	document.querySelector("#lm10").setAttribute("active", "true");
+	document.getElementById("right11").style.display = "none";
+	document.querySelector("#lm11").setAttribute("active", "false");
+	document.querySelector("#lmall").setAttribute("active", "false");
+	document.querySelector("body").setAttribute("show-all-active", "false");
+}
+sect11.onclick = function() {
+	document.getElementById("right1").style.display = "none";
+	document.querySelector("#lm1").setAttribute("active", "false");
+	document.getElementById("right2").style.display = "none";
+	document.querySelector("#lm2").setAttribute("active", "false");
+	document.getElementById("right3").style.display = "none";
+	document.querySelector("#lm3").setAttribute("active", "false");
+	document.getElementById("right4").style.display = "none";
+	document.querySelector("#lm4").setAttribute("active", "false");
+	document.getElementById("right5").style.display = "none";
+	document.querySelector("#lm5").setAttribute("active", "false");
+	document.getElementById("right6").style.display = "none";
+	document.querySelector("#lm6").setAttribute("active", "false");
+	document.getElementById("right7").style.display = "none";
+	document.querySelector("#lm7").setAttribute("active", "false");
+	document.getElementById("right8").style.display = "none";
+	document.querySelector("#lm8").setAttribute("active", "false");
+	document.getElementById("right9").style.display = "none";
+	document.querySelector("#lm9").setAttribute("active", "false");
+	document.getElementById("right10").style.display = "none";
+	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "block";
+	document.querySelector("#lm11").setAttribute("active", "true");
 	document.querySelector("#lmall").setAttribute("active", "false");
 	document.querySelector("body").setAttribute("show-all-active", "false");
 }
@@ -274,12 +323,24 @@ sectall.onclick = function() {
 	document.querySelector("#lm9").setAttribute("active", "false");
 	document.getElementById("right10").style.display = "block";
 	document.querySelector("#lm10").setAttribute("active", "false");
+	document.getElementById("right11").style.display = "block";
+	document.querySelector("#lm11").setAttribute("active", "false");
 	document.querySelector("#lmall").setAttribute("active", "true");
 	document.querySelector("body").setAttribute("show-all-active", "true");
 }
 shownow.onclick = function() {
 	browser.tabs.create({
 		url: `./changelog.html#check`
+	});
+}
+shownow2.onclick = function() {
+	browser.tabs.create({
+		url: `./changelog.html#check`
+	});
+}
+github.onclick = function() {
+	browser.tabs.create({
+		url: `https://www.github.com/lightbeam24/CustomTube`
 	});
 }
 donate.onclick = function() {
@@ -433,6 +494,41 @@ function saveSettings() {
 			newSettings[hideShortsSubs[i].name] = hideShortsSubs[i].value;
 		}
 	}
+	//save showVideosLink radio buttons
+	let showVideosLink = document.querySelectorAll('input[type="radio"][name="showVideosLink"]');
+	for (let i = 0; i < showVideosLink.length; i++) {
+		if (showVideosLink[i].checked) {
+			newSettings[showVideosLink[i].name] = showVideosLink[i].value;
+		}
+	}
+	//save useAppbar radio buttons
+	let useAppbar = document.querySelectorAll('input[type="radio"][name="useAppbar"]');
+	for (let i = 0; i < useAppbar.length; i++) {
+		if (useAppbar[i].checked) {
+			newSettings[useAppbar[i].name] = useAppbar[i].value;
+		}
+	}
+	//save appbarMode radio buttons
+	let appbarMode = document.querySelectorAll('input[type="radio"][name="appbarMode"]');
+	for (let i = 0; i < appbarMode.length; i++) {
+		if (appbarMode[i].checked) {
+			newSettings[appbarMode[i].name] = appbarMode[i].value;
+		}
+	}
+	//save favicon radio buttons
+	let favicon = document.querySelectorAll('input[type="radio"][name="favicon"]');
+	for (let i = 0; i < favicon.length; i++) {
+		if (favicon[i].checked) {
+			newSettings[favicon[i].name] = favicon[i].value;
+		}
+	}
+	//save thumbnailStyle radio buttons
+	let thumbnailStyle = document.querySelectorAll('input[type="radio"][name="thumbnailStyle"]');
+	for (let i = 0; i < thumbnailStyle.length; i++) {
+		if (thumbnailStyle[i].checked) {
+			newSettings[thumbnailStyle[i].name] = thumbnailStyle[i].value;
+		}
+	}
 	storage.set({BTConfig: newSettings});
 	if (!currentSettings.noFlexy) {
 		document.querySelector("body").setAttribute("no-flexy", "false");
@@ -524,6 +620,11 @@ function getSettings() {
 	document.querySelector(`input[type="radio"][value="${currentSettings.videoPlayerSize}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.videoPlayerStyle}"]`).checked = true;
 	document.querySelector(`input[type="radio"][value="${currentSettings.hideShortsSubs}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.showVideosLink}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.useAppbar}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.appbarMode}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.favicon}"]`).checked = true;
+	document.querySelector(`input[type="radio"][value="${currentSettings.thumbnailStyle}"]`).checked = true;
 }
 
 //main

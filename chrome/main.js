@@ -60,6 +60,8 @@ let tasks = {
 	"movedTitleToTop": false,
 	"movedMetaToSide": false,
 	"createdVideosDropdown": false,
+	"createdVideosLink": false,
+	"createdAppbar": false,
 	
 	
 	"changedLogoEndpoint": false,
@@ -361,6 +363,8 @@ function getInitialVariables() {
 	setTimeout(getTrimmedViewCount, 15);
 	setTimeout(getRelatedVideos, 10);
 	setTimeout(getTFI, 10);
+	setTimeout(getSVL, 10);
+	setTimeout(getAppbar, 5);
 	setTimeout(getHref, 5);
 	
 	function getSignedOut() {
@@ -380,12 +384,15 @@ function getInitialVariables() {
 		}
 	}
 	function getLayout() {
+		document.querySelector("html").setAttribute("comment-focus", "false");
 		document.querySelector("html").setAttribute("title-on-top", "false");
 		document.querySelector("html").setAttribute("meta-on-side", "false");
 		document.querySelector("html").setAttribute("upload-btn", "false");
 		document.querySelector("html").setAttribute("rating-type", "ltod");
 		document.querySelector("html").setAttribute("related-videos-size", "large");
 		document.querySelector("html").setAttribute("button-style", "amsterdam-2023");
+		document.querySelector("html").setAttribute("show-videos-link", "false"); 
+		document.querySelector("html").setAttribute("use-appbar", "false");
 		if (BTConfig.layoutSelect == "none") {
 			document.querySelector("html").setAttribute("nolayout", "");
 			document.querySelector("html").setAttribute("icon-type", "outline");
@@ -581,6 +588,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2017");
 			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2017");
+			document.querySelector("html").setAttribute("use-appbar", "true");
 			//document.querySelector("html").setAttribute("watched-overlay", "hitchhiker-2017");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2016") {
@@ -620,6 +628,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2016");
 			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2016");
+			document.querySelector("html").setAttribute("use-appbar", "true");
 			//document.querySelector("html").setAttribute("watched-overlay", "hitchhiker-2016");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2015") {
@@ -659,6 +668,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2015");
 			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2015");
+			document.querySelector("html").setAttribute("use-appbar", "true");
 			//document.querySelector("html").setAttribute("watched-overlay", "hitchhiker-2015");
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2014") {
@@ -699,7 +709,9 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("channel-vids-dropdown", "true");
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013");
 			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2014");
+			document.querySelector("html").setAttribute("use-appbar", "true");
 			//document.querySelector("html").setAttribute("watched-overlay", "hitchhiker-2014");
+			document.querySelector("html").setAttribute("show-videos-link", "true"); 
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-3") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-3");
@@ -743,6 +755,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013-3");
 			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2013-3");
 			//document.querySelector("html").setAttribute("watched-overlay", "hitchhiker-2013-3");
+			document.querySelector("html").setAttribute("show-videos-link", "true"); 
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-2") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-2");
@@ -786,6 +799,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013-2");
 			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2013-2");
 			//document.querySelector("html").setAttribute("watched-overlay", "hitchhiker-2013-2");
+			document.querySelector("html").setAttribute("show-videos-link", "true"); 
 		}
 		if (BTConfig.layoutSelect == "hitchhiker-2013-1") {
 			document.querySelector("html").setAttribute("global-color-palette", "hitchhiker-2013-1");
@@ -829,6 +843,7 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("button-style", "hitchhiker-2013-1");
 			document.querySelector("html").setAttribute("thumbnail-style", "hitchhiker-2013-1");
 			//document.querySelector("html").setAttribute("watched-overlay", "hitchhiker-2013-1");
+			document.querySelector("html").setAttribute("show-videos-link", "true"); 
 		}
 		if (BTConfig.layoutSelect == "cosmicpanda-3") {
 			document.querySelector("html").setAttribute("global-color-palette", "cosmicpanda-3");
@@ -1414,6 +1429,27 @@ function getInitialVariables() {
 			document.querySelector("html").setAttribute("thumbs-fade-in", "true");
 		}
 	}
+	function getSVL() {
+		if (BTConfig.showVideosLink == "SVLon") {
+			document.querySelector("html").setAttribute("show-videos-link", "true");
+		}
+		if (BTConfig.showVideosLink == "SVLoff") {
+			document.querySelector("html").setAttribute("show-videos-link", "false");
+		}
+	}
+	function getAppbar() {
+		if (BTConfig.useAppbar == "UABon") {
+			document.querySelector("html").setAttribute("use-appbar", "true");
+		}
+		if (BTConfig.useAppbar == "UABoff") {
+			document.querySelector("html").setAttribute("use-appbar", "false");
+		}
+		if (BTConfig.appbarMode == "ABMpinned") {
+			if (document.querySelector("[static-scrolling]") == null) {
+				document.querySelector("html").setAttribute("appbar-pinned", "");
+			}
+		}
+	}
 }
 function assignOnInitialLoad() {
 	waitFor('ytd-guide-entry-renderer #endpoint', 500, assignSidebarItems);
@@ -1831,6 +1867,9 @@ function createNewElements() {
 		waitFor('html[layout] ytd-notification-topbar-button-renderer yt-icon', 350, createNewBellIcon);
 		waitFor('html[layout]:not([signed-out]) ytd-topbar-menu-button-renderer yt-icon', 350, createNewUploadIcon);
 	}
+	if (document.querySelector("#bt-appbar") == null) {
+		waitFor('#content.ytd-app', 100, createAppbar);
+	}
 	waitFor('html[layout] #guide-button yt-icon', 1250, createGuideBlocker);
 	waitFor('html ytd-browse[page-subtype="channels"] ytd-rich-grid-renderer', 800, createNewChanVidsDropDown);
 	setTimeout(loopThroughSidebarCreates, 1);
@@ -2152,9 +2191,16 @@ function createNewElements() {
 				}
 			}
 			if (!tasks.createdVideosDropdown) {
-				if (document.querySelector("html[layout] ytd-watch-flexy ytd-video-owner-renderer") != null) {
+				if (document.querySelector("html[layout] ytd-watch-flexy #bt-above") != null) {
 					if (document.querySelector("#bt-videos-dropdown") === null) {
 						setTimeout(createVideosDropdown, 1);
+					}
+				}
+			}
+			if (!tasks.createdVideosLink) {
+				if (document.querySelector("html[layout] ytd-watch-flexy ytd-video-owner-renderer") != null) {
+					if (document.querySelector("#bt-video-count-link") === null) {
+						setTimeout(createVideosLink, 1);
 					}
 				}
 			}
@@ -2182,7 +2228,8 @@ function createNewElements() {
 			tasks.createdNewShowMoreButton &&
 			tasks.createdNewShowLessButton &&
 			tasks.createdCommentsTeaser &&
-			tasks.createdVideosDropdown
+			tasks.createdVideosDropdown &&
+			tasks.createdVideosLink
 		) {
 			if (tasks.createdShowMoreRelated) {
 				tasks.finishedWatch = true;
@@ -2557,6 +2604,142 @@ function createNewElements() {
 			<div id="right-inner">
 			</div>
 		</div>
+		</div>
+		`;
+		container.insertBefore(newElem, container.children[0].nextSibling);
+	}
+	function createAppbar() {
+		tasks.createdAppbar = true;
+		let container = document.querySelector('#content.ytd-app');
+		const newElem = document.createElement("div");
+		newElem.id = 'bt-appbar-holder';
+		newElem.setAttribute("class", "bt-universalized-element");
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.innerHTML = `
+		<div id="bt-appbar" position="hidden">
+			<div id="bt-appbar-inner">
+				<div id="bt-appbar-multistate" class="bt-multistate-handler" state="feed">
+					<div class="bt-multistate" state-id="feed">
+						<div class="appbar-links" id="appbar-feed-links">
+							<a class="appbar-link yt-simple-endpoint" id="appbar-home" href="/">
+								<div class="appbar-link-inner">
+									<span id="bt-appbar-home-text">Home</span>
+									<span id="bt-appbar-w2w-text">What to Watch</span>
+								</div>
+							</a>
+							<a class="appbar-link yt-simple-endpoint" id="appbar-trending" href="/feed/trending">
+								<div class="appbar-link-inner">
+									<span>Trending</span>
+								</div>
+							</a>
+							<a class="appbar-link yt-simple-endpoint" id="appbar-subs" href="/feed/subscriptions">
+								<div class="appbar-link-inner">
+									<span>Subscriptions</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="bt-multistate" state-id="channel">
+						<div class="appbar-links" id="appbar-channel-links">
+							<a class="appbar-link yt-simple-endpoint" id="appbar-channel-home-pfp">
+								<div class="appbar-link-inner">
+									<span id="appbar-channel-pfp"></span>
+								</div>
+							</a>
+							<a class="appbar-link yt-simple-endpoint" id="appbar-channel-home">
+								<div class="appbar-link-inner">
+									<span id="bt-appbar-home-text">Home</span>
+								</div>
+							</a>
+							<a class="appbar-link yt-simple-endpoint" id="appbar-channel-videos">
+								<div class="appbar-link-inner">
+									<span>Videos</span>
+								</div>
+							</a>
+							<a class="appbar-link yt-simple-endpoint" id="appbar-channel-shorts">
+								<div class="appbar-link-inner">
+									<span>Shorts</span>
+								</div>
+							</a>
+							<a class="appbar-link yt-simple-endpoint" id="appbar-channel-live">
+								<div class="appbar-link-inner">
+									<span>Live</span>
+								</div>
+							</a>
+							<a class="appbar-link yt-simple-endpoint" id="appbar-channel-releases">
+								<div class="appbar-link-inner">
+									<span>Releases</span>
+								</div>
+							</a>
+							<a clas
+							<a class="appbar-link yt-simple-endpoint" id="appbar-channel-playlists">
+								<div class="appbar-link-inner">
+									<span>Playlists</span>
+								</div>
+							</a>
+							<a class="appbar-link yt-simple-endpoint" id="appbar-channel-community">
+								<div class="appbar-link-inner">
+									<span>Community</span>
+								</div>
+							</a>
+							<a class="appbar-link yt-simple-endpoint" id="appbar-channel-store">
+								<div class="appbar-link-inner">
+									<span>Store</span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="bt-multistate" state-id="watch">
+						<div class="appbar-links" id="appbar-watch-links">
+							<a class="appbar-link yt-simple-endpoint" id="appbar-watch-channel">
+								<div class="appbar-link-inner">
+									<span id="appbar-watch-channel-pfp"></span>
+									<span id="appbar-watch-channel-name"></span>
+								</div>
+							</a>
+							<div class="appbar-link appbar-fusion-link" id="appbar-watch-videos-fusion" hidden>
+								<a class="yt-simple-endpoint" id="appbar-watch-videos">
+									<div class="appbar-link-inner">
+										<span id="appbar-watch-video-count"></span>
+									</div>
+								</a>
+								<div class="appbar-arrow-button" id="appbar-watch-videos-dd-btn">
+									<div class="appbar-link-inner">
+										<span class="appbar-arrow"></span>
+									</div>
+								</div>
+								<div id="bt-appbar-videos-dropdown" class="appbar-dropdown">
+									<div id="js-destination" class="appbar-dropdown-inner">
+									</div>
+								</div>
+							</div>
+							<a class="appbar-link yt-simple-endpoint" id="appbar-watch-current-vid" active-forever>
+								<div class="appbar-link-inner">
+									<span id="appbar-watch-current-video">Video</span>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="bt-appbar-right">
+				<div id="bt-appbar-pin">
+					<div id="pin-icon">
+					</div>
+					<div id="pin" class="inherit-size" title="Pin Appbar">
+					</div>
+					<div id="pinned" class="inherit-size" title="Unpin Appbar">
+					</div>
+					<div id="pinnt" class="inherit-size" title="Appbar pinning is only supported on layouts from 2014 onwards.">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="appbar-dropdown-close">
+		</div>
+		<div id="appbar-dropdown-close-2">
+		</div>
+		<div id="appbarFlashPoint">
 		</div>
 		`;
 		container.insertBefore(newElem, container.children[0].nextSibling);
@@ -2947,7 +3130,8 @@ function createNewElements() {
 	}
 	function createAbove() {
 		tasks.createdAbove = true;
-		let container = document.querySelector('ytd-watch-flexy #columns');
+		//let container = document.querySelector('ytd-watch-flexy #columns');
+		let container = document.querySelector('ytd-watch-flexy');
 		const newElem = document.createElement("div");
 		newElem.id = 'bt-above';
 		newElem.setAttribute("class", "bt-universalized-element");
@@ -3473,14 +3657,139 @@ function createNewElements() {
 	}
 	function createVideosDropdown() {
 		tasks.createdVideosDropdown = true;
-		/*let container = document.querySelector('ytd-video-owner-renderer');
+		let container = document.querySelector('#owner');
 		const newElem = document.createElement("div");
-		newElem.id = 'bt-videos-dropdown';
+		newElem.id = 'bt-videos-dropdown-button';
 		newElem.setAttribute("bt-optimized-universal-element", "");
 		newElem.setAttribute("class", "bt-universalized-element");
 		newElem.innerHTML = `
+		<div id="videos-dd-button-area">
+			<div id="videos-dd-button" class="bt-standard-button" disabled>
+				<a>
+					<span id="dd-button-videos-count"></span>
+					<span class="ct-uix-button-arrow"></span>
+				</a>
+			</div>
+			<div id="videos-link">
+			</div>
+		</div>
 		`;
-		container.insertBefore(newElem, container.children[2]);	*/
+		container.insertBefore(newElem, container.children[2]);
+		let container2 = document.querySelector('#bt-above');
+		const newElem2 = document.createElement("div");
+		newElem2.id = 'bt-videos-dropdown';
+		newElem2.setAttribute("bt-optimized-universal-element", "");
+		newElem2.setAttribute("class", "bt-universalized-element");
+		newElem2.innerHTML = `
+		<div id="videos-dd" current-slide="0" max-slides="0">
+			<div id="videos-dd-inner">
+				<div id="videos-dd-left" class="videos-dd-arrow bt-standard-button" disabled>
+					<a>
+						<span></span>
+					</a>
+				</div>
+				<div id="videos-dd-right" class="videos-dd-arrow bt-standard-button" disabled>
+					<a>
+						<span></span>
+					</a>
+				</div>
+				<div id="videos-dd-header">
+					<a id="videos-dd-videos-link" class="yt-simple-endpoint">
+						<span>See all </span>
+						<span id="videos-dd-count"></span>
+						<span> »</span>
+					</a>
+					<div id="videos-dd-pagination">
+						<div id="videos-dd-0" class="bt-standard-button videos-dd-pagination-button" active>
+							<a>
+								<span>1</span>
+							</a>
+						</div>
+						<div id="videos-dd-1" class="bt-standard-button videos-dd-pagination-button">
+							<a>
+								<span>2</span>
+							</a>
+						</div>
+						<div id="videos-dd-2" class="bt-standard-button videos-dd-pagination-button">
+							<a>
+								<span>3</span>
+							</a>
+						</div>
+						<div id="videos-dd-3" class="bt-standard-button videos-dd-pagination-button">
+							<a>
+								<span>4</span>
+							</a>
+						</div>
+						<div id="videos-dd-4" class="bt-standard-button videos-dd-pagination-button">
+							<a>
+								<span>5</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div id="videos-dd-slider">
+					<div id="videos-dd-slider-inner">
+						<div id="js-destination" class="super-compact-row">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="videos-link">
+		</div>
+		`;
+		container2.insertBefore(newElem2, container2.children[2]);
+	}
+	function createVideosLink() {
+		tasks.createdVideosLink = true;
+		let container = document.querySelector('ytd-video-owner-renderer ytd-channel-name');
+		const newElem = document.createElement("a");
+		newElem.id = 'bt-video-count-link';
+		newElem.setAttribute("bt-optimized-universal-element", "");
+		newElem.setAttribute("class", "bt-universalized-element yt-simple-endpoint");
+		newElem.innerHTML = `
+		<style>
+		ytd-watch-metadata ytd-channel-name {
+			align-items: center;
+		}
+		html[show-videos-link="false"] #bt-video-count-link {
+			display: none !important;
+		}
+		#bt-video-count-link {
+			display: block;
+			margin-left: 4px;
+		}
+		#bt-video-count-link::before {
+			content: "·";
+			margin: 0 4px;
+		}
+		html[watch-metadata-style^="hitchhiker"] #bt-video-count-link {
+			margin-top: -5px;
+			display: block;
+			margin-left: 2px;
+			font-size: 11px;
+			color: var(--bt-gcp-666) !important;
+			font-weight: normal;
+		}
+		html[watch-metadata-style^="polymer"] #bt-video-count-link::before {
+			content: "•";
+			margin: 0 4px;
+		}
+		html[watch-metadata-style^="polymer"] #bt-video-count-link {
+			font-size: 15px;
+			opacity: 0.8;
+		}
+		html[watch-metadata-style^="polymer"] #bt-video-count-link:hover {
+			opacity: 1;
+		}
+		html[layout^="aozora"] #bt-video-count-link,
+		html[layout^="cosmicpanda"] #bt-video-count-link {
+			display: none !important;
+		}
+		</style>
+		<span> videos</span>
+		`;
+		container.insertBefore(newElem, container.children[2]);
 	}
 }
 function moveElements() {
@@ -3625,9 +3934,11 @@ function moveElements() {
 		tasks.movedTitleToTop = true;
 		var title = document.querySelector('#above-the-fold #title');
 		var topRow = document.querySelector('#above-the-fold #owner');
+		var videosDD = document.querySelector('#bt-videos-dropdown');
 		var newHome4 = document.querySelector('#bt-above');
 		newHome4.appendChild(title);
 		newHome4.appendChild(topRow);
+		newHome4.appendChild(videosDD);
 	}
 	function moveMetaToSide() {
 		tasks.movedMetaToSide = true;
@@ -4317,6 +4628,53 @@ function watchPageEveryLoad() {
 }
 var repeatedActions = setInterval(function()
 {
+	if (BTConfig.favicon == "faviAuto") {
+		if (
+			document.querySelector("html[layout^='stargazer']") != null ||
+			document.querySelector("html[layout^='aozora']") != null
+		) {
+			if (document.querySelector("[href='https://s.ytimg.com/yt/favicon-vflZlzSbU.ico']") == null) {
+				document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yt/favicon-vflZlzSbU.ico");
+			}
+		}
+		if (
+			document.querySelector("html[layout^='cosmicpanda']") != null ||
+			document.querySelector("html[layout^='hitchhiker-2013']") != null ||
+			document.querySelector("html[layout^='hitchhiker-2014']") != null ||
+			document.querySelector("html[layout^='hitchhiker-2015']") != null
+		) {
+			if (document.querySelector("[href='https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico']") == null) {
+				document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico");
+			}
+		}
+		if (
+			document.querySelector("html[layout^='hitchhiker-2016']") != null
+		) {
+			if (document.querySelector("[href='https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico']") == null) {
+				document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico");
+			}
+		}
+	}
+	if (BTConfig.favicon == "favi2016") {
+		if (document.querySelector("[href='https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico']") == null) {
+			document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico");
+		}
+	}
+	if (BTConfig.favicon == "favi2012") {
+		if (document.querySelector("[href='https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico']") == null) {
+			document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico");
+		}
+	}
+	if (BTConfig.favicon == "favi2011") {
+		if (document.querySelector("[href='https://s.ytimg.com/yt/favicon-vflZlzSbU.ico']") == null) {
+			document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yt/favicon-vflZlzSbU.ico");
+		}
+	}
+	if (document.querySelector("ytd-comment-simplebox-renderer #comment-dialog[hidden]") == null) {
+		document.querySelector("html").setAttribute("comment-focus","true");
+	} else {
+		document.querySelector("html").setAttribute("comment-focus","false");
+	}
 	var width = screen.width;
 	if (document.querySelector('ytd-watch-flexy[fullscreen]') != null) {
 		BTVars.playerState = "fullscreen";
@@ -4441,117 +4799,7 @@ var repeatedActions = setInterval(function()
 			}
 		}
 	}
-	/*if (document.querySelector("#page-container") != null) {
-		if (document.querySelector(".ct-hitchhiker-compatibility-enabled") == null) {
-			getInitialVariables();
-			document.querySelector("body").classList.add("ct-hitchhiker-compatibility-enabled");
-		}
-		/*if (document.querySelector("html[watchtype='playlistwatch']") != null) {
-			if (document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added)") != null) {
-				createTimeStatus();
-				function createTimeStatus() {
-					let container = document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video");
-					const newElem = document.createElement("div");
-					newElem.setAttribute("class", "playlist-video-time");
-					newElem.innerHTML = `
-					<style>
-					.playlist-video {
-					  display: flex !important;
-					}
-					.playlist-video-description {
-					  max-width: 260px;
-					}
-					.playlist-video-time {
-					  background: none;
-					  font-size: 13px;
-					  font-weight: normal;
-					  font-family: arial;
-					  color: #999;
-					  letter-spacing: 0.7px;
-					  animation-name: timeStatusFadeIn;
-					  animation-duration: 1s;
-					  animation-iteration-count: 1;
-					  z-index: 92219;
-					  padding: 3px 4px !important;
-					  margin: 4px !important;
-					  position: absolute;
-					  right: 2px;
-					  bottom: 7px;
-					}
-					.playlist-video-time:hover {
-					  color: #ccc;
-					}
-					</style>
-					<span>3:30</span>
-					`;
-					container.insertBefore(newElem, container.children[1].nextSibling);
-					setTimeout(finish, 50);
-					function finish() {
-						var videoTime = getRndInteger(0,18);
-						if (videoTime == 0) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "2:41";
-						}
-						if (videoTime == 1) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "3:08";
-						}
-						if (videoTime == 2) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "1:58";
-						}
-						if (videoTime == 3) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "2:17";
-						}
-						if (videoTime == 4) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "2:44";
-						}
-						if (videoTime == 5) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "3:12";
-						}
-						if (videoTime == 6) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "3:23";
-						}
-						if (videoTime == 7) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "3:50";
-						}
-						if (videoTime == 8) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "3:33";
-						}
-						if (videoTime == 9) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "4:02";
-						}
-						if (videoTime == 10) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "4:12";
-						}
-						if (videoTime == 11) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "4:37";
-						}
-						if (videoTime == 12) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "5:16";
-						}
-						if (videoTime == 13) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "6:13";
-						}
-						if (videoTime == 14) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "5:58";
-						}
-						if (videoTime == 15) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "7:07";
-						}
-						if (videoTime == 16) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "5:32";
-						}
-						if (videoTime == 17) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "5:45";
-						}
-						if (videoTime == 18) {
-							document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added) .playlist-video-time span").textContent = "8:11";
-						}
-						document.querySelector("#playlist-autoscroll-list li:not(.ct-time-added)").classList.add("ct-time-added");
-					}
-				}
-			}
-		}
-	}*/
-}, 600);
+}, 300);
 function disableInfiScroll() {
   	let loadMoreVids = document.querySelector('ytd-two-column-browse-results-renderer[page-subtype="home"] #bt-load-more-homepage a');
 	loadMoreVids.onclick = function() {
@@ -4648,6 +4896,9 @@ function doChipsFallback() {
 let dataScript = document.createElement('script');
 dataScript.src = browser.runtime.getURL('/scripts/dataget.js');
 document.body.append(dataScript);
+let appbarScript = document.createElement('script');
+appbarScript.src = browser.runtime.getURL('/scripts/appbar.js');
+document.body.append(appbarScript);
 
 
 document.addEventListener("yt-page-data-updated", retrieveDataAttributePrep); 

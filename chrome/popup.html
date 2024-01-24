@@ -281,10 +281,10 @@
 		  overflow-y: scroll;
 		  margin-top: 4px;
 		}
-		#right1, #right3, #right4, #right5, #right6, #right7, #right8, #right9, #right10 {
+		#right1, #right3, #right4, #right5, #right6, #right7, #right8, #right9, #right10, #right11 {
 		  display: none;
 		}
-		#right10 {
+		#right11 {
 		  margin-bottom: 72px;
 		}
 		.right-inner {
@@ -477,9 +477,39 @@
 		  opacity: 0;
 		  max-height: 0px;
 		}
+		.st1{
+			fill:#000;
+		}
+		#donate-button:hover .st1 {
+			fill:#fff;
+		}
+		body:not([design-refresh]) #shownow2,
+		body:not([design-refresh]) #github {
+		  display: none;
+		}
+		[design-refresh] .left-link button {
+		  font-size: 13px;
+		  color: #07c;
+		  font-weight: normal;
+		  cursor: pointer;
+		}
+		[design-refresh] .left-link:hover button {
+		  background: none !important;
+		  text-decoration: underline !important;
+		  color: #07c !important;
+		}
+		[design-refresh] #left svg {
+		  display: none;
+		}
+		[design-refresh] .legacy {
+		  display: none;
+		}
+		body:not([design-refresh]) .design-refresh {
+		  display: none;
+		}
       </style>
     </head>
-    <body use-ct-branding="true">
+    <body use-ct-branding="true" design-refresh ct-colors="true" ct-colors-text="true">
 		<div id="top">
 			<div id="top-inner">
 				<p id="title" nobrand>CustomTube</p>
@@ -487,7 +517,7 @@
 					<img src="images/logo.png" style="height: 28px;">
 					<img src="images/ctlogo.png" style="height: 28px;">
 				</p>
-				<p class="small-sub">V1.2.6</p>
+				<p class="small-sub">V1.2.7</p>
 				<p class="subtitle">Configuration Window</p>
 				<div class="top-item" id="lmall" active="false">
 					<button id="sectall">Show All Settings</button>
@@ -513,11 +543,11 @@
 							<button id="sect1">Misc</button>
 							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm2" active="true" new>
+						<div class="left-item" id="lm2" active="true">
 							<button id="sect2">Layout</button>
 							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm3" active="false">
+						<div class="left-item" id="lm3" active="false" new>
 							<button id="sect3">Tweaks</button>
 							<div class="new"></div>
 						</div>
@@ -529,47 +559,58 @@
 					</div>
 					<div class="left-section">
 						<div class="left-item" id="lm4" active="false">
-							<button id="sect4">Sidebar</button>
+							<button id="sect4">Guide</button>
 							<div class="new"></div>
 						</div>
 						<div class="left-item" id="lm5" active="false">
 							<button id="sect5">Topbar</button>
 							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm6" active="false">
-							<button id="sect6">Home Page</button>
+						<div class="left-item" id="lm6" active="false" new>
+							<button id="sect6">Appbar</button>
 							<div class="new"></div>
 						</div>
 						<div class="left-item" id="lm7" active="false">
-							<button id="sect7">Subs Page</button>
+							<button id="sect7">Home Page</button>
 							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm8" active="false" new>
-							<button id="sect8">Watch Page</button>
+						<div class="left-item" id="lm8" active="false">
+							<button id="sect8">Subs Page</button>
 							<div class="new"></div>
 						</div>
-						<div class="left-item" id="lm9" active="false">
-							<button id="sect9">Channel Page</button>
+						<div class="left-item" id="lm9" active="false" new>
+							<button id="sect9">Watch Page</button>
 							<div class="new"></div>
 						</div>
 						<div class="left-item" id="lm10" active="false">
-							<button id="sect10">Search Page</button>
+							<button id="sect10">Channel Page</button>
+							<div class="new"></div>
+						</div>
+						<div class="left-item" id="lm11" active="false">
+							<button id="sect11">Search Page</button>
 							<div class="new"></div>
 						</div>
 					</div>
 					<div class="left-section">
-						<div class="left-title">
+						<div class="left-title legacy">
 							<p>Support me</p>
+						</div>
+						<div class="left-title design-refresh">
+							<p>Links</p>
 						</div>
 					</div>
 					<div class="left-section">
-						<div class="left-item" id="donate-button" active="false" title="If you like CustomTube, you can support its development by supporting me on Ko-fi!">
+						<div class="left-item left-link" id="shownow2" active="false" title="">
+							<button>Changelog</button>
+							<div class="new"></div>
+						</div>
+						<div class="left-item left-link" id="github" active="false" title="">
+							<button>GitHub</button>
+							<div class="new"></div>
+						</div>
+						<div class="left-item left-link" id="donate-button" active="false" title="If you like CustomTube, you can support its development by supporting me on Ko-fi!">
 							<button id="sectdonate">Donate
 								<svg height="12px" width="12px" style="margin-left:2px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
-										<style type="text/css">
-											.st1{fill:#000;}
-											#donate-button:hover .st1{fill:#fff;}
-										</style>
 										<g>
 											<path class="st1" d="M96,0v416h416V0H96z M472,376H136V112h336V376z"/>
 											<polygon class="st1" points="40,472 40,296 40,136 40,96 0,96 0,512 416,512 416,472 376,472  "/>
@@ -603,7 +644,7 @@
 							</a>
 						</opt>
 						<opt title="">
-							<label new><input type="checkbox" name="showNew" class="settings">Show indicators for settings new to Version 1.2.0</label>
+							<label new><input type="checkbox" name="showNew" class="settings">Show indicators for settings new to Version 1.2.7</label>
 						</opt>
 						<opt title="Allows CustomTube to better integrate the dislike count into the layout. Do not enable this if you aren't using the Return YouTube Dislike extension.">
 							<label><input type="checkbox" name="iUseRYD" class="settings">Enable Return YouTube Dislike compatibility</label>
@@ -625,7 +666,7 @@
 						<div>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="none" style="display:inline-block;">Disabled (Use Current YouTube Layout)</label>
 							<line-seperator></line-seperator>
-							<p class="mini-text info-text">Polymer Layout</p>
+							<p class="mini-text info-text">Kevlar Layout</p>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="polymer-2021" style="display:inline-block;">Use 2021 Layout</label><br>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="polymer-2020" style="display:inline-block;">Use 2020 Layout</label><br>
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="polymer-2019" style="display:inline-block;">Use 2019 Layout</label><br>
@@ -645,11 +686,11 @@
 							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="cosmicpanda-3" style="display:inline-block;">Use 2012 Layout*</label><br>
 							<line-seperator></line-seperator>
 							<p class="mini-text info-text">Aozora Layout (unofficial codename)</p>
-							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="aozora-2011" style="display:inline-block;">Use 2011 Layout*</label><br>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="aozora-2011" style="display:inline-block;">Use 2011 Layout*</label><br>
 							<line-seperator></line-seperator>
 							<p class="mini-text info-text">Stargazer Layout (unofficial codename)</p>
-							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="stargazer-2009-3" style="display:inline-block;">Use Late 2009 Layout*</label><br>
-							<label class="logo-label" new><input type="radio" name="layoutSelect" class="settings" value="stargazer-2008-1" style="display:inline-block;">Use 2008 Layout*</label><br>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="stargazer-2009-3" style="display:inline-block;">Use Late 2009 Layout*</label><br>
+							<label class="logo-label"><input type="radio" name="layoutSelect" class="settings" value="stargazer-2008-1" style="display:inline-block;">Use 2008 Layout*</label><br>
 							<line-seperator></line-seperator>
 						</div>
 						<p class="subtitle">* Theater Mode is Not Supported.</p>
@@ -703,14 +744,27 @@
 						</opt>
 						<p class="subtitle">** Only works if YouTube's language is set to English.</p>
 					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Favicon</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Changes the little icon that appears on YouTube tabs.</p>
+						</div>
+						<label class="logo-label" title="Determined by layout setting" new><input type="radio" name="favicon" class="settings" value="faviAuto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" title="" new><input type="radio" name="favicon" class="settings" value="favi2011" style="display:inline-block;">2011 and earlier</label><br>
+						<label class="logo-label" title="" new><input type="radio" name="favicon" class="settings" value="favi2012" style="display:inline-block;">2011-2015</label><br>
+						<label class="logo-label" title="" new><input type="radio" name="favicon" class="settings" value="favi2016" style="display:inline-block;">2015-2017</label><br>
+						<label class="logo-label" title="" new><input type="radio" name="favicon" class="settings" value="favi2017" style="display:inline-block;">2017-present</label><br>
+					</div>
 				</div>
 				<div id="right4" class="right">
 					<div class="right-supertitle">
-						<p>Advanced: Sidebar (Guide)</p>
+						<p>Advanced: Guide (Sidebar)</p>
 					</div>
 					<div class="right-inner">
-						<opt title="Always show the sidebar, even on the watch page. Only works on layouts from Early 2013 or later. The sidebar will be invisible on the channel page if you're using the Early 2013 layout.">
-							<label><input type="checkbox" name="alwaysShowSidebar" class="settings">Always Show Sidebar</label>
+						<opt title="Always show the guide, even on the watch page. Only works on layouts from Early 2013 or later. The guide will be invisible on the channel page if you're using the Early 2013 layout.">
+							<label><input type="checkbox" name="alwaysShowSidebar" class="settings">Always Show Guide</label>
 							<p class="mini-text">Limited compatibility. Hover for details.</p>
 						</opt>
 					</div>
@@ -773,6 +827,34 @@
 				</div>
 				<div id="right6" class="right">
 					<div class="right-supertitle">
+						<p>Advanced: Appbar</p>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Appbar</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Adds a navigation bar below the topbar. Note that all Appbar links and text are in English regardless of what language YouTube is set to.</p>
+						</div>
+						<label class="logo-label" new title="On for layouts from 2014-2017."><input type="radio" name="useAppbar" class="settings" value="UABauto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" new title="Always on"><input type="radio" name="useAppbar" class="settings" value="UABon" style="display:inline-block;">On</label><br>
+						<label class="logo-label" new title="Always off"><input type="radio" name="useAppbar" class="settings" value="UABoff" style="display:inline-block;">Off</label><br>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Default Appbar Behavior</p>
+						</div>
+						<div class="right-subtitle">
+							<p>If the appbar is pinned, it will always be visible. If it's not pinned, it will dynamically show and hide itself (usually becoming visible when you scroll down). 
+							Note that this is just to choose the behavior the Appbar uses when YouTube first loads, you can pin and unpin the Appbar at any time with the pin button (on supported layouts).</p>
+						</div>
+						<label class="logo-label" new title="The Appbar will dynamically show and hide itself (usually when you scroll down)."><input type="radio" name="appbarMode" class="settings" value="ABMunpinned" style="display:inline-block;">Unpinned</label><br>
+						<label class="logo-label" new title="The Appbar will always be displayed."><input type="radio" name="appbarMode" class="settings" value="ABMpinned" style="display:inline-block;">Pinned*</label><br>
+						<p class="subtitle">* Appbar pinning is not supported on layouts before 2014, so this option will have no effect on those layouts.</p>
+					</div>
+				</div>
+				<div id="right7" class="right">
+					<div class="right-supertitle">
 						<p>Advanced: Home Page</p>
 					</div>
 					<div class="right-inner">
@@ -791,7 +873,7 @@
 						<label class="logo-label" title=""><input type="radio" name="homepageVidsPerRow" class="settings" value="HPVPR8" style="display:inline-block;">8</label><br>
 					</div>
 				</div>
-				<div id="right7" class="right">
+				<div id="right8" class="right">
 					<div class="right-supertitle">
 						<p>Advanced: Subscriptions Page</p>
 					</div>
@@ -818,7 +900,7 @@
 						<label class="logo-label" title="Never hide it"><input type="radio" name="hideShortsSubs" class="settings" value="HSSoff" style="display:inline-block;">Off</label><br>
 					</div>
 				</div>
-				<div id="right8" class="right">
+				<div id="right9" class="right">
 					<div class="right-supertitle">
 						<p>Advanced: Watch Page</p>
 					</div>
@@ -865,11 +947,23 @@
 						<div class="right-subtitle">
 							<p>Choose the look of the video player. <span class="warning-text">Only works when using a custom player size.</span></p>
 						</div>
-						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PSTauto" style="display:inline-block;">Auto</label><br>
-						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PST2012" style="display:inline-block;">2012</label><br>
-						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PST2013" style="display:inline-block;">2013-2015</label><br>
-						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PST2015" style="display:inline-block;">2015-2019</label><br>
-						<label class="logo-label" new><input type="radio" name="videoPlayerStyle" class="settings" value="PST2021" style="display:inline-block;">Use current player</label>
+						<label class="logo-label"><input type="radio" name="videoPlayerStyle" class="settings" value="PSTauto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label"><input type="radio" name="videoPlayerStyle" class="settings" value="PST2012" style="display:inline-block;">2012</label><br>
+						<label class="logo-label"><input type="radio" name="videoPlayerStyle" class="settings" value="PST2013" style="display:inline-block;">2013-2015</label><br>
+						<label class="logo-label"><input type="radio" name="videoPlayerStyle" class="settings" value="PST2015" style="display:inline-block;">2015-2019</label><br>
+						<label class="logo-label"><input type="radio" name="videoPlayerStyle" class="settings" value="PST2021" style="display:inline-block;">Use current player</label>
+					</div>
+					<div class="right-inner">
+						<div class="right-title">
+							<p>Show channel videos link</p>
+						</div>
+						<div class="right-subtitle">
+							<p>Display the video count next to the video owner's name. Clicking on this link will take you to their videos page.</p>
+						</div>
+						<label class="logo-label" new title="It will only appear on layouts from Early 2013 to 2014."><input type="radio" name="showVideosLink" class="settings" value="SVLauto" style="display:inline-block;">Auto</label><br>
+						<label class="logo-label" new title="Always on"><input type="radio" name="showVideosLink" class="settings" value="SVLon" style="display:inline-block;">On*</label><br>
+						<label class="logo-label" new title="Always off"><input type="radio" name="showVideosLink" class="settings" value="SVLoff" style="display:inline-block;">Off</label><br>
+						<p class="subtitle">* Will not display on the 2011 and 2012 layouts due to the videos dropdown button already being present.</p>
 					</div>
 					<div class="right-inner">
 						<div class="right-title">
@@ -893,7 +987,7 @@
 						<label class="logo-label " title="168x94 pixels"><input type="radio" name="relatedSize" class="settings" value="large" style="display:inline-block;">Large (2017-Present)</label><br>
 					</div>
 				</div>
-				<div id="right9" class="right">
+				<div id="right10" class="right">
 					<div class="right-supertitle">
 						<p>Advanced: Channel Page</p>
 					</div>
@@ -924,7 +1018,7 @@
 						<label class="logo-label" title=""><input type="radio" name="channelVidsPerRow" class="settings" value="CVPR8" style="display:inline-block;">8</label><br>
 					</div>
 				</div>
-				<div id="right10" class="right">
+				<div id="right11" class="right">
 					<div class="right-supertitle">
 						<p>Advanced: Search Page</p>
 					</div>

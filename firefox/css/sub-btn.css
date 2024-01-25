@@ -105,8 +105,8 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-sub-btn-height-static: 23.5px;
 /* styles */
 --bt-sub-btn-text-color: #fff;
---bt-sub-btn-bg: var(--bt-spec-emphasis);
---bt-sub-btn-bg-hover: var(--bt-spec-lesser-emphasis);
+--bt-sub-btn-bg: var(--bt-spec-lesser-emphasis);
+--bt-sub-btn-bg-hover: var(--bt-spec-emphasis);
 --bt-sub-btn-radius: 2px 0 0 2px;
 --bt-sub-btn-height: 23.5px;
 --bt-sub-btn-padding: 0 8px 0 5.5px;
@@ -130,6 +130,11 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-sub-count-width: max-content;
 --bt-wp-sub-count-bg: #fafafa;
 --bt-wp-sub-count-text-overflow: clip;
+}
+html[watch-metadata-style^="hitchhiker-2017"] {
+/* styles */
+--bt-sub-btn-bg: var(--bt-spec-emphasis);
+--bt-sub-btn-bg-hover: var(--bt-spec-lesser-emphasis);
 }
 html[watch-metadata-style^="hitchhiker"] #owner[subscribed="true"] {
 /* sub count */

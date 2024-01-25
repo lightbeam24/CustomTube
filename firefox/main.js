@@ -4634,6 +4634,7 @@ var repeatedActions = setInterval(function()
 			document.querySelector("html[layout^='aozora']") != null
 		) {
 			if (document.querySelector("[href='https://s.ytimg.com/yt/favicon-vflZlzSbU.ico']") == null) {
+				document.querySelector("link[sizes='32x32']").setAttribute("href", "https://s.ytimg.com/yt/favicon-vflZlzSbU.ico");
 				document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yt/favicon-vflZlzSbU.ico");
 			}
 		}
@@ -4644,6 +4645,7 @@ var repeatedActions = setInterval(function()
 			document.querySelector("html[layout^='hitchhiker-2015']") != null
 		) {
 			if (document.querySelector("[href='https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico']") == null) {
+				document.querySelector("link[sizes='32x32']").setAttribute("href", "https://s.ytimg.com/yt/favicon-vfldLzJxy.ico");
 				document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico");
 			}
 		}
@@ -4651,22 +4653,26 @@ var repeatedActions = setInterval(function()
 			document.querySelector("html[layout^='hitchhiker-2016']") != null
 		) {
 			if (document.querySelector("[href='https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico']") == null) {
+				document.querySelector("link[sizes='32x32']").setAttribute("href", "https://s.ytimg.com/yt/favicon-vflz7uhzw.ico");
 				document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico");
 			}
 		}
 	}
 	if (BTConfig.favicon == "favi2016") {
 		if (document.querySelector("[href='https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico']") == null) {
+			document.querySelector("link[sizes='32x32']").setAttribute("href", "https://s.ytimg.com/yt/favicon-vflz7uhzw.ico");
 			document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico");
 		}
 	}
 	if (BTConfig.favicon == "favi2012") {
 		if (document.querySelector("[href='https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico']") == null) {
+			document.querySelector("link[sizes='32x32']").setAttribute("href", "https://s.ytimg.com/yt/favicon-vfldLzJxy.ico");
 			document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yts/img/favicon-vfldLzJxy.ico");
 		}
 	}
 	if (BTConfig.favicon == "favi2011") {
 		if (document.querySelector("[href='https://s.ytimg.com/yt/favicon-vflZlzSbU.ico']") == null) {
+			document.querySelector("link[sizes='32x32']").setAttribute("href", "https://s.ytimg.com/yt/favicon-vflZlzSbU.ico");
 			document.querySelector("[rel='shortcut icon']").setAttribute("href", "https://s.ytimg.com/yt/favicon-vflZlzSbU.ico");
 		}
 	}

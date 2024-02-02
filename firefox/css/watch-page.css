@@ -575,9 +575,9 @@ html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shap
   box-shadow: var(--bt-wp-button-box-shadow-active);
 }
 html[watch-metadata-style] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon,
-html[watch-metadata-style] #above-the-fold button-view-model .yt-spec-button-shape-next__icon,
+html[watch-metadata-style] #above-the-fold yt-button-view-model button-view-model .yt-spec-button-shape-next__icon,
 html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon,
-html[watch-metadata-style] #bt-place-metadata button-view-model .yt-spec-button-shape-next__icon {
+html[watch-metadata-style] #bt-place-metadata yt-button-view-model button-view-model .yt-spec-button-shape-next__icon {
   display: var(--bt-wp-button-icon-display);
 }
 /* Buttons watch page cosmic 

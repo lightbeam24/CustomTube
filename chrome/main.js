@@ -4078,8 +4078,7 @@ function watchPageEveryLoad() {
 		// View Count
 		var cutString = trueCounts.split(' • ');
 		var trueViewCount = cutString[0];
-		var cutString2 = trueViewCount.replace(/(.+\d) \D+|\D+ (.+\d)/, "$1$2").replace(" ", ",");
-		var trueViewCountTrimmed = cutString2[0];
+		var trueViewCountTrimmed = trueViewCount.replace(/(.+\d) \D+|\D+ (.+\d)/, "$1$2").replace(" ", ",");
 		//TEMP FIX
 		if (
 		BTConfig.layoutSelect != "none" &&

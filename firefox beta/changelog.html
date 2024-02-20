@@ -118,6 +118,15 @@
 		#changelog .title[yellow]::after {
 			background: linear-gradient(to top, #22a, #44d);
 		}
+		#changelog .title[blue] {
+		  background: linear-gradient(to top, #992, #cc4);
+		}
+		#changelog .title[blue]::before {
+		  background: linear-gradient(135deg, #aa0 55%, #660);
+		}
+		#changelog .title[blue]::after {
+			background: linear-gradient(to top, #992, #cc4);
+		}
 		@media only screen and (max-width: 4800px) {
 		#changelog .title::after {
 			height: 27.4px;
@@ -160,7 +169,8 @@
 		a {
 		  color: #42a8ff;
 		}
-		html:not([cr]) .cr-only {
+		html:not([cr]) .cr-only,
+		html[cr] .gk-only {
 		  display: none;
 		}
 		</style>
@@ -180,47 +190,253 @@
 			<div id="changelog">
 				<div class="changelog-inner">
 					<div class="title-area">
-						<div class="title" yellow>
-							<p>Version 1.2.0 Beta 3 - October 4, 2023</p>
+						<div class="title" blue>
+							<p>Version 1.3.0 Beta 1 - February 20, 2024</p>
 						</div>
 					</div>
 					<div class="words">
-						<strong>- New: Added 2008 Layout option!</strong>
-						<p>- Improvement: The 2011 and Late 2009 layouts now use the proper channel page styling.</p>
-						<p>- Improvement: The channel description now uses smaller text [This affects all layouts from 2017 and eariler]</p>
-						<p>- Improvement: The Bell icon has been replaced with the Mail icon [This affects all layouts from 2011 and earlier]</p>
-						<p>- Improvement: Searchbar font is now smaller [This affects all layouts from 2011 and earlier]</p>
-						<p>- Fix: Replay button is now visible [This bug affected the 2012 and 2013-2015 players]</p>
-						<p>- Fix: Player controls were incorrectly positioned when in Theater mode [This bug affected the 2012 and 2013-2015 players]</p>
-						<p>- Fix: Video titles are now visible on the History page [This bug affected all layouts from 2012 and earlier]</p>
-						<p>- Fix: Incorporated the description expansion fix from Stable 1.1.0.3 [This bug affected all layouts, excluding the unmodified current layout]</p>
-						<p class="notice">- Note: V1.2.0 is nearing the end of development. This will be the final beta for V1.2.0.</p>
+						<p class="notice">Note: This is a <strong>very</strong> early version of CustomTube 1.3.0. This release has several issues, both in accuracy and functionality. 
+						Some options are not functional yet, including some options that worked in previous versions of CustomTube.</p>
+						<strong>- Improvement: The watch metadata HTML has now been replaced, which means that the watch page is now much more accurate, and is much less likely to break with YouTube updates [this affects all layouts, excluding the unmodified current layout]</strong>
+						<p></p>
+						<p>- Improvement: The related videos HTML has now been replaced</p>
+						<p>- New: Added the option to choose your watch layout (ex. you can use Watch7 on the 2019 layout, or Watch4 on the 2014 layout).</p>
+						<p>- New: Added 2 new player size options: 1600x900, and 1920x1080.</p>
+						<p>- New: CustomTube now brings back dislike counts (This is made possible with the Return YouTube Dislike API)</p>
+						<p>- New: Added the option to choose the related videos header</p>
+						<p>- Improvement: Custom player sizes now work on the 2013 layouts.</p>
+						<p>- Improvement: Full view counts are now displayed on related videos</p>
+						<p>- Fix: Thanks to the watch metadata HTML being replaced, several watch page bugs have been fixed, notably the "share button duplication" bug of the 2013-2014 layouts</p>
+						<p>- Other: Made changes to the Configuration window for the Beta release.</p>
+						<p>- Other: Removed the "Disable Rich Grid Watch Page" option, as there is no longer a reason for its existence.</p>
+						<p>- Other: Removed the "Enable Return YouTube Dislike Compatibility" option, since the Return YouTube Dislike extension no longer works with CustomTube (due to the replaced watch page HTML)</p>
 					</div>
 				</div>
 				<div class="changelog-inner">
 					<div class="title-area">
 						<div class="title" yellow>
-							<p>Version 1.2.0 Beta 2 - September 21, 2023</p>
+							<p>Version 1.2.7.2 - February 1, 2024</p>
 						</div>
 					</div>
 					<div class="words">
-						<strong>- New: Added Late 2009 Layout option!</strong>
-						<p>- Improvement: Player is now 640x360 instead of 586x330 [This affects the 2011 and 2012 layouts]</p>
-						<p>- Improvement: Player styling is closer to being finished (but is still not finished)</p>
-						<p class="notice">- Note: V1.2.0 is still in development.</p>
+						<p>- Fix: The like and dislike icons had share icons in front of them [This bug affected the 2015-2017 layouts, and was caused by a YouTube update]</p>
+						<p>- Fix: The like and dislike icons didn't display [This bug affected the 2013-2014 layouts, and was caused by a YouTube update]</p>
 					</div>
 				</div>
 				<div class="changelog-inner">
 					<div class="title-area">
 						<div class="title" yellow>
-							<p>Version 1.2.0 Beta 1 - August 30, 2023</p>
+							<p>Version 1.2.7.1 - January 25, 2024</p>
 						</div>
 					</div>
 					<div class="words">
+						<p>- Improvement: Subscribe button colors are now accurate [Affects the 2015-2016 layouts]</p>
+						<p>- Fix: Favicon options didn't work in Chromium based browsers</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.7 - January 24, 2024</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- New: Added the Appbar! By default, it appears on all layouts from 2014-2017, but it can be toggled to be always on or always off.</p>
+						<p>- New: Added option to choose whether the appbar is pinned by default [compatible with all layouts from 2014 onwards]</p>
+						<p>- New: Added option to choose the favicon, set to Auto by default</p>
+						<p>- New: Added "Appbar" tab to the configuration window's sidebar</p>
+						<p>- New: Added option to show the video count next to the channel name [Compatible with all layouts except 2011-2012, they don't need it because of the videos dropdown]</p>
+						<p>- Improvement: The 2011-2012 layouts now have the videos dropdown! This lets you scroll through a channel's videos while watching one of their videos.</p>
+						<p>- Improvement: For those not using the 2011-2012 layouts, you can still scroll through a channel's videos using the Appbar videos dropdown.</p>
+						<p>- Improvement: The comment box now has better styling [Affects all layouts from 2008-2017]</p>
+						<p>- Changed: The configuration window has gone through a minor design refresh, now using blue instead of red in many places. This was done to match the CustomTube logo. 
+						Some links were also moved around.</p>
+						<p>- Changed: Some text on the configuration window was changed. Most notably: The "Sidebar" tab has been renamed to "Guide", and the "Polymer layout" section was renamed to "Kevlar layout".
+						These changes were made for accuracy purposes.</p>
+						<p>- Fix: The like button would appear glitched when signed out [This affected various layouts]</p>
+						<p>- Fix: Other fixes</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.6 - January 17, 2024</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Improvement: The <a href="https://i.imgur.com/hNJ3SuM.png">top navigation links</a> are now capable of warm loading* [This affects the 2008 and Late 2009 layouts]</p>
+						<p>- Improvement: The <a href="https://i.imgur.com/hzkdHmE.png">video owner link in the description</a> is now capable of warm loading* [This affects the 2011 and 2012 layouts]</p>
+						<p>- Improvement: The <a href="https://i.imgur.com/DwpVepe.png">browse channels button</a> is now capable of warm loading* [This affects the 2012 layout]</p>
+						<p>- Fix: The like and dislike buttons were in the wrong place for some users [This affected all layouts from Early 2013-2017, and was caused by a YouTube update]</p>
+						<p>- Fix: A couple minor CSS fixes</p>
+						<p style="font-size: 13px">*Warm loading links are much faster than cold loading links.</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.5.2 - January 6, 2024</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Improvement: The sub count on the watch page now has an arrow on the left of it [This affects all layouts from Early 2013 to 2014] (Note: Only appears when YouTube's language is set to English)</p>
+						<p>- Improvement: Improved channel tabs styling [This affects all layouts from Mid 2013 to 2017]</p>
+						<p>- Improvement: Other small improvements</p>
+						<p>- Change: "Hide Join Button", "Hide Clip Button", "Hide Thanks Button", and "Hide Download Button" are now enabled by default.</p>
+						<p>- Fix: Fixed dislikes not showing up on older layouts [This was caused by a YouTube update]</p>
+						<p>- Fix: Partially fixed the player styles when using a language other than English</p>
+						<p>- Fix: The player is no longer super wide on channel pages [This bug affected the 2013 layouts]</p>
+						<p>- Fix: The watch buttons no longer look weird [This bug affected various layouts, and was caused by a YouTube update]</p>
+						<p>- Fix: Partially fixed the subscribed button [This bug affected various layouts, and was caused by a YouTube update]</p>
+						<p>- Fix: Comment styling has been fixed for the "comment view model" experiment YouTube is slowly rolling out [This bug affected all layouts, and was caused by a YouTube update]</p>
+						<p>- Fix: Fixed a Chromium-exclusive issue where the video title was too bold [This bug affected all layouts, and was caused by a YouTube update]</p>
+						<p>- Fix: Other small issues</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.5.1 - November 22, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Fix: If you visited another page before visiting the watch page, the watch page would not load correctly until the page was refreshed [This bug affected all layouts from Early 2013 to 2014]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.5 - November 21, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Improvement: The watch page should load much faster, as well as be much less prone to failing to load. [This affects all layouts from Early 2013 to 2017]</p>
+						<p>- Fix: The like and dislike buttons were completely unstyled for some users [This bug affected all layouts, and was caused by a YouTube update]</p>
+						<p>- Fix: The watch page would not load correctly for some users, with stuff like the view count remaining "???,???" [This bug affected all layouts, and was caused by a YouTube update]</p>
+						<p>- Fix: Channel names on comments are now blue again [This affected all layouts from 2008-2017, and was caused by a YouTube update]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.4.3 - November 8, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Change: The channel tagline is now visible on all layouts as it is the only way to access the about page now [This is the result of a YouTube update]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.4.2 - November 6, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Improvement: Made some improvements to the player resizer [affects custom player sizes].</p>
+						<p>- Fix: The video would not black out after it ended when using theater mode.</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.4.1 - November 4, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Fix: Fixed a minor issue with chanel banners [This bug affected most layouts from 2017 and earlier, and was caused by a YouTube update]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.4 - November 4, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Improvement: Some very minor layout improvements [This affects all layouts to varying degrees]</p>
+						<p>- Fix: Fixed some remaining channel page problems [This bug affected the 2008-2012 layouts. and was caused by a YouTube update]</p>
+						<p>- Fix: Channel pages would be glitched if the channel didn't have a banner [This bug affected all layouts from 2017 and earlier to varying degrees, and was caused by a YouTube update]</p>
+						<p>- Fix: The theater mode icon was invisible for some users [This bug affected the 2012-2015 player styles]</p>
+						<p>- Potential fix: Sometimes the view count and upload date wouldn't work</p>
+						<p>- Change: The 'Display My Channel Button' option has been renamed to 'Move "Your channel" Button to main section and rename it to "My Channel"'</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.3 - October 25, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Improvement: The video titles on the related videos section are now less bold [This affects the 2019-2021 layouts]</p>
+						<p>- Fix: Fixed several issues caused by YouTube layout updates [This affects all layouts]</p>
+						<p>- Fix: The watch page would be messed up if you didn't have "Use Custom Player Size" enabled [This bug affected the 2008-2011 layouts]</p>
+						<p>- Fix: The video creator's profile picture would be very big on lower resolutions [This bug affected the 2008-Late 2009 layouts]</p>
+						<p>- Fix: The channel videos grid would clip into the dropdown button [This bug affected the 2019-2021 layouts]</p>
+						<p>- Fix: The player resizer should work more reliably now [Affects custom player sizes]</p>
+						<p>- Fix: Fixed Material Search Bar option</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.2 - October 12, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p class="notice">- Notice: If the watch page isn't loading correctly, try turning off "Enable Return YouTube Dislike compatibility" in CustomTube settings. It is not a CustomTube issue, but rather a Return YouTube Dislike issue that should be fixed soon.</p>
+						<p>- Improvement: Dropdown buttons now use more accurate styling [This affects all layouts from 2017 and earlier]</p>
+						<p>- Improvement: Tooltips now use more accurate styling [This affects all layouts from 2017 and earlier]</p>
+						<p>- Improvement: Like and Dislike counts added to the stars tooltip [This affects the 2008 and Late 2009 layouts, however will not work until the next Return YouTube Dislike update releases]</p>
+						<p>- Fix: CustomTube is now compatible with YouTube's "Rolling like count" experiment</p>
+						<p>- Fix: The watch page buttons were right aligned, overlapping the view count [This bug affected the 2011 layout, and was caused by a YouTube update]</p>
+						<p>- Fix: "Loop videos by default" would also loop ads [This bug affected all layouts]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.1 - October 6, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Improvement: The upload button now uses the correct styling [This affects the 2011 and 2012 layouts]</p>
+						<p>- Improvement: Minor improvements to the Watch Page [Affects all layouts to varying degrees, but most notably the 2012 layout]</p>
+						<p>- Fix: The channel videos sort button was overlapping the videos themselves [This bug affected all layouts]</p>
+						<p class="cr-only">- Fix: [Chromium exclusive] Some of the buttons were incorrectly positioned when in fullscreen [This bug affected the 2012 and 2013-2015 players]</p>
+						<p>- Fix: Other small fixes</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title" yellow>
+							<p>Version 1.2.0 - October 4, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p class="cr-only">- The "tabs" permission has been removed in the Chrome version.</p>
 						<strong>- New: Added 2011 Layout option!</strong>
-						<p>- New: Added option to choose the video player style [The style is chosen by your selected layout by default]</p>
+						<p></p>
+						<strong>- New: Added Late 2009 Layout option!</strong>
+						<p></p>
+						<strong>- New: Added 2008 Layout option!</strong>
+						<p>- New: Added option to choose the video player style. The style is chosen by your selected layout by default (All layouts from 2012 and eariler use the 2012 player as of now). There is also an option to use the current video player should you have issues with the player styles.</p>
+						<p>- Improvement: Player is now 640x360 instead of 586x330 [This affects the 2012 layout]</p>
 						<p>- Improvement: Slight improvement to the Search Page [This affects the 2012 layout]</p>
-						<p class="notice">- Note: V1.2.0 is still in early development.</p>
+						<p>- Improvement: The channel description now uses smaller text [This affects all layouts from 2017 and eariler]</p>
+						<p>- Improvement: More of the old watch page icons have been restored [This affects the 2019 and 2020 layouts]</p>
+						<p>- Fix: Video titles are now visible on the History page [This bug affected the 2012 layout]</p>
+					</div>
+				</div>
+				<div class="changelog-inner">
+					<div class="title-area">
+						<div class="title">
+							<p>Version 1.1.0.3 - September 25, 2023</p>
+						</div>
+					</div>
+					<div class="words">
+						<p>- Fix: When expanded, the description would exceed its intended width [This bug affected all layouts, excluding the unmodified current layout, and was caused by a YouTube update]</p>
 					</div>
 				</div>
 				<div class="changelog-inner">

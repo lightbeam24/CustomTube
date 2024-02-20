@@ -1,0 +1,756 @@
+[ct] .watch7-tab {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  margin-left: 15px;
+  padding: 0 10px;
+  font-size: 11px;
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
+  cursor: pointer;
+  color: var(--bt-gcp-333);
+  opacity: 50%;
+}
+[ct] .watch7-tab.active,
+[ct] .watch7-tab:hover {
+  opacity: 1;
+  border-bottom: 3px solid var(--bt-emphasis, #cc181e);
+}
+[ct] #watch7-report-tab span {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) 0 -924px;
+  background-size: auto;
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+[ct] #watch7-title {
+  padding: 15px 0 14px;
+  font-size: 24px;
+  color: var(--bt-gcp-222);
+}
+[ct] #watch7-owner-row {
+  padding: 0 0 15px;
+}
+[ct] #watch7-owner {
+  display: flex;
+}
+[ct] #watch7-pfp a {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+[ct] #watch7-user {
+  margin-left: 8px;
+}
+[ct] #watch7-channel-name-container {
+  height: 22px;
+}
+[ct] .watch7-channel-name {
+  color: var(--bt-gcp-333) !important;
+  font-weight: bold;
+  max-width: 315px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  font-size: 13px;
+}
+[ct] .watch7-channel-name:hover {
+  text-decoration: underline;
+}
+.yt-user-separator {
+  font-size: 11px;
+  color: var(--bt-gcp-666) !important;
+  margin: 0 5px;
+  margin-top: 2px;
+}
+[ct] .watch7-video-count {
+  font-size: 11px;
+  color: var(--bt-gcp-666) !important;
+  margin-top: 2px;
+}
+[ct] .watch7-video-count:hover {
+  text-decoration: underline;
+}
+[ct] #watch7-sub-button {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px 0 5.5px;
+  font-size: 12px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+[ct] [state="subscribe"] #watch7-sub-button {
+  background: linear-gradient(to top,#c7231a 0,#e62c22 100%);
+  box-shadow: 0 1px 0 rgba(0,0,0,.15);
+  color: #fefefe;
+}
+[ct] [state="subscribe"] #watch7-sub-button:hover {
+  background: linear-gradient(to top,#dc2f2c 0,#fa362a 100%);
+  box-shadow: 0 1px 0 rgba(0,0,0,.20);
+}
+[ct] [state="subscribe"] #watch7-sub-button:active {
+  background: linear-gradient(to top,#b01d13 0,#c6282c 100%);
+  box-shadow: inset 0 1px 0 rgba(0,0,0,.30);
+}
+[ct] [state="subscribed"] #watch7-sub-button {
+  background: linear-gradient(to top,#f6f6f6 0,#fcfcfc 100%);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  color: var(--bt-gcp-999);
+  border-color: var(--bt-gcp-ccc);
+  border-radius: 2px 0 0 2px;
+}
+[ct] [state="creator-studio"] #watch7-sub-button {
+  background: linear-gradient(to top,#f6f6f6 0,#fcfcfc 100%);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  color: var(--bt-gcp-333);
+  border-color: var(--bt-gcp-ccc);
+  font-weight: bold;
+}
+[ct] [state="creator-studio"] #watch7-sub-count {
+  display: none;
+}
+[ct] [state="subscribed"] #watch7-sub-button:active,
+[ct] [state="creator-studio"] #watch7-sub-button:active {
+  background: linear-gradient(to top,#e7e7e7 0,#ededed 100%);
+  box-shadow: inset 0 1px 0 #ddd;
+}
+html[watch-metadata-style^="hitchhiker-2013-1"][layout] #watch7-sub-button {
+  color: #333;
+  background: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
+  font-weight: bold;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  padding: 0 8px 0 5.5px;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,.15);
+}
+html[watch-metadata-style^="hitchhiker-2013-1"][layout] #watch7-sub-button:hover {
+  box-shadow: 0 1px 0 rgba(0,0,0,.20);
+  border: 1px solid #333;
+  background: linear-gradient(to bottom,#fff 0,#d2d2d2 100%);
+}
+html[watch-metadata-style^="hitchhiker-2013-1"][layout] #watch7-sub-button:active {
+  box-shadow: inset 0 1px 0 rgba(0,0,0,.30);
+  border: 1px solid #333;
+  background: linear-gradient(to top,#fff 0,#d2d2d2 100%);
+}
+html[watch-metadata-style^="hitchhiker-2013-1"] [state="subscribe"] .watch7-sub-icon {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflaJ9wdK.png) 4px -143px;
+  background-size: auto;
+  width: 24px;
+  height: 22px;
+  background-color: #a9382e;
+  border: 1px solid #880904;
+  position: relative;
+  left: -6px;
+  border-radius: 2px 0 0 2px;
+}
+[ct] #watch7-notif-button {
+  background: #f8f8f8;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  color: var(--bt-gcp-999);
+  border: 1px solid #d3d3d3;
+  border-left: none !important;
+  border-radius: 0 2px 2px 0;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  width: 22px;
+  cursor: pointer;
+}
+[ct] #watch7-notif-button:hover {
+  background: #f0f0f0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+  border: 1px solid #c6c6c6;
+}
+[ct] #watch7-notif-button:active {
+  background: #e9e9e9;
+  box-shadow: inset 0 1px 0 #ddd;
+  border: 1px solid #c6c6c6;
+}
+[ct] .watch7-notif-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) -35px -305px;
+  width: 12px;
+  height: 12px;
+  display: block;
+  margin: 0 auto;
+}
+[ct] #watch7-notif-button:hover .watch7-notif-icon {
+  background-position: 0 -734px;
+}
+html[watch-metadata-style^="hitchhiker-2013-1"] [state="subscribe"] .watch7-sub-icon:hover::before {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflaJ9wdK.png) 4px -143px, linear-gradient(to bottom,#b85046 0,#91251e 100%);
+  border: 1px solid #6c0400;
+}
+html[watch-metadata-style^="hitchhiker-2013-1"] [state="subscribe"] .watch7-sub-icon:active::before {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflaJ9wdK.png) 4px -143px, linear-gradient(to top,#b85046 0,#91251e 100%);
+  border: 1px solid #6c0400;
+  box-shadow: inset 0 2px 2px rgba(0,0,0,.75);
+}
+[ct] .watch7-sub-icon {
+  margin-right: 6px;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflQ1rFXN.png) -44px -992px;
+  background-size: auto;
+  width: 16px;
+  height: 12px;
+}
+[state="subscribed"] .watch7-sub-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) -47px -836px;
+}
+[state="creator-studio"] .watch7-sub-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) 0 -852px;
+  height: 15px;
+}
+[state="subscribed"] [js-sub-trigger]:hover .watch7-sub-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) -24px -696px;
+}
+html:not([layout^="hitchhiker-2015"]):not([layout^="hitchhiker-2016"]):not([layout^="hitchhiker-2017"]):not([layout^="polymer"]) #watch7-sub-count {
+  padding: 0 6px;
+  font-size: 11px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  color: var(--bt-gcp-777);
+  margin-left: 6px;
+  background: var(--bt-gcp-f9f9f9-surface);
+  border: 1px solid var(--bt-gcp-ccc);
+  border-radius: 2px;
+  position: relative;
+}
+html:not([layout^="hitchhiker-2015"]):not([layout^="hitchhiker-2016"]):not([layout^="hitchhiker-2017"]):not([layout^="polymer"]) #watch7-sub-count::after
+{
+  margin-top: 2px;
+}
+html:not([layout^="hitchhiker-2015"]):not([layout^="hitchhiker-2016"]):not([layout^="hitchhiker-2017"]):not([layout^="polymer"]) #watch7-sub-count::after
+{
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -5px;
+  border-width: 5px 5px 5px 0;
+  border-style: solid;
+  border-color: transparent #fafafa;
+}
+html:not([layout^="hitchhiker-2015"]):not([layout^="hitchhiker-2016"]):not([layout^="hitchhiker-2017"]):not([layout^="polymer"]) #watch7-sub-count::before
+{
+  margin-top: 2px;
+  border-color: transparent #ccc;
+}
+html:not([layout^="hitchhiker-2015"]):not([layout^="hitchhiker-2016"]):not([layout^="hitchhiker-2017"]):not([layout^="polymer"]) #watch7-sub-count::before
+{
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: -6px;
+  border-width: 6px 6px 6px 0;
+  border-style: solid;
+}
+[ct] #watch7-views-info {
+  margin-left: auto;
+}
+[ct] #watch7-view-count {
+  font-size: 19px;
+  color: var(--bt-gcp-333);
+  line-height: 24px;
+  margin-left: auto;
+  width: fit-content;
+}
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch7-like .watch7-ltod-icon,
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch8-like .watch8-ltod-icon {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -158px -193px;
+}
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch7-like.active .watch7-ltod-icon,
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch8-like.active .watch8-ltod-icon {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -66px -186px;
+}
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch7-like.active,
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch8-like.active {
+  color: #590;
+}
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch7-dislike .watch7-ltod-icon,
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch8-dislike .watch8-ltod-icon {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -26px -85px;
+  margin-top: -2px;
+}
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch7-dislike.active .watch7-ltod-icon,
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch8-dislike.active .watch8-ltod-icon {
+  background: no-repeat url(http://s.ytimg.com/yts/imgbin/www-hitchhiker-vflX22WRH.png) -136px 0;
+}
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch7 #js-likes,
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch8 #js-likes {
+  background: #590;
+}
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch7 #js-dislikes,
+[ct][watch-metadata-style^="hitchhiker-2013"]:not([watch-metadata-style^="hitchhiker-2013-3"]) .watch8 #js-dislikes {
+  background: #ccc;
+}
+[ct] .watch7-ltod-bar {
+  height: 2px;
+  width: 160px;
+  display: flex;
+  padding: 4px 0;
+  position: relative;
+  cursor: pointer;
+}
+[ct] .watch7-ltod-bar #js-likes {
+  background: #1b7fcc;
+  width: 100%;
+  height: 2px;
+  display: block;
+  position: absolute;
+  z-index: 2;
+}
+[ct] .watch7-ltod-bar #js-dislikes {
+  background: #ccc;
+  width: 100%;
+  height: 2px;
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+[ct] #watch7-ltod-counts {
+  margin-left: auto;
+  width: fit-content;
+}
+[ct] #watch7-like-count,
+[ct] #watch7-dislike-count {
+  display: flex;
+  color: var(--bt-gcp-666);
+  font-size: 11px;
+}
+[ct] #watch7-like-count {
+  margin-right: 12px;
+}
+[ct] .watch7-little-like-icon {
+  top: -1px;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflQ1rFXN.png) -17px -418px;
+  background-size: auto;
+  width: 13px;
+  height: 14px;
+  margin-right: 3px;
+}
+[ct] .watch7-little-dislike-icon {
+  top: -1px;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflQ1rFXN.png) 0px -418px;
+  background-size: auto;
+  width: 13px;
+  height: 14px;
+  margin-right: 3px;
+}
+[ct] #watch7-actions-row {
+  padding: 0;
+  border-bottom: 1px solid var(--bt-gcp-e6e6e6, var(--bt-gcp-ddd));
+  align-items: center;
+}
+[ct] .watch7-ltod-button {
+  padding: 0 7px;
+  margin-right: 10px;
+  border-radius: 2px;
+  color: var(--bt-gcp-333);
+  font-weight: bold;
+  font-size: 11px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+[ct] .watch7-ltod-button:hover {
+  opacity: 0.7;
+  border-color: #c6c6c6;
+  background: #f0f0f0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+}
+[ct] .watch7-ltod-button.active {
+  opacity: 0.8;
+}
+[ct] .watch7-like.active {
+  color: #2793e6;
+}
+[ct] .watch7-ltod-button.active:hover {
+  opacity: 1;
+}
+[ct] .watch7-like .watch7-ltod-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflQ1rFXN.png) -52px -1701px;
+  background-size: auto;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+[ct] .watch7-like.active .watch7-ltod-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) -22px -908px;
+}
+[ct] .watch7-dislike .watch7-ltod-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflQ1rFXN.png) 0 -996px;
+  background-size: auto;
+  width: 20px;
+  height: 20px;
+  padding-bottom: 1px;
+}
+[ct] .watch7-dislike.active .watch7-ltod-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) 0 -104px;
+}
+[ct] #watch7-tabs {
+  margin-left: auto;
+}
+[ct] #watch7-slider {
+  padding: 18px 0px;
+}
+html[layout^="hitchhiker"] #emerald-watch-7 {
+  margin: 10px 0;
+}
+html[layout^="hitchhiker-2014"] #emerald-watch-7,
+html[layout^="hitchhiker-2013"] #emerald-watch-7 {
+  margin: 0;
+  font-family: arial !important;
+}
+[ct] #watch7-slider {
+  font-size: 13px;
+  color: var(--bt-gcp-333);
+}
+[ct] .watch7-upload-date {
+  font-weight: bold;
+}
+[ct] #watch7-slider[expanded] #watch7-expand,
+[ct] #watch7-slider:not([expanded]) #watch7-collapse {
+  display: none;
+}
+[ct] .watch7-expand {
+  cursor: pointer;
+  padding-top: 10px;
+}
+.expand-border {
+  border-top: 1px solid var(--bt-gcp-ddd);
+  width: calc(100% - 200px);
+  margin: 0 auto;
+  z-index: 411;
+  position: relative;
+}
+[ct] .watch7-expand .expand-inner {
+  margin: 0 auto;
+  margin-top: -10px;
+  width: fit-content;
+  position: relative;
+  background: var(--bt-section-bg, var(--bt-gcp-eee));
+  padding: 0 10px;
+  height: 18px;
+  color: var(--bt-gcp-333);
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  border: 1px solid transparent;
+  z-index: 412;
+}
+[ct] .watch7-expand .expand-inner:hover {
+  border-color: #c6c6c6;
+  background: #f0f0f0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+}
+[ct] #watch7-description {
+  max-width: calc(100% - 240px);
+  overflow: hidden;
+  max-height: inherit;
+  transition: max-height 0.3s !important;
+}
+[ct] #watch7-slider:not([expanded]) .emerald-extra {
+  opacity: 0;
+  z-index: -10000;
+  pointer-events: none;
+}
+[ct] .watch7 .emerald-link {
+  color: var(--bt-gcp-999);
+}
+[ct] .watch7 .emerald-link:hover {
+  text-decoration: underline;
+}
+[ct] #watch7-slider:hover .emerald-link {
+  color: var(--bt-blue);
+}
+[ct] #watch7-slider:not([expanded]) #watch7-description {
+  max-height: 67px !important;
+}
+[ct] #watch7-slider[expanded] #watch7-clickable-desc {
+  display: none;
+}
+[ct] #watch7-slider:not([expanded]) #watch7-clickable-desc {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+[ct] #watch7-info,
+[ct] #watch7-report {
+  max-height: 104px;
+}
+[ct] #watch7-share {
+  max-height: 150px;
+}
+[ct] #watch7-videos {
+  max-height: 204px;
+}
+[ct] .watch7-slider {
+  transition: max-height 0.3s;
+  max-height: 70px;
+}
+[ct] #watch7-slider:not([state="video-info"]) #watch7-info,
+[ct] #watch7-slider:not([state="addto"]) #watch7-addto,
+[ct] #watch7-slider:not([state="share"]) #watch7-share,
+[ct] #watch7-slider:not([state="videos"]) #watch7-videos {
+  max-height: 0px !important;
+  transition: max-height 0.5s 0.05s;
+}
+[ct] #watch7-slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+[ct] #watch7-slider-container-inner {
+  transition: transform 0.3s;
+  display: flex;
+}
+[ct] [state="video-info"] #watch7-slider-container-inner {
+  transform: translateX(0%);
+}
+[ct] [state="share"] #watch7-slider-container-inner {
+  transform: translateX(-100%);
+}
+[ct] [state="addto"] #watch7-slider-container-inner {
+  transform: translateX(-200%);
+}
+[ct] [state="videos"] #watch7-slider-container-inner {
+  transform: translateX(-300%);
+}
+[ct] [state="report"] #watch7-slider-container-inner {
+  transform: translateX(-400%);
+}
+[ct] .watch7-slider {
+  min-width: calc(100% - 5px);
+  max-width: calc(100% - 5px);
+  margin-right: 5px;
+}
+.emerald-playlist-checkmark {
+  width: 14px;
+  height: 10px;
+  margin-right: 6px;
+  margin-top: 4px;
+}
+[added-to="ALL"] .emerald-playlist-checkmark {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) 0 -90px;
+  background-size: auto;
+}
+[ct] #watch7-playlist-list {
+  margin-top: 20px;
+  max-height: 195px;
+  overflow-y: scroll;
+  background: #efefef;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 0 #fff,inset 0 1px 1px rgba(0,0,0,0.2);
+  border: 1px solid #ccc;
+}
+[ct] .watch7-header-text {
+  font-size: 13px;
+  font-weight: bold;
+}
+.emerald-playlist {
+  border-radius: 3px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.emerald-playlist:hover {
+  color: #fff;
+  background: #555;
+}
+.emerald-playlist-title {
+  font-weight: bold;
+  line-height: 1.4em;
+  width: 55%;
+}
+.emerald-playlist-privacy {
+  margin-left: 8px;
+  text-transform: lowercase;
+}
+.emerald-playlist-privacy:first-letter {
+  text-transform: uppercase;
+}
+[ct] #watch7-playlist-buttons {
+  margin-left: auto;
+}
+[ct] #report-redir-button,
+[ct] #watch7-share-options,
+[ct] #watch7-share-actions {
+  margin-top: 8px;
+}
+#share-redir-button {
+  margin-left: auto;
+}
+[ct] #watch7-share-actions #js-link-copied,
+[ct] .watch7-playlist-private-supported {
+  display: flex;
+  align-items: center;
+  margin-left: 4px;
+  color: #916108;
+}
+[ct] #watch7-share-options .emerald-share-option {
+  margin-right: 8px;
+}
+[ct] #watch7-share-options .emerald-share-option a {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-sharing-vflsuIoGD.png) 0 -1842px;
+}
+[ct] #watch7-share-options #js-share-to-x a {
+  background-position: 0 -92px;
+}
+[ct] #watch7-share-options #js-share-to-reddit a {
+  background-position: 0 -1238px;
+}
+[ct] #watch7-share-options #js-share-to-pinterest a {
+  background-position: 0 -1562px;
+}
+[ct] #watch7-share-options #js-share-to-tumblr a {
+  background-position: 0 -873px;
+}
+[ct] .watch7 #videos-dd-slider {
+  width: 300px;
+  width: calc(var(--bt-player-width) - 140px);
+}
+.videos-dd-pagination-button {
+  margin-right: 4px;
+}
+.emerald-hh-button .ct-uix-button-arrow {
+  margin-top: 0px !important;
+  margin-left: 5px;
+  border: 1px solid transparent;
+    border-top-color: transparent;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+  border-top-color: #333;
+  border-width: 4px 4px 0;
+  width: 0;
+  height: 0;
+  content: "";
+  visibility: visible !important;
+}
+.emerald-hh-button[disabled] {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.videos-dd-arrow {
+  z-index: 1211;
+}
+/* arial */
+.emerald-hh-button a {
+  font-weight: bold !important;
+}
+.emerald-hh-button-cta a {
+  background: var(--bt-cta-btn-bg, #1b7fcc) !important;
+  border: 1px solid var(--bt-cta-btn-border-color) !important;
+  color: #fff !important;
+}
+[ct] #watch7-playlist-create-button {
+  margin-right: 0;
+}
+[ct] #watch7-playlist-input input {
+  border: 1px solid #d3d3d3;
+  color: #333;
+  box-shadow: inset 0 0 1px rgba(0,0,0,.05);
+  width: 250px;
+  padding: 5px 10px 6px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 13px;
+  outline: none !important;
+}
+[ct] #watch7-playlist-input input:hover {
+  border-color: #b9b9b9;
+}
+[ct] #watch7-playlist-input input:focus {
+  border-color: #1b7fcc;
+  box-shadow: inset 0 0 1px rgba(0,0,0,.1);
+}
+[ct] #watch7-playlist-input input::placeholder {
+  color: #999;
+  opacity: 1;
+}
+[ct] .watch7-loading {
+  color: var(--bt-gcp-666);
+  padding: 20px;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.loading .watch7-loading {
+  display: block;
+}
+.loading .watch7-slider-inner,
+.loading .emerald-dropdown-inner,
+.loading .watch5-action-panel-inner {
+  display: none;
+}
+[ct] .watch7-loading-inner {
+  padding: 10px;
+  margin: 0 auto;
+  width: fit-content;
+  align-items: center;
+}
+[ct] .watch7-spinner {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  background: url(https://s.ytimg.com/yts/img/icn_loading_animated-vflff1Mjj.gif) no-repeat center;
+  margin-right: 4px;
+}
+[ct] #watch7-slider[state="video-info"] #watch7-action-panel-footer {
+  display: none;
+}
+[ct] #watch7-slider #watch7-action-panel-footer {
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+}
+[ct] #watch7-slider .yt-horizontal-rule {
+  z-index: 0;
+  margin: 20px auto 0;
+  height: .5em;
+  position: relative;
+  height: 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #fff;
+  width: calc(100% - 220px);
+}
+
+[ct] #watch7-extras,
+[ct] #watch8-extras {
+  margin: 8px 0;
+}
+.watch7 .emerald-extra,
+.watch8 .emerald-extra {
+  display: flex;
+  margin-top: 2px;
+  font-size: 11px;
+}
+.watch7 .emerald-extra .emerald-link {
+  color: var(--bt-gcp-666);
+}
+.watch8 .emerald-extra .emerald-link {
+  color: var(--bt-gcp-333);
+}
+.watch7 #watch7-slider:hover .emerald-extra .emerald-link,
+.watch8 #watch8-info:hover .emerald-extra .emerald-link {
+  color: var(--bt-blue);
+}
+[ct] .watch7-extra-header {
+  font-weight: bold;
+  width: 90px;
+  min-width: 90px;
+  margin-right: 10px;
+}

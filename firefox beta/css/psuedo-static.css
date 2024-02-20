@@ -36,7 +36,7 @@ html[pseudo-static] ytd-watch-flexy #primary.ytd-watch-flexy {
   max-width: 641px !important;
 }
 /* SubSection Video */
-/* This code seems to make videos work pretty much perfectly, except for non 16:9 videos. The min-height property is required for 4:3 videos to keep a consistent width. */
+/* This code seems to make videos work pretty much perfectly, except for non 16:9 videos. The min-height property is required for 4:3 videos to keep a consistent width. 
 html[pseudo-static] ytd-watch-flexy #movie_player[aria-label="YouTube Video Player"] video {
   width: auto !important;
   width: 640px !important;
@@ -47,11 +47,11 @@ html[pseudo-static] ytd-watch-flexy #movie_player[aria-label="YouTube Video Play
   align-self: center !important;
   min-height: 360px !important;
 }
-/* This code is necessary for non 16:9 videos to keep a consistent width. */
+/* This code is necessary for non 16:9 videos to keep a consistent width. *
 html[pseudo-static] #movie_player[aria-label="YouTube Video Player"] .ytp-chrome-bottom {
     width: 620px !important;
 }
-/* These variables are required for non 16:9 non 1:1 videos to keep a consistent width. */
+/* These variables are required for non 16:9 non 1:1 videos to keep a consistent width. 
 html[pseudo-static] ytd-watch-flexy[flexy] {
            --ytd-watch-flexy-width-ratio: 16 !important;
            --ytd-watch-flexy-height-ratio: 9 !important;
@@ -112,6 +112,6 @@ html[pseudo-static] .html5-video-container video {
 	top: 0 !important;
 	object-fit: contain !important;
 }
-html[pseudo-static] #player {
+html[pseudo-static] ytd-watch-flexy #player {
   width: 641px;
 }

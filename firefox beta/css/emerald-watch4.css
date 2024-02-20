@@ -1,0 +1,372 @@
+[ct][watch-version="watch4"] #emerald-watch-sidebar-channel-videos-toggle {
+  order: 1;
+  margin-bottom: 5px;
+}
+[ct][watch-version="watch4"] #emerald-watch-sidebar-channel-videos {
+  order: 2;
+  margin-bottom: 10px;
+}
+[ct][watch-version="watch4"] #emerald-watch-sidebar-related-toggle {
+  order: 3;
+  margin-bottom: 5px;
+}
+[ct][watch-version="watch4"] #emerald-watch-sidebar-related {
+  order: 4;
+}
+html:not([use-related-tabs])[ct][watch-version="watch4"] #emerald-watch-sidebar-content:not([channel-videos-expanded]) #emerald-watch-sidebar-channel-videos,
+html:not([use-related-tabs])[ct][watch-version="watch4"] #emerald-watch-sidebar-content:not([related-expanded]) #emerald-watch-sidebar-related {
+  display: none;
+}
+
+.emerald-watch-sidebar-toggle {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--bt-gcp-000);
+  cursor: pointer;
+}
+.emerald-watch-below-toggle:hover,
+.emerald-watch-sidebar-toggle:hover {
+  color: var(--bt-gcp-666);
+}
+.emerald-watch-below-toggle {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--bt-gcp-000);
+  cursor: pointer;
+  border-top: 1px solid #ccc;
+  margin-top: 5px;
+  padding-top: 5px;
+}
+.emerald-watch-below-toggle .emerald-toggle-icon,
+.emerald-watch-sidebar-toggle .emerald-toggle-icon {
+  height: 16px;
+  width: 12px;
+  margin-right: 4px;
+  background: url(https://i.imgur.com/2LCU6Hs.png) no-repeat 0 -344px;
+}
+[related-expanded] #emerald-watch-sidebar-related-toggle .emerald-toggle-icon,
+[channel-videos-expanded] #emerald-watch-sidebar-channel-videos-toggle .emerald-toggle-icon,
+[comments-expanded] #emerald-watch-comments-toggle .emerald-toggle-icon {
+  background: url(https://i.imgur.com/2LCU6Hs.png) no-repeat 0 -322px;
+}
+
+
+
+
+#emerald-watch-sidebar:not([description-expanded]) #emerald-side-meta-description {
+  max-height: 45px;
+  overflow: hidden;
+}
+#emerald-side-meta {
+  background: var(--bt-gcp-eee);
+  border: 1px solid var(--bt-gcp-ccc);
+  margin-bottom: 10px;
+  font-size: 12px;
+  padding: 6px;
+  color: var(--bt-gcp-000);
+}
+#emerald-side-meta-pfp {
+  width: 46px;
+  height: 46px;
+  border: 3px double var(--bt-gcp-999);
+  background: var(--bt-gcp-fff);
+}
+#emerald-side-meta-pfp a {
+  width: 46px;
+  height: 46px;
+}
+.watch4-blue {
+  color: var(--bt-blue);
+  cursor: pointer;
+}
+.watch4-blue:hover {
+  text-decoration: underline;
+}
+#emerald-side-meta-user-details {
+  line-height: 18px;
+  margin-left: 8px;
+  color: var(--bt-gcp-333);
+  margin-top: -2px;
+  margin-bottom: 4px;
+}
+[ct] #side-meta-channel-name-container a {
+  color: var(--bt-blue);
+  font-weight: bold;
+  cursor: pointer;
+}
+[ct] #side-meta-channel-name-container a:hover {
+  text-decoration: underline;
+}
+[ct] .watch4-expand .expand-inner {
+  font-size: 11px;
+  display: flex;
+}
+#emerald-side-meta-subscribe {
+  margin-left: auto;
+}
+[ct] #emerald-side-meta .emerald-link {
+  color: var(--bt-blue);
+  cursor: pointer;
+  display: inline-block;
+}
+[ct] #emerald-side-meta .emerald-link:hover {
+  text-decoration: underline;
+}
+#emerald-side-meta-actions {
+  border-top: 1px solid var(--bt-gcp-ccc);
+  padding: 5px 0 0 6px;
+  margin: 5px 0 0;
+  font-size: 11px;
+}
+.emerald-side-meta-text {
+  color: var(--bt-gcp-666);
+  line-height: 18px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  margin-right: 5px;
+  min-width: 40px;
+  clear: left;
+  text-align: right;
+}
+.emerald-side-meta-input input {
+  width: 200px;
+  overflow-x: hidden;
+  font-size: 10px;
+  border: 1px solid var(--bt-gcp-999);
+  background: var(--bt-gcp-fff);
+  border-radius: 2px;
+  padding: 2px;
+  white-space: nowrap;
+}
+
+[remove-rating-invisible="false"] #watch4-your-rating-text {
+  display: none;
+}
+#watch4-rating-text {
+  margin-left: 8px;
+  font-size: 12px;
+  color: var(--bt-gcp-666);
+}
+#watch4-ratings:not([rated]):not([temp-stars]) #watch4-rating-value {
+  font-style: italic;
+  color: var(--bt-gcp-888);
+}
+#watch4-ratings:not([rated])[temp-stars]:hover #watch4-rating-value {
+  color: var(--bt-blue);
+}
+#watch4-ratings:not([rated])[temp-stars="1.0"]:hover #watch4-rating-value,
+#watch4-ratings:not([rated])[temp-stars="2.0"]:hover #watch4-rating-value,
+#watch4-ratings:not([rated])[temp-stars="3.0"]:hover #watch4-rating-value {
+  color: red;
+}
+#watch4-ratings:not([rated])[temp-stars="4.0"]:hover #watch4-rating-value,
+#watch4-ratings:not([rated])[temp-stars="5.0"]:hover #watch4-rating-value {
+  color: green;
+}
+#watch4-ratings-inner {
+  background: url(https://i.imgur.com/2LCU6Hs.png) no-repeat;
+  background-position: -75px -411px;
+  height: 15px;
+}
+#watch4-ratings[temp-stars] #watch4-ratings-inner {
+  outline: 2px solid var(--bt-blue);
+}
+#watch4-ratings-inner[rating="1.0"] {
+  background-position: -60px -411px;
+}
+#watch4-ratings-inner[rating="1.5"] {
+  background-position: -45px -426px;
+}
+#watch4-ratings-inner[rating="2.0"] {
+  background-position: -45px -411px;
+}
+#watch4-ratings-inner[rating="2.5"] {
+  background-position: -30px -426px;
+}
+#watch4-ratings-inner[rating="3.0"] {
+  background-position: -30px -411px;
+}
+#watch4-ratings-inner[rating="3.5"] {
+  background-position: -15px -426px;
+}
+#watch4-ratings-inner[rating="4.0"] {
+  background-position: -15px -411px;
+}
+#watch4-ratings-inner[rating="4.5"] {
+  background-position: 0px -426px;
+}
+#watch4-ratings-inner[rating="5.0"] {
+  background-position: 0px -411px;
+}
+#watch4-ratings[temp-stars="1.0"] #watch4-ratings-inner {
+  background-position: -60px -411px;
+}
+#watch4-ratings[temp-stars="2.0"] #watch4-ratings-inner {
+  background-position: -45px -411px;
+}
+#watch4-ratings[temp-stars="3.0"] #watch4-ratings-inner {
+  background-position: -30px -411px;
+}
+#watch4-ratings[temp-stars="4.0"] #watch4-ratings-inner {
+  background-position: -15px -411px;
+}
+#watch4-ratings[temp-stars="5.0"] #watch4-ratings-inner {
+  background-position: 0px -411px;
+}
+.watch4-star {
+  width: 15px;
+  height: 15px;
+}
+#watch4-ratings-info-row {
+  padding: 9px 0 4px 0;
+}
+#watch4-views-info {
+  font-size: 13px;
+  color: var(--bt-gcp-000);
+  font-weight: bold;
+  margin-left: auto;
+}
+#watch4-views-info #views-text {
+  font-weight: normal;
+}
+#watch4-actions-row {
+  border: 1px solid var(--bt-gcp-ccc);
+  width: 100%;
+}
+.watch4-action a {
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: #03c;
+  height: 32px;
+  line-height: 28px;
+  padding: 0 10px;
+  display: block;
+  float: left;
+  cursor: pointer;
+}
+.watch4-action a::before {
+  content: "";
+  background: url(https://i.imgur.com/2LCU6Hs.png) no-repeat;
+  width: 10px;
+  height: 9px;
+  vertical-align: text-top;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  display: inline-block;
+}
+#watch4-like-button a::before {
+  background-position: 0px -228px;
+}
+#watch4-like-button.active a::before,
+#watch4-like-button:hover a::before {
+  background-position: 0px -238px;
+}
+#watch4-share-button a::before {
+  background-position: -17px -228px;
+}
+#watch4-share-button.active a::before,
+#watch4-share-button:hover a::before {
+  background-position: -17px -238px;
+}
+#watch4-addto-button a::before {
+  background-position: -35px -228px;
+}
+#watch4-addto-button.active a::before,
+#watch4-addto-button:hover a::before {
+  background-position: -35px -238px;
+}
+#watch4-report-button a::before {
+  background-position: -53px -228px;
+}
+#watch4-report-button.active a::before,
+#watch4-report-button:hover a::before {
+  background-position: -53px -238px;
+}
+#watch4-action-panels {
+  border: 1px solid var(--bt-gcp-ccc);
+  width: 100%;
+  margin: 0 0 14px 0;
+  background: #f3f3f3;
+  border-top: none;
+}
+#watch4-action-panels-inner {
+  border-top: 1px solid var(--bt-gcp-fff);
+}
+#watch4-action-panels[state="share"] #watch4-action-panel-close {
+  display: none;
+}
+.watch4-action-panel {
+  padding: 8px;
+  font-size: 12px;
+}
+
+
+
+[ct] #watch4-sub-button {
+  height: 23px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: bold;
+}
+[ct] #watch4-sub-button:hover {
+  text-decoration: underline;
+}
+[ct] [state="subscribe"] #watch4-sub-button {
+  background: #fed81c url(https://i.imgur.com/hcxA2dh.png) repeat-x center -2202px;
+  color: #994800;
+  border: 1px solid #ecc101;
+}
+[ct] [state="unsubscribe"] #watch4-sub-button,
+[ct] [state="creator-studio"] #watch4-sub-button{
+  background: #d8d8d8 url(https://i.imgur.com/hcxA2dh.png) repeat-x center -802px;
+  color: #000;
+  border-color: var(--bt-gcp-999);
+  font-weight: normal;
+}
+[ct] [state="unsubscribe"] #watch4-sub-button:hover,
+[ct] [state="creator-studio"] #watch4-sub-button:hover {
+  background: #d8d8d8 url(https://i.imgur.com/hcxA2dh.png) repeat-x center -1002px;
+}
+#emerald-watch-sidebar {
+  position: relative;
+}
+
+#emerald-watch-below:not([comments-expanded]) #emerald-comments {
+  display: none;
+}
+
+.emerald-side-meta-extra-header {
+  color: var(--bt-gcp-666);
+  margin-right: 4px;
+}
+#emerald-side-meta .emerald-extra {
+  display: flex;
+  margin-top: 5px;
+}
+.emerald-extra .emerald-link:not(:hover) {
+  text-decoration: none;
+}
+
+
+#watch4-action-panels {
+  position: relative;
+}
+#watch4-action-panel-close {
+  color: var(--bt-blue);
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: fit-content;
+  cursor: pointer;
+  font-weight: bold;
+}
+#watch4-action-panel-close:hover {
+  text-decoration: underline;
+}

@@ -167,8 +167,8 @@ html[watch-metadata-style^="hitchhiker-2014"],
 html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-middle-row-icon-display: none;
 }
-html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading .yt-spec-button-shape-next__icon {
+html[watch-metadata-style^="hitchhiker-2014"] #flexible-item-buttons .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker-2013"] #flexible-item-buttons .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading .yt-spec-button-shape-next__icon {
   display: var(--bt-middle-row-icon-display);
 }
 /* anything middle row related can be hh only */
@@ -186,11 +186,17 @@ html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row {
 html:not([watch-metadata-style^="hitchhiker"]):not([watch-metadata-style^="cosmicpanda"]) #bt-middle-row {
   display: none;
 }
+html[watch-metadata-style^="hitchhiker-2013"] #flexible-item-buttons button,
+html[watch-metadata-style^="hitchhiker-2014"] #flexible-item-buttons button,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row button,
 html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row button {
   border-bottom: 3px solid transparent !important;
   border-radius: 0;
 }
+html[watch-metadata-style^="hitchhiker-2013"] #flexible-item-buttons button:hover,
+html[watch-metadata-style^="hitchhiker-2013"] #flexible-item-buttons button:focus,
+html[watch-metadata-style^="hitchhiker-2014"] #flexible-item-buttons button:hover,
+html[watch-metadata-style^="hitchhiker-2014"] #flexible-item-buttons button:focus,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row button:hover,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row button:focus,
 html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row button:hover,
@@ -217,27 +223,33 @@ html[watch-metadata-style^="hitchhiker"] button[aria-label="Save to playlist"] .
 	height: 20px;
 	opacity: 0.6;
 }
-html[watch-metadata-style^="hitchhiker"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content span {
+html[watch-metadata-style^="hitchhiker"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content {
 	visibility: hidden;
 }
-html[watch-metadata-style^="hitchhiker"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content span::after {
+html[watch-metadata-style^="hitchhiker"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content::after {
   visibility: visible !important;
   content: "Add to";
   position: relative;
   font-family: var(--bt-watch-metadata-buttons-font-family, "YouTube Noto",Roboto,);
   font-size: var(--bt-watch-metadata-font-size, 11px);
   font-weight: 500;
-  margin-left: -23px;
+  margin-left: -21px;
+  opacity: 0.6;
+}
+html[watch-metadata-style^="hitchhiker"][lang="en"] button[aria-label="Save to playlist"]:hover .yt-spec-button-shape-next__button-text-content::after {
+  opacity: 1;
 }
 html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy button[aria-label="Share"] .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__icon {
+html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed button-view-model .yt-spec-button-shape-next__icon {
 	background: url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -21px -1679px;
 	width: 20px;
 	height: 20px;
 	opacity: 0.6;
 }
 html[watch-metadata-style^="hitchhiker-2015"] ytd-watch-flexy button[aria-label="Share"] .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="hitchhiker-2015"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__icon {
+html[watch-metadata-style^="hitchhiker-2015"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed ytd-button-renderer .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker-2015"] ytd-watch-flexy #above-the-fold #top-level-buttons-computed button-view-model .yt-spec-button-shape-next__icon {
 	background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -304px -393px;
 	width: 20px;
 	height: 20px;
@@ -265,7 +277,7 @@ html[watch-metadata-style^="aozora"] {
 --bt-wp-og-icons-display: none;
 }
 html[watch-metadata-style^="cosmicpanda"] {
---bt-wp-og-icons-display: block;
+--bt-wp-og-icons-display: none;
 }
 html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-og-icons-display: none;
@@ -303,18 +315,29 @@ html[watch-metadata-style^="hitchhiker-2013"] button[aria-label="More actions"] 
 html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata ytd-button-renderer .yt-spec-button-shape-next__icon,
 html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata button[aria-label="More actions"] .yt-spec-button-shape-next__icon,
 html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #segmented-like-button button[aria-pressed="false"] .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #segmented-dislike-button .yt-spec-button-shape-next__icon {
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #segmented-dislike-button .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata like-button-view-model button[aria-pressed="false"] .yt-spec-button-shape-next__icon,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata dislike-button-view-model button .yt-spec-button-shape-next__icon {
+  filter: var(--bt-watch-metadata-icon-filter);
+}
+/* for new view models */
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #flexible-item-buttons button,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #top-level-buttons-computed ytd-button-renderer span,
+html[watch-metadata-style^="hitchhiker"] ytd-watch-metadata #top-level-buttons-computed yt-button-view-model button {
   filter: var(--bt-watch-metadata-icon-filter);
 }
 #bt-fake-about {
   display: none;
 }
-html[watch-metadata-style^="hitchhiker-2014"] #bt-fake-about,
+html[watch-metadata-style^="hitchhiker-2014"] #bt-fake-about, 
 html[watch-metadata-style^="hitchhiker-2013"] #bt-fake-about {
   display: block;
   border-bottom: 3px solid var(--bt-emphasis);
-  padding: 0 7px;
+  padding: 0px 11px;
   cursor: pointer;
+  height: 33px;
+  font-weight: bold;
+  font-family: arial !important;
 }
 html[watch-metadata-style^="hitchhiker-2014"] #bt-fake-about span,
 html[watch-metadata-style^="hitchhiker-2013"] #bt-fake-about span {
@@ -324,7 +347,8 @@ html[watch-metadata-style^="hitchhiker-2013"] #bt-fake-about span {
 #fake-about-inner {
   margin-top: 10px;
 }
-#bt-middle-row span {
+#bt-middle-row span,
+html[watch-metadata-style^="hitchhiker"] #above-the-fold #actions ytd-button-renderer span {
   font-family: var(--bt-watch-metadata-buttons-font-family, "YouTube Noto",Roboto,arial);
   font-size: var(--bt-watch-metadata-font-size, 11px);
   opacity: 0.6;
@@ -395,6 +419,34 @@ html[watch-metadata-style] ytd-watch-metadata #bottom-row .yt-spec-button-shape-
 	border-radius: 1px;
 }
 
+/* cosmic panda blob */
+html[layout^="cosmicpanda"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button::after {
+  content: "More actions";
+  position: relative !important;
+  top: 0 !important;
+  height: auto !important;
+  width: max-content !important;
+  background: none !important;
+  padding-right: 2px;
+  margin-left: -21px;
+  color: var(--bt-wp-button-text-color);
+  font-size: var(--bt-wp-button-font-size);
+  font-weight: var(--bt-wp-button-font-weight);
+}
+html[watch-metadata-style^="cosmicpanda"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content span {
+	visibility: hidden;
+}
+html[watch-metadata-style^="cosmicpanda"][lang="en"] button[aria-label="Save to playlist"] .yt-spec-button-shape-next__button-text-content span::after {
+  visibility: visible !important;
+  content: "Add to";
+  position: relative;
+  font-family: var(--bt-watch-metadata-buttons-font-family, arial);
+  color: var(--bt-wp-button-text-color);
+  font-size: var(--bt-wp-button-font-size);
+  font-weight: var(--bt-wp-button-font-weight);
+  margin-left: -23px;
+}
+
 /* aozora blob */
 html[layout^="aozora"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button::after,
 html[layout^="stargazer"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button::after {
@@ -409,9 +461,10 @@ html[layout^="stargazer"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-
   font-weight: normal;
   margin-left: -21px;
 }
+html[layout^="cosmicpanda"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button,
 html[layout^="aozora"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button,
 html[layout^="stargazer"] ytd-menu-renderer[has-items] yt-button-shape.ytd-menu-renderer button {
-  width: fit-content;
+  width:  fit-content;
 }
 
 /* Stargazer Blob */
@@ -460,4 +513,449 @@ html[watch-metadata-style^="stargazer"] ytd-watch-flexy #bt-place-metadata ytd-t
 /* fix 2014 player? */
 html[watch-metadata-style] #secondary.ytd-watch-flexy {
   margin-right: 0 !important;
+}
+
+/* prob ok to stay as blob */
+html[watch-metadata-style^="cosmicpanda"] #bt-above ytd-channel-name #text-container {
+	padding-right: 8px;
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above ytd-channel-name a {
+  display: var(--bt-standard-btn-display);
+  height: calc(var(--bt-standard-btn-height) - 4px);
+  border: var(--bt-standard-btn-border);
+  border-color: var(--bt-standard-btn-border-color, currentcolor);
+  padding: 4px 10px 0 10px;
+  color: var(--bt-standard-btn-text-color) !important;
+  background: var(--bt-standard-btn-bg);
+  outline: var(--bt-standard-btn-outline);
+  font-weight: var(--bt-standard-btn-font-weight);
+  font-size: var(--bt-standard-btn-font-size);
+  text-shadow: var(--bt-standard-btn-text-shadow);
+  text-decoration: var(--bt-standard-btn-text-decoration);
+  cursor: var(--bt-standard-btn-cursor);
+  border-radius: var(--bt-standard-btn-radius);
+  box-shadow: var(--bt-standard-btn-box-shadow);
+  text-transform: var(--bt-standard-btn-text-transform);
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above ytd-channel-name a:hover {
+  border: var(--bt-standard-btn-border-hover);
+  border-color: var(--bt-standard-btn-border-color-hover, currentcolor);
+  background: var(--bt-standard-btn-bg-hover);
+  box-shadow: var(--bt-standard-btn-box-shadow-hover);
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above ytd-channel-name a:active,
+html[watch-metadata-style^="cosmicpanda"] #bt-above ytd-channel-name a:focus {
+  border: var(--bt-standard-btn-border-active);
+  border-color: var(--bt-standard-btn-border-color-active, currentcolor);
+  background: var(--bt-standard-btn-bg-active);
+  box-shadow: var(--bt-standard-btn-box-shadow-active);
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above #owner-sub-count.ytd-video-owner-renderer {
+ /* margin-left: 610px !important; */
+  display: block !important;
+  height: calc(var(--bt-channel-sub-button-height) - 6px) !important;
+  border: var(--bt-standard-btn-border);
+  border-color: var(--bt-standard-btn-border-color, currentcolor);
+  padding: 6px 10px 0 10px;
+  color: var(--bt-standard-btn-text-color) !important;
+  background: var(--bt-standard-btn-bg);
+  outline: var(--bt-standard-btn-outline);
+  font-weight: var(--bt-standard-btn-font-weight);
+  font-size: var(--bt-standard-btn-font-size);
+  text-shadow: var(--bt-standard-btn-text-shadow);
+  text-decoration: var(--bt-standard-btn-text-decoration);
+  cursor: var(--bt-standard-btn-cursor);
+  border-radius: var(--bt-standard-btn-radius);
+  box-shadow: var(--bt-standard-btn-box-shadow);
+  text-transform: var(--bt-standard-btn-text-transform);
+  max-height: 50px;
+  margin-left: -8px !important;
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above #owner-sub-count.ytd-video-owner-renderer:hover {
+  border: var(--bt-standard-btn-border-hover);
+  border-color: var(--bt-standard-btn-border-color-hover, currentcolor);
+  background: var(--bt-standard-btn-bg-hover);
+  box-shadow: var(--bt-standard-btn-box-shadow-hover);
+}
+html[watch-metadata-style^="cosmicpanda"] #bt-above #owner-sub-count.ytd-video-owner-renderer:active,
+html[watch-metadata-style^="cosmicpanda"] #bt-above #owner-sub-count.ytd-video-owner-renderer:focus {
+  border: var(--bt-standard-btn-border-active);
+  border-color: var(--bt-standard-btn-border-color-active, currentcolor);
+  background: var(--bt-standard-btn-bg-active);
+  box-shadow: var(--bt-standard-btn-box-shadow-active);
+}
+
+
+/* Needs optimizing */
+
+html[watch-metadata-style^="polymer"] {
+  --bt-wp-top-row-actions-border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+  --bt-wp-top-row-actions-padding-bottom: 9px;
+}
+html[watch-metadata-style^="hitchhiker"] {
+  --bt-wp-top-row-padding-bottom: 36px !important;
+  --bt-wp-top-row-padding-bottom: 40px !important;
+  
+  --bt-wp-top-row-actions-width: calc(100% - 30px);
+  --bt-wp-top-row-actions-pos: absolute;
+  --bt-wp-top-row-actions-margin-top: 2px;
+  --bt-wp-top-row-actions-padding-top: 2px;
+  --bt-wp-top-row-actions-border-top: 1px solid var(--bt-section-border-color);
+  --bt-wp-top-row-actions-border-bottom: none;
+  
+  --bt-wp-top-row-actions-inner-width: 100%;
+  
+  --bt-wp-top-level-buttons-order: 2;
+  
+  --bt-wp-share-button-order: -1;
+  --bt-wp-share-button-margin-right: auto;
+  --bt-wp-share-button-margin-left: 0;
+  
+  --bt-ltod-btn-margin-top: 0 !important;
+  --bt-wp-ltod-btn-pos: absolute;
+  --bt-wp-ltod-btn-right: 0;
+  --bt-wp-ltod-btn-left: unset;
+  
+  --bt-wp-flex-items-pos: relative;
+  --bt-wp-flex-items-right: unset;
+  --bt-wp-flex-items-left: 0;
+  
+  --bt-wp-button-shape-order: 1;
+ 
+  --bt-bar-margin-top: 0 !important;
+}
+html[watch-metadata-style^="hitchhiker-2014"],
+html[watch-metadata-style^="hitchhiker-2013"] {
+  --bt-wp-top-row-padding-bottom: 52px !important;
+  
+  --bt-wp-top-row-actions-width: calc(100% - 30px);
+  --bt-wp-top-row-actions-pos: absolute;
+  --bt-wp-top-row-actions-margin-top: 24px;
+  --bt-wp-top-row-actions-border-top: none;
+  --bt-wp-top-row-actions-border-bottom: 1px solid var(--bt-section-border-color);
+  
+  --bt-wp-top-row-actions-inner-width: 100%;
+  
+  --bt-wp-top-level-buttons-order: -1;
+  
+  --bt-wp-share-button-order: 0;
+  --bt-wp-share-button-margin-right: -52px;
+  --bt-wp-share-button-margin-right: 0px;
+  --bt-wp-share-button-margin-left: auto;
+  
+  --bt-ltod-btn-margin-top: 0 !important;
+  --bt-wp-ltod-btn-pos: absolute;
+  --bt-wp-ltod-btn-right: unset;
+  --bt-wp-ltod-btn-left: 0;
+  
+  --bt-wp-flex-items-pos: absolute;
+  --bt-wp-flex-items-order: 2;
+  --bt-wp-flex-items-right: 0px;
+  --bt-wp-flex-items-left: unset;
+  
+  --bt-wp-button-shape-order: 2;
+  
+  --bt-bar-margin-top: -20px !important; /* 0 */
+}
+html[watch-metadata-style^="aozora"] {
+  --bt-wp-top-row-padding-bottom: 14px;
+}
+
+html[watch-metadata-style] #above-the-fold #actions {
+  flex-direction: var(--bt-wp-top-row-actions-flex-dir, row-reverse) !important;
+  margin-top: var(--bt-wp-top-row-actions-margin-top, 12px) !important;
+  padding-top: var(--bt-wp-top-row-actions-padding-top, 0px) !important;
+  width: var(--bt-wp-top-row-actions-width) !important;
+  position: var(--bt-wp-top-row-actions-pos) !important;
+  border-top: var(--bt-wp-top-row-actions-border-top);
+  border-bottom: var(--bt-wp-top-row-actions-border-bottom);
+  padding-bottom: var(--bt-wp-top-row-actions-padding-bottom, 0);
+}
+html[watch-metadata-style^="hitchhiker-2014"] #above-the-fold #actions-inner,
+html[watch-metadata-style^="hitchhiker-2013"] #above-the-fold #actions-inner {
+  margin-top: -71px !important;
+}
+html[watch-metadata-style] #above-the-fold #actions-inner {
+  width: var(--bt-wp-top-row-actions-inner-width) !important;
+}
+html[watch-metadata-style] #above-the-fold #top-row {
+  padding-bottom: var(--bt-wp-top-row-padding-bottom) !important;
+  padding-top: 5px;
+  border-bottom: none !important;
+  margin-top: -12px;
+}
+middle-row-border {
+  display: none !important;
+}
+html[watch-metadata-style^="hitchhiker"] #above-the-fold #top-level-buttons-computed ytd-button-renderer, 
+html[watch-metadata-style^="cosmicpanda"]:not([title-on-top="true"]) #above-the-fold #top-level-buttons-computed ytd-button-renderer {
+  display: block !important;
+}
+html[watch-metadata-style^="hitchhiker"] #above-the-fold ytd-menu-renderer {
+  display: flex !important;
+  flex-wrap: nowrap;
+}
+html[watch-metadata-style^="hitchhiker"] #top-level-buttons-computed {
+  order: var(--bt-wp-top-level-buttons-order);
+  width: 100%;
+  display: flex;
+  align-items: unset !important;
+}
+html[watch-metadata-style^="hitchhiker"] #top-level-buttons-computed ytd-button-renderer,
+html[watch-metadata-style^="hitchhiker"] #top-level-buttons-computed yt-button-view-model {
+  order: var(--bt-wp-share-button-order);
+  margin-right: var(--bt-wp-share-button-margin-right);
+  margin-left: var(--bt-wp-share-button-margin-left);
+}
+html[watch-metadata-style^="hitchhiker"] #flexible-item-buttons {
+  position: var(--bt-wp-flex-items-pos);
+  order: var(--bt-wp-flex-items-order);
+  right: var(--bt-wp-flex-items-right);
+  left: var(--bt-wp-flex-items-left);
+  display: flex;
+  min-height: 40px !important;
+}
+html[watch-metadata-style] ytd-segmented-like-dislike-button-renderer {
+  position: var(--bt-wp-ltod-btn-pos);
+  right: var(--bt-wp-ltod-btn-right);
+  left: var(--bt-wp-ltod-btn-left);
+}
+html[watch-metadata-style^="hitchhiker"]:not([watch-metadata-style^="hitchhiker-2014"]):not([watch-metadata-style^="hitchhiker-2013"]) #button-shape {
+  margin-right: auto;
+  order: var(--bt-wp-button-shape-order);
+  margin-right: -112px;
+  margin-left: 66px;
+  z-index: 1000;
+}
+html[watch-metadata-style^="hitchhiker"] #bt-middle-row {
+  position: absolute;
+  opacity: 0;
+  display: none !important;
+}
+html[watch-metadata-style^="hitchhiker-2014"] #bt-middle-row,
+html[watch-metadata-style^="hitchhiker-2013"] #bt-middle-row {
+  opacity: 1;
+}
+
+.super-compact-video {
+  margin-right: 10px;
+  width: 126px;
+  width: 120px;
+  padding: 3px;
+  height: 143px;
+  transition: none;
+}
+html[layout^="cosmicpanda"] .super-compact-video {
+  transition: background 0.15s ease-in-out;
+}
+.super-compact-video[last-in-slide] {
+  margin-right: 96px;
+}
+.super-compact-video:hover {
+  background: var(--bt-related-video-outer-bg-hover);
+  box-shadow: var(--bt-related-video-outer-box-shadow-hover);
+}
+.super-compact-video .thumbnail,
+.super-compact-video .thumbnail img {
+  width: var(--bt-appbar-video-thumb-width, 120px);
+  height: var(--bt-appbar-video-thumb-height, 68px);
+}
+.super-compact-video .meta {
+  margin-top: 4px;
+}
+.super-compact-video .title {
+  font-size: 12px;
+  max-height: 30px;
+  overflow: hidden;
+  color: var(--bt-related-title-text-color);
+  font-weight: 500;
+  font-weight: bold;
+}
+.super-compact-video:hover .title {
+  color: var(--bt-related-title-text-color-hover);
+}
+.super-compact-video .meta-below {
+  font-size: 11px;
+  color: var(--bt-related-meta-text-color);
+  margin-top: 2px;
+}
+.super-compact-video .time {
+  margin: 2px;
+  border-radius: 0 !important;
+  padding: 0px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(0,0,0,.75);
+  letter-spacing: 0;
+  z-index: 4;
+  position: relative;
+  top: -22px;
+  color: #fff;
+  width: fit-content;
+  margin-left: auto;
+}
+html:not([videos-dropdown-visible]) #bt-videos-dropdown,
+html:not([videos-dropdown-visible]) #watch-above-videos-dropdown {
+  display: none;
+}
+html:not([layout^="aozora"]):not([layout^="cosmicpanda"]) #bt-videos-dropdown-button {
+  display: none;
+}
+#bt-videos-dropdown-button {
+  margin-left: 8px;
+}
+#bt-videos-dropdown,
+.watch5d #watch-above-videos-dropdown {
+  height: 216px;
+  padding: 5px;
+  margin: 10px 0;
+  background: rgba(0,0,0,.02);
+  box-shadow: inset 0 4px 8px rgba(0,0,0,.05),0 1px 0 #ddd;
+  border-radius: 2px;
+}
+#videos-dd {
+  position: relative;
+}
+[layout^="aozora"] #bt-videos-dropdown,
+.watch5c #watch-above-videos-dropdown {
+  height: 216px;
+  padding: 5px;
+  margin: 10px 0;
+  background: var(--bt-gcp-fff);
+  box-shadow: none;
+  border-radius: 5px;
+  border: 1px solid var(--bt-gcp-ccc);
+}
+/*
+[layout^="aozora"] #videos-dd-button {
+  margin-top: -3px;
+}
+*/
+[layout^="aozora"] #videos-dd-button a,
+.watch5c #videos-dd-button a {
+  border: 1px solid var(--bt-gcp-eee) !important;
+  background: none !important;
+  box-shadow: none !important;
+  font-size: 14px !important;
+}
+[layout^="aozora"] #videos-dd-button a .ct-uix-button-arrow,
+.watch5c #videos-dd-button a .ct-uix-button-arrow {
+  height: 16px;
+  width: 16px;
+  background: no-repeat url(https://s.ytimg.com/yt/imgbin/www-master-vflai4i-q.png) -42px -80px;
+  margin-top: 4px !important;
+  margin-top: 0px !important;
+  border: none !important;
+}
+[layout^="aozora"][videos-dropdown-visible] #videos-dd-button a .ct-uix-button-arrow,
+[videos-dropdown-visible] .watch5c #videos-dd-button a .ct-uix-button-arrow  {
+  background: no-repeat url(https://s.ytimg.com/yt/imgbin/www-master-vflai4i-q.png) -153px -120px;
+}
+[layout^="aozora"] #videos-dd-button a:hover,
+.watch5c #videos-dd-button a:hover {
+  color: #666;
+  background-color: #d1e1fa !important;
+  border-color: #b6d0f7 !important;
+}
+#videos-dd-header {
+  height: 46px;
+  display: flex;
+  margin-left: 40px;
+}
+#videos-dd-videos-link {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--bt-blue);
+  margin-top: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+#videos-dd-videos-link:hover {
+  text-decoration: underline;
+}
+#videos-dd-slider {
+  width: 902px;
+  overflow-x: hidden;
+  margin-left: 40px;
+}
+#videos-dd-slider-inner {
+  width: 902px;
+}
+#videos-dd .super-compact-row {
+  display: flex;
+  height: 158px;
+}
+.videos-dd-arrow {
+  position: absolute;
+  margin-top: 47px;
+}
+#videos-dd-right {
+  right: 0;
+}
+.videos-dd-arrow a {
+  width: 4px;
+  height: 80px !important;
+  display: flex;
+  align-items: center;
+}
+#videos-dd .videos-dd-arrow span {
+  border: 1px solid transparent;
+  border-width: 6px 0px 6px 6px;
+  border-left-color: #999;
+  margin-top: 2px;
+}
+#videos-dd  #videos-dd-left span {
+  border-left-color: transparent;
+  border-width: 6px 6px 6px 0px;
+  border-right-color: #999;
+}
+#videos-dd #videos-dd-right:hover span {
+  border-left-color: #333;
+}
+#videos-dd #videos-dd-left:hover span {
+  border-right-color: #333;
+}
+#videos-dd-slider-inner {
+  transition: 0.3s;
+}
+#videos-dd-pagination {
+  margin-left: auto;
+  margin-top: 4px;
+  margin-right: 40px;
+  display: flex;
+}
+/*#videos-dd-pagination .bt-standard-button {
+  margin-right: 0px;
+}*/
+[max-slides="4"] #videos-dd-5,
+[max-slides="3"] #videos-dd-4,
+[max-slides="3"] #videos-dd-5,
+[max-slides="2"] #videos-dd-3,
+[max-slides="2"] #videos-dd-4,
+[max-slides="2"] #videos-dd-5,
+[max-slides="1"] #videos-dd-2,
+[max-slides="1"] #videos-dd-3,
+[max-slides="1"] #videos-dd-4,
+[max-slides="1"] #videos-dd-5,
+[max-slides="0"] #videos-dd-1,
+[max-slides="0"] #videos-dd-2,
+[max-slides="0"] #videos-dd-3,
+[max-slides="0"] #videos-dd-4,
+[max-slides="0"] #videos-dd-5 {
+  display: none;
+}
+[current-slide="1"] #videos-dd-slider-inner {
+  transform: translateX(-100%);
+}
+[current-slide="2"] #videos-dd-slider-inner {
+  transform: translateX(-200%);
+}
+[current-slide="3"] #videos-dd-slider-inner {
+  transform: translateX(-300%);
+}
+[current-slide="4"] #videos-dd-slider-inner {
+  transform: translateX(-400%);
+}
+[current-slide="5"] #videos-dd-slider-inner {
+  transform: translateX(-500%);
 }

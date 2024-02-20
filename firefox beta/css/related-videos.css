@@ -1,52 +1,52 @@
 html[related-videos^="stargazer"] {
 --bt-related-bg: var(--bt-universal-white);
---bt-related-margin-top: 40px;
+--bt-related-margin-top: 0px;
 --bt-related-padding-top: 0;
---bt-related-padding: 0;
---bt-related-margin-bottom: 10px;
---bt-related-margin-left: 15px;
+--bt-related-padding: 7px; /* formerly 0 */
+--bt-related-margin-bottom: 3px; /* formerly 10px */
+--bt-related-margin-left: 0px; /* formerly 15px */
 --bt-related-inner-padding-bottom: 14px;
 --bt-related-overflow-y: scroll;
 --bt-related-overflow-x: clip;
 --bt-related-max-height: 438px;
 --bt-related-border: 1px solid var(--bt-gcp-ccc);
 --bt-related-overscroll-behavior: contain;
---bt-related-width: 320px;
+--bt-related-width: 312px;
 /* hover thing */
 --bt-related-video-outer-padding: 5px;
 --bt-related-video-outer-min-height: 64px;
 --bt-related-video-outer-margin: 0;
 --bt-related-video-outer-bg-hover: #d1e1fa;
 /* title */
---bt-related-title-font-size: 1.0833em;
+--bt-related-title-font-size: 12px; /* formerly 1.0833em; */
 --bt-related-title-margin: 0;
 --bt-related-title-line-height: 1.2;
 --bt-related-title-max-height: 2.4em;
 --bt-related-title-text-color: var(--bt-blue);
---bt-related-title-font-weight: normal;
+--bt-related-title-font-weight: bold;
 --bt-related-title-text-color-hover: var(--bt-blue);
 --bt-related-title-text-decoration-hover: underline;
 /* meta */
 --bt-related-meta-text-color: var(--bt-text-color-6);
---bt-related-meta-font-size: .9166em;
---bt-related-meta-line-height: 1.4em;
+--bt-related-meta-font-size: 11px; /* formerly .9166em */
+--bt-related-meta-line-height: 15.4px; /* formerly 1.4em */
 /* channel name */
 --bt-related-channel-name-margin-top: 2px;
 /* thumbs */
 --bt-related-thumb-inner-width: 96px;
 --bt-related-thumb-inner-height: 54px;
---bt-related-thumb-inner-radius: 3px;
+--bt-related-thumb-inner-radius: 0px;
 --bt-related-thumb-inner-bg: var(--yt-spec-base-background);
---bt-related-thumb-inner-padding: 4px;
---bt-related-thumb-inner-border: 1px solid #d3d3d3;
---bt-related-thumb-margin-right: 12px;
+--bt-related-thumb-inner-padding: 1px;
+--bt-related-thumb-inner-border: 1px solid var(--bt-gcp-999);
+--bt-related-thumb-margin-right: 10px;
 }
 html[related-videos^="aozora"] {
 --bt-related-bg: var(--bt-universal-white);
 --bt-related-margin-top: 0px;
 --bt-related-padding-top: 0;
 --bt-related-padding: 0px 0px 0px 15px;
---bt-related-margin-bottom: 10px;
+--bt-related-margin-bottom: -2px; /* formerly 10px */
 --bt-related-inner-padding-bottom: 14px;
 /* hover thing */
 --bt-related-video-outer-padding: 5px;
@@ -54,7 +54,7 @@ html[related-videos^="aozora"] {
 --bt-related-video-outer-margin: 0;
 --bt-related-video-outer-bg-hover: #d1e1fa;
 /* title */
---bt-related-title-font-size: 1.0833em;
+--bt-related-title-font-size: 13px; /* formerly 1.0833em; */
 --bt-related-title-margin: 0;
 --bt-related-title-line-height: 1.2;
 --bt-related-title-max-height: 2.4em;
@@ -64,8 +64,8 @@ html[related-videos^="aozora"] {
 --bt-related-title-text-decoration-hover: underline;
 /* meta */
 --bt-related-meta-text-color: var(--bt-text-color-6);
---bt-related-meta-font-size: .9166em;
---bt-related-meta-line-height: 1.4em;
+--bt-related-meta-font-size: 11px; /* formerly .9166em */
+--bt-related-meta-line-height: 15.4px; /* formerly 1.4em */
 /* channel name */
 --bt-related-channel-name-margin-top: 2px;
 /* thumbs */
@@ -81,7 +81,7 @@ html[related-videos="cosmicpanda-3"] {
 --bt-related-margin-top: 0px;
 --bt-related-padding-top: 0;
 --bt-related-padding: 0px 15px 0px 20px;
---bt-related-margin-bottom: 10px;
+--bt-related-margin-bottom: -2px; /* formerly 10px */
 --bt-related-inner-padding-bottom: 14px;
 /* hover thing */
 --bt-related-video-outer-padding: 5px;
@@ -102,8 +102,8 @@ html[related-videos="cosmicpanda-3"] {
 --bt-related-title-text-decoration-hover: underline;
 /* meta */
 --bt-related-meta-text-color: var(--bt-text-color-6);
---bt-related-meta-font-size: .9166em;
---bt-related-meta-line-height: 1.4em;
+--bt-related-meta-font-size: 11px; /* formerly .9166em */
+--bt-related-meta-line-height: 15.4px; /* formerly 1.4em */
 /* channel name */
 --bt-related-channel-name-margin-top: 2px;
 }
@@ -115,7 +115,7 @@ html[related-videos^="hitchhiker"] {
 --bt-related-padding: 0px 15px;
 --bt-related-margin-bottom: 10px;
 --bt-related-inner-padding-bottom: 14px;
---bt-related-margin-left: 10px;
+--bt-related-margin-left: 0px; /* formerly 10px */
 /* hover thing */
 --bt-related-video-outer-padding: 7px 0;
 --bt-related-video-outer-margin: 0;
@@ -125,6 +125,7 @@ html[related-videos^="hitchhiker"] {
 --bt-related-title-line-height: 1.2;
 --bt-related-title-max-height: 2.4em;
 --bt-related-title-text-color: var(--bt-text-color-5);
+--bt-related-title-font-weight: 500;
 --bt-related-title-text-color-hover: var(--bt-blue);
 /* meta */
 --bt-related-meta-text-color: var(--bt-text-color-3);
@@ -132,6 +133,10 @@ html[related-videos^="hitchhiker"] {
 --bt-related-meta-line-height: 1.3;
 /* channel name */
 --bt-related-channel-name-margin-top: 2px;
+}
+html[related-videos^="hitchhiker"][use-arial] {
+/* title */
+--bt-related-title-font-weight: bold;
 }
 html[related-videos^="hitchhiker-2014"] {
 --bt-related-border-right: 1px solid var(--bt-section-border-color);
@@ -151,7 +156,7 @@ html[related-videos-size="smaller"] {
 html[related-videos-size="smaller"][related-videos^="aozora"],
 html[related-videos-size="smaller"][related-videos^="stargazer"] {
 --bt-related-title-font-size: .9166em;
---bt-related-title-font-size: 1.0833em;
+--bt-related-title-font-size: 13px; /* formerly 1.0833em; */
 --bt-related-channel-name-margin-top: 2px;
 /* thumbs */
 --bt-related-thumb-width: 106px;
@@ -159,6 +164,9 @@ html[related-videos-size="smaller"][related-videos^="stargazer"] {
 --bt-related-thumb-inner-width: 106px;
 --bt-related-thumb-inner-height: 56px;
 --bt-related-thumb-margin-right: 16px;
+}
+html[related-videos-size="smaller"][related-videos^="stargazer"] {
+--bt-related-title-font-size: 12px; /* formerly 1.0833em; */
 }
 html[related-videos-size="small"] {
 --bt-related-title-font-size: 13px;
@@ -213,6 +221,7 @@ html[related-videos^="polymer"] {
 --bt-related-title-margin: 0;
 --bt-related-title-line-height: 1.2;
 --bt-related-title-max-height: 4.8em;
+--bt-related-title-font-weight: 500;
 /* meta */
 --bt-related-meta-text-color: var(--bt-text-color-3);
 --bt-related-meta-font-size: 13px;
@@ -225,7 +234,7 @@ html[related-videos^="polymer"] {
 
 /* BTSection Related Videos ====================================== */
 html[related-videos] ytd-watch-flexy #related.ytd-watch-flexy {
-  background: var(--bt-related-bg);
+  /*background: var(--bt-related-bg);
   margin-top: var(--bt-related-margin-top, 18px);
   padding-top: var(--bt-related-padding-top) !important;
   box-shadow: var(--bt-related-box-shadow);
@@ -236,14 +245,16 @@ html[related-videos] ytd-watch-flexy #related.ytd-watch-flexy {
   /*margin-left: var(--bt-related-margin-left);*/
   overflow-y: var(--bt-related-overflow-y, clip) !important;
   overflow-x: var(--bt-related-overflow-x, clip) !important;
-  max-height: var(--bt-related-max-height, unset);
+  /*max-height: var(--bt-related-max-height, unset);
   border: var(--bt-related-border);
   overscroll-behavior: var(--bt-related-overscroll-behavior, auto);
-  width: var(--bt-related-width, unset);
+  width: var(--bt-related-width, unset);*/
 }
 html[related-videos^="hitchhiker-2014"] ytd-watch-flexy #related {
   margin-left: -12px;
+  margin-left: 0;
 }
+/*
 html[related-videos^="aozora"] ytd-watch-flexy #related.ytd-watch-flexy::before {
   content: "Suggestions";
   font-size: 12px;
@@ -263,6 +274,7 @@ html[related-videos^="stargazer"] ytd-watch-flexy #related.ytd-watch-flexy::befo
   position: absolute;
   margin-top: -24px;
 }
+*/
 html[related-videos] ytd-app[can-infi-scroll-related="no"] ytd-watch-next-secondary-results-renderer {
   padding-bottom: var(--bt-related-inner-padding-bottom);
 }
@@ -293,6 +305,13 @@ html[related-videos] ytd-watch-flexy ytd-compact-radio-renderer #video-title.ytd
   color: var(--bt-related-title-text-color);
   font-weight: var(--bt-related-title-font-weight);
 }
+html[related-videos-size] .video-list .video-list-item .title {
+  margin: var(--bt-related-title-margin);
+  font-size: var(--bt-related-title-font-size);
+  line-height: var(--bt-related-title-line-height);
+  max-height: var(--bt-related-title-max-height);
+  color: var(--bt-related-title-text-color);
+}
 html[related-videos] ytd-watch-flexy ytd-compact-video-renderer:hover #video-title, 
 html[related-videos] ytd-watch-flexy ytd-compact-playlist-renderer:hover #video-title, 
 html[related-videos] ytd-watch-flexy ytd-compact-radio-renderer:hover #video-title {
@@ -300,6 +319,12 @@ html[related-videos] ytd-watch-flexy ytd-compact-radio-renderer:hover #video-tit
   text-decoration: var(--bt-related-title-text-decoration-hover);
 }
 /* metadata */
+html[related-videos-size] .related-list-item .content-wrapper {
+  margin-left: calc(var(--bt-related-thumb-width) + 13px);
+}
+html[related-videos-size] .related-list-item .content-link {
+  min-height: var(--bt-related-thumb-height);
+}
 html[related-videos] ytd-watch-flexy #metadata #text, 
 html[related-videos] ytd-watch-flexy #metadata span {
   color: var(--bt-related-meta-text-color) !important;
@@ -317,14 +342,19 @@ html[related-videos] ytd-watch-flexy #related #byline-container {
 html[related-videos] ytd-watch-next-secondary-results-renderer ytd-thumbnail, 
 html[related-videos] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
 html[related-videos-size] ytd-watch-next-secondary-results-renderer ytd-thumbnail, 
-html[related-videos-size] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
+html[related-videos-size] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
+html[related-videos-size] .ct-hitchhiker-compatibility-enabled .related-list-item .thumb-wrapper,
+html[related-videos-size] .ct-hitchhiker-compatibility-enabled .related-list-item .thumb-wrapper img,
+html[related-videos-size] .ct-hitchhiker-compatibility-enabled .related-list-item .yt-thumb,
+html[related-videos-size] .ct-hitchhiker-compatibility-enabled .related-list-item .yt-thumb img {
   height: var(--bt-related-thumb-height) !important;
   width: var(--bt-related-thumb-width) !important;
   transition-duration: 0.25s;
 }
 /* playlists */
 html[related-videos] #related ytd-playlist-custom-thumbnail-renderer, 
-html[related-videos] #related ytd-playlist-custom-thumbnail-renderer img {
+html[related-videos] #related ytd-playlist-custom-thumbnail-renderer img,
+html[related-videos-size] .ct-hitchhiker-compatibility-enabled .yt-uix-simple-thumb-related {
   max-height: var(--bt-related-thumb-height);
   width: auto;
 }
@@ -374,7 +404,8 @@ html:not([related-videos]) #bt-load-more-related #suggestions {
   display: none;
 }
 /* thumbnail overlay (unfinished) */
-html[watched-overlay^="hitchhiker"] ytd-thumbnail #progress[style="width: 100%;"]::after {
+html[watched-overlay^="hitchhiker"] ytd-thumbnail #progress[style="width: 100%;"]::after,
+html[watched-overlay^="hitchhiker"] ytd-thumbnail #progress::after {
   content: "Watched";
   color: #ddd;
   display: block;
@@ -416,4 +447,13 @@ html[related-videos-size] ytd-watch-flexy #related #dismissible {
 html[related-videos-size] ytd-watch-flexy #related .metadata {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+html[related-videos] ytd-ad-slot-renderer.ytd-watch-next-secondary-results-renderer,
+html[related-videos] ytd-compact-video-renderer.ytd-watch-next-secondary-results-renderer:not([expansion="collapsed"]), 
+html[related-videos] ytd-compact-radio-renderer.ytd-watch-next-secondary-results-renderer, 
+html[related-videos] ytd-compact-movie-renderer.ytd-watch-next-secondary-results-renderer, 
+html[related-videos] ytd-compact-playlist-renderer.ytd-watch-next-secondary-results-renderer, 
+html[related-videos] ytd-compact-promoted-video-renderer.ytd-watch-next-secondary-results-renderer, 
+html[related-videos] ytd-promoted-sparkles-web-renderer.ytd-watch-next-secondary-results-renderer {
+  margin-bottom: 0px;
 }

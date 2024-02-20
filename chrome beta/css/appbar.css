@@ -1,0 +1,437 @@
+html[use-appbar="true"] {
+  --bt-chips-display: none !important;
+  --bt-appbar-width: 100%;
+  --bt-homepage-small-grid-margin-top: 0px !important;
+  --bt-appbar-display: block;
+}
+html[layout^="hitchhiker"][use-appbar="true"]:not([static-scrolling]) {
+  --bt-homepage-small-grid-margin-top: 15px !important;
+}
+html[homepage="rich-grid"][use-appbar="true"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer, 
+html:not([homepage])[use-appbar="true"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer {
+  margin-top: 0;
+}
+html {
+  --bt-appbar-bg: var(--bt-topbar-bg, var(--bt-section-bg));
+  --bt-appbar-tab-text-color: var(--bt-gcp-000);
+  --bt-appbar-height: 50px;
+  --bt-appbar-tab-height: 50px;
+  --bt-appbar-tab-margin-top: 0;
+  --bt-appbar-link-margin: 0 15px;
+}
+html[layout^="stargazer"],
+html[layout^="aozora"] {
+  --bt-appbar-bg: linear-gradient(to top, #dedede, #efefef 98%, #ffffff);
+  --bt-appbar-border: 1px solid #999999;
+  --bt-appbar-border-bottom: 1px solid #999999;
+  --bt-appbar-height: 37px;
+  --bt-appbar-tab-height: 37px;
+  --bt-appbar-link-margin: 0;
+  --bt-appbar-tab-border-left: 1px solid #fff;
+  --bt-appbar-tab-border-right: 1px solid #999;
+  --bt-appbar-tab-font-size: 14px;
+  --bt-appbar-tab-text-color: var(--bt-blue);
+  --bt-appbar-tab-font-weight: bold;
+  --bt-appbar-tab-bg-hover: linear-gradient(to top, #d4d4d4, #ffffff);
+  --bt-appbar-tab-bg-active: linear-gradient(to top, #fefefe, 70%, #b5b5b5 98%,#9a9a9a);
+  --bt-appbar-tab-border-left-active: 1px solid transparent;
+}
+html[layout^="cosmicpanda"] {
+  --bt-appbar-bg: var(--bt-channel-page-header-bg);
+  --bt-appbar-tab-text-color: #fff;
+  --bt-appbar-height: 40px;
+  --bt-appbar-tab-height: 35px;
+  --bt-appbar-tab-margin-top: 1px;
+  --bt-appbar-link-margin: 0;
+  --bt-appbar-tab-border-left: 1px solid #1b1b1b;
+  --bt-appbar-tab-border-right: 1px solid #323232;
+  --bt-appbar-tab-font-size: 13px;
+  --bt-appbar-tab-text-color: #fff;
+  --bt-appbar-tab-font-weight: bold;
+  --bt-appbar-tab-bg: linear-gradient(to top, #252525, #292929);
+  --bt-appbar-tab-border-bottom: 3px solid transparent;
+  --bt-appbar-tab-bg-hover: #1c1c1c;
+  --bt-appbar-tab-border-bottom-hover: 3px solid #666;
+  --bt-appbar-tab-bg-active: #1c1c1c;
+  --bt-appbar-tab-border-bottom-active: 3px solid #c4302b;
+  --bt-appbar-tab-border-left-active: 1px solid transparent;
+}
+html[layout^="hitchhiker"] {
+  --bt-appbar-bg: var(--bt-topbar-bg);
+  --bt-appbar-height: 40px;
+  --bt-appbar-tab-height: 34px;
+  --bt-appbar-tab-margin-top: 3px;
+  --bt-appbar-tab-padding: 0;
+  --bt-appbar-tab-font-size: 13px;
+  --bt-appbar-tab-border-bottom: 3px solid transparent;
+  --bt-appbar-tab-bg: none;
+  --bt-appbar-tab-border-bottom-hover: 3px solid var(--bt-emphasis);
+  --bt-appbar-tab-bg-hover: none;
+  --bt-appbar-tab-border-bottom-active: 3px solid var(--bt-emphasis);
+  --bt-appbar-tab-bg-active: none;
+}
+html[layout^="polymer"] {
+  --bt-appbar-bg: var(--bt-topbar-bg);
+  --bt-appbar-height: 50px;
+  --bt-appbar-tab-height: 44px;
+  --bt-appbar-tab-margin-top: 3px;
+  --bt-appbar-tab-border-bottom: 3px solid transparent;
+  --bt-appbar-tab-border-bottom-hover: 3px solid var(--bt-gcp-888);
+  --bt-appbar-tab-border-bottom-active: 3px solid var(--bt-gcp-444);
+  --bt-appbar-tab-padding: 0 24px;
+  --bt-related-tab-padding: 0 16px;
+  --bt-related-tab-margin: 0 5px;
+  --bt-appbar-tab-font-weight-active: 500;
+}
+[static] {
+  --bt-appbar-width: 100%;
+}
+[static] #bt-appbar {
+  position: fixed;
+  left: 0;
+  z-index: 3000;
+}
+[pseudo-static] #bt-appbar {
+  z-index: 3000;
+}
+[layout^="polymer"] #bt-appbar {
+  transition: transform 0.2s, opacity 0.25s 0.05s, z-index 0.01s !important;
+}
+[layout^="polymer-2019"][location="home"] #bt-appbar,
+[layout^="polymer-2019"][location="trending"] #bt-appbar,
+[layout^="polymer-2019"][location="subscriptions"] #bt-appbar,
+[layout^="polymer-2019"][appbar-pinned] #bt-appbar,
+[layout^="polymer-2019"] #bt-appbar[position="visible"] {
+  z-index: 2100 !important;
+}
+html[static-scrolling] {
+  --bt-appbar-top: 0;
+}
+html:not([static-scrolling]) {
+  --bt-appbar-top: calc(var(--bt-topbar-height));
+}
+#bt-appbar {
+  position: fixed;
+  display: var(--bt-appbar-display, none);
+  width: var(--bt-appbar-width);
+  background: var(--bt-appbar-bg, var(--bt-section-bg, var(--bt-gcp-fff)));
+  top: var(--bt-appbar-top);
+  height: var(--bt-appbar-height, 40px);
+  border: var(--bt-appbar-border);
+  border-bottom: var(--bt-appbar-border, var(--bt-topbar-border));
+  z-index: 2004;
+  transition: transform 0.5s;
+  box-shadow: var(--bt-topbar-box-shadow);
+}
+html:not([static-scrolling]) [guide-persistent-and-visible] #bt-appbar {
+  width: calc(100% - var(--bt-sidebar-width));
+  margin-left: calc(var(--bt-sidebar-width));
+}
+html[location="feed"]:not([appbar-pinned]) #bt-appbar,
+html[location="you"]:not([appbar-pinned]) #bt-appbar,
+html[location="history"]:not([appbar-pinned]) #bt-appbar,
+html[location="playlist"]:not([appbar-pinned]) #bt-appbar,
+html[location="watchlater"]:not([appbar-pinned]) #bt-appbar,
+html[location="likedvideos"]:not([appbar-pinned]) #bt-appbar,
+html[location="browse-channels"]:not([appbar-pinned]) #bt-appbar,
+html[location="search"]:not([appbar-pinned]) #bt-appbar,
+html:not([location="home"]):not([location="subscriptions"]):not([location="trending"]) #bt-appbar[position="hidden"],
+html[static-scrolling] #bt-appbar[position="hidden"] {
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.25s 0.5s;
+  z-index: 2004;
+}
+html[appbar-pinned] #bt-appbar {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+#bt-appbar-inner {
+  margin: 0 auto;
+  width: fit-content;
+}
+.appbar-links {
+  display: flex;
+  border-left: var(--bt-appbar-tab-border-right);
+}
+.appbar-link,
+[ct] .related-tab {
+  height: var(--bt-appbar-tab-height);
+  display: flex;
+  align-items: center;
+  margin: var(--bt-appbar-link-margin);
+  margin-top: var(--bt-appbar-tab-margin-top);
+  font-size: var(--bt-appbar-tab-font-size, var(--bt-channel-page-tab-font-size));
+  color: var(--bt-appbar-tab-text-color, var(--bt-gcp-666));
+  border-left: var(--bt-appbar-tab-border-left);
+  border-right: var(--bt-appbar-tab-border-right);
+  border-bottom: var(--bt-appbar-tab-border-bottom, var(--bt-channel-page-tab-border-bottom));
+  padding: var(--bt-appbar-tab-padding, var(--bt-channel-page-tab-padding));
+  background: var(--bt-appbar-tab-bg, var(--bt-channel-page-tab-bg));
+  text-transform: var(--bt-channel-page-tab-text-transform);
+  font-weight: var(--bt-appbar-tab-font-weight, normal);
+}
+[ct] .related-tab {
+  padding: var(--bt-related-tab-padding, var(--bt-appbar-tab-padding, var(--bt-channel-page-tab-padding)));
+  margin: var(--bt-related-tab-margin, var(--bt-appbar-link-margin));
+}
+#appbar-watch-videos {
+  color: var(--bt-appbar-tab-text-color, var(--bt-gcp-666));
+}
+.appbar-link:hover,
+[ct] .related-tab:hover {
+  border-bottom: var(--bt-appbar-tab-border-bottom-hover, var(--bt-channel-page-tab-border-bottom-hover));
+  color: var(--bt-appbar-tab-text-color, var(--bt-gcp-666));
+  background: var(--bt-appbar-tab-bg-hover);
+}
+.appbar-link:active,
+[ct] .related-tab:active {
+  color: var(--bt-appbar-tab-text-color, var(--bt-gcp-333));
+  background: var(--bt-appbar-tab-bg-active, var(--bt-channel-page-tab-bg-active));
+}
+.appbar-link[active],
+.appbar-link[active-forever],
+[ct] .related-tab[active],
+[ct] .related-tab[active-forever] {
+  background: var(--bt-channel-page-tab-bg-active);
+  border-bottom: var(--bt-appbar-tab-border-bottom-active, var(--bt-channel-page-tab-border-bottom-active));
+  color: var(--bt-appbar-tab-text-color, var(--bt-gcp-333));
+  font-weight: var(--bt-appbar-tab-font-weight-active, bold);
+  background: var(--bt-appbar-tab-bg-active);
+  border-left: var(--bt-appbar-tab-border-left-active);
+}
+#appbar-watch-current-video,
+#appbar-watch-channel-name {
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.appbar-link-inner,
+[ct] .related-tab-inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+#appbarFlashPoint {
+  background: transparent;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 80vh;
+  top: 50vh;
+  z-index: -1;
+}
+.bt-multistate-handler:not([state="feed"]) [state-id="feed"],
+.bt-multistate-handler:not([state="channel"]) [state-id="channel"],
+.bt-multistate-handler:not([state="watch"]) [state-id="watch"] {
+  display: none;
+}
+[layout^="polymer"] #appbar-watch-channel-name {
+   margin-left: 16px;
+}
+#appbar-channel-pfp,
+#appbar-watch-channel-pfp {
+  width: 30px;
+  height: 30px;
+  display: block;
+  background-size: 30px 30px !important;
+  border-radius: 50%;
+}
+#appbar-watch-channel-name {
+  margin-left: 8px;
+}
+[unrounded-pfps] #appbar-channel-pfp,
+[unrounded-pfps] #appbar-watch-channel-pfp {
+  border-radius: 0;
+}
+#bt-appbar-right {
+  position: absolute;
+  right: 18px;
+  height: var(--bt-appbar-height, 40px);
+  display: flex;
+  align-items: center;
+  top: 0;
+  cursor: pointer;
+  padding: 0 8px;
+}
+#bt-appbar-pin {
+  width: var(--bt-appbar-height, 40px);
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+}
+#bt-appbar-pin #pin-icon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAEGSURBVDhPY2RAAvHx8WxAsAYodHL27NmtyHIE2SDNqampm9LS0v4D8UKCGtBtRtIMMuATkO9FlCFQmzdCbQZphuE/QEOyCRoCVLQai2a4QUD5vpiYGCacBgEVJALxJKAhz3EZBJRfD8RRQPkZOL0GlDAFKviKzzUgOaC6K/hcEwhU9BePITeSkpIk8YYL0IZiHAaANEsRDFSQAqAhM7AY0kKUZpCilJQUPyQDbgINXAbllxBlCFBxJ1TDzeTkZKmoqCgmoCELoGLFBA0BKrYA4vNAzdIwxUiG/AO6MIOgIdgUgBIU0ODZoJgC0oFkGeLs7MwI1NwINOQz0CX6ZBkCjakwoEFHAaKo0gC+fY4yAAAAAElFTkSuQmCC);
+  width: 16px;
+  height: 16px;
+  margin-left: calc(var(--bt-appbar-height, 40px) * 0.3);
+  position: absolute;
+}
+html[static-scrolling] #bt-appbar-pin {
+  cursor: not-allowed;
+}
+html:not([static-scrolling]) #bt-appbar:hover #bt-appbar-pin {
+  opacity: 0.4;
+}
+[appbar-pinned] #bt-appbar #bt-appbar-pin {
+  opacity: 0.8 !important;
+}
+[use-appbar] #bt-appbar #bt-appbar-pin:hover {
+  opacity: 0.9 !important;
+}
+[use-appbar] #bt-appbar #bt-appbar-pin:active {
+  opacity: 1 !important;
+}
+html:not([static-scrolling]) #bt-appbar #pinnt,
+html:not([appbar-pinned]) #bt-appbar #pinned,
+[appbar-pinned] #bt-appbar #pin,
+[static-scrolling] #bt-appbar #pinned,
+[static-scrolling] #bt-appbar #pin {
+  display: none;
+}
+html[use-appbar="true"][location="home"]:not([static-scrolling]) ytd-app:not([masthead-hidden]) #page-manager.ytd-app,
+html[use-appbar="true"][location="trending"]:not([static-scrolling]) ytd-app:not([masthead-hidden]) #page-manager.ytd-app,
+html[use-appbar="true"][location="subscriptions"]:not([static-scrolling]) ytd-app:not([masthead-hidden]) #page-manager.ytd-app,
+html[use-appbar="true"][appbar-pinned]:not([static-scrolling]) ytd-app:not([masthead-hidden]) #page-manager.ytd-app {
+  margin-top: calc(var(--bt-topbar-height) + var(--bt-appbar-height, 40px)) !important;
+}
+.inherit-size {
+  width: inherit;
+  height: inherit;
+  z-index: 100;
+  position: relative;
+}
+
+[appbar-videos-dropdown-visible] #bt-appbar-videos-dropdown {
+  display: block;
+}
+#bt-appbar-videos-dropdown {
+  display: none;
+}
+.appbar-dropdown {
+  width: 300px;
+  height: 400px;
+  overflow: scroll;
+  background: var(--bt-gcp-fff-surface);
+  border: var(--bt-section-border);
+  position: absolute;
+  z-index: 1000;
+  margin-top: 446px;
+  text-transform: initial !important;
+  font-weight: initial;
+  overscroll-behavior: contain;
+}
+[layout^="polymer"] #bt-appbar-videos-dropdown {
+  margin-left: -24px;
+}
+[layout^="cosmicpanda"] #bt-appbar-videos-dropdown {
+  margin-left: -12px;
+  margin-top: 444px;
+}
+[layout^="stargazer"] #bt-appbar-videos-dropdown,
+[layout^="aozora"] #bt-appbar-videos-dropdown {
+  margin-left: -10px;
+  margin-top: 438px;
+}
+.appbar-dropdown-inner {
+  padding: 4px;
+}
+#appbar-watch-videos {
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.appbar-arrow-button {
+  padding-left: 4px;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.appbar-arrow {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) -58px -696px;
+  width: 13px;
+  height: 13px;
+}
+.appbar-arrow-button:hover .appbar-arrow {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) -38px -1139px;
+}
+.appbar-dropdown-video .thumbnail,
+.appbar-dropdown-video .thumbnail img {
+  width: var(--bt-appbar-video-thumb-width, 120px);
+  height: var(--bt-appbar-video-thumb-height, 68px);
+}
+.appbar-dropdown-video .meta {
+  margin-left: 6px;
+}
+.appbar-dropdown-video .title {
+  font-size: 12px;
+  max-height: 30px;
+  overflow: hidden;
+  color: var(--bt-related-title-text-color-hover, var(--bt-related-title-text-color));
+  font-weight: 500;
+}
+.appbar-dropdown-video:hover .title {
+  text-decoration: var(--bt-small-grid-title-text-decoration-hover);
+}
+.appbar-dropdown-video .meta-below {
+  font-size: 11px;
+  color: var(--bt-related-meta-text-color);
+  margin-top: 2px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.appbar-dropdown-video .date::before {
+  content: "•";
+  margin: 0 2px 0 4px;
+}
+.appbar-dropdown-video .time {
+  margin: 2px;
+  border-radius: 0 !important;
+  padding: 0px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(0,0,0,.75);
+  letter-spacing: 0;
+  z-index: 4;
+  position: relative;
+  top: -22px;
+  color: #fff;
+  width: fit-content;
+  margin-left: auto;
+}
+#appbar-dropdown-close {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  display: none;
+}
+#appbar-dropdown-close-2 {
+  z-index: 4000;
+  position: fixed;
+  width: 100vw;
+  height: var(--bt-appbar-height);
+  top: 0;
+  left: 0;
+  display: none;
+}
+[appbar-pinned] #appbar-dropdown-close-2 {
+  height: calc(var(--bt-topbar-height) + var(--bt-appbar-height));
+}
+[appbar-videos-dropdown-visible] #appbar-dropdown-close,
+[appbar-videos-dropdown-visible] #appbar-dropdown-close-2 {
+  display: block;
+}
+html[layout^="hitchhiker-2013"] #bt-appbar-home-text,
+html[layout^="hitchhiker-2014"] #bt-appbar-home-text,
+html[layout^="hitchhiker-2015"] #bt-appbar-home-text,
+html:not([layout^="hitchhiker-2013"]):not([layout^="hitchhiker-2014"]):not([layout^="hitchhiker-2015"]) #bt-appbar-w2w-text {
+	display: none;
+}

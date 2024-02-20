@@ -1,6 +1,6 @@
 html[watch-metadata-style^="stargazer"] {
---bt-wp-columns-margin-top: 22px;
---bt-wp-secondary-margin-top: 40px;
+--bt-wp-columns-margin-top: -10px; /* formerly 22 */
+--bt-wp-secondary-margin-top: -10px; /* formerly 8px, even formerly 40 */
 /* view count */
 --bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
@@ -34,6 +34,7 @@ html[watch-metadata-style^="stargazer"] {
 --bt-wp-title-text-color: var(--bt-text-color-5);
 --bt-wp-title-text-color-hover: var(--bt-text-color-5);
 --bt-wp-owner-pfp-display: block;
+--bt-owner-pfp-size: 48px;
 /* channel name */
 --bt-wp-channel-name-display: block;
 --bt-wp-channel-name-text-color: var(--bt-blue);
@@ -42,9 +43,8 @@ html[watch-metadata-style^="stargazer"] {
 --bt-wp-channel-name-text-decoration-hover: underline;
 /* buttons */
 --bt-wp-button-text-transform: none;
---bt-wp-button-height: var(--bt-standard-btn-height);
---bt-wp-button-bg: var(--bt-standard-btn-bg);
---bt-wp-button-text-color: var(--bt-standard-btn-text-color);
+--bt-wp-button-height: var(--bt-standard-btn-height-no-inner-margin, var(--bt-standard-btn-height));
+--bt-wp-button-text-color: var(--bt-blue);
 --bt-wp-button-radius: var(--bt-standard-btn-radius);
 --bt-wp-button-font-weight: var(--bt-standard-btn-font-weight);
 --bt-wp-button-font-size: var(--bt-standard-btn-font-size);
@@ -52,7 +52,8 @@ html[watch-metadata-style^="stargazer"] {
 --bt-wp-button-icon-display: none;
 }
 html[watch-metadata-style^="aozora"] {
---bt-wp-columns-margin-top: 54px;
+--bt-wp-columns-margin-top: 0px; /* formerly 54 */
+--bt-watch-metadata-margin-bottom: 0;
 /* view count */
 --bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
@@ -60,7 +61,7 @@ html[watch-metadata-style^="aozora"] {
 --bt-standard-view-count-font-size: 22px;
 --bt-standard-view-count-font-weight: 700;
 --bt-standard-view-count-text-color: var(--bt-text-color-5);
---bt-standard-view-count-margin-top: 4px;
+--bt-standard-view-count-margin-top: 0; /* 4px formerly */
 --bt-wp-top-row-actions-flex-dir: row;
 --bt-wp-top-row-actions-margin-top: 0;
 /* upload info */
@@ -81,12 +82,23 @@ html[watch-metadata-style^="aozora"] {
 --bt-wp-channel-name-display: block;
 --bt-wp-channel-name-text-color: var(--bt-blue);
 --bt-wp-channel-name-font-size:	14px;
---bt-wp-channel-name-font-weight: 500;
+--bt-wp-channel-name-font-weight: 700;
 --bt-wp-channel-name-text-decoration-hover: underline;
 /* buttons */
 --bt-wp-button-text-transform: none;
---bt-wp-button-height: var(--bt-standard-btn-height);
+--bt-wp-button-height: var(--bt-standard-btn-height-no-inner-margin, var(--bt-standard-btn-height));
 --bt-wp-button-bg: var(--bt-standard-btn-bg);
+--bt-wp-button-bg-hover: var(--bt-standard-btn-bg-hover);
+--bt-wp-button-bg-active: var(--bt-standard-btn-bg-active);
+--bt-wp-button-border: var(--bt-standard-btn-border);
+--bt-wp-button-border-hover: var(--bt-standard-btn-border-hover);
+--bt-wp-button-border-active: var(--bt-standard-btn-border-active);
+--bt-wp-button-border-color: var(--bt-standard-btn-border-color);
+--bt-wp-button-border-color-hover: var(--bt-standard-btn-border-color-hover);
+--bt-wp-button-border-color-active: var(--bt-standard-btn-border-color-active);
+--bt-wp-button-box-shadow: var(--bt-standard-btn-box-shadow);
+--bt-wp-button-box-shadow-hover: var(--bt-standard-btn-box-shadow-hover);
+--bt-wp-button-box-shadow-active: var(--bt-standard-btn-box-shadow-active);
 --bt-wp-button-text-color: var(--bt-standard-btn-text-color);
 --bt-wp-button-radius: var(--bt-standard-btn-radius);
 --bt-wp-button-font-weight: var(--bt-standard-btn-font-weight);
@@ -95,17 +107,20 @@ html[watch-metadata-style^="aozora"] {
 --bt-wp-button-icon-display: none;
 }
 html[watch-metadata-style^="cosmicpanda"] {
---bt-wp-columns-margin-top: 80px;
+--bt-wp-columns-margin-top: 0px; /* formerly 64, formerly 80 */
+--bt-watch-metadata-margin-bottom: 0;
 /* view count */
 --bt-standard-view-count-display: flex;
 --bt-standard-view-count-position: absolute;
 --bt-standard-view-count-right: -4px;
 --bt-standard-view-count-font-size: 22px;
---bt-standard-view-count-font-weight: 500;
+--bt-standard-view-count-font-weight: 400;
+--bt-standard-view-count-text-color: var(--bt-text-color-5);
+--bt-standard-view-count-margin-top: 4px;
 --bt-wp-top-row-actions-flex-dir: row;
 --bt-wp-top-row-actions-margin-top: 0;
 /* upload info */
---bt-wp-upload-info-flex-dir: column;
+--bt-wp-upload-info-flex-dir: row;
 /* title */
 --bt-wp-title-font-family: arial;
 --bt-wp-title-font-size: 21px;
@@ -116,11 +131,33 @@ html[watch-metadata-style^="cosmicpanda"] {
 --bt-wp-above-title-margin-bottom: 0;
 --bt-wp-title-text-color: var(--bt-text-color-5);
 --bt-wp-title-text-color-hover: var(--bt-text-color-5);
---bt-standard-view-count-text-color: var(--bt-text-color-5);
---bt-standard-view-count-margin-top: 4px;
 --bt-wp-owner-pfp-display: none;
+/* channel name */
+--bt-wp-channel-name-font-weight: 600;
+--bt-wp-channel-name-text-color: var(--bt-gcp-333);
+--bt-wp-channel-name-badge-display: none;
 /* buttons */
 --bt-wp-button-text-transform: none;
+--bt-wp-button-height: var(--bt-standard-btn-height-no-inner-margin, var(--bt-standard-btn-height));
+--bt-wp-button-bg: var(--bt-standard-btn-bg);
+--bt-wp-button-bg-hover: var(--bt-standard-btn-bg-hover);
+--bt-wp-button-bg-active: var(--bt-standard-btn-bg-active);
+--bt-wp-button-border: var(--bt-standard-btn-border);
+--bt-wp-button-border-hover: var(--bt-standard-btn-border-hover);
+--bt-wp-button-border-active: var(--bt-standard-btn-border-active);
+--bt-wp-button-border-color: var(--bt-standard-btn-border-color);
+--bt-wp-button-border-color-hover: var(--bt-standard-btn-border-color-hover);
+--bt-wp-button-border-color-active: var(--bt-standard-btn-border-color-active);
+--bt-wp-button-box-shadow: var(--bt-standard-btn-box-shadow);
+--bt-wp-button-box-shadow-hover: var(--bt-standard-btn-box-shadow-hover);
+--bt-wp-button-box-shadow-active: var(--bt-standard-btn-box-shadow-active);
+--bt-wp-button-text-color: var(--bt-standard-btn-text-color);
+--bt-wp-button-text-shadow: var(--bt-standard-btn-text-shadow);
+--bt-wp-button-radius: var(--bt-standard-btn-radius);
+--bt-wp-button-font-weight: var(--bt-standard-btn-font-weight);
+--bt-wp-button-font-size: var(--bt-standard-btn-font-size);
+--bt-wp-button-padding: var(--bt-standard-btn-padding);
+--bt-wp-button-icon-display: none;
 }
 html[watch-metadata-style^="hitchhiker"] {
 --bt-wp-columns-margin-top: 100px;
@@ -132,7 +169,7 @@ html[watch-metadata-style^="hitchhiker"] {
 --bt-standard-view-count-font-size: 19px;
 --bt-standard-view-count-font-weight: normal;
 --bt-standard-view-count-text-color: var(--bt-text-color-6);
---bt-standard-view-count-margin-top: 47px;
+--bt-standard-view-count-margin-top: -26px;
 /* upload info */
 --bt-wp-upload-info-flex-dir: column;
 /* avatar */
@@ -169,6 +206,9 @@ html[watch-metadata-style^="hitchhiker"] {
 /* sub btn NOTE MOVED */
 /* buttons */
 --bt-wp-button-text-transform: none;
+--bt-wp-button-padding: 0 8px;
+--bt-wp-button-height: 32px;
+--bt-wp-button-text-color: var(--bt-gcp-000-u);
 }
 html[watch-metadata-style^="hitchhiker-2015"] {
 --bt-wp-title-padding: 15px 15px 5px 15px;
@@ -178,7 +218,9 @@ html[watch-metadata-style^="hitchhiker-2014"],
 html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-wp-primary-inner-bg: var(--bt-section-bg);
 --bt-wp-primary-inner-border: 1px solid var(--bt-section-border-color);
+--bt-watch-metadata-margin-bottom: 0;
 --bt-wp-top-row-border-bottom: none;
+--bt-wp-top-row-actions-margin-top: 48px !important;
 --bt-wp-middle-row-border-bottom: var(--bt-section-border);
 /* title */
 --bt-wp-title-font-family: arial;
@@ -192,7 +234,7 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-standard-view-count-font-size: 19px;
 --bt-standard-view-count-font-weight: normal;
 --bt-standard-view-count-text-color: var(--bt-text-color-5, var(--bt-gcp-333));
---bt-standard-view-count-margin-top: 14px;
+--bt-standard-view-count-margin-top: -46px;
 /* avatar */
 --bt-owner-pfp-size: 48px;
 --bt-owner-pfp-margin-right: 8px;
@@ -200,6 +242,10 @@ html[watch-metadata-style^="hitchhiker-2013"] {
 --bt-top-level-buttons-position: absolute;
 --bt-top-level-buttons-margin-right: -4px;
 --bt-top-level-buttons-left: 0;
+/* buttons */
+--bt-wp-button-padding: 0 10px;
+--bt-wp-button-height: 36px;
+--bt-wp-button-icon-display: none;
 }
 html[watch-metadata-style="hitchhiker-2013-1"] {
 /* title */
@@ -243,6 +289,10 @@ html[watch-metadata-style="polymer-2019"] {
 /* NOTE: SUB BTN MOVED */
 /* buttons */
 --bt-wp-button-text-transform: uppercase;
+--bt-wp-button-padding: 0 10px;
+--bt-wp-button-height: 36px;
+--bt-wp-button-font-weight: 500;
+--bt-wp-button-font-size: 14px;
 }
 html[watch-metadata-style^="polymer-202"] {
 /* view count */
@@ -272,6 +322,10 @@ html[watch-metadata-style^="polymer-202"] {
 /* NOTE: SUB BTN MOVED */
 /* buttons */
 --bt-wp-button-text-transform: uppercase;
+--bt-wp-button-padding: 0 10px;
+--bt-wp-button-height: 36px;
+--bt-wp-button-font-weight: 500;
+--bt-wp-button-font-size: 14px;
 }
 /* OUTER */
 /* NOTE: this is probably ok to not be universal */
@@ -303,6 +357,9 @@ html[watch-metadata-style^="hitchhiker-2014"] #primary.ytd-watch-flexy {
   padding-right: 0;
 }
 /* ---------------------------- METADATA ----------------------------------------- */
+html[watch-metadata-style] ytd-watch-metadata.ytd-watch-flexy {
+  margin-bottom: var(--bt-watch-metadata-margin-bottom, var(--ytd-margin-6x));	
+}
 html[title-on-top="true"] #top-row {
   padding-bottom: 21px !important;
 }
@@ -314,6 +371,9 @@ html[title-on-top="true"] #bt-above {
   position: absolute;
   width: 1266px;
   z-index: 192;
+}
+html[title-on-top="true"] #bt-above {
+  position: relative;
 }
 html[static][title-on-top="true"] #bt-above {
   width: 1000px;
@@ -352,7 +412,7 @@ html[watch-metadata-style] #above-the-fold #title {
   height: var(--bt-wp-title-height, unset);
 }
 /* video title */
-html[watch-metadata-style] h1.ytd-watch-metadata {
+html[watch-metadata-style] #title h1.ytd-watch-metadata {
   font-family: var(--bt-wp-title-font-family);
   font-size: var(--bt-wp-title-font-size);
   font-weight: var(--bt-wp-title-font-weight);
@@ -389,6 +449,9 @@ html[watch-metadata-style] ytd-watch-flexy #text.complex-string.ytd-channel-name
   display: var(--bt-wp-channel-name-display);
   height: var(--bt-wp-channel-name-height);
   margin-top: var(--bt-wp-channel-name-margin-top);
+}
+html[watch-metadata-style] ytd-badge-supported-renderer {
+  display: var(--bt-wp-channel-name-badge-display, flex);
 }
 /* styles */
 html[watch-metadata-style] ytd-watch-flexy ytd-channel-name a {
@@ -468,26 +531,56 @@ html[watch-metadata-style^="stargazer"] #bottom-row.ytd-watch-metadata {
 html[watch-metadata-style] ytd-menu-renderer button {
   text-transform: var(--bt-wp-button-text-transform);
 }
-html[watch-metadata-style^="aozora"] #above-the-fold .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-html[watch-metadata-style^="aozora"] #bt-place-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-html[watch-metadata-style^="stargazer"] #above-the-fold .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-html[watch-metadata-style^="stargazer"] #bt-place-metadata .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+html[watch-metadata-style] #above-the-fold button.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style] #above-the-fold segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style] #above-the-fold #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style] #bt-place-metadata ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style] #bt-place-metadata segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
   background: var(--bt-wp-button-bg) !important;
-  border: 1px solid var(--bt-standard-btn-border-color);
+  border: var(--bt-wp-button-border);
+  border-color: var(--bt-wp-button-border-color);
+  box-shadow: var(--bt-wp-button-box-shadow);
   color: var(--bt-wp-button-text-color);
   border-radius: var(--bt-wp-button-radius);
   height: var(--bt-wp-button-height);
-  padding: var(--bt-wp-button-padding);
+  padding: var(--bt-wp-button-padding, 0 10px);
   font-size: var(--bt-wp-button-font-size);
   font-weight: var(--bt-wp-button-font-weight);
+  text-shadow: var(--bt-wp-button-text-shadow);
 }
-html[watch-metadata-style^="aozora"] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="aozora"] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="stargazer"] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon,
-html[watch-metadata-style^="stargazer"] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon {
+html[watch-metadata-style] #above-the-fold button.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
+html[watch-metadata-style] #above-the-fold segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
+html[watch-metadata-style] #above-the-fold #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
+html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
+html[watch-metadata-style] #bt-place-metadata ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
+html[watch-metadata-style] #bt-place-metadata segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover,
+html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover {
+  background: var(--bt-wp-button-bg-hover) !important;
+  border: var(--bt-wp-button-border-hover);
+  border-color: var(--bt-wp-button-border-color-hover);
+  box-shadow: var(--bt-wp-button-box-shadow-hover);
+}
+html[watch-metadata-style] #above-the-fold button.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
+html[watch-metadata-style] #above-the-fold segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
+html[watch-metadata-style] #above-the-fold #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
+html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
+html[watch-metadata-style] #bt-place-metadata ytd-toggle-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
+html[watch-metadata-style] #bt-place-metadata segmented-like-dislike-button-view-model .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active,
+html[watch-metadata-style] #bt-place-metadata #button-shape .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:active {
+  background: var(--bt-wp-button-bg-active) !important;
+  border: var(--bt-wp-button-border-active);
+  border-color: var(--bt-wp-button-border-color-active);
+  box-shadow: var(--bt-wp-button-box-shadow-active);
+}
+html[watch-metadata-style] #above-the-fold ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon,
+html[watch-metadata-style] #above-the-fold button-view-model .yt-spec-button-shape-next__icon,
+html[watch-metadata-style] #bt-place-metadata ytd-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal .yt-spec-button-shape-next__icon,
+html[watch-metadata-style] #bt-place-metadata button-view-model .yt-spec-button-shape-next__icon {
   display: var(--bt-wp-button-icon-display);
 }
-/* Buttons watch page cosmic */
+/* Buttons watch page cosmic 
 html[watch-metadata-style^="cosmicpanda"] #above-the-fold .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
   background: linear-gradient(to bottom,#fafafa 0,#dcdcdc 100%) !important;
   border: 1px solid;

@@ -7,14 +7,24 @@ html[homepage="small-grid"] #home-page-skeleton .rich-grid-media-skeleton {
 /* This code sets width and position of grid as a whole. */
 html[homepage="small-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
 html[channel-vidpage="small-grid"] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer,
-html[subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer {
+html[subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer,
+html[grid-styling][homepage="shelves"] ytd-browse[page-subtype="home"] #emerald-browse {
   max-width: 1262px !important;
   margin-top: 20px;
   padding: 16px 12px;
 }
+html[grid-styling][homepage="shelves"] ytd-browse[page-subtype="home"] #emerald-browse {
+  overflow: hidden;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1278px !important;
+  margin-top: 10px !important;
+  max-width: 1282px !important;
+}
 html[static][homepage="small-grid"] ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
 html[static][channel-vidpage="small-grid"] ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer,
-html[static][subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer {
+html[static][subs-page="small-grid"] ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer,
+html[static][grid-styling][homepage="shelves"] ytd-browse[page-subtype="home"] #emerald-browse {
   max-width: 650px !important;
 }
 /* This code fixes the grid. */
@@ -282,7 +292,8 @@ html[grid-styling][disable-infi-scroll="true"] {
 */
 html[grid-styling]:not([homepage="rich-grid"]) ytd-browse[page-subtype="home"] #contents.ytd-rich-grid-renderer,
 html[grid-styling]:not([channel-vidpage="rich-grid"]) ytd-browse[page-subtype="channels"] #contents.ytd-rich-grid-renderer,
-html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer {
+html[grid-styling]:not([subs-page="rich-grid"]) ytd-browse[page-subtype="subscriptions"] #contents.ytd-rich-grid-renderer,
+html[homepage="shelves"] ytd-browse[page-subtype="home"] #emerald-browse {
   background: var(--bt-small-grid-background);
   box-shadow: var(--bt-small-grid-box-shadow);
   border: var(--bt-small-grid-border);

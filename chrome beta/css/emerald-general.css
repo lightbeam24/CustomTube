@@ -1,0 +1,1173 @@
+[ct] .watch5 .emerald-banner,
+[ct] .watch7 .emerald-banner {
+  border: 1px solid;
+  margin: 0 0 20px;
+}
+[ct] .watch5d .emerald-banner {
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.5),inset 0 0 1px rgba(0,0,0,.2);
+}
+[ct] .watch7 .emerald-banner-green {
+  background-color: #74a446;
+  border-color: #618a3c;
+}
+[ct] .watch5 .emerald-banner-green {
+  background-color: #74a446;
+  background: linear-gradient(to bottom,#74a446 0,#4d7730 45px);
+}
+[ct] .watch7 .emerald-banner-red {
+  background-color: #a93630;
+  border-color: #a11b1b;
+}
+[ct] .watch5 .emerald-banner-red {
+  background-color: #913d37;
+  background: linear-gradient(to bottom,#c95145 0,#913d37 45px);
+}
+[ct] .watch5 .emerald-banner-middle,
+[ct] .watch7 .emerald-banner-middle {
+  text-shadow: 0 0 1px rgba(0,0,0,.45);
+  padding: 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+}
+[ct] .watch5 .emerald-banner-left,
+[ct] .watch7 .emerald-banner-left {
+  width: 40px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+}
+[ct] .watch5 .emerald-banner-icon,
+[ct] .watch7 .emerald-banner-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflN9SxOc.png) -155px -20px;
+  background-size: auto;
+  width: 19px;
+  height: 19px;
+  margin: 0 auto;
+}
+[ct] .watch7 .emerald-banner-red .emerald-banner-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflaJ9wdK.png) 0 -238px;
+  background-size: auto;
+  width: 19px;
+  height: 19px;
+  margin: 0 auto;
+  width: 32px;
+  height: 35px;
+  margin-left: 8px;
+}
+[ct] .watch5d .emerald-banner-green .emerald-banner-icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-refresh-vflrvDBWB.png) -185px -21px;
+}
+[ct] .watch5 .emerald-banner-right,
+[ct] .watch7 .emerald-banner-right {
+  margin-left: auto;
+}
+[ct] .watch5 .emerald-banner-close,
+[ct] .watch7 .emerald-banner-close {
+  margin: 6px;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflN9SxOc.png) -33px -414px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+[ct] .watch5d .emerald-banner-close {
+  margin: 6px;
+  opacity: .4;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-refresh-vflrvDBWB.png) 0 -12px;
+  width:9px;
+  height:9px;
+}
+[ct] .watch5d .emerald-banner-close:hover {
+  opacity: 1;
+}
+[ct] .watch5 .emerald-banner-close:hover,
+[ct] .watch7 .emerald-banner-close:hover {
+  background-color: rgba(0,0,0,.15);
+  border-radius: 3px;
+}
+[ct] .emerald-hh-button {
+  width: fit-content;
+  margin-right: 8px;
+}
+[ct] .watch5d #watch-above-sub-button,
+[ct] .watch5d .watch-above-channel-name,
+[ct] .emerald-hh-button a,
+[ct][layout^="cosmicpanda"] #emerald-load-more-related a,
+[ct][layout^="hitchhiker-2013"] #emerald-load-more-related a,
+[ct][layout^="hitchhiker-2014"] #emerald-load-more-related a {
+  display: flex;
+  height: 28px;
+  border: 1px solid #d3d3d3;
+  padding: 0 10px;
+  color: #333;
+  background: #f8f8f8;
+  outline: none;
+  font-weight: bold;
+  font-size: 11px;
+  text-decoration: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  line-height: normal;
+  vertical-align: middle;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  width: fit-content;
+}
+[ct] .watch5d #watch-above-sub-button:hover,
+[ct] .watch5d .watch-above-channel-name:hover,
+[ct] .emerald-hh-button a:hover,
+[ct][layout^="cosmicpanda"] #emerald-load-more-related a:hover,
+[ct][layout^="hitchhiker-2013"] #emerald-load-more-related a:hover,
+[ct][layout^="hitchhiker-2014"] #emerald-load-more-related a:hover  {
+  background: #f0f0f0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+  border: 1px solid #c6c6c6;
+}
+[ct] .watch5d #watch-above-sub-button:active,
+[ct] .watch5d .watch-above-channel-name:active,
+[ct] .emerald-hh-button a:active,
+[ct] .emerald-hh-button[active] a,
+[ct][layout^="cosmicpanda"] #emerald-load-more-related a:active,
+[ct][layout^="hitchhiker-2013"] #emerald-load-more-related a:active,
+[ct][layout^="hitchhiker-2014"] #emerald-load-more-related a:active  {
+  background: #e9e9e9;
+  box-shadow: inset 0 1px 0 #ddd;
+  border: 1px solid #c6c6c6;
+}
+[ct] .watch5d #watch-above-sub-button {
+  padding: 0 15px 0 10px;
+}
+[layout^="hitchhiker-2013"] .emerald-hh-button a,
+[layout^="hitchhiker-2014"] .emerald-hh-button a,
+[ct][layout^="hitchhiker-2013"] #emerald-load-more-related a,
+[ct][layout^="hitchhiker-2014"] #emerald-load-more-related a {
+  background: linear-gradient(to bottom,#fcfcfc 0,#f8f8f8 100%);
+}
+[layout^="hitchhiker-2013"] .emerald-hh-button a:hover,
+[layout^="hitchhiker-2014"] .emerald-hh-button a:hover,
+[ct][layout^="hitchhiker-2013"] #emerald-load-more-related a:hover,
+[ct][layout^="hitchhiker-2014"] #emerald-load-more-related a:hover  {
+  background: linear-gradient(to bottom,#f8f8f8 0,#eee 100%);
+}
+[layout^="hitchhiker-2013"] .emerald-hh-button a:active,
+[layout^="hitchhiker-2014"] .emerald-hh-button a:active,
+[layout^="hitchhiker-2013"] .emerald-hh-button[active] a,
+[layout^="hitchhiker-2014"] .emerald-hh-button[active] a,
+[ct][layout^="hitchhiker-2013"] #emerald-load-more-related a:active,
+[ct][layout^="hitchhiker-2014"] #emerald-load-more-related a:active {
+  background: #e9e9e9 !important;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.20);
+}
+html[layout^="cosmicpanda"] .watch5d #watch-above-sub-button,
+html[layout^="cosmicpanda"] .watch5d .watch-above-channel-name,
+[layout^="cosmicpanda"] .emerald-hh-button a,
+[ct][layout^="cosmicpanda"] #emerald-load-more-related a {
+  background: linear-gradient(to bottom,#fafafa 0,#dcdcdc 100%);
+  box-shadow: inset 0 0 1px #fff;
+  height: 32px;
+  height: 28px;
+  border-color: #ccc #ccc #aaa;
+  text-shadow: 0 1px 0 #fff;
+  color: #555;
+}
+html[layout^="cosmicpanda"] .watch5d #watch-above-sub-button:hover,
+html[layout^="cosmicpanda"] .watch5d .watch-above-channel-name:hover,
+[layout^="cosmicpanda"] .emerald-hh-button a:hover,
+[ct][layout^="cosmicpanda"] #emerald-load-more-related a:hover {
+  background: linear-gradient(to bottom,#f0f0f0 0,#e6e6e6 100%);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.25),inset 0 0 3px #fff;
+  border-color: #aaa #aaa #999;
+}
+html[layout^="cosmicpanda"] .watch5d #watch-above-sub-button:active,
+html[layout^="cosmicpanda"] .watch5d .watch-above-channel-name:active,
+[layout^="cosmicpanda"] .emerald-hh-button a:active,
+[layout^="cosmicpanda"] .emerald-hh-button[active] a,
+[ct][layout^="cosmicpanda"] #emerald-load-more-related a:active {
+  background: linear-gradient(to bottom,#c8c8c8 0,#e6e6e6 100%);
+  box-shadow: inset 0 1px 5px rgba(0,0,0,0.25),0 1px 0 #fff;
+  border-color: #888 #aaa #ccc;
+}
+[ct] #emerald-watch-above {
+  margin: 0 auto;
+}
+[ct] #emerald-watch-above {
+  margin-top: 5px !important;
+  width: 1000px;
+  margin-bottom: -10px !important;
+}
+[ct][layout^="stargazer"] #emerald-watch-above {
+  margin-bottom: 0px !important;
+}
+html[layout^="hitchhiker"] #emerald-watch-above {
+  margin-top: 10px !important;
+  margin-bottom: -7px !important;
+}
+html[layout^="hitchhiker"] #emerald-watch-metadata .section {
+  padding: 0 15px;
+  margin-top: 10px;
+}
+html[layout^="hitchhiker"] #watch8-info {
+  margin-bottom: 10px;
+}
+html[layout^="polymer"] #emerald-watch-above {
+  margin-top: 10px !important;
+  margin-bottom: -5px !important;
+}
+html[layout^="hitchhiker"] #emerald-watch-above .section {
+  padding: 15px;
+}
+html[layout^="hitchhiker-2014"] #emerald-watch-metadata .section,
+html[layout^="hitchhiker-2013"] #emerald-watch-metadata .section {
+  padding: 0 20px;
+  margin-top: 0;
+}
+html[layout^="hitchhiker-2014"] #emerald-watch-above .section,
+html[layout^="hitchhiker-2013"] #emerald-watch-above .section {
+  padding: 15px 20px;
+  margin: 0;
+}
+html[pseudo-static] #emerald-watch-above {
+  margin-left: calc(var(--bt-sidebar-width) + 40px);
+}
+[ct] .section {
+  background: var(--bt-section-bg);
+  box-shadow: var(--bt-section-box-shadow);
+}
+html[layout^="cosmicpanda"] .section {
+  background: var(--bt-universal-site-bg, var(--bt-section-bg));
+  box-shadow: var(--bt-section-box-shadow);
+}
+[ct] .emerald-multistate:not([state="PUBLIC"]) [state-id="PUBLIC"],
+[ct] .emerald-multistate:not([state="UNLISTED"]) [state-id="UNLISTED"],
+[ct] .emerald-multistate:not([state="PRIVATE"]) [state-id="PRIVATE"] {
+  display: none;
+}
+[ct] .emerald-multistate[state="PUBLIC"] [state-id="PUBLIC"],
+[ct] .emerald-multistate[state="UNLISTED"] [state-id="UNLISTED"],
+[ct] .emerald-multistate[state="PRIVATE"] [state-id="PRIVATE"] {
+  display: block;
+}
+[ct] .emerald-multistate:not([state="outline"]) [state-id="outline"],
+[ct] .emerald-multistate:not([state="filled"]) [state-id="filled"] {
+  display: none !important;
+}
+[ct] .emerald-dropdown:not(.dropdown-visible) {
+  display: none;
+}
+[ct] #emerald-watch-5 #js-playlist-privacy-dropdown-menu {
+  bottom: 20px;
+  position: absolute;
+  z-index: 10;
+  right: 44px;
+}
+[ct] #emerald-watch-7 #js-playlist-privacy-dropdown-menu {
+  bottom: -45px;
+  position: absolute;
+  z-index: 10;
+  right: 76px;
+}
+[ct] #emerald-watch-8 #watch8-playlist-dropdown {
+  top: 152px;
+  position: absolute;
+  z-index: 20;
+  left: 16px;
+}
+[ct] #watch8-playlist-dropdown .emerald-dropdown-inner {
+  position: relative;
+  z-index: 20;
+}
+[ct] .emerald-dropdown-fence {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 19;
+}
+[ct] .dropdown-visible .emerald-dropdown-fence {
+  display: block;
+}
+[ct] .emerald-dropdown {
+  background: var(--bt-gcp-fff);
+  border: 1px solid var(--bt-section-border-color);
+  position: absolute;
+}
+[ct] .emerald-dropdown-item {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  padding: 6px 20px;
+  cursor: pointer;
+}
+[ct] .emerald-dropdown-item:hover {
+  color: #fff;
+  background: #444;
+}
+[ct] #emerald-watch-5,
+[ct] #emerald-watch-7 {
+  font-family: arial !important;
+  position: relative;
+}
+[ct] #emerald-watch-8 {
+  font-family: Roboto !important;
+  position: relative;
+}
+[ct] #emerald-watch-8 span,
+[ct] #emerald-watch-8 div,
+[ct] #emerald-watch-8 a {
+  font-family: Roboto !important;
+}
+[ct] .emerald-multistate[multistate-id="subscribe"]:not([state="subscribe"]) [state-id="subscribe"],
+[ct] .emerald-multistate[multistate-id="subscribe"]:not([state="subscribed"]) [state-id="subscribed"],
+[ct] .emerald-multistate[multistate-id="subscribe"]:not([state="unsubscribe"]) [state-id="unsubscribe"],
+[ct] .emerald-multistate[multistate-id="subscribe"]:not([state="channel-settings"]) [state-id="channel-settings"],
+[ct] .emerald-multistate[multistate-id="subscribe"]:not([state="creator-studio"]) [state-id="creator-studio"] {
+  display: none !important;
+}
+[ct] .watch7 .emerald-multistate[state="subscribed"] [js-sub-trigger]:hover [state-id="subscribed"],
+[ct] .watch8 .emerald-multistate[state="subscribed"] [js-sub-trigger]:hover [state-id="subscribed"] {
+  display: none !important;
+}
+[ct] .watch7 .emerald-multistate[state="subscribed"] [js-sub-trigger]:hover [state-id="unsubscribe"],
+[ct] .watch8 .emerald-multistate[state="subscribed"] [js-sub-trigger]:hover [state-id="unsubscribe"] {
+  display: block !important;
+}
+
+[js-subscribe] a {
+  text-decoration: none;
+}
+
+
+
+[ct] #emerald-watch-sidebar-content .watch-sidebar-tab {
+  background: var(--bt-related-bg);
+  margin-top: var(--bt-related-margin-top, 18px);
+  padding-top: var(--bt-related-padding-top) !important;
+  box-shadow: var(--bt-related-box-shadow);
+  padding: var(--bt-related-padding) !important;
+  margin-bottom: var(--bt-related-margin-bottom);
+  margin-left: var(--bt-related-margin-left, 0);
+  border-right: var(--bt-related-border-right, none);
+  /*margin-left: var(--bt-related-margin-left);*/
+  overflow-y: var(--bt-related-overflow-y, clip) !important;
+  overflow-x: var(--bt-related-overflow-x, clip) !important;
+  max-height: var(--bt-related-max-height, unset);
+  border: var(--bt-related-border);
+  overscroll-behavior: var(--bt-related-overscroll-behavior, auto);
+  width: var(--bt-related-width, unset);
+}
+html[layout^="hitchhiker"]:not([layout^="hitchhiker-2013"]) #emerald-watch-sidebar-content .watch-sidebar-tab {
+  padding-top: 15px !important;
+}
+[ct] .emerald-compact-item .thumbnail,
+[ct] .emerald-compact-item .thumbnail img {
+  width: var(--bt-related-thumb-width);
+  height: var(--bt-related-thumb-height);
+  position: relative;
+  margin-right: 8px;
+}
+html[ct][layout^="stargazer"] .emerald-compact-item .thumbnail,
+html[ct][layout^="aozora"] .emerald-compact-item .thumbnail {
+  padding: var(--bt-related-thumb-inner-padding);
+  background: var(--bt-related-thumb-inner-bg);
+  border: var(--bt-related-thumb-inner-border);
+  border-radius: var(--bt-related-thumb-inner-radius);
+  height: var(--bt-related-thumb-inner-height);
+  width: var(--bt-related-thumb-inner-width);
+}
+html[ct][layout^="stargazer"] .emerald-compact-item .thumbnail img,
+html[ct][layout^="aozora"] .emerald-compact-item .thumbnail img {
+  height: var(--bt-related-thumb-inner-height);
+  width: var(--bt-related-thumb-inner-width);
+}
+[ct] .emerald-compact-item {
+  margin-bottom: calc(var(--bt-related-margin-bottom) + 7px);
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+[ct] .emerald-compact-item .time {
+  margin: 0px;
+  border-radius: 0 !important;
+  padding: 0px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(0,0,0,.75);
+  letter-spacing: 0;
+  z-index: 4;
+  position: relative;
+  top: -18px;
+  color: #fff;
+  width: fit-content;
+  margin-left: auto;
+  right: 2px;
+}
+html[ct][layout^="stargazer"] .emerald-compact-item .time,
+html[ct][layout^="aozora"] .emerald-compact-item .time {
+  top: -16px;
+}
+[ct] .emerald-compact-item .meta {
+  max-width: calc(100% - var(--bt-related-thumb-width) - 8px);
+  display: block;
+}
+[ct] .emerald-compact-item .title {
+  font-size: var(--bt-related-title-font-size);
+  max-height: var(--bt-related-title-max-height);
+  overflow: hidden;
+  color: var(--bt-related-title-text-color);
+  font-weight: var(--bt-related-title-font-weight);
+  max-width: 200px;
+  display: inline-block;
+}
+[ct] .emerald-compact-item .title:hover {
+  text-decoration: var(--bt-related-title-text-decoration-hover);
+}
+html[layout^="polymer"] .emerald-compact-item .title {
+  font-weight: 500;
+}
+[ct] .emerald-compact-item:hover .title {
+  color: var(--bt-related-title-text-color-hover);
+}
+[ct] .emerald-details-level-2,
+[ct] .emerald-details-level-3 {
+  font-size: var(--bt-related-meta-font-size);
+  color: var(--bt-related-meta-text-color);
+}
+[ct] .emerald-details-level-2 {
+  white-space: nowrap;
+}
+[ct] .byline {
+  margin-right: 2.5px;
+}
+[ct] .emerald-details-level-3 {
+  margin-top: 2px;
+  flex-wrap: wrap;
+}
+[ct] .emerald-compact-item .author {
+  color: var(--bt-related-meta-text-color) !important;
+  max-width: 200px;
+}
+[ct] .emerald-compact-video .author {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+[ct] .emerald-compact-item a.author:hover {
+  color: var(--bt-small-grid-link-color) !important;
+  text-decoration: var(--bt-small-grid-hover-meta-text-decoration);
+}
+html[layout^="polymer"] .emerald-compact-item a.author:hover {
+  color: var(--bt-gcp-000) !important;
+}
+[ct] .emerald-compact-item .date::before {
+  content: "•";
+  margin: 0 2px 0 4px;
+}
+[ct] .emerald-compact-video .progress {
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+[ct] .emerald-compact-video .progress:not([percent-viewed="0"]) {
+  background: rgba(255,255,255,0.5);
+}
+.emerald-compact-video .progress-inner {
+  background: var(--bt-emphasis, red);
+  height: inherit;
+}
+.emerald-compact-video #wl-button {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  background: #f8f8f8;
+  border: 1px solid #d3d3d3;
+  border-radius: 2px;
+  opacity: 0;
+  z-index: 8;
+}
+.emerald-compact-video #wl-button:hover {
+  box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+  background: #f0f0f0;
+  border: 1px solid #c6c6c6;
+}
+.emerald-compact-video:hover #wl-button {
+  opacity: 1;
+}
+.emerald-compact-video #wl-button .overlay-button-inner {
+  width: 13px;
+  height: 13px;
+  margin: 0 auto -2px auto;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) 0 -184px;
+}
+.emerald-compact-video #wl-button.active {
+  background: linear-gradient(to bottom,#74a446 0,#4d7730 100%);
+  border: 1px solid transparent;
+}
+.emerald-compact-video #wl-button.active .overlay-button-inner {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) -22px -1372px;
+}
+.emerald-compact-video:hover .time {
+  opacity: 0;
+}
+[ct] .playlist-panel {
+  width: 43.75%;
+  background: rgba(0,0,0,.8);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #cfcfcf;
+  display: flex;
+  align-items: center;
+}
+[ct] .playlist-panel-inner {
+  margin: 0 auto;
+  width: fit-content;
+  opacity: 0.8;
+}
+[ct] .playlist-panel .playlist-panel-level-1 {
+  display: block;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0 auto;
+  width: fit-content;
+}
+[ct] .playlist-panel .playlist-panel-level-2 {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: normal;
+}
+[ct] .playlist-panel .playlist-panel-level-3 .icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) -53px -1248px;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  display: block;
+}
+[ct] .mix-panel .playlist-panel-level-3 .icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfljEooDy.png) 0 -869px;
+  background-size: auto;
+  width: 32px;
+  height: 32px;
+}
+html[related-videos-size^="small"] .playlist-panel .playlist-panel-level-1 {
+  font-size: 14px;
+}
+html[related-videos-size^="small"] .playlist-panel .playlist-panel-level-2 {
+  font-size: 8px;
+}
+html[related-videos-size^="small"] .playlist-panel .playlist-panel-level-3 .icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -275px -275px;
+  background-size: auto;
+  width: 18px;
+  height: 18px;
+}
+html[related-videos-size^="small"] .mix-panel .playlist-panel-level-3 .icon {
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -387px -54px;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+}
+html[related-videos^="polymer"] .playlist-panel .playlist-panel-level-1 {
+  font-size: 16px;
+}
+html[related-videos^="polymer"] .playlist-panel .playlist-panel-level-2 {
+  display: none;
+}
+[ct] .emerald-compact-item:not(:hover) .play-all-overlay {
+  display: none;
+}
+[ct] .play-all-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,.7);
+  top: 0;
+}
+[ct] .play-all-overlay-inner {
+  position: absolute;
+  top: 50%;
+  margin-top: -9px;
+  width: 100%;
+  height: 18px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(255,255,255,.6);
+  text-transform: uppercase;
+}
+[ct] .play-all-overlay-content {
+  margin: 0 auto;
+  width: fit-content;
+}
+[ct] .play-all-overlay .play-icon {
+  margin-right: 6px;
+  vertical-align: middle;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vfldzd94_.png) -427px -393px;
+  background-size: auto;
+  width: 9px;
+  height: 12px;
+  margin-top: 2px;
+}
+html[related-videos-size^="small"] .play-all-overlay {
+  font-size: 11px;
+}
+[ct][layout^="aozora"] .emerald-compact-item {
+  padding: 5px;
+}
+[ct][layout^="aozora"] .emerald-compact-item:hover {
+  background: #d1e1fa;
+}
+[ct][layout^="cosmicpanda"] .emerald-compact-item {
+  padding: 5px;
+  border-radius: 3px;
+  transition: background .15s ease-in-out;
+  border: 1px solid transparent;
+}
+[ct][layout^="cosmicpanda"] .emerald-compact-item:hover {
+  background: var(--bt-gcp-fff);
+  border-bottom-color: var(--bt-gcp-ccc);
+}
+
+html[layout^="polymer"] #emerald-load-more-related {
+  background: var(--yt-spec-10-percent-layer);
+  width: 100%;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px;
+  border-radius: 2px;
+  color: var(--bt-gcp-444);
+  position: relative;
+}
+html[layout^="polymer"] #emerald-load-more-related a {
+  width: fit-content;
+  margin: 0 auto;
+  text-transform: uppercase;
+  display: block;
+}
+html[layout^="polymer"] #emerald-load-more-related:hover::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--yt-spec-10-percent-layer); 
+}
+#related-header-aozora {
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--bt-gcp-ccc);
+}
+#related-header-aozora span {
+  color: var(--bt-gcp-666);
+}
+[ct] #emerald-load-more-related {
+  margin-bottom: 4px;
+}
+
+html[ct]:not([layout^="aozora"]) #related-header-aozora,
+html[ct][use-sidebar-autoplay] #related-header-aozora,
+html[ct]:not([use-sidebar-autoplay]) #related-autoplay,
+html[ct]:not([use-sidebar-autoplay]) #related-tab-autoplay-video,
+html[watchtype="playlistwatch"][ct] #related-autoplay,
+html[watchtype="playlistwatch"][ct] #related-tab-autoplay-video {
+  display: none;
+}
+[ct] .related-tab-header-title {
+  margin-bottom: 12px;
+}
+html:not([layout^="polymer"])[ct] .related-tab-header-title-left {
+  margin-bottom: 1px;
+  font-size: 13px;
+  color: var(--bt-gcp-222);
+  line-height: 1.3em;
+  font-weight: 500;
+}
+html[layout^="polymer"][ct] .related-tab-header-title-left {
+  color: var(--yt-spec-text-primary);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2rem;
+  -ms-flex: 1 1 0.000000001px;
+  -webkit-flex: 1;
+  flex: 1;
+    flex-basis: 0%;
+  -webkit-flex-basis: 0.000000001px;
+  flex-basis: 0.000000001px;
+}
+[ct] .related-tab-header-title-right {
+  margin-left: auto;
+}
+html:not([layout^="polymer"])[ct] #autoplay-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--bt-gcp-777);
+  margin-right: 8px;
+}
+html[layout^="polymer"][ct] #autoplay-text {
+  color: var(--yt-spec-text-secondary);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: .007px;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+html:not([layout^="polymer"])[ct] [state="autoplay-on"] .toggle-button.paper-toggle-button {
+  -webkit-transform: translate(22px, 0);
+  transform: translate(22px, 0);
+}
+html[layout^="polymer"][ct] [state="autoplay-on"] .toggle-button.paper-toggle-button {
+  background-color: var(--paper-toggle-button-checked-button-color, var(--primary-color));
+  -webkit-transform: translate(16px, 0);
+  transform: translate(16px, 0);
+}
+html:not([layout^="polymer"])[ct] .toggle-button.paper-toggle-button::before {
+  content: "";
+  display: inline-block;
+  margin-top: 0px;
+  margin-left: -15px;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflWUZm8y.png) -552px -66px;
+  background-size: auto;
+  background-size: auto;
+  width: 10px;
+  height: 7px;
+  position: relative;
+  top: 0px;
+  opacity: 0;
+}
+html:not([layout^="polymer"])[ct] [state="autoplay-on"] .toggle-button.paper-toggle-button::before {
+  opacity: 1;
+}
+html:not([layout^="polymer"])[ct] .toggle-button.paper-toggle-button {
+  background: #fbfbfb;
+  height: 13px;
+  width: 13px;
+  border-radius: 20px;
+}
+html[layout^="polymer"][ct] .toggle-button.paper-toggle-button {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6);
+  transition: -webkit-transform linear .08s, background-color linear .08s;
+  transition: transform linear .08s, background-color linear .08s;
+  will-change: transform;
+  background-color: #909090;
+}
+html[layout^="polymer"][ct] .toggle-container.paper-toggle-button {
+  display: inline-block;
+  position: relative;
+  width: 36px;
+  height: 14px;
+  margin: 4px 1px;
+}
+html:not([layout^="polymer"])[ct] .toggle-container {
+  display: inline-block;
+  border: 1px solid transparent;
+  height: 13px;
+  width: 35px;
+  background: #b8b8b8;
+  cursor: pointer;
+  border-radius: 20px;
+}
+html:not([layout^="polymer"])[ct] [state="autoplay-on"] .toggle-container {
+  background: #167ac6;
+}
+html[layout^="polymer"][ct] .toggle-bar.paper-toggle-button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0.4;
+  transition: background-color linear .08s;
+  background-color: var(--paper-toggle-button-unchecked-bar-color, #000000);
+}
+html[layout^="polymer"][ct] .toggle-bar.paper-toggle-button {
+  opacity: 0.5;
+  background-color: var(--paper-toggle-button-checked-bar-color, var(--primary-color));
+}
+[ct] .flex-bar {
+  display: flex;
+  align-items: center;
+}
+html[layout^="polymer"] #related-autoplay {
+  padding-top: 4px;
+  margin-top: -4px;
+}
+[ct] #related-tab-autoplay-video {
+  border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+  margin-bottom: 15px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/storefront"] .guide-icon.ytd-guide-entry-renderer {
+  background: url(https://i.imgur.com/d9E8OCy.png);
+  background-size: auto;
+  background-size: 20px 20px;
+}
+html[sidebar-style^="hitchhiker"] ytd-guide-entry-renderer #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer[href="/feed/storefront"] svg {
+  display: none !important;
+}
+
+
+
+
+
+[use-related-tabs] #emerald-watch-sidebar-slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+#emerald-watch-sidebar-slider-container-inner {
+  flex-direction: column;
+  display: flex;
+}
+[use-related-tabs] #emerald-watch-sidebar-slider-container-inner {
+  transition: transform 0.3s;
+  flex-direction: row;
+}
+[use-related-tabs] #emerald-watch-sidebar-content .watch-sidebar-tab {
+  min-width: calc(100% - 30px) !important;
+}
+[use-related-tabs] [state="related"] #emerald-watch-sidebar-slider-container-inner {
+  transform: translateX(0%);
+}
+[use-related-tabs] [state="channel-videos"] #emerald-watch-sidebar-slider-container-inner {
+  transform: translateX(-100%);
+}
+[use-related-tabs] [state="about"] #emerald-watch-sidebar-slider-container-inner {
+  transform: translateX(-200%);
+}
+[use-related-tabs] .emerald-multistate:not([state="related"]):not([state="all"]) .watch-sidebar-tab[state-id="related"],
+[use-related-tabs] .emerald-multistate:not([state="channel-videos"]):not([state="all"]) .watch-sidebar-tab[state-id="channel-videos"],
+[use-related-tabs] .emerald-multistate:not([state="about"]):not([state="all"]) .watch-sidebar-tab[state-id="about"] {
+  max-height: 100vh !important;
+  overflow: hidden;
+}
+.related-tab {
+  cursor: pointer;
+}
+
+html[watch-version="watch4"] #watch-above-owner-row {
+  display: none;
+}
+
+#emerald-watch-banners .emerald-banner {
+  margin-top: 10px;
+}
+#theater-mode-unsupported {
+  display: none;
+}
+html[static] ytd-watch-flexy[theater] #theater-mode-unsupported,
+html[pseudo-static] ytd-watch-flexy[theater] #theater-mode-unsupported {
+  display: block;
+}
+#emerald-owner-controls {
+  background: #535353;
+  padding: 10px 15px 10px 20px;
+  margin-top: -10px;
+  margin-top: 0;
+}
+#emerald-owner-controls-left a {
+  background: none;
+  border-color: transparent;
+}
+#emerald-owner-controls-right a {
+  background: #333;
+  border-color: #333;
+  color: #fff;
+}
+#emerald-owner-controls:hover #emerald-owner-controls-left a {
+  background: linear-gradient(to bottom,#333 0,#2b2b2b 100%);
+  border-color: #222;
+}
+#emerald-owner-controls-left span {
+  background: no-repeat url(//s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -112px;
+  background-size: auto;
+  width: 24px;
+  height: 24px;
+}
+#emerald-enhance span {
+  background: no-repeat url(//s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -84px;
+}
+#emerald-audio span {
+  background: no-repeat url(//s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 0;
+}
+#emerald-annotations span {
+  background: no-repeat url(//s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -28px;
+}
+#emerald-cc span {
+  background: no-repeat url(//s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -56px;
+}
+#emerald-owner-controls-right {
+  margin-left: auto;
+}
+
+
+[use-related-tabs] #emerald-watch-sidebar-tabs {
+  padding-bottom: 10px;
+}
+[use-related-tabs] #emerald-watch-sidebar-tabs .related-tabs {
+  border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+  background: var(--bt-section-bg);
+  box-shadow: var(--bt-section-box-shadow);
+}
+html[static] #emerald-watch-sidebar-tabs .related-tabs,
+html[pseudo-static] #emerald-watch-sidebar-tabs .related-tabs {
+  background: none;
+  box-shadow: none;
+}
+
+html:not([watch-metadata-style^="stargazer"]) .emerald-watch-below-toggle,
+html:not([watch-metadata-style^="stargazer"]) .emerald-watch-sidebar-toggle {
+  display: none;
+}
+
+html:not([use-related-tabs]) #emerald-watch-sidebar-tabs {
+  display: none;
+}
+
+
+
+@media only screen and (min-width: 2300px) {
+    html[grid-styling][homepage="shelves"] ytd-app ytd-browse[page-subtype="home"] #emerald-browse {
+      max-width: 1710px !important;
+    }
+}
+@media only screen and (max-width: 2300px) {
+    html[grid-styling][homepage="shelves"] ytd-app ytd-browse[page-subtype="home"] #emerald-browse {
+      max-width: 1496px !important;
+    }
+}
+@media only screen and (max-width: 2000px) {
+    html[grid-styling][homepage="shelves"] ytd-app ytd-browse[page-subtype="home"] #emerald-browse {
+      max-width: 1282px !important;
+    }
+}
+@media only screen and (max-width: 1500px) {
+    html[grid-styling][homepage="shelves"] ytd-app ytd-browse[page-subtype="home"] #emerald-browse {
+      max-width: 1067px !important;
+    }
+}
+.emerald-shelf-items {
+  display: flex;
+}
+.emerald-shelf-content-inner {
+  overflow: hidden;
+}
+.emerald-shelf-arrow {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.emerald-shelf-arrow-inner {
+  margin: 0 auto;
+  width: fit-content;
+}
+.emerald-shelf-arrow svg {
+  width: 24px !important;
+  height: 24px;
+}
+.emerald-shelf-items {
+  transition-duration: 0.2s;
+}
+[curr-page="1"] .emerald-shelf-items {
+  transform: translateX(-100%);
+}
+
+[ct] .emerald-grid-item .thumbnail,
+[ct] .emerald-grid-item .thumbnail img {
+  width: 210px;
+  height: 118px;
+  position: relative;
+}
+[ct] .emerald-grid-item {
+  margin-right: 4px;
+}
+[ct] .emerald-grid-item .time {
+  margin: 2px;
+  border-radius: 0 !important;
+  padding: 0px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(0,0,0,.75);
+  letter-spacing: 0;
+  z-index: 4;
+  position: relative;
+  top: -20px;
+  color: #fff;
+  width: fit-content;
+  margin-left: auto;
+}
+[ct] .emerald-grid-item .meta {
+  max-width: 100%;
+  display: block;
+}
+[ct] .emerald-grid-item .title {
+  font-size: var(--bt-small-grid-title-font-size);
+  line-height: var(--bt-small-grid-title-line-height);
+  max-height: var(--bt-small-grid-title-max-height);
+  overflow: hidden;
+  color: var(--bt-small-grid-link-color);
+  font-weight: var(--bt-small-grid-title-font-weight);
+  display: inline-block;
+  margin-top: 6px;
+}
+[ct] .emerald-grid-item .title:hover {
+  text-decoration: var(--bt-small-grid-title-text-decoration-hover);
+}
+html[layout^="polymer"] .emerald-grid-item .title {
+  font-weight: 500;
+}
+[ct] .emerald-grid-item:hover .title {
+  color: var(--bt-small-grid-link-color);
+}
+[ct] .emerald-details-level-2,
+[ct] .emerald-details-level-3 {
+  font-size: var(--bt-related-meta-font-size);
+  color: var(--bt-related-meta-text-color);
+}
+[ct] .emerald-details-level-2 {
+  white-space: nowrap;
+}
+[ct] .byline {
+  margin-right: 2.5px;
+}
+[ct] .emerald-details-level-3 {
+  margin-top: 2px;
+  flex-wrap: wrap;
+}
+[ct] .emerald-grid-item .author {
+  color: var(--bt-related-meta-text-color) !important;
+  max-width: 200px;
+}
+[ct] .emerald-grid-video .author {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+[ct] .emerald-grid-item a.author:hover {
+  color: var(--bt-small-grid-link-color) !important;
+  text-decoration: var(--bt-small-grid-hover-meta-text-decoration);
+}
+html[layout^="polymer"] .emerald-grid-item a.author:hover {
+  color: var(--bt-gcp-444) !important;
+}
+[ct] .emerald-grid-item .date::before {
+  content: "•";
+  margin: 0 2px 0 4px;
+}
+[ct] .emerald-grid-video .progress {
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+.emerald-grid-video .progress-inner {
+  background: var(--bt-emphasis, red);
+  height: inherit;
+}
+.emerald-grid-video #wl-button {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  background: #f8f8f8;
+  border: 1px solid #d3d3d3;
+  border-radius: 2px;
+  opacity: 0;
+  z-index: 8;
+}
+.emerald-grid-video #wl-button:hover {
+  box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+  background: #f0f0f0;
+  border: 1px solid #c6c6c6;
+}
+.emerald-grid-video:hover #wl-button {
+  opacity: 1;
+}
+.emerald-grid-video #wl-button .overlay-button-inner {
+  width: 13px;
+  height: 13px;
+  margin: 0 auto -2px auto;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) 0 -184px;
+}
+.emerald-grid-video #wl-button.active {
+  background: linear-gradient(to bottom,#74a446 0,#4d7730 100%);
+  border: 1px solid transparent;
+}
+.emerald-grid-video #wl-button.active .overlay-button-inner {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-hitchhiker-vflEXP50f.png) -22px -1372px;
+}
+.emerald-grid-video:hover .time {
+  opacity: 0;
+}
+.emerald-shelf-title {
+  margin: 24px 0;
+  color: var(--yt-primary-color);
+  display: block;
+  max-height: 2rem;
+  overflow: hidden;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+
+html:not([use-side-watch-metadata]) #emerald-watch-sidebar-channel-videos,
+html:not([use-side-watch-metadata]) #emerald-watch-sidebar-metadata,
+#emerald-watch-sidebar[description-expanded] #watch4-expand,
+#emerald-watch-sidebar:not([description-expanded]) #watch4-collapse,
+#emerald-watch-sidebar:not([description-expanded]) .emerald-extra {
+  display: none;
+}
+
+
+.emerald-tag {
+  margin-right: 4px;
+}

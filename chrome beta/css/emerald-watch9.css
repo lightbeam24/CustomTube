@@ -1,0 +1,254 @@
+[ct] .watch9 {
+  --yt-expand-color: rgba(17, 17, 17, 0.6);
+  --bt-watch9-button-color: #606060;
+  --bt-watch9-icon-color: rgba(144,144,144);
+  --bt-watch9-like-bar-unliked: #909090;
+  --bt-watch9-dislike-bar: #ccc;
+  --bt-watch9-user-subtitle-color: rgba(17, 17, 17, 0.6);
+}
+[dark][ct] .watch9 {
+  --yt-expand-color: rgba(255, 255, 255, 0.6);
+  --bt-watch9-button-color: #aaa;
+  --bt-watch9-icon-color: rgba(144,144,144);
+  --bt-watch9-like-bar-unliked: #909090;
+  --bt-watch9-dislike-bar: #606060;
+  --bt-watch9-user-subtitle-color: rgba(255, 255, 255, 0.6);
+}
+[ct] #watch9-primary-info {
+  display: block;
+  border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+  padding: 20px 0 8px 0;
+}
+[ct] #watch9-secondary-info {
+  margin-bottom: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+}
+html[layout^="polymer"] #watch9-secondary-info {
+  margin-bottom: 24px;
+}
+html[layout^="hitchhiker-2015"] #watch9-secondary-info,
+html[layout^="hitchhiker-2016"] #watch9-secondary-info,
+html[layout^="hitchhiker-2017"] #watch9-secondary-info {
+  margin-bottom: 10px;
+  border-bottom: none;
+}
+[ct] .watch9 #watch9-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: var(--bt-gcp-111);
+}
+[ct] .watch9 #watch9-views-info {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: var(--bt-gcp-666);
+}
+[ct] .watch9b #watch9-views-info {
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+}
+[ct] .watch9 #watch9b-upload-date {
+  margin-left: 4px;
+}
+[ct] .watch9 #watch9-actions {
+  margin-left: auto;
+}
+[ct] .watch9 .watch9-button-icon svg,
+[ct] .watch9 .watch9-button-icon g,
+[ct] .watch9 .watch9-button-icon path {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !Important;
+}
+html[layout^="polymer-202"] .watch9 .watch9-button-icon svg,
+html[layout^="polymer-202"] .watch9 .watch9-button-icon g,
+html[layout^="polymer-202"] .watch9 .watch9-button-icon path {
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !Important;
+}
+html[layout^="polymer-2020"] .watch9 .watch9-button-icon svg,
+html[layout^="polymer-2020"] .watch9 .watch9-button-icon g,
+html[layout^="polymer-2020"] .watch9 .watch9-button-icon path {
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !Important;
+}
+html[layout] .watch9 div paper-ripple {
+  display: block !important;
+}
+[ct] .watch9 .watch9-button-icon {
+  position: relative;
+  border-radius: 50%;
+  padding: 8px;
+}
+[ct] .watch9 #watch9-owner-row {
+  margin-bottom: 12px;
+  padding-top: 16px;
+}
+[ct] .watch9 #watch9-pfp a {
+  margin-right: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: transparent;
+  overflow: hidden;
+}
+[ct] .watch9 #watch9-channel-name-container {
+  --yt-endpoint-color: var(--yt-channel-owner);
+  --yt-endpoint-hover-color: var(--yt-channel-owner);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.6rem;
+}
+[ct] .watch9-yt-user-separator {
+  margin: 0 6px 0 8px;
+}
+[ct] .watch9 #watch9-user-subtitle {
+  color: var(--bt-watch9-user-subtitle-color);
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  text-transform: none;
+}
+[ct] .watch9 #watch9-upload-date {
+  margin-right: 8px;
+}
+[ct] .watch9 #watch9-sub-button,
+[ct] .watch9 .watch9-button {
+  white-space: nowrap;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: .007px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  color: var(--bt-watch9-button-color);
+}
+[ct] .watch9b .watch9-button {
+  letter-spacing: 0.5px;
+}
+[ct] .watch9[state="outline"] .watch9-button {
+  color: #030303;
+}
+html[dark] .watch9[state="outline"] .watch9-button {
+  color: #fff;
+}
+[ct] .watch9 .watch9-button {
+  padding-right: 8px;
+  margin-left: 8px;
+  font-size: 1.3rem;
+}
+[ct] .watch9 .watch9-button svg[state-id="filled"] {
+  fill: var(--bt-watch9-icon-color);
+}
+[ct] .watch9 .watch9-button svg[state-id="outline"] {
+  fill: var(--bt-gcp-000);
+}
+[ct] .watch9[state="filled"] #watch9-like-button.active {
+  color: var(--bt-blue) !important;
+}
+[ct] .watch9[state="filled"] #watch9-like-button.active svg {
+  fill: var(--bt-blue) !important;
+}
+[ct] .watch9[state="outline"] #watch9-like-button.active svg:not(.filled-outline),
+[ct] .watch9[state="outline"] #watch9-dislike-button.active svg:not(.filled-outline),
+[ct] .watch9[state="outline"] #watch9-like-button:not(.active) svg.filled-outline,
+[ct] .watch9[state="outline"] #watch9-dislike-button:not(.active) svg.filled-outline {
+  display: none !important;
+}
+[ct] .watch9 .watch9-ltod-bar {
+  display: flex;
+  padding: 6px 0 28px;
+  position: absolute;
+  width: 100%;
+}
+[ct] .watch9 #watch9-ltod {
+  position: relative;
+}
+[ct] .watch9 #watch9-like-button {
+  margin-left: 0;
+}
+[ct] .watch9 #watch9-sentiment-bar #js-likes {
+  background: var(--bt-watch9-like-bar-unliked);
+  width: 100%;
+  height: 2px;
+  display: block;
+  position: absolute;
+  z-index: 2;
+}
+[ct] .watch9[state="outline"] #watch9-sentiment-bar #js-likes {
+  background: var(--bt-gcp-333);
+}
+[ct] .watch9 #watch9-sentiment-bar #js-dislikes {
+  background: var(--bt-watch9-dislike-bar);
+  width: 100%;
+  height: 2px;
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+[ct] .watch9[state="filled"] [liked="true"] #watch9-sentiment-bar #js-likes {
+  background: var(--bt-blue);
+}
+[ct] .watch9 #watch9-sub-button {
+  background-color: var(--bt-emphasis, red);
+  color: #FFFFFF;
+  padding: 10px 16px;
+  position: relative;
+}
+html[layout^="hitchhiker-2015"] .watch9 [state="subscribe"] #watch9-sub-button,
+html[layout^="hitchhiker-2016"] .watch9 [state="subscribe"] #watch9-sub-button {
+  background-color: var(--bt-lesser-emphasis, red);
+}
+html[layout^="polymer-202"] .watch9 [state="subscribe"] #watch9-sub-button {
+  background-color: #c00;
+}
+[ct] .watch9 [state="subscribed"] #watch9-sub-button {
+  background-color: var(--bt-light-grey);
+  color: var(--bt-gcp-555);
+}
+html[layout^="polymer-2019"] .watch9 [state="subscribed"] #watch9-sub-button {
+  background-color: var(--bt-light-grey);
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
+}
+[ct] .watch9 #watch9-sub-count {
+  margin-left: 8px;
+  opacity: 85%;
+}
+[ct] .watch9 #watch9-subscription-container {
+  margin-left: auto;
+}
+[ct] .watch9 #watch9-info {
+  margin-left: 64px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.1rem;
+}
+[ct] .watch9 #watch9-info:not([expanded]) #watch9-description {
+  max-height: 60px;
+  overflow: hidden;
+}
+[ct] .watch9 .emerald-link {
+  color: var(--yt-spec-call-to-action, var(--bt-blue));
+}
+[ct] .watch9 .watch9-expand {
+  color: var(--yt-expand-color);
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: .007px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+[ct] .watch9 #watch9-info[expanded] #watch9-expand,
+[ct] .watch9 #watch9-info:not([expanded]) #watch9-collapse {
+  display: none;
+}
+[ct] .watch9b .watch9a-elem,
+[ct] .watch9:not(.watch9b) .watch9b-elem {
+  display: none !important;
+}

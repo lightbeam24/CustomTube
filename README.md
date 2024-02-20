@@ -55,3 +55,5 @@ Credits:
 Logo made by UnderscoreAngel. [Github page](https://github.com/UnderscoreAngel)
 
 CustomTube shares a small amount of code with YouTube Redux, namely the code for managing user settings.
+
+The beta version makes use of the Return YouTube Dislike API - https://returnyoutubedislike.com

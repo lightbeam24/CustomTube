@@ -5776,8 +5776,8 @@ function doRyd(videoId) {
 		"method": "GET"
 	}).then(response => response.json()).then(data => {
 		console.log(data);
-		var likeCount = data.likes;
-		var dislikeCount = data.dislikes;
+		var likeCount = parseInt(data.likes);
+		var dislikeCount = parseInt(data.dislikes);
 		var total = likeCount + dislikeCount;
 		console.log(total);
 		var rating = dislikeCount / total;

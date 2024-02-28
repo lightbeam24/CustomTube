@@ -4,6 +4,40 @@ let visitorData = "";
 let glbVideoId = "";
 let glbVideoTitle = "";
 let glbAutoplayEnabled = "unset";
+class EmeraldLanguageModel {
+	autoplay;
+	subscribe;
+	subscribed;
+	videos;
+	unsubscribe;
+	upNext;
+	constructor(lang) {
+		if (lang == "pl-PL") {
+			this.autoplay = "Autoodtwarzanie";
+			this.subscribe = "Subskrybuj";
+			this.subscribed = "Subskrybujesz";
+			this.videos = "Filmów";
+			this.unsubscribe = "Rezygnuję z subskrypcji";
+			this.upNext = "Następny";
+		} else if (lang == "en") {
+			this.autoplay = "Autoplay";
+			this.subscribe = "Subscribe";
+			this.subscribed = "Subscribed";
+			this.videos = "Videos";
+			this.unsubscribe = "Unsubscribe";
+			this.upNext = "Up next";
+		} else {
+			this.autoplay = "Autoplay";
+			this.subscribe = "Subscribe";
+			this.subscribed = "Subscribed";
+			this.videos = "Videos";
+			this.unsubscribe = "Unsubscribe";
+			this.upNext = "Up next";
+		}
+	}
+}
+let glbLang = null;
+let emeraldLanguageModel = "";
 function getSapisidhash()
 {
 	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
@@ -281,17 +315,32 @@ async function getWatchVersion() {
 		resolve(watchVersion);
 	});
 }
+var elm = "#primary-inner";
+waitForElement(elm).then(function() {
+	if ($("ytd-watch-flexy") != null) {
+		$("ytd-watch-flexy").setAttribute("ct-watch-elem","");
+	} else if ($("ytd-watch-grid") != null) {
+		$("ytd-watch-grid").setAttribute("ct-watch-elem","");
+	}
+});
 function APIGet() {
 	var data = $("ytd-app").data;
+	if (glbLang == null) {
+		glbLang = $("html").getAttribute("lang");
+		//alert(glbLang);
+		emeraldLanguageModel = new EmeraldLanguageModel(glbLang);
+		//alert(emeraldLanguageModel.Videos);
+	}
 	console.log(data);
 	if ($("html[ct-log-done]") == null) {
 		if (data.response.responseContext.mainAppWebResponseContext.loggedOut == false) {
 			signedIn = true;
 			$("html").setAttribute("ct-log-done","");
 			var datasync = data.response.responseContext.mainAppWebResponseContext.datasyncId;
-			visitorData = data.response.responseContext.webResponseContextExtensionData.ytConfigData.visitorData;
-			console.log(datasync);
-			console.log(datasync.length);
+			//visitorData = data.response.responseContext.webResponseContextExtensionData.ytConfigData.visitorData;
+			visitorData = window.yt.config_.VISITOR_DATA;
+			//console.log(datasync);
+			//console.log(datasync.length);
 			var authUser = window.yt.config_.SESSION_INDEX;
 			if (datasync.length > 30) {
 				datasync = datasync.split("||");
@@ -332,8 +381,15 @@ function APIGet() {
 		var shouldReplaceWatch = getWatchVersion();
 		shouldReplaceWatch.then(function(result) {
 			if (result != "current") {
-				emeraldWatch(data);
-				emeraldWatchSidebar(data);
+				if ($("ytd-watch-flexy") != null) {
+					emeraldWatch(data, "flexy");
+					emeraldWatchSidebar(data, "flexy");
+					$("ytd-watch-flexy").setAttribute("ct-watch-elem","");
+				} else if ($("ytd-watch-grid") != null) {
+					emeraldWatch(data, "grid");
+					emeraldWatchSidebar(data, "grid");
+					$("ytd-watch-grid").setAttribute("ct-watch-elem","");
+				}
 			}
 		});
 	}
@@ -344,43 +400,71 @@ function APIGet() {
 		emeraldBrowse();
 	}
 }
-function emeraldWatch(data) {
+function emeraldWatch(data, ytWatch) {
 	if (data.page == "watch") {
 		if ($("ytd-comments.emerald-moved") == null) {
-			constructLayout(data);
+			constructLayout(data, ytWatch);
 		} else {
-			WPEveryLoad(data);
+			WPEveryLoad(data, ytWatch);
 		}
 	}
 }
-function emeraldWatchSidebar(data) {
+function emeraldWatchSidebar(data, ytWatch) {
 	if (data.page == "watch") {
-		if ($("ytd-watch-next-secondary-results-renderer") != null) {
-			$("#related.ytd-watch-flexy").innerHTML = `
+		if (ytWatch == "flexy") {
+			if ($("ytd-watch-next-secondary-results-renderer") != null) {
+				$("#related.ytd-watch-flexy").innerHTML = `
+				<div id="emerald-watch-sidebar">
+				</div>
+				`
+				WPSidebarEveryLoad(data, ytWatch);
+			} else {
+				WPSidebarEveryLoad(data, ytWatch);
+			}
+		} else if ($("#secondary-inner.ytd-watch-grid") != null) {
+			if ($("ytd-watch-grid ytd-watch-metadata")) {
+				//$("ytd-watch-grid ytd-watch-metadata").remove();
+			}
+			$("#secondary-inner.ytd-watch-grid #related").innerHTML = `
 			<div id="emerald-watch-sidebar">
 			</div>
 			`
-			WPSidebarEveryLoad(data);
+			WPSidebarEveryLoad(data, ytWatch);
 		} else {
-			WPSidebarEveryLoad(data);
+			WPSidebarEveryLoad(data, ytWatch);
 		}
 	}
 }
-function constructLayout(data) {
-	var elm = "#below ytd-comments";
-	if (elm == null) {
-		waitForElement(elm).then(moveComments(0));
+function constructLayout(data, ytWatch) {
+	if (ytWatch == "flexy") {
+		var elm = "#below ytd-comments";
+		if (elm == null) {
+			waitForElement(elm).then(moveComments(0));
+		} else {
+			moveComments(0);
+		}
+		elm = "ytd-watch-flexy #above-the-fold";
+		if (elm == null) {
+			waitForElement(elm).then(obliteratePolymerMeta(ytWatch));
+		} else {
+			obliteratePolymerMeta(ytWatch);
+		}
 	} else {
-		moveComments(0);
-	}
-	elm = "ytd-watch-flexy #above-the-fold";
-	if (elm == null) {
-		waitForElement(elm).then(obliteratePolymerMeta());
-	} else {
-		obliteratePolymerMeta();
+		var elm = "#secondary-inner ytd-comments";
+		if (elm == null) {
+			waitForElement(elm).then(moveComments(2));
+		} else {
+			moveComments(2);
+		}
+		elm = "ytd-watch-grid ytd-watch-metadata span";
+		if (elm == null) {
+			waitForElement(elm).then(obliteratePolymerMeta(ytWatch));
+		} else {
+			obliteratePolymerMeta(ytWatch);
+		}
 	}
 	var comments = "ytd-comments.burned-toast";
-	var emeraldWatch = "#emerald-watch-metadata";
+	//var emeraldWatch = "#emerald-watch-metadata";
 	if (comments == null) {
 		waitForElement(comments).then(moveComments(1));
 	} else {
@@ -388,9 +472,9 @@ function constructLayout(data) {
 	}
 	elm = "ytd-comments.emerald-moved";
 	if (elm == null) {
-		waitForElement(elm).then(WPEveryLoad(data));
+		waitForElement(elm).then(WPEveryLoad(data, ytWatch));
 	} else {
-		WPEveryLoad(data);
+		WPEveryLoad(data, ytWatch);
 	}
 }
 function moveComments(act) {
@@ -407,12 +491,29 @@ function moveComments(act) {
 		elem.classList.remove("burned-toast");
 		elem.classList.add("emerald-moved");
 	}
-}
-function obliteratePolymerMeta() {
-	if ($("#below.ytd-watch-flexy")) {
-		$("#below.ytd-watch-flexy").remove();
+	if (act == 2) {
+		var elem = $('#secondary-inner ytd-comments');
+		var newHome = $('ytd-app');
+		newHome.appendChild(elem);		
+		elem.classList.add("burned-toast");
 	}
-	let container = $("#primary-inner.ytd-watch-flexy");
+}
+function obliteratePolymerMeta(ytWatch) {
+	let container = "";
+	if (ytWatch == "flexy") {
+		if ($("#below.ytd-watch-flexy")) {
+			$("#below.ytd-watch-flexy").remove();
+		}
+		container = $("#primary-inner.ytd-watch-flexy");
+	} else {
+		if ($("#below.ytd-watch-grid")) {
+			$("#below.ytd-watch-grid").remove();
+		}
+		container = $("ytd-watch-grid #primary #primary-inner.ytd-watch-grid");
+		console.log(container);
+		console.log("container");
+	}
+	console.log(container);
 	let newElem = document.createElement("div");
 	newElem.id = "emerald-watch";
 	newElem.innerHTML = `
@@ -438,6 +539,7 @@ function obliteratePolymerMeta() {
 	</div>
 	`;
 	container.insertBefore(newElem, container.children[1]);
+	console.log(newElem);
 	$("#emerald-watch-comments-toggle").addEventListener('click', () => {
 		if ($("#emerald-watch-below[comments-expanded]") != null) {
 			$("#emerald-watch-below").removeAttribute("comments-expanded");
@@ -457,10 +559,14 @@ async function getRelatedContent(data, purpose) {
 					resolve(secResults);
 				}
 				if (secResults.results != null) {
-					if (secResults.results[0].relatedChipCloudRenderer != null) {
-						resolve(secResults.results[1].itemSectionRenderer.contents);
+					if (secResults.results[0].richGridRenderer != null) {
+						resolve(secResults.results[0].richGridRenderer.contents);
 					} else {
-						resolve(secResults.results);
+						if (secResults.results[0].relatedChipCloudRenderer != null) {
+							resolve(secResults.results[1].itemSectionRenderer.contents);
+						} else {
+							resolve(secResults.results);
+						}
 					}
 				}
 			}
@@ -535,13 +641,13 @@ function WPSidebarEveryLoad(data) {
 								<div id="watch4-subscription-container" class="flex emerald-multistate" state="subscribe" multistate-id="subscribe" js-side-meta-subscribe>
 									<a id="watch4-sub-button" js-side-meta-sub-trigger>
 										<div class="watch4-sub-state" state-id="subscribe">
-											<span>Subscribe</span>
+											<span>${emeraldLanguageModel.subscribe}</span>
 										</div>
 										<div class="watch4-sub-state" state-id="subscribed">
-											<span>Subscribed</span>
+											<span>${emeraldLanguageModel.subscribed}</span>
 										</div>
 										<div class="watch4-sub-state" state-id="unsubscribe">
-											<span>Unsubscribe</span>
+											<span>${emeraldLanguageModel.unsubscribe}</span>
 										</div>
 										<div class="watch4-sub-state" state-id="channel-settings">
 											<span>Channel settings</span>
@@ -610,11 +716,11 @@ function WPSidebarEveryLoad(data) {
 									</div>
 									<div class="related-tab-header-title flex-bar" id="related-autoplay">
 										<div class="related-tab-header-title-left">
-											<span>Up next</span>
+											<span>${emeraldLanguageModel.upNext}</span>
 										</div>
 										<div class="related-tab-header-title-right flex-bar">
 											<div id="autoplay-text">
-												<span>Autoplay</span>
+												<span>${emeraldLanguageModel.autoplay}</span>
 											</div>
 											<div id="autoplay-button" class="emerald-multistate">
 												<div class="toggle-container style-scope paper-toggle-button">
@@ -736,7 +842,8 @@ function WPSidebarEveryLoad(data) {
 		var relatedContent = getRelatedContent(data, "relatedContent");
 		relatedContent.then(function(result1) {
 			console.log(result1);
-			fillRelatedContent(result1, data);
+			//fillRelatedContent(result1, data);
+			doRichGrid(result1,data);
 			//genRelated(result1, result);
 		});
 	});
@@ -777,419 +884,6 @@ function doAutoplayButton() {
 		}
 	});
 }
-async function getVidRenData(dataPoint, vidRenType, apiItem) {
-	return new Promise((resolve, reject) => {
-		switch (dataPoint) {
-			case "videoId":
-				if (apiItem.videoId != null) {
-					resolve(apiItem.videoId);
-				} else {
-					resolve(apiItem.navigationEndpoint.watchEndpoint.videoId);
-				} 
-			break;
-			case "title":
-				if (apiItem.title.runs != null) {
-					resolve(apiItem.title.runs[0].text);
-				} else {
-					resolve(apiItem.title.simpleText);
-				}
-			break;
-			case "thumbnail":
-				if (apiItem.thumbnail != null) {
-					resolve(apiItem.thumbnail.thumbnails[0].url);
-				}
-			break;
-			case "time":
-				if (apiItem.thumbnailOverlays != null) {
-					if (apiItem.thumbnailOverlays[0].thumbnailOverlayTimeStatusRenderer != null) {
-						if (apiItem.thumbnailOverlays[0].thumbnailOverlayTimeStatusRenderer.text != null) {
-							resolve(apiItem.thumbnailOverlays[0].thumbnailOverlayTimeStatusRenderer.text.simpleText);
-						}
-					} else if (apiItem.thumbnailOverlays[1].thumbnailOverlayTimeStatusRenderer != null) {
-						if (apiItem.thumbnailOverlays[1].thumbnailOverlayTimeStatusRenderer.text != null) {
-							resolve(apiItem.thumbnailOverlays[1].thumbnailOverlayTimeStatusRenderer.text.simpleText);
-						}
-					}
-				}
-			break;
-			case "progress":
-				if (apiItem.thumbnailOverlays != null) {
-					if (apiItem.thumbnailOverlays[0].thumbnailOverlayTimeStatusRenderer != null) {
-						resolve("0");
-					} else if (apiItem.thumbnailOverlays[1].thumbnailOverlayTimeStatusRenderer != null) {
-						if (apiItem.thumbnailOverlays[0].thumbnailOverlayResumePlaybackRenderer != null) {
-							resolve(apiItem.thumbnailOverlays[0].thumbnailOverlayResumePlaybackRenderer.percentDurationWatched);
-						}
-					}
-				}
-			break;
-			case "author":
-				if (apiItem.longBylineText.runs != null) {
-					resolve(apiItem.longBylineText.runs[0].text);
-					itemAuthorId = apiItem.longBylineText.runs[0].navigationEndpoint.browseEndpoint.browseId;
-				} else {
-					resolve(apiItem.longBylineText.simpleText);
-				}
-			break;
-			case "authorId":
-				if (apiItem.longBylineText.runs != null) {
-					resolve(apiItem.longBylineText.runs[0].navigationEndpoint.browseEndpoint.browseId);
-				}
-			break;
-			case "viewCount":
-				if (apiItem.viewCountText != null) {
-					if (apiItem.viewCountText.simpleText != null) {
-						resolve(apiItem.viewCountText.simpleText);
-					}
-				}
-			break;
-			case "date":
-				if (apiItem.publishedTimeText != null) {
-					if (apiItem.publishedTimeText.simpleText != null) {
-						resolve(apiItem.publishedTimeText.simpleText);
-					}
-				}
-			break;
-			case "videoCount":
-				if (apiItem.videoCountShortText.runs != null) {
-					resolve(apiItem.videoCountShortText.runs[0].text);
-				} else {
-					resolve(apiItem.videoCountShortText.simpleText);
-				}
-			break;
-			case "itemUrl":
-				resolve(apiItem.navigationEndpoint.commandMetadata.webCommandMetadata.url);
-			break;
-			case "playlistId":
-				resolve(apiItem.navigationEndpoint.watchEndpoint.playlistId);
-			break;
-		}
-	});
-}
-function createVideo(purpose, emeraldType, vidRenType, data, apiItem, PRHTMLItem) {
-	let container = "";
-	if (purpose == "related") {
-		container = $("#js-related");
-	}
-	if (container.querySelector(".emerald-compact-item.last-emerald-item") != null) {
-		container.querySelector(".last-emerald-item").classList.remove("last-emerald-item");
-	}
-	if (emeraldType == "emeraldCompact") {
-		var newElem = document.createElement("a");
-		newElem.classList.add("yt-simple-endpoint");
-		newElem.classList.add("emerald-compact-video");
-		newElem.classList.add("emerald-compact-item");
-		newElem.classList.add("last-emerald-item");
-		newElem.setAttribute("emerald-item",PRHTMLItem);
-		newElem.innerHTML = `
-		<div class="emerald-compact-item-inner flex">
-			<div class="thumbnail">
-				<img src=""></img>
-				<div class="time">
-					<span></span>
-				</div>
-				<div class="progress">
-					<div class="progress-inner">
-					</div>
-				</div>
-				<a id="wl-button" class="overlay-button yt-simple-endpoint">
-					<div class="overlay-button-inner">
-					</div>
-				</a>
-			</div>
-			<div class="meta">
-				<div class="emerald-details-level-1">
-					<div class="title">
-						<span></span>
-					</div>
-				</div>
-				<div class="emerald-details-level-2 flex-bar">
-					<span class="byline">by </span>
-					<a class="author yt-simple-endpoint">
-						<span></span>
-					</a>
-				</div>
-				<div class="emerald-details-level-3 flex">
-					<div class="view-count">
-						<span></span>
-					</div>
-					<div class="date">
-						<span></span>
-					</div>
-				</div>
-			</div>
-		</div>
-		`;
-		container.insertBefore(newElem, container.children[PRHTMLItem]);
-	}
-	let itemAuthorLink = "";
-	var videoId = getVidRenData("videoId", vidRenType, apiItem);
-	videoId.then(function(result) {
-		var itemLink = result;
-		newElem.setAttribute("href", "/watch?v=" + result);
-		newElem.setAttribute("video-id",result);
-		var rootVe = PRHTMLItem + 87;
-		var videoData = {
-		  commandMetadata: {
-			webCommandMetadata: {
-			  url: "/watch?v=" + result,
-			  webPageType: "WEB_PAGE_TYPE_WATCH",
-			  rootVe: rootVe
-			}
-		  },
-		  watchEndpoint: {
-			videoId: result
-		  }
-		}
-		newElem.data = videoData;
-		let atrolatrisData = {
-		  "thumbnailOverlayToggleButtonRenderer": {
-			"isToggled": false,
-			"untoggledIcon": {
-			  "iconType": "WATCH_LATER"
-			},
-			"toggledIcon": {
-			  "iconType": "CHECK"
-			},
-			"untoggledTooltip": "Watch later",
-			"toggledTooltip": "Added",
-			"untoggledServiceEndpoint": {
-			  "clickTrackingParams": "CIMBEPnnAxgCIhMI0_Po8pOhhAMVmIX_BB3a2Qv2",
-			  "commandMetadata": {
-				"webCommandMetadata": {
-				  "sendPost": true,
-				  "apiUrl": "/youtubei/v1/browse/edit_playlist"
-				}
-			  },
-			  "playlistEditEndpoint": {
-				"playlistId": "WL",
-				"actions": [
-				  {
-					"addedVideoId": result,
-					"action": "ACTION_ADD_VIDEO"
-				  }
-				]
-			  }
-			},
-			"toggledServiceEndpoint": {
-			  "clickTrackingParams": "CIMBEPnnAxgCIhMI0_Po8pOhhAMVmIX_BB3a2Qv2",
-			  "commandMetadata": {
-				"webCommandMetadata": {
-				  "sendPost": true,
-				  "apiUrl": "/youtubei/v1/browse/edit_playlist"
-				}
-			  },
-			  "playlistEditEndpoint": {
-				"playlistId": "WL",
-				"actions": [
-				  {
-					"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
-					"removedVideoId": result
-				  }
-				]
-			  }
-			},
-			"untoggledAccessibility": {
-			  "accessibilityData": {
-				"label": "Watch later"
-			  }
-			},
-			"toggledAccessibility": {
-			  "accessibilityData": {
-				"label": "Added"
-			  }
-			},
-			"trackingParams": "CIMBEPnnAxgCIhMI0_Po8pOhhAMVmIX_BB3a2Qv2"
-		  }
-		};
-		newElem.querySelector("#wl-button").data = atrolatrisData;
-		newElem.querySelector("#wl-button").addEventListener("click", function() {
-			if (newElem.querySelector("#wl-button.active") != null) {
-				newElem.querySelector("#wl-button").classList.remove("active");
-				editPlaylist("WL", "Watch later", "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", "overlayButton", itemLink);
-			} else {
-				newElem.querySelector("#wl-button").classList.add("active");
-				editPlaylist("WL", "Watch later", "ACTION_ADD_VIDEO", "overlayButton", itemLink);
-			}
-		});
-	});
-	var title = getVidRenData("title", vidRenType, apiItem);
-	title.then(function(result) {
-		newElem.querySelector(".title span").textContent = result;
-		newElem.querySelector(".title").title = result;
-	});
-	var thumbnail = getVidRenData("thumbnail", vidRenType, apiItem);
-	thumbnail.then(function(result) {
-		newElem.querySelector(".thumbnail img").src = result;
-	});
-	var time = getVidRenData("time", vidRenType, apiItem);
-	time.then(function(result) {
-		newElem.querySelector(".time span").textContent = result;
-	});
-	var progress = getVidRenData("progress", vidRenType, apiItem);
-	progress.then(function(result) {
-		newElem.querySelector(".progress-inner").style.width = result + "%";
-		newElem.querySelector(".progress").setAttribute("percent-viewed",result);
-	});
-	var author = getVidRenData("author", vidRenType, apiItem);
-	author.then(function(result) {
-		newElem.querySelector(".author span").textContent = result;
-		newElem.querySelector(".author").title = result;
-	});
-	var authorId = getVidRenData("authorId", vidRenType, apiItem);
-	authorId.then(function(result) {
-		itemAuthorLink = "https://www.youtube.com/channel/" + result;
-		let itemAuthorId = result;
-		newElem.querySelector(".author").setAttribute("href",itemAuthorLink);
-		var rootVe2 = PRHTMLItem + 2779;
-		var authorData = {
-		  commandMetadata: {
-			webCommandMetadata: {
-			  url: "/channel/" + itemAuthorLink,
-			  webPageType: "WEB_PAGE_TYPE_CHANNEL",
-			  rootVe: rootVe2
-			}
-		  },
-		  browseEndpoint: {
-			browseId: itemAuthorId
-		  }
-		}
-		newElem.querySelector(".author").data = authorData;
-	});
-	var viewCount = getVidRenData("viewCount", vidRenType, apiItem);
-	viewCount.then(function(result) {
-		newElem.querySelector(".view-count span").textContent = result;
-	});
-	var date = getVidRenData("date", vidRenType, apiItem);
-	date.then(function(result) {
-		newElem.querySelector(".date span").textContent = result;
-	});
-}
-function createPlaylistRenderer(purpose, emeraldType, vidRenType, data, apiItem, PRHTMLItem) {
-	let container = "";
-	if (purpose == "related") {
-		container = $("#js-related");
-	}
-	if (container.querySelector(".emerald-compact-item.last-emerald-item") != null) {
-		container.querySelector(".last-emerald-item").classList.remove("last-emerald-item");
-	}
-	if (
-	emeraldType == "emeraldCompactPlaylist" ||
-	emeraldType == "emeraldCompactMix"
-	) {
-		var newElem = document.createElement("a");
-		newElem.setAttribute("class", "yt-simple-endpoint emerald-compact-item emerald-compact-playlist last-emerald-item");
-		newElem.setAttribute("emerald-item",PRHTMLItem);
-		newElem.innerHTML = `
-		<div class="emerald-compact-item-inner flex">
-			<div class="thumbnail yt-simple-endpoint">
-				<img src=""></img>
-				<div class="time">
-					<span></span>
-				</div>
-				<div class="playlist-panel">
-					<div class="playlist-panel-inner">
-						<div class="playlist-panel-level-1">
-							<span class="video-count"></span>
-						</div>
-						<div class="playlist-panel-level-2">
-							<span class="videos-text"></span>
-						</div>
-						<div class="playlist-panel-level-3">
-							<span class="icon"></span>
-						</div>
-					</div>
-				</div>
-				<div class="play-all-overlay flex-bar">
-					<div class="play-all-overlay-inner flex-bar">
-						<div class="play-all-overlay-content flex-bar">
-							<span class="play-icon"></span>
-							<span class="play-all-text">Play all</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="meta">
-				<div class="emerald-details-level-1">
-					<div class="title yt-simple-endpoint">
-						<span></span>
-					</div>
-				</div>
-				<div class="emerald-details-level-2">
-					<div class="author">
-						<span class="byline">by </span>
-						<span></span>
-					</div>
-				</div>
-				<div class="emerald-details-level-3 flex" hidden>
-					<div class="view-count">
-						<span></span>
-					</div>
-					<div class="date">
-						<span></span>
-					</div>
-				</div>
-			</div>
-		</div>
-		`;
-		container.insertBefore(newElem, container.children[PRHTMLItem]);
-		if (emeraldType == "emeraldCompactMix") {
-			newElem.classList.add("emerald-compact-mix");
-			newElem.querySelector(".playlist-panel").classList.add("mix-panel");
-		}
-	}
-	var videoId = getVidRenData("videoId", vidRenType, apiItem);
-	videoId.then(function(result) {
-		let PRItemLink = result;
-		newElem.setAttribute("video-id",result);
-		var itemUrl = getVidRenData("itemUrl", vidRenType, apiItem);
-		itemUrl.then(function(itemUrl) {
-			var playlistId = getVidRenData("playlistId", vidRenType, apiItem);
-			playlistId.then(function(itemPlaylistId) {
-				newElem.setAttribute("href", itemUrl);
-				let rootVe1 = PRHTMLItem + 8117;
-				var videoData = {
-				  commandMetadata: {
-					webCommandMetadata: {
-					  url: itemUrl,
-					  webPageType: "WEB_PAGE_TYPE_WATCH",
-					  rootVe: rootVe1
-					}
-				  },
-				  watchEndpoint: {
-					videoId: PRItemLink,
-					playlistId: itemPlaylistId
-				  }
-				}
-				newElem.data = videoData;
-			});
-		});
-	});
-	var itemUrl = getVidRenData("itemUrl", vidRenType, apiItem);
-	itemUrl.then(function(itemUrl) {
-		newElem.setAttribute("href", itemUrl);
-	});
-	var title = getVidRenData("title", vidRenType, apiItem);
-	title.then(function(result) {
-		newElem.querySelector(".title span").textContent = result;
-		newElem.querySelector(".title").title = result;
-	});
-	var thumbnail = getVidRenData("thumbnail", vidRenType, apiItem);
-	thumbnail.then(function(result) {
-		newElem.querySelector(".thumbnail img").src = result;
-	});
-	var author = getVidRenData("author", vidRenType, apiItem);
-	author.then(function(result) {
-		newElem.querySelector(".author span").textContent = result;
-		newElem.querySelector(".author").title = result;
-	});
-	var itemUrl = apiItem.navigationEndpoint.commandMetadata.webCommandMetadata.url;
-	var videoCount = getVidRenData("videoCount", vidRenType, apiItem);
-	videoCount.then(function(result) {
-		newElem.querySelector(".video-count").textContent = result;
-	});
-	newElem.querySelector(".videos-text").textContent = "videos";
-}
 async function fetchVideo(id) {
 	return new Promise((resolve, reject) => {
 		fetch("https://www.youtube.com/youtubei/v1/next?prettyPrint=false&key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8", {
@@ -1226,78 +920,6 @@ async function fetchPlayer(id) {
 		});
 	});
 }
-function fillRelatedContent(related, data, PRHTMLItem, c) {
-	var PRrelatedCheck = 0;
-	if (PRHTMLItem == null) {
-		var PRHTMLItem = 0;
-	} else if ($(".emerald-compact-item.last-emerald-item") != null) {
-		PRHTMLItem = $(".emerald-compact-item.last-emerald-item").getAttribute("emerald-item");
-		if (c == "c") {
-			PRHTMLItem++;
-		}
-	}
-	for (let i = 0; i < related.length; i++) {
-		if (related[PRrelatedCheck].compactVideoRenderer != null) {
-			var apiItem = related[PRrelatedCheck].compactVideoRenderer;
-			console.log(apiItem);
-			createVideo("related", "emeraldCompact", "compactVideo", data, apiItem, PRHTMLItem);
-			PRHTMLItem++;
-		} else if (related[PRrelatedCheck].compactRadioRenderer != null) {
-			var apiItem = related[PRrelatedCheck].compactRadioRenderer;
-			console.log(apiItem);
-			createPlaylistRenderer("related", "emeraldCompactMix", "compactRadio", data, apiItem, PRHTMLItem);
-			PRHTMLItem++;
-		} else if (related[PRrelatedCheck].compactPlaylistRenderer != null) {
-			var apiItem = related[PRrelatedCheck].compactPlaylistRenderer;
-			console.log(apiItem);
-			createPlaylistRenderer("related", "emeraldCompactPlaylist", "compactPlaylist", data, apiItem, PRHTMLItem);
-			PRHTMLItem++;
-		} else if (related[PRrelatedCheck].continuationItemRenderer != null) {
-			var continuationToken = related[PRrelatedCheck].continuationItemRenderer.continuationEndpoint.continuationCommand.token;
-			createLoadMore(continuationToken, PRHTMLItem);
-		}
-		PRrelatedCheck++;
-	}
-	if ($("html[use-sidebar-autoplay]") != null) {
-		var elm = ".emerald-compact-item[emerald-item='13']";
-		waitForElement(elm).then(function(elm) {
-			if (canGo != false) {
-				var autoplayVideo = getAutoplayVideo(data);
-				autoplayVideo.then(function(result) {
-					console.log(result);
-					let PRcheck = 0;
-					let jsRelated = $("#js-related");
-					for (let i = 0; i < 21; i++) {
-						if (jsRelated.querySelectorAll(".emerald-compact-video")[PRcheck] != null) {
-							if ($(".autoplay-fulfilled") == null) {
-								let thing = document.querySelectorAll(".emerald-compact-video")[PRcheck].getAttribute("video-id");
-								if (thing == result) {
-									$("#js-autoplay").classList.add("autoplay-fulfilled");
-									let theHTML = jsRelated.querySelectorAll(".emerald-compact-video")[PRcheck].innerHTML;
-									let theData = jsRelated.querySelectorAll(".emerald-compact-video")[PRcheck].data;
-									let elem = jsRelated.querySelectorAll(".emerald-compact-video")[PRcheck];
-									let authorData = elem.querySelector(".author").data;
-									$("#js-autoplay").innerHTML = `
-									<a class="emerald-compact-item emerald-compact-video yt-simple-endpoint">
-									</a>
-									`;
-									$("#js-autoplay a").innerHTML = theHTML;
-									$("#js-autoplay a").data = theData;
-									$("#js-autoplay .author").data = authorData;
-									jsRelated.querySelectorAll(".emerald-compact-video")[PRcheck].style.display = "none";
-								} else {
-									PRcheck++;
-								}
-							}
-						} else {
-							PRcheck++;
-						}
-					}
-				});
-			}
-		});
-	}
-}
 function createLoadMore(token, PRHTMLItem) {
 	let container = document.querySelector('#js-related').parentNode;
 	var newElem = document.createElement("div");
@@ -1318,6 +940,11 @@ function createLoadMore(token, PRHTMLItem) {
 		newElem.querySelector("span").textContent = "Load more suggestions";
 	} else {
 		newElem.querySelector("span").textContent = "Show more";
+	}
+	if ($("html[layout^='polymer']") != null) {
+		let container2 = newElem;
+		var newElem2 = document.createElement("paper-ripple");
+		container2.insertBefore(newElem2, container2.children[0]);
 	}
 	newElem.addEventListener("click", function() {
 		newElem.remove();
@@ -1342,7 +969,8 @@ function fetchRelated(token, PRHTMLItem) {
 		var cont = getRelatedContent(data, "continuation");
 		cont.then(function(result) {
 			console.log(result);
-			fillRelatedContent(result, data, PRHTMLItem, "c");
+			//fillRelatedContent(result, data, PRHTMLItem, "c");
+			doRichGrid(result, data, PRHTMLItem, "c");
 		});
 	});
 }
@@ -1428,7 +1056,12 @@ function WPEveryLoad(data) {
 	});
 }
 function createWatchAbove(wV) {
-	var container = $("ytd-watch-flexy");
+	let container = "";
+	if ($("ytd-watch-flexy")) {
+		container = $("ytd-watch-flexy");
+	} else {
+		container = $("ytd-watch-grid");
+	}
 	var newElem = document.createElement("div");
 	newElem.id = "emerald-watch-above";
 	newElem.setAttribute("class","bt-universalized-element");
@@ -1534,13 +1167,13 @@ function createWatchAbove(wV) {
 						<div class="watch-above-sub-icon">
 						</div>
 						<div class="watch-above-sub-state" state-id="subscribe">
-							<span> Subscribe </span>
+							<span> ${emeraldLanguageModel.subscribe} </span>
 						</div>
 						<div class="watch-above-sub-state" state-id="subscribed">
-							<span> Subscribed </span>
+							<span> ${emeraldLanguageModel.subscribed} </span>
 						</div>
 						<div class="watch-above-sub-state" state-id="unsubscribe">
-							<span> Unsubscribe </span>
+							<span> ${emeraldLanguageModel.unsubscribe} </span>
 						</div>
 						<div class="watch-above-sub-state" state-id="channel-settings">
 							<span> Channel settings </span>
@@ -1598,13 +1231,13 @@ function createWatchAbove(wV) {
 					<div class="watch-above-sub-icon">
 					</div>
 					<div class="watch-above-sub-state" state-id="subscribe">
-						<span> Subscribe </span>
+						<span> ${emeraldLanguageModel.subscribe} </span>
 					</div>
 					<div class="watch-above-sub-state" state-id="subscribed">
-						<span> Subscribed </span>
+						<span> ${emeraldLanguageModel.subscribed} </span>
 					</div>
 					<div class="watch-above-sub-state" state-id="unsubscribe">
-						<span> Unsubscribe </span>
+						<span> ${emeraldLanguageModel.unsubscribe} </span>
 					</div>
 					<div class="watch-above-sub-state" state-id="channel-settings">
 						<span> Channel settings </span>
@@ -1629,14 +1262,24 @@ function createWatchAbove(wV) {
 		});
 	}
 	if ($("html[static]") == null) {
-		var primWidth = $("#primary.ytd-watch-flexy").offsetWidth;
-		var secWidth = $("#secondary.ytd-watch-flexy").offsetWidth;
+		if ($("ytd-watch-flexy")) {
+			var primWidth = $("#primary.ytd-watch-flexy").offsetWidth;
+			var secWidth = $("#secondary.ytd-watch-flexy").offsetWidth;
+		} else {
+			var primWidth = $("#primary.ytd-watch-grid").offsetWidth;
+			var secWidth = $("#secondary.ytd-watch-grid").offsetWidth;
+		}
 		var colsWidth = primWidth + secWidth;
 		var trueWidth = colsWidth - 25;
 		$("#emerald-watch-above").style.width = trueWidth + "px";
 		window.addEventListener("resize", function() {
-			var primWidth = $("#primary.ytd-watch-flexy").offsetWidth;
-			var secWidth = $("#secondary.ytd-watch-flexy").offsetWidth;
+			if ($("ytd-watch-flexy")) {
+				var primWidth = $("#primary.ytd-watch-flexy").offsetWidth;
+				var secWidth = $("#secondary.ytd-watch-flexy").offsetWidth;
+			} else {
+				var primWidth = $("#primary.ytd-watch-grid").offsetWidth;
+				var secWidth = $("#secondary.ytd-watch-grid").offsetWidth;
+			}
 			var colsWidth = primWidth + secWidth;
 			var trueWidth = colsWidth - 25;
 			$("#emerald-watch-above").style.width = trueWidth + "px";
@@ -1677,7 +1320,7 @@ function createWatch4(wV) {
 									<span></span>
 								</a>
 							</div>
-							<div id="watch4-star-3" class="watch4-star" js-star-3-button title="Rate 3 stars (dislike)">
+							<div id="watch4-star-3" class="watch4-star" js-star-3-button title="Rate 3 stars (like)">
 								<a>
 									<span></span>
 								</a>
@@ -1959,7 +1602,7 @@ function createWatch4(wV) {
 		}, 10);
 	});
 	star3.addEventListener("click", function() {
-		$("[js-dislike-button]").click();
+		$("[js-like-button]").click();
 		setTimeout(function() {
 			if ($("#watch4-ratings[rated]") != null) {
 				ratedElem.setAttribute("user-rating","3");
@@ -2360,13 +2003,13 @@ function createWatch7() {
 									<div class="watch7-sub-icon">
 									</div>
 									<div class="watch7-sub-state" state-id="subscribe">
-										<span>Subscribe</span>
+										<span>${emeraldLanguageModel.subscribe}</span>
 									</div>
 									<div class="watch7-sub-state" state-id="subscribed">
-										<span>Subscribed</span>
+										<span>${emeraldLanguageModel.subscribed}</span>
 									</div>
 									<div class="watch7-sub-state" state-id="unsubscribe">
-										<span>Unsubscribe</span>
+										<span>${emeraldLanguageModel.unsubscribe}</span>
 									</div>
 									<div class="watch7-sub-state" state-id="channel-settings">
 										<span>Channel settings</span>
@@ -2865,13 +2508,13 @@ function createWatch8() {
 									<div class="watch7-sub-icon">
 									</div>
 									<div class="watch7-sub-state" state-id="subscribe">
-										<span>Subscribe</span>
+										<span>${emeraldLanguageModel.subscribe}</span>
 									</div>
 									<div class="watch7-sub-state" state-id="subscribed">
-										<span>Subscribed</span>
+										<span>${emeraldLanguageModel.subscribed}</span>
 									</div>
 									<div class="watch7-sub-state" state-id="unsubscribe">
-										<span>Unsubscribe</span>
+										<span>${emeraldLanguageModel.unsubscribe}</span>
 									</div>
 									<div class="watch7-sub-state" state-id="channel-settings">
 										<span>Channel settings</span>
@@ -2953,7 +2596,7 @@ function createWatch8() {
 									<div class="watch8-header-text">
 										<span>Share this video</span>
 									</div>
-									<div class="watch8-loading-text">
+									<div class="watch7-loading-text">
 										<span>Sharing features are currently limited in CustomTube. Click "Reload page with CustomTube disabled" to see all available share options.</span>
 									</div>
 									<div id="watch7-share-options" class="flex" js-share-options>
@@ -3052,7 +2695,7 @@ function createWatch8() {
 									<div class="watch8-header-text">
 										<span>Report video</span>
 									</div>
-									<div class="watch8-loading-text">
+									<div class="watch7-loading-text">
 										<span>Sorry, but this feature is not implemented in CustomTube. If you want to report this video, you need to do it within the regular YouTube watch layout.</span>
 									</div>
 									<div id="report-redir-button" class="emerald-hh-button emerald-hh-button-cta">
@@ -3605,13 +3248,13 @@ function createWatch9(wV) {
 								<div class="watch9-sub-icon">
 								</div>
 								<div class="watch9-sub-state" state-id="subscribe">
-									<span>Subscribe</span>
+									<span>${emeraldLanguageModel.subscribe}</span>
 								</div>
 								<div class="watch9-sub-state" state-id="subscribed">
-									<span>Subscribed</span>
+									<span>${emeraldLanguageModel.subscribed}</span>
 								</div>
 								<div class="watch9-sub-state" state-id="unsubscribe">
-									<span>Unsubscribe</span>
+									<span>${emeraldLanguageModel.unsubscribe}</span>
 								</div>
 								<div class="watch9-sub-state" state-id="channel-settings">
 									<span>Analytics</span>
@@ -3872,7 +3515,7 @@ async function getVideoInfo(data, method, purpose, dataType) {
 								if (container[1].videoSecondaryInfoRenderer.attributedDescription != null) {
 									resolve(container[1].videoSecondaryInfoRenderer.attributedDescription.content);
 								} else {
-									resolve("<i>No description available.</i>");
+									resolve(null);
 								}
 							}
 							if (purpose == "descLinks") {
@@ -3917,28 +3560,25 @@ async function getVideoInfo(data, method, purpose, dataType) {
 									resolve("[Failed to get subscription status.]");
 								}
 							}
-							if (purpose == "subEnd") {
-								if (container[1].videoSecondaryInfoRenderer.subscribeButton != null) {
-									if (container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer.onSubscribeEndpoints != null) {
-										resolve(container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer.onSubscribeEndpoints[0].subscribeEndpoint.params);
-									} else {
-										resolve("[Failed to get subscription status.]");
-									}
-								} else {
-									resolve("[Failed to get subscription status.]");
-								}
-							}
-							if (purpose == "unsubEnd") {
-								if (container[1].videoSecondaryInfoRenderer.subscribeButton != null) {
-									if (container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer.onUnsubscribeEndpoints[0].signalServiceEndpoint.actions[0].openPopupAction.popup.confirmDialogRenderer != null) {
-										if (container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer.onUnsubscribeEndpoints[0].signalServiceEndpoint.actions[0].openPopupAction.popup.confirmDialogRenderer.confirmButton.buttonRenderer.serviceEndpoint.unsubscribeEndpoint.params != null) {
-											resolve(container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer.onUnsubscribeEndpoints[0].signalServiceEndpoint.actions[0].openPopupAction.popup.confirmDialogRenderer.confirmButton.buttonRenderer.serviceEndpoint.unsubscribeEndpoint.params);
+							if (container[1].videoSecondaryInfoRenderer.subscribeButton != null) {
+								if (container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer != null) {
+									if (purpose == "subEnd") {
+										if (container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer.onSubscribeEndpoints != null) {
+											resolve(container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer.onSubscribeEndpoints[0].subscribeEndpoint.params);
+										} else {
+											resolve("[Failed to get subscription status.]");
 										}
-									} else {
 										resolve("[Failed to get subscription status.]");
 									}
-								} else {
-									resolve("[Failed to get subscription status.]");
+									if (purpose == "unsubEnd") {
+										if (container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer.onUnsubscribeEndpoints[0].signalServiceEndpoint.actions[0].openPopupAction.popup.confirmDialogRenderer != null) {
+											if (container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer.onUnsubscribeEndpoints[0].signalServiceEndpoint.actions[0].openPopupAction.popup.confirmDialogRenderer.confirmButton.buttonRenderer.serviceEndpoint.unsubscribeEndpoint.params != null) {
+												resolve(container[1].videoSecondaryInfoRenderer.subscribeButton.subscribeButtonRenderer.onUnsubscribeEndpoints[0].signalServiceEndpoint.actions[0].openPopupAction.popup.confirmDialogRenderer.confirmButton.buttonRenderer.serviceEndpoint.unsubscribeEndpoint.params);
+											} else {
+											resolve("[Failed to get subscription status.]");
+											}
+										}
+									}
 								}
 							}
 						} else {
@@ -4043,7 +3683,7 @@ async function getVideoInfo(data, method, purpose, dataType) {
 								if (container[2].videoSecondaryInfoRenderer.attributedDescription != null) {
 									resolve(container[2].videoSecondaryInfoRenderer.attributedDescription.content);
 								} else {
-									resolve("<i>No description available.</i>");
+									resolve(null);
 								}
 							}
 							if (purpose == "descLinks") {
@@ -4313,8 +3953,8 @@ function populateWatch(data) {
 			$("#js-watch-above-video-count").data = navDataVids;
 		}
 		if ($("#js-watch-above-video-count-2") != null) {
-			$("#js-watch-above-video-count-2").setAttribute("href",ownerUrlVids);
-			$("#js-watch-above-video-count-2").data = navDataVids;
+			$("#videos-dd-videos-link").setAttribute("href",ownerUrlVids);
+			$("#videos-dd-videos-link").data = navDataVids;
 		}
 		if ($("#appbar-watch-videos") != null) {
 			$("#appbar-watch-videos").setAttribute("href",ownerUrlVids);
@@ -4392,26 +4032,35 @@ function populateWatch(data) {
 	});
 	var desc = getVideoInfo(data, "contents", "desc");
 	desc.then(function(result) {
-		var doDescLinks = getVideoInfo(data, "contents", "descLinks");
-		doDescLinks.then(function(result1) {
-			if (result1 == "0") {
-				var theText = result;
-				console.log(theText);
-				theText = theText.replaceAll('\n', `<br>`);
-				var container = document.querySelector('#js-desc');
-				var newElem = document.createElement("span");
-				newElem.setAttribute("class", "emerald-run");
-				newElem.setAttribute("bt-optimized-universal-element", "");
-				newElem.innerHTML = theText; // This MUST be innerHTML. There is NO way around this.
-				container.insertBefore(newElem, container.children[0]);
-			} else {
-				var conv = convertDescription(result1);
-				conv.then(function(result2) {
-					console.log(result2);
-					emeraldDescription(result2);
-				});
-			}
-		});
+		if (result != null) {
+			var doDescLinks = getVideoInfo(data, "contents", "descLinks");
+			doDescLinks.then(function(result1) {
+				if (result1 == "0") {
+					var theText = result;
+					console.log(theText);
+					theText = theText.replaceAll('\n', `<br>`);
+					var container = document.querySelector('#js-desc');
+					var newElem = document.createElement("span");
+					newElem.setAttribute("class", "emerald-run");
+					newElem.setAttribute("bt-optimized-universal-element", "");
+					newElem.innerHTML = theText; // This MUST be innerHTML. There is NO way around this.
+					container.insertBefore(newElem, container.children[0]);
+				} else {
+					var conv = convertDescription(result1);
+					conv.then(function(result2) {
+						console.log(result2);
+						emeraldDescription(result2);
+					});
+				}
+			});
+		} else {
+			var container = document.querySelector('#js-desc');
+			var newElem = document.createElement("span");
+			newElem.setAttribute("class", "emerald-run");
+			newElem.setAttribute("bt-optimized-universal-element", "");
+			newElem.innerHTML = `<i>No description available.</i>`;
+			container.insertBefore(newElem, container.children[0]);
+		}
 	});
 	var category = getVideoInfo(data, "microformat", "category");
 	category.then(function(result) {
@@ -4974,10 +4623,6 @@ function doVideosDropdowns(data,channelId) {
 										<div class="progress-inner">
 										</div>
 									</div>
-									<a id="wl-button" class="overlay-button yt-simple-endpoint">
-										<div class="overlay-button-inner">
-										</div>
-									</a>
 								</div>
 								<div class="meta">
 									<div class="emerald-details-level-1">
@@ -5657,6 +5302,7 @@ function emeraldDescription(attrDesc) {
 	var currentCheck = 0;
 	for (let i = 0; i < runs.length; i++) {
 		if (runs[currentCheck].navigationEndpoint != null) {
+			var theActualText = runs[currentCheck].text;
 			if (runs[currentCheck].navigationEndpoint.browseEndpoint != null) {
 				if (runs[currentCheck].navigationEndpoint.browseEndpoint.canonicalBaseUrl != null) {
 					var theLink = runs[currentCheck].navigationEndpoint.browseEndpoint.canonicalBaseUrl;
@@ -5689,7 +5335,13 @@ function emeraldDescription(attrDesc) {
 			} else {
 				var theText = theLink;
 			}
-			console.log(theLink);
+			if (
+			theActualText.includes(":") &&
+			theLink.includes("/watch?v=")
+			) {
+				var theText = runs[currentCheck].text;
+			}
+			//console.log(theLink);
 			var container = document.querySelector('#js-desc');
 			var newElem = document.createElement("a");
 			newElem.setAttribute("class", "emerald-run emerald-link yt-simple-endpoint");
@@ -5732,6 +5384,7 @@ async function convertDescription(a) {
 		var run = a.commandRuns[i],
 			beforeText = a.content.substr(start, run.startIndex - start);
 
+		//console.log(run);
 		if(beforeText) {
 			runs.push({
 				text: beforeText
@@ -5740,12 +5393,10 @@ async function convertDescription(a) {
 
 		var text = a.content.substring(run.startIndex, run.startIndex + run.length),
 			endpoint = run.onTap.innertubeCommand;
-
 		runs.push({
 			text: text,
 			navigationEndpoint: endpoint
 		});
-
 		start = run.startIndex + run.length;
 	}
 
@@ -5758,7 +5409,14 @@ async function convertDescription(a) {
 
 	runs.forEach(function(run) {
 		if (run.navigationEndpoint?.watchEndpoint) {
-			run.text = "https://www.youtube.com" + run.navigationEndpoint.commandMetadata.webCommandMetadata.url.substring(0, 37) + "...";
+			//console.log(run);
+			//var felfa = run.onTap.innertubeCommand.commandMetadata.webCommandMetadata.url;
+			var felfa = run.text;
+			if (felfa.includes(":")) {
+				run.text = felfa;
+			} else {
+				run.text = "https://www.youtube.com" + run.navigationEndpoint.commandMetadata.webCommandMetadata.url.substring(0, 37) + "...";
+			}
 		}
 	});
 
@@ -5775,11 +5433,9 @@ function doRyd(videoId) {
 		"referrerPolicy": "strict-origin-when-cross-origin",
 		"method": "GET"
 	}).then(response => response.json()).then(data => {
-		console.log(data);
 		var likeCount = parseInt(data.likes);
 		var dislikeCount = parseInt(data.dislikes);
 		var total = likeCount + dislikeCount;
-		console.log(total);
 		var rating = dislikeCount / total;
 		likeCount = numberWithCommas(likeCount);
 		dislikeCount = numberWithCommas(dislikeCount);
@@ -5839,7 +5495,7 @@ async function doChannelVideos(ownerId) {
 			"method": "POST",
 			"credentials": "include"
 		}).then(response => response.json()).then(data => {
-			console.log(data);
+			//console.log(data);
 			resolve(data);
 		});
 	});
@@ -6087,7 +5743,7 @@ function emeraldBrowse() {
 		fetchShelfHomepage(false, rootC);
 	} else {
 		storedHomepageData = JSON.parse(storedHomepageData);
-		console.log(storedHomepageData);
+		//console.log(storedHomepageData);
 		let dateNow = Date.now();
 		let dateBad = storedHomepageData.time.expires;
 		if (dateNow > dateBad) {
@@ -6111,7 +5767,7 @@ function fetchShelfHomepage(parseAfter, rootC) {
 		"mode": "cors",
 		"credentials": "include"
 	}).then(response => response.json()).then(data => {
-		console.log(data);
+		//console.log(data);
 		let dateNow = Date.now();
 		let dateBad = dateNow + 1800000;
 		let PRforStorage = {
@@ -6138,8 +5794,9 @@ function parseShelves(data, rootC) {
 		}
 	});
 }
-class ShelfVideoModel {
-	id;
+class EmeraldVideoModel {
+	videoId;
+	itemLink;
 	title;
 	thumbnail;
 	time;
@@ -6149,26 +5806,48 @@ class ShelfVideoModel {
 	authorNav;
 	date;
 	viewCount;
+	viewCountExtension;
 	navEnd;
 	rootVe;
-	constructor(shelfVideo, rootC) {
+	videoCount;
+	badge1;
+	badge1type;
+	badge2;
+	badge2type;
+	constructor(shelfVideo, type) {
 		let apiItem = shelfVideo;
-		this.rootVe = rootC;
+		//this.rootVe = rootC;
 		if (apiItem.title.runs != null) {
 			this.title = apiItem.title.runs[0].text;
 		} else {
 			this.title = apiItem.title.simpleText;
 		}
 		if (apiItem.videoId != null) {
-			this.id = apiItem.videoId;
+			this.videoId = apiItem.videoId;
 		} else {
-			this.id = apiItem.navigationEndpoint.watchEndpoint.videoId;
+			this.videoId = apiItem.navigationEndpoint.watchEndpoint.videoId;
 		} 
 		if (apiItem.thumbnail != null) {
-			this.thumbnail = apiItem.thumbnail.thumbnails[1].url;
+			if (apiItem.thumbnail.thumbnails) {
+				if (apiItem.thumbnail.thumbnails[1].url) {
+					this.thumbnail = apiItem.thumbnail.thumbnails[1].url;
+				} else {
+					this.thumbnail = apiItem.thumbnail.thumbnails[0].url;
+				}
+			} else {
+				this.thumbnail = apiItem.thumbnail;
+			}
+		} else if (apiItem.thumbnails != null) {
+			this.thumbnail = apiItem.thumbnails[0].thumbnails[1].url;
 		}
 		if (apiItem.lengthText != null) {
-			this.time = apiItem.lengthText.runs[0].text;
+			if (apiItem.lengthText.runs != null) {
+				this.time = apiItem.lengthText.runs[0].text;
+			} else {
+				this.time = apiItem.lengthText.simpleText;
+			}
+		} else {
+			this.time = "LIVE";
 		}
 		if (apiItem.thumbnailOverlays != null) {
 			if (apiItem.thumbnailOverlays[0].thumbnailOverlayTimeStatusRenderer != null) {
@@ -6181,7 +5860,10 @@ class ShelfVideoModel {
 		}
 		if (apiItem.longBylineText.runs != null) {
 			this.author = apiItem.longBylineText.runs[0].text;
-			this.authorId = apiItem.longBylineText.runs[0].navigationEndpoint.browseEndpoint.browseId;
+			if (apiItem.longBylineText.runs[0].navigationEndpoint != null) {
+				this.authorNav = apiItem.longBylineText.runs[0].navigationEndpoint;
+				this.authorId = apiItem.longBylineText.runs[0].navigationEndpoint.browseEndpoint.browseId;
+			}
 		} else {
 			this.author = apiItem.longBylineText.simpleText;
 		}
@@ -6190,6 +5872,9 @@ class ShelfVideoModel {
 				this.viewCount = apiItem.viewCountText.simpleText;
 			} else {
 				this.viewCount = apiItem.viewCountText.runs[0].text;
+				if (apiItem.viewCountText.runs[1]) {
+					this.viewCountExtension = apiItem.viewCountText.runs[1].text;
+				}
 			}
 		}
 		if (apiItem.publishedTimeText != null) {
@@ -6199,9 +5884,12 @@ class ShelfVideoModel {
 				this.date = apiItem.publishedTimeText.runs[0].text;
 			}
 		}
-		let url = "/watch?v=" + this.id;
+		let url = "/watch?v=" + this.videoId;
 		let chanUrl = "/channel/" + this.authorId;
-		this.navEnd = {
+		if (apiItem.thumbnailText) {
+			this.videoCount = apiItem.thumbnailText.runs[0].text;
+		}
+		/*this.navEnd = {
 		commandMetadata: {
 			webCommandMetadata: {
 			  url: url,
@@ -6214,8 +5902,9 @@ class ShelfVideoModel {
 			canonicalBaseUrl: url
 		  }
 		}
-		rootC++;
-		this.authorNav = {
+		rootC++;*/
+		this.navEnd = apiItem.navigationEndpoint;
+		/*this.authorNav = {
 		commandMetadata: {
 			webCommandMetadata: {
 			  url: chanUrl,
@@ -6227,6 +5916,30 @@ class ShelfVideoModel {
 			browseId: this.authorId,
 			canonicalBaseUrl: chanUrl
 		  }
+		}*/
+		if (
+		type == "playlist" ||
+		type == "mix"
+		) {
+			this.itemLink = apiItem.navigationEndpoint.commandMetadata.webCommandMetadata.url;
+		} else {
+			this.itemLink = "/watch?v=" + this.videoId;
+		}
+		if (apiItem.badges != null) {
+			let PRbadge = 0;
+			apiItem.badges.forEach(itemRoot => {
+				if (itemRoot.metadataBadgeRenderer) {
+					if (PRbadge == 0) {
+						this.badge1 = itemRoot.metadataBadgeRenderer.label;
+						this.badge1type = itemRoot.metadataBadgeRenderer.style;
+					}
+					if (PRbadge == 1) {
+						this.badge2 = itemRoot.metadataBadgeRenderer.label;
+						this.badge2type = itemRoot.metadataBadgeRenderer.style;
+					}
+				}
+				PRbadge++;
+			});
 		}
 	}
 }
@@ -6304,7 +6017,7 @@ function doShelf(shelf, PRShelfNo, rootC) {
 	});
 }
 function doShelfVideo(shelfVideo, PRHTMLItem, PRShelfNo, rootC) {
-	let shelfVideoModel = new ShelfVideoModel(shelfVideo, rootC);
+	let shelfVideoModel = new EmeraldVideoModel(shelfVideo, rootC);
 	let container = document.querySelectorAll(".emerald-shelf")[PRShelfNo];
 	container = container.querySelector("[js-shelf-content]");
 	newElem = document.createElement("a");
@@ -6323,7 +6036,7 @@ function doShelfVideo(shelfVideo, PRHTMLItem, PRShelfNo, rootC) {
 				<span>${shelfVideoModel.time}</span>
 			</div>
 			<div class="progress">
-				<div class="progress-inner" style="width: ${shelfVideoModel.progress}px;"></div>
+				<div class="progress-inner" style="width: ${shelfVideoModel.progress}%;"></div>
 			</div>
 			<a id="wl-button" class="overlay-button yt-simple-endpoint">
 				<div class="overlay-button-inner">
@@ -6358,4 +6071,387 @@ function doShelfVideo(shelfVideo, PRHTMLItem, PRShelfNo, rootC) {
 	}
 	newElem.data = shelfVideoModel.navEnd;
 	newElem.querySelector(".author").data = shelfVideoModel.authorNav;
+}
+function doCompactVideo(purpose, apiElem, PRHTMLItem, type) {
+	let emeraldVideoModel = new EmeraldVideoModel(apiElem, type);
+	//console.log(emeraldVideoModel);
+	if (purpose == "related") {
+		container = $("#js-related");
+	}
+	if (container.querySelector(".emerald-compact-item.last-emerald-item") != null) {
+		container.querySelector(".last-emerald-item").classList.remove("last-emerald-item");
+	}
+	var newElem = document.createElement("a");
+	newElem.classList.add("yt-simple-endpoint");
+	if (type == "video") {
+		newElem.classList.add("emerald-compact-video");
+	} else {
+		newElem.classList.add("emerald-compact-playlist");
+	}
+	newElem.classList.add("emerald-compact-item");
+	newElem.classList.add("last-emerald-item");
+	newElem.setAttribute("emerald-item",PRHTMLItem);
+	newElem.setAttribute("video-id",emeraldVideoModel.videoId);
+	//newElem.setAttribute("root-ve",emeraldVideoModel.rootVe);
+	newElem.setAttribute("href",emeraldVideoModel.itemLink);
+	if (type == "video") {
+		newElem.innerHTML = `
+		<div class="emerald-compact-item-inner flex">
+			<div class="thumbnail">
+				<img src="${emeraldVideoModel.thumbnail}"></img>
+				<div class="time">
+					<span>${emeraldVideoModel.time}</span>
+				</div>
+				<div class="progress" hidden>
+					<div class="progress-inner" style="width: ${emeraldVideoModel.progress}%;"></div>
+				</div>
+				<a id="wl-button" class="overlay-button yt-simple-endpoint">
+					<div class="overlay-button-inner">
+					</div>
+				</a>
+			</div>
+			<div class="meta">
+				<div class="emerald-details-level-1">
+					<div class="title" title="${emeraldVideoModel.title}">
+						<span>${emeraldVideoModel.title}</span>
+					</div>
+				</div>
+				<div class="emerald-details-level-2 flex-bar">
+					<span class="byline">by </span>
+					<a class="author yt-simple-endpoint" href="https://www.youtube.com/channel/${emeraldVideoModel.authorId}" title="${emeraldVideoModel.author}">
+						<span>${emeraldVideoModel.author}</span>
+					</a>
+				</div>
+				<div class="emerald-details-level-3 flex">
+					<div class="view-count">
+						<span>${emeraldVideoModel.viewCount}</span>
+						<span class="view-count-extension" hidden>${emeraldVideoModel.viewCountExtension}</span>
+					</div>
+					<div class="date" hidden>
+						<span>${emeraldVideoModel.date}</span>
+					</div>
+				</div>
+				<div class="emerald-details-level-4 flex">
+					<div class="emerald-badges flex">
+						<div class="emerald-badge" hidden>
+							<span>${emeraldVideoModel.badge1}</span>
+						</div>
+						<div class="emerald-badge" hidden>
+							<span>${emeraldVideoModel.badge2}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		`;	
+	} else {
+		newElem.innerHTML = `
+		<div class="emerald-compact-item-inner flex">
+			<div class="thumbnail yt-simple-endpoint">
+				<img src="${emeraldVideoModel.thumbnail}"></img>
+				<div class="playlist-panel">
+					<div class="playlist-panel-inner">
+						<div class="playlist-panel-level-1">
+							<span class="video-count">${emeraldVideoModel.videoCount}</span>
+						</div>
+						<div class="playlist-panel-level-2">
+							<span class="videos-text">${emeraldLanguageModel.videos}</span>
+						</div>
+						<div class="playlist-panel-level-3">
+							<span class="icon"></span>
+						</div>
+					</div>
+				</div>
+				<div class="play-all-overlay flex-bar">
+					<div class="play-all-overlay-inner flex-bar">
+						<div class="play-all-overlay-content flex-bar">
+							<span class="play-icon"></span>
+							<span class="play-all-text">Play all</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="meta">
+				<div class="emerald-details-level-1">
+					<div class="title" title="${emeraldVideoModel.title}">
+						<span>${emeraldVideoModel.title}</span>
+					</div>
+				</div>
+				<div class="emerald-details-level-2 flex-bar">
+					<span class="byline">by </span>
+					<div class="author">
+						<span>${emeraldVideoModel.author}</span>
+					</div>
+				</div>
+				<div class="emerald-details-level-3 flex">
+				</div>
+			</div>
+		</div>
+		`;	
+	}
+	if (type == "mix") {
+		newElem.classList.add("emerald-compact-mix");
+		newElem.querySelector(".playlist-panel").classList.add("mix-panel");
+	}
+	if (
+	type == "video" &&
+	emeraldVideoModel.badge1 != null
+	) {
+		newElem.querySelectorAll(".emerald-badge")[0].removeAttribute("hidden");
+		if (emeraldVideoModel.badge1type === "BADGE_STYLE_TYPE_LIVE_NOW") {
+			newElem.querySelectorAll(".emerald-badge")[0].classList.add("emerald-live-badge");
+		}
+		if (emeraldVideoModel.badge1type === "BADGE_STYLE_TYPE_YPC") {
+			newElem.querySelectorAll(".emerald-badge")[0].classList.add("emerald-green-badge");
+		}
+	}
+	if (
+	type == "video" &&
+	emeraldVideoModel.badge2 != null
+	) {
+		newElem.querySelectorAll(".emerald-badge")[1].removeAttribute("hidden");
+		if (emeraldVideoModel.badge2type === "BADGE_STYLE_TYPE_LIVE_NOW") {
+			newElem.querySelectorAll(".emerald-badge")[1].classList.add("emerald-live-badge");
+		}
+		if (emeraldVideoModel.badge2type === "BADGE_STYLE_TYPE_YPC") {
+			newElem.querySelectorAll(".emerald-badge")[1].classList.add("emerald-green-badge");
+		}
+	}
+	container.insertBefore(newElem, container.children[PRHTMLItem]);
+	newElem.data = emeraldVideoModel.navEnd;
+	newElem.querySelector(".author").data = emeraldVideoModel.authorNav;
+	if (type == "video") {
+		if (
+		emeraldVideoModel.progress != 0 &&
+		emeraldVideoModel.progress != null
+		) {
+			newElem.querySelector(".progress").removeAttribute("hidden");
+		}
+		if (emeraldVideoModel.date) {
+			newElem.querySelector(".date").removeAttribute("hidden");
+		}
+		if (emeraldVideoModel.viewCountExtension) {
+			newElem.querySelector(".view-count-extension").removeAttribute("hidden");
+		}
+		let dummyData = {
+		  "thumbnailOverlayToggleButtonRenderer": {
+			"isToggled": false,
+			"untoggledIcon": {
+			  "iconType": "WATCH_LATER"
+			},
+			"toggledIcon": {
+			  "iconType": "CHECK"
+			},
+			"untoggledTooltip": "Watch later",
+			"toggledTooltip": "Added",
+			"untoggledServiceEndpoint": {
+			  "clickTrackingParams": "CIMBEPnnAxgCIhMI0_Po8pOhhAMVmIX_BB3a2Qv2",
+			  "commandMetadata": {
+				"webCommandMetadata": {
+				  "sendPost": true,
+				  "apiUrl": "/youtubei/v1/browse/edit_playlist"
+				}
+			  },
+			  "playlistEditEndpoint": {
+				"playlistId": "WL",
+				"actions": [
+				  {
+					"addedVideoId": emeraldVideoModel.videoId,
+					"action": "ACTION_ADD_VIDEO"
+				  }
+				]
+			  }
+			},
+			"toggledServiceEndpoint": {
+			  "clickTrackingParams": "CIMBEPnnAxgCIhMI0_Po8pOhhAMVmIX_BB3a2Qv2",
+			  "commandMetadata": {
+				"webCommandMetadata": {
+				  "sendPost": true,
+				  "apiUrl": "/youtubei/v1/browse/edit_playlist"
+				}
+			  },
+			  "playlistEditEndpoint": {
+				"playlistId": "WL",
+				"actions": [
+				  {
+					"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+					"removedVideoId": emeraldVideoModel.videoId
+				  }
+				]
+			  }
+			},
+			"untoggledAccessibility": {
+			  "accessibilityData": {
+				"label": "Watch later"
+			  }
+			},
+			"toggledAccessibility": {
+			  "accessibilityData": {
+				"label": "Added"
+			  }
+			},
+			"trackingParams": "CIMBEPnnAxgCIhMI0_Po8pOhhAMVmIX_BB3a2Qv2"
+		  }
+		};
+		newElem.querySelector("#wl-button").data = dummyData;
+		newElem.querySelector("#wl-button").addEventListener("click", function() {
+			if (newElem.querySelector("#wl-button.active") != null) {
+				newElem.querySelector("#wl-button").classList.remove("active");
+				editPlaylist("WL", "Watch later", "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", "overlayButton", emeraldVideoModel.videoId);
+			} else {
+				newElem.querySelector("#wl-button").classList.add("active");
+				editPlaylist("WL", "Watch later", "ACTION_ADD_VIDEO", "overlayButton", emeraldVideoModel.videoId);
+			}
+		});
+	}
+}
+function doRichGrid(items, data, PRHTMLItem, c) {
+	var PRrelatedCheck = 0;
+	if (PRHTMLItem == null) {
+		var PRHTMLItem = 0;
+	} else if ($(".emerald-compact-item.last-emerald-item") != null) {
+		PRHTMLItem = $(".emerald-compact-item.last-emerald-item").getAttribute("emerald-item");
+		if (c == "c") {
+			PRHTMLItem++;
+		}
+	}
+	//console.log(items);
+	//console.log(data);
+	items.forEach(itemRoot => {
+		if (itemRoot.richItemRenderer) {
+			if (itemRoot.richItemRenderer.content.videoRenderer) {
+				doCompactVideo("related", itemRoot.richItemRenderer.content.videoRenderer, PRHTMLItem, "video");
+				PRHTMLItem++;
+			} else if (itemRoot.richItemRenderer.content.playlistRenderer) {
+				doCompactVideo("related", itemRoot.richItemRenderer.content.playlistRenderer, PRHTMLItem, "playlist");
+				PRHTMLItem++;
+			} else if (itemRoot.richItemRenderer.content.radioRenderer) {
+				doCompactVideo("related", itemRoot.richItemRenderer.content.radioRenderer, PRHTMLItem, "mix");
+				PRHTMLItem++;
+			} 
+		} else if (itemRoot.compactVideoRenderer) {
+			doCompactVideo("related", itemRoot.compactVideoRenderer, PRHTMLItem, "video");
+			PRHTMLItem++;
+		} else if (itemRoot.compactPlaylistRenderer) {
+			doCompactVideo("related", itemRoot.compactPlaylistRenderer, PRHTMLItem, "playlist");
+			PRHTMLItem++;
+		} else if (itemRoot.compactRadioRenderer) {
+			doCompactVideo("related", itemRoot.compactRadioRenderer, PRHTMLItem, "mix");
+			PRHTMLItem++;
+		} else if (itemRoot.continuationItemRenderer) {
+			createLoadMore(itemRoot.continuationItemRenderer.continuationEndpoint.continuationCommand.token, PRHTMLItem);
+		}
+	});
+	if ($("html[use-sidebar-autoplay]") != null) {
+		var elm = ".emerald-compact-item[emerald-item='13']";
+		waitForElement(elm).then(function(elm) {
+			if (canGo != false) {
+				var autoplayVideo = getAutoplayVideo(data);
+				autoplayVideo.then(function(result) {
+					//console.log(result);
+					let PRcheck = 0;
+					let jsRelated = $("#js-related");
+					for (let i = 0; i < 21; i++) {
+						if (jsRelated.querySelectorAll(".emerald-compact-video")[PRcheck] != null) {
+							if ($(".autoplay-fulfilled") == null) {
+								let thing = document.querySelectorAll(".emerald-compact-video")[PRcheck].getAttribute("video-id");
+								if (thing == result) {
+									$("#js-autoplay").classList.add("autoplay-fulfilled");
+									let theHTML = jsRelated.querySelectorAll(".emerald-compact-video")[PRcheck].innerHTML;
+									let theData = jsRelated.querySelectorAll(".emerald-compact-video")[PRcheck].data;
+									let elem = jsRelated.querySelectorAll(".emerald-compact-video")[PRcheck];
+									let authorData = elem.querySelector(".author").data;
+									let authorHref = elem.querySelector(".author").getAttribute("href");
+									$("#js-autoplay").innerHTML = `
+									<a id="emerald-autoplay-video" class="emerald-compact-item emerald-compact-video yt-simple-endpoint">
+									</a>
+									`;
+									$("#js-autoplay a").innerHTML = theHTML;
+									$("#js-autoplay a").data = theData;
+									$("#js-autoplay .author").data = authorData;
+									$("#js-autoplay a").setAttribute("href","/watch?v=" + thing);
+									$("#js-autoplay .author").setAttribute("href",authorHref);
+									jsRelated.querySelectorAll(".emerald-compact-video")[PRcheck].style.display = "none";
+									let dummyData = {
+									  "thumbnailOverlayToggleButtonRenderer": {
+										"isToggled": false,
+										"untoggledIcon": {
+										  "iconType": "WATCH_LATER"
+										},
+										"toggledIcon": {
+										  "iconType": "CHECK"
+										},
+										"untoggledTooltip": "Watch later",
+										"toggledTooltip": "Added",
+										"untoggledServiceEndpoint": {
+										  "clickTrackingParams": "CIMBEPnnAxgCIhMI0_Po8pOhhAMVmIX_BB3a2Qv2",
+										  "commandMetadata": {
+											"webCommandMetadata": {
+											  "sendPost": true,
+											  "apiUrl": "/youtubei/v1/browse/edit_playlist"
+											}
+										  },
+										  "playlistEditEndpoint": {
+											"playlistId": "WL",
+											"actions": [
+											  {
+												"addedVideoId": thing,
+												"action": "ACTION_ADD_VIDEO"
+											  }
+											]
+										  }
+										},
+										"toggledServiceEndpoint": {
+										  "clickTrackingParams": "CIMBEPnnAxgCIhMI0_Po8pOhhAMVmIX_BB3a2Qv2",
+										  "commandMetadata": {
+											"webCommandMetadata": {
+											  "sendPost": true,
+											  "apiUrl": "/youtubei/v1/browse/edit_playlist"
+											}
+										  },
+										  "playlistEditEndpoint": {
+											"playlistId": "WL",
+											"actions": [
+											  {
+												"action": "ACTION_REMOVE_VIDEO_BY_VIDEO_ID",
+												"removedVideoId": thing
+											  }
+											]
+										  }
+										},
+										"untoggledAccessibility": {
+										  "accessibilityData": {
+											"label": "Watch later"
+										  }
+										},
+										"toggledAccessibility": {
+										  "accessibilityData": {
+											"label": "Added"
+										  }
+										},
+										"trackingParams": "CIMBEPnnAxgCIhMI0_Po8pOhhAMVmIX_BB3a2Qv2"
+									  }
+									};
+									$("#emerald-autoplay-video #wl-button").data = dummyData;
+									$("#emerald-autoplay-video #wl-button").addEventListener("click", function() {
+										if ($("#emerald-autoplay-video #wl-button.active") != null) {
+											$("#emerald-autoplay-video #wl-button").classList.remove("active");
+											editPlaylist("WL", "Watch later", "ACTION_REMOVE_VIDEO_BY_VIDEO_ID", "overlayButton", thing);
+										} else {
+											$("#emerald-autoplay-video #wl-button").classList.add("active");
+											editPlaylist("WL", "Watch later", "ACTION_ADD_VIDEO", "overlayButton", thing);
+										}
+									});
+								} else {
+									PRcheck++;
+								}
+							}
+						} else {
+							PRcheck++;
+						}
+					}
+				});
+			}
+		});
+	}
 }

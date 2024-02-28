@@ -5,7 +5,7 @@
 	}
 }, 100000);*/
 var checkIfNeedResize = setInterval(function() {
-	if (document.querySelector("html[location='watch'] ytd-watch-flexy:not([fullscreen]):not([theater]):not([cinema]) #movie_player") != null) {
+	if (document.querySelector("html[location='watch'] [ct-watch-elem]:not([fullscreen]):not([theater]):not([cinema]) #movie_player") != null) {
 		var ctrls = document.querySelector('.ytp-chrome-bottom');
 		var offset = document.querySelector("html").getAttribute('player-offset');
 		var width = document.querySelector("html").getAttribute('player-width');
@@ -35,7 +35,7 @@ function delayedResize() {
 }
 */
 function doResize() {
-	if (document.querySelector("html[location='watch'] ytd-watch-flexy:not([fullscreen]):not([theater]):not([cinema]) #movie_player") != null) {
+	if (document.querySelector("html[location='watch'] [ct-watch-elem]:not([fullscreen]):not([theater]):not([cinema]) #movie_player") != null) {
 		var player = document.querySelector('#movie_player');
 		var offset = document.querySelector("html").getAttribute('player-offset');
 		var width = document.querySelector("html").getAttribute('player-width');

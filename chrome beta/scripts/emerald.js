@@ -3198,7 +3198,7 @@ function createWatch9(wV) {
 					<div id="watch9-actions-info-row" class="flex">
 						<div id="watch9-views-info" class="flex-bar">
 							<div id="watch9-view-count">
-								<span id="js-view-count">??? ???</span>
+								<span id="js-view-count">???,???</span>
 								<span id="js-views-string">${emeraldLanguageModel.views}</span>
 							</div>
 							<div id="watch9b-upload-date" class="watch9b-elem">

@@ -13,26 +13,116 @@ class EmeraldLanguageModel {
 	upNext;
 	constructor(lang) {
 		if (lang == "pl-PL") {
+			this.about = "Informacje";
+			this.addToBtn = "Dodaj do";
+			this.addToPlaylist = "Dodaj do playlisty";
+			this.analytics = "Analityka";
 			this.autoplay = "Autoodtwarzanie";
+			this.byline = "autor: ";
+			this.category = "Kategoria";
+			this.createPlaylist = "Utwórz";
+			this.creatorStudio = "Studio twórców";
+			this.dislikes = " głosów na nie";
+			this.enterPlaylistTitle = "Podaj nazwę playlisty...";
+			this.license = "Licencja";
+			this.like = "Fajne";
+			this.likes = " głosów na tak,";
+			this.moreBtn = "Więcej";
+			this.noDescription = "Opis niedostępny.";
+			this.onDate = "dnia ";
+			this.privatePlaylist = "Prywatna";
+			this.publicPlaylist = "Publiczna"
+			this.publishedOn = "Opublikowany ";
+			this.publishedOnOld = "Opublikowano ";
+			this.saveBtn = "Zapisz";
+			this.shareBtn = "Udostępnij";
+			this.showLess = "Pokaż mniej";
+			this.showMore = "Pokaż więcej";
+			this.standardLicense = "Standardowa licencja YouTube";
 			this.subscribe = "Subskrybuj";
 			this.subscribed = "Subskrybujesz";
-			this.videos = "Filmów";
+			this.tags = "Tagi";
+			this.unlistedPlaylist = "Niepubliczna";
 			this.unsubscribe = "Rezygnuję z subskrypcji";
 			this.upNext = "Następny";
+			this.uploadedBy = "Przesłane przez ";
+			this.videoManager = "Menedżer filmów";
+			this.videos = "Filmy";
+			this.views = " wyświetleń";
 		} else if (lang == "en") {
+			this.about = "About";
+			this.addToBtn = "Add to";
+			this.addToPlaylist = "Add to playlist";
+			this.analytics = "Analytics";
 			this.autoplay = "Autoplay";
+			this.byline = "by ";
+			this.createPlaylist = "Create";
+			this.creatorStudio = "Creator studio";
+			this.dislikes = " dislikes";
+			this.enterPlaylistTitle = "Enter playlist title...";
+			this.license = "License";
+			this.like = "Like";
+			this.moreBtn = "More";
+			this.noDescription = "No description available.";
+			this.onDate = "on ";
+			this.privatePlaylist = "Private";
+			this.publicPlaylist = "Public"
+			this.publishedOn = "Published on ";
+			this.publishedOnOld = "Published on ";
+			this.saveBtn = "Save";
+			this.shareBtn = "Share";
+			this.showLess = "Show less";
+			this.showMore = "Show more";
+			this.standardLicense = "Standard YouTube License";
 			this.subscribe = "Subscribe";
 			this.subscribed = "Subscribed";
-			this.videos = "Videos";
+			this.tags = "Tags";
+			this.unlistedPlaylist = "Unlisted";
 			this.unsubscribe = "Unsubscribe";
 			this.upNext = "Up next";
+			this.uploadedBy = "Uploaded by ";
+			this.videoManager = "Video Manager";
+			this.videos = "Videos";
+			this.views = " views";
+		    this.category = "Category";
+		    this.likes = " likes,";
 		} else {
+			this.about = "About";
+			this.addToBtn = "Add to";
+			this.addToPlaylist = "Add to playlist";
+			this.analytics = "Analytics";
 			this.autoplay = "Autoplay";
+			this.byline = "by ";
+			this.createPlaylist = "Create";
+			this.creatorStudio = "Creator studio";
+			this.dislikes = " dislikes";
+			this.enterPlaylistTitle = "Enter playlist title...";
+			this.license = "License";
+			this.like = "Like";
+			this.moreBtn = "More";
+			this.noDescription = "No description available.";
+			this.onDate = "on ";
+			this.privatePlaylist = "Private";
+			this.publicPlaylist = "Public"
+			this.publishedOn = "Published on ";
+			this.publishedOnOld = "Published on ";
+			this.saveBtn = "Save";
+			this.shareBtn = "Share";
+			this.showLess = "Show less";
+			this.showMore = "Show more";
+			this.standardLicense = "Standard YouTube License";
 			this.subscribe = "Subscribe";
 			this.subscribed = "Subscribed";
-			this.videos = "Videos";
+			this.tags = "Tags";
+			this.unlistedPlaylist = "Unlisted";
 			this.unsubscribe = "Unsubscribe";
 			this.upNext = "Up next";
+			this.uploadedBy = "Uploaded by ";
+			this.videoManager = "Video Manager";
+			this.videos = "Videos";
+			this.views = " views";
+		    this.category = "Category";
+		    this.likes = " likes,";
 		}
 	}
 }
@@ -598,7 +688,7 @@ function WPSidebarEveryLoad(data) {
 						</a>
 						<a class="related-tab" id="related-about">
 							<div class="related-tab-inner">
-								<span>About</span>
+								<span>${emeraldLanguageModel.about}</span>
 							</div>
 						</a>
 					</div>
@@ -653,7 +743,7 @@ function WPSidebarEveryLoad(data) {
 											<span>Channel settings</span>
 										</div>
 										<div class="watch4-sub-state" state-id="creator-studio">
-											<span>Creator studio</span>
+											<span>${emeraldLanguageModel.creatorStudio}</span>
 										</div>
 									</a>
 								</div>
@@ -664,16 +754,16 @@ function WPSidebarEveryLoad(data) {
 							</div>
 							<div class="emerald-extras">
 								<div class="emerald-side-meta-category emerald-extra">
-									<div class="emerald-side-meta-extra-header">Category: </div>
+									<div class="emerald-side-meta-extra-header">${emeraldLanguageModel.category}: </div>
 									<div id="js-category"></div>
 								</div>
 								<div class="emerald-side-meta-tags emerald-extra">
-									<div class="emerald-side-meta-extra-header">Tags: </div>
+									<div class="emerald-side-meta-extra-header">${emeraldLanguageModel.tags}: </div>
 									<div id="js-tags"></div>
 								</div>
 								<div class="emerald-side-meta-license emerald-extra"">
-									<div class="emerald-side-meta-extra-header">License: </div>
-									<div id="js-license">Standard YouTube License</div>
+									<div class="emerald-side-meta-extra-header">${emeraldLanguageModel.license}: </div>
+									<div id="js-license">${emeraldLanguageModel.standardLicense}</div>
 								</div>
 							</div>
 						</div>
@@ -1179,7 +1269,7 @@ function createWatchAbove(wV) {
 							<span> Channel settings </span>
 						</div>
 						<div class="watch-above-sub-state" state-id="creator-studio">
-							<span> Creator studio </span>
+							<span> ${emeraldLanguageModel.creatorStudio} </span>
 						</div>
 					</div>
 					<div id="watch-above-notif-button" state-id="subscribed" js-watch-above-notif-trigger>
@@ -1243,7 +1333,7 @@ function createWatchAbove(wV) {
 						<span> Channel settings </span>
 					</div>
 					<div class="watch-above-sub-state" state-id="creator-studio">
-						<span> Creator studio </span>
+						<span> ${emeraldLanguageModel.creatorStudio} </span>
 					</div>
 				</div>
 				<div id="watch-above-notif-button" state-id="subscribed" js-watch-above-notif-trigger>
@@ -1292,13 +1382,13 @@ function createWatch4(wV) {
 			<div id="js-playlist-privacy-dropdown-menu" class="watch5-dropdown emerald-dropdown">
 				<div class="emerald-dropdown-inner">
 					<div id="js-playlist-set-public" class="emerald-dropdown-item">
-						<span>Public</span>
+						<span>${emeraldLanguageModel.publicPlaylist}</span>
 					</div>
 					<div id="js-playlist-set-unlisted" class="emerald-dropdown-item">
-						<span>Unlisted</span>
+						<span>${emeraldLanguageModel.unlistedPlaylist}</span>
 					</div>
 					<div id="js-playlist-set-private" class="emerald-dropdown-item">
-						<span>Private</span>
+						<span>${emeraldLanguageModel.privatePlaylist}</span>
 					</div>
 				</div>
 			</div>
@@ -1348,7 +1438,7 @@ function createWatch4(wV) {
 					<div id="watch4-views-info">
 						<div id="watch4-view-count">
 							<span id="js-view-count">???,???</span>
-							<span id="views-text"> views</span>
+							<span id="views-text">${emeraldLanguageModel.views}</span>
 						</div>
 					</div>
 				</div>
@@ -1362,7 +1452,7 @@ function createWatch4(wV) {
 							</div>
 							<div id="watch4-share-button" class="watch4-action active">
 								<a js-share-trigger>
-									<span>Share</span>
+									<span>${emeraldLanguageModel.shareBtn}</span>
 								</a>
 							</div>
 							<div id="watch4-addto-button" class="watch4-action">
@@ -1414,7 +1504,7 @@ function createWatch4(wV) {
 									</div>
 								</div>
 								<div class="watch5-header-text">
-									<span>Add to playlist</span>
+									<span>${emeraldLanguageModel.addToPlaylist}</span>
 								</div>
 								<div id="watch7-playlist-list">
 									<div class="watch7-playlist-list-inner" id="js-playlists">
@@ -1423,14 +1513,14 @@ function createWatch4(wV) {
 								<div id="watch7-playlist-create-bar">
 									<div class="watch7-playlist-create-bar-inner flex">
 										<div id="watch7-playlist-input">
-											<input id="js-playlist-name-input" placeholder="Enter playlist title..."></input>
+											<input id="js-playlist-name-input" placeholder="${emeraldLanguageModel.enterPlaylistTitle}"></input>
 										</div>
 										<div id="watch7-playlist-buttons" class="flex">
 											<div id="watch7-playlist-privacy-dropdown" class="emerald-hh-button emerald-multistate emerald-dropdown-button" state="PRIVATE" multistate-id="playlist-privacy">
 												<a id="js-playlist-privacy-dropdown">
-													<span state-id="PUBLIC">Public</span>
-													<span state-id="UNLISTED">Unlisted</span>
-													<span state-id="PRIVATE">Private</span>
+													<span state-id="PUBLIC">${emeraldLanguageModel.publicPlaylist}</span>
+													<span state-id="UNLISTED">${emeraldLanguageModel.unlistedPlaylist}</span>
+													<span state-id="PRIVATE">${emeraldLanguageModel.privatePlaylist}</span>
 													<span class="ct-uix-button-arrow"></span>
 												</a>
 											</div>
@@ -1640,7 +1730,7 @@ function createWatch5(wV) {
 			<div id="js-playlist-privacy-dropdown-menu" class="watch5-dropdown emerald-dropdown">
 				<div class="emerald-dropdown-inner">
 					<div id="js-playlist-set-public" class="emerald-dropdown-item">
-						<span>Public</span>
+						<span>${emeraldLanguageModel.publicPlaylist}</span>
 					</div>
 					<div id="js-playlist-set-unlisted" class="emerald-dropdown-item">
 						<span>Unlisted</span>
@@ -1665,7 +1755,7 @@ function createWatch5(wV) {
 											<span></span>
 										</div>
 										<div class="watch5-ltod-text">
-											<span>Like</span>
+											<span>${emeraldLanguageModel.like}</span>
 										</div>
 									</a>
 								</div>
@@ -1685,12 +1775,12 @@ function createWatch5(wV) {
 							<div id="watch5-actions-inner" class="flex">
 								<div id="watch5-addto-button" class="watch5-action emerald-hh-button">
 									<a js-addto-trigger>
-										<span>Add to</span>
+										<span>${emeraldLanguageModel.addToBtn}</span>
 									</a>
 								</div>
 								<div id="watch5-share-button" class="watch5-action emerald-hh-button">
 									<a js-share-trigger>
-										<span>Share</span>
+										<span>${emeraldLanguageModel.shareBtn}</span>
 									</a>
 								</div>
 								<div id="watch5-report-button" class="watch5-action emerald-hh-button">
@@ -1743,7 +1833,7 @@ function createWatch5(wV) {
 									</div>
 								</div>
 								<div class="watch5-header-text">
-									<span>Add to playlist</span>
+									<span>${emeraldLanguageModel.addToPlaylist}</span>
 								</div>
 								<div id="watch7-playlist-list">
 									<div class="watch7-playlist-list-inner" id="js-playlists">
@@ -1752,14 +1842,14 @@ function createWatch5(wV) {
 								<div id="watch7-playlist-create-bar">
 									<div class="watch7-playlist-create-bar-inner flex">
 										<div id="watch7-playlist-input">
-											<input id="js-playlist-name-input" placeholder="Enter playlist title..."></input>
+											<input id="js-playlist-name-input" placeholder="${emeraldLanguageModel.enterPlaylistTitle}"></input>
 										</div>
 										<div id="watch7-playlist-buttons" class="flex">
 											<div id="watch7-playlist-privacy-dropdown" class="emerald-hh-button emerald-multistate emerald-dropdown-button" state="PRIVATE" multistate-id="playlist-privacy">
 												<a id="js-playlist-privacy-dropdown">
-													<span state-id="PUBLIC">Public</span>
-													<span state-id="UNLISTED">Unlisted</span>
-													<span state-id="PRIVATE">Private</span>
+													<span state-id="PUBLIC">${emeraldLanguageModel.publicPlaylist}</span>
+													<span state-id="UNLISTED">${emeraldLanguageModel.unlistedPlaylist}</span>
+													<span state-id="PRIVATE">${emeraldLanguageModel.privatePlaylist}</span>
 													<span class="ct-uix-button-arrow"></span>
 												</a>
 											</div>
@@ -1775,7 +1865,7 @@ function createWatch5(wV) {
 							<!--div id="js-playlist-privacy-dropdown-menu" class="watch7-dropdown emerald-dropdown">
 								<div class="emerald-dropdown-inner">
 									<div id="js-playlist-set-public" class="emerald-dropdown-item">
-										<span>Public</span>
+										<span>${emeraldLanguageModel.publicPlaylist}</span>
 									</div>
 									<div id="js-playlist-set-unlisted" class="emerald-dropdown-item">
 										<span>Unlisted</span>
@@ -1826,9 +1916,9 @@ function createWatch5(wV) {
 						<div class="watch5-upload-date watch5-header-text">
 							<span id="first-part">
 								<span id="js-date-extra">
-									<span>Uploaded by </span>
+									<span>${emeraldLanguageModel.uploadedBy}</span>
 									<a id="js-channel-name" class="yt-simple-endpoint emerald-author-link"></a>
-									<span>on </span>
+									<span>${emeraldLanguageModel.onDate}</span>
 								</span>
 							</span>
 							<span id="second-part">
@@ -1852,12 +1942,12 @@ function createWatch5(wV) {
 								<div id="watch5-like-count">
 									<span class="watch5-ltod-count" id="js-like-count">
 									</span>
-									<span> likes,</span>
+									<span>${emeraldLanguageModel.likes}</span>
 								</div>
 								<div id="watch5-dislike-count">
 									<span class="watch5-ltod-count" id="js-dislike-count">
 									</span>
-									<span> dislikes</span>
+									<span>${emeraldLanguageModel.dislikes}</span>
 								</div>
 							</div>
 						</div>
@@ -1867,16 +1957,16 @@ function createWatch5(wV) {
 						</div>
 						<div id="watch5-extras" class="emerald-extras">
 							<div class="watch5-category emerald-extra">
-								<div class="watch5-extra-header">Category:</div>
+								<div class="watch5-extra-header">${emeraldLanguageModel.category}:</div>
 								<div id="js-category"></div>
 							</div>
 							<div class="watch5-tags emerald-extra">
-								<div class="watch5-extra-header">Tags:</div>
+								<div class="watch5-extra-header">${emeraldLanguageModel.tags}:</div>
 								<div id="js-tags"></div>
 							</div>
 							<div class="watch5-license emerald-extra">
-								<div class="watch5-extra-header">License:</div>
-								<div id="js-license">Standard YouTube License</div>
+								<div class="watch5-extra-header">${emeraldLanguageModel.license}:</div>
+								<div id="js-license">${emeraldLanguageModel.standardLicense}</div>
 							</div>
 						</div>
 					</div>
@@ -1890,12 +1980,12 @@ function createWatch5(wV) {
 						</div>
 					<div class="watch5-expand" id="watch5-expand">
 						<div class="expand-inner">
-							<span>Show more</span>
+							<span>${emeraldLanguageModel.showMore}</span>
 						</div>
 					</div>
 					<div class="watch5-expand" id="watch5-collapse">
 						<div class="expand-inner">
-							<span>Show less</span>
+							<span>${emeraldLanguageModel.showLess}</span>
 						</div>
 					</div>
 					<div class="watch5-extra" id="js-extra">
@@ -1958,7 +2048,7 @@ function createWatch7() {
 			<div id="js-playlist-privacy-dropdown-menu" class="watch7-dropdown emerald-dropdown">
 				<div class="emerald-dropdown-inner">
 					<div id="js-playlist-set-public" class="emerald-dropdown-item">
-						<span>Public</span>
+						<span>${emeraldLanguageModel.publicPlaylist}</span>
 					</div>
 					<div id="js-playlist-set-unlisted" class="emerald-dropdown-item">
 						<span>Unlisted</span>
@@ -2015,7 +2105,7 @@ function createWatch7() {
 										<span>Channel settings</span>
 									</div>
 									<div class="watch7-sub-state" state-id="creator-studio">
-										<span>Creator studio</span>
+										<span>${emeraldLanguageModel.creatorStudio}</span>
 									</div>
 								</a>
 								<div id="watch7-notif-button" state-id="subscribed" js-notif-trigger>
@@ -2062,7 +2152,7 @@ function createWatch7() {
 									<span></span>
 								</div>
 								<div class="watch7-ltod-text">
-									<span>Like</span>
+									<span>${emeraldLanguageModel.like}</span>
 								</div>
 							</div>
 							<div id="js-dislike" class="watch7-dislike watch7-ltod-button" js-dislike-button>
@@ -2078,16 +2168,16 @@ function createWatch7() {
 					<div id="watch7-tabs">
 						<div id="watch7-tabs-inner" class="flex">
 							<div id="watch7-info-tab" class="watch7-tab active">
-								<span>About</span>
+								<span>${emeraldLanguageModel.about}</span>
 							</div>
 							<div id="watch7-share-tab" class="watch7-tab" js-share-trigger>
-								<span>Share</span>
+								<span>${emeraldLanguageModel.shareBtn}</span>
 							</div>
 							<div id="watch7-addto-tab" class="watch7-tab" js-addto-trigger>
-								<span>Add to</span>
+								<span>${emeraldLanguageModel.addToBtn}</span>
 							</div>
 							<div id="watch7-videos-tab" class="watch7-tab" js-videos-trigger>
-								<span>Videos</span>
+								<span>${emeraldLanguageModel.videos}</span>
 							</div>
 							<div id="watch7-report-tab" class="watch7-tab" js-report-trigger>
 								<span></span>
@@ -2104,7 +2194,7 @@ function createWatch7() {
 								<div class="watch7-slider-inner">
 									<div class="watch7-upload-date watch7-header-text">
 										<span id="first-part">
-											<span id="js-date-extra">Published on </span>
+											<span id="js-date-extra">${emeraldLanguageModel.publishedOnOld}</span>
 										</span>
 										<span id="second-part">
 											<span class="upload-date" id="js-date"></span>
@@ -2117,7 +2207,7 @@ function createWatch7() {
 										</div>
 										<div id="watch7-extras" class="emerald-extras">
 											<div class="watch7-category emerald-extra">
-												<div class="watch7-extra-header">Category</div>
+												<div class="watch7-extra-header">${emeraldLanguageModel.category}</div>
 												<div id="js-category"></div>
 											</div>
 											<div class="watch7-tags emerald-extra">
@@ -2125,8 +2215,8 @@ function createWatch7() {
 												<div id="js-tags"></div>
 											</div>
 											<div class="watch7-license emerald-extra">
-												<div class="watch7-extra-header">License</div>
-												<div id="js-license">Standard YouTube License</div>
+												<div class="watch7-extra-header">${emeraldLanguageModel.license}</div>
+												<div id="js-license">${emeraldLanguageModel.standardLicense}</div>
 											</div>
 										</div>
 									</div>
@@ -2134,14 +2224,14 @@ function createWatch7() {
 										<div class="expand-border">
 										</div>
 										<div class="expand-inner">
-											<span>Show more</span>
+											<span>${emeraldLanguageModel.showMore}</span>
 										</div>
 									</div>
 									<div class="watch7-expand" id="watch7-collapse">
 										<div class="expand-border">
 										</div>
 										<div class="expand-inner">
-											<span>Show less</span>
+											<span>${emeraldLanguageModel.showLess}</span>
 										</div>
 									</div>
 								</div>
@@ -2180,7 +2270,7 @@ function createWatch7() {
 										</div>
 									</div>
 									<div class="watch7-header-text">
-										<span>Add to playlist</span>
+										<span>${emeraldLanguageModel.addToPlaylist}</span>
 									</div>
 									<div id="watch7-playlist-list">
 										<div class="watch7-playlist-list-inner" id="js-playlists">
@@ -2189,14 +2279,14 @@ function createWatch7() {
 									<div id="watch7-playlist-create-bar">
 										<div class="watch7-playlist-create-bar-inner flex">
 											<div id="watch7-playlist-input">
-												<input id="js-playlist-name-input" placeholder="Enter playlist title..."></input>
+												<input id="js-playlist-name-input" placeholder="${emeraldLanguageModel.enterPlaylistTitle}"></input>
 											</div>
 											<div id="watch7-playlist-buttons" class="flex">
 												<div id="watch7-playlist-privacy-dropdown" class="emerald-hh-button emerald-multistate emerald-dropdown-button" state="PRIVATE" multistate-id="playlist-privacy">
 													<a id="js-playlist-privacy-dropdown">
-														<span state-id="PUBLIC">Public</span>
-														<span state-id="UNLISTED">Unlisted</span>
-														<span state-id="PRIVATE">Private</span>
+														<span state-id="PUBLIC">${emeraldLanguageModel.publicPlaylist}</span>
+														<span state-id="UNLISTED">${emeraldLanguageModel.unlistedPlaylist}</span>
+														<span state-id="PRIVATE">${emeraldLanguageModel.privatePlaylist}</span>
 														<span class="ct-uix-button-arrow"></span>
 													</a>
 												</div>
@@ -2438,7 +2528,7 @@ function createWatch8() {
 						</div>
 					</div>
 					<div class="watch7-header-text">
-						<span>Add to playlist</span>
+						<span>${emeraldLanguageModel.addToPlaylist}</span>
 					</div>
 					<div id="watch7-playlist-list">
 						<div id="js-playlists" class="emerald-dropdown-inner">
@@ -2447,14 +2537,14 @@ function createWatch8() {
 					<div id="watch7-playlist-create-bar">
 						<div class="watch7-playlist-create-bar-inner flex">
 							<div id="watch7-playlist-input">
-								<input id="js-playlist-name-input" placeholder="Enter playlist title..."></input>
+								<input id="js-playlist-name-input" placeholder="${emeraldLanguageModel.enterPlaylistTitle}"></input>
 							</div>
 							<div id="watch7-playlist-buttons" class="flex">
 								<div id="watch7-playlist-privacy-dropdown" class="emerald-hh-button emerald-multistate emerald-dropdown-button" state="PRIVATE" multistate-id="playlist-privacy">
 									<a id="js-playlist-privacy-dropdown">
-										<span state-id="PUBLIC">Public</span>
-										<span state-id="UNLISTED">Unlisted</span>
-										<span state-id="PRIVATE">Private</span>
+										<span state-id="PUBLIC">${emeraldLanguageModel.publicPlaylist}</span>
+										<span state-id="UNLISTED">${emeraldLanguageModel.unlistedPlaylist}</span>
+										<span state-id="PRIVATE">${emeraldLanguageModel.privatePlaylist}</span>
 										<span class="ct-uix-button-arrow"></span>
 									</a>
 								</div>
@@ -2471,7 +2561,7 @@ function createWatch8() {
 			<div id="js-playlist-privacy-dropdown-menu" class="watch8-dropdown emerald-dropdown">
 				<div class="emerald-dropdown-inner">
 					<div id="js-playlist-set-public" class="emerald-dropdown-item">
-						<span>Public</span>
+						<span>${emeraldLanguageModel.publicPlaylist}</span>
 					</div>
 					<div id="js-playlist-set-unlisted" class="emerald-dropdown-item">
 						<span>Unlisted</span>
@@ -2520,7 +2610,7 @@ function createWatch8() {
 										<span>Channel settings</span>
 									</div>
 									<div class="watch7-sub-state" state-id="creator-studio">
-										<span>Creator studio</span>
+										<span>${emeraldLanguageModel.creatorStudio}</span>
 									</div>
 								</a>
 								<div id="watch7-notif-button" state-id="subscribed" js-notif-trigger>
@@ -2536,7 +2626,7 @@ function createWatch8() {
 					<div id="watch8-views-info">
 						<div id="watch8-view-count">
 							<span id="js-view-count">???,???</span>
-							<span id="js-views-string" hidden> views</span>
+							<span id="js-views-string" hidden>${emeraldLanguageModel.views}</span>
 							<span id="js-watching-now-string" hidden> watching now</span>
 						</div>
 						<div id="js-ltod-bar" class="watch8-ltod-bar">
@@ -2551,13 +2641,13 @@ function createWatch8() {
 					<div id="watch8-buttons">
 						<div id="watch8-buttons-inner" class="flex">
 							<div id="watch8-addto-button" class="watch8-button" js-addto-trigger>
-								<span>Add to</span>
+								<span>${emeraldLanguageModel.addToBtn}</span>
 							</div>
 							<div id="watch8-share-button" class="watch8-button" js-share-trigger>
-								<span>Share</span>
+								<span>${emeraldLanguageModel.shareBtn}</span>
 							</div>
 							<div id="watch8-more-button" class="watch8-button" js-more-trigger>
-								<span>More</span>
+								<span>${emeraldLanguageModel.moreBtn}</span>
 							</div>
 						</div>
 					</div>
@@ -2716,7 +2806,7 @@ function createWatch8() {
 					<div class="watch8-card-inner">
 						<div class="watch8-upload-date watch8-header-text">
 							<span id="first-part">
-								<span id="js-date-extra">Published on </span>
+								<span id="js-date-extra">${emeraldLanguageModel.publishedOn}</span>
 							</span>
 							<span id="second-part">
 								<span class="upload-date" id="js-date"></span>
@@ -2727,27 +2817,27 @@ function createWatch8() {
 							</div>
 							<div id="watch8-extras" class="emerald-extras">
 								<div class="watch7-category emerald-extra">
-									<div class="watch7-extra-header">Category</div>
+									<div class="watch7-extra-header">${emeraldLanguageModel.category}</div>
 									<div id="js-category"></div>
 								</div>
 								<div class="watch7-tags emerald-extra">
-									<div class="watch7-extra-header">Tags</div>
+									<div class="watch7-extra-header">${emeraldLanguageModel.tags}</div>
 									<div id="js-tags"></div>
 								</div>
 								<div class="watch7-license emerald-extra">
-									<div class="watch7-extra-header">License</div>
-									<div id="js-license">Standard YouTube License</div>
+									<div class="watch7-extra-header">${emeraldLanguageModel.license}</div>
+									<div id="js-license">${emeraldLanguageModel.standardLicense}</div>
 								</div>
 							</div>
 						</div>
 						<div class="watch8-expand" id="watch8-expand">
 							<div class="expand-inner">
-								<span>Show more</span>
+								<span>${emeraldLanguageModel.showMore}</span>
 							</div>
 						</div>
 						<div class="watch8-expand" id="watch8-collapse">
 							<div class="expand-inner">
-								<span>Show less</span>
+								<span>${emeraldLanguageModel.showLess}</span>
 							</div>
 						</div>
 					</div>
@@ -2848,7 +2938,7 @@ function createAltWatch9() {
 								</div>
 								<div class="sidebar-item" id="add-to">
 									<div class="sidebar-item-inner">
-										<span>Add to playlist</span>
+										<span>${emeraldLanguageModel.addToPlaylist}</span>
 									</div>
 								</div>
 								<div class="sidebar-item" id="share">
@@ -2919,12 +3009,12 @@ function createAltWatch9() {
 											</div>
 											<div class="watch9-expand" id="expand">
 												<div class="expand-inner">
-													<span>Show more</span>
+													<span>${emeraldLanguageModel.showMore}</span>
 												</div>
 											</div>
 											<div class="watch9-expand" id="collapse">
 												<div class="expand-inner">
-													<span>Show less</span>
+													<span>${emeraldLanguageModel.showLess}</span>
 												</div>
 											</div>
 											<div class="watch9-extra">
@@ -2942,7 +3032,7 @@ function createAltWatch9() {
 											</div>
 											<div class="watch9-expand">
 												<div class="expand-inner">
-													<span>Show less</span>
+													<span>${emeraldLanguageModel.showLess}</span>
 												</div>
 											</div>
 										</div>
@@ -2950,7 +3040,7 @@ function createAltWatch9() {
 									<div id="watch9-addto" class="slider">
 										<div class="slider-inner">
 											<div class="watch9-header-text hid">
-												<span>Add to playlist</span>
+												<span>${emeraldLanguageModel.addToPlaylist}</span>
 											</div>
 										</div>
 									</div>
@@ -3023,7 +3113,7 @@ function createWatch9(wV) {
 						</div>
 					</div>
 					<div class="watch7-header-text">
-						<span>Add to playlist</span>
+						<span>${emeraldLanguageModel.addToPlaylist}</span>
 					</div>
 					<div id="watch7-playlist-list">
 						<div id="js-playlists" class="emerald-dropdown-inner">
@@ -3032,14 +3122,14 @@ function createWatch9(wV) {
 					<div id="watch7-playlist-create-bar">
 						<div class="watch7-playlist-create-bar-inner flex">
 							<div id="watch7-playlist-input">
-								<input id="js-playlist-name-input" placeholder="Enter playlist title..."></input>
+								<input id="js-playlist-name-input" placeholder="${emeraldLanguageModel.enterPlaylistTitle}"></input>
 							</div>
 							<div id="watch7-playlist-buttons" class="flex">
 								<div id="watch7-playlist-privacy-dropdown" class="emerald-hh-button emerald-multistate emerald-dropdown-button" state="PRIVATE" multistate-id="playlist-privacy">
 									<a id="js-playlist-privacy-dropdown">
-										<span state-id="PUBLIC">Public</span>
-										<span state-id="UNLISTED">Unlisted</span>
-										<span state-id="PRIVATE">Private</span>
+										<span state-id="PUBLIC">${emeraldLanguageModel.publicPlaylist}</span>
+										<span state-id="UNLISTED">${emeraldLanguageModel.unlistedPlaylist}</span>
+										<span state-id="PRIVATE">${emeraldLanguageModel.privatePlaylist}</span>
 										<span class="ct-uix-button-arrow"></span>
 									</a>
 								</div>
@@ -3056,7 +3146,7 @@ function createWatch9(wV) {
 			<div id="js-playlist-privacy-dropdown-menu" class="watch8-dropdown emerald-dropdown">
 				<div class="emerald-dropdown-inner">
 					<div id="js-playlist-set-public" class="emerald-dropdown-item">
-						<span>Public</span>
+						<span>${emeraldLanguageModel.publicPlaylist}</span>
 					</div>
 					<div id="js-playlist-set-unlisted" class="emerald-dropdown-item">
 						<span>Unlisted</span>
@@ -3079,7 +3169,7 @@ function createWatch9(wV) {
 						<div id="watch9-views-info" class="flex-bar">
 							<div id="watch9-view-count">
 								<span id="js-view-count">???,???</span>
-								<span id="js-views-string"> views</span>
+								<span id="js-views-string">${emeraldLanguageModel.views}</span>
 							</div>
 							<div id="watch9b-upload-date" class="watch9b-elem">
 								<span id="dot"> • </span>
@@ -3168,7 +3258,7 @@ function createWatch9(wV) {
 										</paper-ripple>
 									</div>
 									<div class="watch9-button-text">
-										<span>Share</span>
+										<span>${emeraldLanguageModel.shareBtn}</span>
 									</div>
 								</div>
 							</div>
@@ -3189,7 +3279,7 @@ function createWatch9(wV) {
 										</paper-ripple>
 									</div>
 									<div class="watch9-button-text">
-										<span>Save</span>
+										<span>${emeraldLanguageModel.saveBtn}</span>
 									</div>
 								</div>
 							</div>
@@ -3231,7 +3321,7 @@ function createWatch9(wV) {
 							<div id="watch9-user-subtitle" class="flex">
 								<div id="watch9-upload-date" class="watch9a-elem">
 									<span id="first-part">
-										<span id="js-date-extra">Published on </span>
+										<span id="js-date-extra">${emeraldLanguageModel.publishedOn}</span>
 									</span>
 									<span id="second-part">
 										<span class="upload-date" id="js-date"></span>
@@ -3257,10 +3347,10 @@ function createWatch9(wV) {
 									<span>${emeraldLanguageModel.unsubscribe}</span>
 								</div>
 								<div class="watch9-sub-state" state-id="channel-settings">
-									<span>Analytics</span>
+									<span>${emeraldLanguageModel.analytics}</span>
 								</div>
 								<div class="watch9-sub-state" state-id="creator-studio">
-									<span>Analytics</span>
+									<span>${emeraldLanguageModel.analytics}</span>
 								</div>
 								<div id="watch9-sub-count" class="watch9a-elem">
 									<span id="js-sub-count"></span>
@@ -3282,12 +3372,12 @@ function createWatch9(wV) {
 							</div>
 							<div class="watch9-expand" id="watch9-expand">
 								<div class="expand-inner">
-									<span>Show more</span>
+									<span>${emeraldLanguageModel.showMore}</span>
 								</div>
 							</div>
 							<div class="watch9-expand" id="watch9-collapse">
 								<div class="expand-inner">
-									<span>Show less</span>
+									<span>${emeraldLanguageModel.showLess}</span>
 								</div>
 							</div>
 						</div>
@@ -4058,7 +4148,7 @@ function populateWatch(data) {
 			var newElem = document.createElement("span");
 			newElem.setAttribute("class", "emerald-run");
 			newElem.setAttribute("bt-optimized-universal-element", "");
-			newElem.innerHTML = `<i>No description available.</i>`;
+			newElem.innerHTML = `<i>${emeraldLanguageModel.noDescription}</i>`;
 			container.insertBefore(newElem, container.children[0]);
 		}
 	});
@@ -4376,12 +4466,12 @@ function fillCreatorButtons(id) {
 		<div id="emerald-owner-controls-right" class="flex-bar">
 			<div id="emerald-analytics" class="emerald-owner-control emerald-hh-button">
 				<a>
-					<span>Analytics</span>
+					<span>${emeraldLanguageModel.analytics}</span>
 				</a>
 			</div>
 			<div id="emerald-video-manager" class="emerald-owner-control emerald-hh-button">
 				<a href="https://www.youtube.com/my_videos">
-					<span>Video Manager</span>
+					<span>${emeraldLanguageModel.videoManager}</span>
 				</a>
 			</div>
 		</div>
@@ -6117,7 +6207,7 @@ function doCompactVideo(purpose, apiElem, PRHTMLItem, type) {
 					</div>
 				</div>
 				<div class="emerald-details-level-2 flex-bar">
-					<span class="byline">by </span>
+					<span class="byline">${emeraldLanguageModel.byline}</span>
 					<a class="author yt-simple-endpoint" href="https://www.youtube.com/channel/${emeraldVideoModel.authorId}" title="${emeraldVideoModel.author}">
 						<span>${emeraldVideoModel.author}</span>
 					</a>
@@ -6178,7 +6268,7 @@ function doCompactVideo(purpose, apiElem, PRHTMLItem, type) {
 					</div>
 				</div>
 				<div class="emerald-details-level-2 flex-bar">
-					<span class="byline">by </span>
+					<span class="byline">${emeraldLanguageModel.byline}</span>
 					<div class="author">
 						<span>${emeraldVideoModel.author}</span>
 					</div>

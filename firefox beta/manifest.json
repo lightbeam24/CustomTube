@@ -1,6 +1,6 @@
 {
     "name": "CustomTube Beta",
-    "version": "1.3.0.1",
+    "version": "1.3.0.2",
     "description": "Choose your own YouTube layout, and more!",
     "permissions": ["activeTab", "storage"],
     "browser_action": {

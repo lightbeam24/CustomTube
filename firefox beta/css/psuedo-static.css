@@ -4,7 +4,7 @@ html[pseudo-static] ytd-app:not([masthead-hidden]) #page-manager {
   max-width: 1000px;
 }
 /* WP */
-html[pseudo-static] #columns.ytd-watch-flexy {
+html[pseudo-static] [ct-watch-elem] #columns {
   margin-left: calc(var(--bt-sidebar-width) + 40px);
 }
 /* Topbar. This code works perfectly and is all that's needed for all pages. */
@@ -22,18 +22,21 @@ html[pseudo-static] ytd-two-column-browse-results-renderer.grid:not(.grid-disabl
 }
 /* Section Watch Page */
 /* This code makes the page itself static, as well as the OUTER video player, but not the controls or the video element itself. */
-html[pseudo-static] ytd-watch-flexy {
+html[pseudo-static] [ct-watch-elem] {
   --ytd-watch-flexy-player-width: 640px !important;
   --ytd-watch-flexy-player-height: 360px !important;
 }
 /* This code is to make reduce margin with related. */
-html[pseudo-static] #primary.ytd-watch-flexy {
+html[pseudo-static] [ct-watch-elem] #primary {
   padding-right: 0;
 }
-html[pseudo-static] ytd-watch-flexy #primary.ytd-watch-flexy {
+html[pseudo-static] [ct-watch-elem]  #primary {
   width: 641px !important;
   min-width: 641px !important;
   max-width: 641px !important;
+  width: var(--bt-player-width) !important;
+  min-width: var(--bt-player-width) !important;
+  max-width: var(--bt-player-width) !important;
 }
 /* SubSection Video */
 /* This code seems to make videos work pretty much perfectly, except for non 16:9 videos. The min-height property is required for 4:3 videos to keep a consistent width. 
@@ -68,7 +71,7 @@ html[pseudo-static] {
 --bt-player-height: 360px;
 }
 /* primary */
-html[pseudo-static] #primary.ytd-watch-flexy {
+html[pseudo-static] [ct-watch-elem]  #primary {
   margin-left: 0;
   padding-right: 0;
 }
@@ -78,7 +81,7 @@ html[pseudo-static] #secondary-inner {
 html[pseudo-static] #secondary-inner {
   width: 360px !important;
 }
-html[pseudo-static] #secondary-inner {
+html[pseudo-static] [ct-watch-elem] #secondary-inner {
   width: 380px !important;
 }
 /* This code makes sidebar attach itself to edge of page, instead of screen. Needs to be disabled on watch pages. */
@@ -89,7 +92,7 @@ html[pseudo-static] ytd-app:not([masthead-hidden]) tp-yt-app-drawer {
 html[pseudo-static] ytd-playlist-header-renderer {
   left: initial !important;
 }
-html[pseudo-static] #primary.ytd-watch-flexy {
+html[pseudo-static] [ct-watch-elem] #primary {
 	max-width: calc((100vh - (var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player))) * (${window.screen.width} / ${window.screen.height})) !important;
 	min-width: calc(var(--ytd-watch-flexy-min-player-height) * (${window.screen.width} / ${window.screen.height})) !important;
 }
@@ -112,6 +115,12 @@ html[pseudo-static] .html5-video-container video {
 	top: 0 !important;
 	object-fit: contain !important;
 }
-html[pseudo-static] ytd-watch-flexy #player {
+
+html[pseudo-static] [ct-watch-elem] #player {
   width: 641px;
+  width: var(--bt-player-width) !important;
+}
+
+html[pseudo-static] [ct-watch-elem] #primary {
+  margin-left: 568px !important;
 }

@@ -344,7 +344,7 @@ html[title-on-top="true"] #secondary.ytd-watch-flexy {
 html[title-on-top="true"] #secondary.ytd-watch-flexy {
   margin-top: var(--bt-wp-secondary-margin-top, var(--bt-wp-columns-margin-top)) !important;
 }
-html[watch-metadata-style] #primary-inner.ytd-watch-flexy {
+html[watch-metadata-style] [ct-watch-elem] #primary-inner {
   background: var(--bt-wp-primary-inner-bg);
   border-right: var(--bt-wp-primary-inner-border);
   border-left: var(--bt-wp-primary-inner-border);

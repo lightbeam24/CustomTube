@@ -911,22 +911,22 @@ html[pseudo-static] ytd-watch-flexy[theater] #theater-mode-unsupported {
   border-color: #222;
 }
 #emerald-owner-controls-left span {
-  background: no-repeat url(//s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -112px;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -112px;
   background-size: auto;
   width: 24px;
   height: 24px;
 }
 #emerald-enhance span {
-  background: no-repeat url(//s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -84px;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -84px;
 }
 #emerald-audio span {
-  background: no-repeat url(//s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 0;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 0;
 }
 #emerald-annotations span {
-  background: no-repeat url(//s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -28px;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -28px;
 }
 #emerald-cc span {
-  background: no-repeat url(//s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -56px;
+  background: no-repeat url(https://s.ytimg.com/yts/imgbin/www-watchedit-vflxUZcSA.png) 0 -56px;
 }
 #emerald-owner-controls-right {
   margin-left: auto;
@@ -1170,4 +1170,43 @@ html:not([use-side-watch-metadata]) #emerald-watch-sidebar-metadata,
 
 .emerald-tag {
   margin-right: 4px;
+}
+
+
+.emerald-badges {
+  margin-top: 4px;
+}
+html[layout^="polymer"] .emerald-badge {
+  background: var(--yt-spec-10-percent-layer);
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--bt-gcp-333);
+  margin-right: 4px;
+}
+html[layout]:not([layout^="polymer"]) .emerald-badge {
+  border: 1px solid var(--bt-gcp-ccc);
+  padding: 0px 3px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--bt-gcp-333);
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+html[layout^="polymer"] .emerald-live-badge {
+  background: #c00;
+  color: white;
+}
+html[layout^="polymer"] .emerald-green-badge {
+  color: green;
+}
+html[layout]:not([layout^="polymer"]) .emerald-live-badge {
+  border: 1px solid red;
+  color: red;
+}
+html[layout]:not([layout^="polymer"]) .emerald-green-badge {
+  border: 1px solid green;
+  color: green;
 }

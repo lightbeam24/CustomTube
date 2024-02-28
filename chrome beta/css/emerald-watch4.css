@@ -156,10 +156,10 @@ html:not([use-related-tabs])[ct][watch-version="watch4"] #emerald-watch-sidebar-
   color: var(--bt-blue);
 }
 #watch4-ratings:not([rated])[temp-stars="1.0"]:hover #watch4-rating-value,
-#watch4-ratings:not([rated])[temp-stars="2.0"]:hover #watch4-rating-value,
-#watch4-ratings:not([rated])[temp-stars="3.0"]:hover #watch4-rating-value {
+#watch4-ratings:not([rated])[temp-stars="2.0"]:hover #watch4-rating-value {
   color: red;
 }
+#watch4-ratings:not([rated])[temp-stars="3.0"]:hover #watch4-rating-value,
 #watch4-ratings:not([rated])[temp-stars="4.0"]:hover #watch4-rating-value,
 #watch4-ratings:not([rated])[temp-stars="5.0"]:hover #watch4-rating-value {
   color: green;

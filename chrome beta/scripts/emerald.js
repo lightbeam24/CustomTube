@@ -40,7 +40,6 @@ class EmeraldLanguageModel {
     uploadedBy;
     videoManager;
     videos;
-    views;
 	constructor(lang) {
 		if (lang == "pl-PL") {
 			this.about = "Informacje";
@@ -78,7 +77,6 @@ class EmeraldLanguageModel {
 			this.uploadedBy = "Przesłane przez ";
 			this.videoManager = "Menedżer filmów";
 			this.videos = "Filmy";
-			this.views = " wyświetleń";
 		} else if (lang == "en") {
 			this.about = "About";
 			this.addToBtn = "Add to";
@@ -113,7 +111,6 @@ class EmeraldLanguageModel {
 			this.uploadedBy = "Uploaded by ";
 			this.videoManager = "Video Manager";
 			this.videos = "Videos";
-			this.views = " views";
 		    this.category = "Category";
 		    this.likes = " likes,";
 		} else {
@@ -150,7 +147,6 @@ class EmeraldLanguageModel {
 			this.uploadedBy = "Uploaded by ";
 			this.videoManager = "Video Manager";
 			this.videos = "Videos";
-			this.views = " views";
 		    this.category = "Category";
 		    this.likes = " likes,";
 		}
@@ -1468,7 +1464,7 @@ function createWatch4(wV) {
 					<div id="watch4-views-info">
 						<div id="watch4-view-count">
 							<span id="js-view-count">???,???</span>
-							<span id="views-text">${emeraldLanguageModel.views}</span>
+							<span id="views-text"> views</span>
 						</div>
 					</div>
 				</div>
@@ -2656,7 +2652,7 @@ function createWatch8() {
 					<div id="watch8-views-info">
 						<div id="watch8-view-count">
 							<span id="js-view-count">???,???</span>
-							<span id="js-views-string" hidden>${emeraldLanguageModel.views}</span>
+							<span id="js-views-string" hidden> views</span>
 							<span id="js-watching-now-string" hidden> watching now</span>
 						</div>
 						<div id="js-ltod-bar" class="watch8-ltod-bar">
@@ -3199,7 +3195,7 @@ function createWatch9(wV) {
 						<div id="watch9-views-info" class="flex-bar">
 							<div id="watch9-view-count">
 								<span id="js-view-count">???,???</span>
-								<span id="js-views-string">${emeraldLanguageModel.views}</span>
+								<span id="js-views-string"> views</span>
 							</div>
 							<div id="watch9b-upload-date" class="watch9b-elem">
 								<span id="dot"> • </span>

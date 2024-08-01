@@ -1,5 +1,15 @@
 # CustomTube
 
+**Note that CustomTube has been discontinued. My current project, StarTube, is the successor, and it requires Vorapis 2013 (V3) to function.**
+
+Download V3: https://vorapis.pages.dev/#/
+
+Download StarTube: https://greasyfork.org/en/scripts/485622-startube
+
+See discussion for details: https://github.com/lightbeam24/CustomTube/discussions/240
+
+----
+
 ![Mainfull](https://github.com/lightbeam24/CustomTube/assets/105595945/e9e27f41-4587-4f4c-b505-525520a62e73)
 
 What if you could just CHOOSE your YouTube layout? Well, now you can! CustomTube lets you use almost any YouTube layout from 2008-2021!
